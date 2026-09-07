@@ -62,12 +62,15 @@ This needs a GitHub token on the server:
    Scope it to **only this repository**, with these permissions:
    - Contents: **Read and write**
    - Pull requests: **Read and write**
-2. Add it to the Vercel project (and `.env.local` for local work):
+2. Store it. The helper script verifies the token has the right access, then
+   writes `.env.local` and sets the Vercel variable:
 
    ```bash
-   GITHUB_REPO=owner/usapho-guide
-   GITHUB_TOKEN=github_pat_...
+   ./scripts/set-github-token.sh
    ```
+
+   Or set `GITHUB_REPO` and `GITHUB_TOKEN` by hand in `.env.local` and in the
+   Vercel project settings.
 
 Use a fine-grained token rather than a classic one: a classic `repo` token
 grants write access to every repository you own, and this one only needs two

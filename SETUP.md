@@ -1,8 +1,8 @@
 # USAPhO Guide — setup
 
-A free physics-olympiad curriculum site: MDX lessons with interactive sims,
-practice problems you can solve in the browser, local progress tracking, an
-AI + Manim video engine, and a git-backed content editor with Supabase auth.
+A physics-olympiad course site: MDX lessons with interactive figures, a
+problem bank you can work through in the browser, progress that follows your
+account, and an editor that proposes content changes as pull requests.
 
 ## 1. Run the site
 
@@ -12,8 +12,8 @@ cp .env.example .env.local   # fill in the values below
 npm run dev
 ```
 
-The site works with no configuration at all — auth, the editor, and the video
-lab simply present themselves as unavailable until you configure them.
+The site runs with no configuration; accounts and the editor announce
+themselves as unavailable until you configure them.
 
 ## 2. Supabase auth (accounts + contributor roles)
 
@@ -77,38 +77,38 @@ permissions on one repo.
 
 ```
 src/content/
-├── curriculum.json      # divisions → sections → modules → problems
+├── curriculum.json   # courses -> sections -> modules
+├── problems.json     # the problem bank, with provenance per problem
 └── lessons/
-    ├── <slug>.mdx       # one lesson per module slug; auto-registered
-    └── README.md        # authoring reference (components, math, problems)
+    ├── <slug>.mdx    # one lesson per module slug, auto-registered
+    └── README.md     # authoring reference
 ```
 
 - Add a lesson: create `src/content/lessons/<slug>.mdx` where `<slug>` matches a
-  module in `curriculum.json`. No registry to update.
-- Remove a lesson: delete the file. The module page falls back to its problem
-  table.
-- Lessons can use `$math$`, `<Callout>`, `<QuickCheck>`, `<Problem>` and the
-  sims (`<ProjectileSim />`, `<SpringSim />`, `<MotionGraphSim />`,
-  `<CollisionSim />`) with no imports. See
-  [`src/content/lessons/README.md`](src/content/lessons/README.md).
+  module in `curriculum.json`. Nothing else to register.
+- Remove a lesson: delete the file. The module keeps its problems.
+- Lessons can use `$math$`, `<Aside>`, `<Figure>`, `<QuickCheck>` and the
+  figures (`<ProjectileSim />`, `<SpringSim />`, `<MotionGraphSim />`,
+  `<CollisionSim />`) without imports.
 
-## 5. Video lab (AI + Manim)
+### Problems and attribution
 
-```bash
-cd engine
-python3.13 -m venv .venv
-.venv/bin/pip install manim fastapi "uvicorn[standard]" anthropic
-export ANTHROPIC_API_KEY=sk-ant-...
-.venv/bin/uvicorn main:app --port 8100
-```
+Each problem carries an `origin`:
 
-Then open `/studio`. Claude writes a Manim scene for the prompt, the code is
-safety-scanned, rendered, and streamed back. Set `NEXT_PUBLIC_ENGINE_URL` if
-the engine runs somewhere other than `localhost:8100`.
+- `original` — written for this guide, with a statement, numeric answer and
+  solution, solvable inline and answer-checked.
+- `exam` / `textbook` — a real F=ma, USAPhO, IPhO or textbook problem. These
+  are cited and linked, not reproduced, so the copyright stays with the
+  original publisher.
 
-Note: the engine executes AI-generated Python. The AST scan blocks imports and
-calls outside `manim`/`math`/`numpy`, but treat it as a trusted-operator tool,
-not a public endpoint.
+Both kinds appear in `/problems` and on module pages; only originals can be
+answered on the site.
+
+## 5. Progress
+
+Progress is kept in the browser for signed-out readers. Signing in merges that
+local progress with the copy stored in the `progress` table and keeps the two
+in sync from then on, so it follows the account across devices.
 
 ## 6. Deploy
 
@@ -116,10 +116,10 @@ not a public endpoint.
 vercel deploy --prod -y
 ```
 
-Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` in the
-Vercel project's environment variables so auth works in production. Leave
-`CONTENT_EDITING` unset there and edit content locally (or via git push),
-which redeploys automatically if the repo is connected.
+Set `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `GITHUB_REPO`
+and `GITHUB_TOKEN` in the Vercel project so accounts and the editor work in
+production. Connect the repository to Vercel and merging a content pull
+request redeploys the site on its own.
 
 ## Themes
 

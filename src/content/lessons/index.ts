@@ -1,24 +1,24 @@
 import type { ComponentType } from "react";
 
-import ProjectileMotion from "./projectile-motion.mdx";
-import Kinematics1D from "./kinematics-1d.mdx";
-import VectorsCalculus from "./vectors-calculus.mdx";
-import ForcesFbd from "./forces-fbd.mdx";
-import EnergyMomentum from "./energy-momentum.mdx";
-import Shm from "./shm.mdx";
-import Electrostatics from "./electrostatics.mdx";
-
 /**
- * Lesson registry: slug (from curriculum.ts) -> MDX component.
- * To add a lesson: drop a .mdx file in this folder, import it here,
- * and set hasContent: true on the matching module in lib/curriculum.ts.
+ * Lesson registry, built automatically from every .mdx file in this folder.
+ * The key is the filename without extension and must match a module slug in
+ * src/content/curriculum.json.
+ *
+ * Adding a lesson = drop in `<slug>.mdx` (via /edit or a git push).
+ * No imports to maintain here.
  */
-export const LESSONS: Record<string, ComponentType> = {
-  "projectile-motion": ProjectileMotion,
-  "kinematics-1d": Kinematics1D,
-  "vectors-calculus": VectorsCalculus,
-  "forces-fbd": ForcesFbd,
-  "energy-momentum": EnergyMomentum,
-  shm: Shm,
-  electrostatics: Electrostatics,
-};
+const files = require.context("./", false, /\.mdx$/);
+
+export const LESSONS: Record<string, ComponentType> = Object.fromEntries(
+  files
+    .keys()
+    .map((key) => [
+      key.replace(/^\.\//, "").replace(/\.mdx$/, ""),
+      files(key).default as ComponentType,
+    ])
+);
+
+export function hasLesson(slug: string): boolean {
+  return slug in LESSONS;
+}

@@ -137,7 +137,6 @@ export default function Nav() {
 
   const links = [
     { href: "/guide", label: "Guide" },
-    { href: "/studio", label: "Video Lab" },
     { href: "/progress", label: "My Progress" },
   ];
 

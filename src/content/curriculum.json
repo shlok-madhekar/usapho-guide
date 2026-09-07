@@ -440,6 +440,16 @@
                   "physical pendulum"
                 ],
                 "starred": true
+              },
+              {
+                "id": "shm-new-1",
+                "source": "F=ma 2023/14",
+                "name": "Coupled Oscillators",
+                "difficulty": "Hard",
+                "tags": [
+                  "springs"
+                ],
+                "starred": true
               }
             ]
           }

@@ -1,7 +1,7 @@
 import type { MDXComponents } from "mdx/types";
-import Callout from "@/components/Callout";
+import Aside from "@/components/Aside";
+import Figure from "@/components/Figure";
 import QuickCheck from "@/components/QuickCheck";
-import Problem, { Solution, Hint } from "@/components/Problem";
 import {
   ProjectileSim,
   SpringSim,
@@ -10,16 +10,14 @@ import {
 } from "@/components/sims";
 
 /**
- * Components available in every lesson .mdx file without imports.
- * Add new interactive components here once and every lesson can use them.
+ * Components every lesson can use without importing anything.
+ * Add a new one here once and it is available in all MDX.
  */
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    Callout,
+    Aside,
+    Figure,
     QuickCheck,
-    Problem,
-    Solution,
-    Hint,
     ProjectileSim,
     SpringSim,
     MotionGraphSim,

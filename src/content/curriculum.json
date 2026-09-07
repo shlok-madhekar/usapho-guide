@@ -16,50 +16,7 @@
             "description": "Vector algebra, dot and cross products, and the small calculus toolkit that olympiad problems assume.",
             "frequency": 4,
             "minutes": 25,
-            "hasContent": true,
-            "problems": [
-              {
-                "id": "vc1",
-                "source": "F=ma 2018/3",
-                "name": "River Crossing",
-                "difficulty": "Easy",
-                "tags": [
-                  "vectors"
-                ],
-                "starred": false
-              },
-              {
-                "id": "vc2",
-                "source": "F=ma 2020/7",
-                "name": "Relative Rain",
-                "difficulty": "Normal",
-                "tags": [
-                  "relative motion"
-                ],
-                "starred": true
-              },
-              {
-                "id": "vc3",
-                "source": "Morin 1.4",
-                "name": "Minimum Speed Chase",
-                "difficulty": "Normal",
-                "tags": [
-                  "optimization"
-                ],
-                "starred": false
-              },
-              {
-                "id": "vc4",
-                "source": "Kevin Zhou M1",
-                "name": "Drifting Boat",
-                "difficulty": "Hard",
-                "tags": [
-                  "vectors",
-                  "calculus"
-                ],
-                "starred": false
-              }
-            ]
+            "hasContent": true
           },
           {
             "slug": "kinematics-1d",
@@ -67,59 +24,7 @@
             "description": "Motion graphs, constant acceleration, and choosing the right kinematic description.",
             "frequency": 4,
             "minutes": 30,
-            "hasContent": true,
-            "problems": [
-              {
-                "id": "k1",
-                "source": "F=ma 2017/1",
-                "name": "Braking Train",
-                "difficulty": "Easy",
-                "tags": [
-                  "suvat"
-                ],
-                "starred": false
-              },
-              {
-                "id": "k2",
-                "source": "F=ma 2019/4",
-                "name": "Two Balls, One Tower",
-                "difficulty": "Easy",
-                "tags": [
-                  "free fall"
-                ],
-                "starred": true
-              },
-              {
-                "id": "k3",
-                "source": "F=ma 2021/9",
-                "name": "Velocity-Time Area Trap",
-                "difficulty": "Normal",
-                "tags": [
-                  "graphs"
-                ],
-                "starred": false
-              },
-              {
-                "id": "k4",
-                "source": "Morin 2.3",
-                "name": "Average Speed Paradox",
-                "difficulty": "Normal",
-                "tags": [
-                  "averages"
-                ],
-                "starred": false
-              },
-              {
-                "id": "k5",
-                "source": "F=ma 2016/17",
-                "name": "Elevator Drop",
-                "difficulty": "Hard",
-                "tags": [
-                  "relative motion"
-                ],
-                "starred": false
-              }
-            ]
+            "hasContent": true
           },
           {
             "slug": "projectile-motion",
@@ -130,60 +35,7 @@
             "prereqs": [
               "kinematics-1d"
             ],
-            "hasContent": true,
-            "problems": [
-              {
-                "id": "p1",
-                "source": "F=ma 2018/8",
-                "name": "Cliff Launch",
-                "difficulty": "Easy",
-                "tags": [
-                  "projectiles"
-                ],
-                "starred": false
-              },
-              {
-                "id": "p2",
-                "source": "F=ma 2015/14",
-                "name": "Range on an Incline",
-                "difficulty": "Normal",
-                "tags": [
-                  "inclines"
-                ],
-                "starred": true
-              },
-              {
-                "id": "p3",
-                "source": "F=ma 2022/11",
-                "name": "Two Projectiles Collide",
-                "difficulty": "Normal",
-                "tags": [
-                  "collision geometry"
-                ],
-                "starred": false
-              },
-              {
-                "id": "p4",
-                "source": "Morin 3.5",
-                "name": "Maximum Trajectory Length",
-                "difficulty": "Hard",
-                "tags": [
-                  "optimization",
-                  "calculus"
-                ],
-                "starred": false
-              },
-              {
-                "id": "p5",
-                "source": "IPhO 2012/1a",
-                "name": "Bouncing Projectile",
-                "difficulty": "Very Hard",
-                "tags": [
-                  "bounces"
-                ],
-                "starred": true
-              }
-            ]
+            "hasContent": true
           }
         ]
       },
@@ -197,49 +49,7 @@
             "description": "Systematic force analysis: normal forces, tension, friction, and drawing a clean free body diagram.",
             "frequency": 4,
             "minutes": 40,
-            "hasContent": true,
-            "problems": [
-              {
-                "id": "f1",
-                "source": "F=ma 2019/6",
-                "name": "Stacked Blocks",
-                "difficulty": "Easy",
-                "tags": [
-                  "friction"
-                ],
-                "starred": false
-              },
-              {
-                "id": "f2",
-                "source": "F=ma 2020/12",
-                "name": "Pulley on a Wedge",
-                "difficulty": "Normal",
-                "tags": [
-                  "pulleys"
-                ],
-                "starred": true
-              },
-              {
-                "id": "f3",
-                "source": "F=ma 2017/19",
-                "name": "Chain on a Table",
-                "difficulty": "Hard",
-                "tags": [
-                  "distributed mass"
-                ],
-                "starred": false
-              },
-              {
-                "id": "f4",
-                "source": "Morin 4.29",
-                "name": "Rope Between Inclines",
-                "difficulty": "Hard",
-                "tags": [
-                  "statics"
-                ],
-                "starred": false
-              }
-            ]
+            "hasContent": true
           },
           {
             "slug": "circular-motion",
@@ -250,38 +60,6 @@
             "prereqs": [
               "forces-fbd"
             ],
-            "problems": [
-              {
-                "id": "c1",
-                "source": "F=ma 2018/15",
-                "name": "Banked Turn",
-                "difficulty": "Normal",
-                "tags": [
-                  "circular"
-                ],
-                "starred": false
-              },
-              {
-                "id": "c2",
-                "source": "F=ma 2021/18",
-                "name": "Satellite Transfer",
-                "difficulty": "Normal",
-                "tags": [
-                  "orbits"
-                ],
-                "starred": true
-              },
-              {
-                "id": "c3",
-                "source": "F=ma 2016/24",
-                "name": "Conical Pendulum Race",
-                "difficulty": "Hard",
-                "tags": [
-                  "circular"
-                ],
-                "starred": false
-              }
-            ],
             "hasContent": false
           },
           {
@@ -290,60 +68,7 @@
             "description": "Work-energy theorem, conservation laws, collisions in one and two dimensions, and center of mass.",
             "frequency": 4,
             "minutes": 45,
-            "hasContent": true,
-            "problems": [
-              {
-                "id": "e1",
-                "source": "F=ma 2019/13",
-                "name": "Loop-the-Loop",
-                "difficulty": "Easy",
-                "tags": [
-                  "energy"
-                ],
-                "starred": false
-              },
-              {
-                "id": "e2",
-                "source": "F=ma 2020/20",
-                "name": "Ballistic Pendulum",
-                "difficulty": "Normal",
-                "tags": [
-                  "collisions"
-                ],
-                "starred": true
-              },
-              {
-                "id": "e3",
-                "source": "F=ma 2022/21",
-                "name": "Exploding Projectile",
-                "difficulty": "Hard",
-                "tags": [
-                  "momentum",
-                  "com"
-                ],
-                "starred": false
-              },
-              {
-                "id": "e4",
-                "source": "Morin 5.7",
-                "name": "Leaky Bucket",
-                "difficulty": "Hard",
-                "tags": [
-                  "variable mass"
-                ],
-                "starred": false
-              },
-              {
-                "id": "e5",
-                "source": "F=ma 2018/25",
-                "name": "Elastic Collision Angles",
-                "difficulty": "Very Hard",
-                "tags": [
-                  "2d collisions"
-                ],
-                "starred": true
-              }
-            ]
+            "hasContent": true
           }
         ]
       },
@@ -359,38 +84,6 @@
             "minutes": 50,
             "prereqs": [
               "energy-momentum"
-            ],
-            "problems": [
-              {
-                "id": "r1",
-                "source": "F=ma 2017/22",
-                "name": "Rolling Race",
-                "difficulty": "Normal",
-                "tags": [
-                  "rolling"
-                ],
-                "starred": false
-              },
-              {
-                "id": "r2",
-                "source": "F=ma 2021/24",
-                "name": "Falling Rod",
-                "difficulty": "Hard",
-                "tags": [
-                  "torque"
-                ],
-                "starred": true
-              },
-              {
-                "id": "r3",
-                "source": "Morin 8.6",
-                "name": "Ball Hits Rod",
-                "difficulty": "Very Hard",
-                "tags": [
-                  "angular momentum"
-                ],
-                "starred": false
-              }
             ]
           },
           {
@@ -399,49 +92,7 @@
             "description": "Springs, pendulums, effective potentials, and small-oscillation approximations, with a live oscillator.",
             "frequency": 3,
             "minutes": 40,
-            "hasContent": true,
-            "problems": [
-              {
-                "id": "s1",
-                "source": "F=ma 2019/17",
-                "name": "Two-Spring Cart",
-                "difficulty": "Normal",
-                "tags": [
-                  "springs"
-                ],
-                "starred": false
-              },
-              {
-                "id": "s2",
-                "source": "F=ma 2016/20",
-                "name": "Tunnel Through Earth",
-                "difficulty": "Normal",
-                "tags": [
-                  "shm"
-                ],
-                "starred": true
-              },
-              {
-                "id": "s3",
-                "source": "Morin 4.10",
-                "name": "Pendulum in an Elevator",
-                "difficulty": "Hard",
-                "tags": [
-                  "accelerated frames"
-                ],
-                "starred": false
-              },
-              {
-                "id": "s4",
-                "source": "USAPhO 2014/A2",
-                "name": "Oscillating Hoop",
-                "difficulty": "Very Hard",
-                "tags": [
-                  "physical pendulum"
-                ],
-                "starred": true
-              }
-            ]
+            "hasContent": true
           }
         ]
       }
@@ -464,78 +115,14 @@
             "description": "Field and potential of charge distributions, Gauss's law symmetry arguments, and conductors.",
             "frequency": 4,
             "minutes": 55,
-            "hasContent": true,
-            "problems": [
-              {
-                "id": "g1",
-                "source": "USAPhO 2015/A1",
-                "name": "Charged Hemisphere",
-                "difficulty": "Hard",
-                "tags": [
-                  "gauss"
-                ],
-                "starred": false
-              },
-              {
-                "id": "g2",
-                "source": "USAPhO 2018/A2",
-                "name": "Image Charge Warmup",
-                "difficulty": "Hard",
-                "tags": [
-                  "images"
-                ],
-                "starred": true
-              },
-              {
-                "id": "g3",
-                "source": "USAPhO 2012/B1",
-                "name": "Nonuniform Sphere",
-                "difficulty": "Very Hard",
-                "tags": [
-                  "gauss"
-                ],
-                "starred": false
-              },
-              {
-                "id": "g4",
-                "source": "IPhO 2010/2",
-                "name": "Chimney Physics (E&M part)",
-                "difficulty": "Insane",
-                "tags": [
-                  "fields"
-                ],
-                "starred": false
-              }
-            ]
+            "hasContent": true
           },
           {
             "slug": "circuits",
             "title": "Circuits & RC Dynamics",
             "description": "Kirchhoff's laws, equivalent resistance tricks, capacitor transients, and infinite ladders.",
             "frequency": 3,
-            "minutes": 45,
-            "problems": [
-              {
-                "id": "ci1",
-                "source": "USAPhO 2016/A1",
-                "name": "Resistor Cube",
-                "difficulty": "Hard",
-                "tags": [
-                  "symmetry"
-                ],
-                "starred": false
-              },
-              {
-                "id": "ci2",
-                "source": "USAPhO 2019/A3",
-                "name": "RC Cascade",
-                "difficulty": "Very Hard",
-                "tags": [
-                  "transients"
-                ],
-                "starred": true
-              }
-            ]
+            "minutes": 45
           },
           {
             "slug": "magnetism",
@@ -545,28 +132,6 @@
             "minutes": 60,
             "prereqs": [
               "electrostatics"
-            ],
-            "problems": [
-              {
-                "id": "m1",
-                "source": "USAPhO 2017/B2",
-                "name": "Rail Gun Energetics",
-                "difficulty": "Very Hard",
-                "tags": [
-                  "induction"
-                ],
-                "starred": true
-              },
-              {
-                "id": "m2",
-                "source": "USAPhO 2013/A3",
-                "name": "Rotating Loop",
-                "difficulty": "Hard",
-                "tags": [
-                  "faraday"
-                ],
-                "starred": false
-              }
             ]
           }
         ]
@@ -580,29 +145,7 @@
             "title": "Kinetic Theory & Ideal Gases",
             "description": "Microscopic pressure derivation, equipartition, and the ideal gas law from first principles.",
             "frequency": 3,
-            "minutes": 40,
-            "problems": [
-              {
-                "id": "kt1",
-                "source": "USAPhO 2014/B1",
-                "name": "Gas in a Cylinder",
-                "difficulty": "Hard",
-                "tags": [
-                  "kinetic theory"
-                ],
-                "starred": false
-              },
-              {
-                "id": "kt2",
-                "source": "USAPhO 2020/A2",
-                "name": "Leaking Balloon",
-                "difficulty": "Very Hard",
-                "tags": [
-                  "effusion"
-                ],
-                "starred": true
-              }
-            ]
+            "minutes": 40
           },
           {
             "slug": "heat-engines",
@@ -612,28 +155,6 @@
             "minutes": 45,
             "prereqs": [
               "kinetic-theory"
-            ],
-            "problems": [
-              {
-                "id": "he1",
-                "source": "USAPhO 2018/B1",
-                "name": "Triangle Cycle",
-                "difficulty": "Hard",
-                "tags": [
-                  "cycles"
-                ],
-                "starred": true
-              },
-              {
-                "id": "he2",
-                "source": "USAPhO 2011/A2",
-                "name": "Two-Reservoir Engine",
-                "difficulty": "Very Hard",
-                "tags": [
-                  "entropy"
-                ],
-                "starred": false
-              }
             ]
           }
         ]
@@ -647,87 +168,21 @@
             "title": "Waves & Interference",
             "description": "Standing waves, beats, Doppler effect, and two-source interference.",
             "frequency": 2,
-            "minutes": 40,
-            "problems": [
-              {
-                "id": "w1",
-                "source": "USAPhO 2015/B2",
-                "name": "String Harmonics",
-                "difficulty": "Hard",
-                "tags": [
-                  "standing waves"
-                ],
-                "starred": false
-              },
-              {
-                "id": "w2",
-                "source": "USAPhO 2019/B1",
-                "name": "Moving Source Doppler",
-                "difficulty": "Hard",
-                "tags": [
-                  "doppler"
-                ],
-                "starred": true
-              }
-            ]
+            "minutes": 40
           },
           {
             "slug": "optics",
             "title": "Geometric & Wave Optics",
             "description": "Lens systems, mirror equations, diffraction gratings, and thin-film interference.",
             "frequency": 2,
-            "minutes": 45,
-            "problems": [
-              {
-                "id": "o1",
-                "source": "USAPhO 2016/B2",
-                "name": "Compound Lens",
-                "difficulty": "Hard",
-                "tags": [
-                  "lenses"
-                ],
-                "starred": false
-              },
-              {
-                "id": "o2",
-                "source": "USAPhO 2021/A3",
-                "name": "Thin Film Colors",
-                "difficulty": "Very Hard",
-                "tags": [
-                  "interference"
-                ],
-                "starred": true
-              }
-            ]
+            "minutes": 45
           },
           {
             "slug": "modern-physics",
             "title": "Relativity & Quantum",
             "description": "Special relativity kinematics, photoelectric effect, Bohr model, and de Broglie waves.",
             "frequency": 2,
-            "minutes": 50,
-            "problems": [
-              {
-                "id": "mp1",
-                "source": "USAPhO 2017/A2",
-                "name": "Relativistic Decay",
-                "difficulty": "Very Hard",
-                "tags": [
-                  "relativity"
-                ],
-                "starred": true
-              },
-              {
-                "id": "mp2",
-                "source": "USAPhO 2013/B2",
-                "name": "Photon Rocket",
-                "difficulty": "Insane",
-                "tags": [
-                  "relativity"
-                ],
-                "starred": false
-              }
-            ]
+            "minutes": 50
           }
         ]
       }

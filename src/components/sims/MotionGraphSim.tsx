@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Slider, SimShell } from "./SimShell";
+import { Slider, SimShell, simColors } from "./SimShell";
 
 const T_MAX = 8; // seconds shown
 
@@ -14,6 +14,7 @@ export default function MotionGraphSim() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    const C = simColors();
     const ctx = canvas.getContext("2d")!;
     const dpr = window.devicePixelRatio || 1;
     const W = canvas.clientWidth;
@@ -49,13 +50,13 @@ export default function MotionGraphSim() {
         f: (t: number) => number; lo: number; hi: number;
         X: (t: number) => number; color: string; label: string;
       }> = [
-        { f: x, lo: xMin, hi: xMax, X: px, color: "#1d4ed8", label: "x(t)" },
-        { f: v, lo: vMin, hi: vMax, X: px2, color: "#0f766e", label: "v(t)" },
+        { f: x, lo: xMin, hi: xMax, X: px, color: C.figure, label: "x(t)" },
+        { f: v, lo: vMin, hi: vMax, X: px2, color: C.accent, label: "v(t)" },
       ];
 
       for (const p of panels) {
         // axes
-        ctx.strokeStyle = "#e5e3dd";
+        ctx.strokeStyle = C.rule;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(p.X(0), pad / 2);
@@ -84,8 +85,9 @@ export default function MotionGraphSim() {
         ctx.arc(p.X(t), py(p.f(t), p.lo, p.hi), 4.5, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.font = "12px sans-serif";
+        ctx.font = "11px ui-sans-serif, system-ui, sans-serif";
         ctx.textAlign = "left";
+        ctx.fillStyle = p.color;
         ctx.fillText(p.label, p.X(0) + 6, pad / 2 + 10);
       }
 

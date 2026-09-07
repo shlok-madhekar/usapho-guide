@@ -1,4 +1,4 @@
-export default function Callout({
+export default function Aside({
   label,
   warn,
   children,
@@ -8,8 +8,8 @@ export default function Callout({
   children: React.ReactNode;
 }) {
   return (
-    <div className={`callout ${warn ? "warn" : ""}`}>
-      <div className="callout-label">{label}</div>
+    <div className={`aside ${warn ? "warn" : ""}`}>
+      <span className="aside-label">{label}</span>
       {children}
     </div>
   );

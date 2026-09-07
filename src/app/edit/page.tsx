@@ -3,44 +3,54 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import Nav from "@/components/Nav";
+import BankProblem from "@/components/BankProblem";
 import { useAuth } from "@/lib/auth";
-import { canEditLessons, canEditProblems } from "@/lib/roles";
-import type { Difficulty, Division, Problem } from "@/lib/curriculum";
+import { canEditCurriculum, canEditLessons, canEditProblems } from "@/lib/roles";
+import type { Difficulty, Division, Module, Section } from "@/lib/curriculum";
+import type { BankProblem as Problem, Origin } from "@/lib/problems";
+import { DIFFICULTY_ORDER } from "@/lib/problems";
 
-const DIFFICULTIES: Difficulty[] = ["Easy", "Normal", "Hard", "Very Hard", "Insane"];
+type Tab = "lessons" | "problems" | "courses";
 
-const NEW_LESSON_TEMPLATE = `## Section heading
+const NEW_LESSON = `## Setting up
 
-Write the explanation here. Inline math is $v = v_0 + at$ and display math looks
-like this:
+Explain the idea in plain language first, then write the equation it leads to.
+Inline math is $v = v_0 + at$; display math is set off on its own line:
 
 $$x = v_0 t + \\tfrac12 a t^2$$
 
-<Callout label="Pro tip">
-  Callouts highlight an insight. Add \`warn\` for an olympiad trap.
-</Callout>
+<Aside label="Worth remembering">
+  Short, concrete notes belong here. Add \`warn\` for a mistake people make.
+</Aside>
 
-Interactive sims available: <ProjectileSim />, <SpringSim />,
-<MotionGraphSim />, <CollisionSim />
-
-## Solve it here
-
-<Problem id="np-CHANGEME-1" number={1} title="Problem name" difficulty="Normal" answer={42} unit="m">
-  Statement of the problem.
-
-  <Hint>A nudge in the right direction.</Hint>
-  <Solution>
-    The worked solution.
-  </Solution>
-</Problem>
+Available figures: <ProjectileSim />, <SpringSim />, <MotionGraphSim />,
+<CollisionSim />
 `;
 
-type Tab = "lessons" | "problems";
-
-interface SaveState {
+interface Status {
   busy: boolean;
-  message: string | null;
+  note: string | null;
+  prUrl?: string;
   error: string | null;
+}
+const IDLE: Status = { busy: false, note: null, error: null };
+
+async function api(body: Record<string, unknown>) {
+  const res = await fetch("/api/content", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error ?? "Request failed");
+  return data;
+}
+
+async function load(resource: string, extra = "") {
+  const res = await fetch(`/api/content?resource=${resource}${extra}`);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error ?? "Request failed");
+  return data;
 }
 
 export default function EditPage() {
@@ -49,259 +59,232 @@ export default function EditPage() {
 
   const mayLessons = canEditLessons(profile);
   const mayProblems = canEditProblems(profile);
+  const mayCourses = canEditCurriculum(profile);
 
   useEffect(() => {
     if (!mayLessons && mayProblems) setTab("problems");
   }, [mayLessons, mayProblems]);
 
-  if (!ready) {
+  if (!ready)
     return (
       <>
         <Nav />
-        <main className="mx-auto max-w-3xl px-5 py-20 text-[var(--text-dim)]">
-          Loading…
+        <main className="mx-auto max-w-3xl px-6 py-20 text-[var(--ink-soft)]">
+          Loading.
         </main>
       </>
     );
-  }
 
-  if (!configured || !session) {
+  if (!configured || !session)
     return (
       <>
         <Nav />
-        <main className="mx-auto max-w-2xl px-5 py-20">
-          <h1 className="text-2xl font-bold text-[var(--text-strong)]">
-            Content editor
-          </h1>
-          <p className="mt-3 text-[var(--text-dim)]">
+        <main className="mx-auto max-w-2xl px-6 py-20">
+          <h1 className="text-2xl font-semibold text-[var(--ink-strong)]">Editor</h1>
+          <p className="mt-3 text-[var(--ink-soft)]">
             {configured ? (
               <>
-                <Link href="/login" className="text-link">
+                <Link href="/login" className="link">
                   Sign in
                 </Link>{" "}
                 with a writer account to edit the guide.
               </>
             ) : (
-              "Supabase is not configured on this deployment. See SETUP.md."
+              "Accounts are not configured on this deployment."
             )}
           </p>
         </main>
       </>
     );
-  }
 
-  if (!mayLessons && !mayProblems) {
+  if (!mayLessons && !mayProblems && !mayCourses)
     return (
       <>
         <Nav />
-        <main className="mx-auto max-w-2xl px-5 py-20">
-          <h1 className="text-2xl font-bold text-[var(--text-strong)]">
+        <main className="mx-auto max-w-2xl px-6 py-20">
+          <h1 className="text-2xl font-semibold text-[var(--ink-strong)]">
             No writer role yet
           </h1>
-          <p className="mt-3 text-[var(--text-dim)]">
-            Your account needs the course writer or problem writer role. See{" "}
-            <Link href="/account" className="text-link">
-              your account page
-            </Link>{" "}
-            for what each role does.
+          <p className="mt-3 text-[var(--ink-soft)]">
+            Your account needs a writer role.{" "}
+            <Link href="/account" className="link">
+              See what each role does
+            </Link>
+            .
           </p>
         </main>
       </>
     );
-  }
+
+  const tabs: [Tab, string, boolean][] = [
+    ["lessons", "Lessons", mayLessons],
+    ["problems", "Problems", mayProblems],
+    ["courses", "Courses", mayCourses],
+  ];
 
   return (
     <>
       <Nav />
-      <main className="mx-auto max-w-6xl px-5 pb-24 pt-10">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-[var(--text-strong)]">
-              Content editor
-            </h1>
-            <p className="mt-1 text-sm text-[var(--text-dim)]">
-              Every save writes the file and commits it to git, so edits can also
-              arrive by plain git push.
-            </p>
-          </div>
-          <div className="flex rounded-lg border border-[var(--line)] bg-[var(--panel-2)] p-0.5">
-            {mayLessons && (
+      <main className="mx-auto max-w-5xl px-6 pb-24 pt-10">
+        <p className="label">Editor</p>
+        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--ink-strong)]">
+          Write the guide
+        </h1>
+        <p className="mt-3 max-w-[36rem] text-[var(--ink-soft)]">
+          Saving opens a pull request against the repository. Nothing goes live
+          until the maintainer merges it, and the same files can be edited by a
+          normal git push.
+        </p>
+
+        <div className="mt-7 flex gap-5 border-b border-[var(--rule-strong)]">
+          {tabs
+            .filter(([, , allowed]) => allowed)
+            .map(([key, label]) => (
               <button
-                onClick={() => setTab("lessons")}
-                className={`rounded-md px-4 py-1.5 text-sm ${
-                  tab === "lessons"
-                    ? "border border-[var(--line)] bg-[var(--panel)] font-medium text-[var(--text-strong)]"
-                    : "text-[var(--text-dim)]"
+                key={key}
+                onClick={() => setTab(key)}
+                className={`sans -mb-px border-b-2 pb-2 text-sm ${
+                  tab === key
+                    ? "border-[var(--ink-strong)] font-medium text-[var(--ink-strong)]"
+                    : "border-transparent text-[var(--ink-faint)] hover:text-[var(--ink)]"
                 }`}
               >
-                Lessons
+                {label}
               </button>
-            )}
-            {mayProblems && (
-              <button
-                onClick={() => setTab("problems")}
-                className={`rounded-md px-4 py-1.5 text-sm ${
-                  tab === "problems"
-                    ? "border border-[var(--line)] bg-[var(--panel)] font-medium text-[var(--text-strong)]"
-                    : "text-[var(--text-dim)]"
-                }`}
-              >
-                Problem sets
-              </button>
-            )}
-          </div>
+            ))}
         </div>
 
-        <div className="mt-6">
-          {tab === "lessons" ? <LessonEditor /> : <ProblemEditor />}
+        <div className="mt-7">
+          {tab === "lessons" && <Lessons />}
+          {tab === "problems" && <Problems />}
+          {tab === "courses" && <Courses />}
         </div>
       </main>
     </>
   );
 }
 
-function SaveBanner({ state }: { state: SaveState }) {
-  if (state.error)
+function Banner({ s }: { s: Status }) {
+  if (s.error)
     return (
-      <div className="callout warn">
-        <div className="callout-label">Save failed</div>
-        <p className="break-words text-sm">{state.error}</p>
+      <div className="aside warn">
+        <span className="aside-label">Could not save</span>
+        <p className="break-words text-sm">{s.error}</p>
       </div>
     );
-  if (state.message)
+  if (s.note)
     return (
-      <div className="callout">
-        <div className="callout-label">Saved</div>
-        <p className="text-sm">{state.message}</p>
+      <div className="aside">
+        <span className="aside-label">Submitted</span>
+        <p className="text-sm">
+          {s.note}{" "}
+          {s.prUrl && (
+            <a href={s.prUrl} target="_blank" rel="noopener noreferrer" className="link">
+              Review it on GitHub
+            </a>
+          )}
+        </p>
       </div>
     );
   return null;
 }
 
-function LessonEditor() {
+/* ------------------------------- lessons ------------------------------- */
+
+function Lessons() {
   const [slugs, setSlugs] = useState<string[]>([]);
   const [active, setActive] = useState<string | null>(null);
-  const [content, setContent] = useState("");
+  const [text, setText] = useState("");
   const [dirty, setDirty] = useState(false);
-  const [commitMsg, setCommitMsg] = useState("");
-  const [state, setState] = useState<SaveState>({
-    busy: false,
-    message: null,
-    error: null,
-  });
+  const [status, setStatus] = useState<Status>(IDLE);
 
-  const loadList = useCallback(async () => {
-    const res = await fetch("/api/content/lessons");
-    const data = await res.json();
-    if (!res.ok) {
-      setState((s) => ({ ...s, error: data.error }));
-      return;
+  const refresh = useCallback(async () => {
+    try {
+      const { slugs } = await load("lessons");
+      setSlugs(slugs);
+    } catch (e) {
+      setStatus({ ...IDLE, error: (e as Error).message });
     }
-    setSlugs(data.slugs);
-    return data.slugs as string[];
   }, []);
 
   useEffect(() => {
-    loadList();
-  }, [loadList]);
+    refresh();
+  }, [refresh]);
 
   const open = async (slug: string) => {
-    const res = await fetch(`/api/content/lessons?slug=${slug}`);
-    const data = await res.json();
-    if (!res.ok) {
-      setState({ busy: false, message: null, error: data.error });
-      return;
-    }
-    setActive(slug);
-    setContent(data.content);
-    setDirty(false);
-    setState({ busy: false, message: null, error: null });
-  };
-
-  const save = async () => {
-    if (!active) return;
-    setState({ busy: true, message: null, error: null });
-    const res = await fetch("/api/content/lessons", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slug: active, content, message: commitMsg }),
-    });
-    const data = await res.json();
-    if (!res.ok) setState({ busy: false, message: null, error: data.error });
-    else {
-      setState({ busy: false, message: data.message, error: null });
+    try {
+      const { content } = await load("lesson", `&slug=${slug}`);
+      setActive(slug);
+      setText(content);
       setDirty(false);
-      setCommitMsg("");
-      loadList();
+      setStatus(IDLE);
+    } catch (e) {
+      setStatus({ ...IDLE, error: (e as Error).message });
     }
   };
 
-  const createLesson = async () => {
-    const slug = prompt("New lesson slug (must match a module slug, e.g. circular-motion):");
+  const submit = async (slug: string, content: string) => {
+    setStatus({ ...IDLE, busy: true });
+    try {
+      const r = await api({ action: "saveLesson", slug, content });
+      setStatus({ busy: false, note: r.message, prUrl: r.prUrl, error: null });
+      setDirty(false);
+      refresh();
+    } catch (e) {
+      setStatus({ ...IDLE, error: (e as Error).message });
+    }
+  };
+
+  const create = async () => {
+    const slug = prompt("New lesson slug (must match a module slug):")?.trim();
     if (!slug) return;
-    setState({ busy: true, message: null, error: null });
-    const res = await fetch("/api/content/lessons", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        slug: slug.trim(),
-        content: NEW_LESSON_TEMPLATE,
-        message: `feat: add lesson ${slug.trim()}`,
-      }),
-    });
-    const data = await res.json();
-    if (!res.ok) return setState({ busy: false, message: null, error: data.error });
-    setState({ busy: false, message: data.message, error: null });
-    await loadList();
-    open(slug.trim());
+    await submit(slug, NEW_LESSON);
+    setActive(slug);
+    setText(NEW_LESSON);
   };
 
-  const removeLesson = async (slug: string) => {
-    if (!confirm(`Delete the lesson "${slug}"? This commits the removal to git.`))
-      return;
-    setState({ busy: true, message: null, error: null });
-    const res = await fetch(`/api/content/lessons?slug=${slug}`, { method: "DELETE" });
-    const data = await res.json();
-    if (!res.ok) return setState({ busy: false, message: null, error: data.error });
-    setState({ busy: false, message: data.message, error: null });
-    if (active === slug) {
-      setActive(null);
-      setContent("");
+  const remove = async (slug: string) => {
+    if (!confirm(`Propose deleting the lesson "${slug}"?`)) return;
+    setStatus({ ...IDLE, busy: true });
+    try {
+      const r = await api({ action: "deleteLesson", slug });
+      setStatus({ busy: false, note: r.message, prUrl: r.prUrl, error: null });
+      if (active === slug) {
+        setActive(null);
+        setText("");
+      }
+      refresh();
+    } catch (e) {
+      setStatus({ ...IDLE, error: (e as Error).message });
     }
-    loadList();
   };
 
   return (
-    <div className="flex flex-col gap-6 lg:flex-row">
-      <aside className="lg:w-56 lg:shrink-0">
-        <div className="flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-[var(--text-strong)]">
-            Lessons ({slugs.length})
-          </h2>
-          <button
-            onClick={createLesson}
-            className="text-sm text-[var(--link)] hover:underline"
-          >
-            + New
+    <div className="flex flex-col gap-8 lg:flex-row">
+      <aside className="lg:w-48 lg:shrink-0">
+        <div className="flex items-baseline justify-between">
+          <span className="label">Lessons</span>
+          <button onClick={create} className="sans text-sm text-[var(--accent)]">
+            New
           </button>
         </div>
-        <ul className="mt-3 space-y-0.5">
+        <ul className="mt-3 space-y-1">
           {slugs.map((s) => (
-            <li key={s} className="group flex items-center gap-1">
+            <li key={s} className="group flex items-center gap-2">
               <button
                 onClick={() => open(s)}
-                className={`min-w-0 flex-1 truncate rounded-lg px-2.5 py-1.5 text-left text-sm ${
+                className={`sans min-w-0 flex-1 truncate text-left text-sm ${
                   active === s
-                    ? "bg-[var(--panel-2)] font-medium text-[var(--text-strong)]"
-                    : "text-[var(--text-dim)] hover:bg-[var(--panel-2)]"
+                    ? "font-medium text-[var(--ink-strong)]"
+                    : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
                 }`}
               >
                 {s}
               </button>
               <button
-                onClick={() => removeLesson(s)}
+                onClick={() => remove(s)}
+                className="text-xs text-[var(--ink-faint)] opacity-0 hover:text-[var(--bad)] group-hover:opacity-100"
                 title={`Delete ${s}`}
-                className="px-1 text-xs text-[var(--ink-faint)] opacity-0 transition-opacity hover:text-[var(--diff-insane)] group-hover:opacity-100"
               >
                 ✕
               </button>
@@ -311,148 +294,153 @@ function LessonEditor() {
       </aside>
 
       <section className="min-w-0 flex-1 space-y-4">
-        <SaveBanner state={state} />
+        <Banner s={status} />
         {active ? (
           <>
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <code className="text-sm text-[var(--text-strong)]">
-                  {active}.mdx
-                </code>
-                {dirty && (
-                  <span className="text-xs text-[var(--status-practicing)]">
-                    unsaved
-                  </span>
-                )}
-              </div>
-              <Link
-                href={`/guide/${active}`}
-                target="_blank"
-                className="text-sm text-[var(--link)] hover:underline"
-              >
-                Preview page ↗
+            <div className="flex flex-wrap items-baseline justify-between gap-3">
+              <span className="mono text-sm text-[var(--ink-strong)]">
+                {active}.mdx {dirty && <em className="text-[var(--warn)]">edited</em>}
+              </span>
+              <Link href={`/guide/${active}`} target="_blank" className="link sans text-sm">
+                Preview page
               </Link>
             </div>
             <textarea
-              value={content}
+              value={text}
               onChange={(e) => {
-                setContent(e.target.value);
+                setText(e.target.value);
                 setDirty(true);
               }}
               spellCheck={false}
-              className="h-[60vh] w-full rounded-lg border border-[var(--line)] bg-[var(--panel)] p-4 font-mono text-[13px] leading-relaxed outline-none focus:border-[var(--link)]"
+              className="mono h-[58vh] w-full text-[13px] leading-relaxed"
             />
-            <div className="flex flex-wrap items-center gap-2">
-              <input
-                value={commitMsg}
-                onChange={(e) => setCommitMsg(e.target.value)}
-                placeholder={`content: update lesson ${active}`}
-                className="min-w-0 flex-1 rounded-lg border border-[var(--line-bright)] px-3 py-2 text-sm outline-none focus:border-[var(--link)]"
-              />
-              <button
-                onClick={save}
-                disabled={state.busy || !dirty}
-                className="rounded-lg bg-[var(--link)] px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
-              >
-                {state.busy ? "Saving…" : "Save & commit"}
-              </button>
-            </div>
+            <button
+              onClick={() => submit(active, text)}
+              disabled={status.busy || !dirty}
+              className="btn"
+            >
+              {status.busy ? "Opening pull request." : "Propose change"}
+            </button>
           </>
         ) : (
-          <p className="text-[var(--text-dim)]">
-            Pick a lesson to edit, or create a new one.
-          </p>
+          <p className="text-[var(--ink-soft)]">Pick a lesson, or start a new one.</p>
         )}
       </section>
     </div>
   );
 }
 
-function ProblemEditor() {
-  const [curriculum, setCurriculum] = useState<Division[] | null>(null);
-  const [slug, setSlug] = useState<string | null>(null);
-  const [problems, setProblems] = useState<Problem[]>([]);
+/* ------------------------------- problems ------------------------------ */
+
+const ORIGINS: Origin[] = ["original", "exam", "textbook"];
+
+function Problems() {
+  const [problems, setProblems] = useState<Problem[] | null>(null);
+  const [modules, setModules] = useState<string[]>([]);
+  const [selected, setSelected] = useState<number | null>(null);
   const [dirty, setDirty] = useState(false);
-  const [state, setState] = useState<SaveState>({
-    busy: false,
-    message: null,
-    error: null,
-  });
+  const [status, setStatus] = useState<Status>(IDLE);
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    fetch("/api/content/curriculum")
-      .then(async (r) => {
-        const d = await r.json();
-        if (!r.ok) throw new Error(d.error);
-        setCurriculum(d.curriculum);
-      })
-      .catch((e) => setState({ busy: false, message: null, error: e.message }));
+    (async () => {
+      try {
+        const [{ problems }, { curriculum }] = await Promise.all([
+          load("problems"),
+          load("curriculum"),
+        ]);
+        setProblems(problems);
+        setModules(
+          (curriculum as Division[]).flatMap((d) =>
+            d.sections.flatMap((s) => s.modules.map((m) => m.slug))
+          )
+        );
+      } catch (e) {
+        setStatus({ ...IDLE, error: (e as Error).message });
+      }
+    })();
   }, []);
 
-  const modules = (curriculum ?? []).flatMap((d) =>
-    d.sections.flatMap((s) => s.modules.map((m) => ({ ...m, division: d.name })))
-  );
-
-  const select = (s: string) => {
-    const mod = modules.find((m) => m.slug === s);
-    setSlug(s);
-    setProblems(mod ? JSON.parse(JSON.stringify(mod.problems)) : []);
-    setDirty(false);
-  };
-
-  const update = (i: number, patch: Partial<Problem>) => {
-    setProblems((ps) => ps.map((p, j) => (j === i ? { ...p, ...patch } : p)));
+  const update = (patch: Partial<Problem>) => {
+    if (selected === null) return;
+    setProblems((ps) =>
+      ps!.map((p, i) => (i === selected ? { ...p, ...patch } : p))
+    );
     setDirty(true);
   };
 
-  const addProblem = () => {
-    setProblems((ps) => [
-      ...ps,
-      {
-        id: `${slug}-${Date.now().toString(36)}`,
-        source: "",
-        name: "",
-        difficulty: "Normal",
-        tags: [],
-      },
-    ]);
+  const add = () => {
+    const fresh: Problem = {
+      id: `orig-${Date.now().toString(36)}`,
+      name: "Untitled problem",
+      module: modules[0] ?? "",
+      difficulty: "Normal",
+      tags: [],
+      starred: false,
+      origin: "original",
+      source: "USAPhO Guide",
+      statement: "",
+      answer: 0,
+      unit: "",
+      solution: "",
+    };
+    setProblems((ps) => [...(ps ?? []), fresh]);
+    setSelected((problems?.length ?? 0));
     setDirty(true);
   };
 
   const save = async () => {
-    if (!slug) return;
-    setState({ busy: true, message: null, error: null });
-    const res = await fetch("/api/content/curriculum", {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slug, problems }),
-    });
-    const data = await res.json();
-    if (!res.ok) setState({ busy: false, message: null, error: data.error });
-    else {
-      setState({ busy: false, message: data.message, error: null });
+    setStatus({ ...IDLE, busy: true });
+    try {
+      const r = await api({ action: "saveProblems", problems });
+      setStatus({ busy: false, note: r.message, prUrl: r.prUrl, error: null });
       setDirty(false);
+    } catch (e) {
+      setStatus({ ...IDLE, error: (e as Error).message });
     }
   };
 
+  if (!problems)
+    return <Banner s={status} />;
+
+  const shown = problems
+    .map((p, i) => ({ p, i }))
+    .filter(({ p }) =>
+      filter
+        ? (p.name + p.module + p.source).toLowerCase().includes(filter.toLowerCase())
+        : true
+    );
+  const current = selected !== null ? problems[selected] : null;
+
   return (
-    <div className="flex flex-col gap-6 lg:flex-row">
+    <div className="flex flex-col gap-8 lg:flex-row">
       <aside className="lg:w-56 lg:shrink-0">
-        <h2 className="text-sm font-semibold text-[var(--text-strong)]">Modules</h2>
-        <ul className="mt-3 space-y-0.5">
-          {modules.map((m) => (
-            <li key={m.slug}>
+        <div className="flex items-baseline justify-between">
+          <span className="label">{problems.length} problems</span>
+          <button onClick={add} className="sans text-sm text-[var(--accent)]">
+            New
+          </button>
+        </div>
+        <input
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          placeholder="Filter"
+          className="mt-2 w-full"
+        />
+        <ul className="mt-3 max-h-[60vh] space-y-1 overflow-y-auto pr-1">
+          {shown.map(({ p, i }) => (
+            <li key={p.id}>
               <button
-                onClick={() => select(m.slug)}
-                className={`w-full truncate rounded-lg px-2.5 py-1.5 text-left text-sm ${
-                  slug === m.slug
-                    ? "bg-[var(--panel-2)] font-medium text-[var(--text-strong)]"
-                    : "text-[var(--text-dim)] hover:bg-[var(--panel-2)]"
+                onClick={() => setSelected(i)}
+                className={`sans w-full truncate text-left text-sm ${
+                  selected === i
+                    ? "font-medium text-[var(--ink-strong)]"
+                    : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
                 }`}
               >
-                {m.title}
+                {p.name}
                 <span className="ml-1 text-xs text-[var(--ink-faint)]">
-                  ({m.problems.length})
+                  {p.origin === "original" ? "" : "ref"}
                 </span>
               </button>
             </li>
@@ -460,114 +448,348 @@ function ProblemEditor() {
         </ul>
       </aside>
 
-      <section className="min-w-0 flex-1 space-y-4">
-        <SaveBanner state={state} />
-        {!slug ? (
-          <p className="text-[var(--text-dim)]">
-            Pick a module to edit its practice problem list.
+      <section className="min-w-0 flex-1 space-y-5">
+        <Banner s={status} />
+        {!current ? (
+          <p className="text-[var(--ink-soft)]">
+            Pick a problem to edit, or write a new one.
           </p>
         ) : (
           <>
-            {problems.map((p, i) => (
-              <div key={i} className="panel space-y-3 p-4">
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <label className="block">
-                    <span className="text-xs font-medium text-[var(--text-dim)]">
-                      Source
-                    </span>
-                    <input
-                      value={p.source}
-                      onChange={(e) => update(i, { source: e.target.value })}
-                      placeholder="F=ma 2019/12"
-                      className="mt-1 w-full rounded-lg border border-[var(--line-bright)] px-3 py-1.5 text-sm outline-none focus:border-[var(--link)]"
-                    />
-                  </label>
-                  <label className="block">
-                    <span className="text-xs font-medium text-[var(--text-dim)]">
-                      Name
-                    </span>
-                    <input
-                      value={p.name}
-                      onChange={(e) => update(i, { name: e.target.value })}
-                      className="mt-1 w-full rounded-lg border border-[var(--line-bright)] px-3 py-1.5 text-sm outline-none focus:border-[var(--link)]"
-                    />
-                  </label>
-                </div>
-                <div className="flex flex-wrap items-end gap-3">
-                  <label className="block">
-                    <span className="text-xs font-medium text-[var(--text-dim)]">
-                      Difficulty
-                    </span>
-                    <select
-                      value={p.difficulty}
-                      onChange={(e) =>
-                        update(i, { difficulty: e.target.value as Difficulty })
-                      }
-                      className="mt-1 block rounded-lg border border-[var(--line-bright)] px-2 py-1.5 text-sm"
-                    >
-                      {DIFFICULTIES.map((d) => (
-                        <option key={d} value={d}>
-                          {d}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                  <label className="block min-w-0 flex-1">
-                    <span className="text-xs font-medium text-[var(--text-dim)]">
-                      Tags (comma separated)
-                    </span>
-                    <input
-                      value={(p.tags ?? []).join(", ")}
-                      onChange={(e) =>
-                        update(i, {
-                          tags: e.target.value
-                            .split(",")
-                            .map((t) => t.trim())
-                            .filter(Boolean),
-                        })
-                      }
-                      className="mt-1 w-full rounded-lg border border-[var(--line-bright)] px-3 py-1.5 text-sm outline-none focus:border-[var(--link)]"
-                    />
-                  </label>
-                  <label className="flex items-center gap-2 pb-1.5 text-sm text-[var(--text-dim)]">
-                    <input
-                      type="checkbox"
-                      checked={Boolean(p.starred)}
-                      onChange={(e) => update(i, { starred: e.target.checked })}
-                    />
-                    Essential
-                  </label>
-                  <button
-                    onClick={() => {
-                      setProblems((ps) => ps.filter((_, j) => j !== i));
-                      setDirty(true);
-                    }}
-                    className="pb-1.5 text-sm text-[var(--ink-faint)] hover:text-[var(--diff-insane)]"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            ))}
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Field label="Name">
+                <input
+                  value={current.name}
+                  onChange={(e) => update({ name: e.target.value })}
+                  className="w-full"
+                />
+              </Field>
+              <Field label="Module">
+                <select
+                  value={current.module}
+                  onChange={(e) => update({ module: e.target.value })}
+                  className="w-full"
+                >
+                  {modules.map((m) => (
+                    <option key={m}>{m}</option>
+                  ))}
+                </select>
+              </Field>
+              <Field label="Difficulty">
+                <select
+                  value={current.difficulty}
+                  onChange={(e) =>
+                    update({ difficulty: e.target.value as Difficulty })
+                  }
+                  className="w-full"
+                >
+                  {DIFFICULTY_ORDER.map((d) => (
+                    <option key={d}>{d}</option>
+                  ))}
+                </select>
+              </Field>
+              <Field label="Source type">
+                <select
+                  value={current.origin}
+                  onChange={(e) => update({ origin: e.target.value as Origin })}
+                  className="w-full"
+                >
+                  {ORIGINS.map((o) => (
+                    <option key={o} value={o}>
+                      {o === "original" ? "Written here" : o === "exam" ? "Past exam" : "Textbook"}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+              <Field label="Citation">
+                <input
+                  value={current.source}
+                  onChange={(e) => update({ source: e.target.value })}
+                  placeholder="F=ma 2019 Problem 12"
+                  className="w-full"
+                />
+              </Field>
+              <Field label="Tags (comma separated)">
+                <input
+                  value={current.tags.join(", ")}
+                  onChange={(e) =>
+                    update({
+                      tags: e.target.value.split(",").map((t) => t.trim()).filter(Boolean),
+                    })
+                  }
+                  className="w-full"
+                />
+              </Field>
+            </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <Field label="Statement (supports $math$, **bold**, *italic*)">
+              <textarea
+                value={current.statement}
+                onChange={(e) => update({ statement: e.target.value })}
+                className="h-28 w-full"
+              />
+            </Field>
+
+            <div className="flex flex-wrap items-end gap-4">
+              <Field label="Answer">
+                <input
+                  type="number"
+                  value={current.answer ?? ""}
+                  onChange={(e) =>
+                    update({
+                      answer: e.target.value === "" ? null : Number(e.target.value),
+                    })
+                  }
+                  className="w-28"
+                />
+              </Field>
+              <Field label="Unit">
+                <input
+                  value={current.unit}
+                  onChange={(e) => update({ unit: e.target.value })}
+                  className="w-24"
+                />
+              </Field>
+              <label className="sans flex items-center gap-2 pb-2 text-sm text-[var(--ink-soft)]">
+                <input
+                  type="checkbox"
+                  checked={current.starred}
+                  onChange={(e) => update({ starred: e.target.checked })}
+                />
+                Start here
+              </label>
               <button
-                onClick={addProblem}
-                className="rounded-lg border border-[var(--line-bright)] px-3 py-2 text-sm hover:bg-[var(--panel-2)]"
+                onClick={() => {
+                  setProblems((ps) => ps!.filter((_, i) => i !== selected));
+                  setSelected(null);
+                  setDirty(true);
+                }}
+                className="sans pb-2 text-sm text-[var(--ink-faint)] hover:text-[var(--bad)]"
               >
-                + Add problem
-              </button>
-              <button
-                onClick={save}
-                disabled={state.busy || !dirty}
-                className="rounded-lg bg-[var(--link)] px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
-              >
-                {state.busy ? "Saving…" : "Save & commit"}
+                Delete problem
               </button>
             </div>
+
+            <Field label="Solution">
+              <textarea
+                value={current.solution}
+                onChange={(e) => update({ solution: e.target.value })}
+                className="h-32 w-full"
+              />
+            </Field>
+
+            {/* live preview, exactly as students will see it */}
+            <div>
+              <p className="label mb-2">Preview</p>
+              <div className="border-t border-[var(--rule-strong)]">
+                <BankProblem problem={current} />
+              </div>
+            </div>
+
+            <button onClick={save} disabled={status.busy || !dirty} className="btn">
+              {status.busy ? "Opening pull request." : "Propose change"}
+            </button>
           </>
         )}
       </section>
+    </div>
+  );
+}
+
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <label className="block">
+      <span className="label mb-1 block">{label}</span>
+      {children}
+    </label>
+  );
+}
+
+/* ------------------------------- courses ------------------------------- */
+
+function Courses() {
+  const [courses, setCourses] = useState<Division[] | null>(null);
+  const [dirty, setDirty] = useState(false);
+  const [status, setStatus] = useState<Status>(IDLE);
+
+  useEffect(() => {
+    load("curriculum")
+      .then(({ curriculum }) => setCourses(curriculum))
+      .catch((e) => setStatus({ ...IDLE, error: e.message }));
+  }, []);
+
+  const mutate = (fn: (draft: Division[]) => void) => {
+    setCourses((c) => {
+      const draft = JSON.parse(JSON.stringify(c)) as Division[];
+      fn(draft);
+      return draft;
+    });
+    setDirty(true);
+  };
+
+  const save = async () => {
+    setStatus({ ...IDLE, busy: true });
+    try {
+      const r = await api({ action: "saveCurriculum", curriculum: courses });
+      setStatus({ busy: false, note: r.message, prUrl: r.prUrl, error: null });
+      setDirty(false);
+    } catch (e) {
+      setStatus({ ...IDLE, error: (e as Error).message });
+    }
+  };
+
+  if (!courses) return <Banner s={status} />;
+
+  return (
+    <div className="space-y-6">
+      <Banner s={status} />
+      <p className="max-w-[36rem] text-sm text-[var(--ink-soft)]">
+        Courses are the top level of the guide (F=ma, USAPhO, and any you add).
+        Each holds sections, and each section holds modules. A module gets a
+        lesson when an MDX file with the same slug exists.
+      </p>
+
+      {courses.map((course, ci) => (
+        <div key={ci} className="border-t border-[var(--rule-strong)] pt-4">
+          <div className="flex flex-wrap items-end gap-3">
+            <Field label="Course name">
+              <input
+                value={course.name}
+                onChange={(e) => mutate((d) => { d[ci].name = e.target.value; })}
+              />
+            </Field>
+            <Field label="id">
+              <input
+                value={course.id}
+                onChange={(e) => mutate((d) => { d[ci].id = e.target.value; })}
+                className="w-28"
+              />
+            </Field>
+            <Field label="Tagline">
+              <input
+                value={course.tagline}
+                onChange={(e) => mutate((d) => { d[ci].tagline = e.target.value; })}
+                className="w-72"
+              />
+            </Field>
+            <button
+              onClick={() => {
+                if (confirm(`Remove the course "${course.name}" and all its modules?`))
+                  mutate((d) => { d.splice(ci, 1); });
+              }}
+              className="sans pb-2 text-sm text-[var(--ink-faint)] hover:text-[var(--bad)]"
+            >
+              Remove course
+            </button>
+          </div>
+
+          <div className="mt-4 space-y-4 pl-4">
+            {course.sections.map((section, si) => (
+              <div key={si}>
+                <div className="flex items-center gap-3">
+                  <input
+                    value={section.title}
+                    onChange={(e) =>
+                      mutate((d) => { d[ci].sections[si].title = e.target.value; })
+                    }
+                    className="font-medium"
+                  />
+                  <button
+                    onClick={() => mutate((d) => { d[ci].sections.splice(si, 1); })}
+                    className="sans text-xs text-[var(--ink-faint)] hover:text-[var(--bad)]"
+                  >
+                    remove section
+                  </button>
+                </div>
+                <ul className="mt-2 space-y-1 pl-4">
+                  {section.modules.map((m, mi) => (
+                    <li key={mi} className="flex flex-wrap items-center gap-2">
+                      <input
+                        value={m.title}
+                        onChange={(e) =>
+                          mutate((d) => { d[ci].sections[si].modules[mi].title = e.target.value; })
+                        }
+                        className="w-52"
+                      />
+                      <input
+                        value={m.slug}
+                        onChange={(e) =>
+                          mutate((d) => { d[ci].sections[si].modules[mi].slug = e.target.value; })
+                        }
+                        className="mono w-44 text-xs"
+                      />
+                      <button
+                        onClick={() =>
+                          mutate((d) => { d[ci].sections[si].modules.splice(mi, 1); })
+                        }
+                        className="sans text-xs text-[var(--ink-faint)] hover:text-[var(--bad)]"
+                      >
+                        remove
+                      </button>
+                    </li>
+                  ))}
+                  <li>
+                    <button
+                      onClick={() =>
+                        mutate((d) => {
+                          d[ci].sections[si].modules.push({
+                            slug: `new-module-${Date.now().toString(36)}`,
+                            title: "New module",
+                            description: "",
+                            frequency: 2,
+                            minutes: 30,
+                            problems: [],
+                          } as unknown as Module);
+                        })
+                      }
+                      className="sans text-sm text-[var(--accent)]"
+                    >
+                      Add module
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            ))}
+            <button
+              onClick={() =>
+                mutate((d) => {
+                  d[ci].sections.push({
+                    id: `section-${Date.now().toString(36)}`,
+                    title: "New section",
+                    modules: [],
+                  } as Section);
+                })
+              }
+              className="sans text-sm text-[var(--accent)]"
+            >
+              Add section
+            </button>
+          </div>
+        </div>
+      ))}
+
+      <div className="flex gap-4 border-t border-[var(--rule-strong)] pt-4">
+        <button
+          onClick={() =>
+            mutate((d) => {
+              d.push({
+                id: `course-${Date.now().toString(36)}`,
+                label: String(d.length + 1),
+                name: "New course",
+                tagline: "",
+                accent: "var(--accent)",
+                sections: [],
+              } as Division);
+            })
+          }
+          className="btn-plain"
+        >
+          Add course
+        </button>
+        <button onClick={save} disabled={status.busy || !dirty} className="btn">
+          {status.busy ? "Opening pull request." : "Propose change"}
+        </button>
+      </div>
     </div>
   );
 }

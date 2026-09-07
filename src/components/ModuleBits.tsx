@@ -1,34 +1,22 @@
 "use client";
 
-import { Frequency } from "@/lib/curriculum";
-import {
-  MODULE_STATUS_META,
-  ModuleStatus,
-  useProgress,
-} from "@/lib/progress";
 import { useEffect, useRef, useState } from "react";
+import { Frequency } from "@/lib/curriculum";
+import { MODULE_STATUS_META, ModuleStatus, useProgress } from "@/lib/progress";
 
 const FREQ_LABEL: Record<Frequency, string> = {
   0: "Rare",
   1: "Occasional",
   2: "Sometimes",
   3: "Frequent",
-  4: "Very Frequent",
+  4: "Very frequent",
 };
 
+/** How often the topic shows up on real exams. */
 export function FreqMeter({ f }: { f: Frequency }) {
   return (
-    <span className="flex items-center gap-1.5" title={`Appears: ${FREQ_LABEL[f]}`}>
-      {[0, 1, 2, 3].map((i) => (
-        <span
-          key={i}
-          className="freq-dot"
-          style={{
-            background: i < f ? "var(--brass)" : "var(--line-bright)",
-          }}
-        />
-      ))}
-      <span className="ml-1 text-xs text-[var(--ink-faint)]">{FREQ_LABEL[f]}</span>
+    <span className="label" title={`Appears: ${FREQ_LABEL[f]}`}>
+      {FREQ_LABEL[f]} on exams
     </span>
   );
 }
@@ -65,17 +53,16 @@ export function StatusPicker({ slug }: { slug: string }) {
           e.stopPropagation();
           setOpen((o) => !o);
         }}
-        className="flex items-center gap-2 rounded-full border border-[var(--line)] px-3 py-1.5 text-xs text-[var(--text-dim)] transition-colors hover:border-[var(--line-bright)] hover:text-[var(--text)]"
+        className="sans flex items-center gap-1.5 text-xs text-[var(--ink-soft)] hover:text-[var(--ink)]"
       >
         <span
-          className="h-2 w-2 rounded-full"
+          className="inline-block h-2 w-2 rounded-full"
           style={{ background: meta.color }}
         />
         {meta.label}
-        <span className="text-[var(--ink-faint)]">▾</span>
       </button>
       {open && (
-        <div className="panel absolute right-0 top-full z-30 mt-2 w-44 overflow-hidden p-1">
+        <div className="absolute right-0 top-full z-30 mt-1.5 w-40 border border-[var(--rule-strong)] bg-[var(--panel)] py-1">
           {ORDER.map((s) => (
             <button
               key={s}
@@ -85,16 +72,15 @@ export function StatusPicker({ slug }: { slug: string }) {
                 setModuleStatus(slug, s);
                 setOpen(false);
               }}
-              className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs transition-colors hover:bg-[var(--panel-2)] ${
-                s === status ? "text-[var(--text-strong)]" : "text-[var(--text-dim)]"
+              className={`sans flex w-full items-center gap-2 px-3 py-1.5 text-left text-xs hover:bg-[var(--paper-2)] ${
+                s === status ? "text-[var(--ink-strong)]" : "text-[var(--ink-soft)]"
               }`}
             >
               <span
-                className="h-2 w-2 rounded-full"
+                className="inline-block h-2 w-2 rounded-full"
                 style={{ background: MODULE_STATUS_META[s].color }}
               />
               {MODULE_STATUS_META[s].label}
-              {s === status && <span className="ml-auto text-[var(--brass)]">✓</span>}
             </button>
           ))}
         </div>

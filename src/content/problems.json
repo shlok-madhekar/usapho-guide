@@ -1,0 +1,893 @@
+[
+  {
+    "id": "orig-vec-1",
+    "name": "Crossing the river",
+    "module": "vectors-calculus",
+    "difficulty": "Easy",
+    "tags": [
+      "vectors",
+      "relative motion"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A swimmer moves at 1.6 m/s relative to the water. The river flows at 1.2 m/s. She points herself straight across a 40 m wide river. How far downstream, in meters, does she land?",
+    "answer": 30,
+    "unit": "m",
+    "solution": "The two velocity components are independent. Crossing time is set by the perpendicular component alone: $t = 40/1.6 = 25$ s. In that time the current carries her $1.2 \\times 25 = 30$ m downstream."
+  },
+  {
+    "id": "orig-vec-2",
+    "name": "Aiming upstream",
+    "module": "vectors-calculus",
+    "difficulty": "Normal",
+    "tags": [
+      "vectors",
+      "optimization"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Same swimmer (1.6 m/s in still water, 1.2 m/s current, 40 m river). Now she wants to land directly opposite her start. How long, in seconds, does the crossing take?",
+    "answer": 37.8,
+    "unit": "s",
+    "solution": "To cancel the drift she aims upstream so that the upstream component equals the current: the across-stream speed becomes $\\sqrt{1.6^2 - 1.2^2} = 1.058$ m/s. Then $t = 40/1.058 \\approx 37.8$ s. Fighting the current costs her about 13 seconds."
+  },
+  {
+    "id": "orig-vec-3",
+    "name": "Work at an angle",
+    "module": "vectors-calculus",
+    "difficulty": "Easy",
+    "tags": [
+      "dot product"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A force $\\vec F = (3, 4)$ N acts on a crate that slides along $\\vec d = (4, 0)$ m. How much work does the force do, in joules?",
+    "answer": 12,
+    "unit": "J",
+    "solution": "Work is the dot product: $W = F_x d_x + F_y d_y = 12 + 0 = 12$ J. Only the component along the motion contributes."
+  },
+  {
+    "id": "orig-k1-1",
+    "name": "Stopping distance",
+    "module": "kinematics-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "suvat"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A train moving at 30 m/s brakes uniformly at 1.2 m/s\u00b2. How far, in meters, does it travel before stopping?",
+    "answer": 375,
+    "unit": "m",
+    "solution": "No time is mentioned, so use the time-free relation $v^2 = v_0^2 + 2a\\Delta x$. Setting $v = 0$: $\\Delta x = v_0^2/2a = 900/2.4 = 375$ m."
+  },
+  {
+    "id": "orig-k1-2",
+    "name": "Half-distance averages",
+    "module": "kinematics-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "averages"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "You drive the first half of a trip's distance at 40 mph and the second half at 60 mph. What is your average speed for the whole trip, in mph?",
+    "answer": 48,
+    "unit": "mph",
+    "solution": "Equal distances take unequal times, so the arithmetic mean is wrong. For each half of length $d$: $t = d/40 + d/60$. Then $\\bar v = 2d/t = 48$ mph. This is the harmonic mean, always below the naive 50."
+  },
+  {
+    "id": "orig-k1-3",
+    "name": "Dropped from a rising balloon",
+    "module": "kinematics-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "free fall",
+      "relative motion"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A balloon rises at a steady 5 m/s. At a height of 60 m a sandbag is released. Using $g = 10$ m/s\u00b2, how long, in seconds, until the bag hits the ground?",
+    "answer": 4.0,
+    "unit": "s",
+    "solution": "The bag leaves with the balloon's velocity, $+5$ m/s upward. Taking up as positive with the ground at $y = -60$: $-60 = 5t - 5t^2$. So $t^2 - t - 12 = 0$, giving $t = 4$ s. Forgetting the initial upward velocity gives 3.46 s, which is the classic wrong answer."
+  },
+  {
+    "id": "orig-proj-1",
+    "name": "Off the cliff",
+    "module": "projectile-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "projectiles"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is thrown horizontally at 15 m/s from a cliff 45 m high. Using $g = 10$ m/s\u00b2, how far from the base of the cliff does it land, in meters?",
+    "answer": 45,
+    "unit": "m",
+    "solution": "Vertical motion sets the clock: $t = \\sqrt{2h/g} = 3$ s. Horizontal motion is uniform: $x = 15 \\times 3 = 45$ m. The two directions never mix."
+  },
+  {
+    "id": "orig-proj-2",
+    "name": "The other angle",
+    "module": "projectile-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "range"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A projectile launched at 25\u00b0 covers a certain range on level ground. What other launch angle, in degrees, gives the same range at the same speed?",
+    "answer": 65,
+    "unit": "deg",
+    "solution": "Range goes as $\\sin 2\\theta$, and $\\sin(180\u00b0 - x) = \\sin x$. So $2\\theta_2 = 180\u00b0 - 50\u00b0$, giving $\\theta_2 = 65\u00b0$. Complementary angles always share a range."
+  },
+  {
+    "id": "orig-proj-3",
+    "name": "Down the slope",
+    "module": "projectile-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "inclines"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is launched horizontally at 8 m/s from the top of a 30\u00b0 incline and lands on the slope. Using $g = 10$ m/s\u00b2, how far along the incline, in meters, does it land?",
+    "answer": 8.87,
+    "unit": "m",
+    "solution": "Let the landing point be a distance $L$ down the slope, so $x = L\\cos30\u00b0$ and $y = L\\sin30\u00b0$. From $x = 8t$ and $y = 5t^2$: $L\\sin30\u00b0 = 5(L\\cos30\u00b0/8)^2$. Solving, $L = 8\\sin30\u00b0\\cdot 64/(5\\cdot 64 \\cos^2 30\u00b0)$ ... more directly $t = 2v\\tan\\theta/g = 0.924$ s, $x = 7.39$ m, $L = x/\\cos30\u00b0 = 8.87$ m."
+  },
+  {
+    "id": "orig-fbd-1",
+    "name": "Atwood machine",
+    "module": "forces-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "pulleys"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A 3 kg block and a 2 kg block hang from a light string over a frictionless pulley. Using $g = 10$ m/s\u00b2, what is the magnitude of their acceleration, in m/s\u00b2?",
+    "answer": 2,
+    "unit": "m/s\u00b2",
+    "solution": "Write $\\sum F = ma$ for each mass with the same tension and the same acceleration magnitude, then add the equations to eliminate $T$: $a = (m_1 - m_2)g/(m_1 + m_2) = 10/5 = 2$ m/s\u00b2."
+  },
+  {
+    "id": "orig-fbd-2",
+    "name": "Held on a frictionless slope",
+    "module": "forces-fbd",
+    "difficulty": "Hard",
+    "tags": [
+      "inclines",
+      "statics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A 2 kg block sits on a frictionless 40\u00b0 incline, held in place by a purely horizontal force. Using $g = 10$ m/s\u00b2, what is the normal force, in newtons?",
+    "answer": 26.1,
+    "unit": "N",
+    "solution": "Resolve along and perpendicular to the incline. Equilibrium along the slope gives $F = mg\\tan\\theta$; perpendicular gives $N = mg/\\cos\\theta = 20/\\cos40\u00b0 = 26.1$ N. The reflex answer $mg\\cos\\theta$ assumes the applied force is along the slope, which it is not."
+  },
+  {
+    "id": "orig-fbd-3",
+    "name": "Block on a block",
+    "module": "forces-fbd",
+    "difficulty": "Hard",
+    "tags": [
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A 1 kg block rests on a 4 kg block on a frictionless floor. The coefficient of static friction between them is 0.30. Using $g = 10$ m/s\u00b2, what is the largest horizontal force, in newtons, that can be applied to the bottom block without the top one slipping?",
+    "answer": 15,
+    "unit": "N",
+    "solution": "The only horizontal force on the top block is friction, so its maximum acceleration is $a = \\mu g = 3$ m/s\u00b2. Both blocks must share that acceleration, so $F = (m_1+m_2)a = 5 \\times 3 = 15$ N."
+  },
+  {
+    "id": "orig-em-1",
+    "name": "Bullet in a block",
+    "module": "energy-momentum",
+    "difficulty": "Normal",
+    "tags": [
+      "collisions"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A 10 g bullet moving at 400 m/s embeds itself in a stationary 1.99 kg block on a frictionless surface. What is the speed of the combined object afterward, in m/s?",
+    "answer": 2,
+    "unit": "m/s",
+    "solution": "Sticking together means perfectly inelastic: momentum is conserved, kinetic energy is not. $v = m_b v_b/(m_b + M) = 4/2 = 2$ m/s. Kinetic energy falls from 800 J to 4 J; the missing 796 J went into heat and deformation."
+  },
+  {
+    "id": "orig-em-2",
+    "name": "Minimum loop height",
+    "module": "energy-momentum",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "circular"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A cart starts from rest at height $h$ and runs without friction into a vertical loop of radius 2 m. Using $g = 10$ m/s\u00b2, what is the minimum $h$, in meters, for the cart to keep contact at the top?",
+    "answer": 5,
+    "unit": "m",
+    "solution": "At the critical speed gravity alone supplies the centripetal force at the top: $v^2 = gr$. Energy conservation to a height $2r$: $gh = 2gr + \\tfrac12 gr$, so $h = 2.5r = 5$ m."
+  },
+  {
+    "id": "orig-em-3",
+    "name": "Explosion on the way up",
+    "module": "energy-momentum",
+    "difficulty": "Hard",
+    "tags": [
+      "momentum",
+      "center of mass"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A 4 kg projectile at the top of its arc, moving horizontally at 30 m/s, explodes into two equal pieces. One piece falls straight down (zero horizontal velocity). What is the horizontal speed of the other piece, in m/s?",
+    "answer": 60,
+    "unit": "m/s",
+    "solution": "The explosion is internal, so horizontal momentum is conserved: $4(30) = 2(0) + 2v$, giving $v = 60$ m/s. The center of mass continues on the original parabola regardless of the explosion."
+  },
+  {
+    "id": "orig-circ-1",
+    "name": "Banked curve",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "circular"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A curve of radius 50 m is banked so that a car needs no friction at 20 m/s. Using $g = 10$ m/s\u00b2, what is the banking angle, in degrees?",
+    "answer": 38.7,
+    "unit": "deg",
+    "solution": "With no friction the horizontal component of the normal force supplies the centripetal force: $\\tan\\theta = v^2/(gr) = 400/500 = 0.8$, so $\\theta = 38.7\u00b0$. Notice the mass cancels."
+  },
+  {
+    "id": "orig-circ-2",
+    "name": "Orbit period ratio",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "orbits",
+      "kepler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Satellite B orbits at four times the radius of satellite A. By what factor is B's period longer than A's?",
+    "answer": 8,
+    "unit": "\u00d7",
+    "solution": "Kepler's third law: $T^2 \\propto r^3$, so $T_B/T_A = 4^{3/2} = 8$."
+  },
+  {
+    "id": "orig-shm-1",
+    "name": "Quadrupled mass",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "springs"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A mass on a spring oscillates with a period of 2.0 s. The mass is quadrupled. What is the new period, in seconds?",
+    "answer": 4,
+    "unit": "s",
+    "solution": "$T = 2\\pi\\sqrt{m/k}$, so the period scales as $\\sqrt{m}$: quadrupling the mass doubles the period to 4.0 s. Amplitude is irrelevant, which is the defining feature of SHM."
+  },
+  {
+    "id": "orig-shm-2",
+    "name": "Pendulum on Mars",
+    "module": "shm",
+    "difficulty": "Easy",
+    "tags": [
+      "pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A pendulum has a period of 2.0 s on Earth ($g = 9.8$ m/s\u00b2). What is its period, in seconds, on Mars where $g = 3.7$ m/s\u00b2?",
+    "answer": 3.26,
+    "unit": "s",
+    "solution": "$T \\propto 1/\\sqrt{g}$, so $T_{Mars} = 2.0\\sqrt{9.8/3.7} = 3.26$ s. Weaker gravity means a slower swing."
+  },
+  {
+    "id": "orig-shm-3",
+    "name": "Two springs in series",
+    "module": "shm",
+    "difficulty": "Hard",
+    "tags": [
+      "springs"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A 2 kg mass hangs from two springs connected end to end, each with $k = 400$ N/m. What is the oscillation frequency, in Hz?",
+    "answer": 1.59,
+    "unit": "Hz",
+    "solution": "Springs in series share the load but their extensions add, so $1/k_{eff} = 1/400 + 1/400$ and $k_{eff} = 200$ N/m. Then $f = \\frac{1}{2\\pi}\\sqrt{200/2} = 1.59$ Hz. In parallel you would instead add the constants."
+  },
+  {
+    "id": "orig-rot-1",
+    "name": "Rolling race",
+    "module": "rotational-dynamics",
+    "difficulty": "Normal",
+    "tags": [
+      "rolling"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A solid sphere ($I = \\tfrac25 mr^2$) rolls without slipping from rest down a 2 m high ramp. Using $g = 10$ m/s\u00b2, what is its speed at the bottom, in m/s?",
+    "answer": 5.35,
+    "unit": "m/s",
+    "solution": "Energy splits between translation and rotation: $mgh = \\tfrac12 mv^2(1 + 2/5)$. So $v = \\sqrt{10gh/7} = \\sqrt{200/7} = 5.35$ m/s. A sliding block would reach 6.32 m/s; the sphere is slower because some energy goes into spin."
+  },
+  {
+    "id": "orig-rot-2",
+    "name": "Falling rod",
+    "module": "rotational-dynamics",
+    "difficulty": "Hard",
+    "tags": [
+      "torque"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform rod of length 1.2 m is held vertically on a frictionless pivot at its base and released. Using $g = 10$ m/s\u00b2, what is the speed of its tip when it hits the ground, in m/s?",
+    "answer": 6.0,
+    "unit": "m/s",
+    "solution": "The center of mass falls $L/2$: $mgL/2 = \\tfrac12 I\\omega^2$ with $I = mL^2/3$. So $\\omega = \\sqrt{3g/L}$ and the tip moves at $v = \\omega L = \\sqrt{3gL} = 6.0$ m/s."
+  },
+  {
+    "id": "orig-es-1",
+    "name": "Inside a uniform sphere",
+    "module": "electrostatics",
+    "difficulty": "Hard",
+    "tags": [
+      "gauss"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A solid insulating sphere of radius 0.2 m carries charge spread uniformly through its volume. The field at the surface is 900 N/C. What is the field, in N/C, at 0.1 m from the center?",
+    "answer": 450,
+    "unit": "N/C",
+    "solution": "Inside, the enclosed charge grows as $r^3$ while the Gaussian area grows as $r^2$, so the field is linear in $r$: $E = E_{surf}(r/R) = 900 \\times 0.5 = 450$ N/C."
+  },
+  {
+    "id": "orig-es-2",
+    "name": "Shielded, or not",
+    "module": "electrostatics",
+    "difficulty": "Normal",
+    "tags": [
+      "conductors"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $+3\\ \\mu$C point charge sits at the center of an uncharged conducting shell. What is the total charge, in microcoulombs, on the shell's outer surface?",
+    "answer": 3,
+    "unit": "\u03bcC",
+    "solution": "Induction puts $-3\\ \\mu$C on the inner surface so the conductor's interior field vanishes. The shell is neutral overall, so $+3\\ \\mu$C appears on the outside. Conductors shield their insides, not their outsides."
+  },
+  {
+    "id": "orig-cir-1",
+    "name": "Resistor cube",
+    "module": "circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Twelve 1 \u03a9 resistors form the edges of a cube. What is the resistance, in ohms, between two opposite corners?",
+    "answer": 0.833,
+    "unit": "\u03a9",
+    "solution": "By symmetry the current splits 3-way, then 6-way, then 3-way: $R = R(1/3 + 1/6 + 1/3) = 5/6 = 0.833$ \u03a9. Symmetry lets you merge equipotential nodes instead of solving twelve loop equations."
+  },
+  {
+    "id": "orig-cir-2",
+    "name": "RC time constant",
+    "module": "circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "transients"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A 10 \u03bcF capacitor charges through a 50 k\u03a9 resistor from a 12 V source. How long, in seconds, until the capacitor reaches 6 V?",
+    "answer": 0.347,
+    "unit": "s",
+    "solution": "$V = V_0(1 - e^{-t/RC})$ with $RC = 0.5$ s. Half charge gives $t = RC\\ln 2 = 0.347$ s."
+  },
+  {
+    "id": "orig-kt-1",
+    "name": "Speed of a gas molecule",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "kinetic theory"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "What is the rms speed, in m/s, of a nitrogen molecule (28 g/mol) at 300 K? Use $R = 8.31$ J/mol\u00b7K.",
+    "answer": 517,
+    "unit": "m/s",
+    "solution": "$v_{rms} = \\sqrt{3RT/M} = \\sqrt{3(8.31)(300)/0.028} = 517$ m/s. Equipartition puts $\\tfrac32 k_BT$ into each molecule's translation."
+  },
+  {
+    "id": "orig-he-1",
+    "name": "Carnot ceiling",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "cycles"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An engine runs between 600 K and 300 K. What is the maximum possible efficiency, as a percentage?",
+    "answer": 50,
+    "unit": "%",
+    "solution": "$\\eta_{max} = 1 - T_C/T_H = 1 - 0.5 = 50\\%$. Any real engine between these reservoirs does worse; claiming better violates the second law."
+  },
+  {
+    "id": "orig-w-1",
+    "name": "Beat frequency",
+    "module": "waves",
+    "difficulty": "Easy",
+    "tags": [
+      "beats"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two tuning forks at 440 Hz and 444 Hz sound together. What is the beat frequency, in Hz?",
+    "answer": 4,
+    "unit": "Hz",
+    "solution": "Beats occur at the difference frequency: $|444 - 440| = 4$ Hz, heard as four loudness swells per second."
+  },
+  {
+    "id": "orig-w-2",
+    "name": "Doppler approach",
+    "module": "waves",
+    "difficulty": "Hard",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An ambulance siren emits 800 Hz while approaching you at 30 m/s. With sound at 340 m/s, what frequency, in Hz, do you hear?",
+    "answer": 877,
+    "unit": "Hz",
+    "solution": "Moving source, stationary observer: $f' = f\\,v/(v - v_s) = 800(340/310) = 877$ Hz. The wavefronts pile up ahead of the source."
+  },
+  {
+    "id": "orig-op-1",
+    "name": "Thin lens image",
+    "module": "optics",
+    "difficulty": "Normal",
+    "tags": [
+      "lenses"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An object sits 30 cm from a converging lens of focal length 20 cm. How far, in centimeters, is the image from the lens?",
+    "answer": 60,
+    "unit": "cm",
+    "solution": "$1/f = 1/d_o + 1/d_i$ gives $1/d_i = 1/20 - 1/30 = 1/60$, so $d_i = 60$ cm. Positive means a real image on the far side."
+  },
+  {
+    "id": "orig-mp-1",
+    "name": "Relativistic time dilation",
+    "module": "modern-physics",
+    "difficulty": "Normal",
+    "tags": [
+      "relativity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A muon lives 2.2 \u03bcs at rest. Traveling at 0.99c, how long, in microseconds, does it live in the lab frame?",
+    "answer": 15.6,
+    "unit": "\u03bcs",
+    "solution": "$\\gamma = 1/\\sqrt{1 - 0.99^2} = 7.09$, so the lab lifetime is $7.09 \\times 2.2 = 15.6$ \u03bcs. This is why cosmic-ray muons reach the ground."
+  },
+  {
+    "id": "orig-mp-2",
+    "name": "Photoelectric threshold",
+    "module": "modern-physics",
+    "difficulty": "Normal",
+    "tags": [
+      "quantum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A metal has a work function of 2.3 eV. What is the longest wavelength of light, in nanometers, that still ejects electrons?",
+    "answer": 539,
+    "unit": "nm",
+    "solution": "At threshold the photon energy equals the work function: $\\lambda = hc/\\phi = 1240\\ \\text{eV\u00b7nm}/2.3\\ \\text{eV} = 539$ nm. Longer wavelengths eject nothing no matter how intense."
+  },
+  {
+    "id": "fma-2018-8",
+    "name": "F=ma 2018 Problem 8",
+    "module": "projectile-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "projectiles"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2018",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "fma-2019-4",
+    "name": "F=ma 2019 Problem 4",
+    "module": "kinematics-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "free fall"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2019",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "fma-2020-12",
+    "name": "F=ma 2020 Problem 12",
+    "module": "forces-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "pulleys"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2020",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "fma-2020-20",
+    "name": "F=ma 2020 Problem 20",
+    "module": "energy-momentum",
+    "difficulty": "Normal",
+    "tags": [
+      "collisions"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2020",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "fma-2021-24",
+    "name": "F=ma 2021 Problem 24",
+    "module": "rotational-dynamics",
+    "difficulty": "Hard",
+    "tags": [
+      "torque"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2021",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "fma-2016-20",
+    "name": "F=ma 2016 Problem 20",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "shm"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2016",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "usapho-2015-a1",
+    "name": "USAPhO 2015 Problem A1",
+    "module": "electrostatics",
+    "difficulty": "Hard",
+    "tags": [
+      "gauss"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO 2015",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "usapho-2018-b1",
+    "name": "USAPhO 2018 Problem B1",
+    "module": "heat-engines",
+    "difficulty": "Hard",
+    "tags": [
+      "cycles"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO 2018",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "usapho-2017-a2",
+    "name": "USAPhO 2017 Problem A2",
+    "module": "modern-physics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "relativity"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO 2017",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "usapho-2019-b1",
+    "name": "USAPhO 2019 Problem B1",
+    "module": "waves",
+    "difficulty": "Hard",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO 2019",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "usapho-2016-b2",
+    "name": "USAPhO 2016 Problem B2",
+    "module": "optics",
+    "difficulty": "Hard",
+    "tags": [
+      "lenses"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO 2016",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "usapho-2019-a3",
+    "name": "USAPhO 2019 Problem A3",
+    "module": "circuits",
+    "difficulty": "Very Hard",
+    "tags": [
+      "transients"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO 2019",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "usapho-2014-b1",
+    "name": "USAPhO 2014 Problem B1",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "kinetic theory"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO 2014",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "usapho-2013-a3",
+    "name": "USAPhO 2013 Problem A3",
+    "module": "magnetism",
+    "difficulty": "Hard",
+    "tags": [
+      "faraday"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO 2013",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "usapho-2017-b2",
+    "name": "USAPhO 2017 Problem B2",
+    "module": "magnetism",
+    "difficulty": "Very Hard",
+    "tags": [
+      "induction"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO 2017",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "ipho-2012-1a",
+    "name": "IPhO 2012 Problem 1a",
+    "module": "projectile-motion",
+    "difficulty": "Very Hard",
+    "tags": [
+      "bounces"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "IPhO 2012",
+    "url": "https://www.aapt.org/physicsteam/2025/exams.cfm",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "morin-4-29",
+    "name": "Morin 4.29 Rope between inclines",
+    "module": "forces-fbd",
+    "difficulty": "Hard",
+    "tags": [
+      "statics"
+    ],
+    "starred": false,
+    "origin": "textbook",
+    "source": "Morin, Introduction to Classical Mechanics",
+    "url": "",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "morin-5-7",
+    "name": "Morin 5.7 Leaky bucket",
+    "module": "energy-momentum",
+    "difficulty": "Hard",
+    "tags": [
+      "variable mass"
+    ],
+    "starred": false,
+    "origin": "textbook",
+    "source": "Morin, Introduction to Classical Mechanics",
+    "url": "",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  },
+  {
+    "id": "morin-8-6",
+    "name": "Morin 8.6 Ball hits rod",
+    "module": "rotational-dynamics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "angular momentum"
+    ],
+    "starred": false,
+    "origin": "textbook",
+    "source": "Morin, Introduction to Classical Mechanics",
+    "url": "",
+    "statement": "",
+    "answer": null,
+    "unit": "",
+    "solution": ""
+  }
+]

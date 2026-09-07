@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Slider } from "./SimShell";
+import { Slider, simColors } from "./SimShell";
 
 export default function ProjectileSim() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -18,6 +18,7 @@ export default function ProjectileSim() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    const C = simColors();
     const ctx = canvas.getContext("2d")!;
     const dpr = window.devicePixelRatio || 1;
     const W = canvas.clientWidth;
@@ -43,7 +44,7 @@ export default function ProjectileSim() {
       ctx.clearRect(0, 0, W, H);
 
       // grid
-      ctx.strokeStyle = "#f0eee8";
+      ctx.strokeStyle = C.rule;
       ctx.lineWidth = 1;
       for (let gx = 0; gx <= maxX; gx += Math.ceil(maxX / 8)) {
         ctx.beginPath();
@@ -52,14 +53,14 @@ export default function ProjectileSim() {
         ctx.stroke();
       }
       // ground
-      ctx.strokeStyle = "#d6d3cc";
+      ctx.strokeStyle = C.faint;
       ctx.beginPath();
       ctx.moveTo(pad / 2, Y(0));
       ctx.lineTo(W - pad / 2, Y(0));
       ctx.stroke();
 
       // full trajectory (dashed)
-      ctx.strokeStyle = "rgba(180,83,9,0.3)";
+      ctx.strokeStyle = C.rule;
       ctx.setLineDash([4, 5]);
       ctx.beginPath();
       for (let tt = 0; tt <= tFlight; tt += tFlight / 120) {
@@ -71,7 +72,7 @@ export default function ProjectileSim() {
       ctx.setLineDash([]);
 
       // traveled path (solid)
-      ctx.strokeStyle = "#b45309";
+      ctx.strokeStyle = C.accent;
       ctx.lineWidth = 2;
       ctx.beginPath();
       for (let tt = 0; tt <= t; tt += tFlight / 120) {
@@ -87,22 +88,22 @@ export default function ProjectileSim() {
       const vx = v0 * Math.cos(th);
       const vy = v0 * Math.sin(th) - g * t;
 
-      ctx.strokeStyle = "#0f766e";
+      ctx.strokeStyle = C.figure;
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.moveTo(X(px), Y(py));
       ctx.lineTo(X(px) + vx * 1.6, Y(py) - vy * 1.6);
       ctx.stroke();
 
-      ctx.fillStyle = "#d97706";
+      ctx.fillStyle = C.accent;
       ctx.beginPath();
       ctx.arc(X(px), Y(py), 6, 0, Math.PI * 2);
       ctx.fill();
-      ctx.strokeStyle = "#ffffff";
+      ctx.strokeStyle = C.paper;
       ctx.stroke();
 
       // apex marker
-      ctx.fillStyle = "rgba(194,65,12,0.9)";
+      ctx.fillStyle = C.accent;
       ctx.beginPath();
       ctx.arc(X(range / 2), Y(hMax), 2.5, 0, Math.PI * 2);
       ctx.fill();

@@ -1,87 +1,48 @@
-## Two conservation laws, one strategy
+## Two laws that answer different questions
 
-Energy and momentum answer different questions. Momentum $\vec p = m\vec v$
-is conserved whenever external forces vanish (or act too briefly to matter).
-Mechanical energy is conserved only when non-conservative forces do no work.
+Momentum $\vec p = m\vec v$ is conserved whenever no external force acts, or
+when the interaction is brief enough that external forces have no time to
+matter. Mechanical energy is conserved only when nothing dissipative does
+work. Collisions are exactly the case where those two conditions diverge,
+which is why the topic is worth its own module.
 
 $$W = \int \vec F \cdot d\vec x, \qquad K = \tfrac{1}{2}mv^2, \qquad \vec p_i = \vec p_f$$
 
-## Collisions decoded
+## Collisions
 
-- Elastic: momentum and kinetic energy both conserved
-- Perfectly inelastic: objects stick; maximum KE is lost (but never all of it, if the system moves)
-- 1D elastic trick: relative velocity reverses, $v_{1i} - v_{2i} = -(v_{1f} - v_{2f})$
-- Equal masses colliding elastically in 2D separate at 90°
+Elastic collisions conserve both momentum and kinetic energy. Perfectly
+inelastic ones conserve momentum only, and lose the most energy possible while
+still respecting it, which is not all of the energy unless the total momentum
+is zero.
 
-Try both collision types below. Watch the KE-lost readout as you change the
-mass ratio:
+Two facts save a lot of algebra. In one dimension, an elastic collision
+reverses the relative velocity:
 
-<CollisionSim />
+$$v_{1i} - v_{2i} = -(v_{1f} - v_{2f})$$
 
-<Callout label="Pro tip">
-  In any collision problem, work in the center-of-mass frame when the algebra
-  gets ugly. In that frame the total momentum is zero, and an elastic
-  collision just reverses each velocity.
-</Callout>
+And in two dimensions, equal masses colliding elastically always separate at
+90°, which is why pool players can predict a cue ball.
+
+<Figure caption={<><b>Figure 1.</b> A moving block striking a stationary one. Toggle between elastic and perfectly inelastic and watch the energy readout. Make the masses equal and the elastic collision transfers all the motion; make the target heavy and the incoming block bounces back.</>}>
+  <CollisionSim />
+</Figure>
+
+<Aside label="A frame that helps">
+  When the algebra gets ugly, move to the center-of-mass frame. Total momentum
+  there is zero, an elastic collision simply reverses both velocities, and the
+  answer transforms back easily.
+</Aside>
 
 <QuickCheck
-  question="A bullet embeds in a block on a frictionless table. Which quantities are conserved during the impact?"
-  options={["Momentum only", "Kinetic energy only", "Both momentum and kinetic energy", "Neither"]}
+  question="A bullet embeds itself in a block on a frictionless table. During the impact, what is conserved?"
+  options={["Momentum only", "Kinetic energy only", "Both", "Neither"]}
   answer={0}
-  explanation={
-    <span>
-      Sticking together is the signature of a perfectly inelastic collision:
-      momentum is conserved (no external horizontal force), but kinetic energy
-      is converted to heat and deformation.
-    </span>
-  }
+  explanation="They stick together, which is the signature of a perfectly inelastic collision. Momentum survives because no external horizontal force acts. Most of the kinetic energy becomes heat and deformation, and problems often ask you to compute exactly how much."
 />
 
-## Solve it here
+## Center of mass
 
-<Problem
-  id="np-em-1"
-  number={1}
-  title="Ballistic block"
-  difficulty="Normal"
-  answer={2}
-  unit="m/s"
->
-  A 10 g bullet moving at 400 m/s embeds itself in a stationary 1.99 kg block
-  on a frictionless surface. What is the speed of the combined object
-  afterward, in m/s?
-
-  <Hint>Perfectly inelastic collision: only momentum survives.</Hint>
-  <Solution>
-    $$v = \frac{m_b v_b}{m_b + M} = \frac{(0.01)(400)}{2.00} = 2 \text{ m/s}$$
-
-    Kinetic energy drops from 800 J to 4 J. That missing 796 J became heat and
-    deformation, which is why you cannot use energy conservation across the
-    impact.
-  </Solution>
-</Problem>
-
-<Problem
-  id="np-em-2"
-  number={2}
-  title="Loop the loop"
-  difficulty="Hard"
-  answer={5}
-  unit="m"
->
-  A cart starts from rest at height $h$ and slides without friction into a
-  vertical circular loop of radius 2 m. Using $g = 10$ m/s², what is the
-  minimum $h$, in meters, so the cart maintains contact at the top of the
-  loop?
-
-  <Hint>
-    At the minimum speed, gravity alone supplies the centripetal force at the
-    top: $mg = mv^2/r$.
-  </Hint>
-  <Solution>
-    The critical condition at the top gives $v^2 = gr$. Energy conservation
-    from the start to the top (height $2r$):
-
-    $$mgh = mg(2r) + \tfrac12 m v^2 = 2mgr + \tfrac12 mgr \implies h = \tfrac52 r = 5 \text{ m}$$
-  </Solution>
-</Problem>
+The center of mass of an isolated system moves at constant velocity no matter
+what happens internally. An exploding projectile is the standard illustration:
+the fragments scatter, but their center of mass continues along the original
+parabola until a fragment lands.

@@ -69,3 +69,29 @@ on conflict (id) do nothing;
 --
 -- Roles are intentionally only settable here (RLS blocks self-promotion).
 -- ---------------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------------
+-- 4. Per-account progress (module status + problem status), synced from the
+--    client. Rows are private to their owner.
+-- ---------------------------------------------------------------------------
+create table if not exists public.progress (
+  user_id uuid primary key references auth.users on delete cascade,
+  modules jsonb not null default '{}'::jsonb,
+  problems jsonb not null default '{}'::jsonb,
+  updated_at timestamptz not null default now()
+);
+
+alter table public.progress enable row level security;
+
+drop policy if exists "users read their own progress" on public.progress;
+create policy "users read their own progress"
+  on public.progress for select to authenticated using (auth.uid() = user_id);
+
+drop policy if exists "users insert their own progress" on public.progress;
+create policy "users insert their own progress"
+  on public.progress for insert to authenticated with check (auth.uid() = user_id);
+
+drop policy if exists "users update their own progress" on public.progress;
+create policy "users update their own progress"
+  on public.progress for update to authenticated
+  using (auth.uid() = user_id) with check (auth.uid() = user_id);

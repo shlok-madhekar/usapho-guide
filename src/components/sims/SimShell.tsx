@@ -21,9 +21,9 @@ export function Slider({
 }) {
   return (
     <label className="block">
-      <span className="flex justify-between text-xs font-medium text-[var(--text-dim)]">
+      <span className="sans flex justify-between text-xs text-[var(--ink-soft)]">
         {label}
-        <span className="text-[var(--text-strong)]">
+        <span className="tabular text-[var(--ink-strong)]">
           {value} {unit}
         </span>
       </span>
@@ -38,6 +38,22 @@ export function Slider({
       />
     </label>
   );
+}
+
+/** Reads themed colors so canvases follow light/dark. */
+export function simColors() {
+  if (typeof window === "undefined")
+    return { ink: "#1f1d1a", rule: "#ded9cf", accent: "#7b2d26", figure: "#2f4858", faint: "#8d8779", paper: "#fbfaf7" };
+  const cs = getComputedStyle(document.documentElement);
+  const v = (n: string) => cs.getPropertyValue(n).trim();
+  return {
+    ink: v("--ink-strong"),
+    rule: v("--rule"),
+    accent: v("--accent"),
+    figure: v("--figure"),
+    faint: v("--ink-faint"),
+    paper: v("--paper"),
+  };
 }
 
 export function SimShell({
@@ -56,15 +72,13 @@ export function SimShell({
   footer?: React.ReactNode;
 }) {
   return (
-    <div className="panel my-8 overflow-hidden">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--line)] px-5 py-3">
-        <span className="text-sm font-semibold text-[var(--text-strong)]">{title}</span>
-        {note && <span className="font-mono-num text-xs text-[var(--text-dim)]">{note}</span>}
+    <div className="my-2">
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <span className="label">{title}</span>
+        {note && <span className="tabular sans text-xs text-[var(--ink-soft)]">{note}</span>}
       </div>
-      <canvas ref={canvasRef} className={canvasClass} />
-      <div className="grid gap-5 border-t border-[var(--line)] p-5 sm:grid-cols-3">
-        {controls}
-      </div>
+      <canvas ref={canvasRef} className={`mt-2 ${canvasClass}`} />
+      <div className="mt-3 grid gap-x-8 gap-y-3 sm:grid-cols-3">{controls}</div>
       {footer}
     </div>
   );

@@ -1,46 +1,37 @@
-## Vectors carry the physics
+## Components do the work
 
-Olympiad physics is done in components. Any vector $\vec A$ resolves as
-$A_x = A\cos\theta,\ A_y = A\sin\theta$, and two products do all the work:
+Olympiad problems are almost never solved with vectors as arrows; they are
+solved by picking axes and writing components. Any vector splits as
+$A_x = A\cos\theta$, $A_y = A\sin\theta$, and two products cover essentially
+every use:
 
-$$\vec A \cdot \vec B = AB\cos\theta \qquad |\vec A \times \vec B| = AB\sin\theta$$
+$$\vec A \cdot \vec B = AB\cos\theta, \qquad |\vec A \times \vec B| = AB\sin\theta$$
 
-- Dot product: projections, work, checking perpendicularity
-- Cross product: torque, angular momentum, magnetic force
-- $\vec A \cdot \vec B = 0$ means perpendicular; $\vec A \times \vec B = \vec 0$ means parallel
+The dot product answers "how much of this is along that": work, flux, and
+checking perpendicularity. The cross product answers "how much of this is
+perpendicular to that": torque, angular momentum, magnetic force. If the dot
+product vanishes the vectors are perpendicular; if the cross product vanishes
+they are parallel.
+
+## Choosing axes
+
+The single highest-return decision in a mechanics problem is where to point
+the axes. On an incline, tilt them along the slope so the acceleration lies on
+one axis and only gravity needs splitting. In circular motion, point one axis
+at the center. Good axes turn two coupled equations into one.
 
 ## The calculus you actually need
 
-F=ma officially avoids calculus but rewards it constantly. You need
-derivatives of polynomials and trig, the chain rule, and basic integrals. The
-single most-used trick is small-angle expansion:
+F=ma is written to be solvable without calculus, but calculus shortens
+half of it. Derivatives of polynomials and trig functions, the chain rule, and
+simple integrals are enough. The one approximation you will use everywhere:
 
 $$\sin\theta \approx \theta, \qquad \cos\theta \approx 1 - \frac{\theta^2}{2}, \qquad (1+x)^n \approx 1 + nx$$
 
-<Callout label="Pro tip">
-  When a problem says "small oscillations" or "slightly displaced," it is
-  telling you to Taylor-expand. Learn to hear that dog whistle.
-</Callout>
+valid for small $\theta$ and small $x$.
 
-## Solve it here
-
-<Problem
-  id="np-vec-1"
-  number={1}
-  title="Perpendicular push"
-  difficulty="Easy"
-  answer={12}
-  unit="J"
->
-  A force $\vec F = (3, 4)$ N acts on an object that moves along
-  $\vec d = (4, 0)$ m. How much work does the force do, in joules?
-
-  <Hint>
-    Work is the dot product $W = \vec F \cdot \vec d$.
-  </Hint>
-  <Solution>
-    $$W = F_x d_x + F_y d_y = (3)(4) + (4)(0) = 12 \text{ J}$$
-
-    Only the component of force along the motion does work.
-  </Solution>
-</Problem>
+<Aside label="Reading the problem">
+  "Small oscillations", "slightly displaced", "to first order": all of these
+  are instructions to expand and throw away the higher terms. Recognizing the
+  phrasing is most of the work.
+</Aside>

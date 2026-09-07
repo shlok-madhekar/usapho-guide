@@ -3,170 +3,132 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import { DIVISIONS, allModules } from "@/lib/curriculum";
-import {
-  MODULE_STATUS_META,
-  ModuleStatus,
-  useProgress,
-} from "@/lib/progress";
-
-function Ring({ pct, size = 150 }: { pct: number; size?: number }) {
-  const r = size / 2 - 10;
-  const c = 2 * Math.PI * r;
-  return (
-    <svg width={size} height={size} className="-rotate-90">
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={r}
-        fill="none"
-        stroke="var(--panel-2)"
-        strokeWidth="8"
-      />
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={r}
-        fill="none"
-        stroke="var(--status-complete)"
-        strokeWidth="8"
-        strokeLinecap="round"
-        strokeDasharray={c}
-        strokeDashoffset={c * (1 - pct / 100)}
-        style={{ transition: "stroke-dashoffset 1s var(--ease-out-expo)" }}
-      />
-    </svg>
-  );
-}
+import { MODULE_STATUS_META, ModuleStatus, useProgress } from "@/lib/progress";
+import { PROBLEMS, isSolvable } from "@/lib/problems";
+import { useAuth } from "@/lib/auth";
 
 const STATUSES: ModuleStatus[] = ["reading", "practicing", "complete", "skipped"];
 
 export default function ProgressPage() {
-  const { modules, problems, reset, ready } = useProgress();
+  const { modules, problems, reset, ready, synced, syncing } = useProgress();
+  const { configured, session } = useAuth();
   const mods = allModules();
-  const totalProblems = mods.reduce((n, m) => n + m.module.problems.length, 0);
-  const solved = Object.values(problems).filter(
-    (s) => s === "solved" || s === "reviewed"
-  ).length;
+
+  const solved = PROBLEMS.filter((p) => {
+    const s = problems[p.id];
+    return s === "solved" || s === "reviewed";
+  }).length;
   const complete = mods.filter((m) => modules[m.module.slug] === "complete").length;
-  const pct = Math.round((complete / mods.length) * 100);
+  const solvable = PROBLEMS.filter(isSolvable).length;
 
   return (
     <>
       <Nav />
-      <main className="mx-auto max-w-5xl px-6 pb-28 pt-14">
-        <h1 className="text-3xl font-bold tracking-tight text-[var(--text-strong)]">
-          My progress
+      <main className="mx-auto max-w-3xl px-6 pb-24 pt-10">
+        <p className="label">Progress</p>
+        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--ink-strong)]">
+          Where you are
         </h1>
+
+        <p className="sans mt-3 text-sm text-[var(--ink-soft)]">
+          {synced ? (
+            syncing ? (
+              "Syncing with your account."
+            ) : (
+              "Saved to your account and available on any device you sign in from."
+            )
+          ) : configured && !session ? (
+            <>
+              Saved in this browser only.{" "}
+              <Link href="/login" className="link">
+                Sign in
+              </Link>{" "}
+              to keep it across devices.
+            </>
+          ) : (
+            "Saved in this browser."
+          )}
+        </p>
 
         {ready && (
           <>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              <div className="panel flex items-center gap-6 p-6 md:col-span-1">
-                <div className="relative">
-                  <Ring pct={pct} />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-2xl font-bold text-[var(--text-strong)]">
-                      {pct}%
-                    </span>
-                    <span className="text-[0.65rem] font-medium uppercase tracking-wide text-[var(--ink-faint)]">
-                      complete
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="panel p-6">
-                <div className="text-xs font-medium text-[var(--text-dim)]">
-                  Modules complete
-                </div>
-                <div className="mt-2 text-4xl font-bold text-[var(--text-strong)]">
-                  {complete}
-                  <span className="text-2xl text-[var(--ink-faint)]"> / {mods.length}</span>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {STATUSES.map((s) => {
-                    const n = mods.filter((m) => modules[m.module.slug] === s).length;
-                    return (
-                      <span
-                        key={s}
-                        className="flex items-center gap-1.5 text-xs text-[var(--text-dim)]"
-                      >
-                        <span
-                          className="h-2 w-2 rounded-full"
-                          style={{ background: MODULE_STATUS_META[s].color }}
-                        />
-                        {n} {MODULE_STATUS_META[s].label.toLowerCase()}
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
-              <div className="panel p-6">
-                <div className="text-xs font-medium text-[var(--text-dim)]">
-                  Problems solved
-                </div>
-                <div className="mt-2 text-4xl font-bold text-[var(--text-strong)]">
-                  {solved}
-                  <span className="text-2xl text-[var(--ink-faint)]"> / {totalProblems}</span>
-                </div>
-                <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-[var(--panel-2)]">
-                  <div
-                    className="h-full rounded-full bg-[var(--status-complete)] transition-[width] duration-700"
-                    style={{ width: `${(solved / totalProblems) * 100}%` }}
+            <dl className="mt-8 grid grid-cols-2 gap-y-6 border-y border-[var(--rule)] py-6 sm:grid-cols-3">
+              <Stat label="Modules complete" value={`${complete}`} of={`${mods.length}`} />
+              <Stat label="Problems solved" value={`${solved}`} of={`${PROBLEMS.length}`} />
+              <Stat label="Solvable on site" value={`${solvable}`} of={`${PROBLEMS.length}`} />
+            </dl>
+
+            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1">
+              {STATUSES.map((s) => (
+                <span key={s} className="sans flex items-center gap-1.5 text-xs text-[var(--ink-soft)]">
+                  <span
+                    className="inline-block h-2 w-2 rounded-full"
+                    style={{ background: MODULE_STATUS_META[s].color }}
                   />
-                </div>
-              </div>
+                  {mods.filter((m) => modules[m.module.slug] === s).length}{" "}
+                  {MODULE_STATUS_META[s].label.toLowerCase()}
+                </span>
+              ))}
             </div>
 
-            {/* per-division heatmap */}
-            {DIVISIONS.map((d) => (
-              <section key={d.id} className="mt-12">
-                <h2 className="text-lg font-semibold text-[var(--text-strong)]">
-                  {d.name}
+            {DIVISIONS.map((course) => (
+              <section key={course.id} className="mt-10">
+                <h2 className="label border-b border-[var(--rule-strong)] pb-1.5">
+                  {course.name}
                 </h2>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {d.sections.flatMap((s) =>
+                <ul className="mt-3">
+                  {course.sections.flatMap((s) =>
                     s.modules.map((m) => {
                       const st = modules[m.slug] ?? "not-started";
                       return (
-                        <Link
+                        <li
                           key={m.slug}
-                          href={`/guide/${m.slug}`}
-                          title={`${m.title}: ${MODULE_STATUS_META[st].label}`}
-                          className="group flex h-10 w-10 items-center justify-center rounded-lg border transition-transform hover:scale-110"
-                          style={{
-                            borderColor:
-                              st === "not-started"
-                                ? "var(--line)"
-                                : MODULE_STATUS_META[st].color,
-                            background:
-                              st === "not-started"
-                                ? "var(--panel)"
-                                : `color-mix(in srgb, ${MODULE_STATUS_META[st].color} 18%, var(--panel))`,
-                          }}
+                          className="flex items-baseline gap-3 border-b border-[var(--rule)] py-2"
                         >
                           <span
-                            className="h-2 w-2 rounded-full"
+                            className="inline-block h-2 w-2 shrink-0 rounded-full"
                             style={{ background: MODULE_STATUS_META[st].color }}
                           />
-                        </Link>
+                          <Link
+                            href={`/guide/${m.slug}`}
+                            className="min-w-0 flex-1 truncate text-[0.97rem] hover:text-[var(--accent)]"
+                          >
+                            {m.title}
+                          </Link>
+                          <span className="label shrink-0">
+                            {MODULE_STATUS_META[st].label}
+                          </span>
+                        </li>
                       );
                     })
                   )}
-                </div>
+                </ul>
               </section>
             ))}
 
             <button
               onClick={() => {
-                if (confirm("Reset all local progress? This cannot be undone.")) reset();
+                if (confirm("Clear all progress? This cannot be undone.")) reset();
               }}
-              className="mt-14 text-xs text-[var(--ink-faint)] transition-colors hover:text-[var(--diff-insane)]"
+              className="sans mt-10 text-sm text-[var(--ink-faint)] hover:text-[var(--bad)]"
             >
-              ✕ Reset all progress
+              Clear all progress
             </button>
           </>
         )}
       </main>
     </>
+  );
+}
+
+function Stat({ label, value, of }: { label: string; value: string; of: string }) {
+  return (
+    <div>
+      <dt className="label">{label}</dt>
+      <dd className="tabular mt-1 text-3xl font-semibold text-[var(--ink-strong)]">
+        {value}
+        <span className="text-lg font-normal text-[var(--ink-faint)]"> / {of}</span>
+      </dd>
+    </div>
   );
 }

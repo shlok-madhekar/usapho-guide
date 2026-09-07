@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Slider, SimShell } from "./SimShell";
+import { Slider, SimShell, simColors } from "./SimShell";
 
 export default function CollisionSim() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -23,6 +23,7 @@ export default function CollisionSim() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    const C = simColors();
     const ctx = canvas.getContext("2d")!;
     const dpr = window.devicePixelRatio || 1;
     const W = canvas.clientWidth;
@@ -68,7 +69,7 @@ export default function CollisionSim() {
       ctx.clearRect(0, 0, W, H);
 
       // floor
-      ctx.strokeStyle = "#d6d3cc";
+      ctx.strokeStyle = C.faint;
       ctx.beginPath();
       ctx.moveTo(0, floor);
       ctx.lineTo(W, floor);
@@ -79,7 +80,7 @@ export default function CollisionSim() {
         ctx.beginPath();
         ctx.roundRect(x, floor - size, size, size, 4);
         ctx.fill();
-        ctx.fillStyle = "#fff";
+        ctx.fillStyle = C.paper;
         ctx.font = "11px sans-serif";
         ctx.textAlign = "center";
         ctx.fillText(label, x + size / 2, floor - size / 2 + 4);
@@ -87,7 +88,7 @@ export default function CollisionSim() {
         if (Math.abs(vel) > 0.05) {
           const cx = x + size / 2;
           const y = floor - size - 12;
-          ctx.strokeStyle = "#57534e";
+          ctx.strokeStyle = C.ink;
           ctx.beginPath();
           ctx.moveTo(cx, y);
           ctx.lineTo(cx + vel * 9, y);
@@ -98,8 +99,8 @@ export default function CollisionSim() {
         }
       };
 
-      block(st.x1, s1, "#1d4ed8", "m₁", st.v1);
-      block(st.x2, s2, "#0f766e", "m₂", st.v2);
+      block(st.x1, s1, C.figure, "m1", st.v1);
+      block(st.x2, s2, C.accent, "m2", st.v2);
 
       raf = requestAnimationFrame(draw);
     };
@@ -110,16 +111,16 @@ export default function CollisionSim() {
   return (
     <SimShell
       title="Collision lab"
-      note={`after: v₁ = ${v1f.toFixed(2)}, v₂ = ${v2f.toFixed(2)} m/s · KE lost: ${keLossPct.toFixed(0)}%`}
+      note={`after: v1 = ${v1f.toFixed(2)}, v2 = ${v2f.toFixed(2)} m/s, KE lost ${keLossPct.toFixed(0)}%`}
       canvasRef={canvasRef}
       canvasClass="h-44 w-full"
       controls={
         <>
-          <Slider label="Mass m₁ (moving)" unit="kg" value={m1} min={0.5} max={5} step={0.5} onChange={setM1} />
-          <Slider label="Mass m₂ (at rest)" unit="kg" value={m2} min={0.5} max={5} step={0.5} onChange={setM2} />
+          <Slider label="Mass m1 (moving)" unit="kg" value={m1} min={0.5} max={5} step={0.5} onChange={setM1} />
+          <Slider label="Mass m2 (at rest)" unit="kg" value={m2} min={0.5} max={5} step={0.5} onChange={setM2} />
           <div>
-            <Slider label="Initial speed u₁" unit="m/s" value={u1} min={1} max={5} step={0.5} onChange={setU1} />
-            <label className="mt-3 flex items-center gap-2 text-xs font-medium text-[var(--text-dim)]">
+            <Slider label="Initial speed u1" unit="m/s" value={u1} min={1} max={5} step={0.5} onChange={setU1} />
+            <label className="sans mt-3 flex items-center gap-2 text-xs text-[var(--ink-soft)]">
               <input
                 type="checkbox"
                 checked={elastic}

@@ -1,105 +1,60 @@
-## The core idea
+## Two problems, one clock
 
-Projectile motion is two **independent** 1D problems wearing a trench coat.
-Horizontally, nothing pushes: constant velocity. Vertically, gravity acts:
-constant acceleration. The clock $t$ is the only thing the two directions share.
+Nothing pushes a projectile sideways, so its horizontal velocity never
+changes. Gravity pulls it down, so its vertical velocity changes at a constant
+rate. Those are two separate one-dimensional problems. The only thing they
+share is the clock.
 
-$$x(t) = v_0\cos\theta\, t, \qquad y(t) = v_0\sin\theta\, t - \tfrac{1}{2}gt^2$$
+$$x(t) = v_0\cos\theta\; t, \qquad y(t) = v_0\sin\theta\; t - \tfrac{1}{2}gt^2$$
 
-Eliminating $t$ gives the trajectory, a parabola whose shape depends only on
-the launch conditions:
+Solve the first for $t$ and substitute into the second and the time drops out,
+leaving the path itself:
 
-$$y = x\tan\theta - \frac{g x^2}{2v_0^2\cos^2\theta}$$
+$$y = x\tan\theta - \frac{g\,x^2}{2v_0^2\cos^2\theta}$$
 
-## Play with it
+A parabola, fixed entirely by the launch speed and angle.
 
-Before memorizing formulas, build intuition. Watch what the angle does to
-range versus height, and what happens on the Moon ($g \approx 1.6$ m/s²):
+<Figure caption={<><b>Figure 1.</b> Launch speed, angle, and gravity. The dashed curve is the full flight; the teal arrow is the velocity vector, whose horizontal component never changes. Try 30° against 60°, then drop gravity to 1.6 m/s² for the Moon.</>}>
+  <ProjectileSim />
+</Figure>
 
-<ProjectileSim />
+## Results worth memorizing
 
-<Callout label="Observation">
-  Range is maximized at $\theta = 45^\circ$, and angles $45^\circ \pm \alpha$
-  give the *same* range. F=ma loves testing this symmetry.
-</Callout>
+For launch and landing at the same height:
 
-## Key results worth knowing cold
+$$R = \frac{v_0^2 \sin 2\theta}{g}, \qquad H = \frac{v_0^2 \sin^2\theta}{2g}, \qquad T = \frac{2 v_0 \sin\theta}{g}$$
 
-- Range on flat ground: $R = \frac{v_0^2 \sin 2\theta}{g}$
-- Max height: $H = \frac{v_0^2 \sin^2\theta}{2g}$
-- Flight time: $T = \frac{2 v_0 \sin\theta}{g}$
-- On an incline of angle $\phi$, maximize range by launching at
-  $\theta = 45^\circ + \phi/2$ from horizontal
+Two consequences are tested constantly. Range peaks at 45°, and because
+$\sin 2\theta$ is symmetric about that peak, any pair of complementary angles
+covers the same ground: 30° and 60° land in the same place, though the steeper
+one takes longer to get there.
 
-<Callout label="Olympiad trap" warn>
-  These formulas assume launch and landing at the same height. The moment a
-  cliff, incline, or bounce appears, go back to the component equations.
-  Plugging into $R = v_0^2\sin2\theta/g$ blindly is the classic wrong answer
-  choice.
-</Callout>
+On a slope of angle $\phi$, the range is largest at
+$\theta = 45^\circ + \phi/2$, measured from the horizontal. Uphill you aim
+higher; downhill you aim flatter.
+
+<Aside label="Where this goes wrong" warn>
+  Every formula above assumes the projectile lands at its launch height. A
+  cliff, a slope, or a bounce breaks that assumption, and the range formula
+  quietly gives the wrong answer instead of failing loudly. When the ground
+  moves, go back to the two component equations.
+</Aside>
 
 <QuickCheck
-  question="A ball is launched at 30° and another at 60°, same speed, from flat ground. Which lands first?"
-  options={["The 30° ball", "The 60° ball", "They land together", "Depends on the speed"]}
+  question="Two balls are launched at the same speed, one at 30° and one at 60°, over level ground. Which lands first?"
+  options={["The 30° ball", "The 60° ball", "They land together", "It depends on the speed"]}
   answer={0}
-  explanation={
-    <span>
-      Flight time depends only on the <em>vertical</em> velocity component, so
-      the 30° launch spends less time in the air even though both travel the
-      same range.
-    </span>
-  }
+  explanation="Time in the air depends only on the vertical velocity, and 30° puts less of the launch speed into the vertical. Both balls travel the same horizontal distance; the flatter one just does it faster."
 />
 
-## Solve it here
+## Working with the components
 
-<Problem
-  id="np-proj-1"
-  number={1}
-  title="Off the cliff"
-  difficulty="Normal"
-  answer={45}
-  unit="m"
->
-  A ball is thrown horizontally at 15 m/s from a cliff 45 m high. Using
-  $g = 10$ m/s², how far from the base of the cliff does it land, in meters?
+When the geometry stops being symmetric, the reliable move is to write down
+$x(t)$ and $y(t)$, impose whatever condition the problem gives you (lands on a
+slope, clears a wall, hits a moving target), and solve. It is slower than
+recalling a formula and it never fails.
 
-  <Hint>
-    The vertical motion alone sets the flight time. Find it from
-    $h = \tfrac12 g t^2$, then use it horizontally.
-  </Hint>
-  <Solution>
-    Time to fall 45 m:
-
-    $$t = \sqrt{\frac{2h}{g}} = \sqrt{\frac{2(45)}{10}} = 3 \text{ s}$$
-
-    Horizontal range: $x = v_x t = 15 \times 3 = 45$ m. The horizontal and
-    vertical motions never mix.
-  </Solution>
-</Problem>
-
-<Problem
-  id="np-proj-2"
-  number={2}
-  title="Same range, two angles"
-  difficulty="Hard"
-  answer={65}
-  unit="°"
-  tolerancePct={1}
->
-  A projectile launched at 25° travels a certain range on flat ground. What
-  other launch angle, in degrees, gives the same range at the same speed?
-
-  <Hint>
-    Range goes as $\sin 2\theta$, and $\sin(180^\circ - x) = \sin x$.
-  </Hint>
-  <Solution>
-    The range formula $R = v_0^2 \sin 2\theta / g$ gives equal ranges when
-    $2\theta_1$ and $2\theta_2$ are supplementary:
-
-    $$2\theta_2 = 180^\circ - 50^\circ \implies \theta_2 = 65^\circ$$
-
-    In general, complementary launch angles $\theta$ and $90^\circ - \theta$
-    share a range.
-  </Solution>
-</Problem>
+A worked instance: a ball thrown horizontally at 15 m/s from a 45 m cliff. The
+vertical drop sets the clock, $t = \sqrt{2h/g} = 3$ s, and the horizontal
+motion is uniform, so it lands 45 m out. At no point did the two directions
+talk to each other.

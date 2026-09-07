@@ -17,7 +17,7 @@ function ThemeToggle() {
       onClick={toggle}
       aria-label={`Switch to ${resolved === "dark" ? "light" : "dark"} mode`}
       title={`Switch to ${resolved === "dark" ? "light" : "dark"} mode`}
-      className="flex h-8 w-8 items-center justify-center rounded-lg text-[var(--text-dim)] transition-colors hover:bg-[var(--panel-2)] hover:text-[var(--text-strong)]"
+      className="flex h-7 w-7 items-center justify-center text-[var(--ink-faint)] transition-colors hover:text-[var(--ink-strong)]"
     >
       {resolved === "dark" ? (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -53,7 +53,7 @@ function AccountMenu() {
     return (
       <Link
         href="/login"
-        className="rounded-lg border border-[var(--line-bright)] px-3 py-1.5 text-sm text-[var(--text)] transition-colors hover:bg-[var(--panel-2)]"
+        className="sans text-sm text-[var(--ink-soft)] hover:text-[var(--ink-strong)]"
       >
         Sign in
       </Link>
@@ -67,18 +67,18 @@ function AccountMenu() {
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--link)] text-sm font-semibold text-white"
+        className="sans flex h-7 w-7 items-center justify-center rounded-full bg-[var(--ink-strong)] text-xs font-semibold text-[var(--paper)]"
         aria-label="Account menu"
       >
         {initial}
       </button>
       {open && (
-        <div className="panel absolute right-0 top-full z-40 mt-2 w-60 p-1 shadow-lg">
-          <div className="border-b border-[var(--line)] px-3 py-2">
-            <div className="truncate text-sm font-medium text-[var(--text-strong)]">
+        <div className="absolute right-0 top-full z-40 mt-2 w-60 border border-[var(--rule-strong)] bg-[var(--panel)] py-1">
+          <div className="border-b border-[var(--rule)] px-3 py-2">
+            <div className="sans truncate text-sm font-medium text-[var(--ink-strong)]">
               {name}
             </div>
-            <div className="truncate text-xs text-[var(--text-dim)]">
+            <div className="sans truncate text-xs text-[var(--ink-soft)]">
               {profile?.email}
             </div>
             {profile?.roles.length ? (
@@ -86,21 +86,21 @@ function AccountMenu() {
                 {profile.roles.map((r) => (
                   <span
                     key={r}
-                    className="rounded bg-[var(--panel-2)] px-1.5 py-0.5 text-[0.65rem] font-medium text-[var(--text-dim)]"
+                    className="label"
                   >
                     {ROLE_LABEL[r]}
                   </span>
                 ))}
               </div>
             ) : (
-              <div className="mt-1 text-xs text-[var(--ink-faint)]">Reader</div>
+              <div className="sans mt-1 text-xs text-[var(--ink-faint)]">Reader</div>
             )}
           </div>
           {(canEditLessons(profile) || canEditProblems(profile)) && (
             <Link
               href="/edit"
               onClick={() => setOpen(false)}
-              className="block rounded-lg px-3 py-2 text-sm text-[var(--text)] hover:bg-[var(--panel-2)]"
+              className="sans block px-3 py-1.5 text-sm text-[var(--ink)] hover:bg-[var(--paper-2)]"
             >
               Content editor
             </Link>
@@ -108,7 +108,7 @@ function AccountMenu() {
           <Link
             href="/account"
             onClick={() => setOpen(false)}
-            className="block rounded-lg px-3 py-2 text-sm text-[var(--text)] hover:bg-[var(--panel-2)]"
+            className="sans block px-3 py-1.5 text-sm text-[var(--ink)] hover:bg-[var(--paper-2)]"
           >
             Account
           </Link>
@@ -117,7 +117,7 @@ function AccountMenu() {
               signOut();
               setOpen(false);
             }}
-            className="block w-full rounded-lg px-3 py-2 text-left text-sm text-[var(--text-dim)] hover:bg-[var(--panel-2)]"
+            className="sans block w-full px-3 py-1.5 text-left text-sm text-[var(--ink-soft)] hover:bg-[var(--paper-2)]"
           >
             Sign out
           </button>
@@ -136,19 +136,20 @@ export default function Nav() {
   ).length;
 
   const links = [
-    { href: "/guide", label: "Guide" },
-    { href: "/progress", label: "My Progress" },
+    { href: "/guide", label: "Course" },
+    { href: "/problems", label: "Problems" },
+    { href: "/progress", label: "Progress" },
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[color:var(--void)]/90 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5">
+    <header className="sticky top-0 z-40 border-b border-[var(--rule)] bg-[color:var(--paper)]/95 backdrop-blur">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
         <Link
           href="/"
-          className="flex items-center gap-2.5 text-[17px] font-bold text-[var(--text-strong)]"
+          className="flex items-center gap-2.5 text-[17px] font-semibold tracking-tight text-[var(--ink-strong)]"
         >
           <Logo />
-          USAPhO <span className="-ml-1 text-[var(--link)]">Guide</span>
+          USAPhO <span className="-ml-1 font-normal italic text-[var(--ink-soft)]">Guide</span>
         </Link>
 
         <nav className="flex items-center gap-4 text-sm sm:gap-5">
@@ -156,17 +157,17 @@ export default function Nav() {
             <Link
               key={l.href}
               href={l.href}
-              className={`link-underline hidden sm:inline ${
+              className={`sans hidden text-sm sm:inline ${
                 pathname.startsWith(l.href)
-                  ? "font-medium text-[var(--text-strong)]"
-                  : "text-[var(--text-dim)]"
+                  ? "font-medium text-[var(--ink-strong)]"
+                  : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
               }`}
             >
               {l.label}
             </Link>
           ))}
           {ready && done > 0 && (
-            <span className="font-mono-num hidden rounded border border-[var(--line)] bg-[var(--panel-2)] px-2 py-0.5 text-xs text-[var(--text-dim)] md:inline-block">
+            <span className="tabular sans hidden text-xs text-[var(--ink-faint)] md:inline">
               {done}/{total}
             </span>
           )}

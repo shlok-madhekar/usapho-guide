@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Slider } from "./SimShell";
+import { Slider, simColors } from "./SimShell";
 
 export default function SpringSim() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -21,6 +21,7 @@ export default function SpringSim() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    const C = simColors();
     const ctx = canvas.getContext("2d")!;
     const dpr = window.devicePixelRatio || 1;
     const W = canvas.clientWidth;
@@ -47,11 +48,11 @@ export default function SpringSim() {
       ctx.clearRect(0, 0, W, H);
 
       // wall
-      ctx.fillStyle = "#d6d3cc";
+      ctx.fillStyle = C.faint;
       ctx.fillRect(wallX - 8, midY - 44, 8, 88);
 
       // spring zigzag
-      ctx.strokeStyle = "#b45309";
+      ctx.strokeStyle = C.accent;
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(wallX, midY);
@@ -65,7 +66,7 @@ export default function SpringSim() {
       ctx.stroke();
 
       // equilibrium line
-      ctx.strokeStyle = "#e5e3dd";
+      ctx.strokeStyle = C.rule;
       ctx.setLineDash([3, 5]);
       ctx.beginPath();
       ctx.moveTo(eqX, midY - 52);
@@ -74,24 +75,24 @@ export default function SpringSim() {
       ctx.setLineDash([]);
 
       // mass
-      ctx.fillStyle = "#d97706";
+      ctx.fillStyle = C.accent;
       ctx.beginPath();
       ctx.roundRect(massX - 18, midY - 18, 36, 36, 6);
       ctx.fill();
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "11px monospace";
+      ctx.fillStyle = C.paper;
+      ctx.font = "11px ui-sans-serif, system-ui, sans-serif";
       ctx.textAlign = "center";
       ctx.fillText("m", massX, midY + 4);
 
       // x(t) trace
       const gy = H * 0.72;
-      ctx.strokeStyle = "#e5e3dd";
+      ctx.strokeStyle = C.rule;
       ctx.beginPath();
       ctx.moveTo(20, gy);
       ctx.lineTo(W - 20, gy);
       ctx.stroke();
 
-      ctx.strokeStyle = "#0f766e";
+      ctx.strokeStyle = C.figure;
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       trace.forEach((v, i) => {
@@ -101,8 +102,8 @@ export default function SpringSim() {
       });
       ctx.stroke();
 
-      ctx.fillStyle = "#0f766e";
-      ctx.font = "10px monospace";
+      ctx.fillStyle = C.figure;
+      ctx.font = "10px ui-sans-serif, system-ui, sans-serif";
       ctx.textAlign = "left";
       ctx.fillText("x(t)", 24, gy - 40);
 

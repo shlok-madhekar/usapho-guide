@@ -1,87 +1,48 @@
-## Describing motion
+## Definitions, then everything else
 
-Everything in kinematics flows from two definitions: $v = \frac{dx}{dt}$ and
-$a = \frac{dv}{dt}$. For constant acceleration these integrate into the
-familiar suvat equations:
+Velocity is how position changes, acceleration is how velocity changes:
 
-$$v = v_0 + at, \qquad x = v_0 t + \tfrac{1}{2}at^2, \qquad v^2 = v_0^2 + 2a\Delta x$$
+$$v = \frac{dx}{dt}, \qquad a = \frac{dv}{dt}$$
 
-The third equation is the time-free one. Reach for it whenever a problem never
-mentions time.
+Hold $a$ constant and integrate twice and you get the three equations you will
+use for the rest of the year:
 
-## Graphs are the real language
+$$v = v_0 + at, \qquad x = v_0 t + \tfrac{1}{2}at^2, \qquad v^2 = v_0^2 + 2a\,\Delta x$$
 
-- Slope of $x$&ndash;$t$ is velocity; slope of $v$&ndash;$t$ is acceleration
-- Area under $v$&ndash;$t$ is displacement (signed area, not distance)
-- Area under $a$&ndash;$t$ is the change in velocity
+The third is the useful one, because it contains no time. Whenever a problem
+gives you speeds and a distance but never mentions seconds, that is the
+equation it wants.
 
-Play with the initial velocity and acceleration below. Notice how the
-turnaround (where $v = 0$) shows up as the peak of the position curve:
+## Reading graphs
 
-<MotionGraphSim />
+Most exam questions on this topic are graph questions in disguise.
 
-<Callout label="Olympiad trap" warn>
-  Average velocity is $\Delta x / \Delta t$, not the average of initial and
-  final speeds. That shortcut only works when acceleration is constant.
-  Round-trip average speed problems punish this relentlessly.
-</Callout>
+- The slope of a position graph is velocity; the slope of a velocity graph is acceleration.
+- The area under a velocity graph is displacement. It is signed area, so time spent moving backwards subtracts.
+- The area under an acceleration graph is the change in velocity, not the velocity itself.
+
+<Figure caption={<><b>Figure 1.</b> Position and velocity for constant acceleration. Where the velocity crosses zero, the position curve turns around. Set the initial velocity and acceleration to the same sign and the turnaround disappears entirely.</>}>
+  <MotionGraphSim />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  Average velocity is $\Delta x/\Delta t$. It equals the average of the initial
+  and final speeds only when the acceleration is constant, and problems about
+  round trips or two-leg journeys are built specifically to punish anyone who
+  forgets that.
+</Aside>
 
 <QuickCheck
-  question="You drive half the distance at 30 mph and half at 60 mph. Your average speed is:"
+  question="You drive half the distance of a trip at 30 mph and the other half at 60 mph. Your average speed is:"
   options={["45 mph", "40 mph", "50 mph", "Not enough information"]}
   answer={1}
-  explanation={
-    <span>
-      Equal distances, unequal times: the harmonic mean applies, giving 40 mph.
-      You spend twice as long at 30 mph, dragging the average below 45.
-    </span>
-  }
+  explanation="Equal distances, unequal times: you spend twice as long on the slow half, so it dominates. The result is the harmonic mean, 40 mph, always below the arithmetic average of 45."
 />
 
-## Solve it here
+## Free fall
 
-<Problem
-  id="np-k1d-1"
-  number={1}
-  title="The late train"
-  difficulty="Easy"
-  answer={375}
-  unit="m"
->
-  A train moving at 30 m/s applies its brakes and decelerates uniformly at
-  1.2 m/s². How far does it travel before stopping, in meters?
-
-  <Hint>
-    No time is given, so use the time-free equation
-    $v^2 = v_0^2 + 2a\Delta x$.
-  </Hint>
-  <Solution>
-    Set the final velocity to zero and solve for the displacement:
-
-    $$\Delta x = \frac{v_0^2}{2a} = \frac{30^2}{2(1.2)} = 375 \text{ m}$$
-  </Solution>
-</Problem>
-
-<Problem
-  id="np-k1d-2"
-  number={2}
-  title="Two-speed road trip"
-  difficulty="Normal"
-  answer={48}
-  unit="mph"
->
-  You drive the first half of a trip's *distance* at 40 mph and the second
-  half at 60 mph. What is your average speed for the whole trip, in mph?
-
-  <Hint>
-    Equal distances take unequal times. Compute the total time for a distance
-    $2d$ and divide.
-  </Hint>
-  <Solution>
-    For each half of length $d$, the times are $d/40$ and $d/60$. So
-
-    $$\bar v = \frac{2d}{\frac{d}{40}+\frac{d}{60}} = \frac{2}{\frac{1}{40}+\frac{1}{60}} = 48 \text{ mph}$$
-
-    This is the harmonic mean, always less than the naive average of 50 mph.
-  </Solution>
-</Problem>
+Near the ground, and ignoring air, everything accelerates downward at the same
+$g$ regardless of mass. The subtlety is almost never the acceleration; it is
+the initial condition. An object released from a moving platform leaves with
+the platform's velocity, which is why a sandbag dropped from a rising balloon
+first goes up.

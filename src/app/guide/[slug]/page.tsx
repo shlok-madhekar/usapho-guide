@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
-import ProblemTable from "@/components/ProblemTable";
+import BankProblem from "@/components/BankProblem";
 import { FreqMeter, StatusPicker } from "@/components/ModuleBits";
+import ModuleSidebar from "@/components/ModuleSidebar";
 import { allModules, findModule } from "@/lib/curriculum";
 import { LESSONS } from "@/content/lessons";
-import ModuleSidebar from "@/components/ModuleSidebar";
+import { problemsForModule, isSolvable } from "@/lib/problems";
 
 export function generateStaticParams() {
   return allModules().map(({ module }) => ({ slug: module.slug }));
@@ -22,45 +23,45 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
   const next = flat[idx + 1]?.module;
   const Lesson = LESSONS[mod.slug];
 
+  const problems = problemsForModule(mod.slug);
+  const solvable = problems.filter(isSolvable);
+  const references = problems.filter((p) => !isSolvable(p));
+
   return (
     <>
       <Nav />
-      <div className="mx-auto flex max-w-7xl gap-10 px-6">
+      <div className="mx-auto flex max-w-6xl gap-12 px-6">
         <ModuleSidebar activeSlug={mod.slug} divisionId={division.id} />
 
-        <main className="min-w-0 flex-1 pb-28 pt-12">
-          {/* breadcrumb */}
-          <p className="text-xs text-[var(--ink-faint)]">
-            <Link href="/guide" className="hover:text-[var(--brass)]">
+        <main className="min-w-0 flex-1 pb-24 pt-10">
+          <p className="label">
+            <Link href="/guide" className="hover:text-[var(--ink)]">
               {division.name}
             </Link>
             <span className="mx-2">/</span>
             {section.title}
           </p>
 
-          <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
-            <h1 className="max-w-2xl text-3xl font-bold tracking-tight text-[var(--text-strong)]">
+          <div className="mt-3 flex items-start justify-between gap-6">
+            <h1 className="max-w-[30rem] text-[2.1rem] font-semibold leading-[1.15] tracking-tight text-[var(--ink-strong)]">
               {mod.title}
             </h1>
-            <StatusPicker slug={mod.slug} />
+            <div className="pt-2">
+              <StatusPicker slug={mod.slug} />
+            </div>
           </div>
 
-          <p className="mt-3 max-w-2xl text-[var(--text-dim)]">
-            {mod.description}
-          </p>
+          <p className="prose mt-3 text-[var(--ink-soft)]">{mod.description}</p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-6 border-y border-[var(--line)] py-4">
+          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-[var(--rule)] py-2.5">
             <FreqMeter f={mod.frequency} />
-            <span className="text-xs text-[var(--ink-faint)]">~{mod.minutes} min read</span>
+            <span className="label">{mod.minutes} min read</span>
+            <span className="label">{problems.length} problems</span>
             {mod.prereqs?.length ? (
-              <span className="flex items-center gap-2 text-xs text-[var(--ink-faint)]">
-                Prereqs:
+              <span className="label">
+                after{" "}
                 {mod.prereqs.map((p) => (
-                  <Link
-                    key={p}
-                    href={`/guide/${p}`}
-                    className="text-link"
-                  >
+                  <Link key={p} href={`/guide/${p}`} className="link normal-case">
                     {allModules().find((x) => x.module.slug === p)?.module.title ?? p}
                   </Link>
                 ))}
@@ -68,59 +69,65 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
             ) : null}
           </div>
 
-          {/* content */}
-          <article className="prose-phys mt-4">
+          <article className="prose mt-8">
             {Lesson ? (
               <Lesson />
             ) : (
-              <div className="callout mt-8">
-                <div className="callout-label">Coming soon</div>
-                <p>
-                  Full interactive content for this module is being written.
-                  The curated problem set below is ready, so start there and use
-                  the sources listed as your reading.
-                </p>
-              </div>
+              <p className="text-[var(--ink-soft)]">
+                This module has no written notes yet. The problems below are
+                still worth working through.
+              </p>
             )}
           </article>
 
-          {/* problems */}
-          <section className="mt-14">
-            <div className="flex items-baseline gap-4">
-              <h2 className="text-xl font-semibold text-[var(--text-strong)]">
-                Practice problems
+          {solvable.length > 0 && (
+            <section className="mt-14">
+              <h2 className="text-xl font-semibold text-[var(--ink-strong)]">
+                Problems
               </h2>
-              <span className="text-xs text-[var(--ink-faint)]">★ = do these first · click a dot to track</span>
-            </div>
-            <div className="mt-5">
-              <ProblemTable problems={mod.problems} />
-            </div>
-          </section>
+              <p className="mt-1 text-sm text-[var(--ink-soft)]">
+                Work these on paper, then check your answer here.
+              </p>
+              <div className="mt-4 border-t border-[var(--rule-strong)]">
+                {solvable.map((p, i) => (
+                  <BankProblem key={p.id} problem={p} index={i + 1} />
+                ))}
+              </div>
+            </section>
+          )}
 
-          {/* prev / next */}
-          <nav className="mt-14 grid gap-4 sm:grid-cols-2">
+          {references.length > 0 && (
+            <section className="mt-12">
+              <h2 className="label">Also worth doing</h2>
+              <p className="mt-2 text-sm text-[var(--ink-soft)]">
+                Problems from past exams and textbooks, cited rather than
+                reproduced.
+              </p>
+              <div className="mt-3 border-t border-[var(--rule-strong)]">
+                {references.map((p) => (
+                  <BankProblem key={p.id} problem={p} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          <nav className="mt-16 flex justify-between gap-6 border-t border-[var(--rule)] pt-5 text-sm">
             {prev ? (
-              <Link
-                href={`/guide/${prev.slug}`}
-                className="panel panel-hover p-5"
-              >
-                <span className="text-xs text-[var(--ink-faint)]">← Previous</span>
-                <div className="mt-1 font-medium text-[var(--text-strong)]">
+              <Link href={`/guide/${prev.slug}`} className="group">
+                <span className="label block">Previous</span>
+                <span className="text-[var(--ink)] group-hover:text-[var(--accent)]">
                   {prev.title}
-                </div>
+                </span>
               </Link>
             ) : (
               <span />
             )}
             {next && (
-              <Link
-                href={`/guide/${next.slug}`}
-                className="panel panel-hover p-5 text-right"
-              >
-                <span className="text-xs text-[var(--ink-faint)]">Next →</span>
-                <div className="mt-1 font-medium text-[var(--text-strong)]">
+              <Link href={`/guide/${next.slug}`} className="group text-right">
+                <span className="label block">Next</span>
+                <span className="text-[var(--ink)] group-hover:text-[var(--accent)]">
                   {next.title}
-                </div>
+                </span>
               </Link>
             )}
           </nav>

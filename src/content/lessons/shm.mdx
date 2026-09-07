@@ -1,62 +1,41 @@
-## The universal oscillator
+## The equation that defines it
 
-Any system with a restoring force proportional to displacement oscillates
-sinusoidally. The defining equation and its solution:
+Any restoring force proportional to displacement produces the same motion:
 
-$$\ddot x = -\omega^2 x \quad\Longrightarrow\quad x(t) = A\cos(\omega t + \phi)$$
+$$\ddot x = -\omega^2 x \quad \Longrightarrow \quad x(t) = A\cos(\omega t + \phi)$$
 
-For a spring, $\omega = \sqrt{k/m}$; for a simple pendulum,
-$\omega = \sqrt{g/\ell}$. Notice the amplitude never appears: period is
-amplitude-independent, the defining magic of SHM.
+For a spring $\omega = \sqrt{k/m}$; for a simple pendulum
+$\omega = \sqrt{g/\ell}$. The amplitude $A$ appears nowhere in $\omega$, which
+is the whole reason pendulum clocks work: the period does not care how far the
+bob swings.
 
-<SpringSim />
+<Figure caption={<><b>Figure 1.</b> Mass on a spring, with position plotted against time below. Change the amplitude and the trace gets taller but keeps its period; quadruple the mass and the period doubles.</>}>
+  <SpringSim />
+</Figure>
 
-<Callout label="Observation">
-  Crank the amplitude: the period doesn't budge. Quadruple the mass: the
-  period doubles, since $T \propto \sqrt{m}$.
-</Callout>
+## Finding the frequency of anything
 
-## The olympiad move: effective ω
+Most olympiad oscillation problems are not about springs. They give you a
+physical system, disturb it slightly, and ask for the frequency. The recipe is
+always the same: find the equilibrium, expand the net force to first order in
+the displacement from it, and read off $\omega^2$. Equivalently, from the
+potential:
 
-Most USAPhO oscillation problems are "find the frequency of small
-oscillations" in disguise. The recipe: find the equilibrium, expand the force
-(or potential) to first order in the displacement, and read off $\omega^2$
-from $\ddot x = -\omega^2 x$. Equivalently:
+$$\omega^2 = \frac{1}{m}\left.\frac{d^2U}{dx^2}\right|_{x_0}$$
 
-$$\omega^2 = \frac{1}{m}\left.\frac{d^2 U}{dx^2}\right|_{x_0}$$
+This is why the small-angle approximation matters so much. The pendulum is not
+a harmonic oscillator; it is a system whose restoring torque happens to be
+proportional to displacement once $\sin\theta \approx \theta$.
+
+<Aside label="Combining springs">
+  Springs in parallel share the displacement, so their constants add. In
+  series they share the force, so the reciprocals add, and the pair is always
+  softer than either spring alone.
+</Aside>
 
 <QuickCheck
-  question="A pendulum clock runs accurately at sea level. Taken up a mountain, it will:"
+  question="A pendulum clock keeps perfect time at sea level. Carried up a mountain, it will:"
   options={["Run slow", "Run fast", "Keep perfect time", "Stop"]}
   answer={0}
-  explanation={
-    <span>
-      Higher altitude means smaller g. Period goes as the inverse square root
-      of g, so it increases and each swing takes longer. The clock falls
-      behind.
-    </span>
-  }
+  explanation="Gravity is weaker at altitude, and the period goes as the inverse square root of g, so each swing takes slightly longer and the clock falls behind."
 />
-
-## Solve it here
-
-<Problem
-  id="np-shm-1"
-  number={1}
-  title="Quadrupling the mass"
-  difficulty="Normal"
-  answer={4}
-  unit="s"
->
-  A mass on a spring oscillates with a period of 2.0 s. The mass is
-  quadrupled. What is the new period, in seconds?
-
-  <Hint>
-    $T = 2\pi\sqrt{m/k}$, so period scales as $\sqrt{m}$.
-  </Hint>
-  <Solution>
-    $$T' = T\sqrt{\frac{4m}{m}} = 2T = 4 \text{ s}$$
-
-    Amplitude is irrelevant, which is the whole point of SHM.
-  </Solution>
-</Problem>

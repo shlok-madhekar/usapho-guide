@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light theme (default) and dark theme tokens.
+   Theme is set by data-theme on <html>; see ThemeProvider. */
 :root {
-  /* light, paper-like — closer to a docs site than a marketing page */
-  --void: #ffffff; /* page background */
+  --void: #ffffff;
   --ink: #fafaf9;
   --panel: #ffffff;
   --panel-2: #f6f6f4;
@@ -16,7 +17,7 @@
   --text-dim: #57534e;
   --ink-faint: #a8a29e;
 
-  --brass: #2563eb; /* primary accent (blue) */
+  --brass: #2563eb;
   --brass-bright: #1d4ed8;
   --copper: #c2410c;
   --teal: #0f766e;
@@ -33,9 +34,50 @@
   --diff-vhard: #c2410c;
   --diff-insane: #dc2626;
 
+  --ok-bg: #f0fdf4;
+  --bad-bg: #fef2f2;
+  --selection: #fde68a;
+
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 150ms;
   --duration-normal: 250ms;
+}
+
+[data-theme="dark"] {
+  --void: #0f1115;
+  --ink: #14171d;
+  --panel: #171a21;
+  --panel-2: #1d212a;
+  --line: #272c36;
+  --line-bright: #38404e;
+
+  --text: #d7dae1;
+  --text-strong: #f2f4f7;
+  --text-dim: #9aa1ad;
+  --ink-faint: #6b7280;
+
+  --brass: #7aa2f7;
+  --brass-bright: #93b5ff;
+  --copper: #f0883e;
+  --teal: #56d4c4;
+  --link: #7aa2f7;
+
+  --status-reading: #7aa2f7;
+  --status-practicing: #e3a008;
+  --status-complete: #4ade80;
+  --status-skipped: #6b7280;
+
+  --diff-easy: #4ade80;
+  --diff-normal: #7aa2f7;
+  --diff-hard: #e3a008;
+  --diff-vhard: #f0883e;
+  --diff-insane: #f87171;
+
+  --ok-bg: #0f2a1a;
+  --bad-bg: #2c1416;
+  --selection: #3b3050;
+
+  color-scheme: dark;
 }
 
 body {
@@ -45,6 +87,7 @@ body {
 
   background: var(--void);
   color: var(--text);
+  transition: background-color var(--duration-normal), color var(--duration-normal);
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.65;
@@ -52,7 +95,7 @@ body {
 }
 
 ::selection {
-  background: #fde68a;
+  background: var(--selection);
   color: var(--text-strong);
 }
 
@@ -207,8 +250,8 @@ input[type="range"]::-webkit-slider-thumb {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: var(--text-strong);
-  border: 2px solid #fff;
+  background: var(--link);
+  border: 2px solid var(--panel);
   box-shadow: 0 0 0 1px var(--line-bright);
   cursor: grab;
 }
@@ -230,4 +273,13 @@ a.text-link {
 }
 a.text-link:hover {
   text-decoration: underline;
+}
+
+/* form controls follow the theme */
+input, textarea, select {
+  background: var(--panel);
+  color: var(--text);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--ink-faint);
 }

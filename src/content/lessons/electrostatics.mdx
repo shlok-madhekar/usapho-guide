@@ -1,0 +1,68 @@
+## Gauss's law is a symmetry weapon
+
+The flux of the electric field through any closed surface counts the enclosed
+charge:
+
+$$\oint \vec E \cdot d\vec A = \frac{Q_{\text{enc}}}{\varepsilon_0}$$
+
+It is always true but only *useful* when symmetry lets you pull $E$ out of
+the integral. Three symmetries, three Gaussian surfaces: spherical means a
+concentric sphere, cylindrical means a coaxial can, planar means a pillbox.
+
+- Point / sphere: $E = \frac{kQ}{r^2}$ outside; inside a uniform sphere, $E \propto r$
+- Infinite line: $E = \frac{\lambda}{2\pi\varepsilon_0 r}$
+- Infinite sheet: $E = \frac{\sigma}{2\varepsilon_0}$, independent of distance
+
+## Conductors
+
+In electrostatic equilibrium, $\vec E = 0$ inside a conductor, all excess
+charge sits on the surface, and the surface is an equipotential. Cavity
+problems, where a charge sits inside a hollow conductor, are USAPhO staples:
+the induced surface charges shield the outside world from everything except
+the total enclosed charge.
+
+<Callout label="Olympiad trap" warn>
+  Gauss's law gives the field of *all* charges, using only the *enclosed*
+  charge. These are different roles. When symmetry is broken (say, an
+  off-center cavity), superposition, not Gauss alone, finishes the job.
+</Callout>
+
+<QuickCheck
+  question="A point charge sits at the center of an uncharged conducting shell. The field outside the shell is:"
+  options={["Zero, since the conductor shields it", "The same as the bare point charge", "Halved by the induced charges", "Doubled"]}
+  answer={1}
+  explanation={
+    <span>
+      Induction puts $-q$ on the inner surface and $+q$ on the outer surface,
+      so a Gaussian sphere outside encloses $q$ in total. The exterior field
+      is exactly that of the original point charge. Conductors shield their
+      insides, not their outsides.
+    </span>
+  }
+/>
+
+## Solve it here
+
+<Problem
+  id="np-es-1"
+  number={1}
+  title="Inside the sphere"
+  difficulty="Hard"
+  answer={450}
+  unit="N/C"
+>
+  A solid insulating sphere of radius $R = 0.2$ m carries charge distributed
+  uniformly through its volume. The field at its surface is 900 N/C. What is
+  the field magnitude, in N/C, at $r = 0.1$ m from the center?
+
+  <Hint>
+    Inside a uniform sphere, the enclosed charge scales as $r^3$ while the
+    Gaussian area scales as $r^2$.
+  </Hint>
+  <Solution>
+    Gauss's law with $Q_{\text{enc}} = Q (r/R)^3$ gives a field growing
+    linearly inside:
+
+    $$E(r) = E_{\text{surface}}\,\frac{r}{R} = 900 \times \frac{0.1}{0.2} = 450 \text{ N/C}$$
+  </Solution>
+</Problem>

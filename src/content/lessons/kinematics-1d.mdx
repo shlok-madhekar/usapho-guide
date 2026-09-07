@@ -1,0 +1,87 @@
+## Describing motion
+
+Everything in kinematics flows from two definitions: $v = \frac{dx}{dt}$ and
+$a = \frac{dv}{dt}$. For constant acceleration these integrate into the
+familiar suvat equations:
+
+$$v = v_0 + at, \qquad x = v_0 t + \tfrac{1}{2}at^2, \qquad v^2 = v_0^2 + 2a\Delta x$$
+
+The third equation is the time-free one. Reach for it whenever a problem never
+mentions time.
+
+## Graphs are the real language
+
+- Slope of $x$&ndash;$t$ is velocity; slope of $v$&ndash;$t$ is acceleration
+- Area under $v$&ndash;$t$ is displacement (signed area, not distance)
+- Area under $a$&ndash;$t$ is the change in velocity
+
+Play with the initial velocity and acceleration below. Notice how the
+turnaround (where $v = 0$) shows up as the peak of the position curve:
+
+<MotionGraphSim />
+
+<Callout label="Olympiad trap" warn>
+  Average velocity is $\Delta x / \Delta t$, not the average of initial and
+  final speeds. That shortcut only works when acceleration is constant.
+  Round-trip average speed problems punish this relentlessly.
+</Callout>
+
+<QuickCheck
+  question="You drive half the distance at 30 mph and half at 60 mph. Your average speed is:"
+  options={["45 mph", "40 mph", "50 mph", "Not enough information"]}
+  answer={1}
+  explanation={
+    <span>
+      Equal distances, unequal times: the harmonic mean applies, giving 40 mph.
+      You spend twice as long at 30 mph, dragging the average below 45.
+    </span>
+  }
+/>
+
+## Solve it here
+
+<Problem
+  id="np-k1d-1"
+  number={1}
+  title="The late train"
+  difficulty="Easy"
+  answer={375}
+  unit="m"
+>
+  A train moving at 30 m/s applies its brakes and decelerates uniformly at
+  1.2 m/s². How far does it travel before stopping, in meters?
+
+  <Hint>
+    No time is given, so use the time-free equation
+    $v^2 = v_0^2 + 2a\Delta x$.
+  </Hint>
+  <Solution>
+    Set the final velocity to zero and solve for the displacement:
+
+    $$\Delta x = \frac{v_0^2}{2a} = \frac{30^2}{2(1.2)} = 375 \text{ m}$$
+  </Solution>
+</Problem>
+
+<Problem
+  id="np-k1d-2"
+  number={2}
+  title="Two-speed road trip"
+  difficulty="Normal"
+  answer={48}
+  unit="mph"
+>
+  You drive the first half of a trip's *distance* at 40 mph and the second
+  half at 60 mph. What is your average speed for the whole trip, in mph?
+
+  <Hint>
+    Equal distances take unequal times. Compute the total time for a distance
+    $2d$ and divide.
+  </Hint>
+  <Solution>
+    For each half of length $d$, the times are $d/40$ and $d/60$. So
+
+    $$\bar v = \frac{2d}{\frac{d}{40}+\frac{d}{60}} = \frac{2}{\frac{1}{40}+\frac{1}{60}} = 48 \text{ mph}$$
+
+    This is the harmonic mean, always less than the naive average of 50 mph.
+  </Solution>
+</Problem>

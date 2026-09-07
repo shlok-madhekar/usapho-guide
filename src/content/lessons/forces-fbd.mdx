@@ -1,0 +1,59 @@
+## The FBD ritual
+
+Every dynamics problem is the same four steps: isolate one body, draw every
+force acting **on it** (never forces it exerts), choose axes (usually along
+the acceleration), and write $\sum F = ma$ per axis.
+
+$$\sum F_x = ma_x, \qquad \sum F_y = ma_y$$
+
+## The usual suspects
+
+- Weight $mg$, always down
+- Normal force $N$, perpendicular to the surface, and *not* always $mg$
+- Tension: same magnitude throughout an ideal (massless) rope
+- Friction: $f_s \le \mu_s N$ (an inequality!), $f_k = \mu_k N$
+
+<Callout label="Olympiad trap" warn>
+  Static friction is whatever value keeps the object from sliding, up to its
+  maximum. Writing $f = \mu_s N$ before verifying the object is on the verge
+  of slipping is the most common F=ma error in this topic.
+</Callout>
+
+<QuickCheck
+  question="A block rests on a frictionless incline, held by a horizontal force. As the incline angle increases, the normal force:"
+  options={["Decreases", "Stays equal to mg·cos(θ) and decreases", "Increases", "Stays constant"]}
+  answer={2}
+  explanation={
+    <span>
+      With a horizontal applied force, equilibrium requires
+      $N = mg/\cos\theta$, which grows with the angle. The reflex answer
+      assumes the applied force is along the incline. Read the geometry, then
+      draw the FBD.
+    </span>
+  }
+/>
+
+## Solve it here
+
+<Problem
+  id="np-fbd-1"
+  number={1}
+  title="Blocks on a string"
+  difficulty="Normal"
+  answer={2}
+  unit="m/s²"
+>
+  A 3 kg block and a 2 kg block hang from a frictionless pulley (Atwood
+  machine). Using $g = 10$ m/s², what is the magnitude of their acceleration,
+  in m/s²?
+
+  <Hint>
+    Write Newton's second law for each mass separately, with the same tension
+    and the same acceleration magnitude.
+  </Hint>
+  <Solution>
+    Adding the two equations eliminates the tension:
+
+    $$a = \frac{(m_1 - m_2)g}{m_1 + m_2} = \frac{(3-2)(10)}{5} = 2 \text{ m/s}^2$$
+  </Solution>
+</Problem>

@@ -1,0 +1,105 @@
+## The core idea
+
+Projectile motion is two **independent** 1D problems wearing a trench coat.
+Horizontally, nothing pushes: constant velocity. Vertically, gravity acts:
+constant acceleration. The clock $t$ is the only thing the two directions share.
+
+$$x(t) = v_0\cos\theta\, t, \qquad y(t) = v_0\sin\theta\, t - \tfrac{1}{2}gt^2$$
+
+Eliminating $t$ gives the trajectory, a parabola whose shape depends only on
+the launch conditions:
+
+$$y = x\tan\theta - \frac{g x^2}{2v_0^2\cos^2\theta}$$
+
+## Play with it
+
+Before memorizing formulas, build intuition. Watch what the angle does to
+range versus height, and what happens on the Moon ($g \approx 1.6$ m/s²):
+
+<ProjectileSim />
+
+<Callout label="Observation">
+  Range is maximized at $\theta = 45^\circ$, and angles $45^\circ \pm \alpha$
+  give the *same* range. F=ma loves testing this symmetry.
+</Callout>
+
+## Key results worth knowing cold
+
+- Range on flat ground: $R = \frac{v_0^2 \sin 2\theta}{g}$
+- Max height: $H = \frac{v_0^2 \sin^2\theta}{2g}$
+- Flight time: $T = \frac{2 v_0 \sin\theta}{g}$
+- On an incline of angle $\phi$, maximize range by launching at
+  $\theta = 45^\circ + \phi/2$ from horizontal
+
+<Callout label="Olympiad trap" warn>
+  These formulas assume launch and landing at the same height. The moment a
+  cliff, incline, or bounce appears, go back to the component equations.
+  Plugging into $R = v_0^2\sin2\theta/g$ blindly is the classic wrong answer
+  choice.
+</Callout>
+
+<QuickCheck
+  question="A ball is launched at 30° and another at 60°, same speed, from flat ground. Which lands first?"
+  options={["The 30° ball", "The 60° ball", "They land together", "Depends on the speed"]}
+  answer={0}
+  explanation={
+    <span>
+      Flight time depends only on the <em>vertical</em> velocity component, so
+      the 30° launch spends less time in the air even though both travel the
+      same range.
+    </span>
+  }
+/>
+
+## Solve it here
+
+<Problem
+  id="np-proj-1"
+  number={1}
+  title="Off the cliff"
+  difficulty="Normal"
+  answer={45}
+  unit="m"
+>
+  A ball is thrown horizontally at 15 m/s from a cliff 45 m high. Using
+  $g = 10$ m/s², how far from the base of the cliff does it land, in meters?
+
+  <Hint>
+    The vertical motion alone sets the flight time. Find it from
+    $h = \tfrac12 g t^2$, then use it horizontally.
+  </Hint>
+  <Solution>
+    Time to fall 45 m:
+
+    $$t = \sqrt{\frac{2h}{g}} = \sqrt{\frac{2(45)}{10}} = 3 \text{ s}$$
+
+    Horizontal range: $x = v_x t = 15 \times 3 = 45$ m. The horizontal and
+    vertical motions never mix.
+  </Solution>
+</Problem>
+
+<Problem
+  id="np-proj-2"
+  number={2}
+  title="Same range, two angles"
+  difficulty="Hard"
+  answer={65}
+  unit="°"
+  tolerancePct={1}
+>
+  A projectile launched at 25° travels a certain range on flat ground. What
+  other launch angle, in degrees, gives the same range at the same speed?
+
+  <Hint>
+    Range goes as $\sin 2\theta$, and $\sin(180^\circ - x) = \sin x$.
+  </Hint>
+  <Solution>
+    The range formula $R = v_0^2 \sin 2\theta / g$ gives equal ranges when
+    $2\theta_1$ and $2\theta_2$ are supplementary:
+
+    $$2\theta_2 = 180^\circ - 50^\circ \implies \theta_2 = 65^\circ$$
+
+    In general, complementary launch angles $\theta$ and $90^\circ - \theta$
+    share a range.
+  </Solution>
+</Problem>

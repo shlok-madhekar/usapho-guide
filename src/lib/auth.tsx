@@ -21,6 +21,7 @@ interface AuthValue {
   signIn: (email: string, password: string) => Promise<void>;
   signUp: (email: string, password: string, displayName: string) => Promise<void>;
   signOut: () => Promise<void>;
+  resetPassword: (email: string) => Promise<{ error: string | null }>;
   refreshProfile: () => Promise<void>;
 }
 
@@ -102,6 +103,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setProfile(null);
   }, [client]);
 
+  /** Emails a one-time link that lets the reader set a new password. */
+  const resetPassword = useCallback(
+    async (email: string) => {
+      if (!client) return { error: "Accounts are not configured." };
+      const { error } = await client.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/login`,
+      });
+      return { error: error?.message ?? null };
+    },
+    [client]
+  );
+
   const refreshProfile = useCallback(async () => {
     if (session?.user) await loadProfile(session.user.id, session.user.email ?? null);
   }, [session, loadProfile]);
@@ -116,9 +129,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       signIn,
       signUp,
       signOut,
+      resetPassword,
       refreshProfile,
     }),
-    [ready, session, profile, client, signIn, signUp, signOut, refreshProfile]
+    [ready, session, profile, client, signIn, signUp, signOut, resetPassword, refreshProfile]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

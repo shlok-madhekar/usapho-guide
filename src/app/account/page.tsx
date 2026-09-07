@@ -3,111 +3,128 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import { useAuth } from "@/lib/auth";
-import {
-  ROLE_DESCRIPTION,
-  ROLE_LABEL,
-  Role,
-  canEditLessons,
-  canEditProblems,
-} from "@/lib/roles";
-
-const ALL_ROLES: Role[] = ["course_writer", "problem_writer", "admin"];
+import { useGitHub } from "@/lib/github-auth";
+import { ROLE_LABEL } from "@/lib/roles";
 
 export default function AccountPage() {
   const { ready, configured, session, profile, signOut } = useAuth();
+  const gh = useGitHub();
+
+  if (!ready)
+    return (
+      <>
+        <Nav />
+        <main className="mx-auto max-w-2xl px-6 py-20 text-[var(--ink-soft)]">
+          Loading.
+        </main>
+      </>
+    );
+
+  if (!configured || !session)
+    return (
+      <>
+        <Nav />
+        <main className="mx-auto max-w-2xl px-6 py-20">
+          <h1 className="text-2xl font-semibold text-[var(--ink-strong)]">Account</h1>
+          <p className="mt-3 text-[var(--ink-soft)]">
+            {configured ? (
+              <>
+                <Link href="/login" className="link">
+                  Sign in
+                </Link>{" "}
+                to keep your progress across devices.
+              </>
+            ) : (
+              "Accounts are not configured on this deployment."
+            )}
+          </p>
+        </main>
+      </>
+    );
 
   return (
     <>
       <Nav />
-      <main className="mx-auto max-w-2xl px-5 pb-24 pt-12">
-        <h1 className="text-3xl font-bold tracking-tight text-[var(--text-strong)]">
-          Account
+      <main className="mx-auto max-w-2xl px-6 pb-24 pt-10">
+        <p className="label">Account</p>
+        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--ink-strong)]">
+          {profile?.display_name || profile?.email?.split("@")[0] || "Your account"}
         </h1>
 
-        {!configured && (
-          <div className="callout warn mt-6">
-            <div className="callout-label">Auth not configured</div>
-            <p className="text-sm">See SETUP.md to connect Supabase.</p>
+        <dl className="mt-8 space-y-3 border-y border-[var(--rule)] py-5 text-[0.95rem]">
+          <div className="flex gap-4">
+            <dt className="label w-32 shrink-0 pt-0.5">Email</dt>
+            <dd className="text-[var(--ink)]">{profile?.email}</dd>
           </div>
-        )}
+          <div className="flex gap-4">
+            <dt className="label w-32 shrink-0 pt-0.5">Progress</dt>
+            <dd className="text-[var(--ink)]">Synced to this account</dd>
+          </div>
+          <div className="flex gap-4">
+            <dt className="label w-32 shrink-0 pt-0.5">Trust level</dt>
+            <dd className="text-[var(--ink)]">
+              {profile?.roles.length
+                ? profile.roles.map((r) => ROLE_LABEL[r]).join(", ")
+                : "Reader"}
+            </dd>
+          </div>
+        </dl>
 
-        {configured && ready && !session && (
-          <p className="mt-6 text-[var(--text-dim)]">
-            You are not signed in.{" "}
-            <Link href="/login" className="text-link">
-              Sign in
-            </Link>
-            .
-          </p>
-        )}
+        <section className="mt-10">
+          <h2 className="text-lg font-semibold text-[var(--ink-strong)]">
+            Contributing
+          </h2>
+          <div className="prose mt-3">
+            <p>
+              Anyone can write lessons and problems. Connect a GitHub account in
+              the editor and your work is submitted as a pull request from you,
+              which the maintainer reviews before it goes live. You do not need
+              to be a collaborator: a fork is created for you.
+            </p>
+            <p>
+              Roles are only about trust after that. Collaborators on the
+              repository get branches on the main repo instead of a fork, and
+              the <em>admin</em> role can change the course structure.
+            </p>
+          </div>
 
-        {session && profile && (
-          <>
-            <div className="panel mt-6 p-5">
-              <dl className="space-y-3 text-sm">
-                <div className="flex justify-between gap-4">
-                  <dt className="text-[var(--text-dim)]">Name</dt>
-                  <dd className="text-[var(--text-strong)]">
-                    {profile.display_name ?? "not set"}
-                  </dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-[var(--text-dim)]">Email</dt>
-                  <dd className="text-[var(--text-strong)]">{profile.email}</dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-[var(--text-dim)]">Roles</dt>
-                  <dd className="text-right text-[var(--text-strong)]">
-                    {profile.roles.length
-                      ? profile.roles.map((r) => ROLE_LABEL[r]).join(", ")
-                      : "Reader"}
-                  </dd>
-                </div>
-              </dl>
-              <button
-                onClick={signOut}
-                className="mt-5 rounded-lg border border-[var(--line-bright)] px-3 py-1.5 text-sm hover:bg-[var(--panel-2)]"
-              >
-                Sign out
-              </button>
-            </div>
-
-            {(canEditLessons(profile) || canEditProblems(profile)) && (
-              <Link href="/edit" className="btn-brass mt-6">
-                Open the content editor
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            {gh.connected ? (
+              <>
+                <span className="sans text-sm text-[var(--ink)]">
+                  GitHub connected as @{gh.login}
+                </span>
+                <button onClick={gh.disconnect} className="btn-plain">
+                  Disconnect
+                </button>
+              </>
+            ) : (
+              <Link href="/edit" className="btn">
+                Open the editor
               </Link>
             )}
+          </div>
+        </section>
 
-            <section className="mt-10">
-              <h2 className="text-lg font-semibold text-[var(--text-strong)]">
-                Contributor roles
-              </h2>
-              <p className="mt-1 text-sm text-[var(--text-dim)]">
-                Roles are granted by an admin. Ask one to add you, or run the
-                grant SQL in SETUP.md against your Supabase project.
-              </p>
-              <ul className="mt-4 space-y-3">
-                {ALL_ROLES.map((r) => (
-                  <li key={r} className="panel p-4">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-[var(--text-strong)]">
-                        {ROLE_LABEL[r]}
-                      </span>
-                      {profile.roles.includes(r) && (
-                        <span className="rounded bg-[var(--panel-2)] px-1.5 py-0.5 text-[0.65rem] font-medium text-[var(--status-complete)]">
-                          granted
-                        </span>
-                      )}
-                    </div>
-                    <p className="mt-1 text-sm text-[var(--text-dim)]">
-                      {ROLE_DESCRIPTION[r]}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </>
-        )}
+        <section className="mt-10 border-t border-[var(--rule)] pt-6">
+          <h2 className="text-lg font-semibold text-[var(--ink-strong)]">
+            Password
+          </h2>
+          <p className="mt-2 text-[0.95rem] text-[var(--ink-soft)]">
+            Change it from the sign-in page using{" "}
+            <Link href="/login?reset=1" className="link">
+              send a reset link
+            </Link>
+            , which emails you a one-time link.
+          </p>
+        </section>
+
+        <button
+          onClick={signOut}
+          className="sans mt-10 text-sm text-[var(--ink-faint)] hover:text-[var(--ink)]"
+        >
+          Sign out
+        </button>
       </main>
     </>
   );

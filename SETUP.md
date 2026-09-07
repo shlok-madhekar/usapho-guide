@@ -42,39 +42,44 @@ update public.profiles set roles = '{problem_writer}' where email = 'them@exampl
 update public.profiles set roles = '{admin}'          where email = 'you@example.com';
 ```
 
-| Role | Can do |
+Anyone with a GitHub account can propose lessons and problems, so roles are
+only about extra trust:
+
+| Role | Adds |
 |---|---|
-| `course_writer` | Write and edit lesson MDX; add and delete lessons |
-| `problem_writer` | Edit the practice problem set on any module |
-| `admin` | Everything, including the curriculum structure |
+| `admin` | May change the course structure (courses, sections, modules) |
+| `course_writer`, `problem_writer` | Labels shown on the account page |
 
-## 3. The editor (opens pull requests)
+Being a **collaborator on the repository** is what lets someone branch on the
+main repo instead of a fork, and that is managed in GitHub, not here.
 
-Writers edit at `/edit` on the live site. Saving does not write to `main`: it
-creates a branch, commits the change, and opens a pull request for the
-maintainer to review and merge. The same files can also be edited by a normal
-`git push`, so the editor and git are two doors into one repository.
+## 3. The editor (contributors use their own GitHub)
 
-This needs a GitHub token on the server:
+Writers go to `/edit` and connect a GitHub account with the device flow: the
+page shows a short code, they enter it at github.com/login/device, and that is
+the whole sign-in. Saving then opens a pull request **from them**, which the
+maintainer reviews and merges. Contributors who are not collaborators get a
+fork made for them automatically, so anyone can contribute without being given
+write access.
 
-1. Create a **fine-grained personal access token** at
-   [github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens/new).
-   Scope it to **only this repository**, with these permissions:
-   - Contents: **Read and write**
-   - Pull requests: **Read and write**
-2. Store it. The helper script verifies the token has the right access, then
-   writes `.env.local` and sets the Vercel variable:
+The server stores no GitHub credentials. The contributor's token lives in their
+own browser tab and is sent per request. Setup is one public value:
+
+1. Register an OAuth app at
+   [github.com/settings/applications/new](https://github.com/settings/applications/new).
+   Tick **Enable Device Flow**, and leave *Expire user access tokens* off so no
+   refresh secret is ever needed.
+2. Copy the **Client ID** (it is public, it ships in the browser bundle) and set:
 
    ```bash
-   ./scripts/set-github-token.sh
+   GITHUB_REPO=owner/usapho-guide
+   NEXT_PUBLIC_GITHUB_CLIENT_ID=Ov23li...
    ```
 
-   Or set `GITHUB_REPO` and `GITHUB_TOKEN` by hand in `.env.local` and in the
-   Vercel project settings.
+   The client *secret* is not used and does not need to be stored anywhere.
 
-Use a fine-grained token rather than a classic one: a classic `repo` token
-grants write access to every repository you own, and this one only needs two
-permissions on one repo.
+Optional: a maintainer running locally can set `GITHUB_TOKEN` instead to skip
+connecting each time. It is only a convenience; production does not need it.
 
 ## 4. Content layout
 

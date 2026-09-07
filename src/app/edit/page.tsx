@@ -5,7 +5,8 @@ import { useCallback, useEffect, useState } from "react";
 import Nav from "@/components/Nav";
 import BankProblem from "@/components/BankProblem";
 import { useAuth } from "@/lib/auth";
-import { canEditCurriculum, canEditLessons, canEditProblems } from "@/lib/roles";
+import { useGitHub } from "@/lib/github-auth";
+import { canEditCurriculum } from "@/lib/roles";
 import type { Difficulty, Division, Module, Section } from "@/lib/curriculum";
 import type { BankProblem as Problem, Origin } from "@/lib/problems";
 import { DIFFICULTY_ORDER } from "@/lib/problems";
@@ -35,130 +36,166 @@ interface Status {
 }
 const IDLE: Status = { busy: false, note: null, error: null };
 
-async function api(body: Record<string, unknown>) {
-  const res = await fetch("/api/content", {
+/** Every shape the content API can return. */
+interface ApiResult {
+  message?: string;
+  prUrl?: string;
+  slugs?: string[];
+  content?: string;
+  problems?: Problem[];
+  curriculum?: Division[];
+}
+
+/** Authenticated fetch that carries the contributor's GitHub token. */
+type Api = (input: string, init?: RequestInit) => Promise<ApiResult>;
+
+const post = (api: Api, body: Record<string, unknown>) =>
+  api("/api/content", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error ?? "Request failed");
-  return data;
-}
 
-async function load(resource: string, extra = "") {
-  const res = await fetch(`/api/content?resource=${resource}${extra}`);
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error ?? "Request failed");
-  return data;
-}
+const load = (api: Api, resource: string, extra = "") =>
+  api(`/api/content?resource=${resource}${extra}`);
 
 export default function EditPage() {
-  const { ready, configured, session, profile } = useAuth();
+  const { profile } = useAuth();
+  const gh = useGitHub();
   const [tab, setTab] = useState<Tab>("lessons");
-
-  const mayLessons = canEditLessons(profile);
-  const mayProblems = canEditProblems(profile);
   const mayCourses = canEditCurriculum(profile);
 
-  useEffect(() => {
-    if (!mayLessons && mayProblems) setTab("problems");
-  }, [mayLessons, mayProblems]);
-
-  if (!ready)
+  if (!gh.ready)
     return (
-      <>
-        <Nav />
-        <main className="mx-auto max-w-3xl px-6 py-20 text-[var(--ink-soft)]">
-          Loading.
-        </main>
-      </>
+      <Shell>
+        <p className="text-[var(--ink-soft)]">Loading.</p>
+      </Shell>
     );
 
-  if (!configured || !session)
+  if (!gh.connected)
     return (
-      <>
-        <Nav />
-        <main className="mx-auto max-w-2xl px-6 py-20">
-          <h1 className="text-2xl font-semibold text-[var(--ink-strong)]">Editor</h1>
-          <p className="mt-3 text-[var(--ink-soft)]">
-            {configured ? (
-              <>
-                <Link href="/login" className="link">
-                  Sign in
-                </Link>{" "}
-                with a writer account to edit the guide.
-              </>
-            ) : (
-              "Accounts are not configured on this deployment."
-            )}
-          </p>
-        </main>
-      </>
-    );
-
-  if (!mayLessons && !mayProblems && !mayCourses)
-    return (
-      <>
-        <Nav />
-        <main className="mx-auto max-w-2xl px-6 py-20">
-          <h1 className="text-2xl font-semibold text-[var(--ink-strong)]">
-            No writer role yet
-          </h1>
-          <p className="mt-3 text-[var(--ink-soft)]">
-            Your account needs a writer role.{" "}
-            <Link href="/account" className="link">
-              See what each role does
-            </Link>
-            .
-          </p>
-        </main>
-      </>
-    );
-
-  const tabs: [Tab, string, boolean][] = [
-    ["lessons", "Lessons", mayLessons],
-    ["problems", "Problems", mayProblems],
-    ["courses", "Courses", mayCourses],
-  ];
-
-  return (
-    <>
-      <Nav />
-      <main className="mx-auto max-w-5xl px-6 pb-24 pt-10">
+      <Shell>
         <p className="label">Editor</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--ink-strong)]">
           Write the guide
         </h1>
-        <p className="mt-3 max-w-[36rem] text-[var(--ink-soft)]">
-          Saving opens a pull request against the repository. Nothing goes live
-          until the maintainer merges it, and the same files can be edited by a
-          normal git push.
-        </p>
+        <div className="prose mt-4">
+          <p>
+            Anyone can propose lessons and problems. Connect your GitHub account
+            and your changes arrive as a pull request from you, which the
+            maintainer reviews and merges. If you are not a collaborator, a fork
+            is made for you automatically.
+          </p>
+        </div>
 
-        <div className="mt-7 flex gap-5 border-b border-[var(--rule-strong)]">
-          {tabs
-            .filter(([, , allowed]) => allowed)
-            .map(([key, label]) => (
-              <button
-                key={key}
-                onClick={() => setTab(key)}
-                className={`sans -mb-px border-b-2 pb-2 text-sm ${
-                  tab === key
-                    ? "border-[var(--ink-strong)] font-medium text-[var(--ink-strong)]"
-                    : "border-transparent text-[var(--ink-faint)] hover:text-[var(--ink)]"
-                }`}
+        {gh.device ? (
+          <div className="aside mt-6">
+            <span className="aside-label">Two steps</span>
+            <p className="text-sm">
+              Enter this code at{" "}
+              <a
+                href={gh.device.verificationUri}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link"
               >
-                {label}
-              </button>
-            ))}
-        </div>
+                {gh.device.verificationUri.replace("https://", "")}
+              </a>
+              , then come back. Waiting for you to approve.
+            </p>
+            <p className="mono mt-3 text-2xl tracking-[0.25em] text-[var(--ink-strong)]">
+              {gh.device.userCode}
+            </p>
+          </div>
+        ) : (
+          <button
+            onClick={gh.connect}
+            disabled={gh.connecting}
+            className="btn mt-6"
+          >
+            {gh.connecting ? "Contacting GitHub." : "Connect GitHub"}
+          </button>
+        )}
 
-        <div className="mt-7">
-          {tab === "lessons" && <Lessons />}
-          {tab === "problems" && <Problems />}
-          {tab === "courses" && <Courses />}
+        {gh.error && (
+          <div className="aside warn mt-5">
+            <span className="aside-label">Could not connect</span>
+            <p className="text-sm">{gh.error}</p>
+          </div>
+        )}
+      </Shell>
+    );
+
+  const tabs: [Tab, string, boolean][] = [
+    ["lessons", "Lessons", true],
+    ["problems", "Problems", true],
+    ["courses", "Courses", mayCourses],
+  ];
+
+  return (
+    <Shell wide>
+      <div className="flex flex-wrap items-baseline justify-between gap-3">
+        <div>
+          <p className="label">Editor</p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--ink-strong)]">
+            Write the guide
+          </h1>
         </div>
+        <p className="sans text-sm text-[var(--ink-soft)]">
+          as @{gh.login}{" "}
+          <button
+            onClick={gh.disconnect}
+            className="text-[var(--ink-faint)] underline underline-offset-2 hover:text-[var(--ink)]"
+          >
+            disconnect
+          </button>
+        </p>
+      </div>
+      <p className="mt-3 max-w-[36rem] text-[var(--ink-soft)]">
+        Saving opens a pull request under your own GitHub account. Nothing goes
+        live until it is merged, and the same files can be edited by a plain git
+        push.
+      </p>
+
+      <div className="mt-7 flex gap-5 border-b border-[var(--rule-strong)]">
+        {tabs
+          .filter(([, , allowed]) => allowed)
+          .map(([key, label]) => (
+            <button
+              key={key}
+              onClick={() => setTab(key)}
+              className={`sans -mb-px border-b-2 pb-2 text-sm ${
+                tab === key
+                  ? "border-[var(--ink-strong)] font-medium text-[var(--ink-strong)]"
+                  : "border-transparent text-[var(--ink-faint)] hover:text-[var(--ink)]"
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+      </div>
+
+      <div className="mt-7">
+        {tab === "lessons" && <Lessons api={gh.api} />}
+        {tab === "problems" && <Problems api={gh.api} />}
+        {tab === "courses" && mayCourses && <Courses api={gh.api} />}
+      </div>
+    </Shell>
+  );
+}
+
+function Shell({
+  children,
+  wide,
+}: {
+  children: React.ReactNode;
+  wide?: boolean;
+}) {
+  return (
+    <>
+      <Nav />
+      <main className={`mx-auto px-6 pb-24 pt-10 ${wide ? "max-w-5xl" : "max-w-2xl"}`}>
+        {children}
       </main>
     </>
   );
@@ -191,7 +228,7 @@ function Banner({ s }: { s: Status }) {
 
 /* ------------------------------- lessons ------------------------------- */
 
-function Lessons() {
+function Lessons({ api }: { api: Api }) {
   const [slugs, setSlugs] = useState<string[]>([]);
   const [active, setActive] = useState<string | null>(null);
   const [text, setText] = useState("");
@@ -200,12 +237,12 @@ function Lessons() {
 
   const refresh = useCallback(async () => {
     try {
-      const { slugs } = await load("lessons");
-      setSlugs(slugs);
+      const { slugs } = await load(api, "lessons");
+      setSlugs(slugs ?? []);
     } catch (e) {
       setStatus({ ...IDLE, error: (e as Error).message });
     }
-  }, []);
+  }, [api]);
 
   useEffect(() => {
     refresh();
@@ -213,9 +250,9 @@ function Lessons() {
 
   const open = async (slug: string) => {
     try {
-      const { content } = await load("lesson", `&slug=${slug}`);
+      const { content } = await load(api, "lesson", `&slug=${slug}`);
       setActive(slug);
-      setText(content);
+      setText(content ?? "");
       setDirty(false);
       setStatus(IDLE);
     } catch (e) {
@@ -226,8 +263,8 @@ function Lessons() {
   const submit = async (slug: string, content: string) => {
     setStatus({ ...IDLE, busy: true });
     try {
-      const r = await api({ action: "saveLesson", slug, content });
-      setStatus({ busy: false, note: r.message, prUrl: r.prUrl, error: null });
+      const r = await post(api, { action: "saveLesson", slug, content });
+      setStatus({ busy: false, note: r.message ?? null, prUrl: r.prUrl, error: null });
       setDirty(false);
       refresh();
     } catch (e) {
@@ -247,8 +284,8 @@ function Lessons() {
     if (!confirm(`Propose deleting the lesson "${slug}"?`)) return;
     setStatus({ ...IDLE, busy: true });
     try {
-      const r = await api({ action: "deleteLesson", slug });
-      setStatus({ busy: false, note: r.message, prUrl: r.prUrl, error: null });
+      const r = await post(api, { action: "deleteLesson", slug });
+      setStatus({ busy: false, note: r.message ?? null, prUrl: r.prUrl, error: null });
       if (active === slug) {
         setActive(null);
         setText("");
@@ -334,7 +371,7 @@ function Lessons() {
 
 const ORIGINS: Origin[] = ["original", "exam", "textbook"];
 
-function Problems() {
+function Problems({ api }: { api: Api }) {
   const [problems, setProblems] = useState<Problem[] | null>(null);
   const [modules, setModules] = useState<string[]>([]);
   const [selected, setSelected] = useState<number | null>(null);
@@ -346,12 +383,12 @@ function Problems() {
     (async () => {
       try {
         const [{ problems }, { curriculum }] = await Promise.all([
-          load("problems"),
-          load("curriculum"),
+          load(api, "problems"),
+          load(api, "curriculum"),
         ]);
-        setProblems(problems);
+        setProblems(problems ?? []);
         setModules(
-          (curriculum as Division[]).flatMap((d) =>
+          (curriculum ?? []).flatMap((d) =>
             d.sections.flatMap((s) => s.modules.map((m) => m.slug))
           )
         );
@@ -359,7 +396,7 @@ function Problems() {
         setStatus({ ...IDLE, error: (e as Error).message });
       }
     })();
-  }, []);
+  }, [api]);
 
   const update = (patch: Partial<Problem>) => {
     if (selected === null) return;
@@ -392,8 +429,8 @@ function Problems() {
   const save = async () => {
     setStatus({ ...IDLE, busy: true });
     try {
-      const r = await api({ action: "saveProblems", problems });
-      setStatus({ busy: false, note: r.message, prUrl: r.prUrl, error: null });
+      const r = await post(api, { action: "saveProblems", problems });
+      setStatus({ busy: false, note: r.message ?? null, prUrl: r.prUrl, error: null });
       setDirty(false);
     } catch (e) {
       setStatus({ ...IDLE, error: (e as Error).message });
@@ -607,16 +644,16 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 /* ------------------------------- courses ------------------------------- */
 
-function Courses() {
+function Courses({ api }: { api: Api }) {
   const [courses, setCourses] = useState<Division[] | null>(null);
   const [dirty, setDirty] = useState(false);
   const [status, setStatus] = useState<Status>(IDLE);
 
   useEffect(() => {
-    load("curriculum")
-      .then(({ curriculum }) => setCourses(curriculum))
+    load(api, "curriculum")
+      .then(({ curriculum }) => setCourses(curriculum ?? []))
       .catch((e) => setStatus({ ...IDLE, error: e.message }));
-  }, []);
+  }, [api]);
 
   const mutate = (fn: (draft: Division[]) => void) => {
     setCourses((c) => {
@@ -630,8 +667,8 @@ function Courses() {
   const save = async () => {
     setStatus({ ...IDLE, busy: true });
     try {
-      const r = await api({ action: "saveCurriculum", curriculum: courses });
-      setStatus({ busy: false, note: r.message, prUrl: r.prUrl, error: null });
+      const r = await post(api, { action: "saveCurriculum", curriculum: courses });
+      setStatus({ busy: false, note: r.message ?? null, prUrl: r.prUrl, error: null });
       setDirty(false);
     } catch (e) {
       setStatus({ ...IDLE, error: (e as Error).message });

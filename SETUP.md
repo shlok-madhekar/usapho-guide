@@ -48,21 +48,30 @@ update public.profiles set roles = '{admin}'          where email = 'you@example
 | `problem_writer` | Edit the practice problem set on any module |
 | `admin` | Everything, including the curriculum structure |
 
-## 3. The content editor (git-backed)
+## 3. The editor (opens pull requests)
 
-Set `CONTENT_EDITING=on` in `.env.local`. Sign in as a writer and open
-`/edit`.
+Writers edit at `/edit` on the live site. Saving does not write to `main`: it
+creates a branch, commits the change, and opens a pull request for the
+maintainer to review and merge. The same files can also be edited by a normal
+`git push`, so the editor and git are two doors into one repository.
 
-Every save writes the real file in `src/content/` and makes a git commit
-authored as the editor. If the repo has a remote, it pushes too; if the push
-fails, the edit is still committed locally and the UI says so.
+This needs a GitHub token on the server:
 
-Because content is just files, the same edits can arrive by `git push` — the
-editor and git are two doors into the same content.
+1. Create a **fine-grained personal access token** at
+   [github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens/new).
+   Scope it to **only this repository**, with these permissions:
+   - Contents: **Read and write**
+   - Pull requests: **Read and write**
+2. Add it to the Vercel project (and `.env.local` for local work):
 
-**Only enable this where the git checkout lives** (your machine or a VM you
-control). On Vercel the filesystem is read-only and ephemeral, so leave
-`CONTENT_EDITING` unset there; the editor will explain that it is disabled.
+   ```bash
+   GITHUB_REPO=owner/usapho-guide
+   GITHUB_TOKEN=github_pat_...
+   ```
+
+Use a fine-grained token rather than a classic one: a classic `repo` token
+grants write access to every repository you own, and this one only needs two
+permissions on one repo.
 
 ## 4. Content layout
 

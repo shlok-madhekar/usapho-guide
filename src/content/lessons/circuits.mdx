@@ -1,0 +1,45 @@
+## Two rules, then bookkeeping
+
+Kirchhoff's laws are conservation statements. Charge does not pile up at a
+junction, and energy is single-valued around a loop.
+
+$$\sum I_{in} = \sum I_{out}, \qquad \sum \Delta V_{loop} = 0$$
+
+Everything else about resistive circuits is applying those two carefully.
+Series resistors add; parallel conductances add:
+
+$$R_{series} = R_1 + R_2, \qquad \frac{1}{R_{parallel}} = \frac{1}{R_1} + \frac{1}{R_2}$$
+
+## Symmetry, before algebra
+
+Olympiad circuits are usually designed so that brute-force loop equations are
+unpleasant and symmetry is quick. If two nodes are at the same potential, no
+current flows between them: you can merge them or delete the connecting
+element without changing anything.
+
+The resistor cube is the standard example. Entering at one corner, current
+splits three ways, then six, then three, giving $\tfrac56 R$ between opposite
+corners without solving a single simultaneous equation.
+
+Infinite ladders use the other trick: the network beyond the first stage is
+identical to the whole, so setting $R_{total}$ equal to that self-similar
+expression gives a solvable equation.
+
+## Capacitors and time
+
+A capacitor stores charge, $Q = CV$, and energy $U = \tfrac12 CV^2$. In an RC
+circuit the charging is exponential with time constant $\tau = RC$:
+
+$$V(t) = V_0\left(1 - e^{-t/RC}\right)$$
+
+Two limits are usually all you need. Immediately after a switch closes, an
+uncharged capacitor behaves like a wire. Long afterward, it behaves like a
+break in the circuit. Sketching those two states answers most transient
+questions before any exponential is written down.
+
+<QuickCheck
+  question="Long after a switch closes in an RC circuit, the current through the capacitor branch is:"
+  options={["At its maximum", "Zero", "Half its initial value", "Unchanged from t = 0"]}
+  answer={1}
+  explanation="A fully charged capacitor opposes any further charge flow, so it acts as an open circuit and its branch current goes to zero. At t = 0 the opposite holds: the uncharged capacitor acts like a plain wire."
+/>

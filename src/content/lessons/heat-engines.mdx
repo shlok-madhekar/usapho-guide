@@ -1,0 +1,44 @@
+## The first law is bookkeeping
+
+Energy added to a gas either raises its internal energy or is spent doing work:
+
+$$\Delta U = Q - W, \qquad W = \int P\,dV$$
+
+Sign conventions cause more lost points than the physics does. Here $W$ is
+work done *by* the gas, so expansion is positive. Internal energy depends only
+on temperature for an ideal gas, which makes $\Delta U = 0$ the defining
+feature of an isothermal process.
+
+The four standard processes follow directly:
+
+- Isothermal: $\Delta U = 0$, so $Q = W = nRT\ln(V_f/V_i)$.
+- Adiabatic: $Q = 0$, so $W = -\Delta U$, along $PV^\gamma$ constant.
+- Isobaric: $W = P\Delta V$.
+- Isochoric: $W = 0$, so all heat goes to internal energy.
+
+## Cycles
+
+On a PV diagram, the work done in a cycle is the enclosed area, positive for a
+clockwise loop. Since the gas returns to its starting state, $\Delta U = 0$
+around any full cycle and therefore $Q_{net} = W_{net}$.
+
+Efficiency compares what you want to what you paid for:
+
+$$\eta = \frac{W_{net}}{Q_{in}} \le 1 - \frac{T_C}{T_H}$$
+
+The bound on the right is Carnot's, and it depends only on the reservoir
+temperatures. Any claimed efficiency above it is a sign of an arithmetic
+error, not a discovery.
+
+## Entropy
+
+For a reversible process, $dS = dQ/T$. The second law says the entropy of an
+isolated system never decreases, which is what makes heat flow spontaneously
+from hot to cold and forbids the perfect engine.
+
+<Aside label="Worth remembering">
+  Entropy is a state function, so its change between two states does not depend
+  on the path. To get the entropy change of an irreversible process, invent
+  any convenient reversible path between the same endpoints and compute along
+  that instead.
+</Aside>

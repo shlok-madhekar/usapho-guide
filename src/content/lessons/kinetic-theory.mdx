@@ -1,0 +1,38 @@
+## Pressure from collisions
+
+The ideal gas law is usually handed over as an experimental fact, but it comes
+out of counting molecular collisions with a wall. Each impact reverses one
+momentum component, and averaging over a large number of molecules gives
+
+$$PV = \tfrac13 Nm\overline{v^2} = Nk_BT = nRT$$
+
+Comparing the two right-hand expressions connects the microscopic to the
+macroscopic: temperature is a measure of average translational kinetic energy,
+nothing more.
+
+$$\tfrac12 m\overline{v^2} = \tfrac32 k_BT \quad \Longrightarrow \quad v_{rms} = \sqrt{\frac{3k_BT}{m}} = \sqrt{\frac{3RT}{M}}$$
+
+At room temperature that is roughly 500 m/s for nitrogen, which is a useful
+number to carry: air molecules are moving about as fast as sound, because
+sound is carried by them.
+
+## Equipartition and heat capacity
+
+Each quadratic degree of freedom holds $\tfrac12 k_BT$ of energy on average.
+A monatomic gas has three translational degrees of freedom and internal energy
+$U = \tfrac32 nRT$; a diatomic gas adds two rotational ones at ordinary
+temperatures, giving $\tfrac52 nRT$.
+
+That single fact produces the molar heat capacities:
+
+$$C_V = \tfrac32 R, \qquad C_P = C_V + R = \tfrac52 R$$
+
+for a monatomic gas. The relation $C_P - C_V = R$ holds for any ideal gas,
+because heating at constant pressure also does expansion work.
+
+<QuickCheck
+  question="Two gases at the same temperature: helium (4 g/mol) and oxygen (32 g/mol). Compare their rms speeds."
+  options={["Equal, since temperature is equal", "Helium is faster by a factor of 8", "Helium is faster by a factor of about 2.8", "Oxygen is faster by a factor of about 2.8"]}
+  answer={2}
+  explanation="Equal temperature means equal average kinetic energy, not equal speed. Speed goes as the inverse square root of mass, so helium is faster by the square root of 8, about 2.8."
+/>

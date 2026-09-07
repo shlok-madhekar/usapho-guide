@@ -60,7 +60,7 @@
             "prereqs": [
               "forces-fbd"
             ],
-            "hasContent": false
+            "hasContent": true
           },
           {
             "slug": "energy-momentum",
@@ -84,7 +84,8 @@
             "minutes": 50,
             "prereqs": [
               "energy-momentum"
-            ]
+            ],
+            "hasContent": true
           },
           {
             "slug": "shm",
@@ -122,7 +123,8 @@
             "title": "Circuits & RC Dynamics",
             "description": "Kirchhoff's laws, equivalent resistance tricks, capacitor transients, and infinite ladders.",
             "frequency": 3,
-            "minutes": 45
+            "minutes": 45,
+            "hasContent": true
           },
           {
             "slug": "magnetism",
@@ -132,7 +134,8 @@
             "minutes": 60,
             "prereqs": [
               "electrostatics"
-            ]
+            ],
+            "hasContent": true
           }
         ]
       },
@@ -145,7 +148,8 @@
             "title": "Kinetic Theory & Ideal Gases",
             "description": "Microscopic pressure derivation, equipartition, and the ideal gas law from first principles.",
             "frequency": 3,
-            "minutes": 40
+            "minutes": 40,
+            "hasContent": true
           },
           {
             "slug": "heat-engines",
@@ -155,7 +159,8 @@
             "minutes": 45,
             "prereqs": [
               "kinetic-theory"
-            ]
+            ],
+            "hasContent": true
           }
         ]
       },
@@ -168,21 +173,24 @@
             "title": "Waves & Interference",
             "description": "Standing waves, beats, Doppler effect, and two-source interference.",
             "frequency": 2,
-            "minutes": 40
+            "minutes": 40,
+            "hasContent": true
           },
           {
             "slug": "optics",
             "title": "Geometric & Wave Optics",
             "description": "Lens systems, mirror equations, diffraction gratings, and thin-film interference.",
             "frequency": 2,
-            "minutes": 45
+            "minutes": 45,
+            "hasContent": true
           },
           {
             "slug": "modern-physics",
             "title": "Relativity & Quantum",
             "description": "Special relativity kinematics, photoelectric effect, Bohr model, and de Broglie waves.",
             "frequency": 2,
-            "minutes": 50
+            "minutes": 50,
+            "hasContent": true
           }
         ]
       }

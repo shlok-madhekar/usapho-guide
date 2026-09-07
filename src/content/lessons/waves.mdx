@@ -1,0 +1,44 @@
+## Describing a wave
+
+A travelling wave carries energy without carrying matter. Its basic relations:
+
+$$v = f\lambda, \qquad y(x,t) = A\sin(kx - \omega t)$$
+
+with $k = 2\pi/\lambda$ and $\omega = 2\pi f$. The speed is set by the medium,
+not by the source: on a string $v = \sqrt{T/\mu}$, so tightening a string
+raises its pitch by making waves travel faster along it.
+
+## Superposition
+
+Waves add. Everything interesting in this topic follows from that.
+
+Two waves of equal frequency travelling in opposite directions form a standing
+wave, with nodes fixed in place. For a string fixed at both ends, only
+wavelengths that fit produce a standing pattern:
+
+$$\lambda_n = \frac{2L}{n}, \qquad f_n = \frac{nv}{2L}$$
+
+A pipe open at both ends behaves the same way. A pipe closed at one end needs
+a node at the closed end and an antinode at the open one, so only odd
+harmonics survive and the fundamental is an octave lower than an open pipe of
+the same length.
+
+Two waves of slightly different frequency produce beats at $|f_1 - f_2|$,
+which is how a piano is tuned by ear.
+
+## Doppler
+
+When the source or observer moves, the observed frequency shifts:
+
+$$f' = f\,\frac{v \pm v_o}{v \mp v_s}$$
+
+Rather than memorize the signs, reason about the direction: approaching always
+raises the pitch, receding always lowers it. Pick the signs that produce that,
+then compute.
+
+<Aside label="Where this goes wrong" warn>
+  A moving source and a moving observer are not symmetric. The source changes
+  the wavelength in the medium; the observer changes the rate at which
+  unchanged wavefronts arrive. At low speeds the results nearly agree, but the
+  exact expressions differ, and olympiad problems choose speeds where it shows.
+</Aside>

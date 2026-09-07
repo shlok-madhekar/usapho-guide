@@ -1,0 +1,48 @@
+## Acceleration without a change in speed
+
+An object moving in a circle at constant speed is still accelerating, because
+its velocity keeps changing direction. That acceleration points at the center
+and has magnitude
+
+$$a_c = \frac{v^2}{r} = \omega^2 r$$
+
+The important habit: $a_c$ is not a force. Nothing called "centripetal force"
+appears in a free body diagram. You draw the real forces (gravity, normal,
+tension, friction) and then set their net inward component equal to $mv^2/r$.
+
+## Where the inward force comes from
+
+The whole topic is really a catalogue of what supplies that net inward force.
+
+- Ball on a string: tension.
+- Car on a flat road: static friction, so the maximum speed is $v = \sqrt{\mu g r}$.
+- Car on a banked track: the horizontal component of the normal force, giving $\tan\theta = v^2/gr$ when no friction is needed.
+- Satellite: gravity.
+- Bucket swung overhead: gravity plus the normal force from the bucket, which is why there is a minimum speed at the top.
+
+<Aside label="Where this goes wrong" warn>
+  At the top of a vertical loop, both gravity and the normal force point down,
+  so $N + mg = mv^2/r$. The critical case is $N = 0$, giving $v^2 = gr$. Adding
+  the two forces with the wrong sign here is the standard mistake.
+</Aside>
+
+## Gravitation
+
+Newton's law of gravitation and the circular-orbit condition together give
+almost every orbital result you need:
+
+$$F = \frac{Gm_1m_2}{r^2}, \qquad \frac{GMm}{r^2} = \frac{mv^2}{r}$$
+
+Eliminating $v$ gives Kepler's third law, $T^2 \propto r^3$. The orbiting
+mass cancels, which is why a satellite's mass never appears in its period.
+
+Two results worth carrying: orbital speed falls as $1/\sqrt{r}$, so a higher
+orbit is slower, and the total energy of a circular orbit is $-GMm/2r$,
+exactly half the potential energy and negative because the orbit is bound.
+
+<QuickCheck
+  question="Satellite B orbits at four times the radius of satellite A. B's period is longer by a factor of:"
+  options={["2", "4", "8", "16"]}
+  answer={2}
+  explanation="Kepler's third law gives T proportional to r to the 3/2 power, so a factor of 4 in radius becomes 4^1.5 = 8 in period."
+/>

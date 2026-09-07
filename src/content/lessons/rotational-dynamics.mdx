@@ -1,0 +1,45 @@
+## The same laws, rewritten
+
+Rotation reuses everything from linear dynamics with each quantity replaced by
+its angular counterpart: force by torque, mass by moment of inertia, velocity
+by angular velocity.
+
+$$\tau = I\alpha, \qquad L = I\omega, \qquad K_{rot} = \tfrac12 I\omega^2$$
+
+Torque is $\tau = rF\sin\theta$, and only the component of force perpendicular
+to the lever arm produces it. Pushing a door toward its hinge does nothing.
+
+Moment of inertia depends on how mass is distributed, not just how much there
+is. Worth memorizing: a hoop is $mr^2$, a disk $\tfrac12 mr^2$, a solid sphere
+$\tfrac25 mr^2$, a rod about its center $\tfrac{1}{12}mL^2$ and about its end
+$\tfrac13 mL^2$. The parallel axis theorem, $I = I_{cm} + md^2$, gets you the
+rest.
+
+## Rolling without slipping
+
+Rolling is the constraint $v = \omega r$, which couples the translation to the
+rotation. Its main consequence: energy released by a rolling object has to be
+shared between the two motions.
+
+$$mgh = \tfrac12 mv^2 + \tfrac12 I\omega^2 = \tfrac12 mv^2\left(1 + \frac{I}{mr^2}\right)$$
+
+So a race down a ramp is decided entirely by $I/mr^2$, not by mass or radius.
+A sphere beats a disk, which beats a hoop, every time. Anything sliding
+frictionlessly beats all of them.
+
+<Aside label="Worth remembering">
+  Friction is what makes rolling possible, but in rolling without slipping the
+  contact point is instantaneously at rest, so static friction does no work.
+  Energy conservation still applies.
+</Aside>
+
+## Angular momentum
+
+When no external torque acts, $L$ is conserved. Because $I$ can change while
+$L$ cannot, pulling mass inward speeds up the rotation, which is the skater
+and the collapsing star.
+
+Angular momentum is defined about a point, and the choice is yours. Picking
+the point where an unknown force acts removes its torque from the equation.
+That single choice is what makes most collision-with-a-pivot problems
+tractable.

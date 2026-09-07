@@ -1,0 +1,42 @@
+## Fields from currents
+
+Moving charge makes a magnetic field, and a magnetic field pushes on moving
+charge. The force is a cross product, so it is always perpendicular to the
+velocity:
+
+$$\vec F = q\vec v \times \vec B, \qquad \vec F = I\vec L \times \vec B$$
+
+Because the force is perpendicular to the motion, a magnetic field does no
+work. It bends paths without changing speeds. A charge moving perpendicular to
+a uniform field travels a circle of radius $r = mv/qB$.
+
+For the fields themselves, symmetry decides the tool. Ampère's law plays the
+role Gauss's law plays in electrostatics:
+
+$$\oint \vec B \cdot d\vec\ell = \mu_0 I_{enc}$$
+
+giving $B = \mu_0 I/2\pi r$ for a long wire and $B = \mu_0 n I$ inside a
+solenoid. When the geometry is not symmetric, Biot-Savart and an integral are
+the fallback.
+
+## Induction
+
+A changing flux drives an EMF:
+
+$$\mathcal{E} = -\frac{d\Phi_B}{dt}, \qquad \Phi_B = \int \vec B \cdot d\vec A$$
+
+Flux changes three ways: the field changes, the area changes, or the
+orientation changes. A rotating loop uses the third and produces the sinusoid
+that makes AC generation possible.
+
+The minus sign is Lenz's law, and it is a statement about energy rather than a
+sign convention. The induced current opposes the change that created it, which
+is why a magnet dropped through a copper pipe falls slowly and why generators
+get harder to turn as you draw more current from them.
+
+<Aside label="Where this goes wrong" warn>
+  Motional EMF problems ask for force, current and power in a loop that is
+  simultaneously being pushed and pushed back on. Solve them in order: EMF
+  from the flux rule, then current from the EMF, then the retarding force from
+  that current. Trying to shortcut to the force usually loses a factor.
+</Aside>

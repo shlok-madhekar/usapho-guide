@@ -1,0 +1,46 @@
+## Rays
+
+When wavelengths are small compared with the apparatus, light travels in
+straight lines and optics becomes geometry. Two rules cover it: angles of
+incidence and reflection are equal, and refraction follows Snell's law.
+
+$$n_1\sin\theta_1 = n_2\sin\theta_2$$
+
+Going from a dense medium to a lighter one, the refracted ray bends away from
+the normal, and past the critical angle $\sin\theta_c = n_2/n_1$ it does not
+emerge at all. That total internal reflection is what makes optical fibre
+work.
+
+Mirrors and thin lenses share one equation and one magnification:
+
+$$\frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i}, \qquad m = -\frac{d_i}{d_o}$$
+
+Sign conventions matter more than the algebra: a positive image distance means
+a real image on the far side of a lens, and a negative one means a virtual
+image on the same side as the object. For a multi-lens system, solve one
+element at a time, using each image as the next object.
+
+## Waves
+
+When the wavelength is comparable to the apparatus, interference appears.
+Two-slit maxima occur where the path difference is a whole number of
+wavelengths:
+
+$$d\sin\theta = m\lambda$$
+
+A diffraction grating obeys the same relation with many more slits, which
+sharpens the maxima without moving them. A single slit of width $a$ instead
+puts *minima* at $a\sin\theta = m\lambda$, a formula that looks identical and
+means the opposite, which is a favourite trap.
+
+Thin films add one more effect: reflection off a denser medium flips the phase
+by half a wavelength. Whether constructive interference needs $2nt = m\lambda$
+or $2nt = (m + \tfrac12)\lambda$ depends on how many of the two reflections
+flip. Count them before writing the condition.
+
+<QuickCheck
+  question="A soap film in air appears black where it is thinnest. Why?"
+  options={["The film absorbs all the light there", "Only the top reflection flips phase, so the two reflections cancel", "The film is too thin to reflect", "Both reflections flip phase, so they cancel"]}
+  answer={1}
+  explanation="At near-zero thickness the path difference vanishes, so the only difference is the half-wavelength flip at the air-to-film surface. The film-to-air reflection does not flip, so the two cancel and the film looks dark."
+/>

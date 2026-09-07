@@ -1,0 +1,146 @@
+[
+  {
+    "id": "projectile",
+    "title": "Trajectory lab",
+    "caption": "Launch speed, angle and gravity. The dashed curve is the whole flight; the short arrow is the velocity, whose horizontal part never changes.",
+    "height": 230,
+    "params": [
+      {
+        "key": "speed",
+        "label": "Launch speed",
+        "unit": "m/s",
+        "min": 8,
+        "max": 50,
+        "step": 1,
+        "value": 28
+      },
+      {
+        "key": "angle",
+        "label": "Angle",
+        "unit": "deg",
+        "min": 10,
+        "max": 80,
+        "step": 1,
+        "value": 45
+      },
+      {
+        "key": "gravity",
+        "label": "Gravity",
+        "unit": "m/s^2",
+        "min": 1.6,
+        "max": 24,
+        "step": 0.1,
+        "value": 9.8
+      }
+    ],
+    "draw": "const th = p.angle * Math.PI / 180;\nconst g = p.gravity, v0 = p.speed;\nconst range = v0 * v0 * Math.sin(2 * th) / g;\nconst hMax  = v0 * v0 * Math.pow(Math.sin(th), 2) / (2 * g);\nconst tFly  = 2 * v0 * Math.sin(th) / g;\n\nconst pad = 28;\nconst maxX = Math.max(range * 1.08, 20);\nconst maxY = Math.max(hMax * 1.35, 12);\nconst sx = (W - pad * 2) / maxX, sy = (H - pad * 2) / maxY;\nconst X = x => pad + x * sx;\nconst Y = y => H - pad - y * sy;\n\n// ground\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(0, Y(0)); ctx.lineTo(W, Y(0)); ctx.stroke();\n\n// full path\nctx.strokeStyle = C.rule;\nctx.setLineDash([4, 5]);\nctx.beginPath();\nfor (let s = 0; s <= tFly; s += tFly / 120) {\n  const x = v0 * Math.cos(th) * s, y = v0 * Math.sin(th) * s - 0.5 * g * s * s;\n  s === 0 ? ctx.moveTo(X(x), Y(y)) : ctx.lineTo(X(x), Y(y));\n}\nctx.stroke();\nctx.setLineDash([]);\n\n// travelled so far\nconst now = t % (tFly + 0.6);\nconst cur = Math.min(now, tFly);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (let s = 0; s <= cur; s += tFly / 120) {\n  const x = v0 * Math.cos(th) * s, y = v0 * Math.sin(th) * s - 0.5 * g * s * s;\n  s === 0 ? ctx.moveTo(X(x), Y(y)) : ctx.lineTo(X(x), Y(y));\n}\nctx.stroke();\n\n// projectile and velocity vector\nconst px = v0 * Math.cos(th) * cur;\nconst py = Math.max(0, v0 * Math.sin(th) * cur - 0.5 * g * cur * cur);\nconst vx = v0 * Math.cos(th), vy = v0 * Math.sin(th) - g * cur;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(X(px), Y(py));\nctx.lineTo(X(px) + vx * 1.5, Y(py) - vy * 1.5);\nctx.stroke();\n\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(px), Y(py), 5, 0, Math.PI * 2); ctx.fill();\n\nout.note = \"range \" + range.toFixed(1) + \" m, peak \" + hMax.toFixed(1) + \" m, flight \" + tFly.toFixed(2) + \" s\";"
+  },
+  {
+    "id": "spring",
+    "title": "Oscillator lab",
+    "caption": "A mass on a spring, with position against time below. Amplitude changes the height of the trace but not its period.",
+    "height": 240,
+    "params": [
+      {
+        "key": "k",
+        "label": "Spring constant",
+        "unit": "N/m",
+        "min": 4,
+        "max": 80,
+        "step": 1,
+        "value": 20
+      },
+      {
+        "key": "mass",
+        "label": "Mass",
+        "unit": "kg",
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "value": 1.5
+      },
+      {
+        "key": "amplitude",
+        "label": "Amplitude",
+        "unit": "m",
+        "min": 0.2,
+        "max": 1.2,
+        "step": 0.05,
+        "value": 0.8
+      }
+    ],
+    "draw": "const omega = Math.sqrt(p.k / p.mass);\nconst wallX = 26, eqX = W * 0.34, scale = W * 0.16, midY = H * 0.34;\nconst x = p.amplitude * Math.cos(omega * t);\nconst massX = eqX + x * scale;\n\n// wall\nctx.fillStyle = C.faint;\nctx.fillRect(wallX - 6, midY - 38, 6, 76);\n\n// spring\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(wallX, midY);\nfor (let i = 1; i <= 12; i++) {\n  const sxp = wallX + (massX - 16 - wallX) * i / 12;\n  const syp = midY + (i % 2 === 0 ? -10 : 10) * (i === 12 ? 0 : 1);\n  ctx.lineTo(sxp, syp);\n}\nctx.lineTo(massX - 16, midY);\nctx.stroke();\n\n// equilibrium marker\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 5]);\nctx.beginPath(); ctx.moveTo(eqX, midY - 44); ctx.lineTo(eqX, midY + 44); ctx.stroke();\nctx.setLineDash([]);\n\n// mass\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.roundRect(massX - 16, midY - 16, 32, 32, 4); ctx.fill();\n\n// x(t) trace\nconst gy = H * 0.8;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(16, gy); ctx.lineTo(W - 16, gy); ctx.stroke();\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.5;\nctx.beginPath();\nfor (let i = 0; i < 240; i++) {\n  const tt = t - (240 - i) * 0.016;\n  const px2 = W - 16 - (240 - i) * 1.3;\n  const py2 = gy - p.amplitude * Math.cos(omega * tt) * 26;\n  i === 0 ? ctx.moveTo(px2, py2) : ctx.lineTo(px2, py2);\n}\nctx.stroke();\n\nout.note = \"T = \" + (2 * Math.PI / omega).toFixed(2) + \" s, omega = \" + omega.toFixed(2) + \" rad/s\";"
+  },
+  {
+    "id": "motion-graphs",
+    "title": "Motion graph lab",
+    "caption": "Position and velocity for constant acceleration. Where velocity crosses zero, position turns around.",
+    "height": 210,
+    "params": [
+      {
+        "key": "v0",
+        "label": "Initial velocity",
+        "unit": "m/s",
+        "min": -8,
+        "max": 8,
+        "step": 0.5,
+        "value": 6
+      },
+      {
+        "key": "a",
+        "label": "Acceleration",
+        "unit": "m/s^2",
+        "min": -3,
+        "max": 3,
+        "step": 0.1,
+        "value": -1.5
+      }
+    ],
+    "draw": "const T = 8, pad = 26, half = W / 2;\nconst xs = s => p.v0 * s + 0.5 * p.a * s * s;\nconst vs = s => p.v0 + p.a * s;\n\nlet xLo = 0, xHi = 0, vLo = 0, vHi = 0;\nfor (let s = 0; s <= T; s += 0.1) {\n  xLo = Math.min(xLo, xs(s)); xHi = Math.max(xHi, xs(s));\n  vLo = Math.min(vLo, vs(s)); vHi = Math.max(vHi, vs(s));\n}\nconst span = (lo, hi) => (hi - lo === 0 ? 1 : hi - lo);\nconst Y = (val, lo, hi) => H - pad - (val - lo) / span(lo, hi) * (H - pad * 2);\nconst X1 = s => pad + s / T * (half - pad * 1.7);\nconst X2 = s => half + pad + s / T * (half - pad * 1.7);\nconst now = t % T;\n\nconst panels = [\n  { f: xs, lo: xLo, hi: xHi, X: X1, color: C.figure, label: \"x(t)\" },\n  { f: vs, lo: vLo, hi: vHi, X: X2, color: C.accent,  label: \"v(t)\" },\n];\n\nfor (const q of panels) {\n  ctx.strokeStyle = C.rule;\n  ctx.lineWidth = 1;\n  ctx.beginPath(); ctx.moveTo(q.X(0), pad / 2); ctx.lineTo(q.X(0), H - pad / 2); ctx.stroke();\n  const zero = Y(0, q.lo, q.hi);\n  ctx.beginPath(); ctx.moveTo(q.X(0), zero); ctx.lineTo(q.X(T), zero); ctx.stroke();\n\n  ctx.strokeStyle = q.color;\n  ctx.lineWidth = 2;\n  ctx.beginPath();\n  for (let s = 0; s <= T; s += 0.05) {\n    const cx2 = q.X(s), cy2 = Y(q.f(s), q.lo, q.hi);\n    s === 0 ? ctx.moveTo(cx2, cy2) : ctx.lineTo(cx2, cy2);\n  }\n  ctx.stroke();\n\n  ctx.fillStyle = q.color;\n  ctx.beginPath(); ctx.arc(q.X(now), Y(q.f(now), q.lo, q.hi), 4, 0, Math.PI * 2); ctx.fill();\n  ctx.font = \"11px ui-sans-serif, system-ui, sans-serif\";\n  ctx.textAlign = \"left\";\n  ctx.fillText(q.label, q.X(0) + 5, pad / 2 + 9);\n}\n\nconst turn = p.a !== 0 ? -p.v0 / p.a : -1;\nout.note = turn > 0 && turn < T ? \"v = 0 at t = \" + turn.toFixed(1) + \" s\" : \"v never reaches zero here\";"
+  },
+  {
+    "id": "collision",
+    "title": "Collision lab",
+    "caption": "A moving block striking a stationary one. Set elastic to 0 for a perfectly inelastic collision and watch the energy readout.",
+    "height": 180,
+    "params": [
+      {
+        "key": "m1",
+        "label": "Mass m1 (moving)",
+        "unit": "kg",
+        "min": 0.5,
+        "max": 5,
+        "step": 0.5,
+        "value": 2
+      },
+      {
+        "key": "m2",
+        "label": "Mass m2 (at rest)",
+        "unit": "kg",
+        "min": 0.5,
+        "max": 5,
+        "step": 0.5,
+        "value": 1
+      },
+      {
+        "key": "u1",
+        "label": "Initial speed u1",
+        "unit": "m/s",
+        "min": 1,
+        "max": 5,
+        "step": 0.5,
+        "value": 3
+      },
+      {
+        "key": "elastic",
+        "label": "Elastic (1) or inelastic (0)",
+        "unit": "",
+        "min": 0,
+        "max": 1,
+        "step": 1,
+        "value": 1
+      }
+    ],
+    "draw": "const m1 = p.m1, m2 = p.m2, u1 = p.u1, elastic = p.elastic >= 0.5;\nconst v1f = elastic ? (m1 - m2) / (m1 + m2) * u1 : m1 * u1 / (m1 + m2);\nconst v2f = elastic ? 2 * m1 / (m1 + m2) * u1 : m1 * u1 / (m1 + m2);\nconst keLoss = elastic ? 0 : m2 / (m1 + m2) * 100;\n\nconst floor = H * 0.72;\nconst s1 = 20 + m1 * 4, s2 = 20 + m2 * 4;\nconst scale = 24;\nconst startGap = W * 0.45;\nconst cycle = (startGap - s1) / (u1 * scale) + 2.6;\nconst now = t % cycle;\nconst tHit = (startGap - s1) / (u1 * scale);\n\nlet x1, x2;\nif (now < tHit) {\n  x1 = 40 + u1 * scale * now;\n  x2 = 40 + startGap;\n} else {\n  const after = now - tHit;\n  x1 = 40 + (startGap - s1) + v1f * scale * after;\n  x2 = 40 + startGap + v2f * scale * after;\n  if (!elastic) x2 = x1 + s1;\n}\n\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(0, floor); ctx.lineTo(W, floor); ctx.stroke();\n\nconst block = (x, size, color, label, vel) => {\n  ctx.fillStyle = color;\n  ctx.beginPath(); ctx.roundRect(x, floor - size, size, size, 3); ctx.fill();\n  ctx.fillStyle = C.paper;\n  ctx.font = \"11px ui-sans-serif, system-ui, sans-serif\";\n  ctx.textAlign = \"center\";\n  ctx.fillText(label, x + size / 2, floor - size / 2 + 4);\n  if (Math.abs(vel) > 0.05) {\n    const cx2 = x + size / 2, y = floor - size - 11;\n    ctx.strokeStyle = C.ink;\n    ctx.beginPath();\n    ctx.moveTo(cx2, y); ctx.lineTo(cx2 + vel * 8, y);\n    ctx.lineTo(cx2 + vel * 8 - Math.sign(vel) * 4, y - 3);\n    ctx.moveTo(cx2 + vel * 8, y);\n    ctx.lineTo(cx2 + vel * 8 - Math.sign(vel) * 4, y + 3);\n    ctx.stroke();\n  }\n};\n\nblock(x1, s1, C.figure, \"m1\", now < tHit ? u1 : v1f);\nblock(x2, s2, C.accent, \"m2\", now < tHit ? 0 : v2f);\n\nout.note = \"after: v1 = \" + v1f.toFixed(2) + \", v2 = \" + v2f.toFixed(2) + \" m/s, KE lost \" + keLoss.toFixed(0) + \"%\";"
+  }
+]

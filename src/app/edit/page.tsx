@@ -4,14 +4,17 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import Nav from "@/components/Nav";
 import BankProblem from "@/components/BankProblem";
+import LessonEditor from "@/components/LessonEditor";
+import { SimRunner } from "@/components/Sim";
 import { useAuth } from "@/lib/auth";
 import { useGitHub } from "@/lib/github-auth";
 import { canEditCurriculum } from "@/lib/roles";
 import type { Difficulty, Division, Module, Section } from "@/lib/curriculum";
 import type { BankProblem as Problem, Origin } from "@/lib/problems";
 import { DIFFICULTY_ORDER } from "@/lib/problems";
+import { NEW_SIM, paramValues, type SimDef, type SimParam } from "@/lib/sims";
 
-type Tab = "lessons" | "problems" | "courses";
+type Tab = "lessons" | "problems" | "sims" | "courses";
 
 const NEW_LESSON = `## Setting up
 
@@ -44,6 +47,7 @@ interface ApiResult {
   content?: string;
   problems?: Problem[];
   curriculum?: Division[];
+  sims?: SimDef[];
 }
 
 /** Authenticated fetch that carries the contributor's GitHub token. */
@@ -129,6 +133,7 @@ export default function EditPage() {
   const tabs: [Tab, string, boolean][] = [
     ["lessons", "Lessons", true],
     ["problems", "Problems", true],
+    ["sims", "Simulations", true],
     ["courses", "Courses", mayCourses],
   ];
 
@@ -178,6 +183,7 @@ export default function EditPage() {
       <div className="mt-7">
         {tab === "lessons" && <Lessons api={gh.api} />}
         {tab === "problems" && <Problems api={gh.api} />}
+        {tab === "sims" && <Sims api={gh.api} />}
         {tab === "courses" && mayCourses && <Courses api={gh.api} />}
       </div>
     </Shell>
@@ -342,14 +348,12 @@ function Lessons({ api }: { api: Api }) {
                 Preview page
               </Link>
             </div>
-            <textarea
+            <LessonEditor
               value={text}
-              onChange={(e) => {
-                setText(e.target.value);
+              onChange={(v) => {
+                setText(v);
                 setDirty(true);
               }}
-              spellCheck={false}
-              className="mono h-[58vh] w-full text-[13px] leading-relaxed"
             />
             <button
               onClick={() => submit(active, text)}
@@ -827,6 +831,241 @@ function Courses({ api }: { api: Api }) {
           {status.busy ? "Opening pull request." : "Propose change"}
         </button>
       </div>
+    </div>
+  );
+}
+
+/* --------------------------------- sims -------------------------------- */
+
+const DRAW_REFERENCE = `ctx   canvas context, already scaled for the display
+p     slider values, e.g. p.speed
+t     seconds since the sim started
+W, H  canvas size in pixels
+C     colours: C.ink C.rule C.accent C.figure C.faint C.paper
+out   set out.note = "..." for a readout above the canvas`;
+
+function Sims({ api }: { api: Api }) {
+  const [sims, setSims] = useState<SimDef[] | null>(null);
+  const [selected, setSelected] = useState<number | null>(null);
+  const [values, setValues] = useState<Record<string, number>>({});
+  const [dirty, setDirty] = useState(false);
+  const [status, setStatus] = useState<Status>(IDLE);
+
+  useEffect(() => {
+    load(api, "sims")
+      .then(({ sims }) => setSims(sims ?? []))
+      .catch((e) => setStatus({ ...IDLE, error: (e as Error).message }));
+  }, [api]);
+
+  const current = sims && selected !== null ? sims[selected] : null;
+
+  const pick = (i: number) => {
+    setSelected(i);
+    setValues(paramValues(sims![i].params));
+  };
+
+  const update = (patch: Partial<SimDef>) => {
+    if (selected === null) return;
+    setSims((list) => list!.map((s, i) => (i === selected ? { ...s, ...patch } : s)));
+    setDirty(true);
+  };
+
+  const updateParam = (pi: number, patch: Partial<SimParam>) => {
+    if (!current) return;
+    const params = current.params.map((p, i) => (i === pi ? { ...p, ...patch } : p));
+    update({ params });
+    if (patch.key || patch.value !== undefined) setValues(paramValues(params));
+  };
+
+  const addSim = () => {
+    const id = prompt("Id for the new simulation (lowercase, hyphens):")?.trim();
+    if (!id) return;
+    const fresh = NEW_SIM(id);
+    setSims((list) => [...(list ?? []), fresh]);
+    setSelected((sims?.length ?? 0));
+    setValues(paramValues(fresh.params));
+    setDirty(true);
+  };
+
+  const save = async () => {
+    setStatus({ ...IDLE, busy: true });
+    try {
+      const r = await post(api, { action: "saveSims", sims });
+      setStatus({ busy: false, note: r.message ?? null, prUrl: r.prUrl, error: null });
+      setDirty(false);
+    } catch (e) {
+      setStatus({ ...IDLE, error: (e as Error).message });
+    }
+  };
+
+  if (!sims) return <Banner s={status} />;
+
+  return (
+    <div className="flex flex-col gap-8 lg:flex-row">
+      <aside className="lg:w-48 lg:shrink-0">
+        <div className="flex items-baseline justify-between">
+          <span className="label">{sims.length} simulations</span>
+          <button onClick={addSim} className="sans text-sm text-[var(--accent)]">
+            New
+          </button>
+        </div>
+        <ul className="mt-3 space-y-1">
+          {sims.map((s, i) => (
+            <li key={s.id}>
+              <button
+                onClick={() => pick(i)}
+                className={`sans w-full truncate text-left text-sm ${
+                  selected === i
+                    ? "font-medium text-[var(--ink-strong)]"
+                    : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
+                }`}
+              >
+                {s.title}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      <section className="min-w-0 flex-1 space-y-5">
+        <Banner s={status} />
+        {!current ? (
+          <p className="text-[var(--ink-soft)]">
+            Pick a simulation to edit, or start a new one. Use it in a lesson
+            with <code>&lt;Sim id=&quot;{sims[0]?.id ?? "your-id"}&quot; /&gt;</code>.
+          </p>
+        ) : (
+          <>
+            {/* live preview, exactly what a reader sees */}
+            <div className="border-y border-[var(--rule)] py-4">
+              <SimRunner def={current} values={values} onValues={setValues} />
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              <Field label="Title">
+                <input
+                  value={current.title}
+                  onChange={(e) => update({ title: e.target.value })}
+                  className="w-full"
+                />
+              </Field>
+              <Field label="Id (used in lessons)">
+                <input
+                  value={current.id}
+                  onChange={(e) => update({ id: e.target.value })}
+                  className="mono w-full text-xs"
+                />
+              </Field>
+              <Field label="Height (px)">
+                <input
+                  type="number"
+                  value={current.height}
+                  onChange={(e) => update({ height: Number(e.target.value) })}
+                  className="w-full"
+                />
+              </Field>
+            </div>
+
+            <Field label="Caption">
+              <input
+                value={current.caption}
+                onChange={(e) => update({ caption: e.target.value })}
+                className="w-full"
+              />
+            </Field>
+
+            <div>
+              <div className="flex items-baseline justify-between">
+                <span className="label">Sliders</span>
+                <button
+                  onClick={() =>
+                    update({
+                      params: [
+                        ...current.params,
+                        { key: `p${current.params.length + 1}`, label: "New slider", unit: "", min: 0, max: 10, step: 1, value: 5 },
+                      ],
+                    })
+                  }
+                  className="sans text-sm text-[var(--accent)]"
+                >
+                  Add slider
+                </button>
+              </div>
+              <div className="mt-2 space-y-2">
+                {current.params.map((param, pi) => (
+                  <div key={pi} className="flex flex-wrap items-center gap-2">
+                    <input
+                      value={param.key}
+                      onChange={(e) => updateParam(pi, { key: e.target.value })}
+                      className="mono w-24 text-xs"
+                      title="Name used in the code as p.key"
+                    />
+                    <input
+                      value={param.label}
+                      onChange={(e) => updateParam(pi, { label: e.target.value })}
+                      className="w-40"
+                      title="Label shown to readers"
+                    />
+                    <input
+                      value={param.unit}
+                      onChange={(e) => updateParam(pi, { unit: e.target.value })}
+                      className="w-16"
+                      title="Unit"
+                    />
+                    {(["min", "max", "step", "value"] as const).map((f) => (
+                      <input
+                        key={f}
+                        type="number"
+                        value={param[f]}
+                        onChange={(e) => updateParam(pi, { [f]: Number(e.target.value) })}
+                        className="w-20"
+                        title={f === "value" ? "Starting value" : f}
+                      />
+                    ))}
+                    <button
+                      onClick={() =>
+                        update({ params: current.params.filter((_, i) => i !== pi) })
+                      }
+                      className="sans text-xs text-[var(--ink-faint)] hover:text-[var(--bad)]"
+                    >
+                      remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <Field label="Draw one frame">
+              <textarea
+                value={current.draw}
+                onChange={(e) => update({ draw: e.target.value })}
+                spellCheck={false}
+                className="mono h-72 w-full text-[13px] leading-relaxed"
+              />
+            </Field>
+            <pre className="mono whitespace-pre-wrap border-l-2 border-[var(--rule-strong)] pl-3 text-xs text-[var(--ink-soft)]">
+              {DRAW_REFERENCE}
+            </pre>
+
+            <div className="flex flex-wrap gap-4">
+              <button onClick={save} disabled={status.busy || !dirty} className="btn">
+                {status.busy ? "Opening pull request." : "Propose change"}
+              </button>
+              <button
+                onClick={() => {
+                  if (!confirm(`Remove the simulation "${current.title}"?`)) return;
+                  setSims((list) => list!.filter((_, i) => i !== selected));
+                  setSelected(null);
+                  setDirty(true);
+                }}
+                className="sans text-sm text-[var(--ink-faint)] hover:text-[var(--bad)]"
+              >
+                Delete simulation
+              </button>
+            </div>
+          </>
+        )}
+      </section>
     </div>
   );
 }

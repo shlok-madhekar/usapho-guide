@@ -1,14 +1,17 @@
 # Lessons
 
 One `.mdx` file per module, named for the module slug in `curriculum.json`.
-Drop a file in and it appears; delete it and the module falls back to its
-problems. Nothing to register.
+Drop a file in and it appears; delete it and the module keeps its problems.
+
+Most people should use the editor at `/edit`, which has a toolbar for every
+one of these and a live preview beside the text. This file is the reference
+for anyone editing the files directly.
 
 ## What you can use
 
 Math: `$inline$` and `$$display$$`.
 
-These are available in every lesson without imports (registered in
+Available in every lesson without imports (registered in
 `src/mdx-components.tsx`):
 
 ```mdx
@@ -16,7 +19,7 @@ These are available in every lesson without imports (registered in
 <Aside label="Where this goes wrong" warn>A common mistake.</Aside>
 
 <Figure caption={<><b>Figure 1.</b> What the reader should notice.</>}>
-  <ProjectileSim />
+  <Sim id="projectile" />
 </Figure>
 
 <QuickCheck
@@ -27,15 +30,32 @@ These are available in every lesson without imports (registered in
 />
 ```
 
-Figures available: `ProjectileSim`, `SpringSim`, `MotionGraphSim`,
-`CollisionSim`. Add new ones under `src/components/sims/` and register them in
-`src/mdx-components.tsx`.
+## Simulations
+
+Simulations live in `src/content/sims.json` and are referenced by id, so a
+lesson never imports a component. Write and preview new ones in the
+Simulations tab of the editor, or edit the JSON directly.
+
+Each sim declares its sliders and a `draw` body that runs once per frame with:
+
+```
+ctx   canvas context, already scaled for the display
+p     slider values, e.g. p.speed
+t     seconds since the sim started
+W, H  canvas size in pixels
+C     colours: C.ink C.rule C.accent C.figure C.faint C.paper
+out   set out.note = "..." for a readout above the canvas
+```
+
+Use `C.*` rather than fixed colours so sims work in both themes. Sim code is
+repository content: it reaches readers only once a maintainer merges the pull
+request that introduced it.
 
 ## Problems
 
-Problems live in `src/content/problems.json`, not in the lesson, so they can
-be browsed together in `/problems` and filtered. Add them through the editor
-at `/edit`, which has a live preview, or by editing the JSON directly.
+Problems live in `src/content/problems.json` so they can be browsed together
+in `/problems`. Add them in the Problems tab, which previews them as students
+will see them.
 
 ## House style
 

@@ -18,6 +18,7 @@ export const dynamic = "force-dynamic";
 const LESSONS = "src/content/lessons";
 const CURRICULUM = "src/content/curriculum.json";
 const PROBLEMS = "src/content/problems.json";
+const SIMS = "src/content/sims.json";
 const SLUG_RE = /^[a-z0-9][a-z0-9-]{1,60}$/;
 
 class ApiError extends Error {
@@ -112,6 +113,8 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({
         problems: JSON.parse(await readFile(token, PROBLEMS)),
       });
+    if (resource === "sims")
+      return NextResponse.json({ sims: JSON.parse(await readFile(token, SIMS)) });
 
     throw new ApiError(400, "Unknown resource");
   } catch (e) {
@@ -125,6 +128,7 @@ export async function GET(req: NextRequest) {
  *  saveLesson    { slug, content }   anyone with GitHub connected
  *  deleteLesson  { slug }            anyone with GitHub connected
  *  saveProblems  { problems }        anyone with GitHub connected
+ *  saveSims      { sims }            anyone with GitHub connected
  *  saveCurriculum{ curriculum }      admin (changes the site's structure)
  */
 export async function POST(req: NextRequest) {
@@ -187,6 +191,25 @@ export async function POST(req: NextRequest) {
         ];
         title = "content: update problem bank";
         summary = `Updates the problem bank (${problems.length} problems).`;
+        break;
+      }
+
+      case "saveSims": {
+        const sims = body.sims as { id: string; title: string; draw: string }[];
+        if (!Array.isArray(sims)) throw new ApiError(400, "sims must be an array");
+        const ids = new Set<string>();
+        for (const sim of sims) {
+          if (!SLUG_RE.test(sim.id ?? ""))
+            throw new ApiError(400, `Invalid simulation id: ${sim.id}`);
+          if (ids.has(sim.id))
+            throw new ApiError(400, `Duplicate simulation id: ${sim.id}`);
+          ids.add(sim.id);
+          if (typeof sim.draw !== "string" || sim.draw.length > 40_000)
+            throw new ApiError(400, `Draw code missing or too large in ${sim.id}`);
+        }
+        changes = [{ path: SIMS, content: JSON.stringify(sims, null, 2) + "\n" }];
+        title = "content: update simulations";
+        summary = `Updates the simulation set (${sims.length} simulations).`;
         break;
       }
 

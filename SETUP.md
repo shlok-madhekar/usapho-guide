@@ -87,6 +87,7 @@ connecting each time. It is only a convenience; production does not need it.
 src/content/
 ├── curriculum.json   # courses -> sections -> modules
 ├── problems.json     # the problem bank, with provenance per problem
+├── sims.json         # simulations: sliders plus a draw function
 └── lessons/
     ├── <slug>.mdx    # one lesson per module slug, auto-registered
     └── README.md     # authoring reference
@@ -95,9 +96,11 @@ src/content/
 - Add a lesson: create `src/content/lessons/<slug>.mdx` where `<slug>` matches a
   module in `curriculum.json`. Nothing else to register.
 - Remove a lesson: delete the file. The module keeps its problems.
-- Lessons can use `$math$`, `<Aside>`, `<Figure>`, `<QuickCheck>` and the
-  figures (`<ProjectileSim />`, `<SpringSim />`, `<MotionGraphSim />`,
-  `<CollisionSim />`) without imports.
+- Lessons can use `$math$`, `<Aside>`, `<Figure>`, `<QuickCheck>` and
+  `<Sim id="..." />` without imports.
+- The editor at `/edit` has a toolbar for all of it and a live preview, so
+  contributors do not need to know MDX. Simulations are written and previewed
+  in the same place.
 
 ### Problems and attribution
 

@@ -2,7 +2,7 @@
   {
     "id": "fma",
     "label": "I",
-    "name": "F=ma",
+    "name": "F=MA",
     "tagline": "Mechanics fundamentals for the qualifying exam",
     "accent": "var(--brass)",
     "sections": [

@@ -1,37 +1,28 @@
-## Components do the work
+## Two products, two questions
 
-Olympiad problems are almost never solved with vectors as arrows; they are
-solved by picking axes and writing components. Any vector splits as
-$A_x = A\cos\theta$, $A_y = A\sin\theta$, and two products cover essentially
-every use:
+Multiply two vectors and you basically get to ask one of two questions: how much do these point the same way, or how much do these point perpendicular. That's it, that's the whole menu.
 
-$$\vec A \cdot \vec B = AB\cos\theta, \qquad |\vec A \times \vec B| = AB\sin\theta$$
+Trick for getting the formulas without memorizing them: point $\overrightarrow{B}$ along the x-axis. You're allowed to, the physics doesn't know or care how you drew your paper. Now $\overrightarrow{A} = (A\cos\theta, A\sin\theta)$, multiply components, add, and $AB\cos\theta$ falls out on its own. Same move gives you $AB\sin\theta$ for the cross product. You didn't memorize anything, you just did middle-school algebra and a formula appeared.
+Dot product shows up whenever you're asking "how much of this actually counts" — work, flux, perpendicularity checks. Cross product shows up for torque, angular momentum, $q\overrightarrow{v} \times \overrightarrow{B}$, anything about the sideways part. And here's the shortcut that's actually worth remembering: dot product zero means perpendicular, cross product zero means parallel. Half these problems crack open the second you notice one of them vanished.
 
-The dot product answers "how much of this is along that": work, flux, and
-checking perpendicularity. The cross product answers "how much of this is
-perpendicular to that": torque, angular momentum, magnetic force. If the dot
-product vanishes the vectors are perpendicular; if the cross product vanishes
-they are parallel.
-
-## Choosing axes
-
-The single highest-return decision in a mechanics problem is where to point
-the axes. On an incline, tilt them along the slope so the acceleration lies on
-one axis and only gravity needs splitting. In circular motion, point one axis
-at the center. Good axes turn two coupled equations into one.
-
-## The calculus you actually need
-
-F=ma is written to be solvable without calculus, but calculus shortens
-half of it. Derivatives of polynomials and trig functions, the chain rule, and
-simple integrals are enough. The one approximation you will use everywhere:
-
-$$\sin\theta \approx \theta, \qquad \cos\theta \approx 1 - \frac{\theta^2}{2}, \qquad (1+x)^n \approx 1 + nx$$
-
-valid for small $\theta$ and small $x$.
-
-<Aside label="Reading the problem">
-  "Small oscillations", "slightly displaced", "to first order": all of these
-  are instructions to expand and throw away the higher terms. Recognizing the
-  phrasing is most of the work.
+<Aside label="Spotting it in the wild">
+  If a problem asks you to show two vectors are perpendicular, or to find when they are, that's your cue: set the dot product to zero and solve.
+  Doesn't matter if the vectors are velocities, force and displacement, whatever. "Perpendicular" in a problem statement basically always means "dot product equals zero" underneath.
 </Aside>
+## Your axes aren't fixed, so stop drawing them out of habit
+$F = ma$ works in literally any coordinate system, which means the axes are a choice, not a rule. Most people default to horizontal and vertical without thinking about it, and then wonder why the incline problem is annoying.
+Block on a frictionless ramp. Horizontal axes: gravity's easy, sure, but the normal force tilts, and worse, your acceleration now has two components that are secretly the same variable in disguise (the block's stuck to the ramp, after all). You end up solving a mini system of equations to discover something that should've taken one line.
+Tilt the axes along the ramp instead and the constraint just... disappears into the coordinate system. Acceleration is $(a, 0)$ because the block physically cannot leave the surface. Gravity splits, normal force doesn't, and you get $a = g\sin\alpha$ before you've broken a sweat.
+Nothing about the problem changed. You just stopped fighting your own axes. General move: rotate until acceleration has as few components as you can get away with.
+## Circular motion needs its own axes, and here's why
+No, it's not throwing a tantrum. $\hat r$, the direction pointing outward from the center, rotates as the particle moves. That's the one fact that makes circular motion feel harder than it is. Differentiate $\overrightarrow{r} = r\hat r$ and you can't ignore that $\hat r$ is changing too — same product rule you'd use on any two functions multiplied together. Work it out (it's the same trick as differentiating $\cos\theta$ and $\sin\theta$) and eventually you land on
+$$\overrightarrow{a} = (\ddot r - r\dot\theta^2)\hat r + (r\ddot\theta + 2\dot r\dot\theta)\hat\theta$$
+which looks like a mess until you remember "circular" just means $r$ doesn't change. Kill every $\dot r$ and $\ddot r$ and you're left holding $\overrightarrow{a} = -r\dot\theta^2\hat r$. Centripetal acceleration, derived instead of handed to you on a formula sheet.
+<Aside label="Bonus round, free of charge">
+  That tangential term you just deleted was secretly $\frac{1}{r}\frac{d}{dt}(r^2\dot\theta)$. No tangential force means $r^2\dot\theta$ never changes. That's Kepler's second law. You already proved it and didn't notice.
+</Aside>
+## Zoom in on anything and it's a line
+$f(x) \approx f(0) + f'(0)x$ sounds abstract until you realize it's just "if you zoom in far enough on any smooth curve, it looks straight." Do that to $\sin\theta$, $\cos\theta$, and $(1+x)^n$ and you get the three lines you'll use in nearly every problem from here on:
+$$\sin\theta \approx \theta, \qquad \cos\theta \approx 1 - \tfrac{\theta^2}{2}, \qquad (1+x)^n \approx 1 + nx$$
+Cosine's the weird one, needing an extra term, because its slope at zero is already flat. Nothing to zoom into yet, so you have to zoom in twice.
+Whenever a problem says "small oscillations" or "slightly displaced" or "to first order," that's not flavor text. It's the problem telling you exactly which of those three lines to reach for.

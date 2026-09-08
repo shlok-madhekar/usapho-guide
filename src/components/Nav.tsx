@@ -8,7 +8,7 @@ import { allModules } from "@/lib/curriculum";
 import { useProgress } from "@/lib/progress";
 import { useAuth } from "@/lib/auth";
 import { useTheme } from "@/lib/theme";
-import { ROLE_LABEL, canEditLessons, canEditProblems } from "@/lib/roles";
+import { ROLE_LABEL } from "@/lib/roles";
 
 function ThemeToggle() {
   const { resolved, toggle } = useTheme();
@@ -96,15 +96,13 @@ function AccountMenu() {
               <div className="sans mt-1 text-xs text-[var(--ink-faint)]">Reader</div>
             )}
           </div>
-          {(canEditLessons(profile) || canEditProblems(profile)) && (
-            <Link
-              href="/edit"
-              onClick={() => setOpen(false)}
-              className="sans block px-3 py-1.5 text-sm text-[var(--ink)] hover:bg-[var(--paper-2)]"
-            >
-              Content editor
-            </Link>
-          )}
+          <Link
+            href="/edit"
+            onClick={() => setOpen(false)}
+            className="sans block px-3 py-1.5 text-sm text-[var(--ink)] hover:bg-[var(--paper-2)]"
+          >
+            Write for the guide
+          </Link>
           <Link
             href="/account"
             onClick={() => setOpen(false)}
@@ -139,6 +137,7 @@ export default function Nav() {
     { href: "/guide", label: "Course" },
     { href: "/problems", label: "Problems" },
     { href: "/progress", label: "Progress" },
+    { href: "/edit", label: "Contribute" },
   ];
 
   return (

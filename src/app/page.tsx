@@ -41,6 +41,9 @@ export default function Home() {
           <Link href="/problems" className="btn-plain">
             Problem bank
           </Link>
+          <Link href="/edit" className="btn-plain">
+            Write for it
+          </Link>
         </div>
 
         <hr className="mt-14" />
@@ -91,8 +94,13 @@ export default function Home() {
 
         <footer className="mt-6 text-sm text-[var(--ink-soft)]">
           <p>
-            Free and open source. Corrections and new material are welcome by
-            pull request on{" "}
+            Free and open source. Anyone can write a lesson, add a problem or
+            build a simulation from{" "}
+            <Link href="/edit" className="link">
+              the editor
+            </Link>
+            : changes arrive as a pull request under your own GitHub account,
+            reviewed before they go live. Plain pull requests on{" "}
             <a
               href="https://github.com/shlok-madhekar/usapho-guide"
               className="link"
@@ -100,8 +108,8 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               GitHub
-            </a>
-            . Structured after the{" "}
+            </a>{" "}
+            work just as well. Structured after the{" "}
             <a href="https://usaco.guide" className="link">
               USACO Guide
             </a>

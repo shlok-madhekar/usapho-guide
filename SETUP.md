@@ -42,16 +42,21 @@ update public.profiles set roles = '{problem_writer}' where email = 'them@exampl
 update public.profiles set roles = '{admin}'          where email = 'you@example.com';
 ```
 
-Anyone with a GitHub account can propose lessons and problems, so roles are
-only about extra trust:
+Contribution is open: anyone with a GitHub account can write lessons,
+problems and simulations from `/edit`, because those changes are gated by
+pull request review rather than by a role. Roles cover what review cannot:
 
 | Role | Adds |
 |---|---|
-| `admin` | May change the course structure (courses, sections, modules) |
-| `course_writer`, `problem_writer` | Labels shown on the account page |
+| `admin` | May change the course structure, which reshapes every page |
+| `course_writer`, `problem_writer` | A label marking a regular contributor |
 
 Being a **collaborator on the repository** is what lets someone branch on the
 main repo instead of a fork, and that is managed in GitHub, not here.
+
+If you would rather not advertise the editor, remove the `/edit` entry from
+`links` in `src/components/Nav.tsx`. The route keeps working for anyone who
+knows the URL.
 
 ## 3. The editor (contributors use their own GitHub)
 

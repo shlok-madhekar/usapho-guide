@@ -82,9 +82,10 @@ export default function AccountPage() {
               to be a collaborator: a fork is created for you.
             </p>
             <p>
-              Roles are only about trust after that. Collaborators on the
-              repository get branches on the main repo instead of a fork, and
-              the <em>admin</em> role can change the course structure.
+              No role is needed to write. The one exception is the course
+              structure, which reshapes every page, so changing it needs the
+              <em> admin</em> role. Collaborators on the repository also get a
+              branch on the main repo rather than a fork.
             </p>
           </div>
 

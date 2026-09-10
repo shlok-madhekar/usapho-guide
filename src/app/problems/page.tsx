@@ -15,6 +15,12 @@ import { useProgress } from "@/lib/progress";
 
 type Filter = "all" | "unsolved" | "solved" | "starred" | "solvable";
 
+/**
+ * Rendering every match at once puts tens of thousands of nodes on the page
+ * and makes each filter click take seconds, so results come in pages.
+ */
+const PAGE_SIZE = 40;
+
 const ORIGIN_FILTERS: { key: Origin | "any"; label: string }[] = [
   { key: "any", label: "All sources" },
   { key: "original", label: "Written here" },
@@ -53,6 +59,12 @@ export default function ProblemsPage() {
   const [difficulty, setDifficulty] = useState<Difficulty | "any">("any");
   const [origin, setOrigin] = useState<Origin | "any">("any");
   const [filter, setFilter] = useState<Filter>("all");
+  const [shown, setShown] = useState(PAGE_SIZE);
+
+  // any change to the filters starts the list again from the top
+  useEffect(() => {
+    setShown(PAGE_SIZE);
+  }, [query, division, difficulty, origin, filter]);
 
   const moduleTitle = useMemo(() => {
     const map: Record<string, { title: string; division: string }> = {};
@@ -88,15 +100,17 @@ export default function ProblemsPage() {
     });
   }, [ALL, query, division, difficulty, origin, filter, statuses, moduleTitle]);
 
+  const page = useMemo(() => visible.slice(0, shown), [visible, shown]);
+
   const byModule = useMemo(() => {
     const groups = new Map<string, typeof visible>();
-    for (const p of visible) {
+    for (const p of page) {
       const list = groups.get(p.module) ?? [];
       list.push(p);
       groups.set(p.module, list);
     }
     return Array.from(groups.entries());
-  }, [visible]);
+  }, [page]);
 
   const solvedCount = Object.values(statuses).filter(
     (s) => s === "solved" || s === "reviewed"
@@ -185,9 +199,17 @@ export default function ProblemsPage() {
         {!ALL && !failed && (
           <p className="mt-10 text-[var(--ink-soft)]">Loading problems.</p>
         )}
-        {ALL && byModule.length === 0 && (
+        {ALL && visible.length === 0 && (
           <p className="mt-10 text-[var(--ink-soft)]">
             Nothing matches those filters.
+          </p>
+        )}
+
+        {ALL && visible.length > 0 && (
+          <p className="sans mt-6 text-sm text-[var(--ink-faint)]">
+            {visible.length} matching{" "}
+            {visible.length === 1 ? "problem" : "problems"}
+            {visible.length > shown && `, showing the first ${shown}`}
           </p>
         )}
 
@@ -203,6 +225,15 @@ export default function ProblemsPage() {
             </div>
           </section>
         ))}
+
+        {ALL && visible.length > shown && (
+          <button
+            onClick={() => setShown((n) => n + PAGE_SIZE * 2)}
+            className="btn-plain mt-8"
+          >
+            Show more
+          </button>
+        )}
       </main>
     </>
   );

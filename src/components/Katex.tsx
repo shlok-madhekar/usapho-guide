@@ -1,3 +1,4 @@
+import { memo } from "react";
 import katex from "katex";
 
 export function K({ children }: { children: string }) {
@@ -18,7 +19,7 @@ export function KBlock({ children }: { children: string }) {
  * $inline$ and $$display$$ math, **bold**, *italic*, and blank-line paragraphs.
  * Everything else is escaped, so bank text is never a script injection vector.
  */
-export function Markish({ text }: { text: string }) {
+function MarkishInner({ text }: { text: string }) {
   const escape = (s: string) =>
     s
       .replace(/&/g, "&amp;")
@@ -60,3 +61,10 @@ export function Markish({ text }: { text: string }) {
     </>
   );
 }
+
+/**
+ * Typesetting is the expensive part of rendering a problem, and problem text
+ * never changes, so skip the work whenever the same text comes back.
+ */
+export const Markish = memo(MarkishInner);
+Markish.displayName = "Markish";

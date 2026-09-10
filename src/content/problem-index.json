@@ -7958,6 +7958,6590 @@
     "solvable": true
   },
   {
+    "id": "mag-force-01",
+    "name": "Proton crossing a field line",
+    "module": "magnetic-force",
+    "difficulty": "Easy",
+    "tags": [
+      "magnetic force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-02",
+    "name": "Electron at 30 degrees",
+    "module": "magnetic-force",
+    "difficulty": "Easy",
+    "tags": [
+      "magnetic force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-03",
+    "name": "Straight wire in a magnet gap",
+    "module": "magnetic-force",
+    "difficulty": "Easy",
+    "tags": [
+      "magnetic force",
+      "current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-04",
+    "name": "Tilted transmission line",
+    "module": "magnetic-force",
+    "difficulty": "Easy",
+    "tags": [
+      "magnetic force",
+      "current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-05",
+    "name": "Radius of a proton orbit",
+    "module": "magnetic-force",
+    "difficulty": "Easy",
+    "tags": [
+      "circular motion",
+      "magnetic force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-06",
+    "name": "Cyclotron period of an electron",
+    "module": "magnetic-force",
+    "difficulty": "Easy",
+    "tags": [
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-07",
+    "name": "Cyclotron frequency",
+    "module": "magnetic-force",
+    "difficulty": "Easy",
+    "tags": [
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-08",
+    "name": "Velocity selector setting",
+    "module": "magnetic-force",
+    "difficulty": "Easy",
+    "tags": [
+      "velocity selector"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-09",
+    "name": "Two parallel bus bars",
+    "module": "magnetic-force",
+    "difficulty": "Easy",
+    "tags": [
+      "parallel wires"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-10",
+    "name": "Magnetic moment of a coil",
+    "module": "magnetic-force",
+    "difficulty": "Easy",
+    "tags": [
+      "dipole moment"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-11",
+    "name": "Torque on a galvanometer coil",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "torque",
+      "dipole moment"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-12",
+    "name": "Tilted current loop",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "torque"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-13",
+    "name": "Mass from a spectrometer radius",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "mass spectrometer"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-14",
+    "name": "Rod on rails",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "magnetic force",
+      "current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-15",
+    "name": "Floating a wire",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "magnetic force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-16",
+    "name": "Pitch of a helix",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "helical motion"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-17",
+    "name": "Energy from orbit radius",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-18",
+    "name": "Accelerated ion in a spectrometer",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "mass spectrometer"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-19",
+    "name": "Antiparallel currents",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "parallel wires"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-20",
+    "name": "Three parallel wires",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "parallel wires"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-21",
+    "name": "Work to rotate a dipole",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "dipole moment",
+      "torque"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-22",
+    "name": "Force on a semicircular wire",
+    "module": "magnetic-force",
+    "difficulty": "Normal",
+    "tags": [
+      "magnetic force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-23",
+    "name": "Maximum cyclotron energy",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "circular motion"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-24",
+    "name": "Magnetic levitation of a wire",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "parallel wires"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-25",
+    "name": "Deflection through a field slab",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-26",
+    "name": "Helical electron beam",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "helical motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-27",
+    "name": "Separating neon isotopes",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "mass spectrometer"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-28",
+    "name": "Starting a rod against friction",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "magnetic force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-29",
+    "name": "Oscillating current loop",
+    "module": "magnetic-force",
+    "difficulty": "Very Hard",
+    "tags": [
+      "torque",
+      "dipole moment"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-force-30",
+    "name": "Cycloid in crossed fields",
+    "module": "magnetic-force",
+    "difficulty": "Very Hard",
+    "tags": [
+      "velocity selector",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-01",
+    "name": "Field beside a long wire",
+    "module": "biot-savart",
+    "difficulty": "Easy",
+    "tags": [
+      "long wire"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-02",
+    "name": "Center of a single loop",
+    "module": "biot-savart",
+    "difficulty": "Easy",
+    "tags": [
+      "circular loop"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-03",
+    "name": "Center of a multi-turn coil",
+    "module": "biot-savart",
+    "difficulty": "Easy",
+    "tags": [
+      "circular loop"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-04",
+    "name": "On the axis of a loop",
+    "module": "biot-savart",
+    "difficulty": "Easy",
+    "tags": [
+      "circular loop",
+      "on-axis field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-05",
+    "name": "Where the field drops to a value",
+    "module": "biot-savart",
+    "difficulty": "Easy",
+    "tags": [
+      "long wire"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-06",
+    "name": "Semicircular arc",
+    "module": "biot-savart",
+    "difficulty": "Easy",
+    "tags": [
+      "arc"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-07",
+    "name": "Quarter arc",
+    "module": "biot-savart",
+    "difficulty": "Easy",
+    "tags": [
+      "arc"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-08",
+    "name": "Midpoint between antiparallel wires",
+    "module": "biot-savart",
+    "difficulty": "Easy",
+    "tags": [
+      "long wire",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-09",
+    "name": "Current for a target field",
+    "module": "biot-savart",
+    "difficulty": "Easy",
+    "tags": [
+      "circular loop"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-10",
+    "name": "Field near a welding cable",
+    "module": "biot-savart",
+    "difficulty": "Easy",
+    "tags": [
+      "long wire"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-11",
+    "name": "Finite wire segment",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "finite segment"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-12",
+    "name": "Semi-infinite wire",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "finite segment"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-13",
+    "name": "Center of a square loop",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "polygon",
+      "finite segment"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-14",
+    "name": "Center of a triangular loop",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "polygon"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-15",
+    "name": "Off-axis point near two wires",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "long wire",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-16",
+    "name": "Helmholtz pair",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "helmholtz"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-17",
+    "name": "Concentric opposing loops",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "circular loop",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-18",
+    "name": "A 120 degree arc",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "arc"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-19",
+    "name": "Hairpin with a semicircle",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "arc",
+      "superposition"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-20",
+    "name": "Single current sheet",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "current sheet"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-21",
+    "name": "Two opposing sheets",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "current sheet",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-22",
+    "name": "Far field of a small loop",
+    "module": "biot-savart",
+    "difficulty": "Normal",
+    "tags": [
+      "circular loop",
+      "on-axis field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-23",
+    "name": "Field at a square's corner",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "polygon",
+      "finite segment"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-24",
+    "name": "Center of a finite solenoid",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "solenoid",
+      "superposition"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-25",
+    "name": "Coil pair, wrong spacing",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "helmholtz",
+      "on-axis field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-26",
+    "name": "Three wires, field at the centroid",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "long wire",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-27",
+    "name": "Null point between two wires",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "long wire",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-28",
+    "name": "Center of a hexagonal loop",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "polygon"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-29",
+    "name": "Spinning charged ring",
+    "module": "biot-savart",
+    "difficulty": "Very Hard",
+    "tags": [
+      "circular loop",
+      "current"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-bs-30",
+    "name": "Spinning charged disk",
+    "module": "biot-savart",
+    "difficulty": "Very Hard",
+    "tags": [
+      "circular loop",
+      "current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-01",
+    "name": "Field beside a straight wire",
+    "module": "amperes-law",
+    "difficulty": "Easy",
+    "tags": [
+      "ampere's law",
+      "straight wire"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-02",
+    "name": "Ideal solenoid interior",
+    "module": "amperes-law",
+    "difficulty": "Easy",
+    "tags": [
+      "solenoid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-03",
+    "name": "Toroid on a ferrite-free core",
+    "module": "amperes-law",
+    "difficulty": "Easy",
+    "tags": [
+      "toroid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-04",
+    "name": "Inside a solid conductor",
+    "module": "amperes-law",
+    "difficulty": "Easy",
+    "tags": [
+      "ampere's law",
+      "current density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-05",
+    "name": "Between the conductors of a coax",
+    "module": "amperes-law",
+    "difficulty": "Easy",
+    "tags": [
+      "coaxial cable"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-06",
+    "name": "Line integral around three wires",
+    "module": "amperes-law",
+    "difficulty": "Easy",
+    "tags": [
+      "ampere's law",
+      "enclosed current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-07",
+    "name": "Solenoid from total turns",
+    "module": "amperes-law",
+    "difficulty": "Easy",
+    "tags": [
+      "solenoid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-08",
+    "name": "Infinite sheet of current",
+    "module": "amperes-law",
+    "difficulty": "Easy",
+    "tags": [
+      "current sheet"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-09",
+    "name": "Cavity of a hollow shell",
+    "module": "amperes-law",
+    "difficulty": "Easy",
+    "tags": [
+      "cylindrical shell"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-10",
+    "name": "Current needed for a target field",
+    "module": "amperes-law",
+    "difficulty": "Easy",
+    "tags": [
+      "solenoid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-11",
+    "name": "Where the field is half its surface value",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "ampere's law",
+      "current density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-12",
+    "name": "Inside the braid of a coaxial cable",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "coaxial cable",
+      "enclosed current"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-13",
+    "name": "Inside a thick current slab",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "current slab"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-14",
+    "name": "Outside the same slab",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "current slab"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-15",
+    "name": "Toroid field at the inner edge",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "toroid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-16",
+    "name": "Two sheets carrying opposite currents",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "current sheet",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-17",
+    "name": "Wire with current density growing outward",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "current density",
+      "ampere's law"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-18",
+    "name": "Two windings on one solenoid",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "solenoid",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-19",
+    "name": "Halfway through a thick pipe",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "cylindrical shell",
+      "enclosed current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-20",
+    "name": "Circulation around solenoid turns",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "ampere's law",
+      "solenoid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-21",
+    "name": "Imperfectly shielded coax",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "coaxial cable"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-22",
+    "name": "Designing a toroid",
+    "module": "amperes-law",
+    "difficulty": "Normal",
+    "tags": [
+      "toroid",
+      "design"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-23",
+    "name": "Uniform field inside a drilled cavity",
+    "module": "amperes-law",
+    "difficulty": "Hard",
+    "tags": [
+      "superposition",
+      "cavity"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-24",
+    "name": "Density falling off toward the surface",
+    "module": "amperes-law",
+    "difficulty": "Hard",
+    "tags": [
+      "current density",
+      "ampere's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-25",
+    "name": "Slab with density growing from the midplane",
+    "module": "amperes-law",
+    "difficulty": "Hard",
+    "tags": [
+      "current slab",
+      "current density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-26",
+    "name": "Coax with currents in the same direction",
+    "module": "amperes-law",
+    "difficulty": "Hard",
+    "tags": [
+      "coaxial cable",
+      "enclosed current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-27",
+    "name": "Wire balanced against a sheet",
+    "module": "amperes-law",
+    "difficulty": "Hard",
+    "tags": [
+      "superposition",
+      "current sheet"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-28",
+    "name": "Flux through a toroid's cross-section",
+    "module": "amperes-law",
+    "difficulty": "Hard",
+    "tags": [
+      "toroid",
+      "flux"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-29",
+    "name": "Field at the axis of a drilled conductor",
+    "module": "amperes-law",
+    "difficulty": "Very Hard",
+    "tags": [
+      "superposition",
+      "cavity"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-amp-30",
+    "name": "Where the shield halves the field",
+    "module": "amperes-law",
+    "difficulty": "Very Hard",
+    "tags": [
+      "coaxial cable",
+      "enclosed current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-01",
+    "name": "Loop in a strengthening field",
+    "module": "faraday-lenz",
+    "difficulty": "Easy",
+    "tags": [
+      "faraday's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-02",
+    "name": "Many turns multiply the EMF",
+    "module": "faraday-lenz",
+    "difficulty": "Easy",
+    "tags": [
+      "faraday's law",
+      "coil"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-03",
+    "name": "Rod sliding on rails",
+    "module": "faraday-lenz",
+    "difficulty": "Easy",
+    "tags": [
+      "motional emf"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-04",
+    "name": "Flux change in a short time",
+    "module": "faraday-lenz",
+    "difficulty": "Easy",
+    "tags": [
+      "faraday's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-05",
+    "name": "Induced current from an EMF",
+    "module": "faraday-lenz",
+    "difficulty": "Easy",
+    "tags": [
+      "induced current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-06",
+    "name": "Collapsing loop",
+    "module": "faraday-lenz",
+    "difficulty": "Easy",
+    "tags": [
+      "faraday's law",
+      "changing area"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-07",
+    "name": "Charge through a coil",
+    "module": "faraday-lenz",
+    "difficulty": "Easy",
+    "tags": [
+      "induced charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-08",
+    "name": "Flux through a circular loop",
+    "module": "faraday-lenz",
+    "difficulty": "Easy",
+    "tags": [
+      "magnetic flux"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-09",
+    "name": "Peak EMF of a generator coil",
+    "module": "faraday-lenz",
+    "difficulty": "Easy",
+    "tags": [
+      "rotating coil",
+      "generator"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-10",
+    "name": "Power in the sliding rod circuit",
+    "module": "faraday-lenz",
+    "difficulty": "Easy",
+    "tags": [
+      "motional emf",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-11",
+    "name": "Force needed to keep a rod moving",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "motional emf",
+      "lenz's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-12",
+    "name": "Charge as a loop leaves the field",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "induced charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-13",
+    "name": "RMS output of an alternator",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "rotating coil",
+      "generator"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-14",
+    "name": "Loop beside a wire with rising current",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "faraday's law",
+      "long wire"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-15",
+    "name": "Pickup coil around a solenoid",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "faraday's law",
+      "solenoid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-16",
+    "name": "Flipping a coil over",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "induced charge",
+      "flip coil"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-17",
+    "name": "Current in a loop in a decaying field",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "induced current",
+      "lenz's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-18",
+    "name": "Loop being pulled tight",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "changing area",
+      "faraday's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-19",
+    "name": "Work to drag a loop out",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "energy",
+      "lenz's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-20",
+    "name": "Terminal speed of a falling loop",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "lenz's law",
+      "terminal velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-21",
+    "name": "Heat from a quenched field",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "energy",
+      "eddy currents"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-22",
+    "name": "Faraday disk",
+    "module": "faraday-lenz",
+    "difficulty": "Normal",
+    "tags": [
+      "motional emf",
+      "faraday disk"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-23",
+    "name": "Induced current beside a ramping wire",
+    "module": "faraday-lenz",
+    "difficulty": "Hard",
+    "tags": [
+      "long wire",
+      "induced current"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-24",
+    "name": "Rod coasting to a stop",
+    "module": "faraday-lenz",
+    "difficulty": "Hard",
+    "tags": [
+      "motional emf",
+      "lenz's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-25",
+    "name": "Loop drifting away from a wire",
+    "module": "faraday-lenz",
+    "difficulty": "Hard",
+    "tags": [
+      "long wire",
+      "motional emf"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-26",
+    "name": "Charge from repositioning a loop",
+    "module": "faraday-lenz",
+    "difficulty": "Hard",
+    "tags": [
+      "induced charge",
+      "long wire"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-27",
+    "name": "Induced electric field inside a solenoid",
+    "module": "faraday-lenz",
+    "difficulty": "Hard",
+    "tags": [
+      "induced electric field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-28",
+    "name": "Induced electric field outside the windings",
+    "module": "faraday-lenz",
+    "difficulty": "Hard",
+    "tags": [
+      "induced electric field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-29",
+    "name": "Heat from a loop falling at terminal speed",
+    "module": "faraday-lenz",
+    "difficulty": "Very Hard",
+    "tags": [
+      "energy",
+      "lenz's law"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-far-30",
+    "name": "Small loop at the center of a big one",
+    "module": "faraday-lenz",
+    "difficulty": "Very Hard",
+    "tags": [
+      "mutual inductance",
+      "faraday's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-01",
+    "name": "Rod on rails",
+    "module": "motional-emf",
+    "difficulty": "Easy",
+    "tags": [
+      "motional emf"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-02",
+    "name": "Speed from a measured EMF",
+    "module": "motional-emf",
+    "difficulty": "Easy",
+    "tags": [
+      "motional emf"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-03",
+    "name": "Current in the rail loop",
+    "module": "motional-emf",
+    "difficulty": "Easy",
+    "tags": [
+      "motional emf",
+      "circuits"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-04",
+    "name": "Force needed to keep the rod moving",
+    "module": "motional-emf",
+    "difficulty": "Easy",
+    "tags": [
+      "motional emf",
+      "magnetic force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-05",
+    "name": "Power dissipated in the rail circuit",
+    "module": "motional-emf",
+    "difficulty": "Easy",
+    "tags": [
+      "motional emf",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-06",
+    "name": "Rotating rod",
+    "module": "motional-emf",
+    "difficulty": "Easy",
+    "tags": [
+      "motional emf",
+      "rotation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-07",
+    "name": "AC generator peak EMF",
+    "module": "motional-emf",
+    "difficulty": "Easy",
+    "tags": [
+      "ac generator",
+      "motional emf"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-08",
+    "name": "EMF across an airplane wing",
+    "module": "motional-emf",
+    "difficulty": "Easy",
+    "tags": [
+      "motional emf"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-09",
+    "name": "Disk dynamo EMF",
+    "module": "motional-emf",
+    "difficulty": "Easy",
+    "tags": [
+      "motional emf",
+      "rotation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-10",
+    "name": "Charge through the rail circuit",
+    "module": "motional-emf",
+    "difficulty": "Easy",
+    "tags": [
+      "motional emf",
+      "induced charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-11",
+    "name": "Terminal speed on inclined rails",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "motional emf",
+      "terminal velocity"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-12",
+    "name": "Falling wire between vertical rails",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "motional emf",
+      "terminal velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-13",
+    "name": "Magnetic braking: time to half speed",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "magnetic braking",
+      "motional emf"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-14",
+    "name": "Total sliding distance while braking",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "magnetic braking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-15",
+    "name": "Heat generated by magnetic braking",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "magnetic braking",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-16",
+    "name": "Generator peak EMF from rpm",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "ac generator"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-17",
+    "name": "RMS output of the generator",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "ac generator"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-18",
+    "name": "Spin rate for a target EMF",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "motional emf",
+      "rotation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-19",
+    "name": "Disk dynamo current",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "motional emf",
+      "circuits"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-20",
+    "name": "Charge with rod resistance included",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "induced charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-21",
+    "name": "Rod pulled by a hanging mass",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "motional emf",
+      "terminal velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-22",
+    "name": "Average power from an AC generator",
+    "module": "motional-emf",
+    "difficulty": "Normal",
+    "tags": [
+      "ac generator",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-23",
+    "name": "Pulling against friction and induction",
+    "module": "motional-emf",
+    "difficulty": "Hard",
+    "tags": [
+      "motional emf",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-24",
+    "name": "Speed when acceleration is half of g",
+    "module": "motional-emf",
+    "difficulty": "Hard",
+    "tags": [
+      "motional emf",
+      "dynamics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-25",
+    "name": "Power from a rotating rod",
+    "module": "motional-emf",
+    "difficulty": "Hard",
+    "tags": [
+      "motional emf",
+      "rotation",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-26",
+    "name": "Rod on rails with a capacitor",
+    "module": "motional-emf",
+    "difficulty": "Hard",
+    "tags": [
+      "motional emf",
+      "capacitor"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-27",
+    "name": "Inclined rails with friction",
+    "module": "motional-emf",
+    "difficulty": "Hard",
+    "tags": [
+      "motional emf",
+      "terminal velocity",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-28",
+    "name": "Charge from the impulse-momentum theorem",
+    "module": "motional-emf",
+    "difficulty": "Hard",
+    "tags": [
+      "induced charge",
+      "magnetic braking"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-29",
+    "name": "Two free rods on the same rails",
+    "module": "motional-emf",
+    "difficulty": "Very Hard",
+    "tags": [
+      "motional emf",
+      "momentum",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-emf-30",
+    "name": "Rod on rails closed by an inductor",
+    "module": "motional-emf",
+    "difficulty": "Very Hard",
+    "tags": [
+      "motional emf",
+      "inductance",
+      "oscillation"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-01",
+    "name": "Inductance of a solenoid",
+    "module": "inductance",
+    "difficulty": "Easy",
+    "tags": [
+      "self-inductance",
+      "solenoid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-02",
+    "name": "Self-induced EMF",
+    "module": "inductance",
+    "difficulty": "Easy",
+    "tags": [
+      "self-inductance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-03",
+    "name": "Energy stored in an inductor",
+    "module": "inductance",
+    "difficulty": "Easy",
+    "tags": [
+      "magnetic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-04",
+    "name": "Magnetic energy density",
+    "module": "inductance",
+    "difficulty": "Easy",
+    "tags": [
+      "energy density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-05",
+    "name": "Mutual inductance EMF",
+    "module": "inductance",
+    "difficulty": "Easy",
+    "tags": [
+      "mutual inductance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-06",
+    "name": "LR time constant",
+    "module": "inductance",
+    "difficulty": "Easy",
+    "tags": [
+      "lr circuit"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-07",
+    "name": "Final current in an LR circuit",
+    "module": "inductance",
+    "difficulty": "Easy",
+    "tags": [
+      "lr circuit"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-08",
+    "name": "LC oscillation frequency",
+    "module": "inductance",
+    "difficulty": "Easy",
+    "tags": [
+      "lc circuit"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-09",
+    "name": "Inductors in series",
+    "module": "inductance",
+    "difficulty": "Easy",
+    "tags": [
+      "inductors in series"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-10",
+    "name": "Inductors in parallel",
+    "module": "inductance",
+    "difficulty": "Easy",
+    "tags": [
+      "inductors in parallel"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-11",
+    "name": "Inductance of a toroid",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "self-inductance",
+      "toroid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-12",
+    "name": "Flux linkage",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "self-inductance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-13",
+    "name": "Current partway through the rise",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "lr circuit"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-14",
+    "name": "Decay to a tenth of the initial current",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "lr circuit"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-15",
+    "name": "Stored energy at steady state",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "lr circuit",
+      "magnetic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-16",
+    "name": "Solenoid energy from energy density",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "energy density",
+      "solenoid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-17",
+    "name": "Mutual inductance of a coil on a solenoid",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "mutual inductance",
+      "solenoid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-18",
+    "name": "Peak current in an LC circuit",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "lc circuit"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-19",
+    "name": "Energy exchange in an LC circuit",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "lc circuit",
+      "magnetic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-20",
+    "name": "Back-EMF of a motor",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "back-emf"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-21",
+    "name": "Initial rate of current rise",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "lr circuit"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-22",
+    "name": "Period of an LC oscillator",
+    "module": "inductance",
+    "difficulty": "Normal",
+    "tags": [
+      "lc circuit"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-23",
+    "name": "Time to store half the final energy",
+    "module": "inductance",
+    "difficulty": "Hard",
+    "tags": [
+      "lr circuit",
+      "magnetic energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-24",
+    "name": "Mutual inductance of two coaxial coils",
+    "module": "inductance",
+    "difficulty": "Hard",
+    "tags": [
+      "mutual inductance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-25",
+    "name": "Energy stored in a coaxial cable",
+    "module": "inductance",
+    "difficulty": "Hard",
+    "tags": [
+      "energy density",
+      "self-inductance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-26",
+    "name": "Current when the charge is half its peak",
+    "module": "inductance",
+    "difficulty": "Hard",
+    "tags": [
+      "lc circuit"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-27",
+    "name": "Voltage spike when the switch opens",
+    "module": "inductance",
+    "difficulty": "Hard",
+    "tags": [
+      "lr circuit",
+      "back-emf"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-28",
+    "name": "Energy stored in a toroid",
+    "module": "inductance",
+    "difficulty": "Hard",
+    "tags": [
+      "toroid",
+      "magnetic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-29",
+    "name": "Heat dissipated during one time constant",
+    "module": "inductance",
+    "difficulty": "Very Hard",
+    "tags": [
+      "lr circuit",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "mag-ind-30",
+    "name": "Maximum current when two capacitors share charge",
+    "module": "inductance",
+    "difficulty": "Very Hard",
+    "tags": [
+      "lc circuit",
+      "magnetic energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-01",
+    "name": "Gas absorbs heat and expands",
+    "module": "first-law",
+    "difficulty": "Easy",
+    "tags": [
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-02",
+    "name": "Work done on a compressed gas",
+    "module": "first-law",
+    "difficulty": "Easy",
+    "tags": [
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-03",
+    "name": "Isobaric expansion work",
+    "module": "first-law",
+    "difficulty": "Easy",
+    "tags": [
+      "isobaric",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-04",
+    "name": "Isochoric heating",
+    "module": "first-law",
+    "difficulty": "Easy",
+    "tags": [
+      "isochoric"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-05",
+    "name": "Isothermal ideal gas internal energy",
+    "module": "first-law",
+    "difficulty": "Easy",
+    "tags": [
+      "isothermal"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-06",
+    "name": "Isothermal work of an ideal gas",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "isothermal",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-07",
+    "name": "Heat in an isothermal expansion",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "isothermal",
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-08",
+    "name": "Monatomic gas heated at constant volume",
+    "module": "first-law",
+    "difficulty": "Easy",
+    "tags": [
+      "isochoric",
+      "internal energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-09",
+    "name": "Diatomic gas heated at constant pressure",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "isobaric",
+      "heat capacity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-10",
+    "name": "Splitting isobaric heat into work and internal energy",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "isobaric",
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-11",
+    "name": "Free expansion into vacuum",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "free expansion",
+      "first law"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-12",
+    "name": "Paddle wheel stirring water",
+    "module": "first-law",
+    "difficulty": "Easy",
+    "tags": [
+      "stirring work",
+      "calorimetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-13",
+    "name": "Falling weight drives a paddle wheel",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "stirring work",
+      "calorimetry"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-14",
+    "name": "Calorimetry: hot metal in water",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "calorimetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-15",
+    "name": "Latent heat of melting ice",
+    "module": "first-law",
+    "difficulty": "Easy",
+    "tags": [
+      "latent heat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-16",
+    "name": "Heating then boiling water",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "latent heat",
+      "calorimetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-17",
+    "name": "Steam condensed into water",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "latent heat",
+      "calorimetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-18",
+    "name": "Adiabatic compression of a monatomic gas",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "adiabatic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-19",
+    "name": "Adiabatic pressure change",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "adiabatic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-20",
+    "name": "Work in an adiabatic process",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "adiabatic",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-21",
+    "name": "Diesel-style adiabatic compression",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "adiabatic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-22",
+    "name": "Piston with a weight on top",
+    "module": "first-law",
+    "difficulty": "Easy",
+    "tags": [
+      "isobaric",
+      "piston"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-23",
+    "name": "Work lifting a loaded piston",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "isobaric",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-24",
+    "name": "Heat needed to raise a piston",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "isobaric",
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-25",
+    "name": "Work from a linear P-V path",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "work",
+      "pV diagram"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-26",
+    "name": "Cyclic process net heat",
+    "module": "first-law",
+    "difficulty": "Easy",
+    "tags": [
+      "cycle",
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-27",
+    "name": "Two-step path to the same state",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "first law",
+      "state function"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-28",
+    "name": "Melting ice with stirring only",
+    "module": "first-law",
+    "difficulty": "Very Hard",
+    "tags": [
+      "stirring work",
+      "latent heat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-29",
+    "name": "Adiabatic then isothermal",
+    "module": "first-law",
+    "difficulty": "Very Hard",
+    "tags": [
+      "adiabatic",
+      "isothermal"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-first-30",
+    "name": "Gas raising a piston against gravity plus atmosphere",
+    "module": "first-law",
+    "difficulty": "Normal",
+    "tags": [
+      "isobaric",
+      "piston"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-01",
+    "name": "Average translational KE at room temperature",
+    "module": "kinetic-theory",
+    "difficulty": "Easy",
+    "tags": [
+      "kinetic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-02",
+    "name": "RMS speed of nitrogen",
+    "module": "kinetic-theory",
+    "difficulty": "Easy",
+    "tags": [
+      "rms speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-03",
+    "name": "RMS speed of helium",
+    "module": "kinetic-theory",
+    "difficulty": "Easy",
+    "tags": [
+      "rms speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-04",
+    "name": "Pressure from gas density and rms speed",
+    "module": "kinetic-theory",
+    "difficulty": "Easy",
+    "tags": [
+      "pressure",
+      "kinetic theory"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-05",
+    "name": "Temperature doubling and rms speed",
+    "module": "kinetic-theory",
+    "difficulty": "Easy",
+    "tags": [
+      "rms speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-06",
+    "name": "Number density from pressure",
+    "module": "kinetic-theory",
+    "difficulty": "Easy",
+    "tags": [
+      "number density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-07",
+    "name": "Total translational KE of a mole",
+    "module": "kinetic-theory",
+    "difficulty": "Easy",
+    "tags": [
+      "kinetic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-08",
+    "name": "Temperature from a given rms speed",
+    "module": "kinetic-theory",
+    "difficulty": "Easy",
+    "tags": [
+      "rms speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-09",
+    "name": "Mass of one molecule from rms speed",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "kinetic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-10",
+    "name": "Comparing rms speeds of two gases",
+    "module": "kinetic-theory",
+    "difficulty": "Easy",
+    "tags": [
+      "rms speed",
+      "molar mass"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-11",
+    "name": "Momentum transfer in one wall collision",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "momentum transfer"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-12",
+    "name": "Force from a stream of molecules",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "momentum transfer",
+      "pressure"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-13",
+    "name": "Pressure from molecular bombardment",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "pressure"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-14",
+    "name": "Pressure from number density and mean KE",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "pressure",
+      "kinetic theory"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-15",
+    "name": "Mean free path in air",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "mean free path"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-16",
+    "name": "Mean free path in a vacuum chamber",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "mean free path"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-17",
+    "name": "Collision frequency",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "mean free path"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-18",
+    "name": "Effusion rate ratio",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "effusion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-19",
+    "name": "Effusion time comparison",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "effusion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-20",
+    "name": "Effusion flux through a hole",
+    "module": "kinetic-theory",
+    "difficulty": "Very Hard",
+    "tags": [
+      "effusion",
+      "number density"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-21",
+    "name": "Kinetic energy of a whole tank of gas",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "kinetic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-22",
+    "name": "RMS speed from pressure and density",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "rms speed",
+      "pressure"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-23",
+    "name": "Molecules in a room",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "number density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-24",
+    "name": "Escape speed and molecular speed",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "rms speed"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-25",
+    "name": "Mean square speed from a small sample",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "rms speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-26",
+    "name": "Kinetic energy ratio of two gases",
+    "module": "kinetic-theory",
+    "difficulty": "Easy",
+    "tags": [
+      "kinetic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-27",
+    "name": "Heating a sealed tank",
+    "module": "kinetic-theory",
+    "difficulty": "Normal",
+    "tags": [
+      "pressure",
+      "number density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-28",
+    "name": "Molecular diameter from mean free path",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "mean free path"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-29",
+    "name": "Isotope separation by effusion",
+    "module": "kinetic-theory",
+    "difficulty": "Very Hard",
+    "tags": [
+      "effusion",
+      "molar mass"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-kin-30",
+    "name": "Pressure of a molecular beam that sticks",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "momentum transfer",
+      "pressure"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-01",
+    "name": "Pressure of two moles in a tank",
+    "module": "ideal-gas",
+    "difficulty": "Easy",
+    "tags": [
+      "ideal gas law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-02",
+    "name": "Moles in a two-liter flask",
+    "module": "ideal-gas",
+    "difficulty": "Easy",
+    "tags": [
+      "ideal gas law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-03",
+    "name": "Sealed can on a hot plate",
+    "module": "ideal-gas",
+    "difficulty": "Easy",
+    "tags": [
+      "gay-lussac",
+      "sealed container"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-04",
+    "name": "Combined gas law on a sample",
+    "module": "ideal-gas",
+    "difficulty": "Easy",
+    "tags": [
+      "combined gas law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-05",
+    "name": "Density of nitrogen gas",
+    "module": "ideal-gas",
+    "difficulty": "Easy",
+    "tags": [
+      "density",
+      "ideal gas law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-06",
+    "name": "Molar heat capacity of argon",
+    "module": "ideal-gas",
+    "difficulty": "Easy",
+    "tags": [
+      "heat capacity",
+      "equipartition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-07",
+    "name": "Gamma for a diatomic gas",
+    "module": "ideal-gas",
+    "difficulty": "Easy",
+    "tags": [
+      "degrees of freedom",
+      "gamma"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-08",
+    "name": "Partial pressure in a gas mixture",
+    "module": "ideal-gas",
+    "difficulty": "Easy",
+    "tags": [
+      "partial pressure",
+      "mixtures"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-09",
+    "name": "Average kinetic energy of a molecule",
+    "module": "ideal-gas",
+    "difficulty": "Easy",
+    "tags": [
+      "equipartition",
+      "kinetic theory"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-10",
+    "name": "Reading a mercury manometer",
+    "module": "ideal-gas",
+    "difficulty": "Easy",
+    "tags": [
+      "manometer",
+      "pressure"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-11",
+    "name": "Heating a diatomic gas at fixed volume",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "heat capacity",
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-12",
+    "name": "Heating the same gas at fixed pressure",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "heat capacity",
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-13",
+    "name": "Adiabatic compression of helium",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "adiabatic",
+      "gamma"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-14",
+    "name": "Adiabatic pressure rise in air",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "adiabatic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-15",
+    "name": "Gas under a loaded piston",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "pressure",
+      "piston"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-16",
+    "name": "Molecules in a cubic centimeter",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "kinetic theory",
+      "ideal gas law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-17",
+    "name": "Lift on a hot-air balloon",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "buoyancy",
+      "density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-18",
+    "name": "Pressure of a helium-nitrogen mixture",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "mixtures",
+      "partial pressure"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-19",
+    "name": "Gamma of a half-and-half mixture",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "mixtures",
+      "gamma"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-20",
+    "name": "Tire pressure after a highway run",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "gay-lussac",
+      "gauge pressure"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-21",
+    "name": "Identifying a gas from its density",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "density",
+      "molar mass"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-22",
+    "name": "Root-mean-square speed of nitrogen",
+    "module": "ideal-gas",
+    "difficulty": "Normal",
+    "tags": [
+      "kinetic theory",
+      "rms speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-23",
+    "name": "Pressure three kilometres up",
+    "module": "ideal-gas",
+    "difficulty": "Hard",
+    "tags": [
+      "barometric formula",
+      "ideal gas law"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-24",
+    "name": "Work done in an adiabatic expansion",
+    "module": "ideal-gas",
+    "difficulty": "Hard",
+    "tags": [
+      "adiabatic",
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-25",
+    "name": "Opening a valve between two tanks",
+    "module": "ideal-gas",
+    "difficulty": "Hard",
+    "tags": [
+      "ideal gas law",
+      "mixtures"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-26",
+    "name": "Inverting a mercury-sealed tube",
+    "module": "ideal-gas",
+    "difficulty": "Hard",
+    "tags": [
+      "boyle's law",
+      "manometer"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-27",
+    "name": "Air temperature after diesel compression",
+    "module": "ideal-gas",
+    "difficulty": "Hard",
+    "tags": [
+      "adiabatic",
+      "compression ratio"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-28",
+    "name": "How hot must the balloon air be?",
+    "module": "ideal-gas",
+    "difficulty": "Hard",
+    "tags": [
+      "buoyancy",
+      "density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-29",
+    "name": "Piston squeezing the other half",
+    "module": "ideal-gas",
+    "difficulty": "Very Hard",
+    "tags": [
+      "adiabatic",
+      "piston"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-gas-30",
+    "name": "Dry adiabatic lapse rate",
+    "module": "ideal-gas",
+    "difficulty": "Very Hard",
+    "tags": [
+      "adiabatic",
+      "atmosphere"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-01",
+    "name": "Efficiency from work and heat input",
+    "module": "heat-engines",
+    "difficulty": "Easy",
+    "tags": [
+      "efficiency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-02",
+    "name": "Carnot efficiency between two reservoirs",
+    "module": "heat-engines",
+    "difficulty": "Easy",
+    "tags": [
+      "carnot"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-03",
+    "name": "Heat dumped to the cold reservoir",
+    "module": "heat-engines",
+    "difficulty": "Easy",
+    "tags": [
+      "first law",
+      "engines"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-04",
+    "name": "Coefficient of performance of a fridge",
+    "module": "heat-engines",
+    "difficulty": "Easy",
+    "tags": [
+      "refrigerator",
+      "cop"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-05",
+    "name": "Coefficient of performance of a heat pump",
+    "module": "heat-engines",
+    "difficulty": "Easy",
+    "tags": [
+      "heat pump",
+      "cop"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-06",
+    "name": "Best possible fridge COP",
+    "module": "heat-engines",
+    "difficulty": "Easy",
+    "tags": [
+      "refrigerator",
+      "carnot"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-07",
+    "name": "Power output from cycles per second",
+    "module": "heat-engines",
+    "difficulty": "Easy",
+    "tags": [
+      "power",
+      "engines"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-08",
+    "name": "Net work from heat in and out",
+    "module": "heat-engines",
+    "difficulty": "Easy",
+    "tags": [
+      "first law",
+      "engines"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-09",
+    "name": "Required hot reservoir temperature",
+    "module": "heat-engines",
+    "difficulty": "Easy",
+    "tags": [
+      "carnot"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-10",
+    "name": "Otto cycle efficiency",
+    "module": "heat-engines",
+    "difficulty": "Easy",
+    "tags": [
+      "otto cycle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-11",
+    "name": "Diesel cycle efficiency",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "diesel cycle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-12",
+    "name": "Brayton cycle for a gas turbine",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "brayton cycle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-13",
+    "name": "Testing an inventor's claim",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "second law",
+      "carnot"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-14",
+    "name": "Second-law efficiency of a real engine",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "efficiency",
+      "carnot"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-15",
+    "name": "Waste heat from a power plant",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "efficiency",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-16",
+    "name": "Ideal Stirling engine efficiency",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "stirling",
+      "carnot"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-17",
+    "name": "Power from fuel burn rate",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "efficiency",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-18",
+    "name": "Work needed by a refrigerator",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "refrigerator",
+      "cop"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-19",
+    "name": "Relating the two COPs",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "heat pump",
+      "cop"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-20",
+    "name": "Electrical power drawn by a heat pump",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "heat pump",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-21",
+    "name": "Work per cycle from efficiency",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "efficiency",
+      "otto cycle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-22",
+    "name": "Work as the area of a PV rectangle",
+    "module": "heat-engines",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "work"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-23",
+    "name": "Carnot engine driving a Carnot fridge",
+    "module": "heat-engines",
+    "difficulty": "Hard",
+    "tags": [
+      "carnot",
+      "refrigerator"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-24",
+    "name": "Two Carnot engines in series",
+    "module": "heat-engines",
+    "difficulty": "Hard",
+    "tags": [
+      "carnot",
+      "second law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-25",
+    "name": "Otto cycle with a monatomic working gas",
+    "module": "heat-engines",
+    "difficulty": "Hard",
+    "tags": [
+      "otto cycle",
+      "gamma"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-26",
+    "name": "Ocean thermal energy conversion",
+    "module": "heat-engines",
+    "difficulty": "Hard",
+    "tags": [
+      "carnot",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-27",
+    "name": "By how much does the claim break the second law?",
+    "module": "heat-engines",
+    "difficulty": "Hard",
+    "tags": [
+      "second law",
+      "carnot"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-28",
+    "name": "Net work of a Stirling cycle",
+    "module": "heat-engines",
+    "difficulty": "Hard",
+    "tags": [
+      "stirling",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-29",
+    "name": "Work from two finite bodies",
+    "module": "heat-engines",
+    "difficulty": "Very Hard",
+    "tags": [
+      "carnot",
+      "second law"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-eng-30",
+    "name": "Otto cycle measured against Carnot",
+    "module": "heat-engines",
+    "difficulty": "Very Hard",
+    "tags": [
+      "otto cycle",
+      "carnot"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-01",
+    "name": "Heat into a warm reservoir",
+    "module": "entropy",
+    "difficulty": "Easy",
+    "tags": [
+      "entropy",
+      "reservoir"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-02",
+    "name": "Heat leaving a hot block",
+    "module": "entropy",
+    "difficulty": "Easy",
+    "tags": [
+      "entropy",
+      "reservoir"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-03",
+    "name": "Heating a pot of water",
+    "module": "entropy",
+    "difficulty": "Easy",
+    "tags": [
+      "entropy",
+      "specific heat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-04",
+    "name": "Melting ice at 0 C",
+    "module": "entropy",
+    "difficulty": "Easy",
+    "tags": [
+      "entropy",
+      "phase change"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-05",
+    "name": "Boiling a kilogram of water",
+    "module": "entropy",
+    "difficulty": "Easy",
+    "tags": [
+      "entropy",
+      "phase change"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-06",
+    "name": "Isothermal doubling of volume",
+    "module": "entropy",
+    "difficulty": "Easy",
+    "tags": [
+      "entropy",
+      "ideal gas"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-07",
+    "name": "Free expansion into a vacuum",
+    "module": "entropy",
+    "difficulty": "Easy",
+    "tags": [
+      "entropy",
+      "free expansion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-08",
+    "name": "Reversible adiabatic compression",
+    "module": "entropy",
+    "difficulty": "Easy",
+    "tags": [
+      "entropy",
+      "adiabatic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-09",
+    "name": "Counting states with Boltzmann",
+    "module": "entropy",
+    "difficulty": "Easy",
+    "tags": [
+      "entropy",
+      "boltzmann"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-10",
+    "name": "Heat leaking between two reservoirs",
+    "module": "entropy",
+    "difficulty": "Easy",
+    "tags": [
+      "entropy",
+      "irreversible"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-11",
+    "name": "Heating an aluminum block",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "specific heat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-12",
+    "name": "Mixing hot and cold water",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "mixing"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-13",
+    "name": "Ice melted by a warm room",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "irreversible",
+      "phase change"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-14",
+    "name": "Volume and temperature both change",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "ideal gas"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-15",
+    "name": "Isothermal compression of a gas",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "ideal gas"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-16",
+    "name": "Cold reservoir of a Carnot engine",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "carnot"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-17",
+    "name": "Hot lead dropped into a water bath",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "irreversible"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-18",
+    "name": "Entropy of expansion from molecule counting",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "boltzmann"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-19",
+    "name": "Heating then boiling water",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "phase change"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-20",
+    "name": "Constant-volume heating of a diatomic gas",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "ideal gas"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-21",
+    "name": "Constant-pressure heating",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "ideal gas"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-22",
+    "name": "Entropy budget of a refrigerator",
+    "module": "entropy",
+    "difficulty": "Normal",
+    "tags": [
+      "entropy",
+      "refrigerator"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-23",
+    "name": "Free expansion undone",
+    "module": "entropy",
+    "difficulty": "Hard",
+    "tags": [
+      "entropy",
+      "free expansion"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-24",
+    "name": "Two blocks brought into contact",
+    "module": "entropy",
+    "difficulty": "Hard",
+    "tags": [
+      "entropy",
+      "irreversible"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-25",
+    "name": "Cold ice dropped into a warm bath",
+    "module": "entropy",
+    "difficulty": "Hard",
+    "tags": [
+      "entropy",
+      "phase change",
+      "irreversible"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-26",
+    "name": "Expanding while cooling",
+    "module": "entropy",
+    "difficulty": "Hard",
+    "tags": [
+      "entropy",
+      "ideal gas"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-27",
+    "name": "Two macrostates of four molecules",
+    "module": "entropy",
+    "difficulty": "Hard",
+    "tags": [
+      "entropy",
+      "boltzmann"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-28",
+    "name": "Entropy generated by a real engine",
+    "module": "entropy",
+    "difficulty": "Hard",
+    "tags": [
+      "entropy",
+      "engine"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-29",
+    "name": "Work from a cooling copper block",
+    "module": "entropy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "entropy",
+      "engine",
+      "carnot"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-ent-30",
+    "name": "Common temperature of two finite bodies",
+    "module": "entropy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "entropy",
+      "carnot"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-01",
+    "name": "Work along an isobar",
+    "module": "pv-diagrams",
+    "difficulty": "Easy",
+    "tags": [
+      "pv diagram",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-02",
+    "name": "Work along an isochore",
+    "module": "pv-diagrams",
+    "difficulty": "Easy",
+    "tags": [
+      "pv diagram",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-03",
+    "name": "Net work of a rectangular cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Easy",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "work"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-04",
+    "name": "Net work of a triangular cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Easy",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-05",
+    "name": "Work along an isotherm",
+    "module": "pv-diagrams",
+    "difficulty": "Easy",
+    "tags": [
+      "pv diagram",
+      "isothermal"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-06",
+    "name": "Internal energy around a closed loop",
+    "module": "pv-diagrams",
+    "difficulty": "Easy",
+    "tags": [
+      "pv diagram",
+      "cycle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-07",
+    "name": "Heat added at constant volume",
+    "module": "pv-diagrams",
+    "difficulty": "Easy",
+    "tags": [
+      "pv diagram",
+      "isochoric"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-08",
+    "name": "Heat added along an isobar",
+    "module": "pv-diagrams",
+    "difficulty": "Easy",
+    "tags": [
+      "pv diagram",
+      "isobaric"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-09",
+    "name": "Temperature at a corner",
+    "module": "pv-diagrams",
+    "difficulty": "Easy",
+    "tags": [
+      "pv diagram",
+      "ideal gas law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-10",
+    "name": "Net heat from enclosed area",
+    "module": "pv-diagrams",
+    "difficulty": "Easy",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-11",
+    "name": "Heat on the expansion leg",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-12",
+    "name": "Heat released on the pressure-drop leg",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "isochoric"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-13",
+    "name": "Efficiency of a rectangular cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "efficiency"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-14",
+    "name": "Slanted triangular cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-15",
+    "name": "Carnot efficiency from corner temperatures",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "carnot",
+      "efficiency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-16",
+    "name": "Heat expelled during isothermal compression",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "isothermal"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-17",
+    "name": "Hottest corner of a rectangle",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "ideal gas law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-18",
+    "name": "Cycle run backwards as a fridge",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "refrigerator"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-19",
+    "name": "Work under a straight slanted line",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-20",
+    "name": "Isotherm, isochore, isobar cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-21",
+    "name": "Internal energy change between two states",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "internal energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-22",
+    "name": "Work along a two-leg path",
+    "module": "pv-diagrams",
+    "difficulty": "Normal",
+    "tags": [
+      "pv diagram",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-23",
+    "name": "Efficiency of a triangular cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "efficiency",
+      "cycle"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-24",
+    "name": "Signs on the return leg of a triangle",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "first law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-25",
+    "name": "Work from a Carnot cycle on a PV diagram",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "carnot"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-26",
+    "name": "Carnot fridge coefficient of performance",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "refrigerator",
+      "carnot"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-27",
+    "name": "Isotherm plus isobar plus isochore",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-28",
+    "name": "Coldest corner of a cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "ideal gas law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-29",
+    "name": "Efficiency of an Otto cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Very Hard",
+    "tags": [
+      "pv diagram",
+      "efficiency",
+      "adiabatic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "th-pv-30",
+    "name": "Heat rejected per cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Very Hard",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "first law"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-01",
+    "name": "Ripples on a pond",
+    "module": "wave-basics",
+    "difficulty": "Easy",
+    "tags": [
+      "wave speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-02",
+    "name": "Period of a tuning fork",
+    "module": "wave-basics",
+    "difficulty": "Easy",
+    "tags": [
+      "period",
+      "frequency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-03",
+    "name": "Wavelength of a sung note",
+    "module": "wave-basics",
+    "difficulty": "Easy",
+    "tags": [
+      "sound",
+      "wave speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-04",
+    "name": "Speed on a stretched cord",
+    "module": "wave-basics",
+    "difficulty": "Easy",
+    "tags": [
+      "waves on a string"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-05",
+    "name": "P waves and S waves",
+    "module": "wave-basics",
+    "difficulty": "Easy",
+    "tags": [
+      "transverse",
+      "longitudinal"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-06",
+    "name": "Reading the amplitude",
+    "module": "wave-basics",
+    "difficulty": "Easy",
+    "tags": [
+      "wave function"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-07",
+    "name": "Wavelength from the wave number",
+    "module": "wave-basics",
+    "difficulty": "Easy",
+    "tags": [
+      "wave function"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-08",
+    "name": "Frequency from the angular frequency",
+    "module": "wave-basics",
+    "difficulty": "Easy",
+    "tags": [
+      "wave function",
+      "frequency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-09",
+    "name": "Speed from omega and k",
+    "module": "wave-basics",
+    "difficulty": "Easy",
+    "tags": [
+      "wave function",
+      "wave speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-10",
+    "name": "Pulse returning from a fixed end",
+    "module": "wave-basics",
+    "difficulty": "Easy",
+    "tags": [
+      "reflection",
+      "pulse"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-11",
+    "name": "Fastest the rope moves",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "particle velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-12",
+    "name": "Transverse acceleration",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "particle acceleration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-13",
+    "name": "Power fed into a string",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "power",
+      "waves on a string"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-14",
+    "name": "Tension for a target speed",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "waves on a string",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-15",
+    "name": "From mass and length to speed",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "waves on a string"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-16",
+    "name": "Moving back from a speaker",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "intensity",
+      "inverse square"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-17",
+    "name": "Sound level of a vacuum cleaner",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "decibels",
+      "intensity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-18",
+    "name": "From decibels back to intensity",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "decibels",
+      "intensity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-19",
+    "name": "Power of a chirping alarm",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "intensity",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-20",
+    "name": "Sound in a steel rail",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "sound in solids"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-21",
+    "name": "Sound speed on a hot day",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "sound",
+      "temperature"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-22",
+    "name": "Starting displacement",
+    "module": "wave-basics",
+    "difficulty": "Normal",
+    "tags": [
+      "wave function",
+      "phase"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-23",
+    "name": "Ten machines instead of one",
+    "module": "wave-basics",
+    "difficulty": "Hard",
+    "tags": [
+      "decibels"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-24",
+    "name": "Velocity of one rope element",
+    "module": "wave-basics",
+    "difficulty": "Hard",
+    "tags": [
+      "particle velocity",
+      "wave function"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-25",
+    "name": "How far to get quiet",
+    "module": "wave-basics",
+    "difficulty": "Hard",
+    "tags": [
+      "decibels",
+      "inverse square"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-26",
+    "name": "Pulse across a splice",
+    "module": "wave-basics",
+    "difficulty": "Hard",
+    "tags": [
+      "waves on a string",
+      "pulse"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-27",
+    "name": "Pulse climbing a hanging rope",
+    "module": "wave-basics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "waves on a string",
+      "variable tension"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-28",
+    "name": "Tripling the amplitude",
+    "module": "wave-basics",
+    "difficulty": "Hard",
+    "tags": [
+      "power",
+      "waves on a string"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-29",
+    "name": "Where the siren fades to 60 dB",
+    "module": "wave-basics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "decibels",
+      "intensity",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-basic-30",
+    "name": "Energy in one wavelength",
+    "module": "wave-basics",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "waves on a string"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-01",
+    "name": "Fundamental of a violin string",
+    "module": "standing-waves",
+    "difficulty": "Easy",
+    "tags": [
+      "harmonics",
+      "string"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-02",
+    "name": "Third harmonic",
+    "module": "standing-waves",
+    "difficulty": "Easy",
+    "tags": [
+      "harmonics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-03",
+    "name": "Spacing of the nodes",
+    "module": "standing-waves",
+    "difficulty": "Easy",
+    "tags": [
+      "nodes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-04",
+    "name": "Open pipe fundamental",
+    "module": "standing-waves",
+    "difficulty": "Easy",
+    "tags": [
+      "open pipe"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-05",
+    "name": "Closed pipe fundamental",
+    "module": "standing-waves",
+    "difficulty": "Easy",
+    "tags": [
+      "closed pipe"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-06",
+    "name": "Next note a stopped pipe can sing",
+    "module": "standing-waves",
+    "difficulty": "Easy",
+    "tags": [
+      "closed pipe",
+      "harmonics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-07",
+    "name": "Counting nodes",
+    "module": "standing-waves",
+    "difficulty": "Easy",
+    "tags": [
+      "nodes",
+      "harmonics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-08",
+    "name": "Wavelength of a harmonic",
+    "module": "standing-waves",
+    "difficulty": "Easy",
+    "tags": [
+      "harmonics",
+      "string"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-09",
+    "name": "Node to antinode",
+    "module": "standing-waves",
+    "difficulty": "Easy",
+    "tags": [
+      "nodes",
+      "antinodes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-10",
+    "name": "Sizing an open pipe",
+    "module": "standing-waves",
+    "difficulty": "Easy",
+    "tags": [
+      "open pipe"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-11",
+    "name": "Where to press for a fifth",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "string",
+      "fret"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-12",
+    "name": "Tuning a string to A",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "string",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-13",
+    "name": "Two resonances in a tube",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "resonance tube"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-14",
+    "name": "Frequency from the first resonance",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "resonance tube",
+      "closed pipe"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-15",
+    "name": "Harmonics below a cutoff",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "open pipe",
+      "harmonics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-16",
+    "name": "Fifth harmonic of a stopped pipe",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "closed pipe",
+      "harmonics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-17",
+    "name": "An organ pipe in a warm church",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "temperature",
+      "pipe"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-18",
+    "name": "String with one free end",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "fixed-free",
+      "string"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-19",
+    "name": "Next mode of the fixed-free string",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "fixed-free",
+      "harmonics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-20",
+    "name": "Fundamental from two neighbours",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "harmonics",
+      "string"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-21",
+    "name": "Fundamental of a stopped pipe",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "closed pipe",
+      "harmonics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-22",
+    "name": "A wire on a sonometer",
+    "module": "standing-waves",
+    "difficulty": "Normal",
+    "tags": [
+      "string",
+      "resonance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-23",
+    "name": "Matching a pipe to a string",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "pipe",
+      "string"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-24",
+    "name": "Counting resonances as the water drops",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "resonance tube"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-25",
+    "name": "Length from a harmonic",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "harmonics",
+      "string"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-26",
+    "name": "A pipe driving a string",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "pipe",
+      "string",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-27",
+    "name": "Identifying the mode",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "harmonics",
+      "nodes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-28",
+    "name": "Warming a pipe into tune",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "temperature",
+      "closed pipe"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-29",
+    "name": "Plugging one end",
+    "module": "standing-waves",
+    "difficulty": "Very Hard",
+    "tags": [
+      "open pipe",
+      "closed pipe",
+      "harmonics"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-stand-30",
+    "name": "Mass that tunes the wire",
+    "module": "standing-waves",
+    "difficulty": "Very Hard",
+    "tags": [
+      "string",
+      "resonance",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-01",
+    "name": "Two forks side by side",
+    "module": "beats-interference",
+    "difficulty": "Easy",
+    "tags": [
+      "beats"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-02",
+    "name": "Time between loud moments",
+    "module": "beats-interference",
+    "difficulty": "Easy",
+    "tags": [
+      "beats"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-03",
+    "name": "A flat piano string",
+    "module": "beats-interference",
+    "difficulty": "Easy",
+    "tags": [
+      "beats",
+      "tuning"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-04",
+    "name": "Counting beats over ten seconds",
+    "module": "beats-interference",
+    "difficulty": "Easy",
+    "tags": [
+      "beats"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-05",
+    "name": "Phase from a path difference",
+    "module": "beats-interference",
+    "difficulty": "Easy",
+    "tags": [
+      "interference",
+      "phase"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-06",
+    "name": "Smallest constructive path difference",
+    "module": "beats-interference",
+    "difficulty": "Easy",
+    "tags": [
+      "interference"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-07",
+    "name": "First quiet spot",
+    "module": "beats-interference",
+    "difficulty": "Easy",
+    "tags": [
+      "interference"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-08",
+    "name": "Adding two waves out of step",
+    "module": "beats-interference",
+    "difficulty": "Easy",
+    "tags": [
+      "interference",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-09",
+    "name": "Phase lag over 30 centimeters",
+    "module": "beats-interference",
+    "difficulty": "Easy",
+    "tags": [
+      "interference",
+      "phase"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-10",
+    "name": "Speakers wired backwards",
+    "module": "beats-interference",
+    "difficulty": "Easy",
+    "tags": [
+      "interference",
+      "phase"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-11",
+    "name": "Which way did the tuner turn?",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "beats",
+      "tuning"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-12",
+    "name": "Two guitar strings",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "beats"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-13",
+    "name": "Lowest frequency for silence",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "interference",
+      "geometry"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-14",
+    "name": "Lowest frequency for a maximum",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "interference",
+      "geometry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-15",
+    "name": "A drifting speaker",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "beats",
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-16",
+    "name": "Spacing of quiet points",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "interference"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-17",
+    "name": "Working backwards to the phase",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "interference",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-18",
+    "name": "Sliding tube interferometer",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "interference",
+      "path difference"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-19",
+    "name": "Successive minima in the tube",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "interference",
+      "path difference"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-20",
+    "name": "Two organ pipes",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "beats",
+      "pipes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-21",
+    "name": "One pipe in a warm room",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "beats",
+      "pipes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-22",
+    "name": "String against a fork",
+    "module": "beats-interference",
+    "difficulty": "Normal",
+    "tags": [
+      "beats",
+      "standing waves"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-23",
+    "name": "Two percent more tension",
+    "module": "beats-interference",
+    "difficulty": "Hard",
+    "tags": [
+      "beats",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-24",
+    "name": "How many silent tones",
+    "module": "beats-interference",
+    "difficulty": "Hard",
+    "tags": [
+      "interference",
+      "counting"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-25",
+    "name": "Counting quiet directions",
+    "module": "beats-interference",
+    "difficulty": "Hard",
+    "tags": [
+      "interference",
+      "counting"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-26",
+    "name": "Siren on an approaching car",
+    "module": "beats-interference",
+    "difficulty": "Hard",
+    "tags": [
+      "beats",
+      "doppler"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-27",
+    "name": "How much to tighten",
+    "module": "beats-interference",
+    "difficulty": "Hard",
+    "tags": [
+      "beats",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-28",
+    "name": "Out-of-phase speakers at an odd point",
+    "module": "beats-interference",
+    "difficulty": "Hard",
+    "tags": [
+      "interference",
+      "phase"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-29",
+    "name": "Beats against a wall",
+    "module": "beats-interference",
+    "difficulty": "Very Hard",
+    "tags": [
+      "beats",
+      "doppler",
+      "reflection"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-beat-30",
+    "name": "Walking to the first quiet spot",
+    "module": "beats-interference",
+    "difficulty": "Very Hard",
+    "tags": [
+      "interference",
+      "geometry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-01",
+    "name": "Ambulance approaching",
+    "module": "doppler",
+    "difficulty": "Easy",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-02",
+    "name": "Ambulance receding",
+    "module": "doppler",
+    "difficulty": "Easy",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-03",
+    "name": "Running toward a speaker",
+    "module": "doppler",
+    "difficulty": "Easy",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-04",
+    "name": "Riding away from a speaker",
+    "module": "doppler",
+    "difficulty": "Easy",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-05",
+    "name": "Train horn",
+    "module": "doppler",
+    "difficulty": "Easy",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-06",
+    "name": "Car horn fading",
+    "module": "doppler",
+    "difficulty": "Easy",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-07",
+    "name": "How big is the shift",
+    "module": "doppler",
+    "difficulty": "Easy",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-08",
+    "name": "Jogger and a loudspeaker",
+    "module": "doppler",
+    "difficulty": "Easy",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-09",
+    "name": "One-tenth the speed of sound",
+    "module": "doppler",
+    "difficulty": "Easy",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-10",
+    "name": "Whistle on a departing train",
+    "module": "doppler",
+    "difficulty": "Easy",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-11",
+    "name": "Both in motion, closing",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-12",
+    "name": "Chasing a source",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-13",
+    "name": "A tailwind from source to listener",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler",
+      "wind"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-14",
+    "name": "The same source into a headwind",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler",
+      "wind"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-15",
+    "name": "Speed from the pitch drop",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-16",
+    "name": "The siren's true pitch",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-17",
+    "name": "Bat closing on a moth",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler",
+      "bats"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-18",
+    "name": "Echo from a wall",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler",
+      "reflection"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-19",
+    "name": "Sound radar on a car",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler",
+      "reflection"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-20",
+    "name": "Two trains meeting",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-21",
+    "name": "Whirling siren, highest pitch",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-22",
+    "name": "Whirling siren, lowest pitch",
+    "module": "doppler",
+    "difficulty": "Normal",
+    "tags": [
+      "doppler",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-23",
+    "name": "Mach cone angle",
+    "module": "doppler",
+    "difficulty": "Hard",
+    "tags": [
+      "shock wave",
+      "mach"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-24",
+    "name": "Speed from the cone",
+    "module": "doppler",
+    "difficulty": "Hard",
+    "tags": [
+      "shock wave",
+      "mach"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-25",
+    "name": "Waiting for the boom",
+    "module": "doppler",
+    "difficulty": "Hard",
+    "tags": [
+      "shock wave",
+      "mach"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-26",
+    "name": "Bat closing on a wall",
+    "module": "doppler",
+    "difficulty": "Hard",
+    "tags": [
+      "doppler",
+      "reflection",
+      "beats"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-27",
+    "name": "Reflecting off a moving panel",
+    "module": "doppler",
+    "difficulty": "Hard",
+    "tags": [
+      "doppler",
+      "reflection"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-28",
+    "name": "The moment of closest approach",
+    "module": "doppler",
+    "difficulty": "Hard",
+    "tags": [
+      "doppler",
+      "reasoning"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-29",
+    "name": "Redshift of a star",
+    "module": "doppler",
+    "difficulty": "Very Hard",
+    "tags": [
+      "doppler",
+      "light"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "wv-dopp-30",
+    "name": "Two trains and a wind",
+    "module": "doppler",
+    "difficulty": "Very Hard",
+    "tags": [
+      "doppler",
+      "wind"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
     "id": "nl-fbd-01",
     "name": "Book on a table",
     "module": "newtons-laws-fbd",

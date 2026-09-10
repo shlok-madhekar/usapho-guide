@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { memo, useState } from "react";
 import { K, Markish } from "@/components/Katex";
 import { useProgress } from "@/lib/progress";
 import {
@@ -53,7 +53,7 @@ function Meta({ p }: { p: Problem }) {
  * One problem in the bank. Problems written for this guide are solvable in
  * place; past-exam problems are cited and linked rather than reproduced.
  */
-export default function BankProblem({
+function BankProblemInner({
   problem: p,
   index,
 }: {
@@ -207,4 +207,13 @@ export default function BankProblem({
   );
 }
 
+
+/**
+ * Filtering the bank re-renders the visible list; a problem whose data has
+ * not changed does not need to be built again.
+ */
+const BankProblem = memo(BankProblemInner);
+BankProblem.displayName = "BankProblem";
+
+export default BankProblem;
 export { K };

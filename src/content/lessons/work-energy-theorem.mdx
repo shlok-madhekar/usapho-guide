@@ -1,0 +1,64 @@
+## Work is force times displacement, but only the useful part
+
+Push a crate sideways and lift it upward, and gravity has done nothing in the
+first case and taken energy from you in the second. Only the component of force
+along the motion counts, which is exactly what a dot product extracts:
+
+$$W = \vec F \cdot \vec d = Fd\cos\theta$$
+
+Here $\theta$ is the angle between the force and the displacement. At $90°$ the
+work is zero, which is why a normal force on a sliding block, a rope tension on
+a mass in circular motion, and the magnetic force on a charged particle all do
+no work at all. They redirect motion without feeding it.
+
+When the force changes along the way, or the path curves, sum the contributions
+piece by piece:
+
+$$W = \int_{A}^{B} \vec F \cdot d\vec r$$
+
+For a spring pulled from $0$ to $x$, the force $-kx$ grows linearly, and the
+integral gives $-\tfrac{1}{2}kx^2$. The average force over that stretch is half
+the maximum, which is the same result read off the triangle under a force
+versus position graph. That graph reading is worth practicing: **area under an
+$F$ vs. $x$ curve is work**, with area below the axis counting negative.
+
+## Negative work is a real answer
+
+Friction on a sliding block points opposite the motion, so $\cos\theta = -1$ and
+the work is $-f d$. Nothing has gone wrong. Negative work means energy left the
+object's kinetic account. A crate lowered slowly by a rope receives negative
+work from the tension and positive work from gravity, and the two cancel because
+the speed never changes.
+
+## Net work equals the change in kinetic energy
+
+Add up the work from every force acting, and you get one clean statement:
+
+$$W_{\text{net}} = \Delta K = \tfrac{1}{2}mv_f^2 - \tfrac{1}{2}mv_i^2$$
+
+This is the work-energy theorem, and it follows from $F = ma$ by integrating
+over displacement rather than time. Its value is that it never mentions time.
+A block slides $2\text{ m}$ down a ramp of any shape with friction coefficient
+$\mu$; ask for the final speed and the theorem answers directly, while $F = ma$
+would demand you track the changing direction of motion.
+
+<Aside label="Where this goes wrong" warn>
+  Do not compute $W_{\text{net}}$ from the net force and then add individual
+  works on top of it. Pick one route: either find the vector sum of forces and
+  dot it with the displacement, or work out each force's contribution
+  separately and add the numbers. Doing both double counts.
+</Aside>
+
+<QuickCheck
+  question="A satellite moves in a perfectly circular orbit. How much work does gravity do over one full orbit?"
+  options={["Zero", "Positive, equal to the kinetic energy", "Negative", "It depends on the orbital radius"]}
+  answer={0}
+  explanation="Gravity points toward the center while the velocity is tangential, so the angle between force and displacement is 90 degrees at every instant. The speed never changes, which is another way to say the same thing."
+/>
+
+## What to do with it
+
+Reach for the theorem whenever a problem gives you speeds and distances but no
+times, and whenever the force varies in a way that makes acceleration awkward.
+Reach for $F = ma$ instead when you need to know *when* something happens, or
+when you need the force itself as an answer.

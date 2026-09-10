@@ -1,0 +1,63 @@
+## A force is conservative when the path does not matter
+
+Carry a book from the floor to a shelf. Lift it straight up, or walk it around
+the room first and then up: gravity does exactly $-mgh$ either way. Drag the
+same book across the floor and back to where it started, and friction has taken
+energy every centimeter of the trip. That is the whole distinction.
+
+A force is **conservative** if the work it does between two points depends only
+on the endpoints, equivalently if the work around any closed loop is zero:
+
+$$\oint \vec F \cdot d\vec r = 0$$
+
+Gravity, spring forces, and the electrostatic force pass. Friction, air drag,
+and the push of your hand do not. Only for a conservative force can you define
+a potential energy at all, because otherwise "the energy stored at this point"
+would depend on how you got there and would not be a function of position.
+
+## Potential energy is stored negative work
+
+Define $U$ so that the work done by the conservative force is the drop in $U$:
+
+$$W_{\text{cons}} = -\Delta U$$
+
+Near Earth's surface, gravity does $-mgh$ as you rise, so $U_g = mgh$. Far from
+a planet the force falls off and the integral gives $U_g = -GMm/r$, negative
+because the zero is placed at infinity. For a spring obeying $F = -kx$:
+
+$$U_s = \tfrac{1}{2}kx^2$$
+
+Every one of these has an arbitrary additive constant. Only differences in $U$
+appear in physics, so put the zero wherever it makes the algebra shortest —
+usually the lowest point of the motion, or the spring's natural length.
+
+## Read the force off the graph
+
+Turn the definition around and the force is the negative slope of the potential
+curve:
+
+$$F_x = -\frac{dU}{dx}$$
+
+This makes a $U(x)$ graph enormously informative. Where the curve slopes upward,
+the force pushes back toward $-x$. At a minimum the slope is zero, so the force
+vanishes and the point is a **stable** equilibrium — nudge the particle and it
+gets pushed home. At a maximum the equilibrium is unstable. Draw a horizontal
+line at the total energy $E$; the particle is confined to the regions where
+$U(x) \le E$, and it turns around exactly where the line meets the curve.
+
+Near a smooth minimum, every potential looks like a parabola, which is why so
+much of physics reduces to a spring.
+
+<Aside label="Where this goes wrong" warn>
+  Never count the same interaction twice. If you write a gravitational
+  potential energy $mgh$, do not also include the work done by gravity as a
+  separate term. Potential energy is a bookkeeping device that *replaces* that
+  work, and adding both makes gravity twice as strong as it is.
+</Aside>
+
+<QuickCheck
+  question="A potential energy curve U(x) has a local maximum at x = 3. What is true of a particle placed exactly there?"
+  options={["It is in unstable equilibrium", "It is in stable equilibrium", "It feels a force toward larger x", "It cannot be at rest there"]}
+  answer={0}
+  explanation="The slope is zero, so the net force is zero and the particle can sit there. But any small displacement puts it on a downward slope, and the force then pushes it further away."
+/>

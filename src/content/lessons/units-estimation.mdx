@@ -1,0 +1,61 @@
+## Every equation is a sentence about units
+
+An equation says two quantities are the same thing. Two things cannot be the
+same if one is a length and the other is a time. So both sides of any correct
+physics equation carry identical dimensions, and so does every term in a sum.
+
+Write dimensions in terms of mass $M$, length $L$, and time $T$. Then a force
+is $MLT^{-2}$, energy is $ML^2T^{-2}$, pressure is $ML^{-1}T^{-2}$. Arguments
+of $\sin$, $\exp$, and $\log$ must be dimensionless, always.
+
+This is a free error check. After deriving a period of oscillation, put the
+units in: $\sqrt{L/g}$ has units $\sqrt{\text{m}/(\text{m/s}^2)} = \text{s}$,
+which is a time, so the expression survives. If you had written $\sqrt{g/L}$
+you would get $1/\text{s}$ and know instantly that the fraction is upside down.
+
+Dimensional analysis also builds answers, not just checks them. A pendulum's
+period can only depend on $m$, $L$, and $g$. The only combination of those
+with units of time is $\sqrt{L/g}$, so $T = C\sqrt{L/g}$ for some pure number
+$C$. Dimensions cannot tell you $C = 2\pi$, but they told you the mass drops
+out and the period goes as the square root of length — most of the physics,
+for none of the work.
+
+<Aside label="Where this goes wrong" warn>
+  Dimensional analysis is blind to dimensionless factors, and that includes
+  ratios built from the problem itself. If a problem has two lengths, $L_1$
+  and $L_2$, then $\sqrt{L_1/g}$ and $\sqrt{L_1/g}\cdot f(L_1/L_2)$ have the
+  same units for any function $f$. Use the method to constrain and to check;
+  do not use it to claim a unique answer when more than one length is in play.
+</Aside>
+
+## Order of magnitude
+
+A Fermi estimate is a chain of factors you can each guess within a factor of a
+few. The errors are independent and partly cancel, so the product is usually
+good to within a factor of ten — enough to decide whether an effect matters.
+
+Estimate the number of air molecules in a room. A room is roughly
+$5 \times 5 \times 3 \approx 10^2\ \text{m}^3$. A mole of gas occupies about
+$0.022\ \text{m}^3$, so there are about $10^{3.7}$ moles, or roughly
+$10^{27}$ molecules. No step needed a calculator.
+
+The habit worth building: before solving, guess the answer's magnitude. Then
+when the algebra produces a car accelerating at $10^4\ \text{m/s}^2$ or an
+electron moving at $10^9\ \text{m/s}$, you notice.
+
+<QuickCheck
+  question="A student derives that a satellite's orbital period is proportional to the square root of the orbital radius. What does a dimensional check tell them?"
+  options={["Nothing, since the relation has no units on either side", "That the relation is wrong, because time cannot equal a length", "That the constant of proportionality must carry units, so the check cannot rule it out", "That the relation is confirmed correct"]}
+  answer={2}
+  explanation="A proportionality hides a constant, and that constant absorbs whatever units are needed. Dimensional analysis only bites once you write the full expression in terms of the physical quantities the answer may depend on."
+/>
+
+## Useful anchors
+
+Carry a few numbers in your head so estimates have somewhere to start:
+$g \approx 10\ \text{m/s}^2$, air density $\approx 1.2\ \text{kg/m}^3$, water
+density $10^3\ \text{kg/m}^3$, atmospheric pressure $10^5\ \text{Pa}$, speed
+of sound $340\ \text{m/s}$, Earth's radius $6.4 \times 10^6\ \text{m}$.
+
+On a graded exam, an answer with the wrong units earns nothing. Check them
+last, every time; it costs ten seconds.

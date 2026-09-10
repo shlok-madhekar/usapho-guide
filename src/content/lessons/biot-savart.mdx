@@ -1,0 +1,68 @@
+## Field from a piece of current
+
+There is no such thing as an isolated current element, but treating a current
+as a sum of little pieces and adding their contributions works. Each element
+$I\,d\vec{\ell}$ contributes a field at displacement $\vec{r}$ from it:
+
+$$d\vec{B} = \frac{\mu_0}{4\pi}\,\frac{I\,d\vec{\ell}\times\hat{r}}{r^2}$$
+
+with $\mu_0 = 4\pi \times 10^{-7}$ T·m/A. The structure mirrors Coulomb's law —
+an inverse square, a constant out front — with two differences that matter. The
+source is a vector, and the cross product puts the field perpendicular to both
+the current element and the line joining it to the field point. That is why
+magnetic field lines circle a wire instead of radiating from it.
+
+Two immediate consequences: an element contributes nothing along its own axis,
+since $d\vec{\ell}\times\hat{r}$ vanishes when the two are parallel, and the
+contribution is largest broadside.
+
+## The straight wire
+
+Integrate along an infinite straight wire at perpendicular distance $d$. Every
+element pushes the field in the same circumferential direction, so the vector
+integral becomes a scalar one, and it evaluates to
+
+$$B = \frac{\mu_0 I}{2\pi d}$$
+
+circling the wire by the right-hand rule. For a finite segment the same
+integral, cut off at the ends, gives
+
+$$B = \frac{\mu_0 I}{4\pi d}\left(\sin\theta_2 - \sin\theta_1\right)$$
+
+with the angles measured from the perpendicular to the two ends. Keep this
+form. Polygon problems — the field at the centre of a square or triangular
+loop — are just this result applied once per side and added.
+
+## On the axis of a loop
+
+For a circular loop of radius $R$, at height $z$ on the axis, symmetry kills
+every component except the axial one, and each element sits the same distance
+from the field point:
+
+$$B = \frac{\mu_0 I R^2}{2\left(R^2 + z^2\right)^{3/2}}$$
+
+At the centre this reduces to $\mu_0 I / 2R$. Far away it falls as $1/z^3$,
+the dipole signature.
+
+<Aside label="Where this goes wrong" warn>
+  Do not integrate magnitudes. $dB$ is a vector, and adding $|d\vec{B}|$ over a
+  loop gives a number several times too large. Choose axes first, argue from
+  symmetry which components cancel, and integrate only the surviving component.
+  Off the axis of a loop the components do not cancel and there is no closed
+  form — that integral is elliptic, and an olympiad problem will not ask for it.
+</Aside>
+
+## When you actually need it
+
+Ampere's law is faster whenever the geometry has enough symmetry to make
+$\oint\vec{B}\cdot d\vec{\ell}$ trivial. Biot-Savart is what remains for
+everything else: finite segments, loops, arcs, polygons, and any point where
+the field magnitude is not constant along a convenient closed path. Reach for
+symmetry first, and for this integral when symmetry runs out.
+
+<QuickCheck
+  question="At the centre of a circular arc of radius R subtending angle theta, the field magnitude is what fraction of a full loop's centre field?"
+  options={["theta over 2 pi", "theta over pi", "theta squared over 2 pi", "One, independent of theta"]}
+  answer={0}
+  explanation="Every element of the arc is the same distance R away and contributes in the same direction, so the integral is simply proportional to arc length. A fraction theta over 2 pi of the circle gives that fraction of the field."
+/>

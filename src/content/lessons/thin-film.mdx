@@ -1,0 +1,55 @@
+## Two reflections, one film
+
+Light striking a soap film or an oil slick reflects twice: once off the top
+surface, once off the bottom. Those two beams recombine and interfere, and
+since white light contains every wavelength, some colors cancel and others
+survive. That is where the color comes from.
+
+At normal incidence the second beam travels an extra $2t$ through the film. But
+the wavelength inside the film is shortened to $\lambda/n$, so the phase cost
+of that path is
+
+$$\Delta\phi_{\text{path}} = \frac{2\pi}{\lambda}\,2nt$$
+
+The quantity $2nt$ is the optical path difference. Using the vacuum wavelength
+with the geometric thickness and forgetting $n$ is the standard slip.
+
+## Counting the flips
+
+Reflection off a medium of higher index inverts the wave — a half-wavelength
+phase shift, exactly like a pulse on a string reflecting off a fixed end.
+Reflection off a lower index does not.
+
+So the procedure is mechanical. Write down the three indices in order. Check
+each of the two reflections and count how many flips occur.
+
+Two flips, or zero, cancel each other and the film brightens when
+$2nt = m\lambda$. Exactly one flip adds a net half cycle and the condition
+inverts: brightness at $2nt = (m + \tfrac{1}{2})\lambda$.
+
+Soap in air is air-soap-air: the top reflection flips, the bottom does not.
+One flip. An anti-reflective coating on glass is air-coating-glass with
+$1 < n_c < n_g$, so both reflections flip — two flips, and a quarter-wave
+thickness kills the reflection.
+
+## The black film
+
+Let a vertical soap film drain until the top is far thinner than a wavelength.
+Then $2nt \to 0$, the path contributes no phase, and the single flip is all
+that remains. The two beams are a half cycle apart for every wavelength at
+once, so the whole visible spectrum cancels and the top of the film looks
+black — just before it bursts.
+
+<Aside label="Where this goes wrong" warn>
+  The flip count depends on the medium on both sides, not just the film. An oil
+  film on water and the same film on glass have opposite conditions, because
+  water has a lower index than the oil and glass a higher one. Never carry a
+  memorized half-integer rule between problems; recount the flips each time.
+</Aside>
+
+<QuickCheck
+  question="Why does the thinnest part of a draining soap film in air appear black?"
+  options={["The film absorbs all the light", "The single phase flip cancels every wavelength when the path difference goes to zero", "The film is too thin to reflect", "Total internal reflection removes the light"]}
+  answer={1}
+  explanation="With negligible thickness the only phase difference is the half cycle from the one flip, so both reflections cancel across the whole spectrum."
+/>

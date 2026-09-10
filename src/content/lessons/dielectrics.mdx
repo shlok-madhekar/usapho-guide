@@ -1,0 +1,58 @@
+## An insulator that fights back
+
+A dielectric has no free charges, but its molecules polarize: each stretches
+or rotates slightly, and the aligned dipoles leave a layer of bound charge on
+each face. That bound charge produces a field opposing the applied one, so the
+net field inside is weaker by a factor $\kappa$, the dielectric constant:
+
+$$E = \frac{E_0}{\kappa}$$
+
+Nothing conducts, so the cancellation is only partial — $\kappa$ is finite,
+typically 2 to 10, and $\kappa \to \infty$ is the conductor limit.
+
+## What it does to a capacitor
+
+Weaker field at the same charge means a smaller voltage across the gap, so
+
+$$C = \kappa C_0 = \frac{\kappa\varepsilon_0 A}{d}$$
+
+Which quantity is held fixed decides everything else, so name it first. With
+the battery still connected, $V$ is fixed and $Q$ rises to $\kappa Q_0$. With
+the battery removed, $Q$ is fixed and $V$ falls to $V_0/\kappa$. The two cases
+have opposite energy answers, which is the classic place to lose a problem.
+
+Dielectrics also let a capacitor survive higher voltages before the material
+ionizes and conducts, which is why real capacitors are built with them rather
+than air.
+
+## Energy lives in the field
+
+Charging a capacitor means moving charge against a growing potential
+difference. Integrating $dW = (q/C)\,dq$ gives
+
+$$U = \frac{Q^2}{2C} = \frac{1}{2}CV^2$$
+
+Substitute the parallel-plate values and something more general appears. The
+energy divided by the volume $Ad$ is
+
+$$u = \frac{1}{2}\varepsilon_0 E^2$$
+
+with $\varepsilon_0 \to \kappa\varepsilon_0$ in a dielectric. This holds for
+any electrostatic field, not just the one between plates — the energy is
+stored in the field itself, at a density set by the local $E$. That is the
+picture that survives into radiation, where the field carries energy away with
+no charges anywhere near.
+
+<Aside label="Where this goes wrong" warn>
+  A slab pulled partway out of a charged capacitor is a favorite problem.
+  Compute the force from $F = -dU/dx$ at fixed $Q$, or from $F = +dU/dx$ at
+  fixed $V$ — the battery does work in the second case, and the sign flip is
+  entirely that. The slab is pulled *in* either way.
+</Aside>
+
+<QuickCheck
+  question="An isolated charged capacitor has a dielectric slab inserted. The stored energy:"
+  options={["Increases by a factor kappa", "Stays the same", "Decreases by a factor kappa", "Doubles"]}
+  answer={2}
+  explanation="Charge is fixed, so U equals Q squared over 2C, and C has grown by kappa. The missing energy is the work the capacitor did pulling the slab in."
+/>

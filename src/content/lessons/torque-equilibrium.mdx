@@ -1,0 +1,54 @@
+## Turning effect
+
+A force applied to a rigid body does two things: it pushes the body, and it
+tries to turn it. The turning part is torque, and it depends on where the force
+is applied, not just how hard.
+
+$$\tau = rF\sin\theta = r_\perp F$$
+
+The second form is usually faster: drop a perpendicular from the pivot onto the
+force's line of action, measure that distance, and multiply. That distance is
+the lever arm. A force whose line passes straight through the pivot has zero
+lever arm and zero torque, which is why pushing a door near its hinge is futile.
+
+## Two conditions, not one
+
+A body is in static equilibrium when it neither accelerates nor angularly
+accelerates. That is two independent statements:
+
+$$\sum \vec{F} = 0, \qquad \sum \vec{\tau} = 0$$
+
+Forces alone are not enough. Two equal opposite forces applied at different
+points sum to zero but spin the body — a couple. Both conditions must hold.
+
+In two dimensions this gives three scalar equations: $\sum F_x = 0$,
+$\sum F_y = 0$, $\sum \tau = 0$. Three equations means you can solve for at
+most three unknowns, which is why a ladder against a wall with friction at both
+ends is genuinely indeterminate rather than merely hard.
+
+## Choosing the pivot
+
+For a body in equilibrium, the net torque is zero about *every* point, not just
+the real hinge. That freedom is the most useful tool in the whole topic.
+
+Take a uniform plank of weight $W$ resting on two supports, and suppose you
+want the force at the right support. Take torques about the left support. The
+left force now has zero lever arm and drops out of the equation entirely, and
+one line gives you the answer without ever solving a system.
+
+Procedure: draw the free-body diagram, mark every force and where it acts, then
+pick as pivot the point where the force you care least about is applied.
+
+<Aside label="Where this goes wrong" warn>
+  Gravity is not applied at the pivot or at the end of the object — for a
+  uniform body it acts at the center of mass. Forgetting to include the weight
+  as a torque, or placing it at the wrong point, is the single most common error
+  in equilibrium problems.
+</Aside>
+
+<QuickCheck
+  question="A beam is held by two supports. Which pivot choice best isolates the force at support A?"
+  options={["Support A", "Support B", "The center of mass", "The midpoint between supports"]}
+  answer={1}
+  explanation="Taking torques about B eliminates B's unknown force, leaving an equation containing A."
+/>

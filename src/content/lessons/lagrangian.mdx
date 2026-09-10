@@ -1,0 +1,85 @@
+## The problem with free-body diagrams
+
+Newton's laws are vector equations, so a constrained system forces you to
+track forces you do not care about. A bead on a wire needs the normal force
+from the wire; a pendulum needs the rod tension. Neither does any work, and
+neither appears in the answer, but both appear in the algebra.
+
+Lagrangian mechanics starts from energy instead, which is a scalar, and
+constraint forces drop out because they do no work. Define
+
+$$L = T - V$$
+
+the kinetic energy minus the potential energy, written in terms of whatever
+coordinates actually describe the motion.
+
+Those are the *generalized coordinates*: one for each independent way the
+system can move. A pendulum has one, the angle $\theta$. A double pendulum has
+two. A bead on a fixed parabolic wire has one, because specifying $x$ fixes
+$y$. Choose coordinates that already build the constraint in, and the
+constraint force never has to be named.
+
+## The Euler-Lagrange equation
+
+For each generalized coordinate $q$,
+
+$$\frac{d}{dt}\left(\frac{\partial L}{\partial \dot q}\right) - \frac{\partial L}{\partial q} = 0$$
+
+Read the two terms physically. The quantity $\partial L / \partial \dot q$ is
+the generalized momentum conjugate to $q$, and $\partial L / \partial q$ is
+the generalized force. The equation says momentum changes at the rate the
+force supplies, which is Newton's second law wearing different clothes.
+
+The procedure is mechanical. Pick coordinates, write $T$ and $V$ in them, form
+$L$, take the two derivatives, set them equal. No diagram, no components, no
+sign hunting.
+
+## A pendulum, end to end
+
+A mass $m$ on a massless rod of length $\ell$, with $\theta$ measured from
+straight down.
+
+Kinetic energy: the mass moves on a circle at speed $\ell\dot\theta$, so
+$T = \tfrac12 m \ell^2 \dot\theta^2$.
+
+Potential energy: height above the lowest point is
+$\ell(1 - \cos\theta)$, so $V = mg\ell(1 - \cos\theta)$.
+
+$$L = \tfrac12 m \ell^2 \dot\theta^2 - mg\ell(1 - \cos\theta)$$
+
+Now the derivatives:
+
+$$\frac{\partial L}{\partial \dot\theta} = m\ell^2 \dot\theta,
+\qquad \frac{\partial L}{\partial \theta} = -mg\ell \sin\theta$$
+
+Substituting into Euler-Lagrange gives
+$m\ell^2 \ddot\theta + mg\ell\sin\theta = 0$, that is,
+
+$$\ddot\theta = -\frac{g}{\ell}\sin\theta$$
+
+The rod tension never appeared. For a double pendulum, where the free-body
+approach becomes genuinely painful, the same three steps produce both
+equations of motion with no extra ideas.
+
+<Aside label="Worth remembering">
+  If a coordinate does not appear in $L$ at all, only its time derivative
+  does, then $\partial L/\partial q = 0$ and the conjugate momentum
+  $\partial L / \partial \dot q$ is conserved. That is where conservation laws
+  come from. An ignorable angle means angular momentum is conserved; an
+  ignorable position means linear momentum is.
+</Aside>
+
+<Aside label="Where this goes wrong" warn>
+  Kinetic energy must be written in an inertial frame, and every velocity in
+  it must be expressed through the generalized coordinates and their time
+  derivatives. The usual error is writing the speed of a mass that sits on a
+  moving cart as if the cart were at rest. Write the position vector in fixed
+  ground coordinates first, differentiate that, then square it.
+</Aside>
+
+<QuickCheck
+  question="Why do constraint forces such as rod tension or a wire's normal force not appear in the Lagrangian equations?"
+  options={["They are always negligibly small", "They do no work, so they enter neither T nor V", "They cancel between pairs of masses", "They are absorbed into the generalized momentum"]}
+  answer={1}
+  explanation="An ideal constraint force acts perpendicular to the allowed motion, so it does no work and contributes to neither the kinetic nor the potential energy. Choosing generalized coordinates that satisfy the constraint removes it from the problem entirely."
+/>

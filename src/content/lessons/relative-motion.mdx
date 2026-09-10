@@ -1,0 +1,62 @@
+## Velocities add
+
+Every velocity is measured relative to something. Once you say so explicitly,
+the bookkeeping becomes one rule:
+
+$$\vec{v}_{A/C} = \vec{v}_{A/B} + \vec{v}_{B/C}$$
+
+Read the subscripts as a chain. The inner labels match and cancel, leaving the
+outer pair. Reversing a subscript pair flips the sign:
+$\vec{v}_{B/A} = -\vec{v}_{A/B}$.
+
+These are vector sums, not number sums. A plane flying north at 200 km/h
+through air drifting east at 50 km/h moves over the ground at
+$\sqrt{200^2 + 50^2} \approx 206$ km/h, on a heading tilted east of north.
+Accelerations add the same way, provided neither frame is rotating.
+
+## Crossing a river
+
+A swimmer moves at speed $u$ relative to the water; the river runs at $v$
+across a channel of width $w$. Two different questions get two different
+answers.
+
+To cross in the least time, aim straight across. The downstream current does
+nothing to the across-channel component, so $t = w/u$ no matter how fast the
+river runs. You land downstream, but you land soonest.
+
+To land directly opposite, aim upstream at angle $\theta$ with
+$\sin\theta = v/u$, so the upstream component cancels the drift. The remaining
+across-channel speed is $\sqrt{u^2 - v^2}$ and the crossing takes
+$t = w/\sqrt{u^2 - v^2}$. If $v \ge u$, that has no solution: a swimmer slower
+than the current cannot reach the point opposite at all.
+
+<Aside label="Where this goes wrong" warn>
+  Decide which velocity the given speed describes before drawing anything.
+  "Swims at 2 m/s" almost always means relative to the water, and the current
+  is relative to the bank. Mixing the two frames in one triangle is the error
+  that quietly ruins river and wind problems.
+</Aside>
+
+## Choosing the frame
+
+The real payoff is that a good frame can delete most of a problem.
+
+Two objects approaching each other: work in the frame of one of them. It is at
+rest, the other closes at the relative velocity, and the time to meet is just
+separation divided by that speed.
+
+Two projectiles launched simultaneously: in the frame of the first, gravity
+cancels out of the relative motion entirely, since both accelerate at $-g$. The
+second moves in a straight line at constant relative velocity. A question about
+whether they collide becomes a question about whether a line passes through a
+point.
+
+Any inertial frame gives the same physics, so pick the one where the answer is
+easiest to see, then translate back at the end.
+
+<QuickCheck
+  question="A swimmer whose speed in still water is 3 m/s crosses a 60 m river flowing at 2 m/s, aiming straight across. How long does the crossing take?"
+  options={["20 s", "24 s", "27 s", "12 s"]}
+  answer={0}
+  explanation="Aiming straight across leaves the full 3 m/s pointed across the channel, so the time is 60 divided by 3. The current only changes where the swimmer lands, not when."
+/>

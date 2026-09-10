@@ -1,0 +1,62 @@
+## An equation of state
+
+$PV = nRT$ is not a law of physics in the way that $F = ma$ is. It is a
+constraint linking the three variables that describe a gas, so that only two
+of them are ever free. Fix any two and the third follows.
+
+$$PV = nRT = Nk_BT$$
+
+Use $n$ and $R = 8.31$ J/(mol·K) when you are counting moles, $N$ and
+$k_B = 1.38\times10^{-23}$ J/K when you are counting molecules. They are the
+same statement divided by Avogadro's number.
+
+The practical consequence for problem solving is that any two states of a
+fixed amount of gas satisfy $P_1V_1/T_1 = P_2V_2/T_2$. Most numerical
+thermodynamics questions never need $R$ at all — they need this ratio.
+
+## Temperature is energy per degree of freedom
+
+The microscopic reading is that $k_BT$ is an energy scale. Specifically, every
+independent quadratic term in a molecule's energy — each $\tfrac12 mv_x^2$,
+each $\tfrac12 I\omega^2$, each $\tfrac12 kx^2$ in a vibrational mode —
+carries $\tfrac12 k_BT$ on average once the system is in equilibrium. That is
+equipartition, and it is what "degree of freedom" means: not a way the
+molecule can move, but a quadratic energy term.
+
+Counting for common cases:
+
+- Monatomic: 3 translational. $f = 3$.
+- Diatomic at room temperature: 3 translational, 2 rotational. $f = 5$.
+- Diatomic, hot: add 2 more for the vibrational mode, since a spring
+  contributes both kinetic and potential terms. $f = 7$.
+
+Rotation about the bond axis of a diatomic does not count. Its moment of
+inertia is tiny, and the energy needed to excite it is far above $k_BT$.
+
+<Aside label="Where this goes wrong" warn>
+  Equipartition is a classical result and modes freeze out when their spacing
+  exceeds $k_BT$. Hydrogen behaves with $f = 3$ below about 100 K, $f = 5$ near
+  room temperature, and $f = 7$ only above a few thousand kelvin. If a problem
+  gives you a temperature, it is usually telling you which count to use.
+</Aside>
+
+## From counting to $\gamma$
+
+Once you have $f$, everything else is arithmetic:
+
+$$U = \tfrac{f}{2}nRT, \qquad C_V = \tfrac{f}{2}R, \qquad C_P = C_V + R$$
+
+$$\gamma = \frac{C_P}{C_V} = \frac{f+2}{f}$$
+
+So $\gamma = 5/3$ for monatomic, $7/5$ for diatomic, $4/3$ for a molecule with
+six active degrees of freedom. That single number then governs every adiabatic
+process, the speed of sound in the gas, and the shape of the steep curves on a
+PV diagram — all of it traceable back to how many ways one molecule can hold
+energy.
+
+<QuickCheck
+  question="A gas has molar heat capacity at constant volume equal to 3R. How many active degrees of freedom does each molecule have, and what is gamma?"
+  options={["3 degrees of freedom, gamma = 5/3", "6 degrees of freedom, gamma = 4/3", "6 degrees of freedom, gamma = 5/3", "5 degrees of freedom, gamma = 7/5"]}
+  answer={1}
+  explanation="C_V equals f/2 times R, so f = 6. Then gamma = (f+2)/f = 8/6 = 4/3."
+/>

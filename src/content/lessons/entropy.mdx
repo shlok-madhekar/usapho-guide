@@ -1,0 +1,62 @@
+## A definition you can compute with
+
+Heat is not a state function, but heat divided by the temperature at which it
+is transferred turns out to be. Along a reversible path,
+
+$$dS = \frac{dQ_{rev}}{T}, \qquad \Delta S = \int_i^f \frac{dQ_{rev}}{T}$$
+
+The subscript matters. The formula only defines $\Delta S$ when evaluated
+along a reversible path; the temperature in the denominator has to be a
+well-defined temperature of the system, which an irreversible process does not
+have.
+
+Two cases cover most of what you will need. At constant temperature the
+integral is trivial, $\Delta S = Q/T$ — this is the melting-ice case and the
+isothermal-expansion case. For an ideal gas going anywhere at all, substitute
+$dQ = nC_V\,dT + P\,dV$ and integrate:
+
+$$\Delta S = nC_V\ln\frac{T_f}{T_i} + nR\ln\frac{V_f}{V_i}$$
+
+Two logs. Memorize the shape, and note that it depends only on the endpoints.
+
+## Invent a path
+
+Because $S$ is a state function, that last observation is a licence. An
+irreversible process — a free expansion, two blocks brought into contact, a
+gas stirred by a paddle — has no reversible path of its own, but you do not
+need one. Identify the initial and final states, then compute along any
+reversible path connecting them.
+
+For a free expansion of an ideal gas from $V$ to $2V$, no heat flows and no
+work is done, so $T$ is unchanged. Replace it with a slow isothermal expansion
+between the same two states: $\Delta S = nR\ln 2 > 0$. The gas gained entropy
+even though $Q = 0$ in the actual process, because $Q = 0$ was true of the
+real path, not the substitute one.
+
+<Aside label="Where this goes wrong" warn>
+  Setting $\Delta S = 0$ for a free expansion because no heat was exchanged.
+  The formula requires a reversible path, and free expansion is the textbook
+  irreversible process. Whenever a process is sudden, unresisted, or involves
+  a finite temperature difference, build a reversible substitute first.
+</Aside>
+
+## Why heat flows one way
+
+Nothing in the first law forbids a cold block spontaneously warming a hot one;
+energy would still balance. What forbids it is that the total entropy would
+drop. Move $Q$ from a body at $T_H$ to one at $T_C$:
+
+$$\Delta S_{total} = \frac{Q}{T_C} - \frac{Q}{T_H}$$
+
+This is positive when $T_H > T_C$ and negative if you try to run it backwards.
+The same expression tells you the direction is only marginal when the two
+temperatures are nearly equal — which is exactly the condition for a transfer
+to be reversible, and exactly why reversible engines have to run infinitely
+slowly.
+
+<QuickCheck
+  question="An ideal gas is compressed isothermally and reversibly to half its volume. What happens to the entropy of the gas, and to the total entropy of gas plus reservoir?"
+  options={["Gas entropy decreases; total entropy decreases", "Gas entropy decreases; total entropy is unchanged", "Gas entropy is unchanged; total entropy increases", "Gas entropy increases; total entropy is unchanged"]}
+  answer={1}
+  explanation="The gas loses nR ln 2 of entropy since its volume halved at fixed temperature. The heat it expels raises the reservoir's entropy by exactly the same amount, so the total is unchanged, which is what reversible means."
+/>

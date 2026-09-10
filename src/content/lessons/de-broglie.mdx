@@ -1,0 +1,61 @@
+## The symmetry
+
+Light was known to be a wave, then shown to carry momentum in discrete lumps.
+De Broglie proposed the converse: things known to be particles should carry a
+wavelength. Take the photon relation $p = h/\lambda$ and solve it the other way
+round.
+
+$$\lambda = \frac{h}{p}$$
+
+For a non-relativistic particle $p = mv$, and if it was accelerated from rest
+through a potential difference $V$, then $p = \sqrt{2mqV}$, giving
+
+$$\lambda = \frac{h}{\sqrt{2mqV}}$$
+
+An electron across 54 V comes out at about 1.7 Å. That is the spacing between
+atoms in a crystal, which is not a coincidence in the history — Davisson and
+Germer fired electrons at nickel and got a diffraction pattern with peaks
+exactly where Bragg's law put them for that wavelength.
+
+## Why you never see it
+
+Plug in a thrown baseball: $m = 0.15$ kg, $v = 40$ m/s, so $p = 6$ kg·m/s and
+
+$$\lambda = \frac{6.6 \times 10^{-34}}{6} \approx 10^{-34}\ \text{m}$$
+
+Twenty orders of magnitude smaller than a proton. Diffraction requires an
+aperture comparable to $\lambda$, and no such aperture exists or could exist,
+so the baseball travels in a straight line. The wave nature is not switched
+off for large objects; it is present and unmeasurable, which is the same thing
+in practice.
+
+The rule of thumb: use the wave picture when $\lambda$ is comparable to the
+size of whatever the particle is interacting with. Electrons and crystal
+planes, yes. Neutrons and nuclei, yes. Anything you can hold, no.
+
+<Aside label="Where this goes wrong" warn>
+  Use momentum, not energy, and not speed alone. Two particles with the same
+  kinetic energy have different wavelengths if their masses differ, because
+  $p = \sqrt{2mK}$ — a proton at 1 eV has a wavelength about 43 times shorter
+  than an electron at 1 eV.
+</Aside>
+
+## What it buys you
+
+The de Broglie wavelength turns Bohr's angular momentum rule from a decree into
+a picture. Requiring a whole number of wavelengths around a circular orbit,
+$n\lambda = 2\pi r$, and substituting $\lambda = h/mv$, reproduces
+$mvr = n\hbar$ exactly. Standing waves fit; anything else interferes with
+itself and dies out.
+
+It also sets the resolution limit of an electron microscope. Optical
+microscopes stall at a few hundred nanometres because visible light will not
+resolve finer than its own wavelength. Accelerate electrons to 100 keV and
+$\lambda$ drops below a picometre, which is why atoms are visible at all.
+
+<QuickCheck
+  question="An electron and a proton move with the same speed. Compared with the electron's de Broglie wavelength, the proton's is:"
+  options={["Much longer", "The same", "Much shorter", "Longer or shorter depending on the speed"]}
+  answer={2}
+  explanation="At equal speed the proton has about 1836 times the momentum, and wavelength is inversely proportional to momentum."
+/>

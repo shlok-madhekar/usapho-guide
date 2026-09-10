@@ -1,0 +1,70 @@
+## Decide what you are looking at
+
+Before any equation, draw the situation and put a boundary around the thing
+you are analysing. Everything inside is the system; everything outside acts on
+it through external forces. That single choice determines which forces appear
+and which conservation laws apply.
+
+Choosing well saves enormous work. For two blocks connected by a string,
+treating them as one system makes the tension internal and it drops out
+entirely — one equation instead of three. If the tension is what you want,
+cut the system at the string and analyse one block.
+
+Then choose axes. Axes are free, so pick the ones that make components
+trivial. On an incline, tilt the axes to lie along and perpendicular to the
+slope: the acceleration is then entirely along one axis, and only gravity
+needs decomposing. In circular motion, use radial and tangential directions.
+The physics does not change, but the algebra can go from a page to a line.
+
+<Aside label="Worth remembering">
+  Free-body diagrams are not a formality. Draw one per body, mark only real
+  forces (something must be touching it, or it is gravity), and label them
+  before writing a single equation. Most sign errors happen because the
+  diagram was skipped.
+</Aside>
+
+## Pick the right tool
+
+Newton's laws give you the full time evolution, but they cost the most work.
+When the question asks only about a before and an after, a conservation law is
+almost always faster.
+
+Energy conservation, when no friction or other dissipative force acts.
+Momentum conservation, when no net external force acts during the interval —
+true during a collision, even when gravity acts, because the collision is
+brief. Angular momentum conservation, when there is no external torque about
+your chosen axis. Notice these have different conditions; a collision can
+conserve momentum while destroying energy.
+
+Symmetry cuts work before it starts. If the setup is unchanged by rotating it,
+the answer cannot depend on the angle. If two objects are interchangeable, the
+answer must be symmetric under swapping their labels. Gauss's law is nothing
+but this argument used aggressively.
+
+## Check before you commit
+
+An answer is a formula, and a formula makes predictions you can test cheaply.
+
+Check dimensions first. Then push variables to extremes and see whether the
+result stays sensible. Take the Atwood machine, $a = (m_1 - m_2)g/(m_1 + m_2)$.
+Set $m_1 = m_2$ and the acceleration vanishes, correct. Let $m_2 \to 0$ and
+$a \to g$, a free fall, correct. Let $m_2 \to \infty$ and $a \to -g$, also
+correct. Three independent checks in ten seconds.
+
+Finally, ask whether the number is physically reasonable. A block sliding at
+$300\ \text{m/s}$ after a gentle push, an efficiency above 1, a negative
+kinetic energy — each says go back and look.
+
+<Aside label="Where this goes wrong" warn>
+  Applying energy conservation across an inelastic collision is the most
+  common error in olympiad mechanics. Momentum is conserved there; kinetic
+  energy is not. Before writing any conservation equation, state which
+  quantity is conserved and why the condition holds over your interval.
+</Aside>
+
+<QuickCheck
+  question="A block slides down a frictionless incline, then collides and sticks to a second block. Which combination of laws applies?"
+  options={["Energy for the slide, energy for the collision", "Momentum for the slide, energy for the collision", "Energy for the slide, momentum for the collision", "Momentum for both stages"]}
+  answer={2}
+  explanation="The frictionless slide dissipates nothing, so energy is conserved there. The perfectly inelastic collision destroys kinetic energy but has no significant external impulse, so momentum carries across it."
+/>

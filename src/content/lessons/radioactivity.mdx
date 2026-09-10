@@ -1,0 +1,70 @@
+## Three ways to shed instability
+
+A nucleus is protons and neutrons held by the strong force against electrical
+repulsion. When the balance is wrong the nucleus rearranges itself, and there
+are three standard routes. Write the nucleus as $^A_Z X$, with $A$ nucleons and
+$Z$ protons.
+
+**Alpha decay** ejects a helium nucleus. Heavy nuclei do this because the
+Coulomb repulsion across a large nucleus outgrows the short-range strong force.
+
+$$^A_Z X \to\ ^{A-4}_{Z-2} Y + ^4_2\alpha$$
+
+**Beta-minus decay** converts a neutron into a proton, emitting an electron and
+an antineutrino. Nothing is knocked out of the nucleus — the electron is
+created at the moment of decay.
+
+$$n \to p + e^- + \bar{\nu}_e, \qquad ^A_Z X \to\ ^{\ \ A}_{Z+1} Y + e^- + \bar{\nu}_e$$
+
+Beta-plus decay runs the other way, a proton becoming a neutron plus a positron
+and a neutrino, lowering $Z$ by one.
+
+**Gamma decay** emits a photon from an excited nucleus and changes neither $A$
+nor $Z$. It usually follows an alpha or beta decay that left the daughter
+excited.
+
+In every case the sums of $A$ and of $Z$ must balance across the arrow. That
+bookkeeping alone identifies most daughter nuclei.
+
+<Aside label="Where this goes wrong" warn>
+  A beta particle is not an orbital electron, and beta decay does not ionise
+  the atom in the ordinary sense. Also, the antineutrino is not optional
+  padding — without it, energy and angular momentum both fail to balance, and
+  the observed beta energy spectrum would be a single line rather than a
+  continuum.
+</Aside>
+
+## The decay law
+
+Each nucleus decays independently, with a fixed probability per unit time. It
+does not age and it does not remember. That gives
+
+$$\frac{dN}{dt} = -\lambda N \quad \Longrightarrow \quad N(t) = N_0 e^{-\lambda t}$$
+
+where $\lambda$ is the decay constant. Setting $N = N_0/2$ gives the half-life:
+
+$$T_{1/2} = \frac{\ln 2}{\lambda} \approx \frac{0.693}{\lambda}$$
+
+The mean lifetime is $\tau = 1/\lambda$, longer than the half-life by a factor
+of 1.44. Both appear in problems; check which one a stated number is.
+
+## Activity
+
+Activity is the count of decays per second, $A = \lambda N$, measured in
+becquerels. It obeys the same exponential, since it is proportional to $N$:
+
+$$A(t) = A_0 e^{-\lambda t} = A_0 \left(\tfrac{1}{2}\right)^{t/T_{1/2}}$$
+
+The second form is faster by hand when the elapsed time is a tidy multiple of
+the half-life. Three half-lives leave one eighth; ten leave about a thousandth.
+
+Note that a long half-life means a low activity for a given sample. Uranium-238
+is barely radioactive per gram precisely because it lasts billions of years.
+Short-lived isotopes are the dangerous ones while they last.
+
+<QuickCheck
+  question="After emitting one alpha particle and then two beta-minus particles, a nucleus has mass number and atomic number changed by:"
+  options={["A down 4, Z unchanged", "A down 4, Z down 2", "A down 4, Z up 2", "A unchanged, Z down 2"]}
+  answer={0}
+  explanation="Alpha takes A down 4 and Z down 2; each beta-minus raises Z by one and leaves A alone. The two beta decays cancel the alpha's change in Z."
+/>

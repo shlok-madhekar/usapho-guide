@@ -1,0 +1,56 @@
+## Adding two waves
+
+Superposition says the displacement at a point is the sum of what each wave
+would have produced alone. Send two identical waves in opposite directions
+along a string and add them:
+
+$$A\sin(kx - \omega t) + A\sin(kx + \omega t) = 2A\sin(kx)\cos(\omega t)$$
+
+The $x$ and $t$ dependence has separated. Nothing travels any more. Every
+point oscillates at the same frequency $\omega$, and its amplitude $2A\sin(kx)$
+depends only on where it sits. Points where $\sin(kx) = 0$ never move — nodes,
+spaced half a wavelength apart. Halfway between them are antinodes swinging
+with amplitude $2A$.
+
+That factorization is the whole content of "standing wave." It is worth
+deriving once rather than remembering as a picture.
+
+## Modes of a string
+
+A string clamped at both ends forces a node at $x = 0$ and $x = L$. Only
+wavelengths satisfying $L = n\lambda/2$ survive, giving the harmonic series
+$f_n = nv/2L$ with $v = \sqrt{T/\mu}$.
+
+A real pluck is not a single mode. It is a superposition of many, with
+amplitudes fixed by the initial shape. Pluck at the midpoint and every even
+harmonic has a node there, so those modes get zero amplitude — the timbre
+changes with plucking position, which is why guitarists pick near the bridge
+for a brighter sound.
+
+## Why a closed pipe skips harmonics
+
+In a sound wave the boundary condition is about displacement of the air. A
+closed end blocks motion, so it must be a displacement node. An open end is
+free to move and sits at an antinode.
+
+A node at one end and an antinode at the other means the pipe holds a quarter
+wavelength, or three quarters, or five — never a half. So
+
+$$L = \frac{(2n-1)\lambda}{4}, \qquad f_n = \frac{(2n-1)v}{4L}$$
+
+Only odd multiples of the fundamental appear, and the fundamental is half that
+of an open pipe of equal length.
+
+<Aside label="Where this goes wrong" warn>
+  Pressure and displacement are out of phase by a quarter wavelength. A
+  displacement node is a pressure antinode. If a problem gives you a pressure
+  graph and you read its zeros as fixed ends, every mode number comes out
+  wrong. Decide which quantity the diagram shows before counting.
+</Aside>
+
+<QuickCheck
+  question="A pipe closed at one end has a fundamental of 100 Hz. What is its next resonant frequency?"
+  options={["200 Hz", "300 Hz", "150 Hz", "400 Hz"]}
+  answer={1}
+  explanation="Closed pipes support only odd harmonics, so the next one is three times the fundamental."
+/>

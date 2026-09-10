@@ -1,0 +1,57 @@
+## A moving source squeezes the wavelength
+
+Sound travels at speed $v$ set by the air, regardless of what the source is
+doing. A source emitting period $T$ while moving toward you advances $v_s T$
+between one crest and the next, so the crests land closer together:
+
+$$\lambda' = (v - v_s)T$$
+
+The observer at rest still receives them at speed $v$, so
+$f' = v/\lambda' = f\,v/(v - v_s)$. The wavelength in the medium really has
+changed. Photograph the air and you would see it.
+
+## A moving observer meets them faster
+
+Now let the source sit still. The wavelength in the air is untouched at
+$\lambda = v/f$. What changes is your closing speed on the crests: moving
+toward the source at $v_o$, you sweep past them at $v + v_o$, so
+
+$$f' = \frac{v + v_o}{\lambda} = f\,\frac{v + v_o}{v}$$
+
+Two different mechanisms, two different algebraic forms. Combined:
+
+$$f' = f\,\frac{v \pm v_o}{v \mp v_s}$$
+
+## Why the asymmetry is real
+
+Take $v_s = v_o = v/2$. A source approaching a still observer gives $2f$. An
+observer approaching a still source gives $1.5f$. The medium picks out a rest
+frame, so "who is moving" is a physically meaningful question — unlike the
+relativistic Doppler effect for light, where only relative velocity survives.
+
+Expand both to first order and each gives $f(1 + u/v)$. That is why the
+asymmetry is invisible at everyday speeds and why olympiad problems choose
+speeds that are not small.
+
+Do not memorize the four sign cases. Ask one question: does the motion bring
+them together? If yes the frequency must rise, so pick the signs that shrink
+the denominator or grow the numerator. Then substitute.
+
+Only the velocity component along the line joining source and observer counts.
+At the instant of closest approach that component is zero and the shift
+vanishes — the frequency you hear passes through the true frequency exactly as
+the siren goes by, not before.
+
+<Aside label="Where this goes wrong" warn>
+  As $v_s \to v$ the denominator goes to zero and the formula diverges. That is
+  not a real infinity; it is the formula telling you the crests have piled up
+  into a shock front. Beyond $v_s > v$ the expression is meaningless and you
+  need the Mach cone with $\sin\theta = v/v_s$ instead.
+</Aside>
+
+<QuickCheck
+  question="A source and an observer both move at half the speed of sound, in the setups compared above. Which produces the larger shift?"
+  options={["The moving source", "The moving observer", "They are identical", "Neither shifts"]}
+  answer={0}
+  explanation="A moving source compresses the wavelength itself, giving 2f, while a moving observer only meets unchanged crests faster, giving 1.5f."
+/>

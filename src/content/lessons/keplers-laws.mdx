@@ -1,0 +1,72 @@
+## Three empirical statements
+
+Kepler extracted these from Tycho Brahe's naked-eye observations decades before
+Newton explained them.
+
+1. **Orbits are ellipses**, with the Sun at one focus — not at the centre.
+2. **The line from the Sun to the planet sweeps equal areas in equal times.**
+3. **$T^2 \propto a^3$**, where $a$ is the semi-major axis.
+
+An ellipse is described by its semi-major axis $a$ and eccentricity $e$. The
+closest and farthest points, perihelion and aphelion, sit at $a(1-e)$ and
+$a(1+e)$ from the focus. A circle is the special case $e = 0$, with the two
+foci merged at the centre.
+
+<Aside label="Where this goes wrong" warn>
+  Treating Earth's seasons as a consequence of the first law. Earth's orbit has
+  $e \approx 0.017$, so the Sun's distance varies by under 4% — and perihelion
+  falls in early January, during northern winter. Seasons come from axial tilt.
+  Kepler's laws describe the geometry of the orbit, not the climate.
+</Aside>
+
+## The second law is angular momentum
+
+In a short time $dt$, the planet moves $\vec v\,dt$ and the swept region is
+nearly a triangle with the Sun. Its area is half the magnitude of the cross
+product of the two sides, so
+
+$$\frac{dA}{dt} = \frac{1}{2}\,|\vec r \times \vec v| = \frac{L}{2m}$$
+
+Gravity always points from the planet straight back at the Sun, parallel to
+$\vec r$. A force along $\vec r$ exerts no torque about that point, so $L$ is
+constant — and therefore so is $dA/dt$. Equal areas in equal times is angular
+momentum conservation, wearing a geometric disguise.
+
+This is why it holds for *any* central force, not just inverse square. The
+first and third laws are specific to $1/r^2$; the second is much more general.
+
+It also gives you a fast tool. At perihelion and aphelion the velocity is
+perpendicular to $\vec r$, so $L = mvr$ at both, and
+
+$$v_p\, r_p = v_a\, r_a$$
+
+Combine that with energy conservation and you can solve most two-point orbit
+problems without touching the shape of the ellipse.
+
+<QuickCheck
+  question="A comet is four times farther from the Sun at aphelion than at perihelion. Its speed at aphelion is:"
+  options={["Four times the perihelion speed", "Twice the perihelion speed", "One quarter of the perihelion speed", "The same, since energy is conserved"]}
+  answer={2}
+  explanation="At both turning points the velocity is perpendicular to the radius, so mvr is the same at each. Four times the distance means one quarter the speed."
+/>
+
+## Where the third law comes from
+
+For a circular orbit the derivation is two lines. Gravity supplies the
+centripetal force:
+
+$$\frac{GMm}{r^2} = m\omega^2 r, \qquad \omega = \frac{2\pi}{T}$$
+
+Rearranging,
+
+$$T^2 = \frac{4\pi^2}{GM}\,r^3$$
+
+The full result replaces $r$ with the semi-major axis $a$ and is exact for
+ellipses too. The proportionality constant $4\pi^2/GM$ depends only on the
+central mass, which is what makes the law useful: measure a moon's period and
+orbital radius, and you have weighed the planet. The orbiting body's own mass
+never appears, so long as it is small compared to $M$.
+
+The exponents are worth remembering as a pattern. Doubling the semi-major axis
+multiplies the period by $2^{3/2} \approx 2.83$ and divides the speed by
+$\sqrt{2}$.

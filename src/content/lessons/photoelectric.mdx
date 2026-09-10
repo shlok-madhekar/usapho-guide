@@ -1,0 +1,63 @@
+## One photon, one electron
+
+Shine light on a clean metal surface and electrons come off. The wave picture
+predicts that a dim beam should eventually accumulate enough energy to free an
+electron, given time, and that a brighter beam should free faster electrons.
+Neither happens.
+
+What actually happens is that light arrives as discrete quanta of energy
+
+$$E = hf$$
+
+and each ejected electron is freed by exactly one of them. That single
+assumption explains everything the wave picture got wrong.
+
+An electron near the surface is bound. The minimum energy needed to pull it out
+is the **work function** $\phi$, a property of the metal — about 2.3 eV for
+sodium, 4.7 eV for copper. Whatever the photon carries beyond that becomes
+kinetic energy:
+
+$$K_{max} = hf - \phi$$
+
+The subscript matters. Electrons deeper in the metal lose energy on the way out
+and emerge with less, so $K_{max}$ describes the luckiest ones.
+
+## Why brightness is the wrong knob
+
+Set $K_{max} = 0$ to get the **threshold frequency** $f_0 = \phi/h$. Below it,
+no photon in the beam has enough energy to free anything, and no amount of
+intensity helps — you are delivering more photons, each still too weak. The
+emission stops abruptly at $f_0$, not gradually.
+
+Above threshold, intensity controls how many photons arrive per second, so it
+controls the current. Frequency controls what each photon carries, so it
+controls the energy. The two knobs are independent, which is exactly what a
+wave theory cannot produce.
+
+<Aside label="Where this goes wrong" warn>
+  Doubling intensity does not double $K_{max}$, and halving intensity does not
+  introduce a delay before emission. Emission begins within nanoseconds even at
+  the faintest intensity, because the electron only ever needed one photon.
+</Aside>
+
+## Reading the graph
+
+Measure $K_{max}$ by applying a reverse voltage until the current just stops.
+At that stopping potential $V_s$,
+
+$$eV_s = hf - \phi$$
+
+Plot $V_s$ against $f$ and you get a straight line. The slope is $h/e$ — the
+same for every metal, which is the striking part. The horizontal intercept is
+$f_0$, and the vertical intercept is $-\phi/e$. Changing the metal shifts the
+line sideways without tilting it.
+
+This is a real measurement of Planck's constant with a voltmeter, which is why
+the experiment settled the argument.
+
+<QuickCheck
+  question="Two metals are tested and their stopping-potential-versus-frequency lines are plotted. The lines must have:"
+  options={["The same slope but different intercepts", "Different slopes but the same intercept", "Different slopes and different intercepts", "Identical slopes and intercepts"]}
+  answer={0}
+  explanation="Slope is Planck's constant over the electron charge, independent of the metal. Only the work function differs, which shifts the intercepts."
+/>

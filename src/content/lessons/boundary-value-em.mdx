@@ -1,0 +1,72 @@
+## A charge near a conductor is a hard problem in disguise
+
+Put a point charge $q$ a distance $d$ above a large grounded conducting plane.
+The charge attracts electrons in the metal, they rearrange, and the induced
+surface charge density is not uniform. That induced charge produces its own
+field, which changes the potential everywhere, so integrating over an unknown
+distribution to find the field looks circular.
+
+What you actually know is a *boundary condition*: the plane is a grounded
+conductor, so $V = 0$ everywhere on it. The method of images turns that single
+fact into the whole answer.
+
+## The method of images
+
+Delete the conductor. Put a charge $-q$ at the mirror position, a distance $d$
+on the far side of where the plane was. Two point charges, no metal, a problem
+you already know how to solve.
+
+Check the boundary. Any point on the old plane is equidistant from $+q$ and
+$-q$, so the two potentials $kq/r$ and $-kq/r$ cancel exactly and $V = 0$
+across the entire plane. The image reproduces the boundary condition the
+conductor was enforcing.
+
+Everything above the plane now follows. The force on the real charge is the
+attraction to its image,
+
+$$F = \frac{kq^2}{(2d)^2}$$
+
+The field lines meet the plane perpendicularly, as they must at a conductor
+surface, and the induced surface density is $\sigma = -\varepsilon_0 E$ at
+each point, which integrates to exactly $-q$ in total.
+
+For a **grounded sphere** of radius $R$ with a charge $q$ at distance $a$ from
+its center, one image charge again suffices, but it is neither equal in
+magnitude nor at the mirror point:
+
+$$q' = -\frac{R}{a}q \qquad \text{at} \qquad b = \frac{R^2}{a}$$
+
+placed on the line from the center to $q$. Those two numbers are exactly what
+makes $V = 0$ over the whole sphere. If the sphere is insulated and neutral
+rather than grounded, add a second image $+\tfrac{R}{a}q$ at the center: that
+restores zero net charge while keeping the surface an equipotential, since a
+charge at the center contributes the same potential everywhere on it.
+
+## Why you are allowed to do this
+
+The justification is the **uniqueness theorem**: in a region where the charge
+distribution is specified and the potential is specified on every boundary,
+the solution to Laplace's or Poisson's equation is unique.
+
+So the reasoning is not a lucky guess but a proof. The image configuration
+satisfies Poisson's equation in the region of interest with the same real
+charge $q$, and it matches the same boundary condition $V = 0$ on the
+conductor. By uniqueness it must be the solution, and there is nothing left to
+verify.
+
+<Aside label="Where this goes wrong" warn>
+  The image solution is valid *only in the region containing the real charge*,
+  outside the conductor. Inside the conductor the true field is zero, while
+  the image construction would predict a nonzero field from a charge that does
+  not exist there. A common error is computing the interaction energy as
+  $-kq^2/2d$, the energy of two real charges. The correct work to bring the
+  charge in from infinity is half that, $-kq^2/4d$, because the image moves as
+  the real charge moves rather than sitting fixed.
+</Aside>
+
+<QuickCheck
+  question="What makes the image charge for a grounded plane the correct replacement for the conductor?"
+  options={["It has the same sign and magnitude as the real charge", "It reproduces the boundary condition that the potential is zero on the plane", "It sits at the location of the induced surface charge", "It makes the total charge in the region zero"]}
+  answer={1}
+  explanation="Every point of the plane is equidistant from the real charge and its mirror image of opposite sign, so their potentials cancel and V equals zero across the plane. The uniqueness theorem then guarantees this is the one solution, since it satisfies the same equation with the same boundary condition."
+/>

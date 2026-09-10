@@ -1,0 +1,73 @@
+## One point that stands in for the whole system
+
+A wrench spun across a table tumbles in a complicated way, but one particular
+point inside it slides in a perfectly straight line. That point is the center of
+mass, the mass-weighted average position of everything in the system:
+
+$$\vec R_{\text{cm}} = \frac{\sum_i m_i \vec r_i}{\sum_i m_i}$$
+
+For a continuous body the sum becomes $\vec R_{\text{cm}} = \frac{1}{M}\int
+\vec r\, dm$. Two practical shortcuts do most of the work in problems. First,
+exploit symmetry: a uniform sphere, rod, or disc has its center of mass at its
+geometric center, so no integral is needed. Second, treat composite objects as
+point masses located at their own centers — a hammer is a rod plus a head, and
+a plate with a hole punched in it is the full plate plus a **negative** mass
+where the hole is.
+
+The center of mass need not lie inside the object. A doughnut's is in the hole,
+and a high jumper arching over the bar keeps hers below it.
+
+## Its velocity obeys Newton's laws
+
+Differentiate the definition and the total momentum falls out:
+
+$$M\vec V_{\text{cm}} = \sum_i m_i \vec v_i = \vec P_{\text{total}}$$
+
+Differentiate once more:
+
+$$\vec F_{\text{ext}} = M\vec A_{\text{cm}}$$
+
+Internal forces cancel in pairs by Newton's third law, so they cannot move the
+center of mass. Only external forces can. This is the sharpest statement of why
+you cannot lift yourself by your own bootstraps, and why an astronaut adrift
+must throw something to get anywhere.
+
+The corollary is the one problems use: **with no net external force, the center
+of mass moves at constant velocity.** If it started at rest, it stays put no
+matter how violently the parts rearrange. A person walking from one end of a
+floating raft to the other slides the raft backward by exactly the amount that
+keeps $\vec R_{\text{cm}}$ fixed.
+
+## The exploding projectile
+
+Fire a shell on a parabolic trajectory and let it burst at the top. The
+explosive forces are internal, so they change nothing about the center of mass.
+Gravity is still the only external force, and it acts on the total mass. The
+center of mass therefore continues along the original parabola as though
+nothing happened, until the first fragment hits the ground and the ground
+starts supplying an external force.
+
+That gives you a free equation. If a shell splits into two equal pieces and one
+lands at a known spot, the other must land where the average of the two
+positions sits on the undisturbed parabola's landing point.
+
+<Aside label="Where this goes wrong" warn>
+  The center of mass follows the parabola only while gravity is the sole
+  external force. Once a fragment lands, or air drag becomes significant, the
+  normal force or drag is external and the argument stops. Always state the
+  moment your reasoning expires.
+</Aside>
+
+<QuickCheck
+  question="A firecracker at rest in deep space explodes into three unequal fragments. What happens to the center of mass?"
+  options={["It stays exactly where it was", "It moves toward the largest fragment", "It moves toward the fastest fragment", "It is undefined once the pieces separate"]}
+  answer={0}
+  explanation="Explosive forces are internal and cancel in pairs, so there is no external force and no acceleration of the center of mass. It began at rest, so it remains at rest even as the fragments fly apart."
+/>
+
+## Working in the center-of-mass frame
+
+Shifting to the frame moving with $\vec V_{\text{cm}}$ often collapses the
+algebra, because in that frame the total momentum is zero and momenta come in
+equal and opposite pairs. Solve there, then add $\vec V_{\text{cm}}$ back to
+every velocity to return to the lab.

@@ -1,0 +1,53 @@
+## One pair at a time
+
+Two point charges push or pull along the line joining them, with a strength
+that falls off as the square of the separation:
+
+$$F = k\frac{|q_1 q_2|}{r^2}, \qquad k = \frac{1}{4\pi\varepsilon_0} \approx 8.99\times10^9\ \text{N}\,\text{m}^2/\text{C}^2$$
+
+The form is Newton's gravitation with one new feature: charge comes in two
+signs, so the force can reverse. Get the magnitude from the formula and the
+direction from the signs by inspection. Do not try to make a single vector
+expression carry both jobs; that is how sign errors get in.
+
+## The field is the force, divided out
+
+Fixing a source charge $Q$ and asking what it would do to any test charge
+placed at $\vec r$ gives a property of the space itself:
+
+$$\vec E = \frac{\vec F}{q}, \qquad E = \frac{kQ}{r^2}$$
+
+Nothing new is being claimed here. The point is bookkeeping: the field does
+not depend on what you put in it, so you can compute it once and reuse it.
+Later, when fields carry energy and travel on their own, that reinterpretation
+turns out to be the physical one.
+
+## Adding fields
+
+Superposition is the entire toolkit. The field of several charges is the
+vector sum of the individual fields, each computed as if the others were
+absent.
+
+In practice: pick axes, find each $E_i$ and the angle it points along,
+resolve into components, sum the components separately, recombine at the end.
+
+Take charges $+q$ and $-q$ separated by $d$, and evaluate on the
+perpendicular bisector at distance $y \gg d$. Each contributes
+$kq/(y^2 + d^2/4)$. The vertical parts cancel; the horizontal parts add,
+each picking up a factor $\cos\theta = (d/2)/\sqrt{y^2+d^2/4}$. The result is
+$E = kqd/y^3$ — a dipole, falling off faster than a point charge because the
+two charges nearly hide each other at a distance.
+
+<Aside label="Where this goes wrong" warn>
+  Superposition adds the *fields*, not the magnitudes. Two equal charges at
+  right angles from a point give $\sqrt2\,E_1$, not $2E_1$. And whenever a
+  symmetry argument kills a component, say so explicitly before dropping it —
+  the habit is what makes the harder integrals tractable.
+</Aside>
+
+<QuickCheck
+  question="Three equal positive charges sit at the corners of an equilateral triangle. The field at the center is:"
+  options={["Three times one charge's field", "Zero", "Directed toward the nearest corner", "Undefined"]}
+  answer={1}
+  explanation="The three contributions have equal magnitude and point 120 degrees apart, so they sum to zero. The potential at the center is not zero, which is the usual point of confusion."
+/>

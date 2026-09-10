@@ -1,0 +1,60 @@
+## The constraint
+
+A wheel rolling without slipping lays its rim onto the ground like tape: one
+turn advances it exactly one circumference. Differentiate $x = r\theta$ and you
+get the constraint that ties the two motions together.
+
+$$v_{cm} = \omega r, \qquad a_{cm} = \alpha r$$
+
+This is a geometric statement about the contact, not a law of nature. It holds
+only while the surface grips. Kick a ball hard and initially $v > \omega r$ —
+it skids, friction acts until the two agree, and only then does true rolling
+begin.
+
+A cleaner way to see it: the contact point is instantaneously at rest. The
+whole body is momentarily rotating about that point, so the top of the wheel
+moves at $2v$ and the center at $v$. Watch a car's hubcap in a photograph —
+the bottom spokes are sharp and the top ones are blurred.
+
+## Two places for the energy
+
+Because the constraint links them, the kinetic energy of a rolling object
+splits into a translation and a rotation:
+
+$$K = \tfrac12 mv^2 + \tfrac12 I\omega^2 = \tfrac12 mv^2\left(1 + k\right),
+\qquad k = \frac{I}{mr^2}$$
+
+The shape factor $k$ is all that survives: $0.4$ for a solid sphere, $0.5$ for
+a disk, $1$ for a hoop. Release from height $h$ and
+
+$$v = \sqrt{\frac{2gh}{1+k}}, \qquad a = \frac{g\sin\theta}{1+k}$$
+
+Neither expression contains $m$ or $r$. A marble and a bowling ball tie; a
+sphere always beats a disk, which always beats a hoop, because the hoop must
+divert half its energy into spin. A frictionless slider ($k = 0$) beats every
+rolling object.
+
+## Friction that costs nothing
+
+Static friction is what supplies the torque that spins the object up, so
+rolling is impossible without it. Yet the contact point does not move, and work
+is force times displacement *at the point of application* — so static friction
+does zero work. Mechanical energy is conserved.
+
+That stops being true the moment the object slips. Then the contact slides,
+kinetic friction acts, energy is lost, and $v = \omega r$ no longer applies. On
+a steep enough ramp, or with too little $\mu_s$, this is exactly what happens.
+
+<Aside label="Where this goes wrong" warn>
+  Do not assume the friction on a rolling object equals $\mu N$. Static friction
+  takes whatever value the constraint demands, up to that maximum. Solve for it
+  from $\tau = I\alpha$ together with $a = \alpha r$, then check it is below
+  $\mu_s N$; if it is not, the object slips and the whole approach changes.
+</Aside>
+
+<QuickCheck
+  question="A hollow sphere and a solid sphere of the same mass and radius roll from rest down the same ramp. Which reaches the bottom first?"
+  options={["The solid sphere", "The hollow sphere", "They tie", "It depends on the ramp angle"]}
+  answer={0}
+  explanation="The solid sphere has the smaller shape factor, 0.4 versus about 0.67, so more of its energy goes into translation."
+/>

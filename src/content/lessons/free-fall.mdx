@@ -1,0 +1,55 @@
+## Constant gravity
+
+Near the surface of the Earth, gravity pulls every object down with the same
+acceleration $g \approx 9.8$ m/s², regardless of mass. Take up as positive and
+the whole problem is one equation and its integrals:
+
+$$a = -g, \qquad v = v_0 - gt, \qquad y = y_0 + v_0 t - \tfrac{1}{2}gt^2$$
+
+Two facts save time. The velocity is zero at the top, which fixes the rise time
+at $t = v_0/g$. And the motion is symmetric about that instant, so an object
+returns to any height with the same speed it had going up, just reversed.
+
+For a drop from rest through height $h$, energy or kinematics both give
+$v = \sqrt{2gh}$ and $t = \sqrt{2h/g}$. Doubling the height does not double the
+landing speed; it multiplies it by $\sqrt{2}$.
+
+## The moving platform
+
+The single most common error in free-fall problems is assuming a released
+object starts at rest. It starts with whatever velocity the platform had.
+
+A ball dropped from a balloon rising at 5 m/s leaves with $v_0 = +5$ m/s. It
+keeps climbing for half a second before it starts falling, and it lands later
+and faster than a ball dropped from a stationary balloon at the same height.
+The word "dropped" describes the hand, not the physics.
+
+<Aside label="Where this goes wrong" warn>
+  Read the release condition, not the verb. Ask what the object's velocity was
+  the instant before it was let go, and use that as $v_0$ with its sign. A
+  descending elevator gives a negative $v_0$, a rising one gives a positive
+  $v_0$, and only a genuinely stationary support gives zero.
+</Aside>
+
+## When drag matters
+
+Real falls are not constant-acceleration for long. Air resistance grows with
+speed, and at low speeds it is roughly linear:
+
+$$m\frac{dv}{dt} = mg - bv$$
+
+The acceleration starts at $g$ and shrinks as $v$ grows. It reaches zero when
+the drag balances the weight, at the terminal speed $v_t = mg/b$. The object
+does not overshoot and come back; it approaches $v_t$ from below, exponentially,
+with time constant $m/b$.
+
+For fast objects the drag goes as $v^2$ instead, giving $v_t = \sqrt{mg/c}$.
+The exponential shape changes, but the logic does not: set the net force to
+zero and solve for the speed at which nothing further changes.
+
+<QuickCheck
+  question="A ball is thrown straight down at 4 m/s from a bridge, and an identical ball is thrown straight up at 4 m/s from the same spot. Ignoring air resistance, how do their landing speeds in the water compare?"
+  options={["They are equal", "The downward one is faster", "The upward one is faster", "It depends on the bridge height"]}
+  answer={0}
+  explanation="The upward ball returns to the launch point moving downward at 4 m/s, identical to the other ball's start. From there the two motions are the same."
+/>

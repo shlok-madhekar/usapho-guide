@@ -1,0 +1,75 @@
+## A force that depends on velocity
+
+The electric force on a charge points along the field. The magnetic force does
+not point along anything obvious — it is perpendicular to both the velocity and
+the field:
+
+$$\vec{F} = q\vec{v} \times \vec{B}$$
+
+Its magnitude is $qvB\sin\theta$, where $\theta$ is the angle between $\vec{v}$
+and $\vec{B}$. A charge sitting still feels nothing. A charge moving parallel
+to the field feels nothing. The force is largest when the motion is
+perpendicular to the field.
+
+## No work, ever
+
+Because $\vec{F}$ is perpendicular to $\vec{v}$, the power delivered is
+
+$$P = \vec{F}\cdot\vec{v} = q(\vec{v}\times\vec{B})\cdot\vec{v} = 0$$
+
+A magnetic field cannot change a particle's speed or kinetic energy. It can
+only bend the trajectory. This is a strong constraint and a good check: if a
+solution has a magnetic field speeding a particle up, something is wrong.
+
+<Aside label="Where this goes wrong" warn>
+  "Magnetic fields do no work" is a statement about point charges, not about
+  magnets. A magnet lifting a paperclip clearly transfers energy. The
+  resolution is that the energy comes from the internal structure of the
+  current loops and dipoles involved, not from the $q\vec{v}\times\vec{B}$ term
+  on a free charge. Use the no-work rule for particle-in-a-field problems and
+  do not try to stretch it into an argument about magnets and induction.
+</Aside>
+
+## Circular motion and the cyclotron radius
+
+Fire a charge perpendicular to a uniform field. The force has constant
+magnitude and stays perpendicular to the velocity, which is exactly the
+condition for uniform circular motion. Set the magnetic force equal to the
+centripetal requirement:
+
+$$qvB = \frac{mv^2}{r} \quad\Longrightarrow\quad r = \frac{mv}{qB} = \frac{p}{qB}$$
+
+The radius is proportional to momentum, which is why bending a beam through a
+known field and measuring the curvature is how detectors identify particles.
+
+The period is more striking:
+
+$$T = \frac{2\pi m}{qB}$$
+
+Speed has dropped out. Faster particles trace larger circles in exactly the
+same time, which is what lets a cyclotron drive every orbit with a single fixed
+frequency.
+
+If the velocity has a component along $\vec{B}$, that component is untouched.
+The result is a helix: circular in the plane perpendicular to the field,
+uniform along it.
+
+## Force on a wire
+
+A wire is a stream of moving charges. Summing $q\vec{v}\times\vec{B}$ over the
+carriers in a length $\vec{L}$ gives
+
+$$\vec{F} = I\vec{L}\times\vec{B}$$
+
+For a curved wire, integrate $I\,d\vec{\ell}\times\vec{B}$. In a uniform field
+the integral of $d\vec{\ell}$ depends only on the endpoints, so any wire shape
+feels the same force as the straight segment joining its ends — and a closed
+loop in a uniform field feels zero net force, though generally a nonzero
+torque.
+
+<QuickCheck
+  question="A proton and an alpha particle enter the same uniform magnetic field with the same speed, perpendicular to the field. The alpha has twice the charge and four times the mass. Its orbital radius compared to the proton's is:"
+  options={["Half as large", "The same", "Twice as large", "Four times as large"]}
+  answer={2}
+  explanation="The radius is mv over qB. Mass up by four and charge up by two gives a factor of two. The period also doubles, for the same reason."
+/>

@@ -1,0 +1,59 @@
+## Chop it into point charges
+
+A rod or a disk is not a point charge, but every little piece of it is. Cut
+the object into elements $dq$, write the field each element produces, and
+integrate:
+
+$$d\vec E = \frac{k\,dq}{r^2}\hat r, \qquad \vec E = \int d\vec E$$
+
+The physics is done in the first line. Everything after it is setting up an
+integral correctly, and there are only three decisions to make.
+
+## The three decisions
+
+**Choose $dq$.** Pick one variable that sweeps the object once, and express
+$dq$ in it: $dq = \lambda\,dx$ for a line, $\sigma\,dA$ for a surface,
+$\rho\,dV$ for a volume. For a disk the good element is a thin ring of radius
+$s$, area $2\pi s\,ds$, because you already know a ring's field.
+
+**Kill a component.** Before integrating, find the symmetry. For a point on
+the axis of a ring, every element has a partner on the opposite side whose
+transverse contribution cancels. Only the axial part survives, and each
+element contributes $dE\cos\theta$ with $\cos\theta = z/\sqrt{z^2+R^2}$.
+
+**Express everything in the integration variable.** $r$, $\cos\theta$, and
+$dq$ must all be written in terms of the one variable, with limits that cover
+the object exactly once.
+
+## Carrying it through
+
+For the ring, $r$ and $\cos\theta$ are the same for every element, so the
+integral is trivial and $\int dq = Q$:
+
+$$E_z = \frac{kQz}{(z^2+R^2)^{3/2}}$$
+
+Stack rings to get the disk. With $dq = \sigma\,2\pi s\,ds$ and $R \to s$,
+
+$$E_z = 2\pi k\sigma\left(1 - \frac{z}{\sqrt{z^2+R^2}}\right) \xrightarrow{R\to\infty} \frac{\sigma}{2\varepsilon_0}$$
+
+That limit is the infinite sheet, which Gauss's law also gives in one line —
+a useful check that the setup was right.
+
+<Aside label="Where this goes wrong" warn>
+  Do not integrate $|d\vec E|$ and call it $E$. Adding magnitudes ignores
+  direction and always overestimates. Project onto the surviving axis *first*,
+  put the $\cos\theta$ inside the integral, then integrate a scalar.
+</Aside>
+
+<Aside label="Worth remembering">
+  Check every result in two limits. Far away, a bounded distribution must look
+  like a point charge; the ring gives $kQ/z^2$ for $z \gg R$. Close in, a
+  surface must look infinite.
+</Aside>
+
+<QuickCheck
+  question="At the exact center of a uniformly charged ring, the field is:"
+  options={["Maximum", "Zero", "Infinite", "Equal to kQ over R squared"]}
+  answer={1}
+  explanation="Every element is matched by one directly across the ring, so all contributions cancel. Setting z to zero in the axial result gives the same answer."
+/>

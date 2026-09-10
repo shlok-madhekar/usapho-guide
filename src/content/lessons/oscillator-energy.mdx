@@ -1,0 +1,59 @@
+## A constant total, traded back and forth
+
+A mass on a spring carries two kinds of energy. Stretching stores potential
+energy in the spring; moving carries kinetic energy in the mass. With no
+friction their sum never changes:
+
+$$E = \tfrac{1}{2}kx^2 + \tfrac{1}{2}mv^2 = \tfrac{1}{2}kA^2$$
+
+The right-hand form comes from evaluating $E$ at the turning point, where
+$x = A$ and $v = 0$. That single line is the most useful equation in
+oscillations, because it relates position and speed without ever mentioning
+time.
+
+Evaluating instead at the center, where $x = 0$, gives the maximum speed
+directly: $v_{\max} = A\sqrt{k/m} = \omega A$.
+
+<Figure caption={<><b>Figure 1.</b> The spring stores energy at the extremes and gives it back at the center. Watch the two energy bars swap twice per cycle while their sum stays flat.</>}>
+  <Sim id="spring" />
+</Figure>
+
+## Energy goes as amplitude squared
+
+$E = \tfrac{1}{2}kA^2$ says the stored energy scales with the *square* of the
+amplitude. Doubling the swing costs four times the energy. This is why damping
+looks the way it does: a system losing a fixed fraction of its energy per cycle
+loses only half that fraction of its amplitude.
+
+The same quadratic shows up in waves, in circuit oscillations, and in radiated
+power. It is a property of the potential $U = \tfrac{1}{2}kx^2$, not of springs
+specifically.
+
+## Averages over a cycle
+
+Substitute $x = A\cos\omega t$ into the two energies:
+
+$$U = \tfrac{1}{2}kA^2\cos^2\omega t, \qquad K = \tfrac{1}{2}kA^2\sin^2\omega t$$
+
+Each oscillates, and the average of $\cos^2$ or $\sin^2$ over a full cycle is
+$\tfrac{1}{2}$. So
+
+$$\langle U \rangle = \langle K \rangle = \tfrac{1}{4}kA^2 = \tfrac{1}{2}E$$
+
+On average the energy splits evenly. Note also the frequency: both $\cos^2$ and
+$\sin^2$ complete two cycles for every one of the motion, so the energies
+oscillate at $2\omega$ while the mass oscillates at $\omega$.
+
+<Aside label="Where this goes wrong" warn>
+  Half the total energy is not the same as half the time spent fast. The mass
+  moves slowly near the turning points and quickly through the center, so it
+  spends more of each cycle out near the extremes. Equal *average* energies do
+  not mean the oscillator is kinetic-dominated half the time.
+</Aside>
+
+<QuickCheck
+  question="A mass on a spring oscillates with amplitude A. At what displacement is the kinetic energy equal to the potential energy?"
+  options={["At A divided by the square root of two", "At A divided by two", "At A divided by four", "Only at the center"]}
+  answer={0}
+  explanation="Equal energies means each holds half the total, so the spring term equals half of kA squared over two. Solving gives x squared equal to A squared over two."
+/>

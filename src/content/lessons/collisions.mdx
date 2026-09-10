@@ -1,0 +1,74 @@
+## Sort the collision before solving it
+
+Every collision conserves total momentum. What varies is how much kinetic
+energy survives, and that is the first thing to establish, because it decides
+how many equations you get.
+
+- **Elastic**: kinetic energy is conserved too. Two equations per dimension of
+  motion, so a head-on collision of two known masses is fully determined.
+- **Perfectly inelastic**: the bodies leave with a common velocity. Momentum
+  alone determines the answer, and the energy loss is whatever is left over.
+- **Partially inelastic**: everything in between. You need a third piece of
+  information, usually the coefficient of restitution
+  $e = |v_{\text{sep}}| / |v_{\text{app}}|$, which is $1$ for elastic and $0$
+  for perfectly inelastic.
+
+A useful phrasing of the loss: the kinetic energy that can disappear is only
+the part associated with relative motion. The energy carried by the motion of
+the center of mass can never be lost, because that is fixed by momentum
+conservation.
+
+## One dimension: use the relative velocity
+
+Solving two simultaneous equations, one of them quadratic, is slow and
+error-prone. Replace the energy equation with its linear consequence: in an
+elastic collision the relative velocity reverses.
+
+$$v_{1i} - v_{2i} = -(v_{1f} - v_{2f})$$
+
+Pair that with momentum conservation and you have two linear equations. For a
+mass $m_1$ striking a stationary $m_2$:
+
+$$v_{1f} = \frac{m_1 - m_2}{m_1 + m_2}v_{1i}, \qquad v_{2f} = \frac{2m_1}{m_1 + m_2}v_{1i}$$
+
+Check the limits, since they are worth memorizing as behavior rather than
+formula. Equal masses: the incoming body stops dead and the target leaves with
+the full speed. A light body hitting a very heavy one: it bounces back at
+nearly its original speed, like a ball off a wall. A heavy body hitting a light
+one: it barely slows, and the light one leaves at nearly twice the incoming
+speed.
+
+<Figure caption={<><b>Figure 1.</b> Vary the mass ratio and watch the three limits appear. Equal masses transfer all the motion; a light incoming block reverses; a heavy one plows through almost unchanged.</>}>
+  <Sim id="collision" />
+</Figure>
+
+## Two dimensions: momentum is a vector
+
+In a plane, conserve $p_x$ and $p_y$ separately. That is two equations, plus
+one more if the collision is elastic — still one short of the four unknown
+final components, which is why 2D problems must hand you an extra fact such as
+one outgoing angle.
+
+Set your axes along the initial velocity so that the incoming momentum has no
+$y$ component. Then the $y$ equation reads simply
+$m_1 v_{1f}\sin\theta_1 = m_2 v_{2f}\sin\theta_2$, with the two bodies going to
+opposite sides.
+
+One result is worth carrying: **equal masses colliding elastically, one
+initially at rest, always separate at 90°.** Momentum gives
+$\vec v_i = \vec v_1 + \vec v_2$, and energy gives $v_i^2 = v_1^2 + v_2^2$;
+squaring the first and comparing forces $\vec v_1 \cdot \vec v_2 = 0$. Pool
+players rely on it. If the angle is not 90°, the collision was not elastic.
+
+<Aside label="Where this goes wrong" warn>
+  Do not write a conservation equation for speeds. Momentum conservation is a
+  vector statement, so $m_1v_{1i} = m_1v_{1f} + m_2v_{2f}$ is wrong in two
+  dimensions. Resolve into components first, every time.
+</Aside>
+
+<QuickCheck
+  question="On a frictionless table, a moving puck strikes an identical stationary puck and the two move off at 60 degrees to each other. What does this tell you?"
+  options={["Kinetic energy was lost", "The collision was elastic", "Momentum was not conserved", "One puck must have been spinning"]}
+  answer={0}
+  explanation="Equal masses in an elastic collision must separate at exactly 90 degrees. An angle smaller than that means some kinetic energy went into deformation or heat, so the collision was inelastic."
+/>

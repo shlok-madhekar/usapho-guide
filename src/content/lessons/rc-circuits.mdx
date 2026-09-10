@@ -1,0 +1,63 @@
+## Why the response is exponential
+
+Put a resistor and a capacitor in series with a battery. The loop rule gives
+
+$$\mathcal{E} = IR + \frac{Q}{C}$$
+
+Substituting $I = dQ/dt$ turns this into a differential equation whose rate of
+change is proportional to how far the system still has to go. That is the
+signature of exponential relaxation, and it is why every RC quantity is an
+exponential in $t/RC$.
+
+Charging from empty:
+
+$$Q(t) = C\mathcal{E}\left(1 - e^{-t/RC}\right), \qquad I(t) = \frac{\mathcal{E}}{R}e^{-t/RC}$$
+
+Discharging a capacitor through a resistor:
+
+$$Q(t) = Q_0 e^{-t/RC}$$
+
+Notice the current decays the same way in both cases. Only the charge differs,
+because charging approaches a nonzero final value and discharging approaches
+zero.
+
+## The time constant
+
+The product $\tau = RC$ has units of seconds and sets the only timescale in the
+problem. After one $\tau$ the gap to the final value has shrunk to $1/e$, about
+37% of what it was; after three, to 5%; after five, to under 1%.
+
+Larger $R$ means a smaller current for the same voltage, so charge accumulates
+slowly. Larger $C$ means more charge is needed to reach the same voltage. Both
+push $\tau$ up, which is why they multiply rather than divide.
+
+## The two limits do most of the work
+
+Almost every transient question at the olympiad level is answered without
+touching an exponential, by sketching two circuits.
+
+**At $t = 0^+$**, a capacitor that held no charge holds no voltage, so it acts
+like a plain wire. Replace it with a short and solve the resistive circuit that
+remains.
+
+**As $t \to \infty$**, nothing is changing, so no current flows into the
+capacitor and it acts like a break. Replace it with a gap and solve again.
+
+Anything in between interpolates exponentially between those two answers with
+the time constant set by the resistance the capacitor *sees*.
+
+<Aside label="Where this goes wrong" warn>
+  In a network with several resistors, $\tau$ is not $RC$ for whichever
+  resistor sits next to the capacitor. Kill the sources — short the batteries,
+  open the current sources — and find the Thevenin resistance looking back into
+  the circuit from the capacitor's two terminals. That is the $R$ in $\tau$. A
+  resistor sitting directly across the capacitor changes the time constant even
+  though it carries no steady-state charging current.
+</Aside>
+
+<QuickCheck
+  question="A capacitor charges through a resistor. Compared to the charge, the current during charging:"
+  options={["Rises exponentially toward a final value", "Decays exponentially toward zero", "Stays constant until the capacitor fills", "Peaks partway through the charging"]}
+  answer={1}
+  explanation="The current starts at the maximum set by the resistor alone and decays with the same time constant, because the capacitor's growing voltage progressively opposes the source."
+/>

@@ -1,0 +1,59 @@
+## What "massless" buys you
+
+A real rope has mass, and pulling one end accelerates the rope itself, so the
+tension at the far end is smaller. Setting the mass to zero removes that
+difference: with $m = 0$, any net force would give infinite acceleration, so
+the net force on every segment must vanish and the tension is the same
+everywhere along the rope.
+
+An ideal pulley extends this around a corner. It has no mass and no bearing
+friction, so it needs no net torque, and the tension is unchanged from one side
+to the other. All it does is redirect the rope.
+
+Drop either idealization and tension stops being uniform. A pulley with moment
+of inertia $I$ needs a torque to spin up, which requires $T_1 \ne T_2$. A heavy
+hanging rope has more tension at the top than the bottom, since the upper part
+supports more weight.
+
+<Aside label="Worth remembering">
+  Tension is uniform along a single massless rope, but two different ropes are
+  two different unknowns. Label them $T_1$ and $T_2$ from the start; a rope that
+  passes through a hand, a knot, or a body is not one rope.
+</Aside>
+
+## The Atwood machine
+
+Masses $m_1$ and $m_2$ hang from a rope over an ideal pulley. Take down as
+positive for $m_1$ and up as positive for $m_2$, which builds the constraint
+into the signs: whatever distance one falls, the other rises.
+
+$$m_1 g - T = m_1 a, \qquad T - m_2 g = m_2 a$$
+
+Add the two equations and $T$ disappears:
+
+$$a = \frac{m_1 - m_2}{m_1 + m_2}\,g, \qquad T = \frac{2m_1m_2}{m_1+m_2}\,g$$
+
+Check the limits. Equal masses give $a = 0$. If $m_2 \to 0$, then $a \to g$ and
+$T \to 0$: free fall. And $T$ always lies strictly between $m_2 g$ and $m_1 g$
+— the tension can never be the full weight of either side unless nothing
+accelerates.
+
+## Writing the constraint
+
+The constraint is a statement about lengths, and the reliable way to get it is
+to write the total rope length in terms of positions and note that it is
+constant. Differentiate twice and you have a relation among the accelerations.
+
+For a movable pulley with two rope segments supporting it, the length
+bookkeeping gives $x_{\text{load}} = \tfrac{1}{2}x_{\text{end}}$: pull the free
+end a metre and the load rises half a metre, at half the speed and half the
+acceleration. In exchange, the load feels twice the tension. This is the whole
+mechanical advantage of a block and tackle, and it falls out of length
+counting, not force intuition.
+
+<QuickCheck
+  question="A movable pulley is held up by two segments of one massless rope of tension T. The load hanging from it accelerates:"
+  options={["At the same rate as the free end", "At twice the rate of the free end", "At half the rate of the free end, feeling an upward force 2T", "At half the rate, feeling an upward force T"]}
+  answer={2}
+  explanation="Two segments support the pulley, so the upward force is 2T while the load moves half as far and half as fast as the free end. Force gained, distance lost."
+/>

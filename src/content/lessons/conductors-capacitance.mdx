@@ -1,0 +1,57 @@
+## A conductor is one number
+
+Charges in a conductor move until nothing pushes them, so in equilibrium
+$\vec E = 0$ inside the metal, excess charge sits on surfaces, and the whole
+body — surface, interior, and any disconnected face — is at a single
+potential. The last statement is the useful one, because it is a condition on
+$V$, and $V$ is a scalar you can set equal between two places and solve.
+
+Just outside the surface the field is perpendicular and
+
+$$E = \frac{\sigma}{\varepsilon_0}$$
+
+twice the infinite-sheet value, because there is no field on the metal side to
+share the flux with.
+
+## Induced charge is bookkeeping with two constraints
+
+Bring $+q$ near a neutral conducting slab. Electrons pile up on the near face
+and leave the far face positive. The two constraints that fix the amounts are
+always the same: total charge is conserved on each isolated conductor, and the
+field inside the metal must vanish.
+
+Run them on a shell with inner radius $a$, outer radius $b$, carrying net
+charge $Q$, with $+q$ at the center. A Gaussian sphere inside the metal must
+enclose zero, so the inner surface holds $-q$. Conservation then puts $Q+q$ on
+the outer surface. If the shell is grounded, the second constraint changes:
+charge flows in from the earth to hold $V=0$, the outer surface ends up bare,
+and the exterior field disappears.
+
+## Capacitance
+
+Put $+Q$ on one conductor and $-Q$ on a nearby one. The potential difference
+is proportional to $Q$, and the ratio depends only on geometry:
+
+$$C = \frac{Q}{V}$$
+
+For parallel plates of area $A$ and gap $d$, the field between them is
+$\sigma/\varepsilon_0 = Q/\varepsilon_0 A$, uniform, so $V = Ed$ and
+
+$$C = \frac{\varepsilon_0 A}{d}$$
+
+Wider plates hold more charge at the same voltage; a bigger gap means a longer
+climb against the same field, so less.
+
+<Aside label="Where this goes wrong" warn>
+  "Grounded" does not mean "uncharged" — it means held at $V = 0$ with charge
+  free to arrive. And $C$ is fixed by geometry: it does not change when you
+  charge the plates. If $C$ appears to depend on $Q$ in your algebra, a
+  variable is being held constant that should not be.
+</Aside>
+
+<QuickCheck
+  question="A charged parallel-plate capacitor is disconnected from its battery and the plates are pulled farther apart. The voltage between them:"
+  options={["Stays the same", "Increases", "Decreases", "Drops to zero"]}
+  answer={1}
+  explanation="Isolated plates keep their charge, so the field between them is unchanged, but V equals E times d and d has grown. Capacitance falls in exactly the same proportion."
+/>

@@ -1,0 +1,62 @@
+## Current is a flow rate
+
+Current measures how much charge passes a cross-section per second:
+
+$$I = \frac{dQ}{dt}$$
+
+Inside a wire the carriers are not fast. They drift at $v_d$, and if there are
+$n$ carriers per volume each with charge $q$, the current through area $A$ is
+
+$$I = nqv_dA$$
+
+Drift speeds in copper are under a millimetre per second. The signal travels at
+nearly the speed of light because the field establishes itself throughout the
+wire almost instantly, not because electrons race down it.
+
+## Resistance is geometry times material
+
+Resistance is not a property of a substance. Resistivity $\rho$ is. Resistance
+is what you get after you commit to a shape:
+
+$$R = \frac{\rho L}{A}$$
+
+Double the length, double the resistance. Double the cross-section, halve it.
+This is why a problem that stretches a wire to twice its length at constant
+volume gives four times the resistance: $L$ doubles and $A$ halves.
+
+Ohm's law then relates the three quantities:
+
+$$V = IR$$
+
+<Aside label="Where this goes wrong" warn>
+  Ohm's law is a description of certain materials, not a law of nature. Diodes,
+  filaments, gas discharges and electrolytes all violate it. A tungsten bulb
+  heats up as it conducts, its resistivity climbs, and its current-voltage
+  curve bends over. When a problem gives you a nonlinear element, work with the
+  actual curve and use $R = V/I$ only as a local ratio at one operating point.
+</Aside>
+
+## Reduction and power
+
+Series elements carry the same current, so their voltages add and their
+resistances add. Parallel elements share the same voltage, so their currents
+add and their conductances add. Collapse a network by finding any pair that is
+unambiguously in one configuration or the other, replace it, and repeat.
+
+Power delivered to any element is the product of the current through it and the
+voltage across it:
+
+$$P = IV = I^2R = \frac{V^2}{R}$$
+
+The three forms are equal only for an ohmic resistor. Pick the one whose
+variable is held fixed. In series the current is common, so $I^2R$ says the
+largest resistor dissipates the most. In parallel the voltage is common, so
+$V^2/R$ says the smallest resistor dissipates the most. Getting that backwards
+is the most common error in a mixed network.
+
+<QuickCheck
+  question="Two unequal resistors are connected in parallel across a battery. Which dissipates more power?"
+  options={["The larger resistance", "The smaller resistance", "They dissipate equally", "It depends on the battery voltage"]}
+  answer={1}
+  explanation="Parallel elements share a common voltage, so power goes as V squared over R. The smaller resistance draws more current and dissipates more. In series the opposite holds, because there the current is what is shared."
+/>

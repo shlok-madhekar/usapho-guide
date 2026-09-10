@@ -1,0 +1,64 @@
+## Reading the four curves
+
+A PV diagram plots the state of the gas, so every point on it is a legitimate
+equilibrium state with its own temperature, fixed by $T = PV/nR$. Curves of
+constant temperature are hyperbolas; a point further from the origin is hotter.
+That one fact lets you read $\Delta U$ off the picture without computing
+anything, since $\Delta U = nC_V\Delta T$.
+
+The four standard legs look like this:
+
+- **Isochoric** — vertical line. $W = 0$.
+- **Isobaric** — horizontal line. $W = P\Delta V$, a rectangle.
+- **Isothermal** — hyperbola, $PV$ constant. Stays on one temperature curve.
+- **Adiabatic** — $PV^\gamma$ constant, so it is *steeper* than the isotherm
+  through the same point and crosses to a different temperature.
+
+Steepness is the tell. If two curves leave the same point and one falls off
+faster, that one is the adiabat, and $\gamma > 1$ is the reason.
+
+## Work is the area, sign is the direction
+
+$W = \int P\,dV$ is the area under the curve, measured down to the $V$ axis.
+Left-to-right motion means expansion and positive work; right-to-left means the
+same area counted negative. For a closed cycle the two contributions do not
+cancel, and what survives is the area enclosed by the loop:
+
+$$W_{net} = \oint P\,dV = \text{enclosed area}$$
+
+Clockwise gives positive net work — the gas expands at high pressure and is
+pushed back at low pressure, which is an engine. Counterclockwise is negative:
+work goes in, and the device is a refrigerator or heat pump.
+
+Around any complete cycle the gas returns to its starting state, so
+$\Delta U = 0$ and therefore $Q_{net} = W_{net}$.
+
+<Aside label="Where this goes wrong" warn>
+  Reaching for $W = P\Delta V$ on a leg where $P$ is not constant. That form is
+  only the isobaric case. On an isotherm the work is $nRT\ln(V_f/V_i)$; on an
+  adiabat use $W = -\Delta U = -nC_V\Delta T$, which is far easier than
+  integrating $PV^\gamma$ directly.
+</Aside>
+
+## Working a cycle
+
+Build a table, one row per leg, with columns $Q$, $W$ and $\Delta U$. Fill in
+whichever two of the three the process type hands you free, then get the third
+from $\Delta U = Q - W$.
+
+Take a three-leg cycle: isobaric expansion from $V$ to $2V$ at pressure $P$,
+then isochoric cooling back to $P/2$, then isothermal compression to close the
+loop. Leg one gives $W = PV$ and, from $T$ doubling, $\Delta U = \tfrac{f}{2}PV$.
+Leg two gives $W = 0$ with all the heat leaving. Leg three, at fixed
+temperature, gives $\Delta U = 0$ and $W = Q = -nRT\ln 2 = -PV\ln 2$.
+
+Sum the work column for $W_{net}$, sum only the positive entries in the heat
+column for $Q_{in}$, and check that the $\Delta U$ column sums to zero. That
+check catches sign errors before they propagate into an efficiency.
+
+<QuickCheck
+  question="A cycle on a PV diagram is traversed counterclockwise. What can you say about the net work and net heat?"
+  options={["Both are positive; the device is an engine", "Both are negative; work is done on the gas and net heat is expelled", "Net work is negative but net heat is positive", "Net work is zero because the gas returns to its initial state"]}
+  answer={1}
+  explanation="Counterclockwise means the low-pressure leg is the expansion, so the enclosed area counts negative. Since the internal energy change around a full cycle is zero, the net heat equals the net work and is also negative."
+/>

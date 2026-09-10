@@ -1,0 +1,64 @@
+## Pressure with depth
+
+Pressure is force per unit area, and in a fluid at rest it acts equally in every
+direction — a fact you can feel by turning your head underwater and noticing
+nothing changes.
+
+Take a column of fluid of height $h$ and cross-section $A$. Its weight,
+$\rho g h A$, must be supported by the pressure difference between top and
+bottom, so
+
+$$P = P_0 + \rho g h$$
+
+Depth is all that matters. Two points at the same level in the same connected
+fluid are at the same pressure, whatever the shape of the container — the water
+in a narrow straw and in a wide tank beside it stand level. The shape of the
+vessel never enters the formula, which is why a thin tube of water can burst a
+barrel.
+
+At the surface of a lake, $P_0$ is atmospheric, about $10^5$ Pa. Ten metres of
+water adds another $10^5$ Pa, so the pressure doubles.
+
+## Archimedes
+
+Now replace part of the fluid with an object. The surrounding fluid pushes
+harder on the bottom than the top, and that imbalance is the buoyant force.
+
+$$F_B = \rho_{\text{fluid}} \, V_{\text{disp}} \, g$$
+
+It equals the weight of the fluid displaced — no more, no less. The argument is
+worth holding onto: imagine the object replaced by fluid of the same shape. That
+fluid sat there in equilibrium, so the push from its surroundings exactly
+matched its weight. The surroundings do not know what is inside, so the push is
+unchanged.
+
+Note the density in the formula is the *fluid's*. The object's density decides
+only what happens next.
+
+## Float, sink, or hover
+
+Compare the buoyant force on a fully submerged object with its weight. Since
+both scale with the same volume, only densities matter: denser than the fluid
+and it sinks, less dense and it rises until part of it is out.
+
+For a floating body, equilibrium requires $F_B = mg$, so
+$\rho_f V_{\text{sub}} g = \rho_o V g$, giving
+
+$$\frac{V_{\text{sub}}}{V} = \frac{\rho_{\text{object}}}{\rho_{\text{fluid}}}$$
+
+Ice at $917$ kg/m³ in seawater at $1025$ floats with $89\%$ of its volume under
+— the origin of the iceberg cliché, and a one-line calculation.
+
+<Aside label="Where this goes wrong" warn>
+  $V_{\text{disp}}$ is the submerged volume, not the whole volume, and not the
+  volume of the object's material. A hollow steel hull floats because it
+  displaces a hull-shaped region of water; melt it into a solid block and the
+  displaced volume collapses, so it sinks.
+</Aside>
+
+<QuickCheck
+  question="A block floats with one third of its volume above the surface of water. Its density is about:"
+  options={["330 kg per cubic metre", "500 kg per cubic metre", "667 kg per cubic metre", "1500 kg per cubic metre"]}
+  answer={2}
+  explanation="Two thirds is submerged, so the density ratio is two thirds, giving roughly 667 kg per cubic metre."
+/>

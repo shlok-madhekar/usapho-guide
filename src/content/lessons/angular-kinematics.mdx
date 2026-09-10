@@ -1,0 +1,55 @@
+## Describing a spin
+
+A point on a spinning wheel travels a different distance depending on how far
+it sits from the axle, but every point sweeps the same angle in the same time.
+That is why rotation is described by angle rather than position.
+
+Angular position $\theta$ is measured in radians, and radians are chosen so
+that arc length is simply $s = r\theta$. Angular velocity is how fast the angle
+changes, $\omega = d\theta/dt$, and angular acceleration is how fast that
+changes, $\alpha = d\omega/dt$.
+
+Signs matter and are a convention you pick: counterclockwise positive is the
+usual choice. A wheel slowing down while spinning counterclockwise has positive
+$\omega$ and negative $\alpha$, exactly as a car braking has positive $v$ and
+negative $a$.
+
+## The equations you already know
+
+Because $\theta$, $\omega$, $\alpha$ relate to each other by the same
+derivatives that link $x$, $v$, $a$, constant angular acceleration gives the
+same five equations with the letters swapped.
+
+$$\omega = \omega_0 + \alpha t, \qquad \theta = \omega_0 t + \tfrac12\alpha t^2$$
+
+$$\omega^2 = \omega_0^2 + 2\alpha\theta$$
+
+A record player spun up from rest at $\alpha = 2\ \text{rad/s}^2$ reaches
+$\omega = 6$ rad/s in 3 s, having turned $\tfrac12(2)(9) = 9$ radians, or about
+1.4 revolutions. No new physics — only new symbols.
+
+## Back to the rim
+
+To connect a rotating body to a point on it, multiply by the radius:
+
+$$v = \omega r, \qquad a_t = \alpha r$$
+
+Here $v$ is the speed along the circular path and $a_t$ is the tangential
+acceleration, the part that changes speed. There is a second piece: the
+centripetal acceleration $a_c = \omega^2 r$, which changes direction instead.
+The total acceleration of a rim point is the vector sum of the two, and they
+are perpendicular.
+
+<Aside label="Where this goes wrong" warn>
+  Every one of these relations assumes $\theta$ is in radians. Feeding degrees
+  into $v = \omega r$ gives an answer off by a factor of 57. Convert at the very
+  start, and treat revolutions and rpm as raw data to be converted, never as
+  units you can compute with.
+</Aside>
+
+<QuickCheck
+  question="A wheel spins at constant angular velocity. What is true of a point on its rim?"
+  options={["Both tangential and centripetal acceleration are zero", "Tangential acceleration is zero but centripetal is not", "Centripetal acceleration is zero but tangential is not", "Both are nonzero and equal"]}
+  answer={1}
+  explanation="Constant omega means alpha is zero, so the tangential acceleration vanishes. The direction still changes, so the centripetal piece remains."
+/>

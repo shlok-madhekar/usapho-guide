@@ -1,0 +1,60 @@
+## Two laws, two grammars
+
+Friction acts along the contact surface, opposing relative sliding. It comes in
+two kinds, and the difference between them is the whole topic:
+
+$$f_s \le \mu_s N, \qquad f_k = \mu_k N$$
+
+Kinetic friction is a number. Once a block is sliding, friction has the
+magnitude $\mu_k N$ and points opposite the velocity — nothing to solve for.
+
+Static friction is a budget. It supplies exactly whatever force is needed to
+keep the surfaces from sliding, and $\mu_s N$ is only the largest it can
+supply. Push a crate with 20 N and it does not move: static friction is 20 N,
+not $\mu_s N$. Only at the instant of slipping does the inequality become an
+equality, and that is the one moment you may write $f_s = \mu_s N$.
+
+<Aside label="Where this goes wrong" warn>
+  Setting $f_s = \mu_s N$ for an object in ordinary equilibrium. That equation
+  is a statement about the threshold of slipping, not about every static
+  contact. If the problem does not say "maximum", "minimum", "just barely", or
+  "on the verge", treat $f_s$ as an unknown and let the equations determine it.
+</Aside>
+
+## Angle of repose
+
+Tilt a plank with a block on it. Along the slope, $mg\sin\theta$ pulls down;
+across it, $N = mg\cos\theta$. Slipping starts when the demand hits the ceiling:
+
+$$mg\sin\theta = \mu_s\, mg\cos\theta \;\Longrightarrow\; \tan\theta_{\max} = \mu_s$$
+
+The mass cancels. A heavy block and a light one of the same material slip at
+the same angle.
+
+That angle has a geometric meaning. The contact force — normal plus friction,
+added as vectors — can tilt away from the surface normal by at most
+$\arctan\mu_s$. Sweep that limit around and you get the **friction cone**: any
+applied force whose line lies inside the cone can be balanced without sliding,
+and anything outside cannot, no matter how hard you push. This is why pressing
+a crate harder at a steep downward angle never helps — you add to $N$ and to
+the driving component in the same ratio.
+
+<QuickCheck
+  question="A block rests on an incline at an angle well below the angle of repose. Doubling the block's mass will:"
+  options={["Make it slip, since gravity doubled", "Leave it in place, since the slip condition has no mass in it", "Halve the friction force", "Depend on the coefficient"]}
+  answer={1}
+  explanation="Both the driving component and the normal force scale with m, so tan(θ) versus μs is unchanged. Mass cancels out of the slipping condition entirely."
+/>
+
+## Which surface slips first
+
+Stack two blocks and drag the bottom one, or push a pair of blocks resting on
+a table. Each contact has its own $N$ and its own $\mu_s$, so each has its own
+budget. The system stays rigid only while *every* contact stays within budget.
+
+The procedure: assume nothing slips, solve for the common acceleration, then
+back out the friction required at each surface. Compare each required value to
+its own $\mu_s N$. The contact that exceeds its ceiling first is the one that
+gives way — and often it is not the one carrying the largest friction force,
+because the ceilings differ too. If a contact fails, redo the problem with
+$f_k = \mu_k N$ there and independent accelerations for the two bodies.

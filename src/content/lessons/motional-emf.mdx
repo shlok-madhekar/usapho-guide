@@ -1,0 +1,66 @@
+## The rod on rails
+
+Faraday's law already tells you that a changing flux drives an emf. Motional
+emf is the case where the field is static and the *circuit* is what changes.
+Take a conducting rod of length $L$ sliding at speed $v$ along two parallel
+rails, in a uniform field $B$ perpendicular to the plane of the circuit. The
+enclosed area grows at rate $Lv$, so
+
+$$\mathcal{E} = BLv$$
+
+There is a second route to the same number, and it is worth carrying because it
+generalises. Each free charge in the rod moves with the rod, so it feels
+$q\vec{v}\times\vec{B}$ pushing it along the rod's length. That force per unit
+charge, integrated along the rod, is the emf:
+
+$$\mathcal{E} = \int (\vec{v}\times\vec{B})\cdot d\vec{\ell}$$
+
+For a rod rotating about one end with angular velocity $\omega$, the local
+speed is $\omega r$ and this integral gives $\tfrac12 B\omega L^2$ — a result
+the flux picture also produces, but the integral gets there without any
+argument about what area is being swept.
+
+## The force balance
+
+This is what makes the topic more than a restatement of Faraday. The emf drives
+a current $I = BLv/R$ around the loop. That current sits in the same field, so
+the rod feels a force $F = BIL$. Substituting:
+
+$$F = \frac{B^2L^2v}{R}$$
+
+Lenz's law fixes the sign: the force opposes the motion. Note the structure —
+the retarding force is proportional to $v$, exactly like linear drag. A rod
+released with initial speed $v_0$ and no applied force obeys $m\dot{v} =
+-B^2L^2v/R$ and decays exponentially with time constant $mR/B^2L^2$. A rod
+sliding down inclined rails under gravity reaches a terminal velocity when
+$mg\sin\theta$ balances the magnetic force.
+
+## Why generators need work
+
+Pull the rod at constant speed and you must supply force $F = B^2L^2v/R$
+against that opposition. The mechanical power you deliver is
+
+$$P_{mech} = Fv = \frac{B^2L^2v^2}{R} = \frac{(BLv)^2}{R} = \frac{\mathcal{E}^2}{R}$$
+
+which is exactly the electrical power dissipated in the resistor. Not
+approximately — identically. Every joule of electrical energy came from the
+agent pulling the rod.
+
+This is the whole principle of a generator. Turn on a large load and the
+turbine gets harder to turn. Nothing converts motion into current for free; the
+retarding force is the price, and it is set by how much current you draw.
+
+<Aside label="Where this goes wrong" warn>
+  Do not add the magnetic force on the *charges* to your energy accounting. The
+  magnetic force does no net work — it redirects the work done by whoever moves
+  the rod. The correct ledger has two entries: mechanical work in, resistive
+  dissipation out. Adding a third term for the magnetic field double-counts and
+  will produce a factor-of-two error.
+</Aside>
+
+<QuickCheck
+  question="The rail resistance R is halved while the rod is pulled at the same constant speed. The force needed to keep it moving:"
+  options={["Halves", "Is unchanged", "Doubles", "Quadruples"]}
+  answer={2}
+  explanation="The emf depends only on B, L and v, so it is unchanged, but the current doubles when R is halved. The retarding force B I L therefore doubles, and so does the mechanical power you must supply."
+/>

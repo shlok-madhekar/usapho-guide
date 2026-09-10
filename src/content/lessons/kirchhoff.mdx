@@ -37,6 +37,13 @@ uncharged capacitor behaves like a wire. Long afterward, it behaves like a
 break in the circuit. Sketching those two states answers most transient
 questions before any exponential is written down.
 
+<Aside label="Where this goes wrong" warn>
+  Sign errors, almost every time. Fix a direction for each loop before you
+  start and keep it, even when a current comes out negative: a negative answer
+  simply means the current runs the other way, and it is still correct. Going
+  back and flipping signs mid-solution is what actually loses the marks.
+</Aside>
+
 <QuickCheck
   question="Long after a switch closes in an RC circuit, the current through the capacitor branch is:"
   options={["At its maximum", "Zero", "Half its initial value", "Unchanged from t = 0"]}

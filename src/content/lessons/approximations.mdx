@@ -1,0 +1,71 @@
+## Near a point, everything is a polynomial
+
+Zoom in far enough on any smooth curve and it looks like a straight line —
+its tangent. Zoom in less and it looks like a parabola. Taylor's theorem makes
+that precise: near $x = 0$,
+
+$$f(x) = f(0) + f'(0)\,x + \tfrac{1}{2}f''(0)\,x^2 + \dots$$
+
+Keep as many terms as the problem needs. Usually one or two is plenty, because
+each extra term is smaller by another factor of $x$, and $x$ is small.
+
+The three expansions that appear again and again:
+
+$$\sin x \approx x - \frac{x^3}{6}, \qquad \cos x \approx 1 - \frac{x^2}{2}, \qquad (1+x)^n \approx 1 + nx$$
+
+and $e^x \approx 1 + x$, $\ln(1+x) \approx x$. All valid for $|x| \ll 1$.
+
+The binomial form is the workhorse. It handles any power, including negative
+and fractional ones: $1/(1+x) \approx 1 - x$ and $\sqrt{1+x} \approx 1 + x/2$
+are the same rule with $n = -1$ and $n = 1/2$.
+
+<Aside label="Where this goes wrong" warn>
+  $\sin\theta \approx \theta$ requires $\theta$ in radians. In degrees the
+  derivative of $\sin$ carries a factor of $\pi/180$ and every expansion above
+  is wrong. Convert first, always. This single mistake ruins more pendulum
+  problems than any conceptual error.
+</Aside>
+
+## Recognising the cue
+
+A problem is asking for an expansion when it says "small oscillations", "for
+$x \gg d$", "to first order in", "thin", "slightly displaced", or gives you a
+quantity that is obviously tiny compared to another in the problem.
+
+The pendulum is the standard case. The exact equation of motion is
+$\ddot\theta = -(g/L)\sin\theta$, which has no elementary solution. Replace
+$\sin\theta$ by $\theta$ and it becomes $\ddot\theta = -(g/L)\theta$, the
+simple harmonic oscillator, with period $2\pi\sqrt{L/g}$. The approximation is
+not laziness; it is what makes the problem solvable at all, and at $10^\circ$
+it is accurate to better than 0.2%.
+
+The far-field cue works the same way. A dipole of charges $\pm q$ separated by
+$d$, seen from distance $r \gg d$, has potential
+$\frac{kq}{r - d/2} - \frac{kq}{r + d/2}$. Factor out $r$, expand each term
+with the binomial rule, and the leading $1$'s cancel, leaving $kqd/r^2$. The
+cancellation is the point: you needed the first-order term precisely because
+the zeroth-order terms killed each other.
+
+<Aside label="Worth remembering">
+  Expand to one order past the first surviving term when terms might cancel.
+  If you truncate too early in a difference of two nearly equal quantities,
+  you get zero instead of the answer.
+</Aside>
+
+## How far can you push it
+
+Set a small parameter and track it. If $\epsilon = 0.1$, then first order is
+good to about 1%, second order to about 0.1%. Once you know the size of the
+first neglected term, you know your error bar.
+
+Judgement matters more than the algebra. Expanding in the wrong variable, or
+expanding a quantity that is not actually small, produces a confident and
+completely wrong answer. Ask what is small compared to what, name it, and
+expand in that.
+
+<QuickCheck
+  question="For a satellite at height h above Earth's surface with h much less than R, gravitational acceleration is g times R squared over the quantity R plus h, squared. To first order in h over R, how does it behave?"
+  options={["It is unchanged from g", "It decreases by a factor of 1 minus h over R", "It decreases by a factor of 1 minus 2h over R", "It decreases by a factor of 1 minus h squared over R squared"]}
+  answer={2}
+  explanation="Write the expression as g times the quantity 1 plus h over R, raised to the power negative 2, then apply the binomial rule with n equal to negative 2. The exponent comes straight down as the coefficient."
+/>

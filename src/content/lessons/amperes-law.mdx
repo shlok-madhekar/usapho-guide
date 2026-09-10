@@ -1,0 +1,70 @@
+## The magnetic counterpart of Gauss's law
+
+Gauss's law converts a hard integral into an easy one whenever symmetry makes
+the field constant over a closed surface. Ampere's law does the same trick with
+a closed loop instead of a surface:
+
+$$\oint \vec{B}\cdot d\vec{\ell} = \mu_0 I_{enc}$$
+
+The circulation of $\vec{B}$ around any closed path equals $\mu_0$ times the
+current threading that path. Only current passing through the loop counts.
+Current outside contributes to $\vec{B}$ at every individual point, but its
+contributions to the circulation cancel exactly.
+
+Sign convention: curl the right hand along the direction you traverse the loop,
+and the thumb gives the positive direction for enclosed current. Two equal
+currents threading in opposite senses enclose zero net current.
+
+## Choosing a loop
+
+The law is always true and rarely useful. It becomes useful when you can pick a
+path on which $\vec{B}$ is either constant and parallel to $d\vec{\ell}$, or
+perpendicular to it, or zero. Then the integral collapses to $B \times
+(\text{length})$ and you can solve for $B$.
+
+Argue the direction of $\vec{B}$ from symmetry *before* choosing the path. For
+a straight wire, rotational symmetry plus the cross-product structure of
+Biot-Savart forces the field to be circumferential and to depend only on $r$.
+A concentric circle then gives
+
+$$B(2\pi r) = \mu_0 I \quad\Longrightarrow\quad B = \frac{\mu_0 I}{2\pi r}$$
+
+For a thick wire of radius $a$ with uniform current density, a loop inside
+encloses only the fraction $r^2/a^2$ of the current, so $B = \mu_0 I r /
+2\pi a^2$ — linear inside, falling as $1/r$ outside, continuous at the surface.
+
+## Solenoid and toroid
+
+For a long solenoid with $n$ turns per unit length, take a rectangular loop
+with one side inside along the axis, one side outside far away where the field
+is negligible, and two sides perpendicular to the field contributing nothing.
+Only one side survives:
+
+$$B = \mu_0 n I$$
+
+Uniform, independent of position within the interior, and independent of the
+solenoid's radius.
+
+A toroid has closed field lines, so a concentric circle of radius $r$ inside
+the windings is the natural path. With $N$ total turns:
+
+$$B = \frac{\mu_0 N I}{2\pi r}$$
+
+This one is not uniform — it falls off across the cross-section — and it is
+strictly zero outside the toroid, both inside the hole and beyond the outer
+edge.
+
+<Aside label="Where this goes wrong" warn>
+  $I_{enc} = 0$ does not mean $B = 0$. It means the *circulation* vanishes.
+  Directly outside a toroid, or on a loop enclosing two opposite currents, the
+  integral is zero while the field at individual points need not be. You may
+  conclude $B = 0$ only when a symmetry argument has already established that
+  $B$ is constant in magnitude and everywhere tangent to your chosen path.
+</Aside>
+
+<QuickCheck
+  question="A long solenoid is stretched so its length doubles while the total number of turns and the current stay the same. The interior field:"
+  options={["Doubles", "Halves", "Is unchanged", "Falls by a factor of four"]}
+  answer={1}
+  explanation="The field depends on turns per unit length, not total turns. Doubling the length halves n and therefore halves B."
+/>

@@ -1,0 +1,73 @@
+## A coil resists change
+
+A current produces flux, and if the current changes the flux changes, and by
+Faraday's law that induces an emf in the very coil producing it. Self-inductance
+is the proportionality between current and its own flux linkage,
+$N\Phi = LI$, which turns Faraday's law into
+
+$$\mathcal{E} = -L\frac{dI}{dt}$$
+
+The minus sign is Lenz's law: the induced emf always opposes the *change*, not
+the current itself. A coil carrying a steady current opposes nothing. Try to
+increase the current and it pushes back; try to cut the current and it pushes
+forward, sometimes hard enough to arc across an opening switch.
+
+For a long solenoid of $n$ turns per length, cross-section $A$ and length
+$\ell$, the field $\mu_0 n I$ gives
+
+$$L = \mu_0 n^2 A \ell$$
+
+Inductance, like capacitance, is pure geometry — no current in the formula.
+
+## Current is the continuous variable
+
+Where a capacitor cannot change its voltage discontinuously, an inductor cannot
+change its current discontinuously. That single fact answers most LR transient
+questions.
+
+**At $t = 0^+$** after a switch closes on a previously dead circuit, the
+inductor current is still zero, so it acts like a break. **As $t\to\infty$**,
+nothing is changing, $dI/dt = 0$, no emf is induced, and it acts like a plain
+wire. In between, an LR circuit relaxes exponentially with time constant
+
+$$\tau = \frac{L}{R}$$
+
+Note that $\tau$ grows with $L$ but *shrinks* with $R$ — the opposite of RC. A
+larger resistance forces the current to its final value faster.
+
+Energy stored follows from integrating $P = LI\,dI/dt$:
+
+$$U = \tfrac12 LI^2$$
+
+<Aside label="Where this goes wrong" warn>
+  An inductor is not a resistor with a delay, and it never has a well-defined
+  "resistance". Do not write $V = IL$ or try to combine an inductor into a
+  series-parallel reduction with resistors. Its voltage depends on the slope of
+  the current, so the only correct move is to solve the loop equation, or to
+  use the two limiting behaviours above and interpolate exponentially.
+</Aside>
+
+## LC oscillation
+
+Connect a charged capacitor to an inductor with no resistor. The loop rule
+gives $Q/C + L\,d^2Q/dt^2 = 0$, which is the harmonic oscillator equation with
+
+$$\omega = \frac{1}{\sqrt{LC}}$$
+
+Energy sloshes between the electric field of the capacitor and the magnetic
+field of the inductor, and the total is constant:
+
+$$\frac{Q^2}{2C} + \tfrac12 LI^2 = \text{constant}$$
+
+The mechanical analogy is exact and worth using. Charge plays the role of
+position, current the role of velocity, $1/C$ the spring constant, and $L$ the
+mass. Every result from the mass-spring problem carries over, including the
+quarter-period phase lag between current and charge: the current peaks when the
+capacitor is empty, just as a mass moves fastest through equilibrium.
+
+<QuickCheck
+  question="In an ideal LC circuit, the current through the inductor is largest at the moment when:"
+  options={["The capacitor charge is largest", "The capacitor charge is zero", "The capacitor voltage equals the peak value", "The inductor energy is zero"]}
+  answer={1}
+  explanation="Energy is conserved between the two elements, so all of it sits in the inductor exactly when none is left in the capacitor. That is the empty-capacitor moment, matching a mass at maximum speed passing through equilibrium."
+/>

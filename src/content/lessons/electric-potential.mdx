@@ -1,0 +1,53 @@
+## Energy per unit charge
+
+The electrostatic force is conservative, so moving a charge between two points
+costs work that does not depend on the path. Divide that work out by the
+charge and what remains is a property of the field alone:
+
+$$\Delta V = \frac{\Delta U}{q} = -\int_a^b \vec E \cdot d\vec\ell$$
+
+Only differences are physical. The zero is a convention, usually infinity for
+bounded distributions, but never for an infinite line or sheet — there the
+integral diverges and you must choose a finite reference point.
+
+## Why this is the easier quantity
+
+$V$ is a scalar. Superposition for potential means adding numbers:
+
+$$V = \frac{kQ}{r}, \qquad V = \sum_i \frac{kq_i}{r_i}, \qquad V = \int\frac{k\,dq}{r}$$
+
+No components, no angles, no symmetry argument needed to cancel anything.
+The ring on axis, which took real work as a field integral, is immediate:
+every element sits at the same distance $\sqrt{z^2+R^2}$, so
+$V = kQ/\sqrt{z^2+R^2}$.
+
+That suggests a strategy. When the field is wanted and the integral is ugly,
+compute $V$ first and differentiate.
+
+## Getting the field back
+
+Potential loses no information, because the field is its gradient:
+
+$$\vec E = -\nabla V, \qquad E_x = -\frac{\partial V}{\partial x}$$
+
+The minus sign says $\vec E$ points downhill in $V$, which is why positive
+charges accelerate toward low potential. Differentiating the ring's $V$
+reproduces $kQz/(z^2+R^2)^{3/2}$ in one step.
+
+Equipotential surfaces are the level sets of $V$, and $\vec E$ is
+perpendicular to them everywhere. Where they crowd together the field is
+strong. Field lines and equipotentials together are a complete picture.
+
+<Aside label="Where this goes wrong" warn>
+  $V = 0$ and $\vec E = 0$ are independent. Midway between $+q$ and $-q$ the
+  potential vanishes but the field is large; at the center of three equal
+  charges the field vanishes but the potential does not. Only the *derivative*
+  of $V$ controls the field, so a single value of $V$ tells you nothing.
+</Aside>
+
+<QuickCheck
+  question="Along a path where the potential is constant, the work done on a moving charge is:"
+  options={["Equal to qV", "Zero", "Negative", "Impossible to determine"]}
+  answer={1}
+  explanation="Work equals minus q times the change in V, and the change is zero. Equivalently, the field is perpendicular to an equipotential, so the force does no work along it."
+/>

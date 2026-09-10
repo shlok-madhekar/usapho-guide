@@ -1,0 +1,61 @@
+## When series-parallel reduction fails
+
+Some networks contain no pair of resistors that is cleanly in series or cleanly
+in parallel. The five-resistor bridge is the smallest example. Reduction stalls
+immediately, and the three techniques below are what replace it.
+
+## The Wheatstone bridge
+
+Four resistors form two branches from the source, $R_1$ then $R_2$ down one
+side and $R_3$ then $R_4$ down the other, with a fifth resistor bridging the
+two midpoints. The bridge resistor carries current only if its two ends sit at
+different potentials. Each side is a voltage divider, so the midpoints match
+when the ratios match:
+
+$$\frac{R_1}{R_2} = \frac{R_3}{R_4}$$
+
+At balance the bridge element is irrelevant. Delete it — or short it, whichever
+you prefer — and the remaining four resistors reduce by inspection. Both moves
+give the same answer precisely because no current flows and no voltage stands
+across it.
+
+<Aside label="Where this goes wrong" warn>
+  The balance condition is a ratio, not a difference. $R_1 = R_4$ and
+  $R_2 = R_3$ does not balance a bridge unless the ratios also match. And the
+  condition does not depend on the bridge resistor or the source voltage at
+  all, so checking balance is always the first thing to do: it costs one
+  comparison and can collapse the whole problem.
+</Aside>
+
+## Infinite ladders
+
+A ladder that repeats forever is unchanged by removing one stage. If $R_\infty$
+is the resistance of the whole ladder, then one series resistor $R_1$ followed
+by a shunt $R_2$ in parallel with *another copy of the whole ladder* must equal
+$R_\infty$:
+
+$$R_\infty = R_1 + \frac{R_2 R_\infty}{R_2 + R_\infty}$$
+
+That is a quadratic. Solve it and discard the negative root, since a passive
+network cannot have negative resistance. The whole method rests on
+self-similarity, so it fails the moment the stages differ — a ladder whose
+resistors halve each stage needs a genuine series, not this trick.
+
+## Symmetry and equipotential nodes
+
+If a symmetry of the network maps one node onto another while leaving the input
+and output terminals fixed, those two nodes are at equal potential. You may
+then merge them into one node or cut any wire between them. Both operations
+change nothing measurable, and one of them usually turns the network into
+something series-parallel reduction can finish.
+
+For a bridge fed symmetrically, the two midpoints are such a pair. For a
+resistor cube entered at a corner, the three neighbours of that corner form
+one equipotential set and the three next ones form another.
+
+<QuickCheck
+  question="In a balanced Wheatstone bridge, removing the bridge resistor entirely changes the total resistance by:"
+  options={["A factor of two", "Nothing", "An amount depending on the bridge resistance", "An amount depending on the source voltage"]}
+  answer={1}
+  explanation="At balance the two midpoints are at the same potential, so the bridge element carries no current. Deleting it or shorting it both leave the rest of the circuit untouched."
+/>

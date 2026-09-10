@@ -1,0 +1,69 @@
+## The restoring force
+
+Stretch a spring and it pulls back; compress it and it pushes back. For small
+enough deformations the force is proportional to how far you moved the end from
+its natural length:
+
+$$F = -kx$$
+
+Here $x$ is measured **from the relaxed length**, not from the floor or from
+wherever the mass happens to sit, and the minus sign says the force opposes the
+displacement. The constant $k$ is the stiffness in newtons per metre; a large
+$k$ is a stiff spring.
+
+Hooke's law is an approximation, good while the material stays elastic. Pull
+hard enough and a real spring yields, after which it neither returns its energy
+nor its original length.
+
+<Aside label="Where this goes wrong" warn>
+  Measuring $x$ from the wrong origin. In $F = -kx$, $x$ is the extension of the
+  spring, not the position of the block in your coordinate system. When a block
+  hangs at rest and you then displace it, it is usually cleaner to redefine the
+  origin at the hanging equilibrium — see below for why that works.
+</Aside>
+
+## Series and parallel
+
+Two springs side by side, both attached to the same block, are in **parallel**.
+They share the displacement and their forces add:
+
+$$k_{\text{par}} = k_1 + k_2$$
+
+Two springs end to end are in **series**. Now they share the force — the same
+tension runs through the chain — and the extensions add:
+
+$$\frac{1}{k_{\text{ser}}} = \frac{1}{k_1} + \frac{1}{k_2}$$
+
+Series is always softer than either spring alone. The reason is that the same
+pull stretches both, so you collect two extensions for the price of one force.
+Cutting a spring in half doubles its stiffness, which is the same fact read
+backwards: the original was two half-springs in series.
+
+Note the arithmetic is opposite to resistors, so do not pattern-match. Decide
+by asking which quantity is shared: shared displacement means add the $k$'s,
+shared force means add the compliances $1/k$.
+
+<QuickCheck
+  question="Two identical springs of stiffness k are joined end to end and a mass hangs from the bottom. The effective stiffness is:"
+  options={["2k", "k", "k/2", "k squared"]}
+  answer={2}
+  explanation="End to end is series: the same force stretches both, so the total extension doubles and the effective stiffness is halved."
+/>
+
+## A hanging spring
+
+Hang a mass $m$ from a vertical spring. At rest, the spring force balances
+gravity:
+
+$$k x_0 = mg \;\Longrightarrow\; x_0 = \frac{mg}{k}$$
+
+Now displace the mass a further distance $y$ below that point. The spring force
+is $k(x_0 + y)$ upward, gravity is $mg$ downward, and the net force is
+
+$$k(x_0 + y) - mg = ky$$
+
+Gravity has cancelled completely. Measured from the hanging equilibrium, a
+vertical spring behaves exactly like a horizontal one — same restoring law,
+same $k$. Constant gravity shifts the equilibrium and changes nothing else,
+which is why you can drop $mg$ from these problems the moment you put your
+origin in the right place.

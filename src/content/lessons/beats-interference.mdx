@@ -1,0 +1,54 @@
+## Beats
+
+Add two waves of nearly equal frequency at one point and use the sum-to-product
+identity:
+
+$$\cos(\omega_1 t) + \cos(\omega_2 t) = 2\cos\!\left(\frac{\Delta\omega}{2}t\right)\cos(\bar{\omega}t)$$
+
+The second factor is a fast oscillation at the average frequency. The first is
+a slow envelope. Loudness peaks whenever that envelope reaches an extreme, and
+it does so twice per envelope cycle, so the beat rate is $|f_1 - f_2|$, not
+half of it.
+
+Tune a string against a 440 Hz fork and hear 3 beats per second and the string
+is at 437 or 443. Tighten it: if the beats slow down you were flat.
+
+## Two sources in space
+
+Now hold the frequency fixed and move in space. Two sources driven in phase
+send waves to a point along paths differing by $\Delta r$. Each extra
+wavelength of path costs a full cycle of phase:
+
+$$\Delta\phi = \frac{2\pi}{\lambda}\,\Delta r$$
+
+Constructive interference needs $\Delta\phi$ to be a multiple of $2\pi$, so
+$\Delta r = m\lambda$. Destructive needs the crest of one to meet the trough of
+the other: $\Delta r = (m + \tfrac{1}{2})\lambda$.
+
+That is the entire rule, and it carries over unchanged to light. Beats are the
+same physics in time; two-source interference is the same physics in space.
+
+## Adding the source phase
+
+If the sources themselves are out of step by $\phi_0$, the total phase
+difference is $\phi_0 + 2\pi\Delta r/\lambda$, and the conditions swap when
+$\phi_0 = \pi$. Two speakers wired with reversed polarity are silent on the
+perpendicular bisector, where the path difference is zero — the point that
+would otherwise be the loudest.
+
+Write down the total phase difference first, from all causes. Then ask what
+makes it a multiple of $2\pi$. Never start from a memorized $m\lambda$.
+
+<Aside label="Where this goes wrong" warn>
+  Perfectly destructive interference requires equal amplitudes as well as
+  opposite phase. Two sources at different distances deliver different
+  amplitudes, so a real minimum is quiet, not silent. Problems that ask for
+  intensity, not just position, punish this.
+</Aside>
+
+<QuickCheck
+  question="Two in-phase speakers reach a point via paths differing by 1.5 wavelengths. What happens there?"
+  options={["Constructive interference", "Destructive interference", "No interference", "Beats"]}
+  answer={1}
+  explanation="A half-integer number of wavelengths of path difference puts the waves a half cycle apart, so they cancel."
+/>

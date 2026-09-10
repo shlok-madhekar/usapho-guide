@@ -1,0 +1,68 @@
+## Rate of change, made exact
+
+Average velocity over an interval is displacement divided by elapsed time.
+Shrink the interval and that ratio settles onto a single number: the velocity
+at an instant. That limit is the derivative.
+
+$$v(t) = \frac{dx}{dt} = \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta t}$$
+
+Acceleration is the same operation applied again, $a = dv/dt = d^2x/dt^2$.
+Nothing about kinematics is new here; the derivative is just the honest
+version of "slope of the graph at a point."
+
+Geometrically, $v$ is the slope of the $x$ versus $t$ curve. That single fact
+carries a lot: where $x(t)$ is flat the object is momentarily at rest, where
+$x(t)$ is steep it is moving fast, and where $x(t)$ curves upward the
+acceleration is positive.
+
+<Figure caption={<><b>Figure 1.</b> Position and velocity plotted against the same clock. Watch the two panels together: wherever the top curve is steepest, the bottom curve is farthest from zero, and wherever the top curve turns around, the bottom curve crosses zero.</>}>
+  <Sim id="motion-graphs" />
+</Figure>
+
+## The rules you actually use
+
+Four rules cover almost every derivative in mechanics.
+
+$$\frac{d}{dt}t^n = n t^{n-1}, \qquad \frac{d}{dt}(fg) = f'g + fg'$$
+
+$$\frac{d}{dt}\frac{f}{g} = \frac{f'g - fg'}{g^2}, \qquad \frac{d}{dt}f(g(t)) = f'(g)\,g'(t)$$
+
+The last one, the chain rule, is the one that matters most in physics, because
+physical quantities are usually functions of functions. The kinetic energy of
+a particle is $\tfrac{1}{2}mv^2$ where $v$ depends on time, so its rate of
+change is $mv\,\dfrac{dv}{dt} = mva$, which is exactly the power delivered by
+the net force.
+
+Also worth memorizing: $\frac{d}{dt}\sin\omega t = \omega\cos\omega t$ and
+$\frac{d}{dt}e^{kt} = ke^{kt}$. The second is why exponentials appear in every
+damped or decaying system — it is the function whose rate of change is
+proportional to itself.
+
+Now differentiate $x(t) = x_0 + v_0 t - \tfrac{1}{2}gt^2$ twice. You get
+$v = v_0 - gt$ and $a = -g$. The constant-acceleration formulas are not
+separate facts; they are one statement viewed at three levels.
+
+<Aside label="Where this goes wrong" warn>
+  Speed is $|v|$, not $v$, and the derivative of speed is not acceleration in
+  general. An object in uniform circular motion has constant speed and nonzero
+  acceleration. Differentiate the vector, then take the magnitude — never the
+  other way around.
+</Aside>
+
+## Finding a maximum
+
+At a smooth maximum or minimum the tangent is horizontal, so $df/dx = 0$.
+Solve that for the location, then check the second derivative: negative means
+a maximum, positive a minimum.
+
+Take projectile range on level ground, $R(\theta) = v_0^2\sin 2\theta / g$.
+Setting $dR/d\theta = 2v_0^2\cos 2\theta/g = 0$ gives $2\theta = 90^\circ$, so
+$\theta = 45^\circ$. Any olympiad question phrased "for what value of ... is
+the ... largest" is asking you to do exactly this.
+
+<QuickCheck
+  question="A particle's position-time graph has a horizontal tangent at t = 3 s. What is true at that instant?"
+  options={["Its acceleration is zero", "Its velocity is zero", "It is at the origin", "Its speed is maximum"]}
+  answer={1}
+  explanation="A horizontal tangent means the slope of x versus t is zero, and that slope is the velocity. The acceleration is the curvature there, which can be anything — a ball at the top of its flight is the standard example."
+/>

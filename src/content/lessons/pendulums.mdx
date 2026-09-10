@@ -1,0 +1,62 @@
+## Where the period comes from
+
+A pendulum of length $L$ displaced by angle $\theta$ has a restoring torque
+from gravity. Only the component of weight perpendicular to the string does
+anything:
+
+$$mL^2\ddot{\theta} = -mgL\sin\theta$$
+
+That $\sin\theta$ is the problem. It makes the equation nonlinear and there is
+no elementary solution. But for small angles $\sin\theta \approx \theta$, and
+the equation collapses to the one shape every oscillation problem reduces to:
+
+$$\ddot{\theta} = -\frac{g}{L}\theta \quad\Longrightarrow\quad \omega = \sqrt{\frac{g}{L}}, \qquad T = 2\pi\sqrt{\frac{L}{g}}$$
+
+Notice what is absent. No mass, because gravity supplies both the restoring
+force and the inertia, and $m$ cancels. And no amplitude, which is the whole
+point of the approximation.
+
+## Why amplitude drops out, and when it comes back
+
+Amplitude disappears because the linearized restoring torque is exactly
+proportional to displacement. Double the swing and you double the restoring
+torque, so the motion covers twice the distance at twice the speed and takes
+the same time.
+
+The real $\sin\theta$ is slightly *less* than $\theta$, so a large swing is
+restored a little too weakly and runs slow:
+
+$$T \approx 2\pi\sqrt{\frac{L}{g}}\left(1 + \frac{\theta_0^2}{16}\right)$$
+
+At 10° the correction is about 0.2 percent. At 60° it is near 7 percent. Small
+angle is not a formality, it is a numerical claim you should be willing to
+check.
+
+<Aside label="Where this goes wrong" warn>
+  Do not carry $T = 2\pi\sqrt{L/g}$ into a physical pendulum. A swinging rod or
+  hoop is not a point mass on a string, and using its total length as $L$ gives
+  the wrong answer. Compute $I$ about the pivot and the distance $d$ to the
+  center of mass instead.
+</Aside>
+
+## The physical pendulum
+
+Any rigid body pivoted off its center of mass swings the same way. Replace
+inertia with the moment of inertia about the pivot and the restoring lever arm
+with $d$, the pivot-to-center-of-mass distance:
+
+$$T = 2\pi\sqrt{\frac{I}{mgd}}$$
+
+A uniform rod of length $L$ pivoted at one end has $I = \tfrac{1}{3}mL^2$ and
+$d = L/2$, giving $T = 2\pi\sqrt{2L/3g}$. It swings faster than a simple
+pendulum of the same length, because much of its mass sits closer to the pivot
+than the tip does.
+
+Setting $I = mL^2$ and $d = L$ recovers the simple pendulum, as it must.
+
+<QuickCheck
+  question="A simple pendulum keeps correct time on Earth. Taken to a planet with one quarter of Earth's surface gravity, how does its period change?"
+  options={["It doubles", "It halves", "It is unchanged", "It quadruples"]}
+  answer={0}
+  explanation="The period varies as the inverse square root of g, so dividing g by four multiplies the period by two. The mass of the bob is irrelevant either way."
+/>

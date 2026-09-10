@@ -1,0 +1,71 @@
+## The rate at which work gets done
+
+Two cranes lift the same girder to the same height. They do identical work. The
+one that finishes in ten seconds instead of a hundred is the one that costs
+more to build. Power is the quantity that separates them:
+
+$$P_{\text{avg}} = \frac{W}{\Delta t}, \qquad P = \frac{dW}{dt}$$
+
+The unit is the watt, one joule per second. The horsepower still used for
+engines is about $746\text{ W}$.
+
+Average power is a whole trip divided by a whole time. Instantaneous power is
+what the machine is delivering right now, and the two can be wildly different:
+a sprinter's peak output is several times the average over a race.
+
+## P equals F dot v
+
+Substitute $dW = \vec F \cdot d\vec r$ and divide by $dt$:
+
+$$P = \vec F \cdot \vec v = Fv\cos\theta$$
+
+This is the form to reach for in almost every problem. It says a force delivers
+power in proportion to how fast its point of application is moving, and that a
+force perpendicular to the velocity delivers none — the same reason such forces
+do no work.
+
+A useful consequence: at constant speed on a level road, the engine's output
+exactly balances the losses. If drag goes as $F_d = bv^2$, then
+
+$$P = bv^3$$
+
+so doubling a car's top speed demands eight times the power. That cubic is why
+top speeds creep up so slowly with engine size.
+
+## When power, not force, is the limit
+
+Beginning problems assume constant acceleration. Real engines and motors
+instead have a ceiling on power, and this changes the shape of the motion.
+
+A car of mass $m$ pulling away at maximum power $P$ satisfies $Fv = P$, so
+$F = P/v$. At low speed the force is enormous — in practice tire grip caps it —
+and as the car speeds up the available force falls. Setting $ma = P/v$ and
+integrating gives
+
+$$v(t) = \sqrt{\frac{2Pt}{m}}$$
+
+Speed grows as $\sqrt{t}$, not linearly, and the acceleration decays. The same
+reasoning answers "how long to reach $30\text{ m/s}$" without ever naming a
+force, and it explains why the last few miles per hour take so long.
+
+<Aside label="Where this goes wrong" warn>
+  A constant-power problem is not a constant-acceleration problem. The
+  kinematic equations $v = v_0 + at$ and $v^2 = v_0^2 + 2ad$ do not apply.
+  Start from $Fv = P$, write $mv\,dv/dx = P/v$ or $m\,dv/dt = P/v$, and
+  integrate.
+</Aside>
+
+<QuickCheck
+  question="A car accelerating from rest at constant maximum engine power has a speed that grows in what way with time?"
+  options={["As the square root of t", "Linearly in t", "As t squared", "Exponentially"]}
+  answer={0}
+  explanation="Constant power means constant rate of kinetic energy gain, so one half m v squared is proportional to t, and v is proportional to the square root of t. The acceleration therefore falls off as the car speeds up."
+/>
+
+## Checking an answer
+
+Power is a good sanity check on energy problems. Compute the energy a process
+requires and divide by a plausible time; if a household appliance comes out
+needing a megawatt, something is wrong. Working backward from a stated power
+rating to the force or the time is one of the most common ways olympiad
+problems disguise an energy question.

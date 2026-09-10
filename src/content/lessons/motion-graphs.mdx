@@ -1,0 +1,54 @@
+## Slopes and areas
+
+A motion graph carries the same information as an equation, but it puts the
+calculus where you can see it. Position, velocity, and acceleration form a
+chain: each one is the slope of the graph before it, and the area under each
+one is the change in the graph before it.
+
+$$v = \frac{dx}{dt}, \qquad a = \frac{dv}{dt}, \qquad \Delta x = \int v\,dt, \qquad \Delta v = \int a\,dt$$
+
+So reading a graph is two questions. How steep is it here? And how much area
+has piled up so far?
+
+A car at rest that accelerates uniformly gives a straight $v$-$t$ line rising
+from the origin. Its slope is the constant acceleration. The area under it up
+to time $t$ is a triangle of area $\tfrac{1}{2}(t)(at) = \tfrac{1}{2}at^2$,
+which is exactly the distance travelled. The kinematic formula and the triangle
+are the same statement.
+
+<Figure caption={<><b>Figure 1.</b> The three graphs move together. Watch where the velocity curve crosses zero and confirm that the position curve is flat at that instant, not zero.</>}>
+  <Sim id="motion-graphs" />
+</Figure>
+
+## Signed area, and what it costs you
+
+Area below the time axis counts as negative. On a $v$-$t$ graph, a chunk below
+the axis means motion backward, and it subtracts from displacement.
+
+That is why displacement and distance travelled come apart. Displacement is the
+signed area. Distance is the area with every piece counted positive. A ball
+thrown up and caught again has zero displacement and a very nonzero distance.
+
+<Aside label="Where this goes wrong" warn>
+  A common misread is treating height on one graph as slope on the next. On an
+  $x$-$t$ graph, a high point does not mean fast, it means far. An object at
+  the top of its arc has maximum $x$ and zero $v$. Before answering, decide
+  whether the question is about height, slope, or area.
+</Aside>
+
+## Sketching in the other direction
+
+Going from $a$ to $v$ to $x$ needs one extra thing the graph cannot give you:
+the starting value. Area only tells you the change.
+
+Sketch by segments. Constant $a$ makes $v$ linear and $x$ quadratic. Zero $a$
+makes $v$ flat and $x$ linear. Where $a$ jumps, $v$ has a kink but no jump, and
+$x$ stays smooth. Each level of integration is one degree smoother than the
+last, so a discontinuous acceleration never produces a broken position curve.
+
+<QuickCheck
+  question="On a velocity-time graph, an object's curve is above the axis for 3 s, then below the axis for 3 s with the same shape reflected. What is the displacement?"
+  options={["Zero", "Twice the area of one piece", "Equal to the distance travelled", "Undefined without the starting position"]}
+  answer={0}
+  explanation="Area below the axis is negative, so the two equal pieces cancel. The distance travelled is not zero, since distance ignores the sign."
+/>

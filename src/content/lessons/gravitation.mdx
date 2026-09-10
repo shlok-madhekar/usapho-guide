@@ -1,0 +1,72 @@
+## The inverse square law
+
+Any two point masses attract each other along the line joining them:
+
+$$F = \frac{Gm_1m_2}{r^2}, \qquad G = 6.674\times10^{-11}\ \mathrm{N\,m^2/kg^2}$$
+
+Here $r$ is the distance between the centres, not between the surfaces. That
+matters because of a result Newton had to invent calculus to prove: a uniform
+spherical shell attracts an outside body exactly as if all its mass sat at the
+centre. So a solid sphere — a planet, a star — can be replaced by a point at its
+centre for anything outside it. Inside a shell, the pull is exactly zero.
+
+Near the surface of a planet of mass $M$ and radius $R$, this reproduces the
+familiar constant:
+
+$$g = \frac{GM}{R^2}$$
+
+<Aside label="Where this goes wrong" warn>
+  Saying an astronaut in orbit is weightless because gravity is absent. At
+  400 km up, $g$ is about 89% of its surface value. What is absent is the
+  normal force: the station and everything in it are in free fall together,
+  accelerating toward Earth at the same rate. Weightlessness is a statement
+  about the FBD of a body in free fall, not about gravity switching off.
+</Aside>
+
+## Circular orbits
+
+A satellite in a circular orbit of radius $r$ has gravity supplying exactly the
+centripetal force it needs:
+
+$$\frac{GMm}{r^2} = \frac{mv^2}{r} \;\Longrightarrow\; v = \sqrt{\frac{GM}{r}}$$
+
+The satellite's own mass cancels — a bolt and a space station in the same orbit
+move identically. The period follows from $v = 2\pi r / T$:
+
+$$T^2 = \frac{4\pi^2}{GM}\,r^3$$
+
+Two consequences worth internalizing. Higher orbits are *slower*, since
+$v \propto r^{-1/2}$. And to catch up with something ahead of you in the same
+orbit, you must fire your engine to drop lower, speed up, and come back — the
+counterintuitive fact at the heart of orbital rendezvous.
+
+<QuickCheck
+  question="Satellite A orbits at radius r, satellite B at radius 4r. Compared to A, satellite B has:"
+  options={["Twice the speed and half the period", "Half the speed and eight times the period", "The same speed and four times the period", "A quarter of the speed and sixteen times the period"]}
+  answer={1}
+  explanation="Speed scales as one over the square root of r, so it halves. Period scales as r to the three-halves, so it grows by a factor of eight."
+/>
+
+## Energy and binding
+
+Take the potential energy to be zero at infinite separation. Then
+
+$$U = -\frac{GMm}{r}$$
+
+is negative everywhere: you must do positive work to pull the two apart. To
+escape, a body launched from radius $r$ needs enough kinetic energy to reach
+infinity with nothing to spare, so $\tfrac12 mv^2 = GMm/r$:
+
+$$v_{\text{esc}} = \sqrt{\frac{2GM}{r}} = \sqrt{2}\; v_{\text{orb}}$$
+
+Escape speed is just $\sqrt{2}$ times circular orbital speed at the same
+radius, and it does not depend on the launch direction — only on the speed —
+since energy is a scalar.
+
+For a circular orbit, $\tfrac12 mv^2 = GMm/2r$, so
+
+$$E = K + U = \frac{GMm}{2r} - \frac{GMm}{r} = -\frac{GMm}{2r}$$
+
+The total energy is negative, which is what "bound" means. It also equals
+$-K$, and equals $U/2$. Drag lowers $E$ by making $r$ smaller, and the kinetic
+energy *rises* as the orbit decays: friction speeds a satellite up.

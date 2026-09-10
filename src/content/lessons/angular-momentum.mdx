@@ -1,0 +1,60 @@
+## Momentum that goes around
+
+A rigid body spinning at $\omega$ carries angular momentum
+
+$$L = I\omega$$
+
+but that formula is a special case. The general definition works for anything,
+spinning or not: a particle of momentum $\vec{p}$ at position $\vec{r}$ from a
+chosen origin has
+
+$$\vec{L} = \vec{r} \times \vec{p}, \qquad L = mvr_\perp$$
+
+where $r_\perp$ is the perpendicular distance from the origin to the line of
+motion. A car driving in a straight line past you has angular momentum about
+you — constant, nonzero, and often exactly the quantity a problem needs.
+
+## When it is conserved
+
+Torque changes angular momentum the way force changes momentum:
+
+$$\vec{\tau}_{\text{net}} = \frac{d\vec{L}}{dt}$$
+
+So with no net external torque, $L$ is fixed. Since $L = I\omega$ and $I$ can
+change while $L$ cannot, a skater pulling her arms in must speed up. Her kinetic
+energy $\tfrac12 I\omega^2 = L^2/2I$ *rises* as $I$ falls — she does work
+against the outward pull of her own arms. Angular momentum conservation does not
+imply energy conservation, and in a rotational collision it usually rules it out.
+
+The same argument runs a collapsing gas cloud up to a pulsar spinning hundreds
+of times a second.
+
+## Pick the point first
+
+Angular momentum is only defined relative to an origin, and it is conserved
+about some points and not others in the very same problem. Choose deliberately.
+
+The rule: pick the point through which the forces you cannot evaluate pass. A
+bullet embeds in a door hinged at one edge. The hinge exerts a large, unknown
+impulsive force during the impact, so linear momentum is *not* conserved — but
+that force acts at the hinge, contributing zero torque about it. Take $L$ about
+the hinge and the unknown disappears:
+
+$$m v r_\perp = \left(I_{\text{door}} + m r^2\right)\omega$$
+
+One equation, one unknown. Every "object strikes a pivoted rod" problem is this
+problem.
+
+<Aside label="Where this goes wrong" warn>
+  Do not switch origins partway through. Compute $L$ before and after about the
+  *same* point, and include every mass, moving object included. The bullet's
+  contribution to $I$ after impact is $mr^2$; leaving it out is the standard
+  slip.
+</Aside>
+
+<QuickCheck
+  question="A puck slides in a straight line at constant velocity across frictionless ice. Its angular momentum about a fixed point off to the side is:"
+  options={["Zero", "Constant and nonzero", "Increasing with time", "Undefined for straight-line motion"]}
+  answer={1}
+  explanation="No net force means no torque about any point, so L is conserved; the perpendicular distance to the line of motion stays fixed, so it is nonzero."
+/>

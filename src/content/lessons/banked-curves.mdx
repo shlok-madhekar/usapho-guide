@@ -1,0 +1,70 @@
+## Circular motion needs a horizontal force
+
+A car rounding a curve of radius $r$ at speed $v$ accelerates toward the centre
+of the circle, with magnitude $v^2/r$. That acceleration is horizontal, and
+something has to supply it. On a flat road it is friction. Bank the road and
+the normal force can do the job instead.
+
+Tilt the surface by an angle $\theta$. The normal force is perpendicular to the
+road, so it now has a horizontal component pointing inward. With no friction,
+the two axes read:
+
+$$N\sin\theta = \frac{mv^2}{r}, \qquad N\cos\theta = mg$$
+
+<Aside label="Where this goes wrong" warn>
+  Tilting the axes to lie along the incline, as you would for a block sliding
+  down a ramp. Do not. The acceleration here is horizontal, pointing at the
+  centre of the circle, so use horizontal and vertical axes and let $N$ be the
+  vector you decompose. Choosing axes along the acceleration is the rule; on a
+  banked curve the acceleration is not along the slope.
+</Aside>
+
+## Design speed
+
+Divide the two equations and $N$ and $m$ both vanish:
+
+$$\tan\theta = \frac{v^2}{rg}$$
+
+This is the **design speed** of the bank: the one speed at which the curve can
+be taken with no friction at all. Highway engineers pick $\theta$ for the
+expected traffic speed, so an icy banked ramp is safe at the posted speed and
+only at that speed.
+
+Go faster and the horizontal component of $N$ is not enough; you need friction
+pointing down the slope to make up the difference. Go slower and you slide
+*inward*, needing friction pointing up the slope. That is the useful mental
+picture: friction is a correction that covers the mismatch between your actual
+speed and the design speed, and it is bounded by $\mu_s N$ in either direction.
+So a real banked curve has a range of safe speeds around $\sqrt{rg\tan\theta}$,
+not a single value.
+
+Note that mass dropped out. A loaded truck and a motorcycle have the same
+design speed on the same curve.
+
+<QuickCheck
+  question="A car takes a frictionless banked curve at less than the design speed. It tends to slide:"
+  options={["Outward, up the bank", "Inward, down the bank", "Neither, since the bank always balances", "Backward along the road"]}
+  answer={1}
+  explanation="Below the design speed the inward component of the normal force exceeds the required mv²/r, so the excess pushes the car down the slope toward the centre."
+/>
+
+## The conical pendulum
+
+A mass on a string of length $L$ swings in a horizontal circle while the string
+traces out a cone at angle $\theta$ from the vertical. The forces are gravity
+and tension only, and the analysis is the same shape as the banked curve with
+$T$ in place of $N$:
+
+$$T\sin\theta = \frac{mv^2}{r}, \qquad T\cos\theta = mg$$
+
+with $r = L\sin\theta$. Dividing gives $\tan\theta = v^2/(rg)$ again. Writing it
+in terms of the period is more revealing — substitute $v = 2\pi r/T_{\text{per}}$
+and the radius cancels:
+
+$$T_{\text{per}} = 2\pi\sqrt{\frac{L\cos\theta}{g}}$$
+
+The vertical height of the pivot above the circle, $L\cos\theta$, is what sets
+the period — not the radius, not the speed, not the mass. Push the cone wider
+and the mass moves faster but takes less time per revolution. As $\theta \to
+90^\circ$ the required speed diverges: the string can never reach horizontal,
+because a horizontal string has no vertical component to hold up the weight.

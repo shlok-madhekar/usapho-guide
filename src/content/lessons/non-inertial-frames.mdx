@@ -1,0 +1,62 @@
+## Physics in a lurching bus
+
+Newton's second law only holds in an inertial frame. Stand in a bus that brakes
+hard and, from your own point of view, a bag on a smooth floor accelerates
+forward with nothing touching it. Either the law fails, or the frame is wrong.
+
+The standard resolution is to keep the law and pay a fee. In a frame
+accelerating at $\vec{a}_f$, add to every mass $m$ a pseudo-force
+
+$$\vec{F}_{\text{pseudo}} = -m\vec{a}_f$$
+
+directed opposite the frame's acceleration. With that term included,
+$\sum \vec{F} = m\vec{a}'$ works exactly as usual, where $\vec{a}'$ is the
+acceleration measured inside the frame. The bag has no real forward force; the
+pseudo-force accounts for the bus decelerating out from under it.
+
+Pseudo-forces are proportional to mass and have no source object — no third-law
+partner. That is what marks them as bookkeeping rather than interaction.
+
+## The rotating case
+
+A frame rotating at $\omega$ accelerates toward the centre at $\omega^2 r$, so
+the pseudo-force points outward:
+
+$$F_{\text{cf}} = m\omega^2 r$$
+
+This is centrifugal force, and it exists only in the rotating frame. On a
+carousel you feel flung outward; a friend on the ground sees the floor pushing
+you inward and nothing else. Both descriptions are correct in their own frames.
+
+Never mix them. Writing centripetal *and* centrifugal force into one equation
+double-counts and yields nonsense.
+
+## When it pays
+
+The accelerating frame is worth the trouble when it turns motion into
+statics.
+
+A pendulum hangs in a truck accelerating at $a$. In the ground frame it has a
+horizontal acceleration and you must resolve tension into components and solve
+two coupled equations. In the truck's frame the bob simply hangs at rest under
+gravity plus a backward pseudo-force $ma$; the string lines up with their sum,
+and $\tan\theta = a/g$ falls out in one line. The combination $\sqrt{a^2+g^2}$
+behaves as an effective gravity for everything inside — including the period of
+that pendulum.
+
+Use the same trick for a block on an accelerating wedge, or for a bead in a
+spinning tube, where the ground frame requires tracking a moving contact point.
+
+<Aside label="Where this goes wrong" warn>
+  A frame moving in a circle at constant speed is still non-inertial — its
+  velocity changes direction. And $\vec{a}_f$ means the frame's acceleration,
+  not the object's; the sign error from confusing the two flips the pseudo-force
+  and quietly doubles the answer.
+</Aside>
+
+<QuickCheck
+  question="A pendulum hangs in a cart accelerating horizontally. In the cart's frame, what holds the bob at a fixed angle?"
+  options={["Gravity alone", "Tension alone", "Gravity, tension, and a backward pseudo-force summing to zero", "A centripetal force toward the cart's front"]}
+  answer={2}
+  explanation="Inside the accelerating frame the bob is in equilibrium, so the three forces, including the pseudo-force opposite the acceleration, must cancel."
+/>

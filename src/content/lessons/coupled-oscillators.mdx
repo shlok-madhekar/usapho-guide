@@ -1,0 +1,82 @@
+## Two oscillators that talk to each other
+
+A single mass on a spring has one frequency and every motion is a sine wave at
+that frequency. Couple two masses and the motion stops looking periodic:
+energy sloshes from one mass to the other and back, and neither trace is a
+clean sine.
+
+Take two equal masses $m$ on a line, each tied to a wall by a spring of
+constant $k$, with a third spring of constant $k_c$ between them. Let $x_1$
+and $x_2$ be displacements from equilibrium. The middle spring is stretched by
+$x_2 - x_1$, so
+
+$$m\ddot x_1 = -kx_1 + k_c(x_2 - x_1)$$
+$$m\ddot x_2 = -kx_2 - k_c(x_2 - x_1)$$
+
+Neither equation can be solved alone; each contains the other's coordinate.
+That coupling is the whole difficulty, and the whole trick is to find
+combinations of $x_1$ and $x_2$ that uncouple.
+
+## Normal modes
+
+A **normal mode** is a motion in which every part of the system oscillates at
+the same frequency with a fixed ratio of amplitudes. The shape does not
+change, only its overall size. For symmetric systems you can usually guess the
+modes from the symmetry.
+
+**Symmetric mode.** Both masses move together, $x_1 = x_2$. Then
+$x_2 - x_1 = 0$, the middle spring is never stretched, and it contributes
+nothing. Each mass sees only its wall spring:
+
+$$\omega_s = \sqrt{\frac{k}{m}}$$
+
+**Antisymmetric mode.** The masses move oppositely, $x_2 = -x_1$. The middle
+spring stretches by $2x_1$, so mass one feels $-kx_1 - 2k_c x_1$:
+
+$$\omega_a = \sqrt{\frac{k + 2k_c}{m}}$$
+
+The antisymmetric mode is always the faster one, because that is the mode that
+deforms the coupling spring. Stronger coupling pushes the two frequencies
+further apart and leaves the symmetric one untouched.
+
+Add the two equations of motion and the coupling cancels, giving an equation
+for $x_1 + x_2$ alone; subtract them and you get one for $x_1 - x_2$. Those
+sums and differences are the **normal coordinates**, each a plain simple
+harmonic oscillator. Guessing by symmetry and doing the algebra give the same
+answer.
+
+## Any motion is a superposition
+
+The equations are linear, so the general solution is a sum of the two modes:
+
+$$x_1(t) = A\cos(\omega_s t + \phi_s) + B\cos(\omega_a t + \phi_a)$$
+$$x_2(t) = A\cos(\omega_s t + \phi_s) - B\cos(\omega_a t + \phi_a)$$
+
+Four constants for four initial conditions. This is why the energy transfer is
+not mysterious. Hold mass two fixed, pull mass one aside, release both: that
+initial condition needs equal amounts of each mode, $A = B$. The two modes
+drift out of phase, and when they are fully opposed the first mass sits still
+while the second carries all the amplitude. The beat period is set by
+$\omega_a - \omega_s$, so weak coupling means slow, complete energy exchange.
+
+<Aside label="Worth remembering">
+  Count first. A system of $N$ masses moving in one dimension has $N$ degrees
+  of freedom and therefore exactly $N$ normal modes. If your symmetry argument
+  has produced fewer than that, you have missed one, often a zero-frequency
+  mode in which the whole system translates without deforming any spring.
+</Aside>
+
+<Aside label="Where this goes wrong" warn>
+  The symmetric and antisymmetric guesses only work when the system genuinely
+  has that symmetry: equal masses and a mirror-symmetric spring arrangement.
+  Make the masses unequal and the modes are still real but the amplitude ratio
+  is no longer plus or minus one, and you must solve the determinant condition
+  rather than guess. Check the symmetry before you use the shortcut.
+</Aside>
+
+<QuickCheck
+  question="Two equal masses are joined to walls by identical springs and to each other by a coupling spring. Why is the in-phase mode frequency independent of the coupling spring?"
+  options={["The coupling spring is assumed massless", "Both masses move identically, so the coupling spring never changes length", "The coupling force cancels against the wall springs", "The in-phase mode has zero frequency"]}
+  answer={1}
+  explanation="In the symmetric mode the two displacements are equal at every instant, so the separation between the masses never changes and the middle spring is never stretched or compressed. It exerts no force, and each mass behaves as if only its wall spring were present."
+/>

@@ -1,0 +1,58 @@
+## Three quantities, one equation
+
+Mechanics gave you one conserved thing to track. Thermodynamics adds a second
+channel for energy to enter a system — disordered transfer driven by a
+temperature difference — and calls it heat. Work is the ordered channel: a
+piston moving against pressure. Internal energy $U$ is what the system has
+stored once both channels are accounted for.
+
+$$\Delta U = Q - W$$
+
+The important word is *state*. $U$ is a property of the gas: give its
+temperature, volume and amount, and $U$ is fixed. $Q$ and $W$ are not
+properties of anything. They describe a process, and two different processes
+connecting the same two states will generally split the same $\Delta U$ into
+different amounts of heat and work.
+
+## The sign convention
+
+$W$ here is work done *by* the gas on its surroundings. Gas expands, $W > 0$,
+and the gas loses energy unless heat makes it up. $Q$ is heat added *to* the
+gas. Both conventions point outward from the system's point of view, which is
+why the signs in $\Delta U = Q - W$ are opposite.
+
+Chemistry texts often write $\Delta U = Q + W$ with $W$ meaning work done *on*
+the gas. Both are correct; mixing them mid-problem is not.
+
+<Aside label="Where this goes wrong" warn>
+  A gas is compressed and its temperature rises, and the answer comes out with
+  the wrong sign. Compression means $dV < 0$, so $W = \int P\,dV$ is negative,
+  and $-W$ in the first law is a positive contribution to $U$. Check the sign
+  of $\Delta V$ before you evaluate the integral, not after.
+</Aside>
+
+## Why $U$ depends only on $T$
+
+In an ideal gas the molecules do not interact except during collisions, so
+there is no potential energy stored in their separation. All the internal
+energy is kinetic energy of the molecules, and that is set by temperature
+alone. Pull the walls apart and the molecules spread out without changing
+speed: volume drops out.
+
+$$U = U(T) \quad \Longrightarrow \quad \Delta U = nC_V\,\Delta T$$
+
+That second form holds for *any* ideal gas process, not just constant volume.
+$C_V$ earns its subscript from how it is measured, not from where it applies.
+This is what makes the first law tractable: compute $\Delta T$, get $\Delta U$
+immediately, and let the process details decide how $Q$ and $W$ divide it up.
+
+A free expansion into vacuum makes the point sharply. No work is done — there
+is nothing to push against — and no heat enters, so $\Delta U = 0$ and the
+temperature is unchanged, even though the volume doubled.
+
+<QuickCheck
+  question="An ideal gas is taken from state A to state B along two different paths. Which quantity is the same for both?"
+  options={["The heat absorbed", "The work done", "The change in internal energy", "The ratio of heat to work"]}
+  answer={2}
+  explanation="Internal energy is a state function, so its change depends only on the endpoints. Heat and work each depend on the path taken, and only their difference is fixed."
+/>

@@ -1,0 +1,67 @@
+## A nucleus weighs less than its parts
+
+Weigh a helium-4 nucleus and compare it with two free protons plus two free
+neutrons. The nucleus is lighter, by about 0.5% — a real, measurable
+discrepancy called the **mass defect**:
+
+$$\Delta m = Zm_p + (A - Z)m_n - m_{nucleus}$$
+
+The missing mass left as energy when the nucleus formed. Equivalently, that
+much energy must be supplied to pull it apart again, which is what "binding
+energy" means:
+
+$$E_B = \Delta m\, c^2$$
+
+Work in atomic mass units and the conversion is $1\ \text{u} = 931.5$ MeV/$c^2$,
+which turns this into arithmetic. Helium-4 comes out at 28.3 MeV.
+
+<Aside label="Where this goes wrong" warn>
+  Binding energy is not stored in the nucleus like a charged battery. It is
+  energy already released. A more tightly bound nucleus has *less* mass and
+  *more* binding energy, which is why the sign confuses people. If in doubt,
+  ask which side of the reaction is lighter — that side is more stable.
+</Aside>
+
+## The curve
+
+Total binding energy grows with $A$ simply because there are more nucleons, so
+it says little about stability. Divide by $A$ instead and the useful quantity
+appears: binding energy per nucleon, in MeV.
+
+That curve rises steeply from hydrogen, passes 7 MeV around carbon, peaks near
+8.8 MeV at iron-56 and nickel-62, then declines slowly to about 7.6 MeV at
+uranium.
+
+Two competing effects shape it. The strong force is short-ranged, so each
+nucleon binds only to its neighbours — that saturates quickly and explains the
+early rise and the flat top. Coulomb repulsion is long-ranged, so every proton
+pushes on every other, and that term grows as $Z^2$ and drags the heavy end
+down.
+
+## Both directions release energy
+
+Energy comes out of any reaction that moves nucleons toward the peak.
+
+**Fission** splits a heavy nucleus into two mid-sized fragments, climbing from
+7.6 to roughly 8.5 MeV per nucleon. With 236 nucleons involved that is about
+200 MeV per event, mostly as kinetic energy of the fragments.
+
+**Fusion** joins light nuclei, climbing much more steeply — deuterium plus
+tritium to helium-4 releases 17.6 MeV from just five nucleons. Per nucleon,
+fusion wins by a wide margin, which is why stars run on it.
+
+Neither contradicts the other. Both are downhill on the same curve, approached
+from opposite sides, and nothing releases energy by fusing past iron. That is
+also why iron is the endpoint of stellar burning and why heavier elements
+require a supernova to make.
+
+For any reaction, compute $Q = (m_{initial} - m_{final})c^2$. Positive $Q$
+means energy released and the reaction can proceed spontaneously as far as
+energy is concerned; negative $Q$ means the energy must be supplied.
+
+<QuickCheck
+  question="Fusing two nuclei heavier than iron would:"
+  options={["Release energy, as all fusion does", "Absorb energy, because binding energy per nucleon would decrease", "Release energy only if the product is stable", "Leave the total energy unchanged"]}
+  answer={1}
+  explanation="Iron sits at the peak of the binding-energy-per-nucleon curve, so any product heavier than iron is less tightly bound per nucleon and the reaction costs energy."
+/>

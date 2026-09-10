@@ -1,0 +1,66 @@
+## Momentum is what force changes over time
+
+Newton's second law is more honestly written as a statement about momentum:
+
+$$\vec F_{\text{net}} = \frac{d\vec p}{dt}, \qquad \vec p = m\vec v$$
+
+The familiar $F = ma$ is the special case where the mass is constant. Keep the
+momentum form and rockets, falling chains, and conveyor belts loading sand all
+stay in reach.
+
+Momentum is a vector, so it has one equation per axis. Its units,
+$\text{kg}\cdot\text{m/s}$, are the same as those of impulse — no coincidence.
+
+## Impulse is the time integral of force
+
+Multiply through by $dt$ and integrate:
+
+$$\vec J = \int \vec F\, dt = \Delta \vec p$$
+
+That is the impulse-momentum theorem, and it is the time-domain twin of the
+work-energy theorem. Where the work-energy theorem integrates force over
+distance and gives a scalar change in $K$, this integrates force over time and
+gives a vector change in $\vec p$. Problems that mention a duration, a contact
+time, or an average force during an impact belong to this one.
+
+On a graph of force versus time, the impulse is the **area under the curve**.
+Real collision forces spike into a sharp hump lasting milliseconds; you rarely
+know the shape, but the area is what you need, and an average force defined by
+$\bar F \Delta t = \Delta p$ captures it exactly.
+
+## Stretch the time and the force drops
+
+For a fixed change in momentum, $\bar F$ and $\Delta t$ trade off inversely:
+
+$$\bar F = \frac{\Delta p}{\Delta t}$$
+
+A car crash brings you from $30\text{ m/s}$ to rest whether or not the car has a
+crumple zone. What the crumple zone changes is the time. Stopping in
+$0.01\text{ s}$ against a rigid dashboard means a hundred times the force of
+stopping in $1\text{ s}$ against an inflating airbag. The same logic covers
+bending your knees on landing, catching an egg by drawing your hand back, and
+padding on a gymnastics floor. None of them reduce the momentum you must shed;
+all of them lengthen the shedding.
+
+<Aside label="Worth remembering">
+  Impulse is a vector, and a reversal counts double. A ball hitting a wall at
+  $5\text{ m/s}$ and rebounding at $5\text{ m/s}$ has $|\Delta p| = 2mv$, not
+  zero and not $mv$. Choose a positive direction and write signed components
+  before doing any arithmetic.
+</Aside>
+
+<QuickCheck
+  question="Two identical balls hit a wall at the same speed. One sticks, the other bounces back at the same speed. Which delivers the larger impulse to the wall?"
+  options={["The one that bounces", "The one that sticks", "They deliver equal impulses", "It depends on the contact time"]}
+  answer={0}
+  explanation="The sticking ball changes its momentum by mv; the bouncing ball changes it by 2mv because the velocity reverses. By Newton's third law the wall receives an equal and opposite impulse in each case, so the bouncing ball delivers twice as much."
+/>
+
+## Why momentum survives collisions
+
+Internal forces between two colliding bodies are equal and opposite at every
+instant, so they contribute equal and opposite impulses and cancel from the
+total. Only external forces can change a system's momentum. During a short
+impact, gravity and friction have almost no time to act, which is why total
+momentum is conserved through a collision even when the system is not truly
+isolated.

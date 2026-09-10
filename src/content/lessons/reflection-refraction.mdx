@@ -1,0 +1,56 @@
+## Bending at a boundary
+
+The index of refraction is a ratio of speeds: $n = c/v$. Light in glass with
+$n = 1.5$ travels at two thirds of $c$.
+
+When a wavefront crosses a boundary at an angle, one edge enters the slow
+medium before the other and falls behind, pivoting the front. Frequency is
+fixed by the source and cannot change at a boundary, so it is the wavelength
+that shrinks: $\lambda_n = \lambda_0 / n$. Matching the wavefronts along the
+surface gives
+
+$$n_1\sin\theta_1 = n_2\sin\theta_2$$
+
+with angles measured from the normal, never from the surface. Reflection obeys
+the simpler $\theta_i = \theta_r$.
+
+## Total internal reflection
+
+Going from dense to rare, $n_1 > n_2$, Snell's law demands
+$\sin\theta_2 = (n_1/n_2)\sin\theta_1 > \sin\theta_1$. The refracted ray bends
+away from the normal, and at some incidence it would need $\sin\theta_2 > 1$.
+There is no such angle, so nothing is transmitted. Everything reflects. The
+threshold is
+
+$$\sin\theta_c = \frac{n_2}{n_1}$$
+
+Glass to air gives about $42°$, which is why a prism can turn light through a
+right angle with no coating and why an optical fiber holds light in its core
+over kilometers. Note that TIR only exists in the dense-to-rare direction —
+there is no critical angle going into glass.
+
+## What an image is
+
+An image is a place where rays either meet or appear to have come from. Your
+eye cannot tell the difference; it reconstructs a source from the directions of
+arriving rays and reports whatever point they diverge from.
+
+Rays that physically converge form a real image, and a screen there shows it.
+Rays that only extrapolate backward to a point form a virtual image, and a
+screen there shows nothing. The reflection behind a flat mirror is virtual: the
+rays never went there. Refraction at a flat surface makes a pool look shallower
+by the factor $n$ for the same reason.
+
+<Aside label="Where this goes wrong" warn>
+  At a boundary light does not choose between reflecting and refracting — it
+  does both, in proportions that change with angle. Below the critical angle
+  there is always a partial reflection. Energy problems that assume all the
+  light transmits will be off, sometimes badly at grazing incidence.
+</Aside>
+
+<QuickCheck
+  question="Light passes from water into glass. What happens to its wavelength and frequency?"
+  options={["Both decrease", "Wavelength decreases, frequency unchanged", "Frequency decreases, wavelength unchanged", "Both unchanged"]}
+  answer={1}
+  explanation="Frequency is set by the source and is continuous across a boundary, so the slower speed in glass shows up entirely as a shorter wavelength."
+/>

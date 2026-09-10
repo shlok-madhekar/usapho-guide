@@ -1,0 +1,71 @@
+## Make the graph a straight line
+
+A straight line is the only shape the eye judges reliably. You can see an
+outlier on a line, and you can see curvature that should not be there. So the
+first move with any dataset is to plot it in whatever variables make the
+expected relation linear.
+
+A pendulum's period obeys $T = 2\pi\sqrt{L/g}$. Plotting $T$ against $L$ gives
+a curve that many different laws could fit. Plot $T^2$ against $L$ instead and
+the prediction becomes a line through the origin with slope $4\pi^2/g$ — so
+the slope measures $g$, and the fact that the intercept comes out near zero is
+a check that the model is right.
+
+The general move: rearrange the expected relation into the form
+$y = mx + b$, where $x$ and $y$ are things you can compute from the data.
+Then the slope and intercept carry the physics.
+
+For a power law $y = Ax^n$ with $n$ unknown, take logarithms:
+
+$$\ln y = \ln A + n \ln x$$
+
+A log-log plot is a straight line whose slope is the exponent and whose
+intercept is $\ln A$. For exponentials $y = A e^{-t/\tau}$, plot $\ln y$
+against $t$: the slope is $-1/\tau$. Deciding which of the two to use is
+itself a result — a power law is straight on log-log, an exponential on
+semi-log.
+
+<Aside label="Worth remembering">
+  Always ask what the slope and the intercept mean physically before you fit.
+  A nonzero intercept where theory predicts zero is not noise to be ignored;
+  it usually points at a systematic effect, like a timer offset or an unmeasured
+  extra length.
+</Aside>
+
+## Uncertainty
+
+Every measurement has a spread. Random error scatters points on both sides of
+the true line and shrinks as $1/\sqrt{N}$ when you average $N$ repeats.
+Systematic error shifts every point the same way and does not shrink with
+repetition — more data will never fix a miscalibrated ruler.
+
+When quantities combine, so do their uncertainties. For products and
+quotients, relative uncertainties add in quadrature:
+
+$$\frac{\delta z}{z} = \sqrt{\left(\frac{\delta x}{x}\right)^2 + \left(\frac{\delta y}{y}\right)^2}$$
+
+For sums and differences, the absolute uncertainties add in quadrature
+instead. And a power multiplies the relative uncertainty by the exponent: if
+$z = x^3$, then $\delta z/z = 3\,\delta x/x$.
+
+That last rule tells you where to spend effort. In $g = 4\pi^2 L/T^2$, an
+error in $T$ counts double. Measure the period carefully — time twenty swings
+and divide — before worrying about the ruler.
+
+Quote results as value plus uncertainty, with the uncertainty to one
+significant figure and the value rounded to match: $9.7 \pm 0.2\ \text{m/s}^2$,
+never $9.6873 \pm 0.2$.
+
+<Aside label="Where this goes wrong" warn>
+  Forcing a fit through the origin because theory says the intercept is zero
+  hides exactly the information you want. Fit both parameters, then check
+  whether the intercept is consistent with zero given its own uncertainty. If
+  it is not, the model is missing something, and that is the finding.
+</Aside>
+
+<QuickCheck
+  question="Measurements of a decaying quantity fall on a straight line when the natural log of the quantity is plotted against time. What does this show?"
+  options={["The decay is linear in time", "The decay is exponential, and the slope gives the negative reciprocal of the time constant", "The decay is a power law with exponent equal to the slope", "Nothing, since any data can be made linear"]}
+  answer={1}
+  explanation="Taking the log of an exponential gives a linear function of time whose slope is minus one over the time constant. A power law would instead straighten on a log-log plot, not a semi-log one."
+/>

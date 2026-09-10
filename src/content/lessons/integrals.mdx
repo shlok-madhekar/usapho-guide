@@ -1,0 +1,69 @@
+## Adding up little pieces
+
+Over a stretch of time so short that the velocity cannot change, the
+displacement is just $v\,\Delta t$. Chop a whole journey into such slivers,
+add them, and shrink the slivers to zero width. That sum is the integral.
+
+$$x(t) = x_0 + \int_0^t v(t')\,dt'$$
+
+Because each term is a height times a width, the integral of $v(t)$ is the
+area under the velocity-time graph. Area below the axis counts as negative,
+which is what makes the result a displacement rather than a distance.
+
+Integration undoes differentiation, so it runs the chain of kinematics
+backwards: from $a$ to $v$ to $x$. Starting from constant $a$,
+
+$$v = v_0 + \int_0^t a\,dt' = v_0 + at, \qquad x = x_0 + \int_0^t (v_0 + at')\,dt' = x_0 + v_0 t + \tfrac{1}{2}at^2$$
+
+Each integration introduces one unknown constant, fixed by an initial
+condition. Two integrations, two conditions: you need both the starting
+position and the starting velocity to predict a trajectory. That is why
+Newton's second law needs initial data before it predicts anything.
+
+## The rules worth knowing
+
+$$\int t^n dt = \frac{t^{n+1}}{n+1}\ (n \neq -1), \qquad \int \frac{dt}{t} = \ln|t|, \qquad \int e^{kt} dt = \frac{e^{kt}}{k}$$
+
+Two techniques cover most of what mechanics asks for. Substitution is the
+chain rule read backwards: set $u = g(t)$ and replace $g'(t)\,dt$ with $du$.
+Integration by parts, $\int f g' = fg - \int f' g$, handles products like
+$\int t e^{-t}dt$.
+
+<Aside label="Worth remembering">
+  When the integrand is a function of position rather than time, change the
+  variable of integration. The identity $a = \dfrac{dv}{dt} = v\dfrac{dv}{dx}$
+  turns a time integral into a position integral, and integrating
+  $\int v\,dv = \int a\,dx$ gives $\tfrac{1}{2}v^2 - \tfrac{1}{2}v_0^2 = \int a\,dx$
+  — the work-energy theorem, derived in one line.
+</Aside>
+
+## Work, and why integrals appear everywhere
+
+A constant force over a displacement does work $Fd$. A varying force does the
+same thing sliver by sliver:
+
+$$W = \int_{x_1}^{x_2} F(x)\,dx$$
+
+For a spring, $F = -kx$, so stretching from 0 to $x$ costs
+$\int_0^x kx'\,dx' = \tfrac{1}{2}kx^2$. That is where the spring potential
+energy formula comes from — not a memorized constant, but an area under a
+straight line.
+
+The same pattern recurs constantly: impulse is $\int F\,dt$, charge is
+$\int I\,dt$, the mass of a non-uniform rod is $\int \lambda\,dx$. Whenever a
+quantity is a product but one factor varies, the answer is an integral.
+
+<Aside label="Where this goes wrong" warn>
+  Do not integrate a formula outside the region where it holds. Splitting the
+  domain is usually the fix: for a rope hanging partly off a table, the force
+  law changes at the table edge, so integrate the two stretches separately and
+  add. Blindly applying one expression across the whole range is the most
+  common source of a wrong factor.
+</Aside>
+
+<QuickCheck
+  question="A velocity-time graph is a triangle rising from 0 to 10 m/s over 4 s. What is the displacement?"
+  options={["10 m", "20 m", "40 m", "Not determined without the acceleration"]}
+  answer={1}
+  explanation="Displacement is the area under the velocity-time curve, and the area of that triangle is one half times 4 s times 10 m/s, or 20 m."
+/>

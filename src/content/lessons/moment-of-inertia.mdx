@@ -1,0 +1,58 @@
+## Where the mass sits
+
+Spin a hammer about its handle and it turns easily. Spin the same hammer about
+its head end and it resists. Nothing about the mass changed — only its distance
+from the axis.
+
+Moment of inertia captures that. For a collection of point masses,
+
+$$I = \sum m_i r_i^2$$
+
+and for a continuous body, $I = \int r^2\,dm$. The $r^2$ is the whole story:
+mass twice as far out contributes four times as much. This is why a flywheel
+puts its material in the rim and why tightrope walkers carry a long pole.
+
+Note that $r$ is the distance from the *axis*, measured perpendicular to it,
+not the distance from the center of the body. Change the axis and $I$ changes.
+
+## The shapes worth knowing
+
+All about the axis of symmetry through the center of mass:
+
+$$I_{\text{hoop}} = mr^2, \qquad I_{\text{disk}} = \tfrac12 mr^2$$
+
+$$I_{\text{solid sphere}} = \tfrac25 mr^2, \qquad I_{\text{shell}} = \tfrac23 mr^2$$
+
+$$I_{\text{rod, center}} = \tfrac{1}{12}mL^2$$
+
+A useful sanity check: the coefficient rises as mass moves outward. Solid
+sphere $0.4$, hollow sphere $0.67$, disk $0.5$, hoop $1$ — every one of them
+between $0$ and $1$, because no mass can be farther than $r$ from the axis.
+
+Moments of inertia about the same axis add. A disk with a rod stuck through it
+has $I = \tfrac12 m_d r^2 + \tfrac{1}{12}m_r L^2$. Drilling a hole out is the
+same rule with a minus sign: compute the full body and subtract the removed
+piece.
+
+## Shifting the axis
+
+To get $I$ about an axis parallel to one through the center of mass and a
+distance $d$ away:
+
+$$I = I_{cm} + md^2$$
+
+A rod about its end: $\tfrac{1}{12}mL^2 + m(L/2)^2 = \tfrac13 mL^2$. That single
+theorem replaces most of the table you would otherwise memorize.
+
+<Aside label="Where this goes wrong" warn>
+  The parallel axis theorem only works starting from the center of mass. Going
+  from a rod's end to a point a quarter along it by adding $md^2$ is wrong —
+  return to the center of mass first, then step out to the new axis.
+</Aside>
+
+<QuickCheck
+  question="Two disks have equal mass, but one has twice the radius. How do their moments of inertia compare?"
+  options={["Equal", "The larger is twice as big", "The larger is four times as big", "The larger is half as big"]}
+  answer={2}
+  explanation="I is one half m r squared, and r is squared, so doubling the radius at fixed mass multiplies I by four."
+/>

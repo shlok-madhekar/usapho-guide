@@ -1,0 +1,71 @@
+## An answer without an uncertainty is not a measurement
+
+Every measured number carries a range. The job of data analysis is to carry
+that range through the algebra so the final result has one too, and to arrange
+the algebra so a straight line does the work.
+
+Two rules cover almost every propagation you will need. For a sum or
+difference, absolute uncertainties add in quadrature:
+
+$$Q = a \pm b \quad \Rightarrow \quad \delta Q = \sqrt{(\delta a)^2 + (\delta b)^2}$$
+
+For a product, quotient, or power, *relative* uncertainties add in quadrature,
+with the exponent as a multiplier:
+
+$$Q = a^m b^n \quad \Rightarrow \quad \frac{\delta Q}{Q} = \sqrt{\left(m\,\frac{\delta a}{a}\right)^2 + \left(n\,\frac{\delta b}{b}\right)^2}$$
+
+The quadrature is there because independent errors do not conspire; they
+partly cancel. Add them linearly only if the two inputs share a common
+systematic source.
+
+The exponent matters more than people expect. Measuring $g$ from a pendulum
+uses $g = 4\pi^2 L / T^2$, so a 1% error in $T$ becomes a 2% error in $g$,
+while a 1% error in $L$ stays 1%. Time many periods at once and divide.
+
+## Linearize before you fit
+
+A graph is only useful if you expect a straight line, because the eye and the
+least-squares fit are both good at lines and bad at curves. So transform until
+the model is linear.
+
+For a power law $y = Ax^n$, take logs: $\ln y = \ln A + n \ln x$. Plot
+$\ln y$ against $\ln x$ and the slope is the exponent $n$, the intercept is
+$\ln A$.
+
+For an exponential decay $N = N_0 e^{-t/\tau}$, take logs of $N$ only:
+$\ln N = \ln N_0 - t/\tau$. Plot $\ln N$ against $t$ and the slope is
+$-1/\tau$.
+
+Sometimes no logs are needed, just a smarter choice of axes. For a pendulum,
+plotting $T^2$ against $L$ gives a line of slope $4\pi^2/g$ through the
+origin, which also lets you check the origin as a diagnostic: a nonzero
+intercept is evidence of a systematic offset.
+
+## Reading a slope and its uncertainty
+
+Draw the best-fit line by eye through the error bars, then draw the steepest
+and shallowest lines that still pass through essentially all of them. Half the
+difference of those two slopes is a defensible uncertainty:
+
+$$\delta m \approx \frac{m_{\max} - m_{\min}}{2}$$
+
+Then propagate. If the slope is $4\pi^2/g$, then $g = 4\pi^2/m$ and
+$\delta g / g = \delta m / m$. Quote the result with one or at most two
+significant figures in the uncertainty, and round the value to match:
+$g = 9.75 \pm 0.14~\text{m/s}^2$, never $9.7482 \pm 0.1413$.
+
+<Aside label="Where this goes wrong" warn>
+  Propagating relative uncertainty through a *difference* of two close numbers
+  is the classic disaster. If $a = 10.0 \pm 0.1$ and $b = 9.8 \pm 0.1$, then
+  $a - b = 0.2 \pm 0.14$, a 70% uncertainty out of two 1% measurements. When a
+  problem hands you a subtraction of near-equal quantities, that is usually the
+  point of the problem: find an experimental design that measures the small
+  difference directly.
+</Aside>
+
+<QuickCheck
+  question="Data is expected to follow a power law in x. Which plot makes the exponent readable as a slope?"
+  options={["y against x", "y against log x", "log y against log x", "log y against x"]}
+  answer={2}
+  explanation="Taking the log of both sides of a power law gives log y equal to the exponent times log x plus a constant. So a log-log plot is a straight line whose slope is the exponent. Log y against x is the right choice for an exponential instead."
+/>

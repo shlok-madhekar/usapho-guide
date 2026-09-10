@@ -1,0 +1,62 @@
+## Energy that does not vanish at rest
+
+In mechanics a stationary object has no kinetic energy and that is the end of
+it. Relativity says a stationary object still has energy, proportional to its
+mass, and that this rest energy is the floor everything else sits on.
+
+$$E = \gamma mc^2, \qquad E_0 = mc^2, \qquad K = (\gamma - 1)mc^2$$
+
+Kinetic energy is total energy minus rest energy — nothing more exotic than
+that. Expand $\gamma$ for small $v$ and $K$ collapses to $\tfrac{1}{2}mv^2$, as
+it must.
+
+Momentum picks up the same factor:
+
+$$p = \gamma m v$$
+
+Written this way, momentum has no ceiling even though $v$ does. Push a particle
+forever and $v \to c$ while $p \to \infty$. That is why accelerators are rated
+in energy, not speed: past a few MeV the speed stops being interesting.
+
+## The invariant
+
+Combining the two definitions eliminates $\gamma$ and $v$ entirely:
+
+$$E^2 = (pc)^2 + (mc^2)^2$$
+
+Every observer computes a different $E$ and a different $p$, but the
+combination $E^2 - (pc)^2$ comes out the same for all of them. It equals
+$(mc^2)^2$, and mass is frame-independent. Treat this as a right triangle with
+legs $pc$ and $mc^2$ and hypotenuse $E$; the whole subject fits in that picture.
+
+Set $m = 0$ and the triangle degenerates:
+
+$$E = pc$$
+
+A photon has momentum despite having no mass. It cannot be slowed, only
+absorbed or redshifted, and $p = E/c = h/\lambda$ is what lets light push on a
+solar sail.
+
+<Aside label="Where this goes wrong" warn>
+  Do not write $K = \tfrac{1}{2}\gamma m v^2$ or define a velocity-dependent
+  "relativistic mass." Both give wrong answers in collisions. Mass is a fixed
+  property; the $\gamma$ belongs to energy and momentum, not to $m$.
+</Aside>
+
+## Using it
+
+In a collision or decay, conserve total $E$ and total $\vec{p}$ separately —
+they are conserved even when kinetic energy is not, and even when particle
+count changes. Mass is not conserved: a pion at rest decaying into two photons
+turns $mc^2$ entirely into photon energy.
+
+Work in units of eV and eV/c and the arithmetic gets short. An electron's rest
+energy is 0.511 MeV, a proton's 938 MeV. A 1 MeV electron is therefore mostly
+kinetic and comfortably relativistic; a 1 MeV proton is barely moving.
+
+<QuickCheck
+  question="A particle's total energy is exactly twice its rest energy. Its momentum is:"
+  options={["Zero", "mc", "Square root of 3 times mc", "2mc"]}
+  answer={2}
+  explanation="With E = 2mc squared, the invariant gives (pc) squared = 4(mc squared) squared minus (mc squared) squared = 3(mc squared) squared, so p = root-3 mc."
+/>

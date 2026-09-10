@@ -1,0 +1,57 @@
+## Two slits
+
+Two narrow slits a distance $d$ apart, lit coherently, act as two sources. For
+a screen far away the rays to a given point are effectively parallel, and the
+path difference is the leg of a small right triangle, $d\sin\theta$. Bright
+fringes appear where that is a whole number of wavelengths:
+
+$$d\sin\theta = m\lambda$$
+
+For small angles $\sin\theta \approx y/L$, so fringes are evenly spaced by
+$\lambda L / d$. Narrower slit spacing spreads the pattern out. Notice that
+this measures $\lambda$ with a ruler — the fringe spacing is a macroscopic
+stand-in for a wavelength you cannot see.
+
+## Many slits
+
+A grating with thousands of slits obeys the same condition $d\sin\theta =
+m\lambda$, because a maximum still requires adjacent slits to agree. What
+changes is sharpness. With two slits, going slightly off a maximum costs only a
+small phase error. With $N$ slits, that same small error accumulates across the
+array, and the contributions curl around and cancel completely once the total
+spread reaches $2\pi$. The maxima narrow as $1/N$ while staying in place.
+
+Sharp maxima are what makes a grating a measuring instrument: resolving power
+grows with $N$, so a grating separates two nearby wavelengths that a double
+slit smears together.
+
+## A formula that means the opposite
+
+A single slit of width $a$ gives
+
+$$a\sin\theta = m\lambda, \qquad m = 1, 2, 3, \ldots$$
+
+Identical in form, but these are the dark fringes. The reasoning differs. Treat
+the slit as a continuum of sources and pair each point in the top half with the
+point a distance $a/2$ below it. When $a\sin\theta = \lambda$, every such pair
+is exactly out of phase, so the whole slit cancels. That argument produces
+zeros, never maxima, and $m = 0$ is excluded because it would pair every point
+with itself.
+
+The real double-slit pattern is the interference fringes multiplied by this
+single-slit envelope. When an envelope zero lands on an interference maximum,
+that fringe is missing.
+
+<Aside label="Where this goes wrong" warn>
+  Writing $d\sin\theta = m\lambda$ for a single slit and calling the result a
+  bright fringe is the most common error in this topic. Check which length you
+  are using: $d$ is a separation between slits and gives maxima; $a$ is the
+  width of one slit and gives minima.
+</Aside>
+
+<QuickCheck
+  question="Widening a single slit does what to the central bright region?"
+  options={["Narrows it", "Widens it", "Leaves it unchanged", "Splits it in two"]}
+  answer={0}
+  explanation="The first minimum sits at sin θ = λ/a, so a larger a pushes it to a smaller angle and the pattern contracts."
+/>

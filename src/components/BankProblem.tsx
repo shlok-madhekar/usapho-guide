@@ -8,7 +8,7 @@ import {
   DIFFICULTY_VAR,
   ORIGIN_LABEL,
   isSolvable,
-} from "@/lib/problems";
+} from "@/lib/problem-types";
 
 /**
  * Accepts the ways people actually write numbers: 3.75e10, 3.75E10,
@@ -71,7 +71,10 @@ export default function BankProblem({
   const check = () => {
     const val = parseAnswer(input);
     if (val === null || p.answer === null) return;
-    const ok = Math.abs(val - p.answer) <= Math.abs(p.answer) * 0.02;
+    // 2% relative, with an absolute floor so answers of exactly zero are not
+    // judged against a zero-width window
+    const tolerance = Math.max(Math.abs(p.answer) * 0.02, 1e-9);
+    const ok = Math.abs(val - p.answer) <= tolerance;
     setVerdict(ok ? "right" : "wrong");
     if (ok && !solved) setProblem(p.id, "solved");
   };

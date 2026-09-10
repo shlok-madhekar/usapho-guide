@@ -4,7 +4,7 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import { DIVISIONS, allModules } from "@/lib/curriculum";
 import { MODULE_STATUS_META, ModuleStatus, useProgress } from "@/lib/progress";
-import { PROBLEMS, isSolvable } from "@/lib/problems";
+import { TOTAL_PROBLEMS, TOTAL_SOLVABLE } from "@/lib/problem-counts";
 import { useAuth } from "@/lib/auth";
 
 const STATUSES: ModuleStatus[] = ["reading", "practicing", "complete", "skipped"];
@@ -14,12 +14,10 @@ export default function ProgressPage() {
   const { configured, session } = useAuth();
   const mods = allModules();
 
-  const solved = PROBLEMS.filter((p) => {
-    const s = problems[p.id];
-    return s === "solved" || s === "reviewed";
-  }).length;
+  const solved = Object.values(problems).filter(
+    (s) => s === "solved" || s === "reviewed"
+  ).length;
   const complete = mods.filter((m) => modules[m.module.slug] === "complete").length;
-  const solvable = PROBLEMS.filter(isSolvable).length;
 
   return (
     <>
@@ -54,8 +52,8 @@ export default function ProgressPage() {
           <>
             <dl className="mt-8 grid grid-cols-2 gap-y-6 border-y border-[var(--rule)] py-6 sm:grid-cols-3">
               <Stat label="Modules complete" value={`${complete}`} of={`${mods.length}`} />
-              <Stat label="Problems solved" value={`${solved}`} of={`${PROBLEMS.length}`} />
-              <Stat label="Solvable on site" value={`${solvable}`} of={`${PROBLEMS.length}`} />
+              <Stat label="Problems solved" value={`${solved}`} of={`${TOTAL_PROBLEMS}`} />
+              <Stat label="Solvable on site" value={`${TOTAL_SOLVABLE}`} of={`${TOTAL_PROBLEMS}`} />
             </dl>
 
             <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1">

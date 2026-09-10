@@ -10,8 +10,8 @@ import { useAuth } from "@/lib/auth";
 import { useGitHub } from "@/lib/github-auth";
 import { canEditCurriculum } from "@/lib/roles";
 import type { Difficulty, Division, Module, Section } from "@/lib/curriculum";
-import type { BankProblem as Problem, Origin } from "@/lib/problems";
-import { DIFFICULTY_ORDER } from "@/lib/problems";
+import type { BankProblem as Problem, Origin } from "@/lib/problem-types";
+import { DIFFICULTY_ORDER } from "@/lib/problem-types";
 import { NEW_SIM, paramValues, type SimDef, type SimParam } from "@/lib/sims";
 
 type Tab = "lessons" | "problems" | "sims" | "courses";

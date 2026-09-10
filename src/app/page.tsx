@@ -1,11 +1,10 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import { DIVISIONS, allModules } from "@/lib/curriculum";
-import { PROBLEMS, isSolvable } from "@/lib/problems";
+import { TOTAL_SOLVABLE } from "@/lib/problem-counts";
 
 export default function Home() {
   const modules = allModules();
-  const solvable = PROBLEMS.filter(isSolvable).length;
   const withLessons = modules.filter((m) => m.module.hasContent).length;
   const units = DIVISIONS.reduce((n, d) => n + d.sections.length, 0);
 
@@ -30,7 +29,7 @@ export default function Home() {
           <p>
             The full path is {units} units and {modules.length} lessons, from
             your first vector to a complete free-response solution.{" "}
-            {withLessons} lessons are written so far and {solvable} problems can
+            {withLessons} lessons are written so far and {TOTAL_SOLVABLE} problems can
             be worked and checked right here. Problems taken from real exams are
             cited rather than copied, so you always know what you are looking at.
           </p>

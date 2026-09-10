@@ -17,6 +17,9 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BATCHES = ROOT / "src/content/problem-batches"
 PROBLEMS = ROOT / "src/content/problems.json"
+INDEX = ROOT / "src/content/problem-index.json"
+COUNTS = ROOT / "src/content/problem-counts.json"
+PUBLIC = ROOT / "public/problems.json"
 SEED = ROOT / "src/content/problem-seed.json"
 CURRICULUM = ROOT / "src/content/curriculum.json"
 
@@ -135,6 +138,36 @@ def main() -> int:
 
     PROBLEMS.write_text(json.dumps(merged, indent=2) + "\n")
 
+    # A metadata-only index and a counts map, so pages that just list or count
+    # problems never pull the statements and solutions into the bundle.
+    index = [
+        {
+            "id": p["id"],
+            "name": p["name"],
+            "module": p["module"],
+            "difficulty": p["difficulty"],
+            "tags": p["tags"],
+            "starred": p["starred"],
+            "origin": p["origin"],
+            "source": p["source"],
+            "solvable": bool(p["answer"] is not None and str(p["statement"]).strip()),
+        }
+        for p in merged
+    ]
+    INDEX.write_text(json.dumps(index, indent=2) + "\n")
+
+    counts: dict[str, dict[str, int]] = {}
+    for p in index:
+        c = counts.setdefault(p["module"], {"total": 0, "solvable": 0})
+        c["total"] += 1
+        if p["solvable"]:
+            c["solvable"] += 1
+    COUNTS.write_text(json.dumps(counts, indent=2, sort_keys=True) + "\n")
+
+    # served as a static file so the problem bank can fetch it on demand
+    PUBLIC.parent.mkdir(parents=True, exist_ok=True)
+    PUBLIC.write_text(json.dumps(merged))
+
     by_module: dict[str, int] = {}
     for problem in merged:
         by_module[problem["module"]] = by_module.get(problem["module"], 0) + 1
@@ -143,7 +176,12 @@ def main() -> int:
     size_mb = PROBLEMS.stat().st_size / 1_000_000
     print(
         f"\ntotal {len(merged)} problems across {len(by_module)} lessons"
-        f" | {covered}/{len(slugs)} lessons at 30+ | {size_mb:.2f} MB"
+        f" | {covered}/{len(slugs)} lessons at 30+"
+    )
+    print(
+        f"problems.json {size_mb:.2f} MB"
+        f" | index {INDEX.stat().st_size / 1000:.0f} kB"
+        f" | counts {COUNTS.stat().st_size / 1000:.0f} kB"
     )
     return 0
 

@@ -6,12 +6,12 @@ import Nav from "@/components/Nav";
 import { DIVISIONS } from "@/lib/curriculum";
 import { FreqMeter, StatusPicker } from "@/components/ModuleBits";
 import { useProgress } from "@/lib/progress";
-import { problemsForModule } from "@/lib/problems";
+import { countFor } from "@/lib/problem-counts";
 import { LESSONS } from "@/content/lessons";
 
 /** "12 of 30 problems" while a lesson's set is still being filled in. */
 function ProblemCount({ slug, target }: { slug: string; target?: number }) {
-  const have = problemsForModule(slug).length;
+  const have = countFor(slug).total;
   if (target && have < target)
     return (
       <span className="label">

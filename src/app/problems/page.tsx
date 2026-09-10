@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Nav from "@/components/Nav";
 import BankProblem from "@/components/BankProblem";
 import { DIVISIONS, allModules, Difficulty } from "@/lib/curriculum";
@@ -8,9 +8,9 @@ import {
   DIFFICULTY_ORDER,
   type BankProblem as BankProblemT,
   type Origin,
-  PROBLEMS,
   isSolvable,
-} from "@/lib/problems";
+} from "@/lib/problem-types";
+import { TOTAL_PROBLEMS, TOTAL_SOLVABLE } from "@/lib/problem-counts";
 import { useProgress } from "@/lib/progress";
 
 type Filter = "all" | "unsolved" | "solved" | "starred" | "solvable";
@@ -22,8 +22,32 @@ const ORIGIN_FILTERS: { key: Origin | "any"; label: string }[] = [
   { key: "textbook", label: "Textbooks" },
 ];
 
+/**
+ * The bank needs full statements and solutions, which is megabytes once every
+ * lesson is filled in. Fetching the static file keeps it out of the JavaScript
+ * bundle and lets the browser cache it between visits.
+ */
+function useAllProblems() {
+  const [problems, setProblems] = useState<BankProblemT[] | null>(null);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    let live = true;
+    fetch("/problems.json")
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("not found"))))
+      .then((data: BankProblemT[]) => live && setProblems(data))
+      .catch(() => live && setFailed(true));
+    return () => {
+      live = false;
+    };
+  }, []);
+
+  return { problems, failed };
+}
+
 export default function ProblemsPage() {
   const { problems: statuses } = useProgress();
+  const { problems: ALL, failed } = useAllProblems();
   const [query, setQuery] = useState("");
   const [division, setDivision] = useState<string>("any");
   const [difficulty, setDifficulty] = useState<Difficulty | "any">("any");
@@ -39,7 +63,7 @@ export default function ProblemsPage() {
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return PROBLEMS.filter((p) => {
+    return (ALL ?? []).filter((p) => {
       const status = statuses[p.id] ?? "none";
       const isSolved = status === "solved" || status === "reviewed";
       if (division !== "any" && moduleTitle[p.module]?.division !== division)
@@ -62,7 +86,7 @@ export default function ProblemsPage() {
         return false;
       return true;
     });
-  }, [query, division, difficulty, origin, filter, statuses, moduleTitle]);
+  }, [ALL, query, division, difficulty, origin, filter, statuses, moduleTitle]);
 
   const byModule = useMemo(() => {
     const groups = new Map<string, typeof visible>();
@@ -74,10 +98,9 @@ export default function ProblemsPage() {
     return Array.from(groups.entries());
   }, [visible]);
 
-  const solvedCount = PROBLEMS.filter((p) => {
-    const s = statuses[p.id];
-    return s === "solved" || s === "reviewed";
-  }).length;
+  const solvedCount = Object.values(statuses).filter(
+    (s) => s === "solved" || s === "reviewed"
+  ).length;
 
   return (
     <>
@@ -88,13 +111,12 @@ export default function ProblemsPage() {
           Every problem in the guide
         </h1>
         <p className="mt-3 max-w-[34rem] text-[var(--ink-soft)]">
-          {PROBLEMS.filter(isSolvable).length} problems written for this guide
-          are solvable right here, answer-checked as you go. Past-exam problems
-          are listed with their citation so you can find them in the official
-          archive.
+          {TOTAL_SOLVABLE} problems written for this guide are solvable right
+          here, answer-checked as you go. Past-exam problems are listed with
+          their citation so you can find them in the official archive.
         </p>
         <p className="sans mt-3 text-sm text-[var(--ink-faint)]">
-          {solvedCount} of {PROBLEMS.length} solved
+          {solvedCount} of {TOTAL_PROBLEMS} solved
         </p>
 
         {/* filters */}
@@ -154,7 +176,16 @@ export default function ProblemsPage() {
           </div>
         </div>
 
-        {byModule.length === 0 && (
+        {failed && (
+          <div className="aside warn mt-8">
+            <span className="aside-label">Could not load the problems</span>
+            <p className="text-sm">Reload the page to try again.</p>
+          </div>
+        )}
+        {!ALL && !failed && (
+          <p className="mt-10 text-[var(--ink-soft)]">Loading problems.</p>
+        )}
+        {ALL && byModule.length === 0 && (
           <p className="mt-10 text-[var(--ink-soft)]">
             Nothing matches those filters.
           </p>

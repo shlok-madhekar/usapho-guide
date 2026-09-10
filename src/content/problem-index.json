@@ -11178,6 +11178,6618 @@
     "solvable": true
   },
   {
+    "id": "osc-shm-01",
+    "name": "Block on a bench spring",
+    "module": "shm",
+    "difficulty": "Easy",
+    "tags": [
+      "spring",
+      "period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-02",
+    "name": "Stiffness of a hanging spring",
+    "module": "shm",
+    "difficulty": "Easy",
+    "tags": [
+      "spring",
+      "hooke"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-03",
+    "name": "Maximum speed of a shaker table",
+    "module": "shm",
+    "difficulty": "Easy",
+    "tags": [
+      "kinematics",
+      "amplitude"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-04",
+    "name": "Peak acceleration of a speaker cone",
+    "module": "shm",
+    "difficulty": "Easy",
+    "tags": [
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-05",
+    "name": "Stiffness from a measured period",
+    "module": "shm",
+    "difficulty": "Easy",
+    "tags": [
+      "spring",
+      "period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-06",
+    "name": "Energy stored in an oscillator",
+    "module": "shm",
+    "difficulty": "Easy",
+    "tags": [
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-07",
+    "name": "Two springs pulling together",
+    "module": "shm",
+    "difficulty": "Easy",
+    "tags": [
+      "springs",
+      "parallel"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-08",
+    "name": "Springs joined end to end",
+    "module": "shm",
+    "difficulty": "Easy",
+    "tags": [
+      "springs",
+      "series"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-09",
+    "name": "Speed halfway out",
+    "module": "shm",
+    "difficulty": "Easy",
+    "tags": [
+      "energy",
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-10",
+    "name": "Car suspension bounce",
+    "module": "shm",
+    "difficulty": "Easy",
+    "tags": [
+      "spring",
+      "frequency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-11",
+    "name": "Period from the static sag",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "spring",
+      "vertical"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-12",
+    "name": "Time to fall to half amplitude",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "kinematics",
+      "phase"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-13",
+    "name": "Amplitude from a kick",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "amplitude",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-14",
+    "name": "Half a spring",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "springs",
+      "period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-15",
+    "name": "Coin on a shaking block",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "friction",
+      "amplitude"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-16",
+    "name": "Putty dropped on a glider",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "collision",
+      "amplitude"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-17",
+    "name": "Time spent near the middle",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "kinematics",
+      "timing"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-18",
+    "name": "Where the energy splits evenly",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-19",
+    "name": "Pogo stick spring",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "spring",
+      "period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-20",
+    "name": "Bobbing wooden buoy",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "buoyancy",
+      "period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-21",
+    "name": "Cut into thirds, used in pairs",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "springs",
+      "parallel"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-22",
+    "name": "Frequency from one data point",
+    "module": "shm",
+    "difficulty": "Normal",
+    "tags": [
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-23",
+    "name": "A spring that is not massless",
+    "module": "shm",
+    "difficulty": "Hard",
+    "tags": [
+      "spring",
+      "effective mass"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-24",
+    "name": "Released at the natural length",
+    "module": "shm",
+    "difficulty": "Hard",
+    "tags": [
+      "vertical",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-25",
+    "name": "Bouncing between two springs",
+    "module": "shm",
+    "difficulty": "Hard",
+    "tags": [
+      "springs",
+      "period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-26",
+    "name": "Book on a vibrating platform",
+    "module": "shm",
+    "difficulty": "Hard",
+    "tags": [
+      "vertical",
+      "contact"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-27",
+    "name": "Package dropped onto a spring scale",
+    "module": "shm",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "amplitude"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-28",
+    "name": "Mass on a movable pulley",
+    "module": "shm",
+    "difficulty": "Hard",
+    "tags": [
+      "springs",
+      "pulley"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-29",
+    "name": "Two carts joined by a spring",
+    "module": "shm",
+    "difficulty": "Very Hard",
+    "tags": [
+      "reduced mass",
+      "frequency"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-shm-30",
+    "name": "Rolling cylinder on a spring",
+    "module": "shm",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rolling",
+      "period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-01",
+    "name": "One-meter pendulum",
+    "module": "pendulums",
+    "difficulty": "Easy",
+    "tags": [
+      "simple pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-02",
+    "name": "Seconds pendulum",
+    "module": "pendulums",
+    "difficulty": "Easy",
+    "tags": [
+      "simple pendulum",
+      "length"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-03",
+    "name": "Pendulum on the Moon",
+    "module": "pendulums",
+    "difficulty": "Easy",
+    "tags": [
+      "simple pendulum",
+      "gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-04",
+    "name": "Frequency of a short pendulum",
+    "module": "pendulums",
+    "difficulty": "Easy",
+    "tags": [
+      "simple pendulum",
+      "frequency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-05",
+    "name": "Swings per minute",
+    "module": "pendulums",
+    "difficulty": "Easy",
+    "tags": [
+      "simple pendulum",
+      "counting"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-06",
+    "name": "Doubling the length",
+    "module": "pendulums",
+    "difficulty": "Easy",
+    "tags": [
+      "simple pendulum",
+      "scaling"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-07",
+    "name": "Swinging rod",
+    "module": "pendulums",
+    "difficulty": "Easy",
+    "tags": [
+      "physical pendulum",
+      "rod"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-08",
+    "name": "Torsional balance wheel",
+    "module": "pendulums",
+    "difficulty": "Easy",
+    "tags": [
+      "torsional"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-09",
+    "name": "Speed at the bottom",
+    "module": "pendulums",
+    "difficulty": "Easy",
+    "tags": [
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-10",
+    "name": "Measuring g",
+    "module": "pendulums",
+    "difficulty": "Easy",
+    "tags": [
+      "measurement"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-11",
+    "name": "Adjusting a slow clock",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "clock",
+      "tuning"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-12",
+    "name": "Pendulum in a rising elevator",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "accelerating frame"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-13",
+    "name": "Pendulum in an accelerating car",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "accelerating frame"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-14",
+    "name": "Disk on a nail",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "physical pendulum",
+      "disk"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-15",
+    "name": "Bicycle tire on a peg",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "physical pendulum",
+      "hoop"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-16",
+    "name": "Torsion constant of a wire",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "torsional"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-17",
+    "name": "Rod with a weight at the end",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "compound pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-18",
+    "name": "Clock carried up a mountain",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "clock",
+      "gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-19",
+    "name": "String tension at the bottom",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "dynamics",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-20",
+    "name": "Clock in a hot room",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "clock",
+      "thermal"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-21",
+    "name": "Pendulum caught by a peg",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "simple pendulum",
+      "period"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-22",
+    "name": "Hanging angle in a braking train",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "accelerating frame"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-23",
+    "name": "Center of oscillation of a rod",
+    "module": "pendulums",
+    "difficulty": "Hard",
+    "tags": [
+      "compound pendulum",
+      "center of oscillation"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-24",
+    "name": "Fastest swinging rod",
+    "module": "pendulums",
+    "difficulty": "Hard",
+    "tags": [
+      "optimization",
+      "physical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-25",
+    "name": "Meter stick on a pin",
+    "module": "pendulums",
+    "difficulty": "Hard",
+    "tags": [
+      "physical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-26",
+    "name": "Pendulum on a sliding cart",
+    "module": "pendulums",
+    "difficulty": "Hard",
+    "tags": [
+      "accelerating frame",
+      "incline"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-27",
+    "name": "Unknown body on a torsion wire",
+    "module": "pendulums",
+    "difficulty": "Hard",
+    "tags": [
+      "torsional",
+      "moment of inertia"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-28",
+    "name": "Pendulum with a real bob",
+    "module": "pendulums",
+    "difficulty": "Hard",
+    "tags": [
+      "physical pendulum",
+      "correction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-29",
+    "name": "Swinging too far",
+    "module": "pendulums",
+    "difficulty": "Very Hard",
+    "tags": [
+      "large amplitude",
+      "correction"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pend-30",
+    "name": "Rod and disk pendulum",
+    "module": "pendulums",
+    "difficulty": "Very Hard",
+    "tags": [
+      "compound pendulum",
+      "moment of inertia"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-01",
+    "name": "Glider at maximum speed",
+    "module": "oscillator-energy",
+    "difficulty": "Easy",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-02",
+    "name": "Energy stored in a door-closer spring",
+    "module": "oscillator-energy",
+    "difficulty": "Easy",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-03",
+    "name": "Speed at half the amplitude",
+    "module": "oscillator-energy",
+    "difficulty": "Easy",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-04",
+    "name": "Kinetic fraction at 0.6 A",
+    "module": "oscillator-energy",
+    "difficulty": "Easy",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-05",
+    "name": "Where kinetic equals potential",
+    "module": "oscillator-energy",
+    "difficulty": "Easy",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-06",
+    "name": "Pendulum bob at the bottom",
+    "module": "oscillator-energy",
+    "difficulty": "Easy",
+    "tags": [
+      "pendulum",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-07",
+    "name": "Average kinetic energy over a cycle",
+    "module": "oscillator-energy",
+    "difficulty": "Easy",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-08",
+    "name": "Total energy from the maximum speed",
+    "module": "oscillator-energy",
+    "difficulty": "Easy",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-09",
+    "name": "Energy lost to damping",
+    "module": "oscillator-energy",
+    "difficulty": "Easy",
+    "tags": [
+      "damping",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-10",
+    "name": "Released from rest on a vertical spring",
+    "module": "oscillator-energy",
+    "difficulty": "Easy",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-11",
+    "name": "Putty lands at the centre",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "shm",
+      "collision"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-12",
+    "name": "Putty lands at the turning point",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-13",
+    "name": "Top block lifted off",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-14",
+    "name": "Top block removed at the centre",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-15",
+    "name": "Pendulum halfway back",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "pendulum",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-16",
+    "name": "Amplitude after ten damped cycles",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "damping",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-17",
+    "name": "Fraction of the period with mostly kinetic energy",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-18",
+    "name": "Dropped from the natural length",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-19",
+    "name": "Maximum speed of the dropped mass",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-20",
+    "name": "Sloshing water in a U-tube",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-21",
+    "name": "Amplitude from a kick",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "shm",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-22",
+    "name": "Half-life of a damped oscillation",
+    "module": "oscillator-energy",
+    "difficulty": "Normal",
+    "tags": [
+      "damping",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-23",
+    "name": "Counting cycles with sliding friction",
+    "module": "oscillator-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "damping",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-24",
+    "name": "Total path length before stopping",
+    "module": "oscillator-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "damping",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-25",
+    "name": "Cylinder rolling on a spring",
+    "module": "oscillator-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "rolling",
+      "energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-26",
+    "name": "Two masses joined by a spring",
+    "module": "oscillator-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "reduced-mass",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-27",
+    "name": "Energy loss per cycle from Q",
+    "module": "oscillator-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "damping",
+      "quality-factor"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-28",
+    "name": "String tension at the bottom of a wide swing",
+    "module": "oscillator-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "pendulum",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-29",
+    "name": "Slowly leaking sand",
+    "module": "oscillator-energy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "adiabatic-invariant",
+      "energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-energy-30",
+    "name": "Speed at the centre with friction",
+    "module": "oscillator-energy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "friction",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-01",
+    "name": "Equilibrium of a quadratic potential",
+    "module": "effective-potentials",
+    "difficulty": "Easy",
+    "tags": [
+      "equilibrium",
+      "potential"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-02",
+    "name": "Frequency from the curvature",
+    "module": "effective-potentials",
+    "difficulty": "Easy",
+    "tags": [
+      "small-oscillations",
+      "curvature"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-03",
+    "name": "Marble in a spherical bowl",
+    "module": "effective-potentials",
+    "difficulty": "Easy",
+    "tags": [
+      "small-oscillations",
+      "gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-04",
+    "name": "Lennard-Jones bond length",
+    "module": "effective-potentials",
+    "difficulty": "Easy",
+    "tags": [
+      "lennard-jones",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-05",
+    "name": "Depth of the Lennard-Jones well",
+    "module": "effective-potentials",
+    "difficulty": "Easy",
+    "tags": [
+      "lennard-jones",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-06",
+    "name": "Bead on a parabolic wire",
+    "module": "effective-potentials",
+    "difficulty": "Easy",
+    "tags": [
+      "small-oscillations",
+      "gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-07",
+    "name": "Equilibrium of a hanging mass",
+    "module": "effective-potentials",
+    "difficulty": "Easy",
+    "tags": [
+      "equilibrium",
+      "spring"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-08",
+    "name": "Value of the centrifugal barrier",
+    "module": "effective-potentials",
+    "difficulty": "Easy",
+    "tags": [
+      "centrifugal",
+      "effective-potential"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-09",
+    "name": "Stable point of a quartic potential",
+    "module": "effective-potentials",
+    "difficulty": "Easy",
+    "tags": [
+      "equilibrium",
+      "stability"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-10",
+    "name": "Period from a measured curvature",
+    "module": "effective-potentials",
+    "difficulty": "Easy",
+    "tags": [
+      "small-oscillations",
+      "curvature"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-11",
+    "name": "Which root is stable",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "equilibrium",
+      "stability"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-12",
+    "name": "Oscillating in that well",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "small-oscillations",
+      "curvature"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-13",
+    "name": "Equilibrium of an inverse-power potential",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "equilibrium",
+      "potential"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-14",
+    "name": "Frequency in the inverse-power well",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "small-oscillations",
+      "curvature"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-15",
+    "name": "Bead on a rotating hoop",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "rotating-frame",
+      "effective-potential"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-16",
+    "name": "Wobble of the bead on the hoop",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "rotating-frame",
+      "small-oscillations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-17",
+    "name": "Critical spin of a rotating rod",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "rotating-frame",
+      "stability"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-18",
+    "name": "Vibration of a Morse oscillator",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "morse",
+      "small-oscillations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-19",
+    "name": "Vibration of an argon pair",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "lennard-jones",
+      "small-oscillations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-20",
+    "name": "Circular orbit from the angular momentum",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "orbits",
+      "effective-potential"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-21",
+    "name": "Double-well oscillation",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "double-well",
+      "small-oscillations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-22",
+    "name": "Charged bead between two fixed charges",
+    "module": "effective-potentials",
+    "difficulty": "Normal",
+    "tags": [
+      "electrostatics",
+      "small-oscillations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-23",
+    "name": "Closest approach in an elliptical orbit",
+    "module": "effective-potentials",
+    "difficulty": "Hard",
+    "tags": [
+      "orbits",
+      "turning-points"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-24",
+    "name": "Apsidal angle for a non-Newtonian force",
+    "module": "effective-potentials",
+    "difficulty": "Hard",
+    "tags": [
+      "orbits",
+      "precession"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-25",
+    "name": "Radial-to-angular frequency ratio",
+    "module": "effective-potentials",
+    "difficulty": "Hard",
+    "tags": [
+      "orbits",
+      "small-oscillations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-26",
+    "name": "Where the Lennard-Jones force peaks",
+    "module": "effective-potentials",
+    "difficulty": "Hard",
+    "tags": [
+      "lennard-jones",
+      "force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-27",
+    "name": "Spinning parabolic wire",
+    "module": "effective-potentials",
+    "difficulty": "Hard",
+    "tags": [
+      "rotating-frame",
+      "small-oscillations"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-28",
+    "name": "Ball rolling in a bowl",
+    "module": "effective-potentials",
+    "difficulty": "Hard",
+    "tags": [
+      "rolling",
+      "small-oscillations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-29",
+    "name": "Anharmonic frequency shift",
+    "module": "effective-potentials",
+    "difficulty": "Very Hard",
+    "tags": [
+      "anharmonic",
+      "perturbation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "osc-pot-30",
+    "name": "Tuning the hoop",
+    "module": "effective-potentials",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rotating-frame",
+      "effective-potential"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-01",
+    "name": "Gauge pressure at the bottom of a pool",
+    "module": "pressure-buoyancy",
+    "difficulty": "Easy",
+    "tags": [
+      "hydrostatics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-02",
+    "name": "Absolute pressure on a diver",
+    "module": "pressure-buoyancy",
+    "difficulty": "Easy",
+    "tags": [
+      "hydrostatics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-03",
+    "name": "Buoyant force on a submerged rock",
+    "module": "pressure-buoyancy",
+    "difficulty": "Easy",
+    "tags": [
+      "archimedes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-04",
+    "name": "Fraction of a pine block underwater",
+    "module": "pressure-buoyancy",
+    "difficulty": "Easy",
+    "tags": [
+      "floating"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-05",
+    "name": "Apparent weight of a submerged aluminum block",
+    "module": "pressure-buoyancy",
+    "difficulty": "Easy",
+    "tags": [
+      "archimedes",
+      "apparent-weight"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-06",
+    "name": "Hydraulic car lift",
+    "module": "pressure-buoyancy",
+    "difficulty": "Easy",
+    "tags": [
+      "pascal",
+      "hydraulics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-07",
+    "name": "Depth of one atmosphere of water",
+    "module": "pressure-buoyancy",
+    "difficulty": "Easy",
+    "tags": [
+      "hydrostatics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-08",
+    "name": "Iceberg in seawater",
+    "module": "pressure-buoyancy",
+    "difficulty": "Easy",
+    "tags": [
+      "archimedes",
+      "floating"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-09",
+    "name": "Height of a mercury barometer",
+    "module": "pressure-buoyancy",
+    "difficulty": "Easy",
+    "tags": [
+      "barometer",
+      "hydrostatics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-10",
+    "name": "Buoyant force of air on a weather balloon",
+    "module": "pressure-buoyancy",
+    "difficulty": "Easy",
+    "tags": [
+      "balloon",
+      "archimedes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-11",
+    "name": "Load a wooden raft can carry",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "floating",
+      "archimedes"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-12",
+    "name": "Open-tube water manometer",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "manometer"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-13",
+    "name": "Density from weight in air and in water",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "archimedes",
+      "density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-14",
+    "name": "Block trapped at an oil-water interface",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "layered-fluids",
+      "floating"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-15",
+    "name": "Air column in a diving bell",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "diving-bell",
+      "gas-law"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-16",
+    "name": "Payload of a hot-air balloon",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "balloon",
+      "archimedes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-17",
+    "name": "Water displaced by a floating ice cube",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "floating",
+      "archimedes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-18",
+    "name": "Pressure under a layer of oil",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "layered-fluids",
+      "hydrostatics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-19",
+    "name": "Force on a dam face",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "hydrostatics",
+      "force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-20",
+    "name": "Volume of a helium balloon that just lifts a load",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "balloon",
+      "archimedes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-21",
+    "name": "Ballast for a neutrally buoyant submarine",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "archimedes",
+      "submarine"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-22",
+    "name": "Extra force to push a float down",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "floating",
+      "archimedes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-23",
+    "name": "Bobbing period of a floating cylinder",
+    "module": "pressure-buoyancy",
+    "difficulty": "Hard",
+    "tags": [
+      "oscillation",
+      "floating"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-24",
+    "name": "Scale reading with a block hung in the water",
+    "module": "pressure-buoyancy",
+    "difficulty": "Hard",
+    "tags": [
+      "archimedes",
+      "newton-third-law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-25",
+    "name": "Depth where a bubble is one third its surface size",
+    "module": "pressure-buoyancy",
+    "difficulty": "Hard",
+    "tags": [
+      "gas-law",
+      "hydrostatics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-26",
+    "name": "Oil poured into one arm of a U-tube",
+    "module": "pressure-buoyancy",
+    "difficulty": "Hard",
+    "tags": [
+      "manometer",
+      "layered-fluids"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-27",
+    "name": "How high a released float leaps",
+    "module": "pressure-buoyancy",
+    "difficulty": "Hard",
+    "tags": [
+      "archimedes",
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-28",
+    "name": "Hydrometer stem reading in a lighter liquid",
+    "module": "pressure-buoyancy",
+    "difficulty": "Hard",
+    "tags": [
+      "hydrometer",
+      "floating"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-29",
+    "name": "Hinged rod floating at an angle",
+    "module": "pressure-buoyancy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "archimedes",
+      "torque"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-press-30",
+    "name": "Inner radius of a half-submerged steel shell",
+    "module": "pressure-buoyancy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "archimedes",
+      "geometry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-01",
+    "name": "Pendulum accelerometer in a train",
+    "module": "non-inertial-frames",
+    "difficulty": "Easy",
+    "tags": [
+      "pseudo-force",
+      "pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-02",
+    "name": "Tilt of fuel in an accelerating tanker",
+    "module": "non-inertial-frames",
+    "difficulty": "Easy",
+    "tags": [
+      "accelerating-fluid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-03",
+    "name": "Scale reading in an accelerating elevator",
+    "module": "non-inertial-frames",
+    "difficulty": "Easy",
+    "tags": [
+      "elevator",
+      "apparent-weight"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-04",
+    "name": "Centrifugal acceleration on a turntable",
+    "module": "non-inertial-frames",
+    "difficulty": "Easy",
+    "tags": [
+      "rotating-frame",
+      "centrifugal"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-05",
+    "name": "Minimum speed at the top of a vertical loop",
+    "module": "non-inertial-frames",
+    "difficulty": "Easy",
+    "tags": [
+      "circular-motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-06",
+    "name": "Angular speed of a conical pendulum",
+    "module": "non-inertial-frames",
+    "difficulty": "Easy",
+    "tags": [
+      "conical-pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-07",
+    "name": "Sideways force on a passenger in a curve",
+    "module": "non-inertial-frames",
+    "difficulty": "Easy",
+    "tags": [
+      "centrifugal",
+      "pseudo-force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-08",
+    "name": "Fastest spin before a coin slides",
+    "module": "non-inertial-frames",
+    "difficulty": "Easy",
+    "tags": [
+      "rotating-frame",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-09",
+    "name": "Effective gravity in an accelerating cabin",
+    "module": "non-inertial-frames",
+    "difficulty": "Easy",
+    "tags": [
+      "effective-gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-10",
+    "name": "Apparent weight in a descending elevator",
+    "module": "non-inertial-frames",
+    "difficulty": "Easy",
+    "tags": [
+      "elevator",
+      "apparent-weight"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-11",
+    "name": "Height difference across an accelerating tank",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "accelerating-fluid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-12",
+    "name": "Wedge acceleration that holds a block in place",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "accelerating-wedge"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-13",
+    "name": "Rise of the rotating water surface",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "rotating-fluid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-14",
+    "name": "Design speed of a banked curve",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "banked-curve"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-15",
+    "name": "Pressure at the back of an accelerating tank",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "accelerating-fluid",
+      "hydrostatics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-16",
+    "name": "Acceleration that pins a crate to a wall",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "pseudo-force",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-17",
+    "name": "Pendulum period in an accelerating cart",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "pendulum",
+      "effective-gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-18",
+    "name": "Spin rate for artificial gravity",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "rotating-frame",
+      "effective-gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-19",
+    "name": "Acceleration inside a laboratory centrifuge",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "centrifugal",
+      "rotating-frame"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-20",
+    "name": "Coriolis acceleration of a polar aircraft",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "coriolis"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-21",
+    "name": "Effective gravity at the equator",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "effective-gravity",
+      "rotating-frame"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-22",
+    "name": "Hanging air freshener in a turning car",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "centrifugal",
+      "pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-23",
+    "name": "Spin that uncovers the bottom of a bucket",
+    "module": "non-inertial-frames",
+    "difficulty": "Hard",
+    "tags": [
+      "rotating-fluid"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-24",
+    "name": "Minimum push on a wedge with friction",
+    "module": "non-inertial-frames",
+    "difficulty": "Hard",
+    "tags": [
+      "accelerating-wedge",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-25",
+    "name": "Pressure difference in a full accelerating tank",
+    "module": "non-inertial-frames",
+    "difficulty": "Hard",
+    "tags": [
+      "accelerating-fluid",
+      "hydrostatics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-26",
+    "name": "Bead in a spinning hoop",
+    "module": "non-inertial-frames",
+    "difficulty": "Hard",
+    "tags": [
+      "rotating-frame",
+      "equilibrium"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-27",
+    "name": "Swing of a pendulum when the cart starts moving",
+    "module": "non-inertial-frames",
+    "difficulty": "Hard",
+    "tags": [
+      "pendulum",
+      "pseudo-force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-28",
+    "name": "Deflection of a plumb line at 45 degrees latitude",
+    "module": "non-inertial-frames",
+    "difficulty": "Hard",
+    "tags": [
+      "effective-gravity",
+      "rotating-frame"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-29",
+    "name": "Wedge free to recoil",
+    "module": "non-inertial-frames",
+    "difficulty": "Very Hard",
+    "tags": [
+      "accelerating-wedge",
+      "momentum"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "fl-frame-30",
+    "name": "Dry disc at the bottom of a spinning cylinder",
+    "module": "non-inertial-frames",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rotating-fluid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-01",
+    "name": "Two pith balls",
+    "module": "coulomb-superposition",
+    "difficulty": "Easy",
+    "tags": [
+      "coulomb",
+      "point charges"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-02",
+    "name": "Electron and proton in hydrogen",
+    "module": "coulomb-superposition",
+    "difficulty": "Easy",
+    "tags": [
+      "coulomb",
+      "atomic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-03",
+    "name": "Field of an isolated bead",
+    "module": "coulomb-superposition",
+    "difficulty": "Easy",
+    "tags": [
+      "field",
+      "point charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-04",
+    "name": "Identical charged spheres",
+    "module": "coulomb-superposition",
+    "difficulty": "Easy",
+    "tags": [
+      "coulomb"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-05",
+    "name": "Midpoint of a charge pair",
+    "module": "coulomb-superposition",
+    "difficulty": "Easy",
+    "tags": [
+      "superposition",
+      "dipole"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-06",
+    "name": "Test charge in a known field",
+    "module": "coulomb-superposition",
+    "difficulty": "Easy",
+    "tags": [
+      "field",
+      "force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-07",
+    "name": "Null point between two charges",
+    "module": "coulomb-superposition",
+    "difficulty": "Easy",
+    "tags": [
+      "equilibrium",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-08",
+    "name": "Charged balloon",
+    "module": "coulomb-superposition",
+    "difficulty": "Easy",
+    "tags": [
+      "field",
+      "point charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-09",
+    "name": "Field on the bisector of two beads",
+    "module": "coulomb-superposition",
+    "difficulty": "Easy",
+    "tags": [
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-10",
+    "name": "Pith ball pushed sideways",
+    "module": "coulomb-superposition",
+    "difficulty": "Easy",
+    "tags": [
+      "pendulum",
+      "field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-11",
+    "name": "Equilateral triangle of charges",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "superposition",
+      "triangle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-12",
+    "name": "Four charges on a square",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "superposition",
+      "square"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-13",
+    "name": "Alternating square",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "superposition",
+      "square"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-14",
+    "name": "Dipole field along the axis",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "dipole"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-15",
+    "name": "Dipole field on the bisector",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "dipole"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-16",
+    "name": "Torque on a water molecule",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "dipole",
+      "torque"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-17",
+    "name": "Charge from a hanging pair",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "pendulum",
+      "coulomb"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-18",
+    "name": "Where the field vanishes",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "equilibrium",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-19",
+    "name": "Three charges in a row",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-20",
+    "name": "Field at the right angle",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "superposition",
+      "triangle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-21",
+    "name": "Pendulum in a vertical field",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "pendulum",
+      "field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-22",
+    "name": "Spheres that touch",
+    "module": "coulomb-superposition",
+    "difficulty": "Normal",
+    "tags": [
+      "coulomb",
+      "conductors"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-23",
+    "name": "Third charge that balances everything",
+    "module": "coulomb-superposition",
+    "difficulty": "Hard",
+    "tags": [
+      "equilibrium",
+      "superposition"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-24",
+    "name": "Separation of two charged pendulums",
+    "module": "coulomb-superposition",
+    "difficulty": "Hard",
+    "tags": [
+      "pendulum",
+      "coulomb"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-25",
+    "name": "One ball is grounded",
+    "module": "coulomb-superposition",
+    "difficulty": "Hard",
+    "tags": [
+      "pendulum",
+      "conductors"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-26",
+    "name": "Charge at the center of a square",
+    "module": "coulomb-superposition",
+    "difficulty": "Hard",
+    "tags": [
+      "equilibrium",
+      "square"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-27",
+    "name": "Two dipoles end to end",
+    "module": "coulomb-superposition",
+    "difficulty": "Hard",
+    "tags": [
+      "dipole"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-28",
+    "name": "Oscillation between two fixed charges",
+    "module": "coulomb-superposition",
+    "difficulty": "Hard",
+    "tags": [
+      "oscillation",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-29",
+    "name": "Two unequal balls on threads",
+    "module": "coulomb-superposition",
+    "difficulty": "Very Hard",
+    "tags": [
+      "pendulum",
+      "equilibrium"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-coul-30",
+    "name": "Bead sliding above a fixed charge",
+    "module": "coulomb-superposition",
+    "difficulty": "Very Hard",
+    "tags": [
+      "oscillation",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-01",
+    "name": "Field of a long charged wire",
+    "module": "charge-distributions",
+    "difficulty": "Easy",
+    "tags": [
+      "line charge",
+      "gauss"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-02",
+    "name": "Field of a large charged sheet",
+    "module": "charge-distributions",
+    "difficulty": "Easy",
+    "tags": [
+      "sheet",
+      "gauss"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-03",
+    "name": "Ring on its axis",
+    "module": "charge-distributions",
+    "difficulty": "Easy",
+    "tags": [
+      "ring",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-04",
+    "name": "Where the ring's field peaks",
+    "module": "charge-distributions",
+    "difficulty": "Easy",
+    "tags": [
+      "ring"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-05",
+    "name": "Charged disk on axis",
+    "module": "charge-distributions",
+    "difficulty": "Easy",
+    "tags": [
+      "disk",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-06",
+    "name": "Outside a charged shell",
+    "module": "charge-distributions",
+    "difficulty": "Easy",
+    "tags": [
+      "shell",
+      "gauss"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-07",
+    "name": "At the surface of the shell",
+    "module": "charge-distributions",
+    "difficulty": "Easy",
+    "tags": [
+      "shell",
+      "gauss"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-08",
+    "name": "Photocopier drum",
+    "module": "charge-distributions",
+    "difficulty": "Easy",
+    "tags": [
+      "conductor",
+      "sheet"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-09",
+    "name": "Rod seen end-on",
+    "module": "charge-distributions",
+    "difficulty": "Easy",
+    "tags": [
+      "rod",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-10",
+    "name": "Semicircular arc",
+    "module": "charge-distributions",
+    "difficulty": "Easy",
+    "tags": [
+      "arc",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-11",
+    "name": "Half-infinite rod",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "rod",
+      "integration"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-12",
+    "name": "Rod on its perpendicular bisector",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "rod",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-13",
+    "name": "Washer of charge",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "disk",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-14",
+    "name": "Between parallel plates",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "sheet",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-15",
+    "name": "Quarter-circle arc",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "arc",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-16",
+    "name": "Rod with a graded density",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "rod",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-17",
+    "name": "Inside a uniformly charged ball",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "solid sphere",
+      "gauss"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-18",
+    "name": "Point charge inside a charged shell",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "shell",
+      "gauss"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-19",
+    "name": "Electron on a ring's axis",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "ring",
+      "dynamics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-20",
+    "name": "Bead pushed by a rod",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "rod",
+      "force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-21",
+    "name": "Charged cylindrical shell",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "cylinder",
+      "gauss"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-22",
+    "name": "Peak field of a ring",
+    "module": "charge-distributions",
+    "difficulty": "Normal",
+    "tags": [
+      "ring"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-23",
+    "name": "Disk with a graded surface density",
+    "module": "charge-distributions",
+    "difficulty": "Hard",
+    "tags": [
+      "disk",
+      "integration"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-24",
+    "name": "Square loop of charge",
+    "module": "charge-distributions",
+    "difficulty": "Hard",
+    "tags": [
+      "integration",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-25",
+    "name": "Ring split into two halves",
+    "module": "charge-distributions",
+    "difficulty": "Hard",
+    "tags": [
+      "ring",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-26",
+    "name": "Semicircle with a tail",
+    "module": "charge-distributions",
+    "difficulty": "Hard",
+    "tags": [
+      "arc",
+      "rod"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-27",
+    "name": "Where the washer's field is strongest",
+    "module": "charge-distributions",
+    "difficulty": "Hard",
+    "tags": [
+      "disk",
+      "optimization"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-28",
+    "name": "Center of a hemispherical shell",
+    "module": "charge-distributions",
+    "difficulty": "Hard",
+    "tags": [
+      "shell",
+      "integration"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-29",
+    "name": "Field inside an off-center cavity",
+    "module": "charge-distributions",
+    "difficulty": "Very Hard",
+    "tags": [
+      "solid sphere",
+      "superposition"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-dist-30",
+    "name": "Bead oscillating through a ring",
+    "module": "charge-distributions",
+    "difficulty": "Very Hard",
+    "tags": [
+      "ring",
+      "oscillation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-01",
+    "name": "Flux Through One Face of a Cube",
+    "module": "gauss-law",
+    "difficulty": "Easy",
+    "tags": [
+      "flux",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-02",
+    "name": "Flux Through a Tilted Solar Panel",
+    "module": "gauss-law",
+    "difficulty": "Easy",
+    "tags": [
+      "flux"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-03",
+    "name": "Charge Inside a Sealed Instrument Housing",
+    "module": "gauss-law",
+    "difficulty": "Easy",
+    "tags": [
+      "gauss-law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-04",
+    "name": "Outside a Charged Plastic Ball",
+    "module": "gauss-law",
+    "difficulty": "Easy",
+    "tags": [
+      "sphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-05",
+    "name": "Inside the Same Plastic Ball",
+    "module": "gauss-law",
+    "difficulty": "Easy",
+    "tags": [
+      "sphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-06",
+    "name": "Field Above a Charged Sheet of Acrylic",
+    "module": "gauss-law",
+    "difficulty": "Easy",
+    "tags": [
+      "planar"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-07",
+    "name": "Between the Plates of a Parallel-Plate Capacitor",
+    "module": "gauss-law",
+    "difficulty": "Easy",
+    "tags": [
+      "planar"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-08",
+    "name": "Field Near a Charged Power Line",
+    "module": "gauss-law",
+    "difficulty": "Easy",
+    "tags": [
+      "cylindrical"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-09",
+    "name": "Inside a Coaxial TV Cable",
+    "module": "gauss-law",
+    "difficulty": "Easy",
+    "tags": [
+      "coaxial"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-10",
+    "name": "Surface Field of a Van de Graaff Dome",
+    "module": "gauss-law",
+    "difficulty": "Easy",
+    "tags": [
+      "conductor",
+      "sphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-11",
+    "name": "Inside a Charged Plastic Slab",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "planar",
+      "slab"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-12",
+    "name": "Point Charge Inside a Charged Shell",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "shell",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-13",
+    "name": "Charge Induced on the Inner Wall of a Cavity",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "conductor",
+      "cavity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-14",
+    "name": "Leaky Coaxial Shield",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "coaxial"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-15",
+    "name": "Sphere with Density Growing Linearly",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "nonuniform",
+      "sphere"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-16",
+    "name": "Sphere with Density Fading to Zero",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "nonuniform",
+      "sphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-17",
+    "name": "Flux Through a Hemispherical Dome",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "flux",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-18",
+    "name": "Ball Inside a Metal Shell",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "conductor",
+      "shell"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-19",
+    "name": "Inside a Charged Cylindrical Beam",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "cylindrical"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-20",
+    "name": "Just Outside a Charged Membrane",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "slab",
+      "planar"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-21",
+    "name": "Field Inside an Off-Center Bubble",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "cavity",
+      "superposition"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-22",
+    "name": "Charge at the Corner of a Cube",
+    "module": "gauss-law",
+    "difficulty": "Normal",
+    "tags": [
+      "flux",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-23",
+    "name": "Where the Field Peaks in a Fading Sphere",
+    "module": "gauss-law",
+    "difficulty": "Hard",
+    "tags": [
+      "nonuniform",
+      "sphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-24",
+    "name": "Field in the Overlap of Two Charged Spheres",
+    "module": "gauss-law",
+    "difficulty": "Hard",
+    "tags": [
+      "cavity",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-25",
+    "name": "Designing a Constant-Field Sphere",
+    "module": "gauss-law",
+    "difficulty": "Hard",
+    "tags": [
+      "nonuniform",
+      "design"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-26",
+    "name": "Flux Through a Disk on the Axis of a Charge",
+    "module": "gauss-law",
+    "difficulty": "Hard",
+    "tags": [
+      "flux",
+      "solid-angle"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-27",
+    "name": "Grounded Shield Around a Charged Rod",
+    "module": "gauss-law",
+    "difficulty": "Hard",
+    "tags": [
+      "coaxial"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-28",
+    "name": "Matching Fields Inside and Outside",
+    "module": "gauss-law",
+    "difficulty": "Hard",
+    "tags": [
+      "sphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-29",
+    "name": "Electron Oscillating Inside a Charged Sphere",
+    "module": "gauss-law",
+    "difficulty": "Very Hard",
+    "tags": [
+      "sphere",
+      "oscillation"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-gauss-30",
+    "name": "Charge a Thundercloud Needs to Break Down Air",
+    "module": "gauss-law",
+    "difficulty": "Very Hard",
+    "tags": [
+      "planar",
+      "application"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-01",
+    "name": "Potential Near a Point Charge",
+    "module": "electric-potential",
+    "difficulty": "Easy",
+    "tags": [
+      "point-charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-02",
+    "name": "Midpoint Between Two Unequal Distances",
+    "module": "electric-potential",
+    "difficulty": "Easy",
+    "tags": [
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-03",
+    "name": "Potential of a Van de Graaff Dome",
+    "module": "electric-potential",
+    "difficulty": "Easy",
+    "tags": [
+      "sphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-04",
+    "name": "Field from a Linear Potential Ramp",
+    "module": "electric-potential",
+    "difficulty": "Easy",
+    "tags": [
+      "e-from-v"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-05",
+    "name": "Work to Move a Charge Between Terminals",
+    "module": "electric-potential",
+    "difficulty": "Easy",
+    "tags": [
+      "work"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-06",
+    "name": "Electron Accelerated Through 120 Volts",
+    "module": "electric-potential",
+    "difficulty": "Easy",
+    "tags": [
+      "kinematics",
+      "energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-07",
+    "name": "Energy of a Charge Pair",
+    "module": "electric-potential",
+    "difficulty": "Easy",
+    "tags": [
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-08",
+    "name": "Center of a Square of Charges",
+    "module": "electric-potential",
+    "difficulty": "Easy",
+    "tags": [
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-09",
+    "name": "On the Axis of a Charged Ring",
+    "module": "electric-potential",
+    "difficulty": "Easy",
+    "tags": [
+      "ring"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-10",
+    "name": "Outside a Charged Sphere",
+    "module": "electric-potential",
+    "difficulty": "Easy",
+    "tags": [
+      "sphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-11",
+    "name": "Assembling a Triangle of Charges",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "energy",
+      "assembly"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-12",
+    "name": "Potential Drop Across a Uniform Field",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "e-and-v"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-13",
+    "name": "Field from a Quadratic Potential",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "e-from-v"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-14",
+    "name": "Potential on the Axis of a Charged Rod",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "rod",
+      "integration"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-15",
+    "name": "At the Center of a Uniformly Charged Ball",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "sphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-16",
+    "name": "Proton Fired at a Charged Dome",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "energy",
+      "turning-point"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-17",
+    "name": "Spacing of Equipotential Surfaces",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "equipotentials"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-18",
+    "name": "Maximum Voltage on a Van de Graaff",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "sphere",
+      "breakdown"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-19",
+    "name": "Two Spheres Joined by a Wire",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "conductor",
+      "sharing"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-20",
+    "name": "Inside a Charged Metal Shell",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "shell"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-21",
+    "name": "Rutherford Backscattering Distance",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "energy",
+      "turning-point"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-22",
+    "name": "Voltage Across a Coaxial Cable",
+    "module": "electric-potential",
+    "difficulty": "Normal",
+    "tags": [
+      "coaxial",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-23",
+    "name": "Energy Stored in a Charged Ball",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "assembly",
+      "energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-24",
+    "name": "Electron Pulled Through a Charged Ring",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "ring",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-25",
+    "name": "Center-to-Surface Voltage of a Charged Ball",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "sphere",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-26",
+    "name": "Why Sharp Points Spark First",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "conductor",
+      "sharing"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-27",
+    "name": "Energy of Eight Charges on a Cube",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "assembly",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-28",
+    "name": "Ion Launched Into an Accelerating Gap",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-29",
+    "name": "Electron Trapped on a Ring Axis",
+    "module": "electric-potential",
+    "difficulty": "Very Hard",
+    "tags": [
+      "ring",
+      "oscillation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-pot-30",
+    "name": "Threading a Proton Between Two Charges",
+    "module": "electric-potential",
+    "difficulty": "Very Hard",
+    "tags": [
+      "energy",
+      "superposition"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-01",
+    "name": "Parallel-plate sensor capacitance",
+    "module": "conductors-capacitance",
+    "difficulty": "Easy",
+    "tags": [
+      "capacitance",
+      "parallel plate"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-02",
+    "name": "Charge on a camera flash capacitor",
+    "module": "conductors-capacitance",
+    "difficulty": "Easy",
+    "tags": [
+      "charge",
+      "capacitor"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-03",
+    "name": "Two capacitors in parallel",
+    "module": "conductors-capacitance",
+    "difficulty": "Easy",
+    "tags": [
+      "parallel",
+      "network"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-04",
+    "name": "Two capacitors in series",
+    "module": "conductors-capacitance",
+    "difficulty": "Easy",
+    "tags": [
+      "series",
+      "network"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-05",
+    "name": "Capacitance of an isolated sphere",
+    "module": "conductors-capacitance",
+    "difficulty": "Easy",
+    "tags": [
+      "sphere",
+      "capacitance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-06",
+    "name": "Induced charge on a cavity wall",
+    "module": "conductors-capacitance",
+    "difficulty": "Easy",
+    "tags": [
+      "induced charge",
+      "shell"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-07",
+    "name": "Outer surface of a charged shell",
+    "module": "conductors-capacitance",
+    "difficulty": "Easy",
+    "tags": [
+      "shell",
+      "surface charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-08",
+    "name": "Surface charge density from the field",
+    "module": "conductors-capacitance",
+    "difficulty": "Easy",
+    "tags": [
+      "surface charge",
+      "gauss"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-09",
+    "name": "Energy in the flash capacitor",
+    "module": "conductors-capacitance",
+    "difficulty": "Easy",
+    "tags": [
+      "energy",
+      "capacitor"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-10",
+    "name": "Charge sharing between spheres",
+    "module": "conductors-capacitance",
+    "difficulty": "Easy",
+    "tags": [
+      "charge sharing",
+      "sphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-11",
+    "name": "Spherical capacitor",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "spherical",
+      "capacitance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-12",
+    "name": "Coaxial cable capacitance per meter",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "coaxial",
+      "capacitance"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-13",
+    "name": "Voltage across one capacitor in series",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "series",
+      "voltage"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-14",
+    "name": "Attraction between capacitor plates",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "force",
+      "plates"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-15",
+    "name": "Work to separate the plates",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "work",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-16",
+    "name": "Charge above a grounded plate",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "image charge",
+      "force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-17",
+    "name": "Potential inside a grounded shell",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "grounded shell",
+      "potential"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-18",
+    "name": "Mixed capacitor network",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "network",
+      "series",
+      "parallel"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-19",
+    "name": "Surface fields of connected spheres",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "charge sharing",
+      "field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-20",
+    "name": "Connecting a charged and an uncharged capacitor",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "charge sharing",
+      "network"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-21",
+    "name": "Energy lost in charge sharing",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "energy",
+      "charge sharing"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-22",
+    "name": "Field at the inner conductor of a coax",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [
+      "coaxial",
+      "field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-23",
+    "name": "Work to pull a charge off a grounded plate",
+    "module": "conductors-capacitance",
+    "difficulty": "Hard",
+    "tags": [
+      "image charge",
+      "energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-24",
+    "name": "Grounded sphere and a nearby charge",
+    "module": "conductors-capacitance",
+    "difficulty": "Hard",
+    "tags": [
+      "image charge",
+      "sphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-25",
+    "name": "Force with the battery still attached",
+    "module": "conductors-capacitance",
+    "difficulty": "Hard",
+    "tags": [
+      "force",
+      "energy method"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-26",
+    "name": "Three concentric shells in series",
+    "module": "conductors-capacitance",
+    "difficulty": "Hard",
+    "tags": [
+      "spherical",
+      "series"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-27",
+    "name": "Field at the small sphere of a joined pair",
+    "module": "conductors-capacitance",
+    "difficulty": "Hard",
+    "tags": [
+      "charge sharing",
+      "field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-28",
+    "name": "Energy density at the breakdown field of air",
+    "module": "conductors-capacitance",
+    "difficulty": "Hard",
+    "tags": [
+      "energy density",
+      "field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-29",
+    "name": "Infinite capacitor ladder",
+    "module": "conductors-capacitance",
+    "difficulty": "Very Hard",
+    "tags": [
+      "ladder",
+      "network"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-cond-30",
+    "name": "Off-center charge in a grounded shell",
+    "module": "conductors-capacitance",
+    "difficulty": "Very Hard",
+    "tags": [
+      "image charge",
+      "shell"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-01",
+    "name": "Capacitance with a plastic film",
+    "module": "dielectrics",
+    "difficulty": "Easy",
+    "tags": [
+      "capacitance",
+      "dielectric constant"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-02",
+    "name": "Measuring the dielectric constant",
+    "module": "dielectrics",
+    "difficulty": "Easy",
+    "tags": [
+      "dielectric constant"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-03",
+    "name": "Field inside a dielectric",
+    "module": "dielectrics",
+    "difficulty": "Easy",
+    "tags": [
+      "field",
+      "dielectric"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-04",
+    "name": "Energy density of a vacuum field",
+    "module": "dielectrics",
+    "difficulty": "Easy",
+    "tags": [
+      "energy density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-05",
+    "name": "Breakdown voltage of a film",
+    "module": "dielectrics",
+    "difficulty": "Easy",
+    "tags": [
+      "breakdown",
+      "dielectric strength"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-06",
+    "name": "Energy in a ceramic capacitor",
+    "module": "dielectrics",
+    "difficulty": "Easy",
+    "tags": [
+      "energy",
+      "capacitor"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-07",
+    "name": "Charge on a water-filled cell",
+    "module": "dielectrics",
+    "difficulty": "Easy",
+    "tags": [
+      "charge",
+      "dielectric"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-08",
+    "name": "Bound surface charge density",
+    "module": "dielectrics",
+    "difficulty": "Easy",
+    "tags": [
+      "bound charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-09",
+    "name": "On-chip oxide capacitor",
+    "module": "dielectrics",
+    "difficulty": "Easy",
+    "tags": [
+      "capacitance",
+      "dielectric"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-10",
+    "name": "Energy density inside a dielectric",
+    "module": "dielectrics",
+    "difficulty": "Easy",
+    "tags": [
+      "energy density",
+      "dielectric"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-11",
+    "name": "Partially filling slab",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "partial fill",
+      "series"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-12",
+    "name": "Half-area dielectric",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "parallel",
+      "partial fill"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-13",
+    "name": "Two stacked dielectric layers",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "series",
+      "layers"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-14",
+    "name": "Removing a slab at constant charge",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "work",
+      "constant charge"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-15",
+    "name": "Inserting a slab at constant voltage",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "work",
+      "constant voltage"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-16",
+    "name": "Total bound charge on a face",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "bound charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-17",
+    "name": "Maximum energy before breakdown",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "breakdown",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-18",
+    "name": "Extra charge drawn from the battery",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "constant voltage",
+      "charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-19",
+    "name": "Polyethylene coaxial cable",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "coaxial",
+      "dielectric"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-20",
+    "name": "Field in the air gap beside a slab",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "partial fill",
+      "field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-21",
+    "name": "Effective dielectric constant of a half-filled gap",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "series",
+      "effective kappa"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-22",
+    "name": "Energy in a filled capacitor",
+    "module": "dielectrics",
+    "difficulty": "Normal",
+    "tags": [
+      "energy",
+      "capacitance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-23",
+    "name": "Force pulling a slab into a live capacitor",
+    "module": "dielectrics",
+    "difficulty": "Hard",
+    "tags": [
+      "force",
+      "constant voltage"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-24",
+    "name": "Force on a slab at fixed charge",
+    "module": "dielectrics",
+    "difficulty": "Hard",
+    "tags": [
+      "force",
+      "constant charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-25",
+    "name": "Which layer breaks down first",
+    "module": "dielectrics",
+    "difficulty": "Hard",
+    "tags": [
+      "breakdown",
+      "layers"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-26",
+    "name": "Fraction of energy in the vacuum half",
+    "module": "dielectrics",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "layers"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-27",
+    "name": "Hemispherically filled spherical capacitor",
+    "module": "dielectrics",
+    "difficulty": "Hard",
+    "tags": [
+      "spherical",
+      "parallel"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-28",
+    "name": "Kinetic energy gained by a slab",
+    "module": "dielectrics",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "constant voltage"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-29",
+    "name": "Graded dielectric",
+    "module": "dielectrics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "graded",
+      "capacitance"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "es-diel-30",
+    "name": "Dielectric liquid rising between plates",
+    "module": "dielectrics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "force",
+      "liquid"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-01",
+    "name": "Charge through a toaster",
+    "module": "current-resistance",
+    "difficulty": "Easy",
+    "tags": [
+      "current",
+      "charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-02",
+    "name": "Electrons into a phone",
+    "module": "current-resistance",
+    "difficulty": "Easy",
+    "tags": [
+      "current",
+      "charge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-03",
+    "name": "Resistance of an extension cord",
+    "module": "current-resistance",
+    "difficulty": "Easy",
+    "tags": [
+      "resistivity",
+      "geometry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-04",
+    "name": "Headlight current",
+    "module": "current-resistance",
+    "difficulty": "Easy",
+    "tags": [
+      "ohms-law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-05",
+    "name": "Three resistors in series",
+    "module": "current-resistance",
+    "difficulty": "Easy",
+    "tags": [
+      "series"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-06",
+    "name": "Two heaters in parallel",
+    "module": "current-resistance",
+    "difficulty": "Easy",
+    "tags": [
+      "parallel"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-07",
+    "name": "Hair dryer power",
+    "module": "current-resistance",
+    "difficulty": "Easy",
+    "tags": [
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-08",
+    "name": "Heat in a cable",
+    "module": "current-resistance",
+    "difficulty": "Easy",
+    "tags": [
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-09",
+    "name": "Resistance of a toaster element",
+    "module": "current-resistance",
+    "difficulty": "Easy",
+    "tags": [
+      "power",
+      "ohms-law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-10",
+    "name": "A cell with internal resistance",
+    "module": "current-resistance",
+    "difficulty": "Easy",
+    "tags": [
+      "internal-resistance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-11",
+    "name": "Drift speed in a lamp cord",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "drift-velocity"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-12",
+    "name": "Hot tungsten filament",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "temperature"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-13",
+    "name": "Stretching a wire",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "stretched-wire",
+      "geometry"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-14",
+    "name": "A series-parallel network",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "series",
+      "parallel"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-15",
+    "name": "Finding internal resistance",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "internal-resistance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-16",
+    "name": "A voltmeter that loads the circuit",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "voltmeter",
+      "loading"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-17",
+    "name": "Ammeter burden",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "ammeter",
+      "loading"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-18",
+    "name": "Maximum power from a battery",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "max-power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-19",
+    "name": "Cutting a nichrome heater",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "resistivity",
+      "geometry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-20",
+    "name": "Two loads on one battery",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "parallel",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-21",
+    "name": "Two bulbs in series",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "power",
+      "series"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-22",
+    "name": "Current density in house wiring",
+    "module": "current-resistance",
+    "difficulty": "Normal",
+    "tags": [
+      "current-density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-23",
+    "name": "Half a wire stretched",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "stretched-wire"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-24",
+    "name": "A tapered contact pin",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "geometry",
+      "integration"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-25",
+    "name": "Operating temperature of a filament",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "temperature"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-26",
+    "name": "Best load at the end of a long cable",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "max-power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-27",
+    "name": "Correcting for meter resistance",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "voltmeter",
+      "loading"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-28",
+    "name": "An infinite ladder",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "ladder",
+      "self-similar"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-29",
+    "name": "Resistor cube",
+    "module": "current-resistance",
+    "difficulty": "Very Hard",
+    "tags": [
+      "symmetry",
+      "network"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-ohm-30",
+    "name": "Leakage through cable insulation",
+    "module": "current-resistance",
+    "difficulty": "Very Hard",
+    "tags": [
+      "geometry",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-01",
+    "name": "Junction in a fuse box",
+    "module": "kirchhoff",
+    "difficulty": "Easy",
+    "tags": [
+      "junction-rule"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-02",
+    "name": "Batteries in opposition",
+    "module": "kirchhoff",
+    "difficulty": "Easy",
+    "tags": [
+      "loop-rule"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-03",
+    "name": "Drop across the middle resistor",
+    "module": "kirchhoff",
+    "difficulty": "Easy",
+    "tags": [
+      "loop-rule",
+      "series"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-04",
+    "name": "Two cells in series",
+    "module": "kirchhoff",
+    "difficulty": "Easy",
+    "tags": [
+      "internal-resistance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-05",
+    "name": "Charging a battery",
+    "module": "kirchhoff",
+    "difficulty": "Easy",
+    "tags": [
+      "charging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-06",
+    "name": "A four-wire junction",
+    "module": "kirchhoff",
+    "difficulty": "Easy",
+    "tags": [
+      "junction-rule"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-07",
+    "name": "Unknown emf in a loop",
+    "module": "kirchhoff",
+    "difficulty": "Easy",
+    "tags": [
+      "loop-rule"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-08",
+    "name": "Opposing cells with a load",
+    "module": "kirchhoff",
+    "difficulty": "Easy",
+    "tags": [
+      "loop-rule",
+      "internal-resistance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-09",
+    "name": "Terminal voltage under load",
+    "module": "kirchhoff",
+    "difficulty": "Easy",
+    "tags": [
+      "internal-resistance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-10",
+    "name": "Current into a parallel pair",
+    "module": "kirchhoff",
+    "difficulty": "Easy",
+    "tags": [
+      "junction-rule",
+      "parallel"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-11",
+    "name": "Two batteries feeding one load",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "two-loop",
+      "internal-resistance"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-12",
+    "name": "Alternator charging a battery",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "charging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-13",
+    "name": "Superposition at a shared node",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "superposition",
+      "node"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-14",
+    "name": "Thevenin for a loaded divider",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "thevenin"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-15",
+    "name": "A battery buried in a branch",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "two-loop",
+      "node"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-16",
+    "name": "Reading across an unbalanced bridge",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "bridge",
+      "voltmeter"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-17",
+    "name": "Power in the shared branch",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "two-loop",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-18",
+    "name": "Three cells across one lamp",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "node",
+      "internal-resistance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-19",
+    "name": "A two-rung ladder",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "two-loop",
+      "mesh"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-20",
+    "name": "Who is powering the headlights?",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "node",
+      "charging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-21",
+    "name": "Capacitor in a steady circuit",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "steady-state",
+      "capacitor"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-22",
+    "name": "Voltage between two taps",
+    "module": "kirchhoff",
+    "difficulty": "Normal",
+    "tags": [
+      "divider",
+      "node"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-23",
+    "name": "Current through the galvanometer",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "bridge",
+      "two-loop"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-24",
+    "name": "Three meshes",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "three-loop",
+      "mesh"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-25",
+    "name": "Thevenin equivalent of a bridge",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "thevenin",
+      "bridge"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-26",
+    "name": "A bank of unequal batteries",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "node",
+      "internal-resistance"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-27",
+    "name": "Deducing a hidden resistor",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "node",
+      "inverse"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-28",
+    "name": "Resistance of an unbalanced bridge",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "bridge",
+      "equivalent"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-29",
+    "name": "Loaded bridge with a real battery",
+    "module": "kirchhoff",
+    "difficulty": "Very Hard",
+    "tags": [
+      "bridge",
+      "internal-resistance"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-kirch-30",
+    "name": "Two supplies sharing a bus",
+    "module": "kirchhoff",
+    "difficulty": "Very Hard",
+    "tags": [
+      "node",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-01",
+    "name": "Time constant of a simple RC loop",
+    "module": "rc-circuits",
+    "difficulty": "Easy",
+    "tags": [
+      "time constant"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-02",
+    "name": "Half-life of a discharge",
+    "module": "rc-circuits",
+    "difficulty": "Easy",
+    "tags": [
+      "discharging",
+      "half-life"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-03",
+    "name": "Final charge on a capacitor",
+    "module": "rc-circuits",
+    "difficulty": "Easy",
+    "tags": [
+      "charging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-04",
+    "name": "Initial current into an uncharged capacitor",
+    "module": "rc-circuits",
+    "difficulty": "Easy",
+    "tags": [
+      "initial current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-05",
+    "name": "Steady-state current with a capacitor branch",
+    "module": "rc-circuits",
+    "difficulty": "Easy",
+    "tags": [
+      "steady state"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-06",
+    "name": "Energy in a camera flash capacitor",
+    "module": "rc-circuits",
+    "difficulty": "Easy",
+    "tags": [
+      "energy",
+      "flash"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-07",
+    "name": "Voltage left after a fixed time",
+    "module": "rc-circuits",
+    "difficulty": "Easy",
+    "tags": [
+      "discharging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-08",
+    "name": "Heat produced while charging",
+    "module": "rc-circuits",
+    "difficulty": "Easy",
+    "tags": [
+      "energy",
+      "charging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-09",
+    "name": "Time to reach 90 percent charge",
+    "module": "rc-circuits",
+    "difficulty": "Easy",
+    "tags": [
+      "charging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-10",
+    "name": "Two capacitors in series",
+    "module": "rc-circuits",
+    "difficulty": "Easy",
+    "tags": [
+      "time constant",
+      "series"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-11",
+    "name": "Defibrillator energy delivered in 5 ms",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "defibrillator",
+      "energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-12",
+    "name": "Thevenin time constant of a divider",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "thevenin",
+      "time constant"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-13",
+    "name": "Final capacitor voltage in a divider",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "thevenin",
+      "steady state"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-14",
+    "name": "Battery current at the instant of closing",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "initial current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-15",
+    "name": "Charge remaining after three time constants",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "discharging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-16",
+    "name": "Time for the stored energy to halve",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "energy",
+      "discharging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-17",
+    "name": "Parallel capacitors bleeding down",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "discharging",
+      "parallel"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-18",
+    "name": "Final charge with a resistor in the capacitor branch",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "steady state",
+      "charging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-19",
+    "name": "Time constant with a series branch resistor",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "thevenin",
+      "time constant"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-20",
+    "name": "Dissipated power one time constant in",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "power",
+      "discharging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-21",
+    "name": "Peak power in a flash tube",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "flash",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-22",
+    "name": "Settling to one percent",
+    "module": "rc-circuits",
+    "difficulty": "Normal",
+    "tags": [
+      "charging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-23",
+    "name": "Charge sharing loss",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "charge sharing",
+      "energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-24",
+    "name": "Heat in the first time constant",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "charging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-25",
+    "name": "Capacitor bridging two dividers",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "thevenin",
+      "bridge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-26",
+    "name": "Time constant across a bridge",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "thevenin",
+      "bridge"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-27",
+    "name": "When the power drops to a quarter",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "power",
+      "discharging"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-28",
+    "name": "Equalisation time constant of two capacitors",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "charge sharing",
+      "time constant"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-29",
+    "name": "Charge then short",
+    "module": "rc-circuits",
+    "difficulty": "Very Hard",
+    "tags": [
+      "charging",
+      "discharging"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-rc-30",
+    "name": "Two capacitors opposing in a loop",
+    "module": "rc-circuits",
+    "difficulty": "Very Hard",
+    "tags": [
+      "charge sharing",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-01",
+    "name": "Equivalent resistance of a balanced bridge",
+    "module": "tricky-networks",
+    "difficulty": "Easy",
+    "tags": [
+      "wheatstone"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-02",
+    "name": "Balancing a bridge",
+    "module": "tricky-networks",
+    "difficulty": "Easy",
+    "tags": [
+      "wheatstone"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-03",
+    "name": "Cube across a body diagonal",
+    "module": "tricky-networks",
+    "difficulty": "Easy",
+    "tags": [
+      "cube",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-04",
+    "name": "Cube across one edge",
+    "module": "tricky-networks",
+    "difficulty": "Easy",
+    "tags": [
+      "cube",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-05",
+    "name": "Cube across a face diagonal",
+    "module": "tricky-networks",
+    "difficulty": "Easy",
+    "tags": [
+      "cube",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-06",
+    "name": "An infinite ladder",
+    "module": "tricky-networks",
+    "difficulty": "Easy",
+    "tags": [
+      "ladder",
+      "self-similarity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-07",
+    "name": "Delta of three resistors",
+    "module": "tricky-networks",
+    "difficulty": "Easy",
+    "tags": [
+      "delta"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-08",
+    "name": "Delta to Y conversion",
+    "module": "tricky-networks",
+    "difficulty": "Easy",
+    "tags": [
+      "delta-y"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-09",
+    "name": "Square across a diagonal",
+    "module": "tricky-networks",
+    "difficulty": "Easy",
+    "tags": [
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-10",
+    "name": "A bridge resistor that carries nothing",
+    "module": "tricky-networks",
+    "difficulty": "Easy",
+    "tags": [
+      "wheatstone",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-11",
+    "name": "Current through an unbalanced bridge",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "wheatstone"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-12",
+    "name": "Resistance of an unbalanced bridge",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "wheatstone",
+      "delta-y"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-13",
+    "name": "Strain gauge bridge output",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "wheatstone",
+      "strain gauge"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-14",
+    "name": "Ladder with unequal rungs",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "ladder",
+      "self-similarity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-15",
+    "name": "A three-section ladder",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "ladder"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-16",
+    "name": "Octahedron between opposite vertices",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "symmetry",
+      "polyhedron"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-17",
+    "name": "Current in one edge of a cube",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "cube",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-18",
+    "name": "Battery across a cube",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "cube"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-19",
+    "name": "Hexagon ring across opposite vertices",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "symmetry",
+      "ring"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-20",
+    "name": "Hexagon ring across adjacent vertices",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "symmetry",
+      "ring"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-21",
+    "name": "Another unbalanced bridge",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "wheatstone",
+      "delta-y"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-22",
+    "name": "Square with a diagonal brace",
+    "module": "tricky-networks",
+    "difficulty": "Normal",
+    "tags": [
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-23",
+    "name": "Infinite grid, adjacent nodes",
+    "module": "tricky-networks",
+    "difficulty": "Hard",
+    "tags": [
+      "infinite grid",
+      "superposition"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-24",
+    "name": "Cube with a broken edge",
+    "module": "tricky-networks",
+    "difficulty": "Hard",
+    "tags": [
+      "cube",
+      "symmetry"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-25",
+    "name": "Power in the galvanometer",
+    "module": "tricky-networks",
+    "difficulty": "Hard",
+    "tags": [
+      "wheatstone",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-26",
+    "name": "Two-by-three resistor mesh",
+    "module": "tricky-networks",
+    "difficulty": "Hard",
+    "tags": [
+      "grid",
+      "nodal analysis"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-27",
+    "name": "Attenuation down a ladder",
+    "module": "tricky-networks",
+    "difficulty": "Hard",
+    "tags": [
+      "ladder",
+      "self-similarity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-28",
+    "name": "Infinite capacitor ladder",
+    "module": "tricky-networks",
+    "difficulty": "Hard",
+    "tags": [
+      "capacitor ladder",
+      "self-similarity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-29",
+    "name": "Infinite grid, diagonal neighbours",
+    "module": "tricky-networks",
+    "difficulty": "Very Hard",
+    "tags": [
+      "infinite grid",
+      "symmetry"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "ci-net-30",
+    "name": "A tapered transmission line",
+    "module": "tricky-networks",
+    "difficulty": "Very Hard",
+    "tags": [
+      "ladder",
+      "self-similarity",
+      "scaling"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
     "id": "tk-units-01",
     "name": "Highway speed in SI units",
     "module": "units-estimation",

@@ -19,6 +19,10 @@
     "solvable": 30,
     "total": 30
   },
+  "charge-distributions": {
+    "solvable": 30,
+    "total": 30
+  },
   "circular-motion": {
     "solvable": 32,
     "total": 32
@@ -27,11 +31,35 @@
     "solvable": 30,
     "total": 30
   },
+  "conductors-capacitance": {
+    "solvable": 30,
+    "total": 30
+  },
+  "coulomb-superposition": {
+    "solvable": 30,
+    "total": 30
+  },
+  "current-resistance": {
+    "solvable": 30,
+    "total": 30
+  },
   "data-graphs": {
     "solvable": 30,
     "total": 30
   },
   "derivatives": {
+    "solvable": 30,
+    "total": 30
+  },
+  "dielectrics": {
+    "solvable": 30,
+    "total": 30
+  },
+  "effective-potentials": {
+    "solvable": 30,
+    "total": 30
+  },
+  "electric-potential": {
     "solvable": 30,
     "total": 30
   },
@@ -52,8 +80,8 @@
     "total": 30
   },
   "gauss-law": {
-    "solvable": 2,
-    "total": 3
+    "solvable": 32,
+    "total": 33
   },
   "gravitation": {
     "solvable": 30,
@@ -76,8 +104,8 @@
     "total": 2
   },
   "kirchhoff": {
-    "solvable": 2,
-    "total": 3
+    "solvable": 32,
+    "total": 33
   },
   "lenses-mirrors": {
     "solvable": 1,
@@ -103,11 +131,27 @@
     "solvable": 33,
     "total": 35
   },
+  "non-inertial-frames": {
+    "solvable": 30,
+    "total": 30
+  },
+  "oscillator-energy": {
+    "solvable": 30,
+    "total": 30
+  },
+  "pendulums": {
+    "solvable": 30,
+    "total": 30
+  },
   "potential-energy": {
     "solvable": 30,
     "total": 30
   },
   "power": {
+    "solvable": 30,
+    "total": 30
+  },
+  "pressure-buoyancy": {
     "solvable": 30,
     "total": 30
   },
@@ -118,6 +162,10 @@
   "projectiles": {
     "solvable": 33,
     "total": 35
+  },
+  "rc-circuits": {
+    "solvable": 30,
+    "total": 30
   },
   "relative-motion": {
     "solvable": 30,
@@ -132,8 +180,8 @@
     "total": 34
   },
   "shm": {
-    "solvable": 3,
-    "total": 4
+    "solvable": 33,
+    "total": 34
   },
   "springs-hooke": {
     "solvable": 30,
@@ -148,6 +196,10 @@
     "total": 30
   },
   "torque-equilibrium": {
+    "solvable": 30,
+    "total": 30
+  },
+  "tricky-networks": {
     "solvable": 30,
     "total": 30
   },

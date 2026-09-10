@@ -10,6 +10,21 @@ import {
   isSolvable,
 } from "@/lib/problems";
 
+/**
+ * Accepts the ways people actually write numbers: 3.75e10, 3.75E10,
+ * 3.75x10^10, 3.75 × 10^10, and thousands separators.
+ */
+function parseAnswer(raw: string): number | null {
+  const text = raw.trim().replace(/,/g, "").replace(/\s+/g, "");
+  if (!text) return null;
+
+  const sci = text.match(/^([+-]?\d*\.?\d+)[x×*]10\^?([+-]?\d+)$/i);
+  if (sci) return Number(sci[1]) * Math.pow(10, Number(sci[2]));
+
+  const val = Number(text);
+  return Number.isFinite(val) ? val : null;
+}
+
 function Meta({ p }: { p: Problem }) {
   return (
     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -54,8 +69,8 @@ export default function BankProblem({
   const [showSolution, setShowSolution] = useState(false);
 
   const check = () => {
-    const val = parseFloat(input.replace(/,/g, ""));
-    if (Number.isNaN(val) || p.answer === null) return;
+    const val = parseAnswer(input);
+    if (val === null || p.answer === null) return;
     const ok = Math.abs(val - p.answer) <= Math.abs(p.answer) * 0.02;
     setVerdict(ok ? "right" : "wrong");
     if (ok && !solved) setProblem(p.id, "solved");
@@ -109,6 +124,7 @@ export default function BankProblem({
               }}
               onKeyDown={(e) => e.key === "Enter" && check()}
               placeholder="Answer"
+              title="Scientific notation is fine: 3.75e10 or 3.75x10^10"
               className="w-32"
               style={
                 verdict === "right"

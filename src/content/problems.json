@@ -3508,6 +3508,4186 @@
     "solution": "Measure each car by its signed distance to the junction, $a = 400-20t$ and $b = 300-12t$. The law of cosines gives $s^2 = a^2 + b^2 - 2ab\\cos 60^\\circ = a^2 + b^2 - ab$, which stays valid even after a car passes the junction and its coordinate goes negative. Setting $\\frac{d(s^2)}{dt} = -28a - 4b = 0$ gives $12400 - 608t = 0$, so $t = 20.4\\ \\mathrm{s}$, at which point $a = -7.9\\ \\mathrm{m}$ and $b = 55.3\\ \\mathrm{m}$. Substituting gives $s = 59.6\\ \\mathrm{m}$."
   },
   {
+    "id": "nl-fbd-01",
+    "name": "Book on a table",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Easy",
+    "tags": [
+      "normal force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.4\\;\\mathrm{kg}$ physics book rests on a horizontal table. Find the magnitude of the normal force the table exerts on the book, in newtons.",
+    "answer": 23.52,
+    "unit": "N",
+    "solution": "The book is in equilibrium, so the vertical forces cancel: $N = mg$. Then $N = (2.4)(9.8) = 23.5\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-02",
+    "name": "Net force from acceleration",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Easy",
+    "tags": [
+      "second law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $5.0\\;\\mathrm{kg}$ toolbox slides across a floor with acceleration $3.0\\;\\mathrm{m/s^2}$. Find the magnitude of the net force on it, in newtons.",
+    "answer": 15.0,
+    "unit": "N",
+    "solution": "Newton's second law gives $F_{net} = ma = (5.0)(3.0) = 15\\;\\mathrm{N}$. Nothing else about the individual forces is needed."
+  },
+  {
+    "id": "nl-fbd-03",
+    "name": "Scale in an accelerating elevator",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Easy",
+    "tags": [
+      "apparent weight"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $65\\;\\mathrm{kg}$ student stands on a bathroom scale in an elevator that accelerates upward at $1.5\\;\\mathrm{m/s^2}$. What does the scale read, in newtons?",
+    "answer": 734.5,
+    "unit": "N",
+    "solution": "The scale reads the normal force. Taking up as positive, $N - mg = ma$, so $N = m(g+a) = 65(9.8+1.5) = 734.5\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-04",
+    "name": "Elevator accelerating downward",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Easy",
+    "tags": [
+      "apparent weight"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "The same $65\\;\\mathrm{kg}$ student rides an elevator that accelerates downward at $2.0\\;\\mathrm{m/s^2}$. What does the scale read, in newtons?",
+    "answer": 507.0,
+    "unit": "N",
+    "solution": "Now $mg - N = ma$, so $N = m(g-a) = 65(9.8-2.0) = 507\\;\\mathrm{N}$. The student feels lighter but is not weightless."
+  },
+  {
+    "id": "nl-fbd-05",
+    "name": "Two perpendicular forces",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Easy",
+    "tags": [
+      "vector addition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $3.0\\;\\mathrm{kg}$ puck on frictionless ice is pushed by a $12\\;\\mathrm{N}$ force to the east and a $5.0\\;\\mathrm{N}$ force to the north. Find the magnitude of its acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 4.333,
+    "unit": "m/s^2",
+    "solution": "The forces are perpendicular, so the net force is $\\sqrt{12^2+5^2} = 13\\;\\mathrm{N}$. Then $a = 13/3.0 = 4.33\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-fbd-06",
+    "name": "Crate on frictionless floor",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Easy",
+    "tags": [
+      "second law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $40\\;\\mathrm{kg}$ crate is pushed horizontally with $150\\;\\mathrm{N}$ across a frictionless floor. Find its acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 3.75,
+    "unit": "m/s^2",
+    "solution": "Gravity and the normal force cancel vertically, so the push is the whole net force: $a = 150/40 = 3.75\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-fbd-07",
+    "name": "Hanging lamp",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Easy",
+    "tags": [
+      "tension",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $3.2\\;\\mathrm{kg}$ lamp hangs at rest from a single vertical cord. Find the tension in the cord, in newtons.",
+    "answer": 31.36,
+    "unit": "N",
+    "solution": "With no acceleration the cord tension balances gravity: $T = mg = (3.2)(9.8) = 31.4\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-08",
+    "name": "Sled pulled at an angle",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Easy",
+    "tags": [
+      "components"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A child pulls a $20\\;\\mathrm{kg}$ sled across frictionless ice with a rope at $30^\\circ$ above the horizontal, pulling with $60\\;\\mathrm{N}$. Find the sled's horizontal acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 2.598,
+    "unit": "m/s^2",
+    "solution": "Only the horizontal component of the rope force accelerates the sled: $F_x = 60\\cos 30^\\circ = 51.96\\;\\mathrm{N}$. Then $a = 51.96/20 = 2.60\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-fbd-09",
+    "name": "Contact force between two blocks",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Easy",
+    "tags": [
+      "contact force",
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Blocks of mass $2.0\\;\\mathrm{kg}$ and $3.0\\;\\mathrm{kg}$ sit touching each other on a frictionless floor. A horizontal force of $20\\;\\mathrm{N}$ pushes on the $2.0\\;\\mathrm{kg}$ block, so the pair moves together. Find the magnitude of the contact force between the blocks, in newtons.",
+    "answer": 12.0,
+    "unit": "N",
+    "solution": "Treat the pair as one object: $a = 20/5.0 = 4.0\\;\\mathrm{m/s^2}$. The only horizontal force on the $3.0\\;\\mathrm{kg}$ block is the contact force, so $F = (3.0)(4.0) = 12\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-10",
+    "name": "Third force for equilibrium",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Easy",
+    "tags": [
+      "equilibrium",
+      "vector addition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A washer sits at rest on a frictionless air table while three horizontal forces act on it. Two of them are $8.0\\;\\mathrm{N}$ in the $+x$ direction and $6.0\\;\\mathrm{N}$ in the $+y$ direction. Find the magnitude of the third force, in newtons.",
+    "answer": 10.0,
+    "unit": "N",
+    "solution": "For equilibrium the three forces sum to zero, so the third force must cancel the resultant of the first two. That resultant is $\\sqrt{8^2+6^2}=10\\;\\mathrm{N}$, so the third force also has magnitude $10\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-11",
+    "name": "Normal force on an incline",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "incline",
+      "normal force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $12\\;\\mathrm{kg}$ box rests on a ramp inclined at $25^\\circ$ to the horizontal. Find the normal force the ramp exerts on the box, in newtons.",
+    "answer": 106.6,
+    "unit": "N",
+    "solution": "Perpendicular to the surface the box does not accelerate, so $N = mg\\cos\\theta = (12)(9.8)\\cos 25^\\circ = 107\\;\\mathrm{N}$. The normal force is smaller than the weight."
+  },
+  {
+    "id": "nl-fbd-12",
+    "name": "Sliding down a frictionless ramp",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "incline"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A block slides down a frictionless ramp inclined at $30^\\circ$. Find the magnitude of its acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 4.9,
+    "unit": "m/s^2",
+    "solution": "Along the incline the only unbalanced force is $mg\\sin\\theta$, so $a = g\\sin\\theta = 9.8\\sin 30^\\circ = 4.9\\;\\mathrm{m/s^2}$. The mass cancels."
+  },
+  {
+    "id": "nl-fbd-13",
+    "name": "Reading the acceleration off a scale",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "apparent weight"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $60\\;\\mathrm{kg}$ passenger stands on a scale in an elevator. The scale reads $540\\;\\mathrm{N}$. Find the magnitude of the elevator's acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 0.8,
+    "unit": "m/s^2",
+    "solution": "From $N - mg = ma$, $a = N/m - g = 540/60 - 9.8 = -0.8\\;\\mathrm{m/s^2}$. The magnitude is $0.8\\;\\mathrm{m/s^2}$, directed downward."
+  },
+  {
+    "id": "nl-fbd-14",
+    "name": "Weightless in a falling elevator",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "free fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "The cable of an elevator snaps and the car falls freely. A passenger inside stands on a scale that now reads zero. Find the magnitude of the passenger's acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 9.8,
+    "unit": "m/s^2",
+    "solution": "A zero scale reading means the normal force is zero, so gravity is the only force acting: $a = g = 9.8\\;\\mathrm{m/s^2}$ downward. Apparent weightlessness is free fall, not the absence of gravity."
+  },
+  {
+    "id": "nl-fbd-15",
+    "name": "Force in a chain of three blocks",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "contact force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Three blocks of mass $1.0\\;\\mathrm{kg}$, $2.0\\;\\mathrm{kg}$ and $3.0\\;\\mathrm{kg}$ sit in a row, touching, on a frictionless floor. A horizontal force of $24\\;\\mathrm{N}$ pushes on the $1.0\\;\\mathrm{kg}$ block. Find the magnitude of the contact force between the $2.0\\;\\mathrm{kg}$ and $3.0\\;\\mathrm{kg}$ blocks, in newtons.",
+    "answer": 12.0,
+    "unit": "N",
+    "solution": "The system accelerates at $a = 24/6.0 = 4.0\\;\\mathrm{m/s^2}$. The contact force in question is the only horizontal force on the $3.0\\;\\mathrm{kg}$ block, so it equals $(3.0)(4.0) = 12\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-16",
+    "name": "Pushing downward at an angle",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "normal force",
+      "components"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A worker pushes a $15\\;\\mathrm{kg}$ crate along a frictionless floor with a $100\\;\\mathrm{N}$ force directed $20^\\circ$ below the horizontal. Find the normal force from the floor, in newtons.",
+    "answer": 181.2,
+    "unit": "N",
+    "solution": "Vertically, the floor must support the weight plus the downward component of the push: $N = mg + F\\sin 20^\\circ = 147 + 34.2 = 181\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-17",
+    "name": "Bird accelerating upward",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "second law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.25\\;\\mathrm{kg}$ bird accelerates straight upward at $3.0\\;\\mathrm{m/s^2}$. Find the upward force the air exerts on the bird, in newtons.",
+    "answer": 3.2,
+    "unit": "N",
+    "solution": "Two forces act: gravity down and the air force up. So $F - mg = ma$ and $F = m(g+a) = 0.25(12.8) = 3.2\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-18",
+    "name": "Braking car",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "second law",
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1200\\;\\mathrm{kg}$ car traveling at $25\\;\\mathrm{m/s}$ is brought to rest in $4.0\\;\\mathrm{s}$. Find the magnitude of the average net force on the car, in newtons.",
+    "answer": 7500.0,
+    "unit": "N",
+    "solution": "The average acceleration is $a = 25/4.0 = 6.25\\;\\mathrm{m/s^2}$. Then $F = ma = (1200)(6.25) = 7500\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-19",
+    "name": "Ball bouncing off a wall",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "impulse",
+      "second law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.15\\;\\mathrm{kg}$ ball strikes a wall at $20\\;\\mathrm{m/s}$ and rebounds straight back at $15\\;\\mathrm{m/s}$. The contact lasts $0.020\\;\\mathrm{s}$. Find the magnitude of the average force the wall exerts on the ball, in newtons.",
+    "answer": 262.5,
+    "unit": "N",
+    "solution": "The velocity changes by $35\\;\\mathrm{m/s}$ because the direction reverses. So $F = m\\Delta v/\\Delta t = (0.15)(35)/0.020 = 262\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-20",
+    "name": "Accelerometer on a string",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "equilibrium",
+      "components"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A small ball hangs from a string tied to the ceiling of a car. While the car accelerates in a straight line the string hangs at a steady $12^\\circ$ from the vertical. Find the magnitude of the car's acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 2.083,
+    "unit": "m/s^2",
+    "solution": "The string tension has a vertical component balancing gravity, $T\\cos\\theta = mg$, and a horizontal component providing the acceleration, $T\\sin\\theta = ma$. Dividing gives $a = g\\tan 12^\\circ = 2.08\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-fbd-21",
+    "name": "Astronaut pushes a capsule",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $60\\;\\mathrm{kg}$ astronaut floating in space pushes off a $120\\;\\mathrm{kg}$ capsule, giving the capsule an acceleration of $0.40\\;\\mathrm{m/s^2}$. Find the magnitude of the astronaut's acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 0.8,
+    "unit": "m/s^2",
+    "solution": "By the third law the two forces have equal magnitude: $F = (120)(0.40) = 48\\;\\mathrm{N}$. The astronaut's acceleration is then $48/60 = 0.80\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-fbd-22",
+    "name": "Holding a block on a frictionless incline",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "incline",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An $8.0\\;\\mathrm{kg}$ block rests on a frictionless incline of angle $20^\\circ$. It is held in place by a horizontal push. Find the magnitude of that push, in newtons.",
+    "answer": 28.54,
+    "unit": "N",
+    "solution": "Resolve along and perpendicular to the incline, or use the closed force triangle of weight, normal force and horizontal push. Either way $F = mg\\tan\\theta = (8.0)(9.8)\\tan 20^\\circ = 28.5\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-23",
+    "name": "Accelerating wedge",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Hard",
+    "tags": [
+      "non-inertial",
+      "incline"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A block rests on the frictionless $25^\\circ$ face of a wedge. The wedge is pushed horizontally so that the block stays in the same spot on the face, not sliding at all. Find the required acceleration of the wedge, in $\\mathrm{m/s^2}$.",
+    "answer": 4.57,
+    "unit": "m/s^2",
+    "solution": "Only two forces act on the block: gravity and the normal force. Their sum must be horizontal and equal to $ma$. Vertically $N\\cos\\theta = mg$ and horizontally $N\\sin\\theta = ma$, so $a = g\\tan 25^\\circ = 4.57\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-fbd-24",
+    "name": "Cables at two angles",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Hard",
+    "tags": [
+      "equilibrium",
+      "components"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $25\\;\\mathrm{kg}$ traffic light hangs from two cables attached to the same point. One cable rises at $40^\\circ$ above the horizontal to the left, the other at $50^\\circ$ above the horizontal to the right. Find the tension in the $40^\\circ$ cable, in newtons.",
+    "answer": 157.5,
+    "unit": "N",
+    "solution": "Horizontal balance gives $T_1\\cos 40^\\circ = T_2\\cos 50^\\circ$ and vertical balance gives $T_1\\sin 40^\\circ + T_2\\sin 50^\\circ = mg$. Because the cables are perpendicular, the algebra collapses to $T_1 = mg\\cos 50^\\circ = 245(0.643) = 157\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-25",
+    "name": "Friction on a stacked block",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Hard",
+    "tags": [
+      "stacked blocks",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.0\\;\\mathrm{kg}$ block sits on top of a $5.0\\;\\mathrm{kg}$ block, which rests on a frictionless floor. A horizontal force of $21\\;\\mathrm{N}$ is applied to the lower block, and the two move together. Find the friction force acting on the upper block, in newtons.",
+    "answer": 6.0,
+    "unit": "N",
+    "solution": "Together they accelerate at $a = 21/7.0 = 3.0\\;\\mathrm{m/s^2}$. Friction from the lower block is the only horizontal force on the upper block, so $f = (2.0)(3.0) = 6.0\\;\\mathrm{N}$ in the direction of motion."
+  },
+  {
+    "id": "nl-fbd-26",
+    "name": "Tension inside a hanging chain",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Hard",
+    "tags": [
+      "chain",
+      "internal force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform chain of mass $6.0\\;\\mathrm{kg}$ hangs at rest from a hook. Find the tension in the chain at a point one third of the way up from the bottom, in newtons.",
+    "answer": 19.6,
+    "unit": "N",
+    "solution": "Cut the chain at that point and draw a free body diagram of the piece below it. That piece has mass $(1/3)(6.0) = 2.0\\;\\mathrm{kg}$ and is in equilibrium, so the tension supports its weight: $T = (2.0)(9.8) = 19.6\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-27",
+    "name": "Tension in a massive rope",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Hard",
+    "tags": [
+      "chain",
+      "internal force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $10\\;\\mathrm{kg}$ block hangs from a uniform rope of mass $4.0\\;\\mathrm{kg}$. The rope is pulled straight up so the whole system accelerates upward at $2.0\\;\\mathrm{m/s^2}$. Find the tension at the midpoint of the rope, in newtons.",
+    "answer": 141.6,
+    "unit": "N",
+    "solution": "Everything below the midpoint has mass $10 + 2.0 = 12\\;\\mathrm{kg}$. For that piece, $T - mg = ma$, so $T = 12(9.8+2.0) = 142\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-28",
+    "name": "Pushing a rope along the floor",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Hard",
+    "tags": [
+      "internal force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform rope of mass $5.0\\;\\mathrm{kg}$ and length $3.0\\;\\mathrm{m}$ lies on a frictionless floor. It is pushed along its length by a $12\\;\\mathrm{N}$ force applied to one end. Find the magnitude of the internal force in the rope at a point $1.0\\;\\mathrm{m}$ from the pushed end, in newtons.",
+    "answer": 8.0,
+    "unit": "N",
+    "solution": "The rope accelerates at $a = 12/5.0 = 2.4\\;\\mathrm{m/s^2}$. The section ahead of the cut has mass $(2.0/3.0)(5.0) = 3.33\\;\\mathrm{kg}$, and the internal force is what accelerates it: $F = (3.33)(2.4) = 8.0\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fbd-29",
+    "name": "Block on a free wedge",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Very Hard",
+    "tags": [
+      "wedge",
+      "coupled motion"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1.0\\;\\mathrm{kg}$ block slides on the frictionless $30^\\circ$ face of a $3.0\\;\\mathrm{kg}$ wedge, and the wedge itself is free to slide on a frictionless floor. Find the magnitude of the wedge's acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 1.306,
+    "unit": "m/s^2",
+    "solution": "The horizontal push on the wedge comes only from the normal force, and the block's motion is constrained to stay on the moving face. Solving the coupled equations gives $A = \\frac{mg\\sin\\theta\\cos\\theta}{M+m\\sin^2\\theta}$. With the numbers, $A = 4.243/3.25 = 1.31\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-fbd-30",
+    "name": "Painter on a hanging platform",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Very Hard",
+    "tags": [
+      "pulley",
+      "equilibrium"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $60\\;\\mathrm{kg}$ painter stands on a $15\\;\\mathrm{kg}$ platform. A rope attached to the platform runs up over a frictionless pulley and back down to the painter's hands. He pulls so that he and the platform accelerate upward at $0.80\\;\\mathrm{m/s^2}$. Find the force the platform exerts on the painter, in newtons.",
+    "answer": 238.5,
+    "unit": "N",
+    "solution": "Two rope segments hold the system up, so for painter plus platform, $2T - (75)(9.8) = 75(0.80)$, giving $T = 397.5\\;\\mathrm{N}$. Now take the painter alone: $N + T - m_pg = m_pa$, so $N = 60(10.6) - 397.5 = 238\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-01",
+    "name": "Kinetic friction on a sliding crate",
+    "module": "friction",
+    "difficulty": "Easy",
+    "tags": [
+      "kinetic friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $12\\;\\mathrm{kg}$ crate slides across a level floor with $\\mu_k = 0.35$. Find the kinetic friction force on the crate, in newtons.",
+    "answer": 41.16,
+    "unit": "N",
+    "solution": "On a level floor $N = mg = 117.6\\;\\mathrm{N}$. Then $f_k = \\mu_k N = (0.35)(117.6) = 41.2\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-02",
+    "name": "Maximum static friction",
+    "module": "friction",
+    "difficulty": "Easy",
+    "tags": [
+      "static friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An $8.0\\;\\mathrm{kg}$ toolbox sits on a level bench with $\\mu_s = 0.45$. Find the largest static friction force the bench can supply, in newtons.",
+    "answer": 35.28,
+    "unit": "N",
+    "solution": "The maximum is $f_{s,max} = \\mu_s N = \\mu_s mg = (0.45)(8.0)(9.8) = 35.3\\;\\mathrm{N}$. Static friction can be anything from zero up to this value."
+  },
+  {
+    "id": "nl-fric-03",
+    "name": "Acceleration against friction",
+    "module": "friction",
+    "difficulty": "Easy",
+    "tags": [
+      "kinetic friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $10\\;\\mathrm{kg}$ box is pushed horizontally with $25\\;\\mathrm{N}$ across a floor with $\\mu_k = 0.20$. Find the box's acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 0.54,
+    "unit": "m/s^2",
+    "solution": "Friction opposes the push: $f_k = (0.20)(10)(9.8) = 19.6\\;\\mathrm{N}$. Then $a = (25-19.6)/10 = 0.54\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-fric-04",
+    "name": "Skid distance",
+    "module": "friction",
+    "difficulty": "Easy",
+    "tags": [
+      "kinetic friction",
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car traveling at $20\\;\\mathrm{m/s}$ locks its brakes on a level road with $\\mu_k = 0.70$. Find the distance it skids before stopping, in meters.",
+    "answer": 29.15,
+    "unit": "m",
+    "solution": "The deceleration is $a = \\mu_k g = 6.86\\;\\mathrm{m/s^2}$, independent of mass. Then $d = v^2/(2a) = 400/13.72 = 29.2\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-fric-05",
+    "name": "Coefficient from deceleration",
+    "module": "friction",
+    "difficulty": "Easy",
+    "tags": [
+      "kinetic friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A block sliding on a level table slows down at $2.5\\;\\mathrm{m/s^2}$. Find the coefficient of kinetic friction between block and table.",
+    "answer": 0.2551,
+    "unit": "",
+    "solution": "Friction is the only horizontal force, so $\\mu_k mg = ma$ and $\\mu_k = a/g = 2.5/9.8 = 0.255$."
+  },
+  {
+    "id": "nl-fric-06",
+    "name": "Angle of repose",
+    "module": "friction",
+    "difficulty": "Easy",
+    "tags": [
+      "static friction",
+      "incline"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ramp is slowly tilted until a block placed on it just begins to slide, which happens at $32^\\circ$. Find the coefficient of static friction.",
+    "answer": 0.6249,
+    "unit": "",
+    "solution": "At the tipping point $mg\\sin\\theta = \\mu_s mg\\cos\\theta$, so $\\mu_s = \\tan\\theta = \\tan 32^\\circ = 0.625$."
+  },
+  {
+    "id": "nl-fric-07",
+    "name": "Steepest ramp that holds",
+    "module": "friction",
+    "difficulty": "Easy",
+    "tags": [
+      "static friction",
+      "incline"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A carton has $\\mu_s = 0.60$ against a wooden ramp. Find the steepest ramp angle on which the carton will not slide, in degrees.",
+    "answer": 30.96,
+    "unit": "degrees",
+    "solution": "The critical angle satisfies $\\tan\\theta = \\mu_s$, so $\\theta = \\arctan 0.60 = 31.0^\\circ$."
+  },
+  {
+    "id": "nl-fric-08",
+    "name": "Force to start a crate moving",
+    "module": "friction",
+    "difficulty": "Easy",
+    "tags": [
+      "static friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $50\\;\\mathrm{kg}$ crate rests on a level floor with $\\mu_s = 0.40$. Find the minimum horizontal force needed to start it moving, in newtons.",
+    "answer": 196.0,
+    "unit": "N",
+    "solution": "The push must exceed the maximum static friction, $\\mu_s mg = (0.40)(50)(9.8) = 196\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-09",
+    "name": "Puck on ice",
+    "module": "friction",
+    "difficulty": "Easy",
+    "tags": [
+      "kinetic friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A hockey puck launched at $12\\;\\mathrm{m/s}$ slides $40\\;\\mathrm{m}$ before stopping. Find the coefficient of kinetic friction between puck and ice.",
+    "answer": 0.1837,
+    "unit": "",
+    "solution": "The deceleration is $a = v^2/(2d) = 144/80 = 1.8\\;\\mathrm{m/s^2}$, and $\\mu_k = a/g = 1.8/9.8 = 0.184$."
+  },
+  {
+    "id": "nl-fric-10",
+    "name": "Sliding down a rough incline",
+    "module": "friction",
+    "difficulty": "Easy",
+    "tags": [
+      "incline",
+      "kinetic friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A block slides down a $20^\\circ$ incline with $\\mu_k = 0.25$. Find the magnitude of its acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 1.05,
+    "unit": "m/s^2",
+    "solution": "Along the incline, $ma = mg\\sin\\theta - \\mu_k mg\\cos\\theta$, so $a = g(\\sin 20^\\circ - 0.25\\cos 20^\\circ) = 9.8(0.342-0.235) = 1.05\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-fric-11",
+    "name": "Static friction is not always maximal",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "static friction",
+      "incline"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $5.0\\;\\mathrm{kg}$ block sits at rest on a $30^\\circ$ incline with $\\mu_s = 0.70$. Find the friction force acting on the block, in newtons.",
+    "answer": 24.5,
+    "unit": "N",
+    "solution": "First check whether it slips: the pull along the incline is $mg\\sin 30^\\circ = 24.5\\;\\mathrm{N}$, while the maximum friction is $\\mu_s mg\\cos 30^\\circ = 29.7\\;\\mathrm{N}$. It holds, so friction takes exactly the value needed for equilibrium, $24.5\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-12",
+    "name": "Block sent up a rough incline",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "incline",
+      "kinetic friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $6.0\\;\\mathrm{kg}$ block is launched up a $25^\\circ$ incline with $\\mu_k = 0.30$. Find the magnitude of its deceleration while moving up, in $\\mathrm{m/s^2}$.",
+    "answer": 6.806,
+    "unit": "m/s^2",
+    "solution": "Going up, gravity and friction both act down the slope: $a = g(\\sin\\theta + \\mu_k\\cos\\theta) = 9.8(0.423+0.272) = 6.81\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-fric-13",
+    "name": "Dragging with an angled rope",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "kinetic friction",
+      "components"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $20\\;\\mathrm{kg}$ trunk is dragged at constant speed across a floor with $\\mu_k = 0.30$ by a rope at $30^\\circ$ above the horizontal. Find the rope tension, in newtons.",
+    "answer": 57.87,
+    "unit": "N",
+    "solution": "Lifting at an angle reduces the normal force: $N = mg - T\\sin\\theta$. Constant speed means $T\\cos\\theta = \\mu_k N$, so $T = \\mu_k mg/(\\cos\\theta + \\mu_k\\sin\\theta) = 58.8/1.016 = 57.9\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-14",
+    "name": "Pushing a stack without slipping",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "stacked blocks",
+      "static friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $3.0\\;\\mathrm{kg}$ block rests on a $7.0\\;\\mathrm{kg}$ block on a frictionless floor, with $\\mu_s = 0.40$ between the blocks. A horizontal force is applied to the lower block. Find the largest force for which the blocks still move together, in newtons.",
+    "answer": 39.2,
+    "unit": "N",
+    "solution": "Friction is the only horizontal force on the upper block, so its maximum acceleration is $a_{max} = \\mu_s g = 3.92\\;\\mathrm{m/s^2}$. Driving the whole $10\\;\\mathrm{kg}$ at that rate needs $F = (10)(3.92) = 39.2\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-15",
+    "name": "Cargo in a braking truck",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "static friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A crate sits on the flat bed of a truck with $\\mu_s = 0.50$ between crate and bed. Find the largest deceleration the truck can have without the crate sliding forward, in $\\mathrm{m/s^2}$.",
+    "answer": 4.9,
+    "unit": "m/s^2",
+    "solution": "Friction must supply the crate's deceleration, and it can supply at most $\\mu_s mg$. So $a_{max} = \\mu_s g = 4.9\\;\\mathrm{m/s^2}$, independent of the crate's mass."
+  },
+  {
+    "id": "nl-fric-16",
+    "name": "Box dropped on a conveyor belt",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "kinetic friction",
+      "relative motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A box is placed at rest on a conveyor belt that moves at a steady $4.0\\;\\mathrm{m/s}$. The coefficient of kinetic friction is $0.25$. Find how far the box slips relative to the belt before matching its speed, in meters.",
+    "answer": 3.265,
+    "unit": "m",
+    "solution": "The box accelerates at $\\mu_k g = 2.45\\;\\mathrm{m/s^2}$ and reaches $4.0\\;\\mathrm{m/s}$ after $t = 1.633\\;\\mathrm{s}$. In that time the belt moves $6.53\\;\\mathrm{m}$ and the box $3.27\\;\\mathrm{m}$, so the slip is $3.27\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-fric-17",
+    "name": "Fastest safe speed on a flat curve",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "static friction",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car rounds a flat, unbanked curve of radius $80\\;\\mathrm{m}$ on a road with $\\mu_s = 0.60$. Find the maximum speed it can have, in $\\mathrm{m/s}$.",
+    "answer": 21.69,
+    "unit": "m/s",
+    "solution": "Friction supplies the centripetal force: $\\mu_s mg = mv^2/r$. So $v = \\sqrt{\\mu_s gr} = \\sqrt{(0.60)(9.8)(80)} = 21.7\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-fric-18",
+    "name": "Heavy crate on a rope",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "kinetic friction",
+      "components"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $100\\;\\mathrm{kg}$ crate is pulled at constant speed by a rope $20^\\circ$ above the horizontal across a floor with $\\mu_k = 0.40$. Find the rope tension, in newtons.",
+    "answer": 364.1,
+    "unit": "N",
+    "solution": "With $N = mg - T\\sin\\theta$ and $T\\cos\\theta = \\mu_k N$, we get $T = \\mu_k mg/(\\cos\\theta + \\mu_k\\sin\\theta) = 392/1.0765 = 364\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-19",
+    "name": "How far up the ramp",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "incline",
+      "kinetic friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A block is launched up a $30^\\circ$ incline at $8.0\\;\\mathrm{m/s}$ with $\\mu_k = 0.20$. Find how far along the incline it travels before stopping, in meters.",
+    "answer": 4.85,
+    "unit": "m",
+    "solution": "The deceleration is $g(\\sin 30^\\circ + 0.20\\cos 30^\\circ) = 6.60\\;\\mathrm{m/s^2}$. Then $d = v^2/(2a) = 64/13.19 = 4.85\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-fric-20",
+    "name": "Return speed down the ramp",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "incline",
+      "kinetic friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "The block of the previous setup ($30^\\circ$ incline, launched at $8.0\\;\\mathrm{m/s}$, $\\mu_k = \\mu_s = 0.20$) slides back down. Find its speed when it returns to the starting point, in $\\mathrm{m/s}$.",
+    "answer": 5.574,
+    "unit": "m/s",
+    "solution": "Since $\\mu_s < \\tan 30^\\circ$ the block does slide back. Coming down the acceleration is $g(\\sin\\theta - \\mu_k\\cos\\theta) = 3.20\\;\\mathrm{m/s^2}$ over the same $4.85\\;\\mathrm{m}$, giving $v = \\sqrt{2(3.20)(4.85)} = 5.57\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-fric-21",
+    "name": "Block held against a wall",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "static friction"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $4.0\\;\\mathrm{kg}$ book is held against a vertical wall by a horizontal push. The coefficient of static friction is $0.50$. Find the minimum push needed to keep the book from sliding down, in newtons.",
+    "answer": 78.4,
+    "unit": "N",
+    "solution": "The push sets the normal force, and friction acts vertically: $\\mu_s F \\ge mg$. So $F_{min} = mg/\\mu_s = 39.2/0.50 = 78.4\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-22",
+    "name": "Steady haul up a slope",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "incline",
+      "kinetic friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $10\\;\\mathrm{kg}$ box is pulled up a $30^\\circ$ incline at constant speed by a force parallel to the incline, with $\\mu_k = 0.15$. Find the required force, in newtons.",
+    "answer": 61.73,
+    "unit": "N",
+    "solution": "Constant speed means the applied force balances gravity's component plus friction: $F = mg(\\sin\\theta + \\mu_k\\cos\\theta) = 98(0.5+0.130) = 61.7\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-23",
+    "name": "Which surface gives way first",
+    "module": "friction",
+    "difficulty": "Hard",
+    "tags": [
+      "static friction",
+      "stacked blocks"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.0\\;\\mathrm{kg}$ block sits on a $4.0\\;\\mathrm{kg}$ block that rests on the ground. The coefficient of static friction is $0.30$ between the blocks and $0.20$ between the lower block and the ground. A horizontal force is applied to the upper block. Find the largest force for which nothing moves, in newtons.",
+    "answer": 5.88,
+    "unit": "N",
+    "solution": "Check both interfaces. The ground can resist up to $(0.20)(6.0)(9.8) = 11.8\\;\\mathrm{N}$, but the upper block can only be held by $(0.30)(2.0)(9.8) = 5.88\\;\\mathrm{N}$. The weaker interface gives way first, so motion begins once $F$ exceeds $5.88\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-24",
+    "name": "Ladder against a smooth wall",
+    "module": "friction",
+    "difficulty": "Hard",
+    "tags": [
+      "static friction",
+      "torque"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform ladder leans against a frictionless vertical wall, with $\\mu_s = 0.40$ at the floor. Find the smallest angle between the ladder and the floor for which it does not slip, in degrees.",
+    "answer": 51.34,
+    "unit": "degrees",
+    "solution": "Force balance gives $N_{floor} = W$ and $f = N_{wall}$. Taking torques about the base, $N_{wall}L\\sin\\theta = W(L/2)\\cos\\theta$, so $N_{wall} = W/(2\\tan\\theta)$. Requiring $N_{wall} \\le \\mu_s W$ gives $\\tan\\theta \\ge 1/(2\\mu_s) = 1.25$, so $\\theta_{min} = 51.3^\\circ$."
+  },
+  {
+    "id": "nl-fric-25",
+    "name": "Horizontal force holding a block on a slope",
+    "module": "friction",
+    "difficulty": "Hard",
+    "tags": [
+      "incline",
+      "static friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $10\\;\\mathrm{kg}$ block sits on a $40^\\circ$ incline with $\\mu_s = 0.30$, which is not enough to hold it. A horizontal force is applied, pressing toward the incline. Find the minimum such force that keeps the block from sliding down, in newtons.",
+    "answer": 42.21,
+    "unit": "N",
+    "solution": "The horizontal push both helps along the slope and increases the normal force. With $N = mg\\cos\\theta + F\\sin\\theta$ and $mg\\sin\\theta = F\\cos\\theta + \\mu_s N$ at the verge of slipping, $F = mg(\\sin\\theta-\\mu_s\\cos\\theta)/(\\cos\\theta+\\mu_s\\sin\\theta) = 40.5/0.959 = 42.2\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-26",
+    "name": "Two blocks with different friction",
+    "module": "friction",
+    "difficulty": "Hard",
+    "tags": [
+      "incline",
+      "kinetic friction",
+      "tension"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.0\\;\\mathrm{kg}$ block ($\\mu_k = 0.10$) is connected by a taut string to a $3.0\\;\\mathrm{kg}$ block ($\\mu_k = 0.40$) directly behind it, and the pair slides down a $30^\\circ$ incline with the lighter block leading. Find the tension in the string, in newtons.",
+    "answer": 3.055,
+    "unit": "N",
+    "solution": "The slippier block would accelerate faster alone, so the string goes taut and they share one acceleration $a = g(\\sin\\theta - \\bar\\mu\\cos\\theta)$ with $\\bar\\mu = 0.28$. Writing the equation for either block gives $T = \\frac{m_1m_2}{m_1+m_2}g\\cos\\theta(\\mu_2-\\mu_1) = 3.06\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-27",
+    "name": "Best angle to pull",
+    "module": "friction",
+    "difficulty": "Hard",
+    "tags": [
+      "kinetic friction",
+      "optimization"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $25\\;\\mathrm{kg}$ sled is dragged at constant speed over ground with $\\mu_k = 0.50$. The rope angle can be chosen freely. Find the smallest possible rope tension, in newtons.",
+    "answer": 109.6,
+    "unit": "N",
+    "solution": "For a rope at angle $\\theta$, $T = \\mu_k mg/(\\cos\\theta + \\mu_k\\sin\\theta)$. The denominator is largest when $\\tan\\theta = \\mu_k$, where it equals $\\sqrt{1+\\mu_k^2}$. So $T_{min} = \\mu_k mg/\\sqrt{1+\\mu_k^2} = 122.5/1.118 = 110\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-fric-28",
+    "name": "Ramp then floor",
+    "module": "friction",
+    "difficulty": "Hard",
+    "tags": [
+      "incline",
+      "kinetic friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A block slides from rest down $3.0\\;\\mathrm{m}$ along a $30^\\circ$ incline with $\\mu_k = 0.20$, then continues onto a horizontal floor with $\\mu_k = 0.35$. Find how far it travels on the floor before stopping, in meters.",
+    "answer": 2.801,
+    "unit": "m",
+    "solution": "On the ramp $a = g(\\sin 30^\\circ - 0.20\\cos 30^\\circ) = 3.20\\;\\mathrm{m/s^2}$, so $v^2 = 2(3.20)(3.0) = 19.2\\;\\mathrm{m^2/s^2}$ at the bottom. On the floor the deceleration is $\\mu_k g = 3.43\\;\\mathrm{m/s^2}$, giving $d = 19.2/6.86 = 2.80\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-fric-29",
+    "name": "Friction needed on an accelerating ramp",
+    "module": "friction",
+    "difficulty": "Very Hard",
+    "tags": [
+      "non-inertial",
+      "static friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A block rides on the $20^\\circ$ face of a wedge while the wedge is driven horizontally at $3.0\\;\\mathrm{m/s^2}$, in the direction that pushes the block into the hill. Find the minimum coefficient of static friction that keeps the block from sliding on the face.",
+    "answer": 0.05205,
+    "unit": "",
+    "solution": "Work in the wedge frame, adding a pseudo-force $ma$ opposite the acceleration. Along the surface the block needs $f = m(g\\sin\\theta - a\\cos\\theta)$, and perpendicular $N = m(g\\cos\\theta + a\\sin\\theta)$. Then $\\mu_{min} = f/N = 0.533/10.23 = 0.052$: the acceleration does most of the work of holding the block."
+  },
+  {
+    "id": "nl-fric-30",
+    "name": "Stack that does slip",
+    "module": "friction",
+    "difficulty": "Very Hard",
+    "tags": [
+      "stacked blocks",
+      "kinetic friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.0\\;\\mathrm{kg}$ block sits on a $5.0\\;\\mathrm{kg}$ block on a frictionless floor, with $\\mu_s = \\mu_k = 0.40$ between them. A horizontal force of $40\\;\\mathrm{N}$ is applied to the lower block. Find the acceleration of the lower block, in $\\mathrm{m/s^2}$.",
+    "answer": 6.432,
+    "unit": "m/s^2",
+    "solution": "First test whether they move together: that would need $a = 40/7.0 = 5.71\\;\\mathrm{m/s^2}$, but friction can only give the top block $\\mu_s g = 3.92\\;\\mathrm{m/s^2}$. So it slips, and the lower block feels $40\\;\\mathrm{N}$ forward minus kinetic friction $7.84\\;\\mathrm{N}$ backward: $a = 32.16/5.0 = 6.43\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-tens-01",
+    "name": "Hanging mass",
+    "module": "tension-pulleys",
+    "difficulty": "Easy",
+    "tags": [
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $6.0\\;\\mathrm{kg}$ sandbag hangs at rest from a rope. Find the tension in the rope, in newtons.",
+    "answer": 58.8,
+    "unit": "N",
+    "solution": "At rest the tension balances the weight: $T = mg = (6.0)(9.8) = 58.8\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-02",
+    "name": "Atwood machine acceleration",
+    "module": "tension-pulleys",
+    "difficulty": "Easy",
+    "tags": [
+      "Atwood machine"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Masses of $3.0\\;\\mathrm{kg}$ and $5.0\\;\\mathrm{kg}$ hang from opposite ends of a light string over a frictionless pulley. Find the magnitude of their acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 2.45,
+    "unit": "m/s^2",
+    "solution": "Treat the pair as one system driven by the weight difference: $a = (m_2-m_1)g/(m_1+m_2) = (2.0)(9.8)/8.0 = 2.45\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-tens-03",
+    "name": "Atwood machine tension",
+    "module": "tension-pulleys",
+    "difficulty": "Easy",
+    "tags": [
+      "Atwood machine",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "For the same Atwood machine ($3.0\\;\\mathrm{kg}$ and $5.0\\;\\mathrm{kg}$, frictionless pulley), find the string tension, in newtons.",
+    "answer": 36.75,
+    "unit": "N",
+    "solution": "Apply the second law to the light mass: $T - m_1g = m_1a$, giving $T = 3.0(9.8+2.45) = 36.75\\;\\mathrm{N}$. Equivalently $T = 2m_1m_2g/(m_1+m_2)$."
+  },
+  {
+    "id": "nl-tens-04",
+    "name": "Elevator cable",
+    "module": "tension-pulleys",
+    "difficulty": "Easy",
+    "tags": [
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An $800\\;\\mathrm{kg}$ elevator car accelerates upward at $1.2\\;\\mathrm{m/s^2}$. Find the tension in its cable, in newtons.",
+    "answer": 8800.0,
+    "unit": "N",
+    "solution": "From $T - mg = ma$, $T = m(g+a) = 800(11.0) = 8800\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-05",
+    "name": "Table and hanging block",
+    "module": "tension-pulleys",
+    "difficulty": "Easy",
+    "tags": [
+      "pulley"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $4.0\\;\\mathrm{kg}$ block on a frictionless table is connected by a string over a pulley at the table edge to a $2.0\\;\\mathrm{kg}$ block hanging freely. Find the acceleration of the system, in $\\mathrm{m/s^2}$.",
+    "answer": 3.267,
+    "unit": "m/s^2",
+    "solution": "Only the hanging weight drives the $6.0\\;\\mathrm{kg}$ system: $a = m_2g/(m_1+m_2) = 19.6/6.0 = 3.27\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-tens-06",
+    "name": "Tension in that string",
+    "module": "tension-pulleys",
+    "difficulty": "Easy",
+    "tags": [
+      "pulley",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "For the setup above ($4.0\\;\\mathrm{kg}$ on a frictionless table, $2.0\\;\\mathrm{kg}$ hanging), find the string tension, in newtons.",
+    "answer": 13.07,
+    "unit": "N",
+    "solution": "The tension is the only horizontal force on the table block: $T = m_1a = (4.0)(3.267) = 13.1\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-07",
+    "name": "Two blocks pulled by a string",
+    "module": "tension-pulleys",
+    "difficulty": "Easy",
+    "tags": [
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.0\\;\\mathrm{kg}$ block and a $3.0\\;\\mathrm{kg}$ block are joined by a light string on a frictionless floor. A $25\\;\\mathrm{N}$ horizontal force pulls the $3.0\\;\\mathrm{kg}$ block. Find the string tension, in newtons.",
+    "answer": 10.0,
+    "unit": "N",
+    "solution": "The system accelerates at $25/5.0 = 5.0\\;\\mathrm{m/s^2}$, and the string alone pulls the $2.0\\;\\mathrm{kg}$ block: $T = (2.0)(5.0) = 10\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-08",
+    "name": "Sign on two wires",
+    "module": "tension-pulleys",
+    "difficulty": "Easy",
+    "tags": [
+      "tension",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $15\\;\\mathrm{kg}$ sign hangs from two identical vertical wires that share the load equally. Find the tension in each wire, in newtons.",
+    "answer": 73.5,
+    "unit": "N",
+    "solution": "The two tensions together support the weight: $2T = mg$, so $T = 147/2 = 73.5\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-09",
+    "name": "Balanced pulley",
+    "module": "tension-pulleys",
+    "difficulty": "Easy",
+    "tags": [
+      "pulley",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two $10\\;\\mathrm{kg}$ masses hang from opposite ends of a rope over a frictionless pulley. Find the rope tension, in newtons.",
+    "answer": 98.0,
+    "unit": "N",
+    "solution": "Equal masses mean no acceleration, so each side is in equilibrium and $T = mg = 98\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-10",
+    "name": "Climber sliding down a rope",
+    "module": "tension-pulleys",
+    "difficulty": "Easy",
+    "tags": [
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $65\\;\\mathrm{kg}$ climber slides down a rope while accelerating downward at $1.5\\;\\mathrm{m/s^2}$. Find the tension in the rope, in newtons.",
+    "answer": 539.5,
+    "unit": "N",
+    "solution": "With down as the direction of acceleration, $mg - T = ma$, so $T = m(g-a) = 65(8.3) = 540\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-11",
+    "name": "Movable pulley advantage",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "movable pulley"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $40\\;\\mathrm{kg}$ load hangs from a movable pulley supported by two parallel segments of the same rope. The load is raised slowly at constant speed. Find the force needed on the free end, in newtons.",
+    "answer": 196.0,
+    "unit": "N",
+    "solution": "Both rope segments have the same tension and together support the load: $2T = mg$. So $T = 392/2 = 196\\;\\mathrm{N}$, half the weight (at the cost of pulling twice the length of rope)."
+  },
+  {
+    "id": "nl-tens-12",
+    "name": "Three blocks in a train",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Blocks of $1.0\\;\\mathrm{kg}$, $2.0\\;\\mathrm{kg}$ and $3.0\\;\\mathrm{kg}$ are connected in that order by light strings on a frictionless floor, and an $18\\;\\mathrm{N}$ force pulls the $1.0\\;\\mathrm{kg}$ block. Find the tension in the string between the $2.0\\;\\mathrm{kg}$ and $3.0\\;\\mathrm{kg}$ blocks, in newtons.",
+    "answer": 9.0,
+    "unit": "N",
+    "solution": "The train accelerates at $18/6.0 = 3.0\\;\\mathrm{m/s^2}$. The last string pulls only the $3.0\\;\\mathrm{kg}$ block, so $T = (3.0)(3.0) = 9.0\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-13",
+    "name": "Pulley with friction on the table",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "pulley",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $5.0\\;\\mathrm{kg}$ block on a table ($\\mu_k = 0.20$) is connected over a frictionless pulley to a $3.0\\;\\mathrm{kg}$ hanging block. Find the acceleration of the system, in $\\mathrm{m/s^2}$.",
+    "answer": 2.45,
+    "unit": "m/s^2",
+    "solution": "The driving force is the hanging weight $29.4\\;\\mathrm{N}$ minus friction $\\mu_k m_1g = 9.8\\;\\mathrm{N}$. Then $a = 19.6/8.0 = 2.45\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-tens-14",
+    "name": "Force on the pulley axle",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "pulley"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "For an Atwood machine with $3.0\\;\\mathrm{kg}$ and $5.0\\;\\mathrm{kg}$, find the total downward force the rope exerts on the pulley axle, in newtons.",
+    "answer": 73.5,
+    "unit": "N",
+    "solution": "Both rope segments hang vertically and each pulls down with the same tension $36.75\\;\\mathrm{N}$, so the axle feels $2T = 73.5\\;\\mathrm{N}$. Note this is less than the combined weight of $78.4\\;\\mathrm{N}$, because the system is accelerating."
+  },
+  {
+    "id": "nl-tens-15",
+    "name": "Constraint in a block and tackle",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "constraint"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "In a block and tackle, a load hangs from a movable pulley supported by two rope segments, and the free end is pulled at $1.2\\;\\mathrm{m/s}$. Find the speed at which the load rises, in $\\mathrm{m/s}$.",
+    "answer": 0.6,
+    "unit": "m/s",
+    "solution": "Shortening each of the two supporting segments by $x$ takes $2x$ of rope through your hands, so the load moves half as fast as the free end: $v = 1.2/2 = 0.60\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-tens-16",
+    "name": "Incline and hanging mass",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "pulley",
+      "incline"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $4.0\\;\\mathrm{kg}$ block rests on a frictionless $30^\\circ$ incline and is joined by a string over a pulley at the top to a $3.0\\;\\mathrm{kg}$ block hanging vertically. Find the acceleration of the system, in $\\mathrm{m/s^2}$.",
+    "answer": 1.4,
+    "unit": "m/s^2",
+    "solution": "The hanging weight $29.4\\;\\mathrm{N}$ competes with the incline component $mg\\sin 30^\\circ = 19.6\\;\\mathrm{N}$. So $a = 9.8/7.0 = 1.4\\;\\mathrm{m/s^2}$, with the hanging block descending."
+  },
+  {
+    "id": "nl-tens-17",
+    "name": "Tension for the incline system",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "pulley",
+      "incline",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "For the previous setup ($4.0\\;\\mathrm{kg}$ on a frictionless $30^\\circ$ incline, $3.0\\;\\mathrm{kg}$ hanging), find the string tension, in newtons.",
+    "answer": 25.2,
+    "unit": "N",
+    "solution": "Apply the second law to the hanging block: $m_2g - T = m_2a$, so $T = 3.0(9.8-1.4) = 25.2\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-18",
+    "name": "Lower string in a hanging pair",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $5.0\\;\\mathrm{kg}$ block hangs from a string, and a $3.0\\;\\mathrm{kg}$ block hangs from the bottom of the $5.0\\;\\mathrm{kg}$ block by a second string. The whole assembly is hauled upward at $2.0\\;\\mathrm{m/s^2}$. Find the tension in the lower string, in newtons.",
+    "answer": 35.4,
+    "unit": "N",
+    "solution": "The lower string supports only the $3.0\\;\\mathrm{kg}$ block: $T = m(g+a) = 3.0(11.8) = 35.4\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-19",
+    "name": "Upper string in the same pair",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "For the same assembly ($5.0\\;\\mathrm{kg}$ above, $3.0\\;\\mathrm{kg}$ below, hauled upward at $2.0\\;\\mathrm{m/s^2}$), find the tension in the upper string, in newtons.",
+    "answer": 94.4,
+    "unit": "N",
+    "solution": "The upper string carries everything below it, a total of $8.0\\;\\mathrm{kg}$: $T = 8.0(11.8) = 94.4\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-20",
+    "name": "Rope with mass",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "massive rope",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An $8.0\\;\\mathrm{kg}$ block hangs from a uniform rope of mass $2.0\\;\\mathrm{kg}$. The top of the rope is pulled upward so the system accelerates upward at $1.5\\;\\mathrm{m/s^2}$. Find the tension at the top of the rope, in newtons.",
+    "answer": 113.0,
+    "unit": "N",
+    "solution": "At the top the rope must accelerate everything below it, $10\\;\\mathrm{kg}$ in all: $T = 10(11.3) = 113\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-21",
+    "name": "Rope strength limit",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $12\\;\\mathrm{kg}$ bucket is hoisted from a well by a rope that will break at $200\\;\\mathrm{N}$. Find the greatest upward acceleration that can be used, in $\\mathrm{m/s^2}$.",
+    "answer": 6.867,
+    "unit": "m/s^2",
+    "solution": "From $T - mg = ma$, $a = T/m - g = 200/12 - 9.8 = 6.87\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-tens-22",
+    "name": "Distance fallen on an Atwood machine",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "Atwood machine",
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An Atwood machine carries $4.0\\;\\mathrm{kg}$ and $6.0\\;\\mathrm{kg}$ and is released from rest. Find how far the heavier mass falls in $2.0\\;\\mathrm{s}$, in meters.",
+    "answer": 3.92,
+    "unit": "m",
+    "solution": "The acceleration is $a = (2.0)(9.8)/10 = 1.96\\;\\mathrm{m/s^2}$, constant. Then $d = \\tfrac12at^2 = \\tfrac12(1.96)(4.0) = 3.92\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-tens-23",
+    "name": "Movable pulley with a counterweight",
+    "module": "tension-pulleys",
+    "difficulty": "Hard",
+    "tags": [
+      "movable pulley",
+      "constraint"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "One end of a rope is attached to an $8.0\\;\\mathrm{kg}$ block hanging freely. The rope runs up over a fixed pulley, down around a movable pulley carrying a $5.0\\;\\mathrm{kg}$ load, and its other end is tied to the ceiling. Find the magnitude of the acceleration of the $5.0\\;\\mathrm{kg}$ load, in $\\mathrm{m/s^2}$.",
+    "answer": 2.914,
+    "unit": "m/s^2",
+    "solution": "The movable pulley moves half as fast as the rope end, so $a_8 = 2a_5$. Its equations are $2T - m_5g = m_5a_5$ and $m_8g - T = m_8(2a_5)$. Eliminating $T$: $a_5 = (2m_8-m_5)g/(m_5+4m_8) = 107.8/37 = 2.91\\;\\mathrm{m/s^2}$ upward."
+  },
+  {
+    "id": "nl-tens-24",
+    "name": "Stacked masses on an Atwood machine",
+    "module": "tension-pulleys",
+    "difficulty": "Hard",
+    "tags": [
+      "Atwood machine",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An Atwood machine has a $6.0\\;\\mathrm{kg}$ block on one side. On the other side a $3.0\\;\\mathrm{kg}$ block hangs from the string, and a $2.0\\;\\mathrm{kg}$ block hangs beneath it from a short cord. Find the tension in that short cord, in newtons.",
+    "answer": 21.38,
+    "unit": "N",
+    "solution": "The system accelerates at $a = (6.0-5.0)(9.8)/11 = 0.891\\;\\mathrm{m/s^2}$, with the lighter side rising. The short cord holds only the $2.0\\;\\mathrm{kg}$ block, which accelerates upward: $T = 2.0(9.8+0.891) = 21.4\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-25",
+    "name": "Monkey and counterweight",
+    "module": "tension-pulleys",
+    "difficulty": "Hard",
+    "tags": [
+      "pulley",
+      "constraint"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $20\\;\\mathrm{kg}$ monkey grips a rope that passes over a frictionless pulley and holds a $25\\;\\mathrm{kg}$ counterweight on the other side. The monkey climbs so that it accelerates upward at $1.2\\;\\mathrm{m/s^2}$ relative to the ground. Find the magnitude of the counterweight's acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 1.0,
+    "unit": "m/s^2",
+    "solution": "For the monkey, $T - m g = m a$ gives $T = 20(11.0) = 220\\;\\mathrm{N}$. The same tension acts on the counterweight: $25(9.8) - 220 = 25a$, so $a = 1.0\\;\\mathrm{m/s^2}$ downward."
+  },
+  {
+    "id": "nl-tens-26",
+    "name": "Two inclines and a pulley",
+    "module": "tension-pulleys",
+    "difficulty": "Hard",
+    "tags": [
+      "pulley",
+      "incline"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $4.0\\;\\mathrm{kg}$ block on a frictionless $30^\\circ$ incline is connected over a pulley at the apex to a $5.0\\;\\mathrm{kg}$ block on a frictionless $45^\\circ$ incline on the other side. Find the magnitude of the acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 1.672,
+    "unit": "m/s^2",
+    "solution": "Each block feels $mg\\sin\\theta$ along its own face. The net driving force is $5(9.8)\\sin 45^\\circ - 4(9.8)\\sin 30^\\circ = 34.65-19.6 = 15.05\\;\\mathrm{N}$ on a total of $9.0\\;\\mathrm{kg}$, so $a = 1.67\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-tens-27",
+    "name": "Rope around a movable pulley on a table",
+    "module": "tension-pulleys",
+    "difficulty": "Hard",
+    "tags": [
+      "constraint",
+      "movable pulley"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $10\\;\\mathrm{kg}$ block on a frictionless table has a rope tied to it. The rope runs horizontally to the table edge, down around a movable pulley carrying a $4.0\\;\\mathrm{kg}$ load, then back up to a fixed anchor. Find the acceleration of the $4.0\\;\\mathrm{kg}$ load, in $\\mathrm{m/s^2}$.",
+    "answer": 0.8909,
+    "unit": "m/s^2",
+    "solution": "The load hangs on two rope segments, so it moves half as fast as the block: $a_{block} = 2a_{load}$. With $T = m_b a_{block}$ and $m_\\ell g - 2T = m_\\ell a_{load}$, we get $39.2 = 2(10)(2a_\\ell) + 4a_\\ell = 44a_\\ell$, so $a_\\ell = 0.891\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-tens-28",
+    "name": "Partway up a massive rope",
+    "module": "tension-pulleys",
+    "difficulty": "Hard",
+    "tags": [
+      "massive rope",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $7.0\\;\\mathrm{kg}$ block hangs from a uniform rope of mass $3.0\\;\\mathrm{kg}$, and the whole thing is accelerated upward at $2.0\\;\\mathrm{m/s^2}$. Find the tension at the point one quarter of the way up the rope from the block, in newtons.",
+    "answer": 91.45,
+    "unit": "N",
+    "solution": "Cut the rope there; below the cut is the block plus a quarter of the rope, $7.0+0.75 = 7.75\\;\\mathrm{kg}$. Then $T = 7.75(11.8) = 91.5\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-29",
+    "name": "Atwood machine inside an elevator",
+    "module": "tension-pulleys",
+    "difficulty": "Very Hard",
+    "tags": [
+      "Atwood machine",
+      "non-inertial"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An Atwood machine with $2.0\\;\\mathrm{kg}$ and $3.0\\;\\mathrm{kg}$ hangs from the ceiling of an elevator that accelerates upward at $2.0\\;\\mathrm{m/s^2}$. Find the string tension, in newtons.",
+    "answer": 28.32,
+    "unit": "N",
+    "solution": "In the elevator frame the pseudo-force acts like extra gravity, so replace $g$ with $g_{eff} = 9.8+2.0 = 11.8\\;\\mathrm{m/s^2}$. Then $T = 2m_1m_2g_{eff}/(m_1+m_2) = 2(6)(11.8)/5 = 28.3\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-tens-30",
+    "name": "Climbing monkey, equal counterweight",
+    "module": "tension-pulleys",
+    "difficulty": "Very Hard",
+    "tags": [
+      "pulley",
+      "relative motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $15\\;\\mathrm{kg}$ monkey hangs from a rope over a frictionless pulley, with a $15\\;\\mathrm{kg}$ block on the other end. The monkey climbs with an acceleration of $1.5\\;\\mathrm{m/s^2}$ relative to the rope. Find the magnitude of the block's acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 0.75,
+    "unit": "m/s^2",
+    "solution": "Let the block accelerate up at $a$; then the rope on the monkey's side moves down at $a$, so the monkey's ground acceleration is $a_{rel} - a$. Equal masses feel the same tension, so $T - mg = m(a_{rel}-a)$ and $T - mg = ma$. Therefore $a = a_{rel}/2 = 0.75\\;\\mathrm{m/s^2}$: both rise, at the same rate."
+  },
+  {
+    "id": "nl-spring-01",
+    "name": "Hooke's law force",
+    "module": "springs-hooke",
+    "difficulty": "Easy",
+    "tags": [
+      "Hooke's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A spring with stiffness $k = 250\\;\\mathrm{N/m}$ is stretched $0.12\\;\\mathrm{m}$ from its natural length. Find the magnitude of the force it exerts, in newtons.",
+    "answer": 30.0,
+    "unit": "N",
+    "solution": "Hooke's law gives $F = kx = (250)(0.12) = 30\\;\\mathrm{N}$, directed back toward the natural length."
+  },
+  {
+    "id": "nl-spring-02",
+    "name": "Finding k from a hanging mass",
+    "module": "springs-hooke",
+    "difficulty": "Easy",
+    "tags": [
+      "Hooke's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Hanging a $2.0\\;\\mathrm{kg}$ mass from a spring stretches it by $0.080\\;\\mathrm{m}$. Find the spring constant, in $\\mathrm{N/m}$.",
+    "answer": 245.0,
+    "unit": "N/m",
+    "solution": "At equilibrium $kx = mg$, so $k = (2.0)(9.8)/0.080 = 245\\;\\mathrm{N/m}$."
+  },
+  {
+    "id": "nl-spring-03",
+    "name": "Equilibrium extension",
+    "module": "springs-hooke",
+    "difficulty": "Easy",
+    "tags": [
+      "Hooke's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $5.0\\;\\mathrm{kg}$ mass hangs from a spring with $k = 400\\;\\mathrm{N/m}$. Find the extension at equilibrium, in meters.",
+    "answer": 0.1225,
+    "unit": "m",
+    "solution": "Setting $kx = mg$ gives $x = 49/400 = 0.1225\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-spring-04",
+    "name": "Springs in parallel",
+    "module": "springs-hooke",
+    "difficulty": "Easy",
+    "tags": [
+      "combinations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two springs of stiffness $200\\;\\mathrm{N/m}$ and $300\\;\\mathrm{N/m}$ are attached side by side between a block and a wall, so both stretch by the same amount. Find the effective spring constant, in $\\mathrm{N/m}$.",
+    "answer": 500.0,
+    "unit": "N/m",
+    "solution": "Equal stretch means the forces add: $F = (k_1+k_2)x$. So $k_{eff} = 200+300 = 500\\;\\mathrm{N/m}$."
+  },
+  {
+    "id": "nl-spring-05",
+    "name": "Springs in series",
+    "module": "springs-hooke",
+    "difficulty": "Easy",
+    "tags": [
+      "combinations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "The same two springs ($200\\;\\mathrm{N/m}$ and $300\\;\\mathrm{N/m}$) are instead joined end to end. Find the effective spring constant of the combination, in $\\mathrm{N/m}$.",
+    "answer": 120.0,
+    "unit": "N/m",
+    "solution": "In series both springs carry the same force and the extensions add, so $1/k_{eff} = 1/200 + 1/300$. That gives $k_{eff} = 120\\;\\mathrm{N/m}$, softer than either spring."
+  },
+  {
+    "id": "nl-spring-06",
+    "name": "Energy stored in a spring",
+    "module": "springs-hooke",
+    "difficulty": "Easy",
+    "tags": [
+      "elastic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A spring with $k = 800\\;\\mathrm{N/m}$ is compressed by $0.050\\;\\mathrm{m}$. Find the elastic potential energy stored, in joules.",
+    "answer": 1.0,
+    "unit": "J",
+    "solution": "The stored energy is $U = \\tfrac12kx^2 = \\tfrac12(800)(0.0025) = 1.0\\;\\mathrm{J}$."
+  },
+  {
+    "id": "nl-spring-07",
+    "name": "Force at a given stretch",
+    "module": "springs-hooke",
+    "difficulty": "Easy",
+    "tags": [
+      "Hooke's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A bungee trainer uses a spring of stiffness $150\\;\\mathrm{N/m}$. Find the force needed to hold it stretched $0.20\\;\\mathrm{m}$, in newtons.",
+    "answer": 30.0,
+    "unit": "N",
+    "solution": "$F = kx = (150)(0.20) = 30\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-spring-08",
+    "name": "Period of a spring-block system",
+    "module": "springs-hooke",
+    "difficulty": "Easy",
+    "tags": [
+      "SHM"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $4.0\\;\\mathrm{kg}$ block on a frictionless surface is attached to a spring of stiffness $100\\;\\mathrm{N/m}$. Find the period of oscillation, in seconds.",
+    "answer": 1.257,
+    "unit": "s",
+    "solution": "The period is $T = 2\\pi\\sqrt{m/k} = 2\\pi\\sqrt{0.040} = 1.26\\;\\mathrm{s}$."
+  },
+  {
+    "id": "nl-spring-09",
+    "name": "Oscillation frequency",
+    "module": "springs-hooke",
+    "difficulty": "Easy",
+    "tags": [
+      "SHM"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.50\\;\\mathrm{kg}$ glider on an air track is attached to a spring with $k = 200\\;\\mathrm{N/m}$. Find the oscillation frequency, in hertz.",
+    "answer": 3.183,
+    "unit": "Hz",
+    "solution": "Here $\\omega = \\sqrt{k/m} = \\sqrt{400} = 20\\;\\mathrm{rad/s}$, so $f = \\omega/2\\pi = 3.18\\;\\mathrm{Hz}$."
+  },
+  {
+    "id": "nl-spring-10",
+    "name": "Two springs in series holding a load",
+    "module": "springs-hooke",
+    "difficulty": "Easy",
+    "tags": [
+      "combinations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $6.0\\;\\mathrm{kg}$ mass hangs from two identical springs of stiffness $300\\;\\mathrm{N/m}$ joined end to end. Find the total extension, in meters.",
+    "answer": 0.392,
+    "unit": "m",
+    "solution": "In series the pair behaves as one spring of $k_{eff} = 150\\;\\mathrm{N/m}$. Then $x = mg/k_{eff} = 58.8/150 = 0.392\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-spring-11",
+    "name": "Cutting a spring in half",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "Hooke's law"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A spring of stiffness $240\\;\\mathrm{N/m}$ is cut exactly in half, and a $3.0\\;\\mathrm{kg}$ mass is hung from one of the halves. Find the extension, in meters.",
+    "answer": 0.06125,
+    "unit": "m",
+    "solution": "Each coil of the original spring stretched the same amount, so half the spring stretches half as much under the same force: the half-spring has $k = 480\\;\\mathrm{N/m}$. Then $x = 29.4/480 = 0.0613\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-spring-12",
+    "name": "Period from the static sag",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "SHM"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A mass hung from a vertical spring stretches it by $0.050\\;\\mathrm{m}$ at equilibrium. Find the period of small vertical oscillations, in seconds.",
+    "answer": 0.4488,
+    "unit": "s",
+    "solution": "Since $k = mg/x_0$, the period $2\\pi\\sqrt{m/k}$ becomes $2\\pi\\sqrt{x_0/g} = 2\\pi\\sqrt{0.0051} = 0.449\\;\\mathrm{s}$. The mass itself drops out."
+  },
+  {
+    "id": "nl-spring-13",
+    "name": "Maximum speed of an oscillator",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "SHM",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.0\\;\\mathrm{kg}$ block on a frictionless floor is attached to a spring with $k = 500\\;\\mathrm{N/m}$, pulled $0.10\\;\\mathrm{m}$ from equilibrium, and released. Find its maximum speed, in $\\mathrm{m/s}$.",
+    "answer": 1.581,
+    "unit": "m/s",
+    "solution": "All the stored energy becomes kinetic at the equilibrium point: $\\tfrac12kA^2 = \\tfrac12mv^2$, so $v = A\\sqrt{k/m} = 0.10(15.81) = 1.58\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-spring-14",
+    "name": "Spring gun",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "elastic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A toy gun uses a spring with $k = 900\\;\\mathrm{N/m}$ compressed by $0.060\\;\\mathrm{m}$ to launch a $0.050\\;\\mathrm{kg}$ ball horizontally. Find the launch speed, in $\\mathrm{m/s}$.",
+    "answer": 8.05,
+    "unit": "m/s",
+    "solution": "The spring energy $\\tfrac12kx^2 = 1.62\\;\\mathrm{J}$ all goes to the ball: $v = x\\sqrt{k/m} = 0.060\\sqrt{18000} = 8.05\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-spring-15",
+    "name": "Block between two springs",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "combinations",
+      "SHM"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1.2\\;\\mathrm{kg}$ block on a frictionless floor is connected to opposite walls by springs of stiffness $100\\;\\mathrm{N/m}$ and $200\\;\\mathrm{N/m}$. Find the frequency of oscillation, in hertz.",
+    "answer": 2.516,
+    "unit": "Hz",
+    "solution": "Displacing the block stretches one spring and compresses the other, and both push it back, so the constants add: $k_{eff} = 300\\;\\mathrm{N/m}$. Then $f = \\frac{1}{2\\pi}\\sqrt{300/1.2} = 2.52\\;\\mathrm{Hz}$."
+  },
+  {
+    "id": "nl-spring-16",
+    "name": "Spring on an incline",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "incline",
+      "Hooke's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $3.0\\;\\mathrm{kg}$ block rests on a frictionless $25^\\circ$ incline, held by a spring of stiffness $400\\;\\mathrm{N/m}$ running along the incline. Find the spring's extension, in meters.",
+    "answer": 0.03106,
+    "unit": "m",
+    "solution": "Along the incline the spring balances $mg\\sin\\theta = 12.4\\;\\mathrm{N}$, so $x = 12.4/400 = 0.0311\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-spring-17",
+    "name": "Spring in an accelerating elevator",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "Hooke's law",
+      "non-inertial"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $4.0\\;\\mathrm{kg}$ mass hangs from a spring of stiffness $600\\;\\mathrm{N/m}$ inside an elevator accelerating upward at $2.5\\;\\mathrm{m/s^2}$. Find the spring's extension, in meters.",
+    "answer": 0.082,
+    "unit": "m",
+    "solution": "The spring must both support the weight and provide the acceleration: $kx = m(g+a)$. So $x = 4.0(12.3)/600 = 0.082\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-spring-18",
+    "name": "Series pair under load",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "combinations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Springs of stiffness $100\\;\\mathrm{N/m}$ and $400\\;\\mathrm{N/m}$ are joined end to end and a $2.0\\;\\mathrm{kg}$ mass is hung from the pair. Find the total extension, in meters.",
+    "answer": 0.245,
+    "unit": "m",
+    "solution": "The series combination has $k_{eff} = (100)(400)/500 = 80\\;\\mathrm{N/m}$. Then $x = 19.6/80 = 0.245\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-spring-19",
+    "name": "Spring constant from a period",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "SHM"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.25\\;\\mathrm{kg}$ mass on a spring oscillates with a period of $0.60\\;\\mathrm{s}$. Find the spring constant, in $\\mathrm{N/m}$.",
+    "answer": 27.42,
+    "unit": "N/m",
+    "solution": "Invert $T = 2\\pi\\sqrt{m/k}$ to get $k = 4\\pi^2m/T^2 = 4\\pi^2(0.25)/0.36 = 27.4\\;\\mathrm{N/m}$."
+  },
+  {
+    "id": "nl-spring-20",
+    "name": "Spring between two accelerating blocks",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "Hooke's law",
+      "second law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1.0\\;\\mathrm{kg}$ block and a $3.0\\;\\mathrm{kg}$ block on a frictionless floor are joined by a spring. A horizontal force of $8.0\\;\\mathrm{N}$ pushes the $3.0\\;\\mathrm{kg}$ block toward the other, and the spring settles at a fixed compression. Find the force the spring exerts, in newtons.",
+    "answer": 2.0,
+    "unit": "N",
+    "solution": "Once the compression is steady both blocks share the acceleration $a = 8.0/4.0 = 2.0\\;\\mathrm{m/s^2}$. The spring is the only horizontal force on the $1.0\\;\\mathrm{kg}$ block, so it pushes with $2.0\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-spring-21",
+    "name": "Work done stretching a spring",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "elastic energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A spring requires a $45\\;\\mathrm{N}$ force to hold it stretched $0.15\\;\\mathrm{m}$. Find the work needed to stretch it that far from its natural length, in joules.",
+    "answer": 3.375,
+    "unit": "J",
+    "solution": "The force grows linearly, so the work is the area of a triangle: $W = \\tfrac12Fx = \\tfrac12(45)(0.15) = 3.375\\;\\mathrm{J}$. Using $F = kx$ with $k = 300\\;\\mathrm{N/m}$ gives the same."
+  },
+  {
+    "id": "nl-spring-22",
+    "name": "Scaling the load",
+    "module": "springs-hooke",
+    "difficulty": "Normal",
+    "tags": [
+      "Hooke's law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1.5\\;\\mathrm{kg}$ mass hung from a spring stretches it $0.060\\;\\mathrm{m}$. Find the extension when a $4.0\\;\\mathrm{kg}$ mass hangs from the same spring, in meters.",
+    "answer": 0.16,
+    "unit": "m",
+    "solution": "Extension is proportional to load, so $x = 0.060(4.0/1.5) = 0.16\\;\\mathrm{m}$. (The spring constant is $k = 245\\;\\mathrm{N/m}$ if you prefer to compute it.)"
+  },
+  {
+    "id": "nl-spring-23",
+    "name": "Mass released on a spring",
+    "module": "springs-hooke",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "SHM"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.0\\;\\mathrm{kg}$ block is attached to a vertical spring of stiffness $400\\;\\mathrm{N/m}$, held so the spring is at its natural length, and released from rest. Find the maximum extension reached, in meters.",
+    "answer": 0.098,
+    "unit": "m",
+    "solution": "Energy conservation gives $mgx = \\tfrac12kx^2$, so $x = 2mg/k = 0.098\\;\\mathrm{m}$. That is twice the equilibrium sag, because the block overshoots and oscillates about equilibrium."
+  },
+  {
+    "id": "nl-spring-24",
+    "name": "Dropped onto a spring",
+    "module": "springs-hooke",
+    "difficulty": "Hard",
+    "tags": [
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1.5\\;\\mathrm{kg}$ block is dropped from rest $0.30\\;\\mathrm{m}$ above the top of a vertical spring of stiffness $1200\\;\\mathrm{N/m}$. Find the maximum compression of the spring, in meters.",
+    "answer": 0.09885,
+    "unit": "m",
+    "solution": "At maximum compression $x$ the block is momentarily at rest, so $mg(h+x) = \\tfrac12kx^2$. This gives $600x^2 - 14.7x - 4.41 = 0$, whose positive root is $x = 0.0989\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-spring-25",
+    "name": "Two springs stacked vertically",
+    "module": "springs-hooke",
+    "difficulty": "Hard",
+    "tags": [
+      "combinations"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $5.0\\;\\mathrm{kg}$ mass hangs from a spring of stiffness $300\\;\\mathrm{N/m}$, which itself hangs from a spring of stiffness $200\\;\\mathrm{N/m}$ attached to the ceiling. Find the total extension of the pair, in meters.",
+    "answer": 0.4083,
+    "unit": "m",
+    "solution": "Both springs carry the same $49\\;\\mathrm{N}$, and the extensions add: $x = 49(1/300 + 1/200) = 0.408\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-spring-26",
+    "name": "Slipping on an oscillating block",
+    "module": "springs-hooke",
+    "difficulty": "Hard",
+    "tags": [
+      "SHM",
+      "friction"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.0\\;\\mathrm{kg}$ block rides on top of a $3.0\\;\\mathrm{kg}$ block attached to a spring of stiffness $200\\;\\mathrm{N/m}$, and the pair oscillates horizontally. The coefficient of static friction between the blocks is $0.40$. Find the largest amplitude for which the top block does not slide, in meters.",
+    "answer": 0.098,
+    "unit": "m",
+    "solution": "The peak acceleration of the oscillation is $\\omega^2A$ with $\\omega^2 = k/M_{total} = 40\\;\\mathrm{s^{-2}}$. Friction can only supply $\\mu_s g = 3.92\\;\\mathrm{m/s^2}$, so $A_{max} = 3.92/40 = 0.098\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-spring-27",
+    "name": "Spring pushing two free blocks apart",
+    "module": "springs-hooke",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "momentum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A compressed spring of stiffness $800\\;\\mathrm{N/m}$ is held between a $2.0\\;\\mathrm{kg}$ block and a $3.0\\;\\mathrm{kg}$ block on a frictionless floor, compressed $0.050\\;\\mathrm{m}$. The blocks are released and the spring falls away. Find the final speed of the $2.0\\;\\mathrm{kg}$ block, in $\\mathrm{m/s}$.",
+    "answer": 0.7746,
+    "unit": "m/s",
+    "solution": "Momentum starts at zero, so $2v_2 = 3v_3$. Energy gives $\\tfrac12(800)(0.0025) = 1.0\\;\\mathrm{J}$ shared as kinetic energy. Solving, the relative speed is $\\sqrt{2(1.0)/1.2} = 1.29\\;\\mathrm{m/s}$ and the $2.0\\;\\mathrm{kg}$ block takes the larger share: $v = 0.775\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-spring-28",
+    "name": "Cut into three, joined in parallel",
+    "module": "springs-hooke",
+    "difficulty": "Hard",
+    "tags": [
+      "combinations",
+      "SHM"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A spring of stiffness $120\\;\\mathrm{N/m}$ is cut into three equal pieces, and the three pieces are attached side by side to a $0.50\\;\\mathrm{kg}$ block so that they all stretch together. Find the oscillation frequency, in hertz.",
+    "answer": 7.397,
+    "unit": "Hz",
+    "solution": "Each third has stiffness $3k = 360\\;\\mathrm{N/m}$, and three in parallel give $9k = 1080\\;\\mathrm{N/m}$. Then $f = \\frac{1}{2\\pi}\\sqrt{1080/0.50} = 7.40\\;\\mathrm{Hz}$."
+  },
+  {
+    "id": "nl-spring-29",
+    "name": "Instant after the string is cut",
+    "module": "springs-hooke",
+    "difficulty": "Very Hard",
+    "tags": [
+      "Hooke's law",
+      "second law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.0\\;\\mathrm{kg}$ block hangs from a spring attached to the ceiling, and a $3.0\\;\\mathrm{kg}$ block hangs from the first block by a string. The string is cut. Find the magnitude of the acceleration of the $2.0\\;\\mathrm{kg}$ block immediately afterward, in $\\mathrm{m/s^2}$.",
+    "answer": 14.7,
+    "unit": "m/s^2",
+    "solution": "A spring's length cannot change instantly, so right after the cut it still pulls up with $(2.0+3.0)g = 49\\;\\mathrm{N}$. The upper block now weighs only $19.6\\;\\mathrm{N}$, so its net upward force is $29.4\\;\\mathrm{N}$ and $a = 29.4/2.0 = 14.7\\;\\mathrm{m/s^2}$ upward."
+  },
+  {
+    "id": "nl-spring-30",
+    "name": "Mass on a movable pulley and spring",
+    "module": "springs-hooke",
+    "difficulty": "Very Hard",
+    "tags": [
+      "SHM",
+      "constraint"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "One end of a spring with $k = 800\\;\\mathrm{N/m}$ is fixed to the ceiling; the other end passes around a movable pulley that carries a $2.0\\;\\mathrm{kg}$ mass, and the rope's far end is also tied to the ceiling. Find the period of small vertical oscillations of the mass, in seconds.",
+    "answer": 0.1571,
+    "unit": "s",
+    "solution": "If the mass drops by $x$, both supporting segments lengthen by $x$, so the spring stretches $2x$ and its tension is $2kx$. The mass hangs on two segments, so the restoring force is $2(2kx) = 4kx$: the effective stiffness is $4k = 3200\\;\\mathrm{N/m}$. Then $T = 2\\pi\\sqrt{2.0/3200} = 0.157\\;\\mathrm{s}$."
+  },
+  {
+    "id": "nl-circ-01",
+    "name": "Centripetal force on a whirling ball",
+    "module": "circular-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "centripetal force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.50\\;\\mathrm{kg}$ ball moves in a horizontal circle of radius $1.2\\;\\mathrm{m}$ at $4.0\\;\\mathrm{m/s}$. Find the centripetal force on it, in newtons.",
+    "answer": 6.667,
+    "unit": "N",
+    "solution": "$F = mv^2/r = (0.50)(16)/1.2 = 6.67\\;\\mathrm{N}$, directed toward the center."
+  },
+  {
+    "id": "nl-circ-02",
+    "name": "Centripetal acceleration of a car",
+    "module": "circular-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "centripetal acceleration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car takes a curve of radius $25\\;\\mathrm{m}$ at $10\\;\\mathrm{m/s}$. Find its centripetal acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 4.0,
+    "unit": "m/s^2",
+    "solution": "$a_c = v^2/r = 100/25 = 4.0\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-circ-03",
+    "name": "Speed from period",
+    "module": "circular-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A stone on a string travels a circle of radius $0.80\\;\\mathrm{m}$, completing one revolution every $2.0\\;\\mathrm{s}$. Find its speed, in $\\mathrm{m/s}$.",
+    "answer": 2.513,
+    "unit": "m/s",
+    "solution": "One revolution covers $2\\pi r = 5.03\\;\\mathrm{m}$ in $2.0\\;\\mathrm{s}$, so $v = 2.51\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-circ-04",
+    "name": "Record player",
+    "module": "circular-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "angular velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A point on a record $0.15\\;\\mathrm{m}$ from the center spins at $45\\;\\mathrm{rev/min}$. Find its centripetal acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 3.331,
+    "unit": "m/s^2",
+    "solution": "First convert: $\\omega = 45(2\\pi)/60 = 4.71\\;\\mathrm{rad/s}$. Then $a_c = \\omega^2r = (4.71)^2(0.15) = 3.33\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-circ-05",
+    "name": "Force on a cornering car",
+    "module": "circular-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "centripetal force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1000\\;\\mathrm{kg}$ car rounds a curve of radius $50\\;\\mathrm{m}$ at $15\\;\\mathrm{m/s}$. Find the centripetal force required, in newtons.",
+    "answer": 4500.0,
+    "unit": "N",
+    "solution": "$F = mv^2/r = (1000)(225)/50 = 4500\\;\\mathrm{N}$, supplied by friction from the road."
+  },
+  {
+    "id": "nl-circ-06",
+    "name": "Bottom of a vertical circle",
+    "module": "circular-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "vertical circle",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.20\\;\\mathrm{kg}$ ball on a $0.50\\;\\mathrm{m}$ string swings in a vertical circle and passes the lowest point at $5.0\\;\\mathrm{m/s}$. Find the string tension there, in newtons.",
+    "answer": 11.96,
+    "unit": "N",
+    "solution": "At the bottom the tension pulls up and gravity pulls down, and the net must point up (toward the center): $T - mg = mv^2/r$. So $T = 0.20(50+9.8) = 12.0\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-circ-07",
+    "name": "Minimum speed at the top",
+    "module": "circular-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "vertical circle"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball on a string of length $0.80\\;\\mathrm{m}$ is swung in a vertical circle. Find the minimum speed at the top for the string to stay taut, in $\\mathrm{m/s}$.",
+    "answer": 2.8,
+    "unit": "m/s",
+    "solution": "At the critical speed the string goes slack and gravity alone supplies the centripetal force: $mg = mv^2/r$, so $v = \\sqrt{gr} = \\sqrt{7.84} = 2.8\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-circ-08",
+    "name": "Swinging a bucket of water",
+    "module": "circular-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "vertical circle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A bucket of water is swung in a vertical circle of radius $1.0\\;\\mathrm{m}$. Find the minimum speed at the top for the water to stay in, in $\\mathrm{m/s}$.",
+    "answer": 3.13,
+    "unit": "m/s",
+    "solution": "The water stays in as long as the bucket bottom does not need to pull it inward. The limit is when gravity alone provides $v^2/r$: $v = \\sqrt{gr} = 3.13\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-circ-09",
+    "name": "Centrifuge",
+    "module": "circular-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "angular velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A sample sits $0.10\\;\\mathrm{m}$ from the axis of a centrifuge spinning at $100\\;\\mathrm{rad/s}$. Find its centripetal acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 1000.0,
+    "unit": "m/s^2",
+    "solution": "$a_c = \\omega^2r = (100)^2(0.10) = 1000\\;\\mathrm{m/s^2}$, about $102$ times $g$."
+  },
+  {
+    "id": "nl-circ-10",
+    "name": "Child on a merry-go-round",
+    "module": "circular-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $25\\;\\mathrm{kg}$ child sits $2.0\\;\\mathrm{m}$ from the axis of a merry-go-round that turns once every $6.0\\;\\mathrm{s}$. Find the horizontal force needed to hold the child in the circle, in newtons.",
+    "answer": 54.83,
+    "unit": "N",
+    "solution": "Using $a_c = 4\\pi^2r/T^2 = 4\\pi^2(2.0)/36 = 2.19\\;\\mathrm{m/s^2}$, the force is $F = (25)(2.19) = 54.8\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-circ-11",
+    "name": "Tension at the top",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "vertical circle",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.30\\;\\mathrm{kg}$ ball on a $0.60\\;\\mathrm{m}$ string passes the top of a vertical circle at $4.0\\;\\mathrm{m/s}$. Find the string tension there, in newtons.",
+    "answer": 5.06,
+    "unit": "N",
+    "solution": "At the top both tension and gravity point toward the center: $T + mg = mv^2/r$. So $T = 0.30(26.67-9.8) = 5.06\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-circ-12",
+    "name": "Loop-the-loop release height",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "vertical circle",
+      "energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A small cart starts from rest on a frictionless track and runs through a vertical loop of radius $3.0\\;\\mathrm{m}$. Find the minimum starting height above the bottom of the loop, in meters.",
+    "answer": 7.5,
+    "unit": "m",
+    "solution": "At the top the cart needs $v^2 = gR$. Energy conservation gives $gh = g(2R) + \\tfrac12v^2 = 2gR + \\tfrac12gR$, so $h = 2.5R = 7.5\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-circ-13",
+    "name": "Crest of a hill",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "vertical circle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car drives over a hill whose crest has radius of curvature $40\\;\\mathrm{m}$. Find the speed at which the car just barely loses contact with the road, in $\\mathrm{m/s}$.",
+    "answer": 19.8,
+    "unit": "m/s",
+    "solution": "Contact is lost when the normal force reaches zero and gravity alone bends the path: $g = v^2/r$, so $v = \\sqrt{(9.8)(40)} = 19.8\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-circ-14",
+    "name": "Normal force at the crest",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "vertical circle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1200\\;\\mathrm{kg}$ car crosses the crest of a hill of radius $40\\;\\mathrm{m}$ at $15\\;\\mathrm{m/s}$. Find the normal force from the road, in newtons.",
+    "answer": 5010.0,
+    "unit": "N",
+    "solution": "Toward the center (downward) $mg - N = mv^2/r$, so $N = m(g - v^2/r) = 1200(9.8-5.625) = 5010\\;\\mathrm{N}$, well below the car's weight."
+  },
+  {
+    "id": "nl-circ-15",
+    "name": "Rotor ride",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "friction",
+      "centripetal force"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "In a rotor ride, riders stand against the inside wall of a cylinder of radius $3.0\\;\\mathrm{m}$ and the floor drops away. The coefficient of static friction is $0.40$. Find the minimum wall speed for riders to stay up, in $\\mathrm{m/s}$.",
+    "answer": 8.573,
+    "unit": "m/s",
+    "solution": "The wall's normal force supplies the centripetal force $mv^2/r$, and friction $\\mu_sN$ must support the weight. Combining, $\\mu_s mv^2/r \\ge mg$, so $v \\ge \\sqrt{gr/\\mu_s} = \\sqrt{73.5} = 8.57\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-circ-16",
+    "name": "Coin on a turntable",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "friction",
+      "angular velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A coin lies $0.12\\;\\mathrm{m}$ from the axis of a turntable, with $\\mu_s = 0.30$. Find the maximum angular speed before the coin slides, in $\\mathrm{rad/s}$.",
+    "answer": 4.95,
+    "unit": "rad/s",
+    "solution": "Friction supplies the centripetal force: $\\mu_smg \\ge m\\omega^2r$. So $\\omega_{max} = \\sqrt{\\mu_sg/r} = \\sqrt{24.5} = 4.95\\;\\mathrm{rad/s}$."
+  },
+  {
+    "id": "nl-circ-17",
+    "name": "Pendulum released from horizontal",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "vertical circle",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.40\\;\\mathrm{kg}$ ball on a string is released from rest with the string horizontal. Find the string tension as the ball passes the lowest point, in newtons.",
+    "answer": 11.76,
+    "unit": "N",
+    "solution": "Energy gives $v^2 = 2gL$ at the bottom. Then $T - mg = mv^2/L = 2mg$, so $T = 3mg = 11.8\\;\\mathrm{N}$: three times the weight, whatever the length."
+  },
+  {
+    "id": "nl-circ-18",
+    "name": "Speed at the equator",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Earth has radius $6.37\\times 10^6\\;\\mathrm{m}$ and turns once per $86400\\;\\mathrm{s}$. Find the speed of a point on the equator, in $\\mathrm{m/s}$.",
+    "answer": 463.2,
+    "unit": "m/s",
+    "solution": "$v = 2\\pi R/T = 2\\pi(6.37\\times 10^6)/86400 = 463\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-circ-19",
+    "name": "Centripetal acceleration at the equator",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "centripetal acceleration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Using the same Earth data, find the centripetal acceleration of a point on the equator, in $\\mathrm{m/s^2}$.",
+    "answer": 0.03369,
+    "unit": "m/s^2",
+    "solution": "$a_c = v^2/R = (463)^2/(6.37\\times 10^6) = 0.0337\\;\\mathrm{m/s^2}$. This is why the measured $g$ at the equator is slightly less than at the poles."
+  },
+  {
+    "id": "nl-circ-20",
+    "name": "String breaking point",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "centripetal force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.80\\;\\mathrm{kg}$ ball is whirled in a horizontal circle of radius $1.5\\;\\mathrm{m}$ on a string that snaps at $60\\;\\mathrm{N}$. Find the maximum speed, in $\\mathrm{m/s}$.",
+    "answer": 10.61,
+    "unit": "m/s",
+    "solution": "Setting $mv^2/r = T_{max}$, $v = \\sqrt{T_{max}r/m} = \\sqrt{112.5} = 10.6\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-circ-21",
+    "name": "Top to bottom of a vertical circle",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "vertical circle",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball on a $1.2\\;\\mathrm{m}$ string passes the top of a vertical circle at $5.0\\;\\mathrm{m/s}$. Find its speed at the bottom, in $\\mathrm{m/s}$.",
+    "answer": 8.488,
+    "unit": "m/s",
+    "solution": "The drop from top to bottom is $2r = 2.4\\;\\mathrm{m}$, and the string does no work. Energy gives $v_b^2 = v_t^2 + 4gr = 25+47.04$, so $v_b = 8.49\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-circ-22",
+    "name": "Pilot at the bottom of a loop",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "vertical circle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A pilot of mass $75\\;\\mathrm{kg}$ flies through the bottom of a vertical loop of radius $500\\;\\mathrm{m}$ at $100\\;\\mathrm{m/s}$. Find the force of the seat on the pilot, in newtons.",
+    "answer": 2235.0,
+    "unit": "N",
+    "solution": "At the bottom $N - mg = mv^2/r$, so $N = 75(9.8+20.0) = 2235\\;\\mathrm{N}$, about three times the pilot's weight."
+  },
+  {
+    "id": "nl-circ-23",
+    "name": "Tension at the bottom for the critical loop",
+    "module": "circular-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "vertical circle",
+      "energy"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.25\\;\\mathrm{kg}$ ball is swung in a vertical circle at exactly the minimum speed at the top. Find the string tension at the lowest point, in newtons.",
+    "answer": 14.7,
+    "unit": "N",
+    "solution": "At the top $v_t^2 = gr$; energy then gives $v_b^2 = gr + 4gr = 5gr$. At the bottom $T = mg + mv_b^2/r = mg + 5mg = 6mg = 14.7\\;\\mathrm{N}$, independent of the radius."
+  },
+  {
+    "id": "nl-circ-24",
+    "name": "Leaving a spherical dome",
+    "module": "circular-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "vertical circle",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A small block slides from rest at the top of a frictionless dome of radius $1.5\\;\\mathrm{m}$. Find its height above the center of the dome at the moment it leaves the surface, in meters.",
+    "answer": 1.0,
+    "unit": "m",
+    "solution": "While in contact, $mg\\cos\\theta - N = mv^2/R$, and energy gives $v^2 = 2gR(1-\\cos\\theta)$. Setting $N = 0$ gives $\\cos\\theta = 2/3$, so the height above the center is $R\\cos\\theta = 1.0\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-circ-25",
+    "name": "Rigid rod instead of a string",
+    "module": "circular-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "vertical circle",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball on the end of a light rigid rod of length $0.70\\;\\mathrm{m}$ is balanced at the top of a vertical circle and given a tiny nudge. Find its speed at the bottom, in $\\mathrm{m/s}$.",
+    "answer": 5.238,
+    "unit": "m/s",
+    "solution": "A rod can push as well as pull, so the ball may start with essentially zero speed at the top. Falling a height $2L$ gives $v = \\sqrt{4gL} = \\sqrt{27.44} = 5.24\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-circ-26",
+    "name": "Friction budget while cornering",
+    "module": "circular-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "friction",
+      "centripetal force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car travels at $20\\;\\mathrm{m/s}$ around a flat curve of radius $100\\;\\mathrm{m}$ on a road with $\\mu_s = 0.80$. Find the maximum additional braking deceleration available without skidding, in $\\mathrm{m/s^2}$.",
+    "answer": 6.743,
+    "unit": "m/s^2",
+    "solution": "Total friction is limited to $\\mu_sg = 7.84\\;\\mathrm{m/s^2}$, and turning already uses $v^2/r = 4.0\\;\\mathrm{m/s^2}$ of it. The remaining component is perpendicular: $\\sqrt{7.84^2-4.0^2} = 6.74\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-circ-27",
+    "name": "Two beads on one rotating string",
+    "module": "circular-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two $0.30\\;\\mathrm{kg}$ beads are fixed on a light string rotating in a horizontal circle about one end at $5.0\\;\\mathrm{rad/s}$: one at $0.40\\;\\mathrm{m}$ and one at $0.80\\;\\mathrm{m}$ from the axis. Find the tension in the inner segment, in newtons.",
+    "answer": 9.0,
+    "unit": "N",
+    "solution": "The inner segment must supply the centripetal force for both beads: $T = m\\omega^2r_1 + m\\omega^2r_2 = 3.0+6.0 = 9.0\\;\\mathrm{N}$. The outer segment carries only $6.0\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-circ-28",
+    "name": "Ferris wheel at the top",
+    "module": "circular-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "vertical circle"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A Ferris wheel of radius $15\\;\\mathrm{m}$ turns once every $40\\;\\mathrm{s}$. Find the force of the seat on a $60\\;\\mathrm{kg}$ rider at the top, in newtons.",
+    "answer": 565.8,
+    "unit": "N",
+    "solution": "The centripetal acceleration is $4\\pi^2r/T^2 = 0.370\\;\\mathrm{m/s^2}$, pointing down at the top. So $mg - N = ma_c$ gives $N = 60(9.8-0.370) = 566\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-circ-29",
+    "name": "Tension in a rotating chain",
+    "module": "circular-motion",
+    "difficulty": "Very Hard",
+    "tags": [
+      "tension",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform chain of mass $0.20\\;\\mathrm{kg}$ and length $0.50\\;\\mathrm{m}$ is whirled in a horizontal circle about one end at $10\\;\\mathrm{rad/s}$. Find the tension at the midpoint of the chain, in newtons.",
+    "answer": 3.75,
+    "unit": "N",
+    "solution": "Integrate the centripetal requirement of every element beyond the cut: $T(x) = \\int_x^L (m/L)\\omega^2 s\\,ds = \\frac{m\\omega^2}{2L}(L^2-x^2)$. At $x = 0.25\\;\\mathrm{m}$ this gives $T = (0.20)(100)(0.1875)/1.0 = 3.75\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-circ-30",
+    "name": "Bead in a rotating hoop",
+    "module": "circular-motion",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rotating frame",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A bead slides without friction on a circular hoop of radius $0.40\\;\\mathrm{m}$ that spins about a vertical diameter at $8.0\\;\\mathrm{rad/s}$. Find the angle from the bottom of the hoop at which the bead sits in steady equilibrium, in degrees.",
+    "answer": 67.49,
+    "unit": "degrees",
+    "solution": "The bead circles at radius $R\\sin\\theta$, so the normal force from the hoop must satisfy $N\\sin\\theta = m\\omega^2R\\sin\\theta$ horizontally and $N\\cos\\theta = mg$ vertically. Dividing gives $\\cos\\theta = g/(\\omega^2R) = 9.8/25.6 = 0.383$, so $\\theta = 67.5^\\circ$."
+  },
+  {
+    "id": "nl-bank-01",
+    "name": "Design angle for a curve",
+    "module": "banked-curves",
+    "difficulty": "Easy",
+    "tags": [
+      "banking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A curve of radius $80\\;\\mathrm{m}$ is to be banked so that a car at $20\\;\\mathrm{m/s}$ needs no friction. Find the bank angle, in degrees.",
+    "answer": 27.03,
+    "unit": "degrees",
+    "solution": "For frictionless banking, $\\tan\\theta = v^2/(gr) = 400/784 = 0.510$. So $\\theta = 27.0^\\circ$."
+  },
+  {
+    "id": "nl-bank-02",
+    "name": "Design speed of a bank",
+    "module": "banked-curves",
+    "difficulty": "Easy",
+    "tags": [
+      "banking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A curve of radius $120\\;\\mathrm{m}$ is banked at $15^\\circ$. Find the speed at which no friction is needed, in $\\mathrm{m/s}$.",
+    "answer": 17.75,
+    "unit": "m/s",
+    "solution": "From $\\tan\\theta = v^2/(gr)$, $v = \\sqrt{gr\\tan\\theta} = \\sqrt{(9.8)(120)(0.268)} = 17.7\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-bank-03",
+    "name": "Conical pendulum period",
+    "module": "banked-curves",
+    "difficulty": "Easy",
+    "tags": [
+      "conical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A conical pendulum of length $1.2\\;\\mathrm{m}$ swings with its string $25^\\circ$ from the vertical. Find the period, in seconds.",
+    "answer": 2.093,
+    "unit": "s",
+    "solution": "The period of a conical pendulum is $T = 2\\pi\\sqrt{L\\cos\\theta/g} = 2\\pi\\sqrt{1.088/9.8} = 2.09\\;\\mathrm{s}$."
+  },
+  {
+    "id": "nl-bank-04",
+    "name": "Tension in a conical pendulum",
+    "module": "banked-curves",
+    "difficulty": "Easy",
+    "tags": [
+      "conical pendulum",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.40\\;\\mathrm{kg}$ ball swings as a conical pendulum with the string $30^\\circ$ from the vertical. Find the string tension, in newtons.",
+    "answer": 4.526,
+    "unit": "N",
+    "solution": "The vertical component of tension balances gravity: $T\\cos\\theta = mg$, so $T = 3.92/\\cos 30^\\circ = 4.53\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-bank-05",
+    "name": "Speed of a conical pendulum",
+    "module": "banked-curves",
+    "difficulty": "Easy",
+    "tags": [
+      "conical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A conical pendulum has a string of length $0.80\\;\\mathrm{m}$ making $40^\\circ$ with the vertical. Find the ball's speed, in $\\mathrm{m/s}$.",
+    "answer": 2.056,
+    "unit": "m/s",
+    "solution": "The circle radius is $r = L\\sin\\theta = 0.514\\;\\mathrm{m}$, and dividing the horizontal and vertical equations gives $v^2 = gr\\tan\\theta = 4.23$. So $v = 2.06\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-bank-06",
+    "name": "Frictionless banked turn",
+    "module": "banked-curves",
+    "difficulty": "Easy",
+    "tags": [
+      "banking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A curve of radius $60\\;\\mathrm{m}$ is banked at $20^\\circ$ and the surface is icy (no friction). Find the only speed at which a car can hold the curve, in $\\mathrm{m/s}$.",
+    "answer": 14.63,
+    "unit": "m/s",
+    "solution": "$v = \\sqrt{gr\\tan\\theta} = \\sqrt{(9.8)(60)(0.364)} = 14.6\\;\\mathrm{m/s}$. Faster and it slides up the bank, slower and it slides down."
+  },
+  {
+    "id": "nl-bank-07",
+    "name": "Airplane in a banked turn",
+    "module": "banked-curves",
+    "difficulty": "Easy",
+    "tags": [
+      "banking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An airplane flying at $150\\;\\mathrm{m/s}$ banks at $30^\\circ$ so that the lift force, perpendicular to the wings, turns it. Find the radius of the turn, in meters.",
+    "answer": 3977.0,
+    "unit": "m",
+    "solution": "Lift plays the role of the normal force, so the same relation applies: $r = v^2/(g\\tan\\theta) = 22500/5.66 = 3980\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-bank-08",
+    "name": "Radius from design speed",
+    "module": "banked-curves",
+    "difficulty": "Easy",
+    "tags": [
+      "banking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A highway ramp banked at $15^\\circ$ is designed for $25\\;\\mathrm{m/s}$ with no reliance on friction. Find the radius of the ramp, in meters.",
+    "answer": 238.0,
+    "unit": "m",
+    "solution": "$r = v^2/(g\\tan\\theta) = 625/(9.8)(0.268) = 238\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-bank-09",
+    "name": "Normal force on a banked curve",
+    "module": "banked-curves",
+    "difficulty": "Easy",
+    "tags": [
+      "banking",
+      "normal force"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1500\\;\\mathrm{kg}$ car takes a $20^\\circ$ banked curve at exactly the design speed, so friction is zero. Find the normal force from the road, in newtons.",
+    "answer": 15640.0,
+    "unit": "N",
+    "solution": "Vertically $N\\cos\\theta = mg$, so $N = 14700/\\cos 20^\\circ = 1.56\\times 10^4\\;\\mathrm{N}$, larger than the car's weight."
+  },
+  {
+    "id": "nl-bank-10",
+    "name": "Angular speed of a conical pendulum",
+    "module": "banked-curves",
+    "difficulty": "Easy",
+    "tags": [
+      "conical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A conical pendulum of length $0.50\\;\\mathrm{m}$ hangs $60^\\circ$ from the vertical. Find its angular speed, in $\\mathrm{rad/s}$.",
+    "answer": 6.261,
+    "unit": "rad/s",
+    "solution": "From $\\omega^2 = g/(L\\cos\\theta)$, $\\omega = \\sqrt{9.8/0.25} = 6.26\\;\\mathrm{rad/s}$."
+  },
+  {
+    "id": "nl-bank-11",
+    "name": "Maximum speed with friction",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A curve of radius $50\\;\\mathrm{m}$ is banked at $10^\\circ$, with $\\mu_s = 0.30$. Find the maximum safe speed, in $\\mathrm{m/s}$.",
+    "answer": 15.7,
+    "unit": "m/s",
+    "solution": "At maximum speed friction points down the bank. Combining the two force equations gives $v_{max} = \\sqrt{gr\\frac{\\tan\\theta+\\mu}{1-\\mu\\tan\\theta}} = \\sqrt{246} = 15.7\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-bank-12",
+    "name": "Minimum speed with friction",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A curve of radius $50\\;\\mathrm{m}$ is banked steeply at $25^\\circ$, with $\\mu_s = 0.20$. Find the minimum speed at which a car can hold the curve without sliding down the bank, in $\\mathrm{m/s}$.",
+    "answer": 10.93,
+    "unit": "m/s",
+    "solution": "Now friction points up the bank, flipping the signs: $v_{min} = \\sqrt{gr\\frac{\\tan\\theta-\\mu}{1+\\mu\\tan\\theta}} = \\sqrt{119} = 10.9\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-bank-13",
+    "name": "Friction on a slow car",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1200\\;\\mathrm{kg}$ car creeps at $10\\;\\mathrm{m/s}$ around a curve of radius $70\\;\\mathrm{m}$ banked at $18^\\circ$. Find the friction force on the car along the surface, in newtons.",
+    "answer": 2004.0,
+    "unit": "N",
+    "solution": "The car is slower than the design speed, so friction must act up the slope. Resolving along the surface, $f = m(g\\sin\\theta - \\frac{v^2}{r}\\cos\\theta) = 1200(3.03-1.36) = 2.00\\times 10^3\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-bank-14",
+    "name": "Longer conical pendulum",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "conical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A conical pendulum of length $2.0\\;\\mathrm{m}$ makes an angle of $15^\\circ$ with the vertical. Find its period, in seconds.",
+    "answer": 2.79,
+    "unit": "s",
+    "solution": "$T = 2\\pi\\sqrt{L\\cos\\theta/g} = 2\\pi\\sqrt{1.932/9.8} = 2.79\\;\\mathrm{s}$. For small angles this is nearly the ordinary pendulum period."
+  },
+  {
+    "id": "nl-bank-15",
+    "name": "Cone angle from the period",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "conical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A conical pendulum of length $0.90\\;\\mathrm{m}$ completes one revolution every $1.50\\;\\mathrm{s}$. Find the angle of the string from the vertical, in degrees.",
+    "answer": 51.64,
+    "unit": "degrees",
+    "solution": "Rearranging $T = 2\\pi\\sqrt{L\\cos\\theta/g}$ gives $\\cos\\theta = gT^2/(4\\pi^2L) = 22.05/35.53 = 0.621$, so $\\theta = 51.6^\\circ$."
+  },
+  {
+    "id": "nl-bank-16",
+    "name": "Banking a railway curve",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "banking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A railway curve of radius $300\\;\\mathrm{m}$ is to be banked for trains traveling at $30\\;\\mathrm{m/s}$. Find the required bank angle, in degrees.",
+    "answer": 17.02,
+    "unit": "degrees",
+    "solution": "$\\tan\\theta = v^2/(gr) = 900/2940 = 0.306$, so $\\theta = 17.0^\\circ$."
+  },
+  {
+    "id": "nl-bank-17",
+    "name": "Motorcycle lean angle",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "banking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A motorcyclist rounds a flat curve of radius $40\\;\\mathrm{m}$ at $18\\;\\mathrm{m/s}$, leaning so the total force from the ground passes through the rider's center of mass. Find the lean angle from the vertical, in degrees.",
+    "answer": 39.57,
+    "unit": "degrees",
+    "solution": "The ground force must have vertical component $mg$ and horizontal component $mv^2/r$, so $\\tan\\theta = v^2/(gr) = 324/392 = 0.827$ and $\\theta = 39.6^\\circ$: the same formula as a bank angle."
+  },
+  {
+    "id": "nl-bank-18",
+    "name": "Conical pendulum from the radius",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "conical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball on a $1.0\\;\\mathrm{m}$ string moves in a horizontal circle of radius $0.60\\;\\mathrm{m}$. Find the ball's speed, in $\\mathrm{m/s}$.",
+    "answer": 2.1,
+    "unit": "m/s",
+    "solution": "Here $\\sin\\theta = 0.60$ so $\\cos\\theta = 0.80$ and $\\tan\\theta = 0.75$. Then $v = \\sqrt{gr\\tan\\theta} = \\sqrt{4.41} = 2.1\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-bank-19",
+    "name": "Mass does not matter",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "banking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A frictionless curve of radius $45\\;\\mathrm{m}$ is banked at $30^\\circ$. Find the design speed, in $\\mathrm{m/s}$.",
+    "answer": 15.96,
+    "unit": "m/s",
+    "solution": "$v = \\sqrt{gr\\tan\\theta} = \\sqrt{(9.8)(45)(0.577)} = 16.0\\;\\mathrm{m/s}$. Notice the mass cancels, so a loaded truck and a small car have the same design speed."
+  },
+  {
+    "id": "nl-bank-20",
+    "name": "Load factor in a bank",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "banking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A pilot puts an aircraft into a level $50^\\circ$ banked turn. Find the ratio of the lift force to the aircraft's weight.",
+    "answer": 1.556,
+    "unit": "",
+    "solution": "Vertical balance requires $L\\cos\\theta = mg$, so $L/mg = 1/\\cos 50^\\circ = 1.56$. The pilot feels $1.56$ times normal weight."
+  },
+  {
+    "id": "nl-bank-21",
+    "name": "Revolutions per minute",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "conical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A conical pendulum of length $0.60\\;\\mathrm{m}$ hangs $35^\\circ$ from the vertical. Find its rotation rate, in revolutions per minute.",
+    "answer": 42.64,
+    "unit": "rev/min",
+    "solution": "First $\\omega = \\sqrt{g/(L\\cos\\theta)} = \\sqrt{9.8/0.491} = 4.47\\;\\mathrm{rad/s}$. Converting, $(4.47)(60)/(2\\pi) = 42.6\\;\\mathrm{rev/min}$."
+  },
+  {
+    "id": "nl-bank-22",
+    "name": "Parked on a bank",
+    "module": "banked-curves",
+    "difficulty": "Normal",
+    "tags": [
+      "banking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car is parked on a frictionless curve banked at $30^\\circ$ and released from rest. Find the magnitude of its initial acceleration, in $\\mathrm{m/s^2}$.",
+    "answer": 4.9,
+    "unit": "m/s^2",
+    "solution": "At rest there is no centripetal requirement, so the bank is just a frictionless incline: $a = g\\sin 30^\\circ = 4.9\\;\\mathrm{m/s^2}$ down the slope."
+  },
+  {
+    "id": "nl-bank-23",
+    "name": "Racing on a shallow bank",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A track of radius $90\\;\\mathrm{m}$ is banked at $12^\\circ$, with $\\mu_s = 0.50$. Find the maximum speed a car can carry through it, in $\\mathrm{m/s}$.",
+    "answer": 26.52,
+    "unit": "m/s",
+    "solution": "Use $v_{max} = \\sqrt{gr\\frac{\\tan\\theta+\\mu}{1-\\mu\\tan\\theta}}$. With $\\tan 12^\\circ = 0.213$, this is $\\sqrt{882(0.713)/0.894} = \\sqrt{703} = 26.5\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-bank-24",
+    "name": "Friction required at high speed",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A curve of radius $150\\;\\mathrm{m}$ is banked at $15^\\circ$ and a car takes it at $30\\;\\mathrm{m/s}$. Find the minimum coefficient of static friction needed.",
+    "answer": 0.2958,
+    "unit": "",
+    "solution": "Write $v^2/(gr) = 0.612$ and invert the maximum-speed formula: $\\mu = \\frac{v^2/(gr)-\\tan\\theta}{1+(v^2/(gr))\\tan\\theta} = 0.344/1.164 = 0.296$."
+  },
+  {
+    "id": "nl-bank-25",
+    "name": "Steep conical pendulum",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "conical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A conical pendulum of length $1.0\\;\\mathrm{m}$ swings with the string $60^\\circ$ from the vertical. Find the ball's speed, in $\\mathrm{m/s}$.",
+    "answer": 3.834,
+    "unit": "m/s",
+    "solution": "With $r = L\\sin\\theta$, $v^2 = gL\\sin\\theta\\tan\\theta = (9.8)(0.866)(1.732) = 14.7$. So $v = 3.83\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-bank-26",
+    "name": "Slowest safe speed on a steep bank",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A bobsled run of radius $60\\;\\mathrm{m}$ is banked at $35^\\circ$, with $\\mu_s = 0.25$. Find the minimum speed to avoid sliding down the bank, in $\\mathrm{m/s}$.",
+    "answer": 15.01,
+    "unit": "m/s",
+    "solution": "Friction acts up the bank at the minimum speed: $v_{min} = \\sqrt{gr\\frac{\\tan\\theta-\\mu}{1+\\mu\\tan\\theta}} = \\sqrt{588(0.450)/1.175} = 15.0\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-bank-27",
+    "name": "Period is set by the angle alone",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "conical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two conical pendulums of length $1.5\\;\\mathrm{m}$ carry balls of $0.20\\;\\mathrm{kg}$ and $0.80\\;\\mathrm{kg}$, and both are observed to hang $20^\\circ$ from the vertical. Find their common period, in seconds.",
+    "answer": 2.383,
+    "unit": "s",
+    "solution": "The mass cancels from both force equations, so the period depends only on $L$ and $\\theta$: $T = 2\\pi\\sqrt{L\\cos\\theta/g} = 2\\pi\\sqrt{1.410/9.8} = 2.38\\;\\mathrm{s}$."
+  },
+  {
+    "id": "nl-bank-28",
+    "name": "Puck inside a smooth funnel",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "conical surface"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A puck slides in a horizontal circle of radius $0.60\\;\\mathrm{m}$ on the smooth inside surface of a funnel whose wall makes $40^\\circ$ with the horizontal. Find the puck's speed, in $\\mathrm{m/s}$.",
+    "answer": 2.647,
+    "unit": "m/s",
+    "solution": "The normal force is perpendicular to the wall, so it has an upward component $N\\sin\\theta = mg$ and an inward component $N\\cos\\theta = mv^2/r$. Dividing gives $v^2 = gr/\\tan\\theta = 7.01$, so $v = 2.65\\;\\mathrm{m/s}$. Note this is the reciprocal of the road-banking relation, because the surface tilts the other way."
+  },
+  {
+    "id": "nl-bank-29",
+    "name": "Very steep bank, very high grip",
+    "module": "banked-curves",
+    "difficulty": "Very Hard",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A test track section of radius $50\\;\\mathrm{m}$ is banked at $45^\\circ$, with $\\mu_s = 0.90$. Find the maximum speed the track can support, in $\\mathrm{m/s}$.",
+    "answer": 96.49,
+    "unit": "m/s",
+    "solution": "Here $\\tan 45^\\circ = 1$, so $v_{max} = \\sqrt{gr\\frac{1+\\mu}{1-\\mu}} = \\sqrt{490(1.9)/0.1} = 96.5\\;\\mathrm{m/s}$. The denominator $1-\\mu\\tan\\theta$ is nearly zero, which is why the answer blows up: at $\\mu\\tan\\theta = 1$ there is no maximum speed at all."
+  },
+  {
+    "id": "nl-bank-30",
+    "name": "String at its breaking tension",
+    "module": "banked-curves",
+    "difficulty": "Very Hard",
+    "tags": [
+      "conical pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $0.60\\;\\mathrm{kg}$ ball on a $1.2\\;\\mathrm{m}$ string is swung as a conical pendulum. The string breaks at $20\\;\\mathrm{N}$. Find the greatest speed the ball can have, in $\\mathrm{m/s}$.",
+    "answer": 6.045,
+    "unit": "m/s",
+    "solution": "The vertical equation $T\\cos\\theta = mg$ fixes the angle at breaking: $\\cos\\theta = 5.88/20 = 0.294$, so $\\sin\\theta = 0.956$ and $\\tan\\theta = 3.25$. Then $v = \\sqrt{gL\\sin\\theta\\tan\\theta} = \\sqrt{36.6} = 6.05\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-grav-01",
+    "name": "Earth pulling the Moon",
+    "module": "gravitation",
+    "difficulty": "Easy",
+    "tags": [
+      "universal gravitation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$. The Moon has mass $7.35\\times 10^{22}\\;\\mathrm{kg}$, Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$, and the centers are $3.84\\times 10^8\\;\\mathrm{m}$ apart. Find the gravitational force between Earth and Moon, in newtons.",
+    "answer": 1.985e+20,
+    "unit": "N",
+    "solution": "$F = GM_Em_M/r^2 = (6.67\\times 10^{-11})(5.97\\times 10^{24})(7.35\\times 10^{22})/(3.84\\times 10^8)^2 = 1.98\\times 10^{20}\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-grav-02",
+    "name": "Surface gravity from mass and radius",
+    "module": "gravitation",
+    "difficulty": "Easy",
+    "tags": [
+      "surface gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. Find the gravitational field strength at Earth's surface, in $\\mathrm{m/s^2}$.",
+    "answer": 9.813,
+    "unit": "m/s^2",
+    "solution": "$g = GM/R^2 = (6.67\\times 10^{-11})(5.97\\times 10^{24})/(6.37\\times 10^6)^2 = 9.81\\;\\mathrm{m/s^2}$, matching the measured value."
+  },
+  {
+    "id": "nl-grav-03",
+    "name": "Two people attracting",
+    "module": "gravitation",
+    "difficulty": "Easy",
+    "tags": [
+      "universal gravitation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$. Two $100\\;\\mathrm{kg}$ people stand with their centers $2.0\\;\\mathrm{m}$ apart. Find the gravitational force between them, in newtons.",
+    "answer": 1.668e-07,
+    "unit": "N",
+    "solution": "$F = Gm_1m_2/r^2 = (6.67\\times 10^{-11})(10^4)/4 = 1.67\\times 10^{-7}\\;\\mathrm{N}$, far too small to notice."
+  },
+  {
+    "id": "nl-grav-04",
+    "name": "Orbital speed in low Earth orbit",
+    "module": "gravitation",
+    "difficulty": "Easy",
+    "tags": [
+      "orbital speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. Find the orbital speed of a satellite $400\\;\\mathrm{km}$ above the surface, in $\\mathrm{m/s}$.",
+    "answer": 7669.0,
+    "unit": "m/s",
+    "solution": "Gravity supplies the centripetal force, so $v = \\sqrt{GM/r}$ with $r = 6.77\\times 10^6\\;\\mathrm{m}$. That gives $v = 7.67\\times 10^3\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-grav-05",
+    "name": "Escape speed from Earth",
+    "module": "gravitation",
+    "difficulty": "Easy",
+    "tags": [
+      "escape velocity"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. Find the escape speed from Earth's surface, in $\\mathrm{m/s}$.",
+    "answer": 11180.0,
+    "unit": "m/s",
+    "solution": "Setting total energy to zero, $\\tfrac12mv^2 = GMm/R$, so $v = \\sqrt{2GM/R} = 1.12\\times 10^4\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-grav-06",
+    "name": "Field at twice the radius",
+    "module": "gravitation",
+    "difficulty": "Easy",
+    "tags": [
+      "inverse square"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "The gravitational field at Earth's surface is $9.81\\;\\mathrm{m/s^2}$. Find the field strength at a point two Earth radii from Earth's center, in $\\mathrm{m/s^2}$.",
+    "answer": 2.453,
+    "unit": "m/s^2",
+    "solution": "The field falls off as $1/r^2$, so doubling the distance divides it by four: $9.81/4 = 2.45\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-grav-07",
+    "name": "Weight at high altitude",
+    "module": "gravitation",
+    "difficulty": "Easy",
+    "tags": [
+      "surface gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. Find the gravitational force on a $70\\;\\mathrm{kg}$ astronaut $1000\\;\\mathrm{km}$ above Earth's surface, in newtons.",
+    "answer": 513.2,
+    "unit": "N",
+    "solution": "Here $r = 7.37\\times 10^6\\;\\mathrm{m}$, so $g = GM/r^2 = 7.33\\;\\mathrm{m/s^2}$ and $F = (70)(7.33) = 513\\;\\mathrm{N}$. Astronauts are not beyond gravity's reach."
+  },
+  {
+    "id": "nl-grav-08",
+    "name": "Period of a low orbit",
+    "module": "gravitation",
+    "difficulty": "Easy",
+    "tags": [
+      "orbital period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. A satellite orbits $400\\;\\mathrm{km}$ above the surface. Find its orbital period, in seconds.",
+    "answer": 5546.0,
+    "unit": "s",
+    "solution": "With $r = 6.77\\times 10^6\\;\\mathrm{m}$ and $v = 7671\\;\\mathrm{m/s}$, the period is $T = 2\\pi r/v = 5.54\\times 10^3\\;\\mathrm{s}$, about 92 minutes."
+  },
+  {
+    "id": "nl-grav-09",
+    "name": "Surface gravity of the Moon",
+    "module": "gravitation",
+    "difficulty": "Easy",
+    "tags": [
+      "surface gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$. The Moon has mass $7.35\\times 10^{22}\\;\\mathrm{kg}$ and radius $1.74\\times 10^6\\;\\mathrm{m}$. Find its surface gravity, in $\\mathrm{m/s^2}$.",
+    "answer": 1.619,
+    "unit": "m/s^2",
+    "solution": "$g = GM/R^2 = (6.67\\times 10^{-11})(7.35\\times 10^{22})/(1.74\\times 10^6)^2 = 1.62\\;\\mathrm{m/s^2}$, about one sixth of Earth's."
+  },
+  {
+    "id": "nl-grav-10",
+    "name": "Force on an orbiting satellite",
+    "module": "gravitation",
+    "difficulty": "Easy",
+    "tags": [
+      "universal gravitation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. Find the gravitational force on a $500\\;\\mathrm{kg}$ satellite whose orbit radius is $8.0\\times 10^6\\;\\mathrm{m}$, in newtons.",
+    "answer": 3111.0,
+    "unit": "N",
+    "solution": "$F = GMm/r^2 = (3.983\\times 10^{14})(500)/(6.4\\times 10^{13}) = 3.11\\times 10^3\\;\\mathrm{N}$."
+  },
+  {
+    "id": "nl-grav-11",
+    "name": "Geostationary radius",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "orbital period"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. A satellite is to orbit with a period of $86164\\;\\mathrm{s}$ so that it stays above one spot on the equator. Find its orbital radius, in meters.",
+    "answer": 42150000.0,
+    "unit": "m",
+    "solution": "Set $GMm/r^2 = m4\\pi^2r/T^2$ and solve: $r = (GMT^2/4\\pi^2)^{1/3} = 4.22\\times 10^7\\;\\mathrm{m}$, roughly $6.6$ Earth radii."
+  },
+  {
+    "id": "nl-grav-12",
+    "name": "Escape speed from the Moon",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "escape velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$. The Moon has mass $7.35\\times 10^{22}\\;\\mathrm{kg}$ and radius $1.74\\times 10^6\\;\\mathrm{m}$. Find the escape speed from its surface, in $\\mathrm{m/s}$.",
+    "answer": 2374.0,
+    "unit": "m/s",
+    "solution": "$v = \\sqrt{2GM/R} = \\sqrt{2(6.67\\times 10^{-11})(7.35\\times 10^{22})/(1.74\\times 10^6)} = 2.38\\times 10^3\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-grav-13",
+    "name": "Neutral point between Earth and Moon",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "gravitational field"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "The Earth ($5.97\\times 10^{24}\\;\\mathrm{kg}$) and Moon ($7.35\\times 10^{22}\\;\\mathrm{kg}$) have centers $3.84\\times 10^8\\;\\mathrm{m}$ apart. Find the distance from Earth's center to the point on the line between them where the net gravitational field is zero, in meters.",
+    "answer": 345600000.0,
+    "unit": "m",
+    "solution": "Setting $GM_E/x^2 = GM_M/(d-x)^2$ gives $x/(d-x) = \\sqrt{M_E/M_M} = 9.01$. So $x = d/(1+\\sqrt{M_M/M_E}) = 3.46\\times 10^8\\;\\mathrm{m}$, about 90% of the way to the Moon."
+  },
+  {
+    "id": "nl-grav-14",
+    "name": "Period at two Earth radii",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "orbital period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. Find the period of a circular orbit of radius $1.274\\times 10^7\\;\\mathrm{m}$ (two Earth radii), in seconds.",
+    "answer": 14320.0,
+    "unit": "s",
+    "solution": "$T = 2\\pi\\sqrt{r^3/GM} = 2\\pi\\sqrt{(2.068\\times 10^{21})/(3.983\\times 10^{14})} = 1.43\\times 10^4\\;\\mathrm{s}$, just under four hours."
+  },
+  {
+    "id": "nl-grav-15",
+    "name": "Gravity inside the Earth",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "field inside a sphere"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Model Earth as a uniform sphere with surface gravity $9.81\\;\\mathrm{m/s^2}$. Find the gravitational field at a depth of half an Earth radius, in $\\mathrm{m/s^2}$.",
+    "answer": 4.907,
+    "unit": "m/s^2",
+    "solution": "Only the mass inside your radius matters, and for a uniform sphere that gives $g \\propto r$. At $r = R/2$ the field is half the surface value: $4.90\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-grav-16",
+    "name": "Energy to raise a satellite",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "gravitational potential energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. Find the work needed to move a $1000\\;\\mathrm{kg}$ payload from Earth's surface to a point two Earth radii from the center (ignore kinetic energy), in joules.",
+    "answer": 31260000000.0,
+    "unit": "J",
+    "solution": "Using $U = -GMm/r$, the change is $GMm(1/R - 1/2R) = GMm/(2R) = (3.983\\times 10^{14})(1000)/(1.274\\times 10^7) = 3.13\\times 10^{10}\\;\\mathrm{J}$."
+  },
+  {
+    "id": "nl-grav-17",
+    "name": "Speed of the Moon",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "orbital speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. The Moon orbits at a radius of $3.84\\times 10^8\\;\\mathrm{m}$. Find its orbital speed, in $\\mathrm{m/s}$.",
+    "answer": 1018.0,
+    "unit": "m/s",
+    "solution": "$v = \\sqrt{GM_E/r} = \\sqrt{(3.983\\times 10^{14})/(3.84\\times 10^8)} = 1.02\\times 10^3\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-grav-18",
+    "name": "Weighing the Sun",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "orbital period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$. Earth orbits the Sun at a radius of $1.496\\times 10^{11}\\;\\mathrm{m}$ with a period of $3.156\\times 10^7\\;\\mathrm{s}$. Find the Sun's mass, in kilograms.",
+    "answer": 1.99e+30,
+    "unit": "kg",
+    "solution": "From $GM/r^2 = 4\\pi^2r/T^2$, $M = 4\\pi^2r^3/(GT^2) = 1.99\\times 10^{30}\\;\\mathrm{kg}$."
+  },
+  {
+    "id": "nl-grav-19",
+    "name": "A bigger, less dense planet",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "surface gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$. A planet has twice Earth's mass ($5.97\\times 10^{24}\\;\\mathrm{kg}$) and twice Earth's radius ($6.37\\times 10^6\\;\\mathrm{m}$). Find its surface gravity, in $\\mathrm{m/s^2}$.",
+    "answer": 4.907,
+    "unit": "m/s^2",
+    "solution": "Since $g = GM/R^2$, doubling $M$ doubles $g$ but doubling $R$ divides it by four. The net is half of Earth's value: $4.90\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-grav-20",
+    "name": "Mean density of Earth",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. Find Earth's mean density, in $\\mathrm{kg/m^3}$.",
+    "answer": 5514.0,
+    "unit": "kg/m^3",
+    "solution": "$\\rho = M/(\\tfrac43\\pi R^3) = (5.97\\times 10^{24})/(1.083\\times 10^{21}) = 5.51\\times 10^3\\;\\mathrm{kg/m^3}$, roughly twice the density of surface rock."
+  },
+  {
+    "id": "nl-grav-21",
+    "name": "Total energy of an orbit",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "orbital energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. An $800\\;\\mathrm{kg}$ satellite is in a circular orbit of radius $7.0\\times 10^6\\;\\mathrm{m}$. Find the magnitude of its total mechanical energy, in joules.",
+    "answer": 22750000000.0,
+    "unit": "J",
+    "solution": "For a circular orbit the kinetic energy is $GMm/2r$ and the potential energy is $-GMm/r$, so $E = -GMm/2r$. The magnitude is $(3.983\\times 10^{14})(800)/(1.4\\times 10^7) = 2.28\\times 10^{10}\\;\\mathrm{J}$."
+  },
+  {
+    "id": "nl-grav-22",
+    "name": "Launch speed to reach one Earth radius up",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "gravitational potential energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. Find the launch speed needed for a projectile to just reach a height of one Earth radius above the surface (ignore air and rotation), in $\\mathrm{m/s}$.",
+    "answer": 7906.0,
+    "unit": "m/s",
+    "solution": "Energy conservation gives $\\tfrac12v^2 = GM(1/R - 1/2R) = GM/2R$, so $v = \\sqrt{GM/R} = 7.91\\times 10^3\\;\\mathrm{m/s}$. That is exactly the low-orbit speed, and $1/\\sqrt2$ of escape speed."
+  },
+  {
+    "id": "nl-grav-23",
+    "name": "Tunnel through the Earth",
+    "module": "gravitation",
+    "difficulty": "Hard",
+    "tags": [
+      "SHM",
+      "field inside a sphere"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A straight tunnel is bored through the center of a uniform Earth (surface gravity $9.81\\;\\mathrm{m/s^2}$, radius $6.37\\times 10^6\\;\\mathrm{m}$) and an object is dropped in. Find the period of the resulting oscillation, in seconds.",
+    "answer": 5062.0,
+    "unit": "s",
+    "solution": "Inside a uniform sphere the field is $g r/R$, a restoring force proportional to displacement, so the motion is simple harmonic with $\\omega^2 = g/R$. Then $T = 2\\pi\\sqrt{R/g} = 5.06\\times 10^3\\;\\mathrm{s}$, about 84 minutes: the same as a low orbit."
+  },
+  {
+    "id": "nl-grav-24",
+    "name": "Binary star period",
+    "module": "gravitation",
+    "difficulty": "Hard",
+    "tags": [
+      "two-body",
+      "orbital period"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$. Two stars of mass $2.0\\times 10^{30}\\;\\mathrm{kg}$ each orbit their common center of mass, with a separation of $1.0\\times 10^{12}\\;\\mathrm{m}$. Find the orbital period, in seconds.",
+    "answer": 384700000.0,
+    "unit": "s",
+    "solution": "Each star circles at radius $d/2$ with the full separation setting the force: $GM^2/d^2 = M4\\pi^2(d/2)/T^2$. This rearranges to $T = 2\\pi\\sqrt{d^3/(G(M_1+M_2))} = 3.85\\times 10^8\\;\\mathrm{s}$."
+  },
+  {
+    "id": "nl-grav-25",
+    "name": "Change in g with altitude",
+    "module": "gravitation",
+    "difficulty": "Hard",
+    "tags": [
+      "approximation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Earth has radius $6.37\\times 10^6\\;\\mathrm{m}$ and surface gravity $9.81\\;\\mathrm{m/s^2}$. Find the decrease in $g$ at an altitude of $10\\;\\mathrm{km}$, in $\\mathrm{m/s^2}$.",
+    "answer": 0.03081,
+    "unit": "m/s^2",
+    "solution": "For $h \\ll R$, $g(h) \\approx g(1-2h/R)$, so $\\Delta g \\approx 2gh/R = 2(9.81)(10^4)/(6.37\\times 10^6) = 0.0308\\;\\mathrm{m/s^2}$. A commercial airliner's altitude changes weight by only about $0.3\\%$."
+  },
+  {
+    "id": "nl-grav-26",
+    "name": "Extra speed to escape from orbit",
+    "module": "gravitation",
+    "difficulty": "Hard",
+    "tags": [
+      "escape velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. A satellite is in a circular orbit of radius $7.0\\times 10^6\\;\\mathrm{m}$. Find the additional speed it must gain to escape Earth entirely, in $\\mathrm{m/s}$.",
+    "answer": 3124.0,
+    "unit": "m/s",
+    "solution": "Circular speed is $\\sqrt{GM/r} = 7545\\;\\mathrm{m/s}$ and escape speed at the same radius is $\\sqrt2$ times that, $10670\\;\\mathrm{m/s}$. The difference is $3.13\\times 10^3\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-grav-27",
+    "name": "Field off the axis of two masses",
+    "module": "gravitation",
+    "difficulty": "Hard",
+    "tags": [
+      "gravitational field",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$. Two $1.00\\times 10^3\\;\\mathrm{kg}$ spheres sit $2.00\\;\\mathrm{m}$ apart. Find the magnitude of the gravitational field at a point $1.00\\;\\mathrm{m}$ from the midpoint, on the perpendicular bisector, in $\\mathrm{m/s^2}$.",
+    "answer": 4.716e-08,
+    "unit": "m/s^2",
+    "solution": "Each sphere is $\\sqrt2\\;\\mathrm{m}$ away, contributing $GM/r^2 = 3.34\\times 10^{-8}\\;\\mathrm{m/s^2}$. The components along the bisector add and the perpendicular ones cancel, so the total is $2(3.34\\times 10^{-8})\\cos 45^\\circ = 4.72\\times 10^{-8}\\;\\mathrm{m/s^2}$."
+  },
+  {
+    "id": "nl-grav-28",
+    "name": "Leaving the solar system",
+    "module": "gravitation",
+    "difficulty": "Hard",
+    "tags": [
+      "escape velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Earth orbits the Sun at $2.978\\times 10^4\\;\\mathrm{m/s}$. Ignoring Earth's own gravity, find the speed a probe at Earth's orbital radius needs to escape the Sun, in $\\mathrm{m/s}$.",
+    "answer": 42120.0,
+    "unit": "m/s",
+    "solution": "For a circular orbit the escape speed at that radius is $\\sqrt2$ times the orbital speed, since $v_{esc}^2 = 2GM/r = 2v_{circ}^2$. So $v = \\sqrt2(2.978\\times 10^4) = 4.21\\times 10^4\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-grav-29",
+    "name": "Falling from two Earth radii",
+    "module": "gravitation",
+    "difficulty": "Very Hard",
+    "tags": [
+      "gravitational potential energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. An object is released from rest at a distance of two Earth radii from Earth's center. Find its speed on reaching the surface (ignore the atmosphere), in $\\mathrm{m/s}$.",
+    "answer": 7906.0,
+    "unit": "m/s",
+    "solution": "Energy conservation with the correct $1/r$ potential gives $\\tfrac12v^2 = GM(1/R - 1/2R) = GM/2R$. Then $v = \\sqrt{GM/R} = 7.91\\times 10^3\\;\\mathrm{m/s}$. Using a constant $g$ over that distance would be badly wrong."
+  },
+  {
+    "id": "nl-grav-30",
+    "name": "Speeding up as a satellite decays",
+    "module": "gravitation",
+    "difficulty": "Very Hard",
+    "tags": [
+      "orbital speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass is $5.97\\times 10^{24}\\;\\mathrm{kg}$ and its radius $6.37\\times 10^6\\;\\mathrm{m}$. Atmospheric drag lowers a satellite's circular orbit from $300\\;\\mathrm{km}$ to $200\\;\\mathrm{km}$ altitude. Find the increase in its orbital speed, in $\\mathrm{m/s}$.",
+    "answer": 58.58,
+    "unit": "m/s",
+    "solution": "Orbital speed is $\\sqrt{GM/r}$, so it grows as the orbit shrinks: $7784$ vs $7726\\;\\mathrm{m/s}$, an increase of $58\\;\\mathrm{m/s}$. Drag removes energy yet the satellite ends up moving faster, because the potential energy drops by twice as much as the kinetic energy gains."
+  },
+  {
+    "id": "nl-kepler-01",
+    "name": "Third law with AU and years",
+    "module": "keplers-laws",
+    "difficulty": "Easy",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An asteroid orbits the Sun with a semi-major axis of $4.00\\;\\mathrm{AU}$. Find its orbital period, in years.",
+    "answer": 8.0,
+    "unit": "years",
+    "solution": "In these units Kepler's third law is simply $T^2 = a^3$. So $T = 4^{3/2} = 8.00\\;\\mathrm{years}$."
+  },
+  {
+    "id": "nl-kepler-02",
+    "name": "Working backward to the radius",
+    "module": "keplers-laws",
+    "difficulty": "Easy",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A comet orbits the Sun with a period of $27.0\\;\\mathrm{years}$. Find its semi-major axis, in AU.",
+    "answer": 9.0,
+    "unit": "AU",
+    "solution": "From $T^2 = a^3$, $a = T^{2/3} = 27^{2/3} = 9.00\\;\\mathrm{AU}$."
+  },
+  {
+    "id": "nl-kepler-03",
+    "name": "Period of Mars",
+    "module": "keplers-laws",
+    "difficulty": "Easy",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Mars orbits the Sun with a semi-major axis of $1.524\\;\\mathrm{AU}$. Find its orbital period, in years.",
+    "answer": 1.881,
+    "unit": "years",
+    "solution": "$T = a^{3/2} = 1.524^{3/2} = 1.881\\;\\mathrm{years}$, close to the observed value of about 687 days."
+  },
+  {
+    "id": "nl-kepler-04",
+    "name": "Distance of Jupiter",
+    "module": "keplers-laws",
+    "difficulty": "Easy",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Jupiter takes $11.86\\;\\mathrm{years}$ to orbit the Sun. Find its semi-major axis, in AU.",
+    "answer": 5.201,
+    "unit": "AU",
+    "solution": "$a = T^{2/3} = 11.86^{2/3} = 5.20\\;\\mathrm{AU}$."
+  },
+  {
+    "id": "nl-kepler-05",
+    "name": "Doubling the orbit radius",
+    "module": "keplers-laws",
+    "difficulty": "Easy",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Satellite B orbits Earth in a circle of exactly twice the radius of satellite A's orbit. Find the ratio of B's period to A's period.",
+    "answer": 2.828,
+    "unit": "",
+    "solution": "Since $T \\propto a^{3/2}$, the ratio is $2^{3/2} = 2.83$."
+  },
+  {
+    "id": "nl-kepler-06",
+    "name": "Four times the radius",
+    "module": "keplers-laws",
+    "difficulty": "Easy",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A satellite is moved from a circular orbit of radius $r$ to one of radius $4r$. Find the factor by which its period increases.",
+    "answer": 8.0,
+    "unit": "",
+    "solution": "$T \\propto a^{3/2}$, so the factor is $4^{3/2} = 8.00$."
+  },
+  {
+    "id": "nl-kepler-07",
+    "name": "Halley's comet",
+    "module": "keplers-laws",
+    "difficulty": "Easy",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Halley's comet has a semi-major axis of $17.8\\;\\mathrm{AU}$. Find its orbital period, in years.",
+    "answer": 75.1,
+    "unit": "years",
+    "solution": "$T = a^{3/2} = 17.8^{3/2} = 75.1\\;\\mathrm{years}$."
+  },
+  {
+    "id": "nl-kepler-08",
+    "name": "Semi-major axis from the extremes",
+    "module": "keplers-laws",
+    "difficulty": "Easy",
+    "tags": [
+      "ellipse geometry"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A comet's closest approach to the Sun is $0.60\\;\\mathrm{AU}$ and its farthest distance is $5.40\\;\\mathrm{AU}$. Find its orbital period, in years.",
+    "answer": 5.196,
+    "unit": "years",
+    "solution": "The semi-major axis is the average of perihelion and aphelion: $a = (0.60+5.40)/2 = 3.00\\;\\mathrm{AU}$. Then $T = 3^{3/2} = 5.20\\;\\mathrm{years}$."
+  },
+  {
+    "id": "nl-kepler-09",
+    "name": "Eccentricity of Earth's orbit",
+    "module": "keplers-laws",
+    "difficulty": "Easy",
+    "tags": [
+      "ellipse geometry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Earth's perihelion distance is $0.983\\;\\mathrm{AU}$ and its aphelion distance is $1.017\\;\\mathrm{AU}$. Find the eccentricity of its orbit.",
+    "answer": 0.017,
+    "unit": "",
+    "solution": "With $r_p = a(1-e)$ and $r_a = a(1+e)$, $e = (r_a-r_p)/(r_a+r_p) = 0.034/2.000 = 0.017$. Earth's orbit is very nearly circular."
+  },
+  {
+    "id": "nl-kepler-10",
+    "name": "Equal areas at the two ends",
+    "module": "keplers-laws",
+    "difficulty": "Easy",
+    "tags": [
+      "second law"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A comet moves at $5.0\\;\\mathrm{km/s}$ at aphelion, which is four times farther from the Sun than its perihelion. Find its perihelion speed, in $\\mathrm{m/s}$.",
+    "answer": 20000.0,
+    "unit": "m/s",
+    "solution": "At the two extremes the velocity is perpendicular to the radius, so the second law gives $r_pv_p = r_av_a$. Then $v_p = 4(5.0\\;\\mathrm{km/s}) = 2.0\\times 10^4\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-kepler-11",
+    "name": "Period of Ceres",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Ceres orbits the Sun with a semi-major axis of $2.77\\;\\mathrm{AU}$. Find its orbital period, in years.",
+    "answer": 4.61,
+    "unit": "years",
+    "solution": "$T = a^{3/2} = 2.77^{3/2} = 4.61\\;\\mathrm{years}$."
+  },
+  {
+    "id": "nl-kepler-12",
+    "name": "Third law in SI units",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and Earth's mass $5.97\\times 10^{24}\\;\\mathrm{kg}$. Find the period of a satellite in a circular orbit of radius $1.00\\times 10^7\\;\\mathrm{m}$, in seconds.",
+    "answer": 9957.0,
+    "unit": "s",
+    "solution": "Kepler's third law in SI form is $T = 2\\pi\\sqrt{a^3/GM}$. With $a^3 = 10^{21}\\;\\mathrm{m^3}$ and $GM = 3.98\\times 10^{14}$, $T = 9.96\\times 10^3\\;\\mathrm{s}$."
+  },
+  {
+    "id": "nl-kepler-13",
+    "name": "The Kepler constant for the Sun",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$ and a solar mass of $1.99\\times 10^{30}\\;\\mathrm{kg}$. Find the value of $T^2/a^3$ for objects orbiting the Sun, in $\\mathrm{s^2/m^3}$.",
+    "answer": 2.974e-19,
+    "unit": "s^2/m^3",
+    "solution": "Kepler's third law says this ratio is the same for every orbit, and equals $4\\pi^2/GM = 39.48/(1.327\\times 10^{20}) = 2.98\\times 10^{-19}\\;\\mathrm{s^2/m^3}$."
+  },
+  {
+    "id": "nl-kepler-14",
+    "name": "Mass of a binary system",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "third law",
+      "binary"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two stars orbit each other with a period of $50.0\\;\\mathrm{years}$ and a separation of $20.0\\;\\mathrm{AU}$. Find their combined mass, in solar masses.",
+    "answer": 3.2,
+    "unit": "solar masses",
+    "solution": "In solar units the third law generalizes to $a^3/T^2 = M_{total}$. So $M = 8000/2500 = 3.20$ solar masses."
+  },
+  {
+    "id": "nl-kepler-15",
+    "name": "Perihelion speed from vis-viva",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "vis-viva"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A comet has a semi-major axis of $2.00\\;\\mathrm{AU}$ and eccentricity $0.500$. Take $1\\;\\mathrm{AU} = 1.496\\times 10^{11}\\;\\mathrm{m}$ and $GM_{Sun} = 1.327\\times 10^{20}\\;\\mathrm{m^3/s^2}$. Find its speed at perihelion, in $\\mathrm{m/s}$.",
+    "answer": 36480.0,
+    "unit": "m/s",
+    "solution": "Perihelion is at $a(1-e) = 1.00\\;\\mathrm{AU}$. The vis-viva equation $v^2 = GM(2/r - 1/a)$ gives $v^2 = 1.327\\times 10^{20}(1.337\\times 10^{-11} - 3.34\\times 10^{-12})$, so $v = 3.65\\times 10^4\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-kepler-16",
+    "name": "Aphelion speed of the same comet",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "vis-viva"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "For the same comet ($a = 2.00\\;\\mathrm{AU}$, $e = 0.500$, $GM_{Sun} = 1.327\\times 10^{20}\\;\\mathrm{m^3/s^2}$, $1\\;\\mathrm{AU} = 1.496\\times 10^{11}\\;\\mathrm{m}$), find its speed at aphelion, in $\\mathrm{m/s}$.",
+    "answer": 12160.0,
+    "unit": "m/s",
+    "solution": "Aphelion is at $a(1+e) = 3.00\\;\\mathrm{AU}$. Vis-viva gives $v = 1.22\\times 10^4\\;\\mathrm{m/s}$, exactly one third of the perihelion speed as the second law requires."
+  },
+  {
+    "id": "nl-kepler-17",
+    "name": "Geostationary orbit from lunar data",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "third law"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "The Moon orbits Earth at a radius of $3.84\\times 10^8\\;\\mathrm{m}$ with a period of $27.32\\;\\mathrm{days}$. Find the radius of an Earth orbit with a period of $1.00\\;\\mathrm{day}$, in meters.",
+    "answer": 42330000.0,
+    "unit": "m",
+    "solution": "Kepler's third law applies to anything orbiting Earth, so $a = a_{Moon}(T/T_{Moon})^{2/3} = 3.84\\times 10^8(1/27.32)^{2/3} = 4.22\\times 10^7\\;\\mathrm{m}$. No knowledge of $G$ or Earth's mass is needed."
+  },
+  {
+    "id": "nl-kepler-18",
+    "name": "Weighing Mars with Phobos",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$. Phobos orbits Mars at a radius of $9.38\\times 10^6\\;\\mathrm{m}$ with a period of $7.65\\;\\mathrm{hours}$. Find the mass of Mars, in kilograms.",
+    "answer": 6.44e+23,
+    "unit": "kg",
+    "solution": "Rearrange the third law: $M = 4\\pi^2a^3/(GT^2)$ with $T = 2.754\\times 10^4\\;\\mathrm{s}$. That gives $M = 6.44\\times 10^{23}\\;\\mathrm{kg}$."
+  },
+  {
+    "id": "nl-kepler-19",
+    "name": "Areal velocity of Earth",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "second law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Treat Earth's orbit as a circle of radius $1.496\\times 10^{11}\\;\\mathrm{m}$ with a period of $3.156\\times 10^7\\;\\mathrm{s}$. Find the rate at which the Sun-Earth line sweeps out area, in $\\mathrm{m^2/s}$.",
+    "answer": 2228000000000000.0,
+    "unit": "m^2/s",
+    "solution": "The second law says this rate is constant, so it is just the total area over the period: $\\pi r^2/T = \\pi(1.496\\times 10^{11})^2/(3.156\\times 10^7) = 2.23\\times 10^{15}\\;\\mathrm{m^2/s}$."
+  },
+  {
+    "id": "nl-kepler-20",
+    "name": "Aphelion of an asteroid",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "third law",
+      "ellipse geometry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An asteroid has an orbital period of $5.00\\;\\mathrm{years}$ and a perihelion distance of $1.20\\;\\mathrm{AU}$. Find its aphelion distance, in AU.",
+    "answer": 4.648,
+    "unit": "AU",
+    "solution": "The third law gives $a = 5^{2/3} = 2.924\\;\\mathrm{AU}$. Since $r_p + r_a = 2a$, the aphelion is $2(2.924) - 1.20 = 4.65\\;\\mathrm{AU}$."
+  },
+  {
+    "id": "nl-kepler-21",
+    "name": "Period of an elliptical Earth orbit",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "third law",
+      "ellipse geometry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $GM_E = 3.983\\times 10^{14}\\;\\mathrm{m^3/s^2}$. A satellite has perigee radius $6.70\\times 10^6\\;\\mathrm{m}$ and apogee radius $4.20\\times 10^7\\;\\mathrm{m}$. Find its orbital period, in seconds.",
+    "answer": 37830.0,
+    "unit": "s",
+    "solution": "The semi-major axis is $a = (6.70\\times 10^6 + 4.20\\times 10^7)/2 = 2.435\\times 10^7\\;\\mathrm{m}$. Then $T = 2\\pi\\sqrt{a^3/GM} = 3.78\\times 10^4\\;\\mathrm{s}$, about 10.5 hours."
+  },
+  {
+    "id": "nl-kepler-22",
+    "name": "Perigee speed",
+    "module": "keplers-laws",
+    "difficulty": "Normal",
+    "tags": [
+      "vis-viva"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "For the same satellite (perigee $6.70\\times 10^6\\;\\mathrm{m}$, apogee $4.20\\times 10^7\\;\\mathrm{m}$, $GM_E = 3.983\\times 10^{14}\\;\\mathrm{m^3/s^2}$), find its speed at perigee, in $\\mathrm{m/s}$.",
+    "answer": 10120.0,
+    "unit": "m/s",
+    "solution": "Vis-viva with $a = 2.435\\times 10^7\\;\\mathrm{m}$: $v^2 = GM(2/r - 1/a) = 3.983\\times 10^{14}(2.574\\times 10^{-7})$, so $v = 1.01\\times 10^4\\;\\mathrm{m/s}$."
+  },
+  {
+    "id": "nl-kepler-23",
+    "name": "Hohmann transfer to Mars",
+    "module": "keplers-laws",
+    "difficulty": "Hard",
+    "tags": [
+      "third law",
+      "transfer orbit"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A spacecraft leaves Earth's orbit ($1.00\\;\\mathrm{AU}$) on an ellipse whose aphelion just touches Mars's orbit ($1.524\\;\\mathrm{AU}$). Find the travel time from Earth to Mars, in years.",
+    "answer": 0.7089,
+    "unit": "years",
+    "solution": "The transfer ellipse has $a = (1.00+1.524)/2 = 1.262\\;\\mathrm{AU}$, so its full period is $1.262^{3/2} = 1.418\\;\\mathrm{years}$. The trip is half an orbit: $0.709\\;\\mathrm{years}$, about 8.5 months."
+  },
+  {
+    "id": "nl-kepler-24",
+    "name": "Speed ratio for a very eccentric orbit",
+    "module": "keplers-laws",
+    "difficulty": "Hard",
+    "tags": [
+      "second law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A comet has eccentricity $0.900$. Find the ratio of its perihelion speed to its aphelion speed.",
+    "answer": 19.0,
+    "unit": "",
+    "solution": "The second law gives $r_pv_p = r_av_a$, and $r_a/r_p = (1+e)/(1-e)$. So $v_p/v_a = 1.9/0.1 = 19.0$."
+  },
+  {
+    "id": "nl-kepler-25",
+    "name": "Orbits per day",
+    "module": "keplers-laws",
+    "difficulty": "Hard",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $GM_E = 3.983\\times 10^{14}\\;\\mathrm{m^3/s^2}$ and Earth's radius $6.37\\times 10^6\\;\\mathrm{m}$. A satellite orbits at an altitude of $700\\;\\mathrm{km}$. Find how many complete orbits it makes in one day ($86400\\;\\mathrm{s}$).",
+    "answer": 14.6,
+    "unit": "orbits",
+    "solution": "With $r = 7.07\\times 10^6\\;\\mathrm{m}$, $T = 2\\pi\\sqrt{r^3/GM} = 5.92\\times 10^3\\;\\mathrm{s}$. Then $86400/5920 = 14.6$ orbits per day."
+  },
+  {
+    "id": "nl-kepler-26",
+    "name": "Apogee of a fast launch",
+    "module": "keplers-laws",
+    "difficulty": "Hard",
+    "tags": [
+      "vis-viva",
+      "angular momentum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $GM_E = 3.983\\times 10^{14}\\;\\mathrm{m^3/s^2}$ and Earth's radius $6.37\\times 10^6\\;\\mathrm{m}$. A projectile is launched horizontally from the surface at $9000\\;\\mathrm{m/s}$. Find the maximum distance it reaches from Earth's center, in meters.",
+    "answer": 11720000.0,
+    "unit": "m",
+    "solution": "The launch point is the perigee. Energy and angular momentum conservation give $r_a = r_p/(2GM/(r_pv_p^2)-1)$. With $2GM/(r_pv_p^2) = 1.544$, $r_a = 6.37\\times 10^6/0.544 = 1.17\\times 10^7\\;\\mathrm{m}$."
+  },
+  {
+    "id": "nl-kepler-27",
+    "name": "Mass of a galactic center",
+    "module": "keplers-laws",
+    "difficulty": "Hard",
+    "tags": [
+      "third law"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A star orbits the center of a galaxy with a semi-major axis of $1000\\;\\mathrm{AU}$ and a period of $15.0\\;\\mathrm{years}$. Find the mass of the central object, in solar masses.",
+    "answer": 4444000.0,
+    "unit": "solar masses",
+    "solution": "Using $M = a^3/T^2$ in solar units, $M = 10^9/225 = 4.44\\times 10^6$ solar masses. The star's own mass is negligible in comparison."
+  },
+  {
+    "id": "nl-kepler-28",
+    "name": "Period depends only on density",
+    "module": "keplers-laws",
+    "difficulty": "Hard",
+    "tags": [
+      "third law",
+      "density"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $G = 6.67\\times 10^{-11}\\;\\mathrm{N\\,m^2/kg^2}$. Find the period of a circular orbit skimming the surface of a uniform sphere of density $5500\\;\\mathrm{kg/m^3}$, in seconds.",
+    "answer": 5069.0,
+    "unit": "s",
+    "solution": "Writing $M = \\tfrac43\\pi R^3\\rho$ in $T = 2\\pi\\sqrt{R^3/GM}$ makes $R$ cancel: $T = \\sqrt{3\\pi/G\\rho}$. That gives $T = \\sqrt{2.57\\times 10^7} = 5.07\\times 10^3\\;\\mathrm{s}$, the same 84 minutes as low Earth orbit."
+  },
+  {
+    "id": "nl-kepler-29",
+    "name": "Falling straight into the Sun",
+    "module": "keplers-laws",
+    "difficulty": "Very Hard",
+    "tags": [
+      "third law",
+      "degenerate orbit"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Earth is imagined stopped in its orbit and released, so it falls radially toward the Sun. Treating the radial fall as a degenerate ellipse of semi-major axis $0.500\\;\\mathrm{AU}$, find the time to reach the Sun, in days.",
+    "answer": 64.57,
+    "unit": "days",
+    "solution": "A straight-line fall is the limit of an ellipse with $a = r_0/2$, and reaching the center is half of that orbit. So $t = \\tfrac12(0.5)^{3/2}\\;\\mathrm{yr} = 0.1768\\;\\mathrm{yr} = 64.6\\;\\mathrm{days}$."
+  },
+  {
+    "id": "nl-kepler-30",
+    "name": "Burn to raise the apogee",
+    "module": "keplers-laws",
+    "difficulty": "Very Hard",
+    "tags": [
+      "vis-viva"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Use $GM_E = 3.983\\times 10^{14}\\;\\mathrm{m^3/s^2}$. A satellite in a circular orbit of radius $7.00\\times 10^6\\;\\mathrm{m}$ fires its engine to enter an ellipse with apogee $4.20\\times 10^7\\;\\mathrm{m}$. Find the required change in speed, in $\\mathrm{m/s}$.",
+    "answer": 2333.0,
+    "unit": "m/s",
+    "solution": "The circular speed is $\\sqrt{GM/r} = 7545\\;\\mathrm{m/s}$. The transfer ellipse has $a = 2.45\\times 10^7\\;\\mathrm{m}$, and vis-viva gives a perigee speed of $9876\\;\\mathrm{m/s}$. The burn must add $2.33\\times 10^3\\;\\mathrm{m/s}$."
+  },
+  {
     "id": "tk-units-01",
     "name": "Highway speed in SI units",
     "module": "units-estimation",

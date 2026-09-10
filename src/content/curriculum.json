@@ -3,97 +3,375 @@
     "id": "fma",
     "label": "I",
     "name": "F=MA",
-    "tagline": "Mechanics fundamentals for the qualifying exam",
-    "accent": "var(--brass)",
+    "tagline": "Algebra- and calculus-based mechanics: everything you need to walk into the qualifying exam knowing the tricks, not just the topic names",
+    "accent": "var(--accent)",
     "sections": [
       {
-        "id": "kinematics",
-        "title": "Kinematics",
+        "id": "fma-u1",
+        "title": "Toolkit: Before You Start",
+        "blurb": "Not tested on its own, but every later unit quietly assumes it.",
         "modules": [
           {
-            "slug": "vectors-calculus",
-            "title": "Vectors & Essential Math",
-            "description": "Vector algebra, dot and cross products, and the small calculus toolkit that olympiad problems assume.",
-            "frequency": 4,
+            "slug": "units-estimation",
+            "title": "Units, Dimensional Analysis & Estimation",
+            "description": "Checking an answer by its units, order-of-magnitude sanity checks, and the Fermi-style estimation questions that open some exams.",
+            "frequency": 2,
             "minutes": 25,
-            "hasContent": true
+            "problemTarget": 30
           },
           {
-            "slug": "kinematics-1d",
-            "title": "Kinematics in One Dimension",
-            "description": "Motion graphs, constant acceleration, and choosing the right kinematic description.",
+            "slug": "vectors",
+            "title": "Vectors: Components, Dot & Cross Products",
+            "description": "Breaking vectors into components, and what the two products actually mean physically rather than just how to compute them.",
             "frequency": 4,
             "minutes": 30,
+            "problemTarget": 30,
             "hasContent": true
           },
           {
-            "slug": "projectile-motion",
-            "title": "Projectile Motion",
-            "description": "2D trajectories, range optimization, and projectiles on inclines, with an interactive trajectory lab.",
+            "slug": "derivatives",
+            "title": "Calculus for Physics I: Derivatives",
+            "description": "Reading velocity and acceleration as derivatives, and the handful of rules every kinematics problem quietly assumes.",
             "frequency": 4,
-            "minutes": 35,
-            "prereqs": [
-              "kinematics-1d"
-            ],
-            "hasContent": true
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "integrals",
+            "title": "Calculus for Physics II: Integrals",
+            "description": "Going from acceleration back to velocity and position, and treating an integral as a literal area under a curve.",
+            "frequency": 4,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "approximations",
+            "title": "Approximations & Small-Angle Expansions",
+            "description": "Taylor series, sin \u03b8 \u2248 \u03b8, and the binomial approximation: one shortcut that shows up in half of all oscillation and orbit problems.",
+            "frequency": 3,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "problem-strategy",
+            "title": "Problem-Solving Strategy",
+            "description": "How to set a problem up before touching an equation: choosing axes, isolating the system, and checking limiting cases.",
+            "frequency": 3,
+            "minutes": 20,
+            "problemTarget": 30
+          },
+          {
+            "slug": "data-graphs",
+            "title": "Data Analysis: Graphs & Uncertainty",
+            "description": "Pulling a relationship out of a data table, straightening a curved graph, and what error bars are telling you.",
+            "frequency": 2,
+            "minutes": 25,
+            "problemTarget": 30
           }
         ]
       },
       {
-        "id": "dynamics",
-        "title": "Newton's Laws",
+        "id": "fma-u2",
+        "title": "Kinematics",
+        "blurb": "Describing motion before worrying about what causes it.",
         "modules": [
           {
-            "slug": "forces-fbd",
-            "title": "Forces & Free Body Diagrams",
-            "description": "Systematic force analysis: normal forces, tension, friction, and drawing a clean free body diagram.",
+            "slug": "motion-1d",
+            "title": "Motion in One Dimension",
+            "description": "Position, velocity and acceleration as a chain of derivatives, plus the constant-acceleration equations everyone memorizes.",
+            "frequency": 4,
+            "minutes": 30,
+            "problemTarget": 30,
+            "hasContent": true
+          },
+          {
+            "slug": "motion-graphs",
+            "title": "Motion Graphs",
+            "description": "Reading and sketching x-t, v-t and a-t graphs, and pulling displacement out of areas and slopes.",
+            "frequency": 3,
+            "minutes": 25,
+            "problemTarget": 30
+          },
+          {
+            "slug": "free-fall",
+            "title": "Free Fall & Variable Acceleration",
+            "description": "Constant-g problems, fall with drag, and how to set things up when the acceleration refuses to stay constant.",
+            "frequency": 3,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "projectiles",
+            "title": "Two-Dimensional & Projectile Motion",
+            "description": "Independent x and y motion, range and max-height optimization, and projectiles landing on slopes.",
             "frequency": 4,
             "minutes": 40,
+            "problemTarget": 30,
             "hasContent": true
+          },
+          {
+            "slug": "relative-motion",
+            "title": "Relative Motion",
+            "description": "Switching reference frames, river-crossing and pursuit problems, and drawing relative-velocity diagrams that actually help.",
+            "frequency": 3,
+            "minutes": 30,
+            "problemTarget": 30
+          }
+        ]
+      },
+      {
+        "id": "fma-u3",
+        "title": "Newton's Laws & Forces",
+        "blurb": "What makes things accelerate, and how to account for every push and pull.",
+        "modules": [
+          {
+            "slug": "newtons-laws-fbd",
+            "title": "Newton's Three Laws & Free Body Diagrams",
+            "description": "Finding every force systematically, and the discipline of drawing one clean diagram per object before writing a single equation.",
+            "frequency": 4,
+            "minutes": 40,
+            "problemTarget": 30,
+            "hasContent": true
+          },
+          {
+            "slug": "friction",
+            "title": "Friction",
+            "description": "Static against kinetic friction, the friction cone, and multi-block systems where the block you would guess moves first is the wrong one.",
+            "frequency": 4,
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "tension-pulleys",
+            "title": "Tension, Pulleys & Connected Systems",
+            "description": "Massless string and pulley idealizations, Atwood machines, and writing the constraint that ties two objects together.",
+            "frequency": 3,
+            "minutes": 40,
+            "problemTarget": 30
+          },
+          {
+            "slug": "springs-hooke",
+            "title": "Springs & Hooke's Law",
+            "description": "Spring forces in series and parallel, and setting up the equation of motion for spring-connected blocks.",
+            "frequency": 3,
+            "minutes": 30,
+            "problemTarget": 30
           },
           {
             "slug": "circular-motion",
-            "title": "Circular Motion & Gravitation",
-            "description": "Centripetal acceleration, banked curves, orbits, and Kepler's laws.",
-            "frequency": 3,
+            "title": "Circular Motion",
+            "description": "Centripetal force, vertical circles, and the minimum-speed-at-the-top condition that trips up almost everyone once.",
+            "frequency": 4,
             "minutes": 35,
-            "prereqs": [
-              "forces-fbd"
-            ],
+            "problemTarget": 30,
             "hasContent": true
           },
           {
-            "slug": "energy-momentum",
-            "title": "Energy & Momentum",
-            "description": "Work-energy theorem, conservation laws, collisions in one and two dimensions, and center of mass.",
-            "frequency": 4,
-            "minutes": 45,
-            "hasContent": true
+            "slug": "banked-curves",
+            "title": "Banked Curves & Conical Pendulums",
+            "description": "Combining gravity and the normal force on a tilted circular path, with no friction to lean on.",
+            "frequency": 3,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "gravitation",
+            "title": "Gravitation & Orbits",
+            "description": "Newton's law of gravitation, orbital speed and period, and escape velocity.",
+            "frequency": 3,
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "keplers-laws",
+            "title": "Kepler's Laws",
+            "description": "Elliptical orbits, the equal-area law, and how period relates to radius for planets and satellites.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
           }
         ]
       },
       {
-        "id": "rotation",
-        "title": "Rotation & Oscillation",
+        "id": "fma-u4",
+        "title": "Work, Energy & Momentum",
+        "blurb": "Two conservation laws that answer questions forces alone make painful.",
         "modules": [
           {
-            "slug": "rotational-dynamics",
-            "title": "Rotational Dynamics",
-            "description": "Torque, moment of inertia, angular momentum, and rolling without slipping.",
+            "slug": "work-energy-theorem",
+            "title": "Work & the Work-Energy Theorem",
+            "description": "Computing work along a path, including curved ones, and connecting it straight to the change in kinetic energy.",
             "frequency": 4,
-            "minutes": 50,
-            "prereqs": [
-              "energy-momentum"
-            ],
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "potential-energy",
+            "title": "Conservative Forces & Potential Energy",
+            "description": "Gravitational and spring potential energy, and reading force directly off a potential energy curve.",
+            "frequency": 4,
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "energy-conservation",
+            "title": "Conservation of Energy",
+            "description": "Setting up energy equations for multi-stage systems without re-deriving the kinematics at every stage.",
+            "frequency": 4,
+            "minutes": 40,
+            "problemTarget": 30,
             "hasContent": true
           },
           {
-            "slug": "shm",
-            "title": "Simple Harmonic Motion",
-            "description": "Springs, pendulums, effective potentials, and small-oscillation approximations, with a live oscillator.",
+            "slug": "power",
+            "title": "Power",
+            "description": "Instantaneous against average power, and problems where the power, not the force, is what is limited.",
+            "frequency": 2,
+            "minutes": 25,
+            "problemTarget": 30
+          },
+          {
+            "slug": "momentum-impulse",
+            "title": "Momentum & Impulse",
+            "description": "The impulse-momentum theorem, and impacts where the force is not constant.",
+            "frequency": 3,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "collisions",
+            "title": "Collisions in One and Two Dimensions",
+            "description": "Elastic and inelastic collisions, and conserving momentum as a vector when things do not hit head-on.",
+            "frequency": 4,
+            "minutes": 40,
+            "problemTarget": 30
+          },
+          {
+            "slug": "center-of-mass",
+            "title": "Center of Mass & Systems of Particles",
+            "description": "Locating the center of mass, and treating a complicated multi-body system as one effective particle.",
+            "frequency": 3,
+            "minutes": 30,
+            "problemTarget": 30
+          }
+        ]
+      },
+      {
+        "id": "fma-u5",
+        "title": "Rotational Motion",
+        "blurb": "Everything from the last two units, rewritten for things that spin.",
+        "modules": [
+          {
+            "slug": "angular-kinematics",
+            "title": "Angular Kinematics",
+            "description": "Angular position, velocity and acceleration, and how each one maps back to its straight-line counterpart.",
+            "frequency": 3,
+            "minutes": 25,
+            "problemTarget": 30
+          },
+          {
+            "slug": "torque-equilibrium",
+            "title": "Torque & Static Equilibrium",
+            "description": "Torque about a pivot, and solving for unknown forces on rigid bodies that are not moving at all.",
+            "frequency": 3,
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "moment-of-inertia",
+            "title": "Moment of Inertia",
+            "description": "Computing and combining moments of inertia, including the parallel axis theorem, without memorizing every shape.",
+            "frequency": 4,
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "rotational-dynamics",
+            "title": "Rotational Dynamics: \u03c4 = I\u03b1",
+            "description": "Newton's second law for rotation, applied to pulleys with real mass and to rotating rigid bodies.",
+            "frequency": 4,
+            "minutes": 45,
+            "problemTarget": 30,
+            "hasContent": true
+          },
+          {
+            "slug": "angular-momentum",
+            "title": "Angular Momentum",
+            "description": "Conserving angular momentum in collisions, in closing orbits, and in systems that change shape mid-problem.",
             "frequency": 3,
             "minutes": 40,
+            "problemTarget": 30
+          },
+          {
+            "slug": "rolling",
+            "title": "Rolling Without Slipping",
+            "description": "The rolling constraint, translation and rotation together, and who wins a race down an incline.",
+            "frequency": 4,
+            "minutes": 40,
+            "problemTarget": 30
+          }
+        ]
+      },
+      {
+        "id": "fma-u6",
+        "title": "Oscillations",
+        "blurb": "Systems that get pushed back toward where they started.",
+        "modules": [
+          {
+            "slug": "shm",
+            "title": "Simple Harmonic Motion",
+            "description": "Spring-block systems, the SHM differential equation, and how amplitude, phase and frequency relate.",
+            "frequency": 3,
+            "minutes": 40,
+            "problemTarget": 30,
             "hasContent": true
+          },
+          {
+            "slug": "pendulums",
+            "title": "Pendulums",
+            "description": "Simple and physical pendulums, and where the small-angle period formula actually comes from.",
+            "frequency": 3,
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "oscillator-energy",
+            "title": "Energy in Oscillators",
+            "description": "Following kinetic and potential energy trading places through a full cycle.",
+            "frequency": 2,
+            "minutes": 25,
+            "problemTarget": 30
+          },
+          {
+            "slug": "effective-potentials",
+            "title": "Effective Potentials & Equilibrium",
+            "description": "Finding equilibrium points and the oscillation frequency from any potential energy function, with a live oscillator to test it on.",
+            "frequency": 2,
+            "minutes": 40,
+            "problemTarget": 30
+          }
+        ]
+      },
+      {
+        "id": "fma-u7",
+        "title": "Fluids & Extra Mechanics",
+        "blurb": "The two mechanics topics that do not fit anywhere else.",
+        "modules": [
+          {
+            "slug": "pressure-buoyancy",
+            "title": "Pressure & Buoyancy",
+            "description": "Hydrostatic pressure, Archimedes' principle, and floating, sinking and partly-submerged objects.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "non-inertial-frames",
+            "title": "Non-Inertial Frames & Pseudo-Forces",
+            "description": "Solving a problem from inside an accelerating or rotating frame instead of fighting it from outside.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
           }
         ]
       }
@@ -103,94 +381,421 @@
     "id": "usapho",
     "label": "II",
     "name": "USAPhO",
-    "tagline": "Free-response mastery across all of physics",
-    "accent": "var(--copper)",
+    "tagline": "Free-response mastery across the full syllabus, at the depth the actual exam expects",
+    "accent": "var(--accent)",
     "sections": [
       {
-        "id": "em",
-        "title": "Electricity & Magnetism",
+        "id": "usapho-u1",
+        "title": "Electrostatics",
+        "blurb": "Charges at rest, and the two tools that make them tractable.",
         "modules": [
           {
-            "slug": "electrostatics",
-            "title": "Electrostatics & Gauss's Law",
-            "description": "Field and potential of charge distributions, Gauss's law symmetry arguments, and conductors.",
+            "slug": "coulomb-superposition",
+            "title": "Coulomb's Law & Superposition",
+            "description": "Forces between point charges, and adding up the field from a handful of charges by hand.",
             "frequency": 4,
-            "minutes": 55,
-            "hasContent": true
+            "minutes": 35,
+            "problemTarget": 30
           },
           {
-            "slug": "circuits",
-            "title": "Circuits & RC Dynamics",
-            "description": "Kirchhoff's laws, equivalent resistance tricks, capacitor transients, and infinite ladders.",
+            "slug": "charge-distributions",
+            "title": "Continuous Charge Distributions",
+            "description": "Setting up, and actually finishing, the integrals for the field of rods, rings, disks and shells.",
             "frequency": 3,
             "minutes": 45,
+            "problemTarget": 30
+          },
+          {
+            "slug": "gauss-law",
+            "title": "Gauss's Law",
+            "description": "Choosing a symmetric surface that turns a nasty integral into one line of algebra.",
+            "frequency": 4,
+            "minutes": 45,
+            "problemTarget": 30,
             "hasContent": true
           },
           {
-            "slug": "magnetism",
-            "title": "Magnetism & Induction",
-            "description": "Biot-Savart, Ampere's law, Faraday induction, and motional EMF.",
+            "slug": "electric-potential",
+            "title": "Electric Potential",
+            "description": "Potential from point and continuous charges, and how field and potential are two views of the same thing.",
             "frequency": 4,
-            "minutes": 60,
-            "prereqs": [
-              "electrostatics"
-            ],
-            "hasContent": true
+            "minutes": 40,
+            "problemTarget": 30
+          },
+          {
+            "slug": "conductors-capacitance",
+            "title": "Conductors & Capacitance",
+            "description": "How charge rearranges itself on a conductor, and parallel-plate and spherical capacitor problems.",
+            "frequency": 3,
+            "minutes": 40,
+            "problemTarget": 30
+          },
+          {
+            "slug": "dielectrics",
+            "title": "Dielectrics & Field Energy",
+            "description": "Capacitors with a dielectric inside, and where the energy in an electric field is actually stored.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
           }
         ]
       },
       {
-        "id": "thermo",
-        "title": "Thermodynamics",
+        "id": "usapho-u2",
+        "title": "Circuits",
+        "blurb": "Getting current and voltage out of a network without guessing.",
         "modules": [
           {
-            "slug": "kinetic-theory",
-            "title": "Kinetic Theory & Ideal Gases",
-            "description": "Microscopic pressure derivation, equipartition, and the ideal gas law from first principles.",
+            "slug": "current-resistance",
+            "title": "Current, Resistance & Ohm's Law",
+            "description": "Current density, resistivity, and reducing basic series and parallel networks.",
+            "frequency": 3,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "kirchhoff",
+            "title": "Kirchhoff's Laws",
+            "description": "The loop and junction rules for multi-loop circuits, and a systematic way to reduce them.",
             "frequency": 3,
             "minutes": 40,
+            "problemTarget": 30,
             "hasContent": true
+          },
+          {
+            "slug": "rc-circuits",
+            "title": "RC Circuits & Transients",
+            "description": "Charging and discharging capacitors, and reasoning with the time constant instead of re-solving the differential equation.",
+            "frequency": 3,
+            "minutes": 40,
+            "problemTarget": 30
+          },
+          {
+            "slug": "tricky-networks",
+            "title": "Tricky Networks",
+            "description": "Wheatstone bridges, infinite ladders, and symmetry arguments that skip the algebra entirely.",
+            "frequency": 2,
+            "minutes": 35,
+            "problemTarget": 30
+          }
+        ]
+      },
+      {
+        "id": "usapho-u3",
+        "title": "Magnetism & Induction",
+        "blurb": "Moving charge makes fields, and changing fields push charge back.",
+        "modules": [
+          {
+            "slug": "magnetic-force",
+            "title": "Magnetic Force",
+            "description": "Force on moving charges and on current-carrying wires, and circular motion inside a magnetic field.",
+            "frequency": 3,
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "biot-savart",
+            "title": "Biot-Savart Law",
+            "description": "Computing a magnetic field directly from the current that makes it.",
+            "frequency": 2,
+            "minutes": 45,
+            "problemTarget": 30
+          },
+          {
+            "slug": "amperes-law",
+            "title": "Ampere's Law",
+            "description": "Using symmetry to get the field of wires, solenoids and toroids without touching Biot-Savart.",
+            "frequency": 3,
+            "minutes": 45,
+            "problemTarget": 30
+          },
+          {
+            "slug": "faraday-lenz",
+            "title": "Faraday's Law & Lenz's Law",
+            "description": "EMF from changing flux, and a reliable way to get the induced current's direction right every time.",
+            "frequency": 4,
+            "minutes": 40,
+            "problemTarget": 30,
+            "hasContent": true
+          },
+          {
+            "slug": "motional-emf",
+            "title": "Motional EMF",
+            "description": "Conductors moving through magnetic fields, and the force balance in generator and rail problems.",
+            "frequency": 3,
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "inductance",
+            "title": "Inductance & LR/LC Circuits",
+            "description": "Self-inductance, energy stored in an inductor, and circuits that oscillate on their own.",
+            "frequency": 2,
+            "minutes": 40,
+            "problemTarget": 30
+          }
+        ]
+      },
+      {
+        "id": "usapho-u4",
+        "title": "Thermodynamics",
+        "blurb": "Heat, work and the bookkeeping that connects them.",
+        "modules": [
+          {
+            "slug": "first-law",
+            "title": "Temperature & the First Law",
+            "description": "Heat, work and internal energy, kept straight without sign-convention mistakes.",
+            "frequency": 3,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "kinetic-theory",
+            "title": "Kinetic Theory of Gases",
+            "description": "Deriving pressure from molecules hitting a wall, and what temperature really measures.",
+            "frequency": 3,
+            "minutes": 40,
+            "problemTarget": 30,
+            "hasContent": true
+          },
+          {
+            "slug": "ideal-gas",
+            "title": "Ideal Gas Law & Equipartition",
+            "description": "The ideal gas law rebuilt from first principles, and counting degrees of freedom correctly.",
+            "frequency": 3,
+            "minutes": 35,
+            "problemTarget": 30
           },
           {
             "slug": "heat-engines",
-            "title": "Cycles, Engines & Entropy",
-            "description": "PV diagrams, Carnot efficiency, entropy bookkeeping, and real cycle analysis.",
+            "title": "Heat Engines & the Second Law",
+            "description": "Efficiency limits, the Carnot cycle, and why perpetual motion machines fail.",
             "frequency": 3,
-            "minutes": 45,
-            "prereqs": [
-              "kinetic-theory"
-            ],
+            "minutes": 40,
+            "problemTarget": 30,
             "hasContent": true
+          },
+          {
+            "slug": "entropy",
+            "title": "Entropy",
+            "description": "Entropy change in reversible and irreversible processes, used as a shortcut and not just a definition.",
+            "frequency": 2,
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "pv-diagrams",
+            "title": "PV Diagrams & Real Cycles",
+            "description": "Reading a multi-step cycle and computing work and heat one leg at a time.",
+            "frequency": 3,
+            "minutes": 40,
+            "problemTarget": 30
           }
         ]
       },
       {
-        "id": "waves-modern",
-        "title": "Waves, Optics & Modern",
+        "id": "usapho-u5",
+        "title": "Waves & Sound",
+        "blurb": "Disturbances that carry energy without carrying matter.",
         "modules": [
           {
-            "slug": "waves",
-            "title": "Waves & Interference",
-            "description": "Standing waves, beats, Doppler effect, and two-source interference.",
+            "slug": "wave-basics",
+            "title": "Wave Basics",
+            "description": "Wave speed, wavelength and frequency, and the wave equation on a string.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30,
+            "hasContent": true
+          },
+          {
+            "slug": "standing-waves",
+            "title": "Superposition & Standing Waves",
+            "description": "Waves adding together, and the standing-wave modes on strings and in pipes.",
+            "frequency": 2,
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "beats-interference",
+            "title": "Beats & Interference",
+            "description": "Beat frequency, and interference patterns from more than one source.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "doppler",
+            "title": "The Doppler Effect",
+            "description": "Frequency shifts for moving sources, moving observers and reflecting surfaces.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
+          }
+        ]
+      },
+      {
+        "id": "usapho-u6",
+        "title": "Optics",
+        "blurb": "Light as rays when it can be, as waves when it must be.",
+        "modules": [
+          {
+            "slug": "reflection-refraction",
+            "title": "Reflection & Refraction",
+            "description": "Snell's law, total internal reflection, and the basics of how an image forms.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "lenses-mirrors",
+            "title": "Thin Lenses & Mirrors",
+            "description": "The lens and mirror equation, ray diagrams, and chaining several optical elements together.",
             "frequency": 2,
             "minutes": 40,
+            "problemTarget": 30,
             "hasContent": true
           },
           {
-            "slug": "optics",
-            "title": "Geometric & Wave Optics",
-            "description": "Lens systems, mirror equations, diffraction gratings, and thin-film interference.",
+            "slug": "diffraction",
+            "title": "Diffraction & Interference",
+            "description": "Double-slit interference and diffraction gratings, including where the bright fringes actually land.",
+            "frequency": 2,
+            "minutes": 40,
+            "problemTarget": 30
+          },
+          {
+            "slug": "thin-film",
+            "title": "Thin-Film Interference",
+            "description": "Phase shifts on reflection and the colour patterns they produce in thin films.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
+          }
+        ]
+      },
+      {
+        "id": "usapho-u7",
+        "title": "Modern Physics",
+        "blurb": "Where classical physics stops giving the right answer.",
+        "modules": [
+          {
+            "slug": "sr-kinematics",
+            "title": "Special Relativity: Kinematics",
+            "description": "Time dilation, length contraction and simultaneity, without the usual paradox confusion.",
             "frequency": 2,
             "minutes": 45,
+            "problemTarget": 30,
             "hasContent": true
           },
           {
-            "slug": "modern-physics",
-            "title": "Relativity & Quantum",
-            "description": "Special relativity kinematics, photoelectric effect, Bohr model, and de Broglie waves.",
+            "slug": "relativistic-energy",
+            "title": "Relativistic Energy & Momentum",
+            "description": "Mass-energy equivalence, and collisions at speeds where Newton no longer applies.",
+            "frequency": 2,
+            "minutes": 40,
+            "problemTarget": 30
+          },
+          {
+            "slug": "photoelectric",
+            "title": "The Photoelectric Effect",
+            "description": "Photon energy, work function, and reading a stopping-potential graph.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "bohr-model",
+            "title": "The Bohr Model",
+            "description": "Quantized energy levels, and the emission and absorption spectra they produce.",
+            "frequency": 2,
+            "minutes": 35,
+            "problemTarget": 30
+          },
+          {
+            "slug": "de-broglie",
+            "title": "de Broglie Waves",
+            "description": "Matter waves and wave-particle duality, and when each picture is the useful one.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
+          }
+        ]
+      },
+      {
+        "id": "usapho-u8",
+        "title": "Nuclear & Particle Physics",
+        "blurb": "Inside the nucleus, and the particles below it.",
+        "modules": [
+          {
+            "slug": "radioactivity",
+            "title": "Radioactivity & Nuclear Decay",
+            "description": "Half-life, decay chains, alpha, beta and gamma decay, and activity against time.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "binding-energy",
+            "title": "Nuclear Binding Energy & Reactions",
+            "description": "Mass defect, binding energy per nucleon, and the energy released in fission and fusion.",
+            "frequency": 2,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "particle-physics",
+            "title": "Intro to Particle Physics",
+            "description": "The fundamental particles, and the conservation laws that decide which interactions are allowed.",
+            "frequency": 2,
+            "minutes": 25,
+            "problemTarget": 30
+          }
+        ]
+      },
+      {
+        "id": "usapho-u9",
+        "title": "Data Analysis & Advanced Techniques",
+        "blurb": "The techniques that separate a good score from a medal.",
+        "modules": [
+          {
+            "slug": "data-uncertainty",
+            "title": "Data Analysis & Uncertainty",
+            "description": "Propagating experimental uncertainty, straightening data, and the graph-reading problems on real free-response exams.",
+            "frequency": 3,
+            "minutes": 30,
+            "problemTarget": 30
+          },
+          {
+            "slug": "lagrangian",
+            "title": "Lagrangian Mechanics: An Alternative Approach",
+            "description": "Setting up and using the Euler-Lagrange equation as a faster route through constrained multi-body problems.",
             "frequency": 2,
             "minutes": 50,
-            "hasContent": true
+            "problemTarget": 30
+          },
+          {
+            "slug": "coupled-oscillators",
+            "title": "Coupled Oscillators & Normal Modes",
+            "description": "Two or more masses joined by springs, and finding the normal-mode frequencies without brute force.",
+            "frequency": 2,
+            "minutes": 45,
+            "problemTarget": 30
+          },
+          {
+            "slug": "boundary-value-em",
+            "title": "Boundary-Value Problems in E&M",
+            "description": "The method of images and other symmetry tricks for field problems Gauss's law alone cannot solve.",
+            "frequency": 2,
+            "minutes": 45,
+            "problemTarget": 30
+          },
+          {
+            "slug": "four-vectors",
+            "title": "Four-Vectors & Relativistic Doppler",
+            "description": "The four-vector formalism as a cleaner way to handle relativistic collisions, plus the relativistic Doppler shift.",
+            "frequency": 2,
+            "minutes": 35,
+            "problemTarget": 30
           }
         ]
       }

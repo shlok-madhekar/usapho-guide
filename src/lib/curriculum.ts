@@ -17,13 +17,16 @@ export interface Module {
   frequency: Frequency;
   minutes: number; // est. reading time
   prereqs?: string[]; // slugs
-  problems: Problem[];
-  hasContent?: boolean; // full authored content exists
+  /** how many problems this lesson should eventually carry */
+  problemTarget?: number;
+  hasContent?: boolean; // a lesson file exists for this slug
 }
 
 export interface Section {
   id: string;
   title: string;
+  /** one line on what the unit is for, shown under its heading */
+  blurb?: string;
   modules: Module[];
 }
 

@@ -7,6 +7,7 @@ export default function Home() {
   const modules = allModules();
   const solvable = PROBLEMS.filter(isSolvable).length;
   const withLessons = modules.filter((m) => m.module.hasContent).length;
+  const units = DIVISIONS.reduce((n, d) => n + d.sections.length, 0);
 
   return (
     <>
@@ -27,10 +28,11 @@ export default function Home() {
             problems worth doing attached to each one.
           </p>
           <p>
-            {withLessons} modules are written so far, and {solvable} problems can
-            be worked and checked on the site. Problems taken from real exams
-            are cited rather than copied, so you always know what you are
-            looking at.
+            The full path is {units} units and {modules.length} lessons, from
+            your first vector to a complete free-response solution.{" "}
+            {withLessons} lessons are written so far and {solvable} problems can
+            be worked and checked right here. Problems taken from real exams are
+            cited rather than copied, so you always know what you are looking at.
           </p>
         </div>
 
@@ -50,7 +52,7 @@ export default function Home() {
 
         <section className="mt-8">
           <h2 className="label">Contents</h2>
-          <div className="mt-5 space-y-9">
+          <div className="mt-5 space-y-8">
             {DIVISIONS.map((course, i) => (
               <div key={course.id}>
                 <h3 className="text-lg font-semibold text-[var(--ink-strong)]">
@@ -60,31 +62,36 @@ export default function Home() {
                   {course.name}
                 </h3>
                 <p className="mt-0.5 text-sm text-[var(--ink-soft)]">
-                  {course.tagline}
+                  {course.tagline}.
                 </p>
-                <div className="mt-3 space-y-2.5">
+                <ol className="mt-3">
                   {course.sections.map((section, si) => (
-                    <div key={section.id} className="text-[0.97rem]">
-                      <span className="tabular mr-2 text-sm text-[var(--ink-faint)]">
+                    <li
+                      key={section.id}
+                      className="flex items-baseline gap-3 border-b border-[var(--rule)] py-2 last:border-0"
+                    >
+                      <span className="tabular w-8 shrink-0 text-sm text-[var(--ink-faint)]">
                         {i + 1}.{si + 1}
                       </span>
-                      <span className="font-medium text-[var(--ink)]">
-                        {section.title}
+                      <div className="min-w-0 flex-1">
+                        <Link
+                          href={`/guide/${section.modules[0]?.slug ?? ""}`}
+                          className="font-medium text-[var(--ink)] hover:text-[var(--accent)]"
+                        >
+                          {section.title}
+                        </Link>
+                        {section.blurb && (
+                          <p className="text-[0.9rem] leading-snug text-[var(--ink-soft)]">
+                            {section.blurb}
+                          </p>
+                        )}
+                      </div>
+                      <span className="label shrink-0">
+                        {section.modules.length} lessons
                       </span>
-                      <span className="text-[var(--ink-faint)]"> — </span>
-                      {section.modules.map((m, mi) => (
-                        <span key={m.slug}>
-                          <Link href={`/guide/${m.slug}`} className="link">
-                            {m.title}
-                          </Link>
-                          {mi < section.modules.length - 1 && (
-                            <span className="text-[var(--ink-faint)]">, </span>
-                          )}
-                        </span>
-                      ))}
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ol>
               </div>
             ))}
           </div>

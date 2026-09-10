@@ -9,6 +9,18 @@ import { useProgress } from "@/lib/progress";
 import { problemsForModule } from "@/lib/problems";
 import { LESSONS } from "@/content/lessons";
 
+/** "12 of 30 problems" while a lesson's set is still being filled in. */
+function ProblemCount({ slug, target }: { slug: string; target?: number }) {
+  const have = problemsForModule(slug).length;
+  if (target && have < target)
+    return (
+      <span className="label">
+        {have} of {target} problems
+      </span>
+    );
+  return <span className="label">{have} problems</span>;
+}
+
 export default function GuidePage() {
   const [courseId, setCourseId] = useState(DIVISIONS[0]?.id ?? "");
   const course = DIVISIONS.find((d) => d.id === courseId) ?? DIVISIONS[0];
@@ -54,10 +66,17 @@ export default function GuidePage() {
 
         {course.sections.map((section, si) => (
           <section key={section.id} className="mt-10">
-            <h2 className="border-b border-[var(--rule-strong)] pb-1.5 text-lg font-semibold text-[var(--ink-strong)]">
-              <span className="tabular mr-2 text-[var(--ink-faint)]">{si + 1}</span>
-              {section.title}
-            </h2>
+            <div className="border-b border-[var(--rule-strong)] pb-1.5">
+              <h2 className="text-lg font-semibold text-[var(--ink-strong)]">
+                <span className="tabular mr-2 text-[var(--ink-faint)]">{si + 1}</span>
+                {section.title}
+              </h2>
+              {section.blurb && (
+                <p className="mt-0.5 text-sm text-[var(--ink-soft)]">
+                  {section.blurb}
+                </p>
+              )}
+            </div>
             <ul>
               {section.modules.map((m, mi) => (
                 <li key={m.slug} className="border-b border-[var(--rule)]">
@@ -83,9 +102,7 @@ export default function GuidePage() {
                       <div className="mt-1.5 flex flex-wrap items-center gap-x-5 gap-y-1">
                         <FreqMeter f={m.frequency} />
                         <span className="label">{m.minutes} min</span>
-                        <span className="label">
-                          {problemsForModule(m.slug).length} problems
-                        </span>
+                        <ProblemCount slug={m.slug} target={m.problemTarget} />
                       </div>
                     </div>
                     <div className="shrink-0 pt-0.5">

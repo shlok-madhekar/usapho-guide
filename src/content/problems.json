@@ -2,7 +2,7 @@
   {
     "id": "orig-vec-1",
     "name": "Crossing the river",
-    "module": "vectors-calculus",
+    "module": "vectors",
     "difficulty": "Easy",
     "tags": [
       "vectors",
@@ -20,7 +20,7 @@
   {
     "id": "orig-vec-2",
     "name": "Aiming upstream",
-    "module": "vectors-calculus",
+    "module": "vectors",
     "difficulty": "Normal",
     "tags": [
       "vectors",
@@ -38,7 +38,7 @@
   {
     "id": "orig-vec-3",
     "name": "Work at an angle",
-    "module": "vectors-calculus",
+    "module": "vectors",
     "difficulty": "Easy",
     "tags": [
       "dot product"
@@ -55,7 +55,7 @@
   {
     "id": "orig-k1-1",
     "name": "Stopping distance",
-    "module": "kinematics-1d",
+    "module": "motion-1d",
     "difficulty": "Easy",
     "tags": [
       "suvat"
@@ -72,7 +72,7 @@
   {
     "id": "orig-k1-2",
     "name": "Half-distance averages",
-    "module": "kinematics-1d",
+    "module": "motion-1d",
     "difficulty": "Normal",
     "tags": [
       "averages"
@@ -89,7 +89,7 @@
   {
     "id": "orig-k1-3",
     "name": "Dropped from a rising balloon",
-    "module": "kinematics-1d",
+    "module": "motion-1d",
     "difficulty": "Hard",
     "tags": [
       "free fall",
@@ -107,7 +107,7 @@
   {
     "id": "orig-proj-1",
     "name": "Off the cliff",
-    "module": "projectile-motion",
+    "module": "projectiles",
     "difficulty": "Normal",
     "tags": [
       "projectiles"
@@ -124,7 +124,7 @@
   {
     "id": "orig-proj-2",
     "name": "The other angle",
-    "module": "projectile-motion",
+    "module": "projectiles",
     "difficulty": "Normal",
     "tags": [
       "range"
@@ -141,7 +141,7 @@
   {
     "id": "orig-proj-3",
     "name": "Down the slope",
-    "module": "projectile-motion",
+    "module": "projectiles",
     "difficulty": "Hard",
     "tags": [
       "inclines"
@@ -158,7 +158,7 @@
   {
     "id": "orig-fbd-1",
     "name": "Atwood machine",
-    "module": "forces-fbd",
+    "module": "newtons-laws-fbd",
     "difficulty": "Normal",
     "tags": [
       "pulleys"
@@ -175,7 +175,7 @@
   {
     "id": "orig-fbd-2",
     "name": "Held on a frictionless slope",
-    "module": "forces-fbd",
+    "module": "newtons-laws-fbd",
     "difficulty": "Hard",
     "tags": [
       "inclines",
@@ -193,7 +193,7 @@
   {
     "id": "orig-fbd-3",
     "name": "Block on a block",
-    "module": "forces-fbd",
+    "module": "newtons-laws-fbd",
     "difficulty": "Hard",
     "tags": [
       "friction"
@@ -210,7 +210,7 @@
   {
     "id": "orig-em-1",
     "name": "Bullet in a block",
-    "module": "energy-momentum",
+    "module": "energy-conservation",
     "difficulty": "Normal",
     "tags": [
       "collisions"
@@ -227,7 +227,7 @@
   {
     "id": "orig-em-2",
     "name": "Minimum loop height",
-    "module": "energy-momentum",
+    "module": "energy-conservation",
     "difficulty": "Hard",
     "tags": [
       "energy",
@@ -245,7 +245,7 @@
   {
     "id": "orig-em-3",
     "name": "Explosion on the way up",
-    "module": "energy-momentum",
+    "module": "energy-conservation",
     "difficulty": "Hard",
     "tags": [
       "momentum",
@@ -383,7 +383,7 @@
   {
     "id": "orig-es-1",
     "name": "Inside a uniform sphere",
-    "module": "electrostatics",
+    "module": "gauss-law",
     "difficulty": "Hard",
     "tags": [
       "gauss"
@@ -400,7 +400,7 @@
   {
     "id": "orig-es-2",
     "name": "Shielded, or not",
-    "module": "electrostatics",
+    "module": "gauss-law",
     "difficulty": "Normal",
     "tags": [
       "conductors"
@@ -417,7 +417,7 @@
   {
     "id": "orig-cir-1",
     "name": "Resistor cube",
-    "module": "circuits",
+    "module": "kirchhoff",
     "difficulty": "Hard",
     "tags": [
       "symmetry"
@@ -434,7 +434,7 @@
   {
     "id": "orig-cir-2",
     "name": "RC time constant",
-    "module": "circuits",
+    "module": "kirchhoff",
     "difficulty": "Normal",
     "tags": [
       "transients"
@@ -485,7 +485,7 @@
   {
     "id": "orig-w-1",
     "name": "Beat frequency",
-    "module": "waves",
+    "module": "wave-basics",
     "difficulty": "Easy",
     "tags": [
       "beats"
@@ -502,7 +502,7 @@
   {
     "id": "orig-w-2",
     "name": "Doppler approach",
-    "module": "waves",
+    "module": "wave-basics",
     "difficulty": "Hard",
     "tags": [
       "doppler"
@@ -519,7 +519,7 @@
   {
     "id": "orig-op-1",
     "name": "Thin lens image",
-    "module": "optics",
+    "module": "lenses-mirrors",
     "difficulty": "Normal",
     "tags": [
       "lenses"
@@ -536,7 +536,7 @@
   {
     "id": "orig-mp-1",
     "name": "Relativistic time dilation",
-    "module": "modern-physics",
+    "module": "sr-kinematics",
     "difficulty": "Normal",
     "tags": [
       "relativity"
@@ -553,7 +553,7 @@
   {
     "id": "orig-mp-2",
     "name": "Photoelectric threshold",
-    "module": "modern-physics",
+    "module": "sr-kinematics",
     "difficulty": "Normal",
     "tags": [
       "quantum"
@@ -570,7 +570,7 @@
   {
     "id": "fma-2018-8",
     "name": "F=ma 2018 Problem 8",
-    "module": "projectile-motion",
+    "module": "projectiles",
     "difficulty": "Easy",
     "tags": [
       "projectiles"
@@ -587,7 +587,7 @@
   {
     "id": "fma-2019-4",
     "name": "F=ma 2019 Problem 4",
-    "module": "kinematics-1d",
+    "module": "motion-1d",
     "difficulty": "Easy",
     "tags": [
       "free fall"
@@ -604,7 +604,7 @@
   {
     "id": "fma-2020-12",
     "name": "F=ma 2020 Problem 12",
-    "module": "forces-fbd",
+    "module": "newtons-laws-fbd",
     "difficulty": "Normal",
     "tags": [
       "pulleys"
@@ -621,7 +621,7 @@
   {
     "id": "fma-2020-20",
     "name": "F=ma 2020 Problem 20",
-    "module": "energy-momentum",
+    "module": "energy-conservation",
     "difficulty": "Normal",
     "tags": [
       "collisions"
@@ -672,7 +672,7 @@
   {
     "id": "usapho-2015-a1",
     "name": "USAPhO 2015 Problem A1",
-    "module": "electrostatics",
+    "module": "gauss-law",
     "difficulty": "Hard",
     "tags": [
       "gauss"
@@ -706,7 +706,7 @@
   {
     "id": "usapho-2017-a2",
     "name": "USAPhO 2017 Problem A2",
-    "module": "modern-physics",
+    "module": "sr-kinematics",
     "difficulty": "Very Hard",
     "tags": [
       "relativity"
@@ -723,7 +723,7 @@
   {
     "id": "usapho-2019-b1",
     "name": "USAPhO 2019 Problem B1",
-    "module": "waves",
+    "module": "wave-basics",
     "difficulty": "Hard",
     "tags": [
       "doppler"
@@ -740,7 +740,7 @@
   {
     "id": "usapho-2016-b2",
     "name": "USAPhO 2016 Problem B2",
-    "module": "optics",
+    "module": "lenses-mirrors",
     "difficulty": "Hard",
     "tags": [
       "lenses"
@@ -757,7 +757,7 @@
   {
     "id": "usapho-2019-a3",
     "name": "USAPhO 2019 Problem A3",
-    "module": "circuits",
+    "module": "kirchhoff",
     "difficulty": "Very Hard",
     "tags": [
       "transients"
@@ -791,7 +791,7 @@
   {
     "id": "usapho-2013-a3",
     "name": "USAPhO 2013 Problem A3",
-    "module": "magnetism",
+    "module": "faraday-lenz",
     "difficulty": "Hard",
     "tags": [
       "faraday"
@@ -808,7 +808,7 @@
   {
     "id": "usapho-2017-b2",
     "name": "USAPhO 2017 Problem B2",
-    "module": "magnetism",
+    "module": "faraday-lenz",
     "difficulty": "Very Hard",
     "tags": [
       "induction"
@@ -825,7 +825,7 @@
   {
     "id": "ipho-2012-1a",
     "name": "IPhO 2012 Problem 1a",
-    "module": "projectile-motion",
+    "module": "projectiles",
     "difficulty": "Very Hard",
     "tags": [
       "bounces"
@@ -842,7 +842,7 @@
   {
     "id": "morin-4-29",
     "name": "Morin 4.29 Rope between inclines",
-    "module": "forces-fbd",
+    "module": "newtons-laws-fbd",
     "difficulty": "Hard",
     "tags": [
       "statics"
@@ -859,7 +859,7 @@
   {
     "id": "morin-5-7",
     "name": "Morin 5.7 Leaky bucket",
-    "module": "energy-momentum",
+    "module": "energy-conservation",
     "difficulty": "Hard",
     "tags": [
       "variable mass"

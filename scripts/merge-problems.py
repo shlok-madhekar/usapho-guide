@@ -2,9 +2,10 @@
 """
 Merge the per-unit problem batches into src/content/problems.json.
 
-Batches live in src/content/problem-batches/*.json and are written one unit at
-a time. This script validates each problem before it is allowed in, so a bad
-batch fails loudly here rather than showing a reader a broken problem.
+problems.json is rebuilt every run from problem-seed.json (the hand-written
+originals and exam references) plus every batch in problem-batches/, so the
+script is safe to re-run. Each problem is validated before it is allowed in,
+so a bad batch fails loudly here rather than reaching a reader.
 
 Run from the repo root:  python3 scripts/merge-problems.py
 """
@@ -16,6 +17,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BATCHES = ROOT / "src/content/problem-batches"
 PROBLEMS = ROOT / "src/content/problems.json"
+SEED = ROOT / "src/content/problem-seed.json"
 CURRICULUM = ROOT / "src/content/curriculum.json"
 
 DIFFICULTIES = {"Easy", "Normal", "Hard", "Very Hard", "Insane"}
@@ -85,14 +87,14 @@ def check(problem: dict, slugs: set[str], seen: set[str]) -> list[str]:
 
 def main() -> int:
     slugs = valid_slugs()
-    existing = json.loads(PROBLEMS.read_text()) if PROBLEMS.exists() else []
+    seed = json.loads(SEED.read_text()) if SEED.exists() else []
 
     merged: list[dict] = []
     seen: set[str] = set()
     errors: list[str] = []
 
-    # keep everything already published first
-    for problem in existing:
+    # the hand-written set always comes first and is never regenerated
+    for problem in seed:
         merged.append(problem)
         seen.add(problem["id"])
 

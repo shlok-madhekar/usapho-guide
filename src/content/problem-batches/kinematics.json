@@ -1,0 +1,2619 @@
+[
+  {
+    "id": "kin-1d-01",
+    "name": "Car speeding up from rest",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "suvat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car starts from rest and accelerates uniformly at $2.5\\ \\mathrm{m/s^2}$ for $8.0\\ \\mathrm{s}$. What is its speed at the end of that interval, in m/s?",
+    "answer": 20.0,
+    "unit": "m/s",
+    "solution": "With constant acceleration and $v_0 = 0$, $v = at$. So $v = (2.5)(8.0) = 20\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-1d-02",
+    "name": "Braking train",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "suvat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A train moving at $30\\ \\mathrm{m/s}$ slows uniformly to rest in $25\\ \\mathrm{s}$. How far does it travel while stopping, in m?",
+    "answer": 375.0,
+    "unit": "m",
+    "solution": "For constant acceleration the average velocity is $\\frac{v_0+v}{2} = 15\\ \\mathrm{m/s}$. Then $\\Delta x = (15)(25) = 375\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-1d-03",
+    "name": "Cyclist over a measured stretch",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "suvat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A cyclist moving at $4.0\\ \\mathrm{m/s}$ accelerates uniformly at $1.2\\ \\mathrm{m/s^2}$ over the next $60\\ \\mathrm{m}$. What is her final speed, in m/s?",
+    "answer": 12.65,
+    "unit": "m/s",
+    "solution": "Use the timeless relation $v^2 = v_0^2 + 2a\\,\\Delta x = 16 + 2(1.2)(60) = 160$. Hence $v = \\sqrt{160} = 12.65\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-1d-04",
+    "name": "Sprinter's average acceleration",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "suvat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A sprinter covers $100\\ \\mathrm{m}$ from rest in $12.5\\ \\mathrm{s}$. Treating the acceleration as constant, what is its value, in $\\mathrm{m/s^2}$?",
+    "answer": 1.28,
+    "unit": "m/s^2",
+    "solution": "From rest, $\\Delta x = \\tfrac{1}{2}at^2$, so $a = \\frac{2\\Delta x}{t^2} = \\frac{200}{156.25} = 1.28\\ \\mathrm{m/s^2}$."
+  },
+  {
+    "id": "kin-1d-05",
+    "name": "Stopping distance",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "braking"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car travelling at $25\\ \\mathrm{m/s}$ brakes with a constant deceleration of $5.0\\ \\mathrm{m/s^2}$. How far does it travel before stopping, in m?",
+    "answer": 62.5,
+    "unit": "m",
+    "solution": "Set $v=0$ in $v^2 = v_0^2 - 2a\\,\\Delta x$: $\\Delta x = \\frac{v_0^2}{2a} = \\frac{625}{10} = 62.5\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-1d-06",
+    "name": "Subway train reaching cruising speed",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "suvat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A subway train leaves a station from rest with constant acceleration $1.5\\ \\mathrm{m/s^2}$ and stops accelerating when it reaches $20\\ \\mathrm{m/s}$. How long does that take, in s?",
+    "answer": 13.33,
+    "unit": "s",
+    "solution": "$t = v/a = 20/1.5 = 13.33\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-1d-07",
+    "name": "Velocity from a position function",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "calculus"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A cart moves along a track with position $x(t) = 3 + 4t - t^2$ (metres, seconds). What is its velocity at $t = 3.0\\ \\mathrm{s}$, in m/s?",
+    "answer": -2.0,
+    "unit": "m/s",
+    "solution": "Differentiate: $v = \\frac{dx}{dt} = 4 - 2t$. At $t=3$, $v = 4 - 6 = -2\\ \\mathrm{m/s}$, so the cart is moving in the $-x$ direction."
+  },
+  {
+    "id": "kin-1d-08",
+    "name": "Average speed of a delivery truck",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "average-speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A truck drives $40\\ \\mathrm{km}$ at $80\\ \\mathrm{km/h}$, then the next $40\\ \\mathrm{km}$ at $40\\ \\mathrm{km/h}$. What is its average speed for the whole trip, in km/h?",
+    "answer": 53.33,
+    "unit": "km/h",
+    "solution": "Average speed is total distance over total time, not the mean of the two speeds. The times are $0.5\\ \\mathrm{h}$ and $1.0\\ \\mathrm{h}$, so $\\bar v = \\frac{80}{1.5} = 53.33\\ \\mathrm{km/h}$."
+  },
+  {
+    "id": "kin-1d-09",
+    "name": "Rolling ball coming to rest",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "suvat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball rolls across a carpet at $6.0\\ \\mathrm{m/s}$ and decelerates uniformly at $0.40\\ \\mathrm{m/s^2}$. How long until it stops, in s?",
+    "answer": 15.0,
+    "unit": "s",
+    "solution": "$t = v_0/a = 6.0/0.40 = 15\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-1d-10",
+    "name": "Elevator starting up",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [
+      "suvat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An elevator starts from rest and accelerates upward at $1.2\\ \\mathrm{m/s^2}$ for $3.0\\ \\mathrm{s}$ before reaching cruising speed. How far does it rise during those $3.0\\ \\mathrm{s}$, in m?",
+    "answer": 5.4,
+    "unit": "m",
+    "solution": "$\\Delta y = \\tfrac{1}{2}at^2 = \\tfrac{1}{2}(1.2)(9.0) = 5.4\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-1d-11",
+    "name": "Reaction time plus braking",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "braking",
+      "reaction-time"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A driver travelling at $20\\ \\mathrm{m/s}$ sees an obstacle. She reacts for $0.70\\ \\mathrm{s}$ at constant speed, then brakes at $6.0\\ \\mathrm{m/s^2}$ until stopped. What total distance does the car cover, in m?",
+    "answer": 47.33,
+    "unit": "m",
+    "solution": "Split the motion into two phases. During the reaction time the car covers $(20)(0.70) = 14\\ \\mathrm{m}$; braking adds $\\frac{v_0^2}{2a} = \\frac{400}{12} = 33.33\\ \\mathrm{m}$. The total is $47.33\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-1d-12",
+    "name": "Catching a van at constant speed",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "two-body"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car waits at a light. At the instant the light turns green a van moving at a steady $18\\ \\mathrm{m/s}$ passes it, and the car starts from rest with constant acceleration $3.0\\ \\mathrm{m/s^2}$. How long after the light turns green does the car draw level with the van, in s?",
+    "answer": 12.0,
+    "unit": "s",
+    "solution": "Set the positions equal: $\\tfrac{1}{2}(3)t^2 = 18t$. Discarding the trivial root $t=0$, $t = \\frac{2(18)}{3} = 12\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-1d-13",
+    "name": "Turning points of a cubic",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "calculus"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A particle moves with $x(t) = 2t^3 - 9t^2 + 12t$ (metres, seconds). Its velocity vanishes twice. At what later of these two times does this happen, in s?",
+    "answer": 2.0,
+    "unit": "s",
+    "solution": "$v = \\frac{dx}{dt} = 6t^2 - 18t + 12 = 6(t-1)(t-2)$, which is zero at $t = 1\\ \\mathrm{s}$ and $t = 2\\ \\mathrm{s}$. The later time is $2\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-1d-14",
+    "name": "Puck on a ramp: path length",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "distance-vs-displacement"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A puck is launched up a ramp at $12\\ \\mathrm{m/s}$ and has a constant acceleration of $3.0\\ \\mathrm{m/s^2}$ directed down the ramp the whole time. What total path length does it cover in the first $5.0\\ \\mathrm{s}$, in m?",
+    "answer": 25.5,
+    "unit": "m",
+    "solution": "The puck stops at $t = 12/3 = 4.0\\ \\mathrm{s}$, after going $\\frac{144}{6} = 24\\ \\mathrm{m}$ up. In the remaining $1.0\\ \\mathrm{s}$ it slides back $\\tfrac{1}{2}(3)(1)^2 = 1.5\\ \\mathrm{m}$. The path length is $24 + 1.5 = 25.5\\ \\mathrm{m}$, while the displacement is only $22.5\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-1d-15",
+    "name": "Train clearing a platform",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "suvat",
+      "extended-body"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $120\\ \\mathrm{m}$ long train starts from rest with its front at the near end of a $150\\ \\mathrm{m}$ platform and accelerates uniformly at $0.50\\ \\mathrm{m/s^2}$. How long until the rear of the train passes the far end of the platform, in s?",
+    "answer": 32.86,
+    "unit": "s",
+    "solution": "The rear clears the platform once the train has advanced by the platform length plus its own length, $150 + 120 = 270\\ \\mathrm{m}$. Then $t = \\sqrt{2(270)/0.5} = \\sqrt{1080} = 32.86\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-1d-16",
+    "name": "Distance in the third second",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "nth-second"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A body starting from rest with constant acceleration covers $24\\ \\mathrm{m}$ during the third second of its motion. What is the acceleration, in $\\mathrm{m/s^2}$?",
+    "answer": 9.6,
+    "unit": "m/s^2",
+    "solution": "From rest, the distance covered in the $n$th second is $\\frac{a(2n-1)}{2}$. For $n=3$ this is $\\frac{5a}{2} = 24$, so $a = 9.6\\ \\mathrm{m/s^2}$."
+  },
+  {
+    "id": "kin-1d-17",
+    "name": "Speed before a uniform stop",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "suvat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car decelerating uniformly travels $60\\ \\mathrm{m}$ in the $4.0\\ \\mathrm{s}$ before it comes to rest. What was its speed at the start of that interval, in m/s?",
+    "answer": 30.0,
+    "unit": "m/s",
+    "solution": "The average velocity over the interval is $60/4 = 15\\ \\mathrm{m/s}$, and for constant acceleration that equals $\\frac{v_0 + 0}{2}$. So $v_0 = 30\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-1d-18",
+    "name": "Two-phase 100 metre race",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "two-phase"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A runner accelerates from rest at $3.0\\ \\mathrm{m/s^2}$ until reaching $9.0\\ \\mathrm{m/s}$, then holds that speed. How long does he take to run $100\\ \\mathrm{m}$, in s?",
+    "answer": 12.61,
+    "unit": "s",
+    "solution": "The acceleration phase lasts $3.0\\ \\mathrm{s}$ and covers $\\frac{81}{6} = 13.5\\ \\mathrm{m}$. The remaining $86.5\\ \\mathrm{m}$ at $9.0\\ \\mathrm{m/s}$ takes $9.61\\ \\mathrm{s}$, for a total of $12.61\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-1d-19",
+    "name": "Displacement from a linear velocity law",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "calculus"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A trolley's velocity is $v(t) = 6 + 4t$ in m/s. What is its displacement between $t = 2.0\\ \\mathrm{s}$ and $t = 5.0\\ \\mathrm{s}$, in m?",
+    "answer": 60.0,
+    "unit": "m",
+    "solution": "Displacement is the area under the velocity curve: $\\Delta x = \\int_2^5 (6+4t)\\,dt = \\left[6t + 2t^2\\right]_2^5 = 80 - 20 = 60\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-1d-20",
+    "name": "Average speed over thirds of a route",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "average-speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A bus covers the first third of a route at $10\\ \\mathrm{m/s}$ and the remaining two thirds at $20\\ \\mathrm{m/s}$. What is its average speed for the route, in m/s?",
+    "answer": 15.0,
+    "unit": "m/s",
+    "solution": "Let the route length be $D$. The total time is $\\frac{D/3}{10} + \\frac{2D/3}{20} = \\frac{D}{30} + \\frac{D}{30} = \\frac{D}{15}$, so $\\bar v = 15\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-1d-21",
+    "name": "Distance in the fifth second of braking",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "nth-second"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A bus travelling at $20\\ \\mathrm{m/s}$ brakes uniformly at $2.0\\ \\mathrm{m/s^2}$. How far does it travel during the fifth second of braking, in m?",
+    "answer": 11.0,
+    "unit": "m",
+    "solution": "The distance in the $n$th second is $v_0 - \\frac{a(2n-1)}{2}$. For $n=5$: $20 - \\frac{2(9)}{2} = 11\\ \\mathrm{m}$. The bus does not stop until $10\\ \\mathrm{s}$, so the formula is valid here."
+  },
+  {
+    "id": "kin-1d-22",
+    "name": "Linearly growing acceleration",
+    "module": "motion-1d",
+    "difficulty": "Normal",
+    "tags": [
+      "calculus",
+      "jerk"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A test sled starts from rest with acceleration $a(t) = 6t$ in $\\mathrm{m/s^2}$, with $t$ in seconds. What is its speed at $t = 4.0\\ \\mathrm{s}$, in m/s?",
+    "answer": 48.0,
+    "unit": "m/s",
+    "solution": "The suvat formulas do not apply because $a$ is not constant. Integrate instead: $v = \\int_0^t 6t'\\,dt' = 3t^2$, so $v(4) = 48\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-1d-23",
+    "name": "Rocket sled, accelerate then brake",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "two-phase"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A rocket sled starts from rest, accelerates at $8.0\\ \\mathrm{m/s^2}$ for $10\\ \\mathrm{s}$, then decelerates uniformly at $4.0\\ \\mathrm{m/s^2}$ until it stops. What is the total distance travelled, in m?",
+    "answer": 1200.0,
+    "unit": "m",
+    "solution": "After $10\\ \\mathrm{s}$ the speed is $80\\ \\mathrm{m/s}$ and the sled has gone $400\\ \\mathrm{m}$. Braking from $80\\ \\mathrm{m/s}$ adds $\\frac{80^2}{2(4)} = 800\\ \\mathrm{m}$, giving $1200\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-1d-24",
+    "name": "Fastest run between two stops",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "optimization"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A shuttle must travel $1000\\ \\mathrm{m}$ starting and ending at rest. It can accelerate at most $2.0\\ \\mathrm{m/s^2}$ and decelerate at most $4.0\\ \\mathrm{m/s^2}$, with no speed limit. What is the minimum travel time, in s?",
+    "answer": 38.73,
+    "unit": "s",
+    "solution": "The fastest strategy is to accelerate at the maximum rate to a peak speed $v$ and immediately brake at the maximum rate; any cruising wastes time. Then $\\frac{v^2}{4} + \\frac{v^2}{8} = 1000$, so $v^2 = \\frac{8000}{3}$ and $v = 51.64\\ \\mathrm{m/s}$. The time is $\\frac{v}{2} + \\frac{v}{4} = 0.75v = 38.73\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-1d-25",
+    "name": "Peak speed from a triangular trip",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "two-phase"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A tram starts from rest, accelerates uniformly, then decelerates uniformly to rest. The whole trip takes $20\\ \\mathrm{s}$ and covers $200\\ \\mathrm{m}$. What is its maximum speed, in m/s?",
+    "answer": 20.0,
+    "unit": "m/s",
+    "solution": "Whatever the split between the two phases, the velocity-time graph is a triangle of base $20\\ \\mathrm{s}$ and height $v_{\\max}$, and its area is the distance travelled: $\\tfrac{1}{2}(20)v_{\\max} = 200$, so $v_{\\max} = 20\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-1d-26",
+    "name": "Delayed police pursuit",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "two-body"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A speeding car passes a parked police cruiser at a constant $30\\ \\mathrm{m/s}$. The cruiser starts from rest $5.0\\ \\mathrm{s}$ later and accelerates at $4.0\\ \\mathrm{m/s^2}$. How long after the cruiser starts does it catch the speeder, in s?",
+    "answer": 18.96,
+    "unit": "s",
+    "solution": "Measure $t$ from the cruiser's start. The speeder is then at $30(t+5)$ and the cruiser at $2t^2$. Setting these equal gives $t^2 - 15t - 75 = 0$, so $t = \\frac{15 + \\sqrt{525}}{2} = 18.96\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-1d-27",
+    "name": "Acceleration from two equal intervals",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "suvat"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A train under constant acceleration covers one $100\\ \\mathrm{m}$ stretch in $5.0\\ \\mathrm{s}$ and the immediately following $100\\ \\mathrm{m}$ stretch in $4.0\\ \\mathrm{s}$. What is its acceleration, in $\\mathrm{m/s^2}$?",
+    "answer": 1.11,
+    "unit": "m/s^2",
+    "solution": "Let $u$ be the speed entering the first stretch. Then $100 = 5u + 12.5a$, and since the speed entering the second stretch is $u+5a$, $100 = 4(u+5a) + 8a = 4u + 28a$. Substituting $u = 20 - 2.5a$ gives $100 = 80 + 18a$, so $a = 1.11\\ \\mathrm{m/s^2}$."
+  },
+  {
+    "id": "kin-1d-28",
+    "name": "Distance travelled after reversing",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "distance-vs-displacement"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A cart on a track has velocity $v(t) = 12 - 3t$ in m/s. What total distance (not displacement) does it cover in the first $8.0\\ \\mathrm{s}$, in m?",
+    "answer": 48.0,
+    "unit": "m",
+    "solution": "The velocity changes sign at $t = 4.0\\ \\mathrm{s}$, so integrate $|v|$ in two pieces. Each piece is a triangle of base $4\\ \\mathrm{s}$ and height $12\\ \\mathrm{m/s}$, giving $24 + 24 = 48\\ \\mathrm{m}$. The displacement, by contrast, is zero."
+  },
+  {
+    "id": "kin-1d-29",
+    "name": "Coasting with linear drag",
+    "module": "motion-1d",
+    "difficulty": "Very Hard",
+    "tags": [
+      "drag",
+      "calculus"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A boat's engine is cut while it moves at $20\\ \\mathrm{m/s}$, after which its acceleration is $a = -kv$ with $k = 0.50\\ \\mathrm{s^{-1}}$. How far does it coast before stopping (in the limit $t \\to \\infty$), in m?",
+    "answer": 40.0,
+    "unit": "m",
+    "solution": "The trick is to change variable: $a = v\\frac{dv}{dx} = -kv$, so $\\frac{dv}{dx} = -k$ and velocity falls linearly with distance. Integrating from $v_0$ to $0$ gives $x = \\frac{v_0}{k} = \\frac{20}{0.5} = 40\\ \\mathrm{m}$. The boat never quite stops in finite time, yet the distance is finite."
+  },
+  {
+    "id": "kin-1d-30",
+    "name": "Minimum time with a speed limit",
+    "module": "motion-1d",
+    "difficulty": "Very Hard",
+    "tags": [
+      "optimization"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A metro train must cover $2000\\ \\mathrm{m}$ between two stops, starting and ending at rest. It accelerates at $1.0\\ \\mathrm{m/s^2}$, brakes at $2.0\\ \\mathrm{m/s^2}$, and may never exceed $30\\ \\mathrm{m/s}$. What is the minimum travel time, in s?",
+    "answer": 89.17,
+    "unit": "s",
+    "solution": "First check whether the limit binds. Accelerating to $30\\ \\mathrm{m/s}$ and immediately braking would cover only $450 + 225 = 675\\ \\mathrm{m} < 2000\\ \\mathrm{m}$, so the train must cruise at the limit. Speeding up takes $30\\ \\mathrm{s}$, braking $15\\ \\mathrm{s}$, and the remaining $1325\\ \\mathrm{m}$ at $30\\ \\mathrm{m/s}$ takes $44.17\\ \\mathrm{s}$, for a total of $89.17\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-graph-01",
+    "name": "Area under a ramp-and-hold graph",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "v-t",
+      "area"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velocity-time graph for a golf cart rises linearly from $0$ to $12\\ \\mathrm{m/s}$ over the first $4.0\\ \\mathrm{s}$, then stays flat at $12\\ \\mathrm{m/s}$ until $t = 10\\ \\mathrm{s}$. What is the total displacement over the $10\\ \\mathrm{s}$, in m?",
+    "answer": 96.0,
+    "unit": "m",
+    "solution": "Displacement is the area under a $v$-$t$ graph. The triangle contributes $\\tfrac{1}{2}(4)(12) = 24\\ \\mathrm{m}$ and the rectangle $(12)(6) = 72\\ \\mathrm{m}$, for $96\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-02",
+    "name": "Slope of a velocity-time graph",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "v-t",
+      "slope"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velocity-time graph rises linearly from $0$ to $12\\ \\mathrm{m/s}$ over the first $4.0\\ \\mathrm{s}$, then stays flat at $12\\ \\mathrm{m/s}$. What is the acceleration during the first $4.0\\ \\mathrm{s}$, in $\\mathrm{m/s^2}$?",
+    "answer": 3.0,
+    "unit": "m/s^2",
+    "solution": "Acceleration is the slope of the $v$-$t$ graph: $a = \\frac{12 - 0}{4 - 0} = 3.0\\ \\mathrm{m/s^2}$."
+  },
+  {
+    "id": "kin-graph-03",
+    "name": "Slope of a position-time line",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "x-t",
+      "slope"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A position-time graph is a straight line passing through $(0\\ \\mathrm{s},\\ 5\\ \\mathrm{m})$ and $(8\\ \\mathrm{s},\\ 29\\ \\mathrm{m})$. What is the velocity, in m/s?",
+    "answer": 3.0,
+    "unit": "m/s",
+    "solution": "Velocity is the slope of the $x$-$t$ graph: $v = \\frac{29-5}{8-0} = 3.0\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-graph-04",
+    "name": "Cruise then ramp down",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "v-t",
+      "area"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velocity-time graph is flat at $8.0\\ \\mathrm{m/s}$ from $t=0$ to $t=5.0\\ \\mathrm{s}$, then falls linearly to zero at $t = 9.0\\ \\mathrm{s}$. What total distance does the object cover, in m?",
+    "answer": 56.0,
+    "unit": "m",
+    "solution": "Add the two areas: the rectangle gives $(8)(5) = 40\\ \\mathrm{m}$ and the triangle gives $\\tfrac{1}{2}(4)(8) = 16\\ \\mathrm{m}$, so $56\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-05",
+    "name": "Area under an acceleration-time graph",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "a-t",
+      "area"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An object starts from rest. Its acceleration-time graph is flat at $2.5\\ \\mathrm{m/s^2}$ from $t = 0$ to $t = 6.0\\ \\mathrm{s}$. What is its speed at $t = 6.0\\ \\mathrm{s}$, in m/s?",
+    "answer": 15.0,
+    "unit": "m/s",
+    "solution": "The area under an $a$-$t$ graph is the change in velocity: $\\Delta v = (2.5)(6.0) = 15\\ \\mathrm{m/s}$, and the object started at rest."
+  },
+  {
+    "id": "kin-graph-06",
+    "name": "Distance when velocity changes sign",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "v-t",
+      "sign"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velocity-time graph is a straight line from $+10\\ \\mathrm{m/s}$ at $t = 0$ through zero at $t = 5.0\\ \\mathrm{s}$ to $-10\\ \\mathrm{m/s}$ at $t = 10\\ \\mathrm{s}$. What total distance does the object travel in these $10\\ \\mathrm{s}$, in m?",
+    "answer": 50.0,
+    "unit": "m",
+    "solution": "Distance uses the areas without regard to sign. Each triangle has area $\\tfrac{1}{2}(5)(10) = 25\\ \\mathrm{m}$, so the distance is $50\\ \\mathrm{m}$ even though the displacement is zero."
+  },
+  {
+    "id": "kin-graph-07",
+    "name": "Triangular velocity pulse",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "v-t",
+      "area"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velocity-time graph rises linearly from $0$ at $t = 0$ to $20\\ \\mathrm{m/s}$ at $t = 3.0\\ \\mathrm{s}$, then falls linearly back to $0$ at $t = 8.0\\ \\mathrm{s}$. What is the displacement, in m?",
+    "answer": 80.0,
+    "unit": "m",
+    "solution": "The graph is a triangle of base $8.0\\ \\mathrm{s}$ and height $20\\ \\mathrm{m/s}$, so the area is $\\tfrac{1}{2}(8)(20) = 80\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-08",
+    "name": "Two-step acceleration graph",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "a-t",
+      "area"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A cart starts from rest. Its acceleration is $+4.0\\ \\mathrm{m/s^2}$ for the first $3.0\\ \\mathrm{s}$ and $-2.0\\ \\mathrm{m/s^2}$ for the next $3.0\\ \\mathrm{s}$. What is its velocity at $t = 6.0\\ \\mathrm{s}$, in m/s?",
+    "answer": 6.0,
+    "unit": "m/s",
+    "solution": "Add the signed areas under the $a$-$t$ graph: $\\Delta v = (4)(3) + (-2)(3) = 12 - 6 = 6.0\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-graph-09",
+    "name": "Average velocity from a position graph",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "x-t",
+      "average-velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A position-time graph rises linearly from $0$ at $t = 0$ to $20\\ \\mathrm{m}$ at $t = 4.0\\ \\mathrm{s}$, then stays flat at $20\\ \\mathrm{m}$ until $t = 10\\ \\mathrm{s}$. What is the average velocity over the full $10\\ \\mathrm{s}$, in m/s?",
+    "answer": 2.0,
+    "unit": "m/s",
+    "solution": "Average velocity is the total displacement divided by total time, that is, the slope of the straight line joining the endpoints: $\\frac{20}{10} = 2.0\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-graph-10",
+    "name": "Negative constant velocity",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "v-t",
+      "sign"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velocity-time graph is flat at $-6.0\\ \\mathrm{m/s}$ from $t = 0$ to $t = 7.0\\ \\mathrm{s}$. What is the displacement over that interval, in m?",
+    "answer": -42.0,
+    "unit": "m",
+    "solution": "The area lies below the axis, so it counts as negative: $\\Delta x = (-6.0)(7.0) = -42\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-11",
+    "name": "Trapezoidal journey",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "v-t",
+      "area"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A bus's velocity-time graph rises linearly from $0$ to $15\\ \\mathrm{m/s}$ over $0 \\le t \\le 3.0\\ \\mathrm{s}$, holds $15\\ \\mathrm{m/s}$ until $t = 9.0\\ \\mathrm{s}$, then falls linearly to zero at $t = 12\\ \\mathrm{s}$. What total distance does the bus cover, in m?",
+    "answer": 135.0,
+    "unit": "m",
+    "solution": "The graph is a trapezoid. The two triangles give $22.5\\ \\mathrm{m}$ each and the rectangle gives $90\\ \\mathrm{m}$, so the distance is $135\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-12",
+    "name": "Average speed of the trapezoidal journey",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "v-t",
+      "average-speed"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A bus's velocity-time graph rises linearly from $0$ to $15\\ \\mathrm{m/s}$ over $0 \\le t \\le 3.0\\ \\mathrm{s}$, holds $15\\ \\mathrm{m/s}$ until $t = 9.0\\ \\mathrm{s}$, then falls linearly to zero at $t = 12\\ \\mathrm{s}$. What is the average speed over the $12\\ \\mathrm{s}$, in m/s?",
+    "answer": 11.25,
+    "unit": "m/s",
+    "solution": "The area under the graph is $135\\ \\mathrm{m}$, so the average speed is $\\frac{135}{12} = 11.25\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-graph-13",
+    "name": "Displacement across a sign change",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "v-t",
+      "sign"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A trolley's velocity-time graph is a single straight line running from $-8.0\\ \\mathrm{m/s}$ at $t = 0$ to $+12\\ \\mathrm{m/s}$ at $t = 10\\ \\mathrm{s}$. What is its displacement over the $10\\ \\mathrm{s}$, in m?",
+    "answer": 20.0,
+    "unit": "m",
+    "solution": "The slope is $2.0\\ \\mathrm{m/s^2}$, so the velocity crosses zero at $t = 4.0\\ \\mathrm{s}$. The area below the axis is $-\\tfrac{1}{2}(4)(8) = -16\\ \\mathrm{m}$ and above it is $+\\tfrac{1}{2}(6)(12) = +36\\ \\mathrm{m}$, giving $+20\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-14",
+    "name": "Distance across a sign change",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "v-t",
+      "sign"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A trolley's velocity-time graph is a single straight line running from $-8.0\\ \\mathrm{m/s}$ at $t = 0$ to $+12\\ \\mathrm{m/s}$ at $t = 10\\ \\mathrm{s}$. What total distance does it travel in the $10\\ \\mathrm{s}$, in m?",
+    "answer": 52.0,
+    "unit": "m",
+    "solution": "Take the magnitudes of the two triangular areas: $16\\ \\mathrm{m}$ moving backwards plus $36\\ \\mathrm{m}$ moving forwards gives $52\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-15",
+    "name": "Tangent to a parabolic position graph",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "x-t",
+      "slope"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A position-time graph is a parabola through the origin passing through $(2\\ \\mathrm{s},\\ 16\\ \\mathrm{m})$ and $(4\\ \\mathrm{s},\\ 64\\ \\mathrm{m})$, consistent with $x = 4t^2$. What is the instantaneous velocity at $t = 3.0\\ \\mathrm{s}$, in m/s?",
+    "answer": 24.0,
+    "unit": "m/s",
+    "solution": "The instantaneous velocity is the slope of the tangent, $v = \\frac{dx}{dt} = 8t$. At $t = 3.0\\ \\mathrm{s}$ this is $24\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-graph-16",
+    "name": "Triangular acceleration graph",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "a-t",
+      "area"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A cart starts from rest and its acceleration-time graph rises linearly from $0$ to $6.0\\ \\mathrm{m/s^2}$ over $0 \\le t \\le 4.0\\ \\mathrm{s}$. What is its speed at $t = 4.0\\ \\mathrm{s}$, in m/s?",
+    "answer": 12.0,
+    "unit": "m/s",
+    "solution": "The change in velocity is the area under the $a$-$t$ graph, here a triangle: $\\Delta v = \\tfrac{1}{2}(4.0)(6.0) = 12\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-graph-17",
+    "name": "Three-segment velocity graph",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "v-t",
+      "area"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velocity-time graph rises linearly from $0$ to $10\\ \\mathrm{m/s}$ over $0 \\le t \\le 2.0\\ \\mathrm{s}$, holds $10\\ \\mathrm{m/s}$ until $t = 6.0\\ \\mathrm{s}$, then falls linearly to $4.0\\ \\mathrm{m/s}$ at $t = 8.0\\ \\mathrm{s}$. What is the total displacement, in m?",
+    "answer": 64.0,
+    "unit": "m",
+    "solution": "Sum the three areas: $\\tfrac{1}{2}(2)(10) = 10\\ \\mathrm{m}$, $(10)(4) = 40\\ \\mathrm{m}$, and the trapezoid $\\tfrac{1}{2}(10+4)(2) = 14\\ \\mathrm{m}$. The total is $64\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-18",
+    "name": "Out and partway back",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "x-t",
+      "average-velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A position-time graph consists of a straight line from $(0\\ \\mathrm{s},\\ 0\\ \\mathrm{m})$ to $(5\\ \\mathrm{s},\\ 30\\ \\mathrm{m})$, followed by a straight line from $(5\\ \\mathrm{s},\\ 30\\ \\mathrm{m})$ to $(9\\ \\mathrm{s},\\ 10\\ \\mathrm{m})$. What is the average velocity over the full $9.0\\ \\mathrm{s}$, in m/s?",
+    "answer": 1.11,
+    "unit": "m/s",
+    "solution": "Only the endpoints matter for average velocity: $\\bar v = \\frac{10 - 0}{9 - 0} = 1.11\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-graph-19",
+    "name": "Speed on the return leg",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "x-t",
+      "slope"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A position-time graph runs in a straight line from $(5\\ \\mathrm{s},\\ 30\\ \\mathrm{m})$ to $(9\\ \\mathrm{s},\\ 10\\ \\mathrm{m})$. What is the object's speed during that segment, in m/s?",
+    "answer": 5.0,
+    "unit": "m/s",
+    "solution": "The slope is $\\frac{10-30}{9-5} = -5.0\\ \\mathrm{m/s}$; the speed is its magnitude, $5.0\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-graph-20",
+    "name": "Height gained by an elevator",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "v-t",
+      "area"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An elevator's velocity-time graph rises linearly from $0$ to $3.0\\ \\mathrm{m/s}$ over $0 \\le t \\le 2.0\\ \\mathrm{s}$, holds $3.0\\ \\mathrm{m/s}$ until $t = 10\\ \\mathrm{s}$, then falls linearly to zero at $t = 12\\ \\mathrm{s}$. How high does the elevator rise, in m?",
+    "answer": 30.0,
+    "unit": "m",
+    "solution": "The height gained is the area: $3.0 + 24 + 3.0 = 30\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-21",
+    "name": "Area under a parabolic velocity graph",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "v-t",
+      "area"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velocity-time graph is a downward parabola with $v = 0$ at $t = 0$ and at $t = 6.0\\ \\mathrm{s}$, peaking at $9.0\\ \\mathrm{m/s}$ at $t = 3.0\\ \\mathrm{s}$. What is the total displacement, in m?",
+    "answer": 36.0,
+    "unit": "m",
+    "solution": "The area under a parabolic arch is $\\tfrac{2}{3}$ of the enclosing rectangle: $\\tfrac{2}{3}(6.0)(9.0) = 36\\ \\mathrm{m}$. Equivalently, integrate $v = t(6-t)$ over $0$ to $6$."
+  },
+  {
+    "id": "kin-graph-22",
+    "name": "Two vehicles on one set of axes",
+    "module": "motion-graphs",
+    "difficulty": "Normal",
+    "tags": [
+      "v-t",
+      "two-body"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two cars leave the same point at $t=0$ and are plotted on the same velocity-time axes. Car A's graph is flat at $20\\ \\mathrm{m/s}$; car B's graph is a straight line from $0$ rising to $40\\ \\mathrm{m/s}$ at $t = 10\\ \\mathrm{s}$ and continuing with the same slope. At what time do the two cars again have the same position, in s?",
+    "answer": 10.0,
+    "unit": "s",
+    "solution": "Equal position means equal area under the two graphs. Car A gives $20t$, car B gives $\\tfrac{1}{2}(4t)(t) = 2t^2$. Setting $2t^2 = 20t$ gives $t = 10\\ \\mathrm{s}$, which is also where car B's graph crosses A's."
+  },
+  {
+    "id": "kin-graph-23",
+    "name": "Maximum displacement",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "v-t",
+      "extremum"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velocity-time graph is a straight line from $+12\\ \\mathrm{m/s}$ at $t = 0$ down to $-6.0\\ \\mathrm{m/s}$ at $t = 9.0\\ \\mathrm{s}$. What is the object's maximum displacement from its starting point, in m?",
+    "answer": 36.0,
+    "unit": "m",
+    "solution": "The displacement grows while $v > 0$ and shrinks afterwards, so it peaks where the graph crosses zero. The slope is $-2.0\\ \\mathrm{m/s^2}$, so that happens at $t = 6.0\\ \\mathrm{s}$, and the area up to then is $\\tfrac{1}{2}(6)(12) = 36\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-24",
+    "name": "Net displacement after reversing",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "v-t",
+      "sign"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velocity-time graph is a straight line from $+12\\ \\mathrm{m/s}$ at $t = 0$ down to $-6.0\\ \\mathrm{m/s}$ at $t = 9.0\\ \\mathrm{s}$. What is the displacement over the full $9.0\\ \\mathrm{s}$, in m?",
+    "answer": 27.0,
+    "unit": "m",
+    "solution": "The positive area to $t = 6.0\\ \\mathrm{s}$ is $36\\ \\mathrm{m}$; the negative area from $6.0$ to $9.0\\ \\mathrm{s}$ is $-\\tfrac{1}{2}(3)(6) = -9\\ \\mathrm{m}$. The net displacement is $27\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-25",
+    "name": "Position from a three-step acceleration graph",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "a-t",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A cart starts from rest at the origin. Its acceleration is $+4.0\\ \\mathrm{m/s^2}$ for $0 \\le t < 2.0\\ \\mathrm{s}$, zero for $2.0 \\le t < 5.0\\ \\mathrm{s}$, and $-4.0\\ \\mathrm{m/s^2}$ for $5.0 \\le t \\le 8.0\\ \\mathrm{s}$. What is its position at $t = 8.0\\ \\mathrm{s}$, in m?",
+    "answer": 38.0,
+    "unit": "m",
+    "solution": "Integrate phase by phase. Phase 1: $8\\ \\mathrm{m}$, ending at $8\\ \\mathrm{m/s}$. Phase 2: $(8)(3) = 24\\ \\mathrm{m}$ at constant speed. Phase 3: $8(3) - \\tfrac{1}{2}(4)(3)^2 = 24 - 18 = 6\\ \\mathrm{m}$. Total: $38\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-26",
+    "name": "Staircase velocity graph",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "v-t",
+      "average-velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velocity-time graph is a staircase: $5.0\\ \\mathrm{m/s}$ for $0 \\le t < 2\\ \\mathrm{s}$, $10\\ \\mathrm{m/s}$ for $2 \\le t < 4\\ \\mathrm{s}$, $15\\ \\mathrm{m/s}$ for $4 \\le t < 6\\ \\mathrm{s}$, and $20\\ \\mathrm{m/s}$ for $6 \\le t \\le 8\\ \\mathrm{s}$. What is the average velocity over the $8.0\\ \\mathrm{s}$, in m/s?",
+    "answer": 12.5,
+    "unit": "m/s",
+    "solution": "The total area is $2(5+10+15+20) = 100\\ \\mathrm{m}$, so $\\bar v = \\frac{100}{8} = 12.5\\ \\mathrm{m/s}$. Because the steps are equally spaced in time, this equals the mean of the four speeds."
+  },
+  {
+    "id": "kin-graph-27",
+    "name": "Round trip past the origin",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "x-t",
+      "average-velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A position-time graph runs straight from $(0\\ \\mathrm{s},\\ 0\\ \\mathrm{m})$ to $(3\\ \\mathrm{s},\\ 18\\ \\mathrm{m})$, stays flat at $18\\ \\mathrm{m}$ until $t = 5\\ \\mathrm{s}$, then runs straight to $(10\\ \\mathrm{s},\\ -6\\ \\mathrm{m})$. What is the average velocity over the full $10\\ \\mathrm{s}$, in m/s?",
+    "answer": -0.6,
+    "unit": "m/s",
+    "solution": "Average velocity depends only on net displacement: $\\bar v = \\frac{-6 - 0}{10} = -0.6\\ \\mathrm{m/s}$. The object ends up behind where it started, even though it travelled $42\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-graph-28",
+    "name": "When does the car reach 100 metres?",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "v-t",
+      "area"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car's velocity-time graph rises linearly from $0$ to $30\\ \\mathrm{m/s}$ over $0 \\le t \\le 6.0\\ \\mathrm{s}$, then falls linearly to zero at $t = 10.0\\ \\mathrm{s}$. At what time has the car travelled exactly $100\\ \\mathrm{m}$, in s?",
+    "answer": 6.35,
+    "unit": "s",
+    "solution": "By $t = 6.0\\ \\mathrm{s}$ the area is only $90\\ \\mathrm{m}$, so the answer lies in the braking phase, where $a = -7.5\\ \\mathrm{m/s^2}$. Solving $90 + 30\\tau - 3.75\\tau^2 = 100$ gives $\\tau = 0.349\\ \\mathrm{s}$, so $t = 6.35\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-graph-29",
+    "name": "Triangular acceleration pulse",
+    "module": "motion-graphs",
+    "difficulty": "Very Hard",
+    "tags": [
+      "a-t",
+      "integration"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A car starts from rest at the origin. Its acceleration-time graph is a triangle: $a$ rises linearly from $0$ to $6.0\\ \\mathrm{m/s^2}$ over $0 \\le t \\le 3.0\\ \\mathrm{s}$, then falls linearly back to $0$ at $t = 6.0\\ \\mathrm{s}$. How far has the car travelled at $t = 6.0\\ \\mathrm{s}$, in m?",
+    "answer": 54.0,
+    "unit": "m",
+    "solution": "Integrate twice. For $0 \\le t \\le 3$, $a = 2t$ gives $v = t^2$ and $x = t^3/3$, so at $t=3$: $v = 9\\ \\mathrm{m/s}$, $x = 9\\ \\mathrm{m}$. For $3 \\le t \\le 6$, $a = 12 - 2t$ gives $v = 12t - t^2 - 18$; integrating from $3$ to $6$ adds $45\\ \\mathrm{m}$. The total is $54\\ \\mathrm{m}$ (and $v(6) = 18\\ \\mathrm{m/s}$, matching the triangle's area)."
+  },
+  {
+    "id": "kin-graph-30",
+    "name": "Return to the start",
+    "module": "motion-graphs",
+    "difficulty": "Very Hard",
+    "tags": [
+      "v-t",
+      "extremum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A drone's velocity-time graph is a single straight line passing through $(2.0\\ \\mathrm{s},\\ 14\\ \\mathrm{m/s})$ and $(7.0\\ \\mathrm{s},\\ -6.0\\ \\mathrm{m/s})$. At what time does the drone return to its starting position, in s?",
+    "answer": 11.0,
+    "unit": "s",
+    "solution": "The slope is $\\frac{-6-14}{5} = -4.0\\ \\mathrm{m/s^2}$, so $v(t) = 22 - 4t$. The displacement is $x = 22t - 2t^2$, which returns to zero at $t = 11\\ \\mathrm{s}$. Equivalently, the positive and negative areas balance when the second triangle matches the first."
+  },
+  {
+    "id": "kin-fall-01",
+    "name": "Speed after three seconds of falling",
+    "module": "free-fall",
+    "difficulty": "Easy",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A wrench is dropped from rest and falls freely for $3.0\\ \\mathrm{s}$. What is its speed then, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$ and neglect air resistance.",
+    "answer": 29.4,
+    "unit": "m/s",
+    "solution": "Free fall from rest gives $v = gt = (9.8)(3.0) = 29.4\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-fall-02",
+    "name": "Fall time from a known height",
+    "module": "free-fall",
+    "difficulty": "Easy",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A stone is dropped from rest from a height of $45\\ \\mathrm{m}$. How long does it take to reach the ground, in s? Neglect air resistance.",
+    "answer": 3.03,
+    "unit": "s",
+    "solution": "From $h = \\tfrac{1}{2}gt^2$, $t = \\sqrt{2h/g} = \\sqrt{90/9.8} = 3.03\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-fall-03",
+    "name": "Maximum height of a thrown ball",
+    "module": "free-fall",
+    "difficulty": "Easy",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is thrown straight up at $20\\ \\mathrm{m/s}$. How high above the launch point does it rise, in m?",
+    "answer": 20.41,
+    "unit": "m",
+    "solution": "At the top $v = 0$, so $h = \\frac{v_0^2}{2g} = \\frac{400}{19.6} = 20.41\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-fall-04",
+    "name": "Time to the top",
+    "module": "free-fall",
+    "difficulty": "Easy",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is thrown straight up at $14.7\\ \\mathrm{m/s}$. How long does it take to reach its highest point, in s?",
+    "answer": 1.5,
+    "unit": "s",
+    "solution": "The upward velocity falls to zero after $t = v_0/g = 14.7/9.8 = 1.5\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-fall-05",
+    "name": "Landing speed from a rooftop",
+    "module": "free-fall",
+    "difficulty": "Easy",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A tile slides off a roof and falls $20\\ \\mathrm{m}$ from rest. What is its speed just before landing, in m/s?",
+    "answer": 19.8,
+    "unit": "m/s",
+    "solution": "$v = \\sqrt{2gh} = \\sqrt{2(9.8)(20)} = \\sqrt{392} = 19.80\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-fall-06",
+    "name": "Height of a cliff from fall time",
+    "module": "free-fall",
+    "difficulty": "Easy",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A stone dropped from a cliff hits the sea $2.5\\ \\mathrm{s}$ later. How high is the cliff above the water, in m?",
+    "answer": 30.63,
+    "unit": "m",
+    "solution": "$h = \\tfrac{1}{2}gt^2 = \\tfrac{1}{2}(9.8)(6.25) = 30.625\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-fall-07",
+    "name": "Total flight time of a vertical throw",
+    "module": "free-fall",
+    "difficulty": "Easy",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is thrown straight up from ground level at $25\\ \\mathrm{m/s}$ and caught at the same height. How long is it in the air, in s?",
+    "answer": 5.1,
+    "unit": "s",
+    "solution": "By symmetry the flight time is twice the rise time: $t = \\frac{2v_0}{g} = \\frac{50}{9.8} = 5.10\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-fall-08",
+    "name": "Dropping a hammer on the Moon",
+    "module": "free-fall",
+    "difficulty": "Easy",
+    "tags": [
+      "free-fall",
+      "other-gravity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "On the Moon, where $g = 1.62\\ \\mathrm{m/s^2}$, an astronaut drops a hammer from a height of $2.0\\ \\mathrm{m}$. How long does it take to reach the surface, in s?",
+    "answer": 1.57,
+    "unit": "s",
+    "solution": "$t = \\sqrt{2h/g} = \\sqrt{4.0/1.62} = 1.57\\ \\mathrm{s}$, about two and a half times longer than on Earth."
+  },
+  {
+    "id": "kin-fall-09",
+    "name": "Distance in the fourth second",
+    "module": "free-fall",
+    "difficulty": "Easy",
+    "tags": [
+      "free-fall",
+      "nth-second"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An object is released from rest and falls freely. How far does it fall during the fourth second of its motion, in m?",
+    "answer": 34.3,
+    "unit": "m",
+    "solution": "The distance in the $n$th second is $\\frac{g(2n-1)}{2}$. For $n = 4$: $\\frac{9.8(7)}{2} = 34.3\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-fall-10",
+    "name": "Thrown downward",
+    "module": "free-fall",
+    "difficulty": "Easy",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is thrown straight down at $5.0\\ \\mathrm{m/s}$ from a height of $40\\ \\mathrm{m}$. What is its speed just before it hits the ground, in m/s?",
+    "answer": 28.44,
+    "unit": "m/s",
+    "solution": "$v^2 = v_0^2 + 2gh = 25 + 784 = 809$, so $v = 28.44\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-fall-11",
+    "name": "Thrown up from a building",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "free-fall",
+      "quadratic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is thrown straight up at $18\\ \\mathrm{m/s}$ from the roof of a building $25\\ \\mathrm{m}$ tall. How long until it lands on the ground below, in s?",
+    "answer": 4.75,
+    "unit": "s",
+    "solution": "Take up as positive with the origin at the roof: $-25 = 18t - 4.9t^2$, i.e. $4.9t^2 - 18t - 25 = 0$. The positive root is $t = \\frac{18 + \\sqrt{814}}{9.8} = 4.75\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-fall-12",
+    "name": "Landing speed from the same throw",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "free-fall",
+      "energy-shortcut"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is thrown straight up at $18\\ \\mathrm{m/s}$ from a roof $25\\ \\mathrm{m}$ above the ground. What is its speed just before it hits the ground, in m/s?",
+    "answer": 28.53,
+    "unit": "m/s",
+    "solution": "The timeless equation avoids solving for $t$: $v^2 = v_0^2 + 2g h = 324 + 490 = 814$, so $v = 28.53\\ \\mathrm{m/s}$. The direction of the initial throw does not matter here, only its speed."
+  },
+  {
+    "id": "kin-fall-13",
+    "name": "Falling past a window",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball dropped from rest passes a window $1.50\\ \\mathrm{m}$ tall in $0.120\\ \\mathrm{s}$. How far above the top of the window was it released, in m?",
+    "answer": 7.24,
+    "unit": "m",
+    "solution": "The average speed over the window, $1.50/0.120 = 12.5\\ \\mathrm{m/s}$, equals the instantaneous speed at the midpoint of the interval. So the speed at the top of the window is $12.5 - (9.8)(0.060) = 11.912\\ \\mathrm{m/s}$, and the drop needed is $\\frac{11.912^2}{19.6} = 7.24\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-fall-14",
+    "name": "Two balls meeting",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "free-fall",
+      "two-body"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "One ball is dropped from rest from a height of $60\\ \\mathrm{m}$ at the same instant a second ball is thrown straight up from the ground at $30\\ \\mathrm{m/s}$. At what height above the ground do they meet, in m?",
+    "answer": 40.4,
+    "unit": "m",
+    "solution": "Both balls have the same downward acceleration, so in the frame of the dropped ball the other approaches at a constant $30\\ \\mathrm{m/s}$. They meet at $t = 60/30 = 2.0\\ \\mathrm{s}$, when the dropped ball is at $60 - \\tfrac{1}{2}(9.8)(4) = 40.4\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-fall-15",
+    "name": "Launch speed from hang time",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball thrown straight up is caught at the launch height $3.4\\ \\mathrm{s}$ later. What was its launch speed, in m/s?",
+    "answer": 16.66,
+    "unit": "m/s",
+    "solution": "Half the flight is the rise, so $v_0 = g(t/2) = (9.8)(1.7) = 16.66\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-fall-16",
+    "name": "Time above the launch point",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A rock is thrown straight up at $12\\ \\mathrm{m/s}$ from the edge of a $30\\ \\mathrm{m}$ cliff. For how long is the rock above the level of the launch point, in s?",
+    "answer": 2.45,
+    "unit": "s",
+    "solution": "The cliff height is irrelevant to this question. Above the launch level the motion is symmetric, so the time is $\\frac{2v_0}{g} = \\frac{24}{9.8} = 2.45\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-fall-17",
+    "name": "Juggler's throw height",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A juggler tosses each ball so that it spends $0.90\\ \\mathrm{s}$ in the air before returning to her hand. How high above her hand does each ball rise, in m?",
+    "answer": 0.99,
+    "unit": "m",
+    "solution": "The launch speed is $v_0 = g(0.45) = 4.41\\ \\mathrm{m/s}$, so the rise is $\\frac{v_0^2}{2g} = \\frac{19.45}{19.6} = 0.99\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-fall-18",
+    "name": "Terminal speed of a raindrop",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "drag",
+      "terminal-velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A small raindrop of mass $3.0 \\times 10^{-5}\\ \\mathrm{kg}$ falls subject to a linear drag force $F = bv$ with $b = 1.5 \\times 10^{-4}\\ \\mathrm{kg/s}$. What is its terminal speed, in m/s?",
+    "answer": 1.96,
+    "unit": "m/s",
+    "solution": "At terminal speed the acceleration is zero, so $mg = bv_t$. Hence $v_t = \\frac{mg}{b} = \\frac{(3.0\\times10^{-5})(9.8)}{1.5\\times10^{-4}} = 1.96\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-fall-19",
+    "name": "Skydiver's acceleration at half speed",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "drag",
+      "quadratic-drag"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A skydiver falls with quadratic drag and has terminal speed $55\\ \\mathrm{m/s}$. What is the magnitude of her acceleration at the moment her speed is $30\\ \\mathrm{m/s}$, in $\\mathrm{m/s^2}$?",
+    "answer": 6.88,
+    "unit": "m/s^2",
+    "solution": "With $ma = mg - kv^2$ and $mg = kv_t^2$, the acceleration is $a = g\\left(1 - \\frac{v^2}{v_t^2}\\right) = 9.8\\left(1 - \\frac{900}{3025}\\right) = 6.88\\ \\mathrm{m/s^2}$."
+  },
+  {
+    "id": "kin-fall-20",
+    "name": "Half the drop in the last second",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "free-fall",
+      "quadratic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A stone falls from rest and covers half of its total drop during the last second before landing. How long does the whole fall take, in s?",
+    "answer": 3.41,
+    "unit": "s",
+    "solution": "With total time $T$, the distance in the last second is $\\tfrac{1}{2}g\\left[T^2 - (T-1)^2\\right]$, and this must equal $\\tfrac{1}{2}\\left(\\tfrac{1}{2}gT^2\\right)$. That gives $T^2 - 4T + 2 = 0$, so $T = 2 + \\sqrt{2} = 3.41\\ \\mathrm{s}$ (the root $2-\\sqrt2$ is less than $1\\ \\mathrm{s}$ and so is rejected)."
+  },
+  {
+    "id": "kin-fall-21",
+    "name": "Passing a level twice",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "free-fall",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball thrown straight up from the ground passes a height of $15\\ \\mathrm{m}$ twice, the two crossings separated by $1.60\\ \\mathrm{s}$. What was its launch speed, in m/s?",
+    "answer": 18.85,
+    "unit": "m/s",
+    "solution": "By symmetry the ball is at the top halfway between the crossings, so its speed at $15\\ \\mathrm{m}$ is $g(0.80) = 7.84\\ \\mathrm{m/s}$. Then $v_0^2 = 7.84^2 + 2(9.8)(15) = 355.5$, giving $v_0 = 18.85\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-fall-22",
+    "name": "Bolt falling in an accelerating elevator",
+    "module": "free-fall",
+    "difficulty": "Normal",
+    "tags": [
+      "non-inertial",
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An elevator accelerates upward at $2.0\\ \\mathrm{m/s^2}$. A bolt comes loose from the ceiling, $3.0\\ \\mathrm{m}$ above the floor. How long does it take to hit the floor, in s?",
+    "answer": 0.71,
+    "unit": "s",
+    "solution": "In the elevator frame the bolt falls with effective gravity $g + a = 11.8\\ \\mathrm{m/s^2}$. Then $t = \\sqrt{2(3.0)/11.8} = 0.713\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-fall-23",
+    "name": "Depth of a well from the splash",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "free-fall",
+      "sound"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A stone is dropped into a well and the splash is heard $3.00\\ \\mathrm{s}$ later. Sound travels at $340\\ \\mathrm{m/s}$. How deep is the water surface below the top, in m?",
+    "answer": 40.65,
+    "unit": "m",
+    "solution": "Split the $3.00\\ \\mathrm{s}$ into the fall time $t_1$ and the sound travel time: $4.9t_1^2 = 340(3 - t_1)$, so $4.9t_1^2 + 340t_1 - 1020 = 0$ and $t_1 = 2.880\\ \\mathrm{s}$. The depth is $4.9t_1^2 = 40.65\\ \\mathrm{m}$. Ignoring the sound delay would have given $44.1\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-fall-24",
+    "name": "Time to the second bounce",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "free-fall",
+      "restitution"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is dropped from rest from $5.0\\ \\mathrm{m}$ onto a hard floor and rebounds with $80\\%$ of its impact speed. How long after release does it strike the floor for the second time, in s?",
+    "answer": 2.63,
+    "unit": "s",
+    "solution": "The first fall takes $\\sqrt{10/9.8} = 1.010\\ \\mathrm{s}$ and ends at $9.899\\ \\mathrm{m/s}$. The rebound speed is $7.919\\ \\mathrm{m/s}$, and the ball is back on the floor after $\\frac{2(7.919)}{9.8} = 1.616\\ \\mathrm{s}$. The total is $2.63\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-fall-25",
+    "name": "Separation of two dropped stones",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "free-fall",
+      "two-body"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A stone is dropped from a bridge, and a second stone is dropped from the same point exactly $1.0\\ \\mathrm{s}$ later. How far apart are they $3.0\\ \\mathrm{s}$ after the first stone was released, in m?",
+    "answer": 24.5,
+    "unit": "m",
+    "solution": "At $t = 3.0\\ \\mathrm{s}$ the stones have fallen $\\tfrac{1}{2}g(3)^2$ and $\\tfrac{1}{2}g(2)^2$, so the gap is $\\tfrac{1}{2}(9.8)(9-4) = 24.5\\ \\mathrm{m}$. Note the gap keeps growing even though both have the same acceleration."
+  },
+  {
+    "id": "kin-fall-26",
+    "name": "Speed under linear drag",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "drag",
+      "exponential"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An object falling from rest with linear drag has $v(t) = v_t\\left(1 - e^{-gt/v_t}\\right)$, with terminal speed $v_t = 6.0\\ \\mathrm{m/s}$. What is its speed at $t = 1.20\\ \\mathrm{s}$, in m/s?",
+    "answer": 5.15,
+    "unit": "m/s",
+    "solution": "The exponent is $\\frac{gt}{v_t} = \\frac{(9.8)(1.20)}{6.0} = 1.96$, and $e^{-1.96} = 0.1409$. So $v = 6.0(1 - 0.1409) = 5.15\\ \\mathrm{m/s}$, already $86\\%$ of terminal."
+  },
+  {
+    "id": "kin-fall-27",
+    "name": "Speed partway down from a tower",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is thrown straight up at $15\\ \\mathrm{m/s}$ from the top of a $50\\ \\mathrm{m}$ tower. What is its speed when it is $20\\ \\mathrm{m}$ above the ground, in m/s?",
+    "answer": 28.51,
+    "unit": "m/s",
+    "solution": "The ball has descended $30\\ \\mathrm{m}$ below its launch point, so $v^2 = 15^2 + 2(9.8)(30) = 813$ and $v = 28.51\\ \\mathrm{m/s}$. Using $v^2 = v_0^2 + 2g\\Delta h$ sidesteps the up-and-down trip entirely."
+  },
+  {
+    "id": "kin-fall-28",
+    "name": "Rocket coasting after burnout",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "two-phase",
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A model rocket rises from rest with a constant upward acceleration of $4.0\\ \\mathrm{m/s^2}$ for $20\\ \\mathrm{s}$, then the motor cuts out and it coasts freely. What maximum height above the ground does it reach, in m?",
+    "answer": 1126.53,
+    "unit": "m",
+    "solution": "At burnout the rocket is at $\\tfrac{1}{2}(4)(400) = 800\\ \\mathrm{m}$ moving at $80\\ \\mathrm{m/s}$. Coasting adds $\\frac{80^2}{2(9.8)} = 326.5\\ \\mathrm{m}$, so the peak is $1126.5\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-fall-29",
+    "name": "Where do they meet?",
+    "module": "free-fall",
+    "difficulty": "Very Hard",
+    "tags": [
+      "free-fall",
+      "two-body"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is dropped from rest from a height of $80\\ \\mathrm{m}$. At the same instant a second ball is thrown straight up from the ground with exactly the speed needed to just reach $80\\ \\mathrm{m}$. At what height above the ground do the two balls pass each other, in m?",
+    "answer": 60.0,
+    "unit": "m",
+    "solution": "The launch speed is $u = \\sqrt{2g(80)} = 39.60\\ \\mathrm{m/s}$. Since both balls share the same acceleration, their separation closes at the constant rate $u$, so they meet at $t = 80/u = 2.020\\ \\mathrm{s}$. The dropped ball has then fallen $\\tfrac{1}{2}gt^2 = 20\\ \\mathrm{m}$, so they meet at $60\\ \\mathrm{m}$, three quarters of the way up."
+  },
+  {
+    "id": "kin-fall-30",
+    "name": "Distance to reach 80% of terminal speed",
+    "module": "free-fall",
+    "difficulty": "Very Hard",
+    "tags": [
+      "drag",
+      "quadratic-drag"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An object dropped from rest with quadratic drag obeys $v^2 = v_t^2\\left(1 - e^{-2gy/v_t^2}\\right)$, where $y$ is the distance fallen. If $v_t = 50\\ \\mathrm{m/s}$, how far must it fall to reach $40\\ \\mathrm{m/s}$, in m?",
+    "answer": 130.31,
+    "unit": "m",
+    "solution": "Rearranging, $e^{-2gy/v_t^2} = 1 - \\frac{v^2}{v_t^2} = 1 - 0.64 = 0.36$. Then $\\frac{2gy}{v_t^2} = \\ln(1/0.36) = 1.0217$, so $y = \\frac{(1.0217)(2500)}{19.6} = 130.3\\ \\mathrm{m}$. Without drag the same speed would be reached after only $81.6\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-01",
+    "name": "Horizontal launch off a cliff",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "horizontal-launch"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is thrown horizontally at $15\\ \\mathrm{m/s}$ from the edge of a $20\\ \\mathrm{m}$ cliff. How far from the base of the cliff does it land, in m? Neglect air resistance.",
+    "answer": 30.3,
+    "unit": "m",
+    "solution": "Vertical and horizontal motion are independent. The fall takes $t = \\sqrt{2(20)/9.8} = 2.020\\ \\mathrm{s}$, and in that time the ball travels $15t = 30.30\\ \\mathrm{m}$ horizontally."
+  },
+  {
+    "id": "kin-proj-02",
+    "name": "Time of flight off a cliff",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "horizontal-launch"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is thrown horizontally at $15\\ \\mathrm{m/s}$ from the edge of a $20\\ \\mathrm{m}$ cliff. How long is it in the air, in s?",
+    "answer": 2.02,
+    "unit": "s",
+    "solution": "The horizontal launch means the initial vertical velocity is zero, so $t = \\sqrt{2h/g} = \\sqrt{40/9.8} = 2.02\\ \\mathrm{s}$. The launch speed is irrelevant."
+  },
+  {
+    "id": "kin-proj-03",
+    "name": "Maximum height of a launched shell",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "range-height"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A projectile is launched at $30\\ \\mathrm{m/s}$ at $40^\\circ$ above the horizontal from level ground. What is its maximum height, in m?",
+    "answer": 18.97,
+    "unit": "m",
+    "solution": "Only the vertical component matters: $v_{0y} = 30\\sin 40^\\circ = 19.28\\ \\mathrm{m/s}$, so $h = \\frac{v_{0y}^2}{2g} = 18.97\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-04",
+    "name": "Range of the same shell",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "range-height"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A projectile is launched at $30\\ \\mathrm{m/s}$ at $40^\\circ$ above the horizontal from level ground. What is its horizontal range, in m?",
+    "answer": 90.44,
+    "unit": "m",
+    "solution": "On level ground $R = \\frac{v_0^2 \\sin 2\\theta}{g} = \\frac{900 \\sin 80^\\circ}{9.8} = 90.44\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-05",
+    "name": "Range at 45 degrees",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "range-height"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A stone is launched at $25\\ \\mathrm{m/s}$ at $45^\\circ$ above level ground. What is its range, in m?",
+    "answer": 63.78,
+    "unit": "m",
+    "solution": "At $45^\\circ$, $\\sin 2\\theta = 1$, so $R = \\frac{v_0^2}{g} = \\frac{625}{9.8} = 63.78\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-06",
+    "name": "Time of flight on level ground",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "range-height"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is kicked at $20\\ \\mathrm{m/s}$ at $30^\\circ$ above level ground. How long is it in the air, in s?",
+    "answer": 2.04,
+    "unit": "s",
+    "solution": "$T = \\frac{2v_0\\sin\\theta}{g} = \\frac{2(20)(0.5)}{9.8} = 2.04\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-proj-07",
+    "name": "Distance to a dartboard",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "horizontal-launch"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A dart thrown horizontally at $12\\ \\mathrm{m/s}$ strikes a board $0.40\\ \\mathrm{m}$ below the launch height. How far away is the board, in m?",
+    "answer": 3.43,
+    "unit": "m",
+    "solution": "The drop time is $t = \\sqrt{2(0.40)/9.8} = 0.2857\\ \\mathrm{s}$, so the horizontal distance is $(12)(0.2857) = 3.43\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-08",
+    "name": "Maximum possible range",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "range-height",
+      "optimization"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A cannon fires shells at $40\\ \\mathrm{m/s}$ from level ground. What is the greatest range it can achieve, in m?",
+    "answer": 163.27,
+    "unit": "m",
+    "solution": "The range $\\frac{v_0^2\\sin 2\\theta}{g}$ is largest when $2\\theta = 90^\\circ$, giving $R_{\\max} = \\frac{1600}{9.8} = 163.27\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-09",
+    "name": "Horizontal velocity component",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "components"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is launched at $18\\ \\mathrm{m/s}$ at $60^\\circ$ above the horizontal. What is the horizontal component of its velocity while in flight, in m/s?",
+    "answer": 9.0,
+    "unit": "m/s",
+    "solution": "There is no horizontal acceleration, so $v_x = v_0\\cos\\theta = 18\\cos 60^\\circ = 9.0\\ \\mathrm{m/s}$ throughout the flight."
+  },
+  {
+    "id": "kin-proj-10",
+    "name": "Impact speed after a horizontal throw",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "components"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A stone is thrown horizontally at $10\\ \\mathrm{m/s}$ from a height of $45\\ \\mathrm{m}$. What is its speed just before it hits the ground, in m/s?",
+    "answer": 31.34,
+    "unit": "m/s",
+    "solution": "The horizontal component stays $10\\ \\mathrm{m/s}$ while the vertical component grows to $\\sqrt{2(9.8)(45)} = 29.70\\ \\mathrm{m/s}$. The speed is $\\sqrt{100 + 882} = 31.34\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-proj-11",
+    "name": "Launched from a height",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "quadratic",
+      "range-height"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A projectile leaves a $15\\ \\mathrm{m}$ high platform at $35\\ \\mathrm{m/s}$ at $25^\\circ$ above the horizontal. How far from the base of the platform does it land, in m?",
+    "answer": 121.18,
+    "unit": "m",
+    "solution": "The components are $v_{0x} = 31.72\\ \\mathrm{m/s}$ and $v_{0y} = 14.79\\ \\mathrm{m/s}$. Solving $-15 = 14.79t - 4.9t^2$ gives $t = 3.820\\ \\mathrm{s}$, so the range is $(31.72)(3.820) = 121.2\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-12",
+    "name": "Clearing the crossbar",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "trajectory"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is kicked at $22\\ \\mathrm{m/s}$ at $40^\\circ$ above the horizontal from ground level. What is its height above the ground when it has travelled $30\\ \\mathrm{m}$ horizontally, in m?",
+    "answer": 9.65,
+    "unit": "m",
+    "solution": "The horizontal speed is $22\\cos 40^\\circ = 16.85\\ \\mathrm{m/s}$, so the ball reaches $x = 30\\ \\mathrm{m}$ at $t = 1.780\\ \\mathrm{s}$. Its height is then $y = (14.14)(1.780) - 4.9(1.780)^2 = 9.65\\ \\mathrm{m}$, comfortably over a crossbar."
+  },
+  {
+    "id": "kin-proj-13",
+    "name": "Angle for a required range",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "range-height",
+      "inverse"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A projectile is to be launched at $25\\ \\mathrm{m/s}$ so that it lands $50\\ \\mathrm{m}$ away on level ground. What is the smaller of the two possible launch angles, in degrees?",
+    "answer": 25.81,
+    "unit": "deg",
+    "solution": "From $R = \\frac{v_0^2\\sin 2\\theta}{g}$, $\\sin 2\\theta = \\frac{(50)(9.8)}{625} = 0.784$, so $2\\theta = 51.63^\\circ$ and $\\theta = 25.81^\\circ$. The other solution is its complement, $64.19^\\circ$."
+  },
+  {
+    "id": "kin-proj-14",
+    "name": "Speed at the top of the arc",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "components"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A projectile is launched at $30\\ \\mathrm{m/s}$ at $55^\\circ$ above the horizontal. What is its speed at the highest point of its path, in m/s?",
+    "answer": 17.21,
+    "unit": "m/s",
+    "solution": "At the peak the vertical velocity is zero, so the speed equals the (unchanging) horizontal component: $30\\cos 55^\\circ = 17.21\\ \\mathrm{m/s}$. It is not zero."
+  },
+  {
+    "id": "kin-proj-15",
+    "name": "Launch speed from flight data",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "inverse"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball launched from level ground lands $60\\ \\mathrm{m}$ away after $4.0\\ \\mathrm{s}$ in the air. What was its launch speed, in m/s?",
+    "answer": 24.68,
+    "unit": "m/s",
+    "solution": "The horizontal component is $60/4.0 = 15\\ \\mathrm{m/s}$ and, from the symmetric flight time, $v_{0y} = g(2.0) = 19.6\\ \\mathrm{m/s}$. So $v_0 = \\sqrt{225 + 384.16} = 24.68\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-proj-16",
+    "name": "Launch angle from flight data",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "inverse"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball launched from level ground lands $60\\ \\mathrm{m}$ away after $4.0\\ \\mathrm{s}$ in the air. What was its launch angle above the horizontal, in degrees?",
+    "answer": 52.57,
+    "unit": "deg",
+    "solution": "With $v_{0x} = 15\\ \\mathrm{m/s}$ and $v_{0y} = 19.6\\ \\mathrm{m/s}$, $\\theta = \\arctan\\frac{19.6}{15} = 52.58^\\circ$."
+  },
+  {
+    "id": "kin-proj-17",
+    "name": "Height from peak speed and flight time",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "range-height"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A projectile on level ground is in the air for $3.0\\ \\mathrm{s}$ and its speed at the top of the arc is $12\\ \\mathrm{m/s}$. What is its maximum height, in m?",
+    "answer": 11.03,
+    "unit": "m",
+    "solution": "The rise time is $1.5\\ \\mathrm{s}$, so $v_{0y} = (9.8)(1.5) = 14.7\\ \\mathrm{m/s}$ and $h = \\frac{14.7^2}{19.6} = 11.03\\ \\mathrm{m}$. The $12\\ \\mathrm{m/s}$ is the horizontal component and does not enter."
+  },
+  {
+    "id": "kin-proj-18",
+    "name": "Ball rolling off a table",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "horizontal-launch",
+      "inverse"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball rolls off a table $1.20\\ \\mathrm{m}$ high and lands $1.50\\ \\mathrm{m}$ from the table's edge. What was its speed as it left the table, in m/s?",
+    "answer": 3.03,
+    "unit": "m/s",
+    "solution": "The fall takes $t = \\sqrt{2(1.20)/9.8} = 0.4949\\ \\mathrm{s}$, so $v = \\frac{1.50}{0.4949} = 3.03\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-proj-19",
+    "name": "Aiming straight at a falling target",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "trajectory"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A dart is fired at $50\\ \\mathrm{m/s}$ aimed directly at a target $40\\ \\mathrm{m}$ away horizontally and $15\\ \\mathrm{m}$ above the launch point. The target is released from rest at the instant of firing. How far does each of them fall below its no-gravity path before they meet, in m?",
+    "answer": 3.58,
+    "unit": "m",
+    "solution": "Both objects fall $\\tfrac{1}{2}gt^2$ below where they would be with no gravity, which is why aiming straight at the target works. The dart covers the line-of-sight distance $\\sqrt{40^2+15^2} = 42.72\\ \\mathrm{m}$ in $t = 0.8544\\ \\mathrm{s}$, and $\\tfrac{1}{2}gt^2 = 3.58\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-20",
+    "name": "Height from range at 45 degrees",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "range-height"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A projectile launched at $45^\\circ$ from level ground lands $80\\ \\mathrm{m}$ away. What was its maximum height, in m?",
+    "answer": 20.0,
+    "unit": "m",
+    "solution": "At $45^\\circ$ the trajectory is a parabola with $h = R/4$, since $h = \\frac{v_0^2\\sin^2\\theta}{2g}$ and $R = \\frac{v_0^2 \\sin 2\\theta}{g}$. So $h = 20\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-21",
+    "name": "First crossing of a given height",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "quadratic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is launched at $20\\ \\mathrm{m/s}$ at $50^\\circ$ above the horizontal. At what time is it first at a height of $8.0\\ \\mathrm{m}$, in s?",
+    "answer": 0.66,
+    "unit": "s",
+    "solution": "With $v_{0y} = 20\\sin 50^\\circ = 15.32\\ \\mathrm{m/s}$, solve $4.9t^2 - 15.32t + 8 = 0$. The smaller root, on the way up, is $t = 0.663\\ \\mathrm{s}$; the larger root is the descent."
+  },
+  {
+    "id": "kin-proj-22",
+    "name": "Speed hitting the water",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "energy-shortcut"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A stone is thrown at $16\\ \\mathrm{m/s}$ at $35^\\circ$ above the horizontal from a bridge $10\\ \\mathrm{m}$ above the water. What is its speed when it hits the water, in m/s?",
+    "answer": 21.26,
+    "unit": "m/s",
+    "solution": "Treat the components together: $v^2 = v_0^2 + 2g\\Delta h = 256 + 196 = 452$, so $v = 21.26\\ \\mathrm{m/s}$. The launch angle does not affect the impact speed, only the direction."
+  },
+  {
+    "id": "kin-proj-23",
+    "name": "Range up an incline",
+    "module": "projectiles",
+    "difficulty": "Hard",
+    "tags": [
+      "incline"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A projectile is fired from the bottom of a $20^\\circ$ incline at $25\\ \\mathrm{m/s}$, at $50^\\circ$ above the horizontal (so $30^\\circ$ above the slope). How far up the slope does it land, measured along the slope, in m?",
+    "answer": 46.42,
+    "unit": "m",
+    "solution": "For a slope of angle $\\alpha$ and launch angle $\\theta$ from the horizontal, $R = \\frac{2v_0^2\\cos\\theta\\sin(\\theta-\\alpha)}{g\\cos^2\\alpha}$. Substituting $v_0=25$, $\\theta = 50^\\circ$, $\\alpha = 20^\\circ$ gives $R = \\frac{2(625)(0.6428)(0.5)}{9.8(0.8830)} = 46.4\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-24",
+    "name": "Maximum range up a slope",
+    "module": "projectiles",
+    "difficulty": "Hard",
+    "tags": [
+      "incline",
+      "optimization"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is launched at $30\\ \\mathrm{m/s}$ from the foot of a $15^\\circ$ incline. What is the greatest distance up the slope it can reach, measured along the slope, in m?",
+    "answer": 72.95,
+    "unit": "m",
+    "solution": "Optimising the incline range formula gives the best launch angle $\\theta = 45^\\circ + \\alpha/2$ and $R_{\\max} = \\frac{v_0^2}{g(1+\\sin\\alpha)}$. Here $R_{\\max} = \\frac{900}{9.8(1.2588)} = 72.96\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-25",
+    "name": "Thrown horizontally down a slope",
+    "module": "projectiles",
+    "difficulty": "Hard",
+    "tags": [
+      "incline"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A rock is thrown horizontally at $20\\ \\mathrm{m/s}$ from a point on a hillside that descends at $25^\\circ$ below the horizontal. How far down the slope does it land, measured along the slope, in m?",
+    "answer": 42.0,
+    "unit": "m",
+    "solution": "Landing on the slope requires $\\frac{y}{x} = \\tan 25^\\circ$, i.e. $4.9t^2 = 20t\\tan 25^\\circ$, so $t = 1.903\\ \\mathrm{s}$ and $x = 38.07\\ \\mathrm{m}$. The distance along the slope is $x/\\cos 25^\\circ = 42.0\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-proj-26",
+    "name": "Angle from a trajectory condition",
+    "module": "projectiles",
+    "difficulty": "Hard",
+    "tags": [
+      "trajectory",
+      "inverse"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A projectile launched from level ground has a range of $40\\ \\mathrm{m}$ and passes exactly $4.0\\ \\mathrm{m}$ above the ground at the horizontal midpoint of its flight. What is its launch angle, in degrees?",
+    "answer": 21.8,
+    "unit": "deg",
+    "solution": "The trajectory can be written $y = x\\tan\\theta\\left(1 - \\frac{x}{R}\\right)$. At $x = 20\\ \\mathrm{m}$ with $R = 40\\ \\mathrm{m}$ this gives $y = 10\\tan\\theta = 4.0$, so $\\tan\\theta = 0.4$ and $\\theta = 21.80^\\circ$. (The midpoint of the flight is also the peak, so $4.0\\ \\mathrm{m}$ is the maximum height.)"
+  },
+  {
+    "id": "kin-proj-27",
+    "name": "Launch speed for that trajectory",
+    "module": "projectiles",
+    "difficulty": "Hard",
+    "tags": [
+      "trajectory",
+      "inverse"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A projectile launched from level ground has a range of $40\\ \\mathrm{m}$ and a maximum height of $4.0\\ \\mathrm{m}$. What was its launch speed, in m/s?",
+    "answer": 23.84,
+    "unit": "m/s",
+    "solution": "From $h = R\\tan\\theta/4$ we get $\\tan\\theta = 0.4$, so $\\theta = 21.80^\\circ$ and $\\sin 2\\theta = 0.6897$. Then $v_0^2 = \\frac{Rg}{\\sin 2\\theta} = \\frac{392}{0.6897} = 568.4$, so $v_0 = 23.84\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-proj-28",
+    "name": "Minimum speed to hit a target",
+    "module": "projectiles",
+    "difficulty": "Hard",
+    "tags": [
+      "optimization"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball must be thrown from the ground to hit a target $30\\ \\mathrm{m}$ away horizontally and $10\\ \\mathrm{m}$ above the launch point. What is the minimum launch speed that can reach it, in m/s?",
+    "answer": 20.2,
+    "unit": "m/s",
+    "solution": "The minimum speed to reach the point $(x,y)$ is $v_{\\min}^2 = g\\left(y + \\sqrt{x^2+y^2}\\right)$, obtained by demanding the target lie exactly on the boundary of the reachable region. Here $v_{\\min}^2 = 9.8(10 + 31.62) = 407.9$, so $v_{\\min} = 20.20\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-proj-29",
+    "name": "Fired perpendicular to a slope",
+    "module": "projectiles",
+    "difficulty": "Very Hard",
+    "tags": [
+      "incline"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is launched from a point on a $30^\\circ$ incline at $15\\ \\mathrm{m/s}$ directed perpendicular to the slope surface. How far from the launch point, measured along the slope, does it land, in m?",
+    "answer": 30.61,
+    "unit": "m",
+    "solution": "Use axes along and perpendicular to the slope. Perpendicular: initial speed $15\\ \\mathrm{m/s}$, acceleration $-g\\cos 30^\\circ = -8.487\\ \\mathrm{m/s^2}$, so the flight lasts $t = \\frac{2(15)}{8.487} = 3.535\\ \\mathrm{s}$. Along the slope: starts at rest with acceleration $g\\sin 30^\\circ = 4.9\\ \\mathrm{m/s^2}$ down the slope, giving $\\tfrac{1}{2}(4.9)(3.535)^2 = 30.6\\ \\mathrm{m}$ down the slope from the launch point."
+  },
+  {
+    "id": "kin-proj-30",
+    "name": "Best angle when launching from a height",
+    "module": "projectiles",
+    "difficulty": "Very Hard",
+    "tags": [
+      "optimization"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A shot is put from a height of $20\\ \\mathrm{m}$ above level ground with speed $25\\ \\mathrm{m/s}$. If the launch angle is chosen to maximise the horizontal distance, what is that maximum distance, in m?",
+    "answer": 81.35,
+    "unit": "m",
+    "solution": "Optimising over $\\theta$ for a launch from height $h$ gives $R_{\\max} = \\frac{v_0}{g}\\sqrt{v_0^2 + 2gh}$ (the optimal angle is below $45^\\circ$). Here $R_{\\max} = \\frac{25}{9.8}\\sqrt{625 + 392} = (2.551)(31.89) = 81.4\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-rel-01",
+    "name": "Overtaking on a highway",
+    "module": "relative-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "relative-velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two cars travel in the same direction on a straight highway at $30\\ \\mathrm{m/s}$ and $22\\ \\mathrm{m/s}$. What is the speed of the faster car relative to the slower one, in m/s?",
+    "answer": 8.0,
+    "unit": "m/s",
+    "solution": "For motion along one line, subtract the velocities: $30 - 22 = 8.0\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-rel-02",
+    "name": "Head-on approach",
+    "module": "relative-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "relative-velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two cars approach each other head-on at $25\\ \\mathrm{m/s}$ and $18\\ \\mathrm{m/s}$ along a straight road. What is their relative speed, in m/s?",
+    "answer": 43.0,
+    "unit": "m/s",
+    "solution": "The velocities have opposite signs, so subtracting them gives $25 - (-18) = 43\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-rel-03",
+    "name": "Boat aimed straight across",
+    "module": "relative-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "river-crossing"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A boat that moves at $4.0\\ \\mathrm{m/s}$ in still water is aimed straight across a river whose current is $3.0\\ \\mathrm{m/s}$. What is its speed relative to the bank, in m/s?",
+    "answer": 5.0,
+    "unit": "m/s",
+    "solution": "The two velocities are perpendicular, so add them as vectors: $\\sqrt{4^2+3^2} = 5.0\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-rel-04",
+    "name": "Crossing time",
+    "module": "relative-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "river-crossing"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A river is $80\\ \\mathrm{m}$ wide. A boat aimed straight across moves at $4.0\\ \\mathrm{m/s}$ relative to the water. How long does the crossing take, in s?",
+    "answer": 20.0,
+    "unit": "s",
+    "solution": "Only the component across the river matters for the crossing time: $t = \\frac{80}{4.0} = 20\\ \\mathrm{s}$. The current does not change this."
+  },
+  {
+    "id": "kin-rel-05",
+    "name": "Downstream drift",
+    "module": "relative-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "river-crossing"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A boat aimed straight across an $80\\ \\mathrm{m}$ wide river moves at $4.0\\ \\mathrm{m/s}$ relative to the water, and the current is $3.0\\ \\mathrm{m/s}$. How far downstream of its starting point does it land, in m?",
+    "answer": 60.0,
+    "unit": "m",
+    "solution": "The crossing takes $20\\ \\mathrm{s}$, during which the current carries the boat $(3.0)(20) = 60\\ \\mathrm{m}$ downstream."
+  },
+  {
+    "id": "kin-rel-06",
+    "name": "Plane in a crosswind",
+    "module": "relative-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "wind"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A plane's velocity relative to the air is $200\\ \\mathrm{km/h}$ due north, and a $50\\ \\mathrm{km/h}$ wind blows toward the east. What is the plane's ground speed, in km/h?",
+    "answer": 206.16,
+    "unit": "km/h",
+    "solution": "Ground velocity is air velocity plus wind velocity, and these are perpendicular: $\\sqrt{200^2 + 50^2} = 206.16\\ \\mathrm{km/h}$."
+  },
+  {
+    "id": "kin-rel-07",
+    "name": "Rain on a cyclist",
+    "module": "relative-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "rain"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Rain falls vertically at $8.0\\ \\mathrm{m/s}$. A cyclist rides at $6.0\\ \\mathrm{m/s}$ on level ground. At what angle from the vertical does the rain appear to fall, in degrees?",
+    "answer": 36.87,
+    "unit": "deg",
+    "solution": "In the cyclist's frame the rain gains a horizontal component of $6.0\\ \\mathrm{m/s}$ backwards. The tilt is $\\arctan\\frac{6}{8} = 36.87^\\circ$ from the vertical."
+  },
+  {
+    "id": "kin-rel-08",
+    "name": "Trains passing",
+    "module": "relative-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "relative-velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $120\\ \\mathrm{m}$ train moving at $20\\ \\mathrm{m/s}$ passes a $180\\ \\mathrm{m}$ train moving at $25\\ \\mathrm{m/s}$ in the opposite direction. How long do they take to pass each other completely, in s?",
+    "answer": 6.67,
+    "unit": "s",
+    "solution": "Work in the frame of one train: the other approaches at $45\\ \\mathrm{m/s}$ and must cover the sum of the lengths, $300\\ \\mathrm{m}$. So $t = \\frac{300}{45} = 6.67\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-rel-09",
+    "name": "Walking up an escalator",
+    "module": "relative-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "escalator"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $24\\ \\mathrm{m}$ escalator moves at $0.60\\ \\mathrm{m/s}$. A person walks up it at $0.80\\ \\mathrm{m/s}$ relative to the steps. How long does the trip take, in s?",
+    "answer": 17.14,
+    "unit": "s",
+    "solution": "The velocities add: the person moves at $1.4\\ \\mathrm{m/s}$ relative to the ground, so $t = \\frac{24}{1.4} = 17.14\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-rel-10",
+    "name": "Walking against a moving walkway",
+    "module": "relative-motion",
+    "difficulty": "Easy",
+    "tags": [
+      "escalator"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A moving walkway runs at $3.0\\ \\mathrm{m/s}$. A traveller walks along the ground beside it, in the opposite direction to the walkway, at $1.5\\ \\mathrm{m/s}$. How long does he take to walk $30\\ \\mathrm{m}$ along the ground, in s?",
+    "answer": 20.0,
+    "unit": "s",
+    "solution": "His motion is measured relative to the ground, and the walkway is irrelevant: $t = \\frac{30}{1.5} = 20\\ \\mathrm{s}$. Reference frames only matter when the object actually rides the moving surface."
+  },
+  {
+    "id": "kin-rel-11",
+    "name": "Heading to land directly opposite",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "river-crossing"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A boat moves at $5.0\\ \\mathrm{m/s}$ relative to the water and must cross a river with a $3.0\\ \\mathrm{m/s}$ current, landing directly opposite its start. At what angle upstream of the straight-across direction must it be aimed, in degrees?",
+    "answer": 36.87,
+    "unit": "deg",
+    "solution": "The upstream component of the boat's velocity must cancel the current: $5\\sin\\theta = 3$, so $\\theta = \\arcsin 0.6 = 36.87^\\circ$."
+  },
+  {
+    "id": "kin-rel-12",
+    "name": "Time for the straight crossing",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "river-crossing"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A boat moving at $5.0\\ \\mathrm{m/s}$ relative to the water crosses a $100\\ \\mathrm{m}$ wide river with a $3.0\\ \\mathrm{m/s}$ current, aimed so that it lands directly opposite. How long does the crossing take, in s?",
+    "answer": 25.0,
+    "unit": "s",
+    "solution": "After cancelling the current, the across-river component is $\\sqrt{5^2-3^2} = 4.0\\ \\mathrm{m/s}$, so $t = \\frac{100}{4} = 25\\ \\mathrm{s}$ — longer than the $20\\ \\mathrm{s}$ minimum crossing time."
+  },
+  {
+    "id": "kin-rel-13",
+    "name": "Quickest crossing",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "river-crossing",
+      "optimization"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A river $120\\ \\mathrm{m}$ wide flows at $1.5\\ \\mathrm{m/s}$. A boat can do $2.5\\ \\mathrm{m/s}$ relative to the water. What is the shortest possible time to reach the far bank, in s?",
+    "answer": 48.0,
+    "unit": "s",
+    "solution": "The crossing time depends only on the across-river velocity component, which is largest when the boat is aimed straight across. Then $t = \\frac{120}{2.5} = 48\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-rel-14",
+    "name": "Drift on the quickest crossing",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "river-crossing"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A river $120\\ \\mathrm{m}$ wide flows at $1.5\\ \\mathrm{m/s}$. A boat capable of $2.5\\ \\mathrm{m/s}$ relative to the water is aimed straight across for the quickest crossing. How far downstream does it land, in m?",
+    "answer": 72.0,
+    "unit": "m",
+    "solution": "The crossing takes $48\\ \\mathrm{s}$ and the current carries the boat $(1.5)(48) = 72\\ \\mathrm{m}$ downstream."
+  },
+  {
+    "id": "kin-rel-15",
+    "name": "Perpendicular approach",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "relative-velocity",
+      "2d"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Car A travels east at $15\\ \\mathrm{m/s}$ and car B travels north at $20\\ \\mathrm{m/s}$. What is the speed of B relative to A, in m/s?",
+    "answer": 25.0,
+    "unit": "m/s",
+    "solution": "$\\vec v_{B/A} = \\vec v_B - \\vec v_A = (-15, 20)\\ \\mathrm{m/s}$, whose magnitude is $\\sqrt{225+400} = 25\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-rel-16",
+    "name": "Equal speeds, 60 degrees apart",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "relative-velocity",
+      "2d"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Car A moves due east at $20\\ \\mathrm{m/s}$ and car B moves at $20\\ \\mathrm{m/s}$ in a direction $60^\\circ$ north of east. What is the speed of B relative to A, in m/s?",
+    "answer": 20.0,
+    "unit": "m/s",
+    "solution": "For two equal speeds $v$ separated by angle $\\phi$, the relative speed is $2v\\sin(\\phi/2) = 2(20)\\sin 30^\\circ = 20\\ \\mathrm{m/s}$. The velocity triangle is equilateral."
+  },
+  {
+    "id": "kin-rel-17",
+    "name": "Tilting an umbrella",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "rain"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Rain falls vertically at $10\\ \\mathrm{m/s}$ while a man walks at $4.0\\ \\mathrm{m/s}$. At what angle from the vertical should he tilt his umbrella, in degrees?",
+    "answer": 21.8,
+    "unit": "deg",
+    "solution": "He must point the umbrella along the rain's velocity in his own frame, which is tilted forward by $\\arctan\\frac{4}{10} = 21.80^\\circ$ from the vertical."
+  },
+  {
+    "id": "kin-rel-18",
+    "name": "Rain seen from a train",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "rain",
+      "inverse"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "To a passenger on a train moving at $25\\ \\mathrm{m/s}$, vertically falling rain appears to come down at $30^\\circ$ from the vertical. What is the rain's actual (vertical) speed, in m/s?",
+    "answer": 43.3,
+    "unit": "m/s",
+    "solution": "In the train's frame the rain has a horizontal component of $25\\ \\mathrm{m/s}$ and the true vertical component $v_y$, with $\\tan 30^\\circ = \\frac{25}{v_y}$. So $v_y = \\frac{25}{0.5774} = 43.30\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-rel-19",
+    "name": "Two ships separating",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "relative-velocity",
+      "2d"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two ships leave the same harbour at the same moment: one sails due north at $12\\ \\mathrm{km/h}$, the other due east at $16\\ \\mathrm{km/h}$. How far apart are they after $2.0\\ \\mathrm{h}$, in km?",
+    "answer": 40.0,
+    "unit": "km",
+    "solution": "The relative speed is $\\sqrt{12^2+16^2} = 20\\ \\mathrm{km/h}$ and it is constant, so after $2.0\\ \\mathrm{h}$ the separation is $40\\ \\mathrm{km}$."
+  },
+  {
+    "id": "kin-rel-20",
+    "name": "Flight time with a crosswind",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "wind"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A plane with airspeed $250\\ \\mathrm{km/h}$ must fly $500\\ \\mathrm{km}$ due north through a $60\\ \\mathrm{km/h}$ wind blowing toward the east. How long does the trip take, in h?",
+    "answer": 2.06,
+    "unit": "h",
+    "solution": "The pilot must head west of north so that the westward component cancels the wind, leaving a northward ground speed of $\\sqrt{250^2 - 60^2} = 242.7\\ \\mathrm{km/h}$. The trip takes $\\frac{500}{242.7} = 2.06\\ \\mathrm{h}$."
+  },
+  {
+    "id": "kin-rel-21",
+    "name": "Speed of the current",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "river-crossing",
+      "inverse"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A motorboat covers $12\\ \\mathrm{km}$ downstream in $40\\ \\mathrm{min}$ and the same $12\\ \\mathrm{km}$ upstream in $60\\ \\mathrm{min}$. What is the speed of the current, in km/h?",
+    "answer": 3.0,
+    "unit": "km/h",
+    "solution": "Downstream the ground speed is $18\\ \\mathrm{km/h}$ and upstream $12\\ \\mathrm{km/h}$. These are $v_b + v_c$ and $v_b - v_c$, so $v_c = \\frac{18-12}{2} = 3.0\\ \\mathrm{km/h}$."
+  },
+  {
+    "id": "kin-rel-22",
+    "name": "Walking and riding together",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "escalator"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A person walking up a stationary escalator takes $30\\ \\mathrm{s}$. Standing still on the moving escalator takes $45\\ \\mathrm{s}$. How long does it take if he walks up the moving escalator, in s?",
+    "answer": 18.0,
+    "unit": "s",
+    "solution": "Speeds add, so the rates add: $\\frac{1}{t} = \\frac{1}{30} + \\frac{1}{45} = \\frac{1}{18}$, giving $t = 18\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-rel-23",
+    "name": "Least possible drift",
+    "module": "relative-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "river-crossing",
+      "optimization"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A swimmer manages $1.20\\ \\mathrm{m/s}$ relative to the water in a river $60\\ \\mathrm{m}$ wide flowing at $1.60\\ \\mathrm{m/s}$. Since he cannot land directly opposite, what is the smallest downstream drift he can achieve, in m?",
+    "answer": 52.92,
+    "unit": "m",
+    "solution": "With $v_s < v_r$ the drift is minimised at a heading where the drift-to-width ratio is smallest; optimising gives minimum drift $\\frac{d\\sqrt{v_r^2 - v_s^2}}{v_s}$. Here that is $\\frac{60\\sqrt{2.56-1.44}}{1.20} = 52.92\\ \\mathrm{m}$."
+  },
+  {
+    "id": "kin-rel-24",
+    "name": "Closest approach of two ships",
+    "module": "relative-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "closest-approach"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Ship A sails due east at $15\\ \\mathrm{km/h}$. At that instant ship B is $20\\ \\mathrm{km}$ due north of A and sailing due south at $25\\ \\mathrm{km/h}$. What is their minimum separation, in km?",
+    "answer": 10.29,
+    "unit": "km",
+    "solution": "In A's frame, B starts at $(0, 20)\\ \\mathrm{km}$ with constant relative velocity $(-15, -25)\\ \\mathrm{km/h}$, so it moves in a straight line. The closest approach is the perpendicular distance from the origin to that line: $\\frac{|x_0 v_y - y_0 v_x|}{|\\vec v|} = \\frac{300}{29.15} = 10.29\\ \\mathrm{km}$."
+  },
+  {
+    "id": "kin-rel-25",
+    "name": "Time of closest approach",
+    "module": "relative-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "closest-approach"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Ship A sails due east at $15\\ \\mathrm{km/h}$. At that instant ship B is $20\\ \\mathrm{km}$ due north of A and sailing due south at $25\\ \\mathrm{km/h}$. How long until they are closest together, in h?",
+    "answer": 0.59,
+    "unit": "h",
+    "solution": "With relative position $\\vec r_0 = (0,20)$ and relative velocity $\\vec v = (-15,-25)$, the separation is minimised at $t = -\\frac{\\vec r_0 \\cdot \\vec v}{|\\vec v|^2} = \\frac{500}{850} = 0.588\\ \\mathrm{h}$, about $35\\ \\mathrm{min}$."
+  },
+  {
+    "id": "kin-rel-26",
+    "name": "Landing at a chosen point downstream",
+    "module": "relative-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "river-crossing"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A river $200\\ \\mathrm{m}$ wide flows at $2.0\\ \\mathrm{m/s}$. A boat capable of $3.0\\ \\mathrm{m/s}$ relative to the water must land at a point $50\\ \\mathrm{m}$ downstream of the point directly opposite its start. How long does the crossing take, in s?",
+    "answer": 74.34,
+    "unit": "s",
+    "solution": "Let $b_x$ be the across-river and $b_y$ the downstream component of the boat's water-frame velocity, with $b_x^2 + b_y^2 = 9$. The landing condition $\\frac{2 + b_y}{b_x} = \\frac{50}{200}$ gives $b_y = 0.25b_x - 2$. Substituting yields $1.0625b_x^2 - b_x - 5 = 0$, so $b_x = 2.690\\ \\mathrm{m/s}$ and $t = \\frac{200}{2.690} = 74.3\\ \\mathrm{s}$."
+  },
+  {
+    "id": "kin-rel-27",
+    "name": "Deducing the rain's velocity",
+    "module": "relative-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "rain",
+      "inverse"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A man walking east at $3.0\\ \\mathrm{m/s}$ finds that the rain appears to fall exactly vertically. When he speeds up to $6.0\\ \\mathrm{m/s}$ east, it appears to come from ahead at $30^\\circ$ from the vertical. What is the rain's actual speed relative to the ground, in m/s?",
+    "answer": 6.0,
+    "unit": "m/s",
+    "solution": "Rain appearing vertical at $3.0\\ \\mathrm{m/s}$ means the rain has a $3.0\\ \\mathrm{m/s}$ eastward component. At $6.0\\ \\mathrm{m/s}$ the apparent horizontal component is $3.0\\ \\mathrm{m/s}$ backwards, so $\\tan 30^\\circ = \\frac{3.0}{v_y}$, giving $v_y = 5.196\\ \\mathrm{m/s}$. The true speed is $\\sqrt{9 + 27} = 6.0\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "kin-rel-28",
+    "name": "Meeting in free fall",
+    "module": "relative-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "free-fall",
+      "relative-velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is thrown straight up from the ground at $20\\ \\mathrm{m/s}$ at the same instant a second ball is dropped from rest $50\\ \\mathrm{m}$ directly above it. How long until they meet, in s?",
+    "answer": 2.5,
+    "unit": "s",
+    "solution": "Both have the same acceleration $g$ downward, so in the frame of either ball the other moves at a constant relative speed of $20\\ \\mathrm{m/s}$ with no relative acceleration. They meet after $t = \\frac{50}{20} = 2.5\\ \\mathrm{s}$, both then at $19.4\\ \\mathrm{m}$ above the ground."
+  },
+  {
+    "id": "kin-rel-29",
+    "name": "Four ants on a square",
+    "module": "relative-motion",
+    "difficulty": "Very Hard",
+    "tags": [
+      "pursuit"
+    ],
+    "starred": true,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Four ants start at the corners of a square of side $1.50\\ \\mathrm{m}$. Each crawls at a constant $0.020\\ \\mathrm{m/s}$ always aimed directly at the ant counterclockwise from it. How long until they meet at the centre, in s?",
+    "answer": 75.0,
+    "unit": "s",
+    "solution": "By symmetry each ant's target moves perpendicular to the line joining them, so that motion never changes the separation. The gap between adjacent ants therefore closes at the full rate $v$, and the time is $\\frac{a}{v} = \\frac{1.50}{0.020} = 75\\ \\mathrm{s}$, even though the paths are spirals."
+  },
+  {
+    "id": "kin-rel-30",
+    "name": "Cars on intersecting roads",
+    "module": "relative-motion",
+    "difficulty": "Very Hard",
+    "tags": [
+      "closest-approach"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two straight roads cross at $60^\\circ$. Car A is $400\\ \\mathrm{m}$ from the junction moving toward it at $20\\ \\mathrm{m/s}$; car B is $300\\ \\mathrm{m}$ from the junction on the other road, also moving toward it, at $12\\ \\mathrm{m/s}$. What is their minimum separation, in m?",
+    "answer": 59.6,
+    "unit": "m",
+    "solution": "Measure each car by its signed distance to the junction, $a = 400-20t$ and $b = 300-12t$. The law of cosines gives $s^2 = a^2 + b^2 - 2ab\\cos 60^\\circ = a^2 + b^2 - ab$, which stays valid even after a car passes the junction and its coordinate goes negative. Setting $\\frac{d(s^2)}{dt} = -28a - 4b = 0$ gives $12400 - 608t = 0$, so $t = 20.4\\ \\mathrm{s}$, at which point $a = -7.9\\ \\mathrm{m}$ and $b = 55.3\\ \\mathrm{m}$. Substituting gives $s = 59.6\\ \\mathrm{m}$."
+  }
+]

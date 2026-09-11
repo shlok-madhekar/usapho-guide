@@ -63,3 +63,115 @@ quickly in pairs and then decay slowly.
   answer={2}
   explanation="Strangeness is conserved by the strong and electromagnetic interactions but can change by one unit in weak decays. The other three hold in every known process."
 />
+const questions = [
+  {
+    question: "Which of the following particle decay reactions is allowed by all conservation laws?",
+    options: [
+      "p → e⁺ + π⁰",
+      "μ⁻ → e⁻ + γ",
+      "π⁻ → μ⁻ + ν̄_μ",
+      "n → p + e⁻ + ν_e"
+    ],
+    answer: 2,
+    explanation: "π⁻ → μ⁻ + ν̄_μ conserves Charge (-1), Baryon number (0), and Muon Lepton number (L_μ = +1 - 1 = 0). Option A violates Baryon number; Option B violates Lepton numbers; Option D emits a neutrino instead of an antineutrino, violating Electron Lepton number."
+  },
+  {
+    question: "The Ω⁻ particle is a baryon with electric charge -1 and strangeness S = -3. What is its quark composition?",
+    options: [
+      "sss",
+      "uss",
+      "dss",
+      "dds"
+    ],
+    answer: 0,
+    explanation: "Each strange quark (s) has charge -1/3, baryon number +1/3, and strangeness S = -1. Three strange quarks (sss) give total charge -1, baryon number +1, and strangeness S = -3."
+  },
+  {
+    question: "Consider the strong interaction: π⁻ + p → K⁺ + X. What are the quantum numbers (B, S, Q) of the unknown particle X?",
+    options: [
+      "B = 0, S = -1, Q = -1",
+      "B = 1, S = -1, Q = 0",
+      "B = 1, S = +1, Q = 0",
+      "B = 0, S = +1, Q = -1"
+    ],
+    answer: 1,
+    explanation: "Before reaction: B = 1, S = 0, Q = 0. K⁺ is a meson (B=0, Q=+1, S=+1). To balance, particle X must have B = 1, S = -1, and Q = 0 (which corresponds to a Σ⁰ or Λ⁰ hyperon)."
+  },
+  {
+    question: "Why is the weak interaction significantly slower (longer lifetime) than the strong interaction at energy scales well below 100 GeV?",
+    options: [
+      "The weak interaction acts over an infinite range.",
+      "The W and Z bosons are extremely massive, suppressing the low-energy interaction rate.",
+      "Weak interactions do not conserve momentum.",
+      "Neutrinos have zero electric charge."
+    ],
+    answer: 1,
+    explanation: "The W and Z bosons have large rest masses (~80–91 GeV/c²). At energies far below this scale, the heavy mediator propagator introduces a severe suppression factor in the matrix element, making the decay rate very small."
+  },
+  {
+    question: "What is the electric charge of an antiprotons (ūūd̄)?",
+    options: [
+      "+1",
+      "0",
+      "-1/3",
+      "-1"
+    ],
+    answer: 3,
+    explanation: "An anti-up quark (ū) has charge -2/3 and an anti-down quark (d̄) has charge +1/3. Total charge = (-2/3) + (-2/3) + (+1/3) = -1."
+  },
+  {
+    question: "Which conserved quantity can be violated in a weak interaction, but is strictly conserved in both strong and electromagnetic interactions?",
+    options: [
+      "Baryon number (B)",
+      "Electron lepton number (L_e)",
+      "Strangeness (S)",
+      "Electric charge (Q)"
+    ],
+    answer: 2,
+    explanation: "Strangeness (S) can change by ΔS = ±1 in weak interaction processes, whereas strong and electromagnetic forces strictly conserve strangeness."
+  },
+  {
+    question: "A free neutron decays via n → p + e⁻ + ν̄_e. Why cannot a free proton decay via p → n + e⁺ + ν_e in isolation?",
+    options: [
+      "It violates electron lepton number L_e.",
+      "It violates baryon number B.",
+      "The rest mass of the proton is less than the combined rest mass of the products.",
+      "The weak force does not act on protons."
+    ],
+    answer: 2,
+    explanation: "The proton mass (~938.27 MeV/c²) is less than the mass of a neutron (~939.57 MeV/c²) plus a positron (~0.511 MeV/c²). Energy conservation prevents a free particle from decaying into heavier products."
+  },
+  {
+    question: "Which of the following particles does NOT experience the strong force?",
+    options: [
+      "Positive pion (π⁺)",
+      "Top quark (t)",
+      "Muon (μ⁻)",
+      "Proton (p)"
+    ],
+    answer: 2,
+    explanation: "The muon is a lepton. Leptons carry no colour charge and do not participate in strong interactions."
+  },
+  {
+    question: "In the decay of a stationary muon at rest (μ⁻ → e⁻ + ν̄_e + ν_μ), what is the maximum possible kinetic energy of the emitted electron (neglecting m_e)?",
+    options: [
+      "(1/2) m_μ c²",
+      "m_μ c²",
+      "(1/3) m_μ c²",
+      "(1/4) m_μ c²"
+    ],
+    answer: 0,
+    explanation: "The maximum energy configuration occurs when both neutrinos travel in parallel in one direction and the electron recoils in the exact opposite direction, giving the electron half of the available mass-energy: E_max ≈ (1/2) m_μ c²."
+  },
+  {
+    question: "A particle X decays via the strong interaction into two pions: X → π⁺ + π⁻. Which of the following statements about X must be true?",
+    options: [
+      "X must be a baryon with B = 1.",
+      "X must be a meson with B = 0 and charge Q = 0.",
+      "X must contain at least one top quark.",
+      "X must have a lifetime on the order of 10⁻⁸ s."
+    ],
+    answer: 1,
+    explanation: "Pions are mesons (B = 0). Since baryon number and electric charge are strictly conserved, X must have B = 0 and net charge Q = (+1) + (-1) = 0."
+  }
+];

@@ -37,7 +37,7 @@
   --bad-bg: #f8eeee;
   --selection: #f0e3c2;
 
-  --measure: 34rem;
+  --measure: 40rem;
 }
 
 [data-theme="dark"] {
@@ -86,7 +86,7 @@ body {
   color: var(--ink);
   font-family: var(--serif);
   font-size: 18px;
-  line-height: 1.62;
+  line-height: 1.72;
   font-feature-settings: "kern", "liga", "onum";
   -webkit-font-smoothing: antialiased;
 }

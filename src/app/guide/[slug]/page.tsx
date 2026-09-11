@@ -30,10 +30,10 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
   return (
     <>
       <Nav />
-      <div className="mx-auto flex max-w-6xl gap-12 px-6">
+      <div className="mx-auto flex max-w-[62rem] gap-12 px-6">
         <ModuleSidebar activeSlug={mod.slug} divisionId={division.id} />
 
-        <main className="min-w-0 flex-1 pb-24 pt-10">
+        <main className="min-w-0 max-w-[var(--measure)] flex-1 pb-24 pt-10">
           <p className="label">
             <Link href="/guide" className="hover:text-[var(--ink)]">
               {division.name}

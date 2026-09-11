@@ -30,7 +30,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
   return (
     <>
       <Nav />
-      <div className="mx-auto flex max-w-[62rem] gap-12 px-6">
+      <div className="mx-auto flex max-w-[calc(var(--measure)_+_22rem)] gap-12 px-6">
         <ModuleSidebar activeSlug={mod.slug} divisionId={division.id} />
 
         <main className="min-w-0 max-w-[var(--measure)] flex-1 pb-24 pt-10">
@@ -43,7 +43,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
           </p>
 
           <div className="mt-3 flex items-start justify-between gap-6">
-            <h1 className="max-w-[30rem] text-[2.1rem] font-semibold leading-[1.15] tracking-tight text-[var(--ink-strong)]">
+            <h1 className="max-w-[19ch] text-[clamp(1.7rem,1.15rem+1.7vw,2.6rem)] font-semibold leading-[1.12] tracking-tight text-[var(--ink-strong)]">
               {mod.title}
             </h1>
             <div className="pt-2">

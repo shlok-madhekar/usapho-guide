@@ -37,7 +37,6 @@
   --bad-bg: #f8eeee;
   --selection: #f0e3c2;
 
-  --measure: 40rem;
 }
 
 [data-theme="dark"] {
@@ -85,8 +84,16 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 18px;
+
+  /*
+   * Type scales with the display instead of sitting at one size. A fixed 18px
+   * gave 36 characters a line on a phone (far too narrow) and left the column
+   * looking lost on a 2560px monitor. The measure is in ch, so the column
+   * tracks the type and the line length stays near 66 characters everywhere.
+   */
+  font-size: clamp(1.015rem, 0.94rem + 0.32vw, 1.3rem);
   line-height: 1.72;
+  --measure: 66ch;
   font-feature-settings: "kern", "liga", "onum";
   -webkit-font-smoothing: antialiased;
 }
@@ -135,7 +142,7 @@ a { color: inherit; }
 /* a heading belongs to the text under it: lots of air above, little below */
 .prose h2 {
   font-family: var(--serif);
-  font-size: 1.45rem;
+  font-size: 1.42em;
   font-weight: 600;
   line-height: 1.25;
   color: var(--ink-strong);
@@ -143,7 +150,7 @@ a { color: inherit; }
   margin-bottom: 0;
 }
 .prose h3 {
-  font-size: 1.12rem;
+  font-size: 1.1em;
   font-weight: 600;
   color: var(--ink-strong);
   margin-top: 2.1em;
@@ -202,7 +209,7 @@ a { color: inherit; }
 }
 .figure-caption {
   font-family: var(--sans);
-  font-size: 0.78rem;
+  font-size: 0.8em;
   color: var(--ink-soft);
   margin-top: 0.75em;
   line-height: 1.5;

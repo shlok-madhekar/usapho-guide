@@ -1,51 +1,16 @@
 import simsData from "@/content/sims.json";
+import type { SimDef } from "@/lib/sim-types";
 
 /**
- * Simulations are data, not components, so they can be written and previewed
- * in the editor and shipped through a pull request like any other content.
- *
- * A sim declares its sliders and a `draw` body. The body is plain JavaScript
- * run once per animation frame with a small, documented set of locals. It is
- * repository content: it reaches readers only after a maintainer merges the
- * pull request that introduced it, the same trust boundary as any other code
- * in the repo.
+ * The whole catalogue. Only the editor should import this: it pulls every
+ * simulation's draw code into the bundle. Lesson pages fetch the one sim they
+ * need from /sims/<id>.json instead.
  */
-
-export interface SimParam {
-  key: string;
-  label: string;
-  unit: string;
-  min: number;
-  max: number;
-  step: number;
-  value: number;
-}
-
-export interface SimDef {
-  id: string;
-  title: string;
-  /** shown under the canvas when used inside a <Figure> */
-  caption: string;
-  height: number;
-  params: SimParam[];
-  /**
-   * Body of the per-frame draw function. Receives:
-   *   ctx  canvas 2d context, already scaled for device pixel ratio
-   *   p    current slider values, keyed by param key
-   *   t    seconds since the sim started
-   *   W,H  canvas size in CSS pixels
-   *   C    theme colours: ink, rule, accent, figure, faint, paper
-   *   out  set out.note = "..." to show a readout above the canvas
-   */
-  draw: string;
-}
+export * from "@/lib/sim-types";
 
 export const SIMS: SimDef[] = simsData as SimDef[];
 
 export const findSim = (id: string) => SIMS.find((s) => s.id === id);
-
-export const paramValues = (params: SimParam[]): Record<string, number> =>
-  Object.fromEntries(params.map((p) => [p.key, p.value]));
 
 export const SIM_TEMPLATE = `// Draw one frame. See the reference below the editor.
 const cx = W / 2, cy = H / 2;

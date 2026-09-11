@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { SimDef, findSim, paramValues } from "@/lib/sims";
+import { SimDef, paramValues } from "@/lib/sim-types";
 
 /** Theme colours handed to a sim's draw body. */
 function simColors() {
@@ -171,20 +171,42 @@ export function SimRunner({
   );
 }
 
-/** Used in lessons: <Sim id="projectile" /> */
+/**
+ * Used in lessons: <Sim id="projectile" />
+ *
+ * The definition is fetched rather than imported. Bundling the catalogue put
+ * all 267 simulations into every lesson page just to draw two or three of them.
+ */
 export default function Sim({ id }: { id: string }) {
-  const def = findSim(id);
-  const [values, setValues] = useState<Record<string, number>>(() =>
-    def ? paramValues(def.params) : {}
-  );
+  const [def, setDef] = useState<SimDef | null>(null);
+  const [values, setValues] = useState<Record<string, number>>({});
+  const [missing, setMissing] = useState(false);
 
-  if (!def)
+  useEffect(() => {
+    let live = true;
+    fetch(`/sims/${id}.json`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("not found"))))
+      .then((d: SimDef) => {
+        if (!live) return;
+        setDef(d);
+        setValues(paramValues(d.params));
+      })
+      .catch(() => live && setMissing(true));
+    return () => {
+      live = false;
+    };
+  }, [id]);
+
+  if (missing)
     return (
       <p className="aside warn text-sm">
         <span className="aside-label">Missing simulation</span>
         No simulation with the id <code>{id}</code>.
       </p>
     );
+
+  // reserve the height so the figure does not jump when the definition lands
+  if (!def) return <div style={{ height: 240 }} aria-hidden />;
 
   return <SimRunner def={def} values={values} onValues={setValues} />;
 }

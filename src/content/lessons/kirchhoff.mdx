@@ -1,52 +1,312 @@
-## Two rules, then bookkeeping
+## When series and parallel run out
 
-Kirchhoff's laws are conservation statements. Charge does not pile up at a
-junction, and energy is single-valued around a loop.
+In the [last lesson](/guide/current-resistance) you took networks apart by
+eye. Two resistors end to end add. Two side by side combine as reciprocals.
+Keep collapsing pairs and eventually the whole box becomes one resistor, and
+Ohm's law finishes the job.
 
-$$\sum I_{in} = \sum I_{out}, \qquad \sum \Delta V_{loop} = 0$$
+Now picture five resistors wired like a ladder with one rung: a source feeds
+node S, two resistors run from S down to two middle nodes A and B, two more run
+from A and B down to ground, and a fifth resistor bridges A straight across to
+B. Look for a series pair. There isn't one — every resistor has a third wire
+landing on one of its ends. Look for a parallel pair. There isn't one of those
+either. The network is perfectly ordinary and it cannot be simplified by
+inspection at all.
 
-Everything else about resistive circuits is applying those two carefully.
-Series resistors add; parallel conductances add:
+That is the situation Kirchhoff's two rules exist for. They never fail and
+they turn any circuit at all into simultaneous equations you can grind
+through. The cost is bookkeeping, and bookkeeping is where nearly all the
+marks get lost.
 
-$$R_{series} = R_1 + R_2, \qquad \frac{1}{R_{parallel}} = \frac{1}{R_1} + \frac{1}{R_2}$$
+## Charge does not pile up: the junction rule
 
-## Symmetry, before algebra
+Take any point where wires meet — call it a junction, or a node. Charge is
+conserved, and a wire junction is a tiny piece of metal with essentially no
+capacity to store charge. If more charge arrived per second than left, the node
+would build up charge without limit, and its potential would climb without
+limit. That doesn't happen in a steady circuit. So over any second, whatever
+flows in flows back out:
 
-Olympiad circuits are usually designed so that brute-force loop equations are
-unpleasant and symmetry is quick. If two nodes are at the same potential, no
-current flows between them: you can merge them or delete the connecting
-element without changing anything.
+$$\sum I_{\text{in}} = \sum I_{\text{out}}$$
 
-The resistor cube is the standard example. Entering at one corner, current
-splits three ways, then six, then three, giving $\tfrac56 R$ between opposite
-corners without solving a single simultaneous equation.
+This is the junction rule, and it is nothing but conservation of charge in a
+steady state. If $2.50\ \mathrm{A}$ comes into a node on one wire and
+$0.80\ \mathrm{A}$ leaves on a second, the third wire carries
+$2.50 - 0.80 = 1.70\ \mathrm{A}$ away. Four wires, five wires, the same
+sentence applies.
 
-Infinite ladders use the other trick: the network beyond the first stage is
-identical to the whole, so setting $R_{total}$ equal to that self-similar
-expression gives a solvable equation.
+A more compact version: pick a sign convention where current *into* the node
+counts as positive, and then $\sum I = 0$ at every node. You will use that form
+in a moment.
 
-## Capacitors and time
-
-A capacitor stores charge, $Q = CV$, and energy $U = \tfrac12 CV^2$. In an RC
-circuit the charging is exponential with time constant $\tau = RC$:
-
-$$V(t) = V_0\left(1 - e^{-t/RC}\right)$$
-
-Two limits are usually all you need. Immediately after a switch closes, an
-uncharged capacitor behaves like a wire. Long afterward, it behaves like a
-break in the circuit. Sketching those two states answers most transient
-questions before any exponential is written down.
-
-<Aside label="Where this goes wrong" warn>
-  Sign errors, almost every time. Fix a direction for each loop before you
-  start and keep it, even when a current comes out negative: a negative answer
-  simply means the current runs the other way, and it is still correct. Going
-  back and flipping signs mid-solution is what actually loses the marks.
+<Aside label="Worth remembering">
+  The junction rule is the reason a single unbranched loop has one current
+  everywhere in it. There is nowhere for the current to change. A
+  $10\ \Omega$ and a $30\ \Omega$ resistor in series carry exactly the same
+  amperes, and it is the voltage across them that differs.
 </Aside>
 
+## Potential is single-valued: the loop rule
+
+Every point in a circuit has a potential, a number of volts, the way every
+point on a hillside has an altitude. Walk any closed path on a hillside and you
+end where you started, so the altitude changes must cancel. The same is true of
+potential:
+
+$$\sum_{\text{closed loop}} \Delta V = 0$$
+
+That is the loop rule. It is conservation of energy per unit charge: carry one
+coulomb all the way round and back to its starting point, and it must have the
+energy it started with.
+
+Now the bookkeeping. You walk round the loop in a direction you choose, and
+every component you pass contributes one term.
+
+A resistor carrying current $I$ has a potential drop $IR$ across it, with the
+current flowing from the high side to the low side. So if you walk *along* the
+current through a resistor you are walking downhill, and the term is $-IR$. If
+you walk *against* the current you are climbing, and the term is $+IR$.
+
+A battery of emf $\mathcal{E}$ holds its positive plate $\mathcal{E}$ volts
+above its negative plate, no matter which way the current runs through it. Walk
+in at the minus plate and out at the plus plate and you have climbed, so the
+term is $+\mathcal{E}$. Walk in at the plus and out at the minus and the term
+is $-\mathcal{E}$. Notice that this has nothing to do with the current
+direction — only with which plate you meet first.
+
+<Figure caption={<><b>Figure 1.</b> The only four terms that ever appear in a loop equation. The blue arrow is the direction you chose to walk. For the resistors, the sign depends on the current; for the batteries it depends on which plate you meet first.</>}>
+  <Sim id="kirchhoff-signs" />
+</Figure>
+
+Those four cases are the whole of it. Write them down once, and every loop
+equation you ever write is an exercise in reading a diagram carefully.
+
+Here is the rule in action on the simplest circuit that needs it: two batteries
+in one loop, pointing against each other, with total resistance $R$. Walk
+clockwise, taking $I$ clockwise too. You meet $\mathcal{E}_1$ minus-plate
+first, so $+\mathcal{E}_1$. You meet the resistor along the current, so $-IR$.
+You meet $\mathcal{E}_2$ plus-plate first, so $-\mathcal{E}_2$. Setting the sum
+to zero,
+
+$$\mathcal{E}_1 - IR - \mathcal{E}_2 = 0 \quad\Longrightarrow\quad I = \frac{\mathcal{E}_1 - \mathcal{E}_2}{R}$$
+
+<Figure caption={<><b>Figure 2.</b> Drag the second emf above the first and watch the readout go negative. The dots reverse. A negative current is not a mistake, it means the real flow is opposite to the arrow you drew.</>}>
+  <Sim id="kirchhoff-loop-lab" />
+</Figure>
+
 <QuickCheck
-  question="Long after a switch closes in an RC circuit, the current through the capacitor branch is:"
-  options={["At its maximum", "Zero", "Half its initial value", "Unchanged from t = 0"]}
-  answer={1}
-  explanation="A fully charged capacitor opposes any further charge flow, so it acts as an open circuit and its branch current goes to zero. At t = 0 the opposite holds: the uncharged capacitor acts like a plain wire."
+  question="You walk round a loop against the direction you assigned to a current I, passing a resistor R. What term goes into the loop equation?"
+  options={["Plus I times R", "Minus I times R", "Zero, since the direction was only a guess", "Plus I times R only if I turns out positive"]}
+  answer={0}
+  explanation="Walking against the current means walking from the low-potential side to the high side, so the potential rises by IR and the term is +IR. Whether I later comes out negative does not matter; the algebra handles that on its own."
 />
+
+## Real batteries, and what a voltmeter reads
+
+A battery is not a pure emf. It has some resistance inside it, called the
+internal resistance $r$, and the current has to fight through that too. What
+you can measure at the two terminals is the terminal voltage:
+
+$$V_{\text{term}} = \mathcal{E} - Ir$$
+
+when current $I$ is flowing out of the positive terminal. A $9.00\ \mathrm{V}$
+battery with $r = 1.00\ \Omega$ delivering $1.50\ \mathrm{A}$ reads
+$9.00 - 1.50 \times 1.00 = 7.50\ \mathrm{V}$ at its posts. Push current
+*backwards* through it instead, as a charger does, and $I$ flips sign: forcing
+$5.00\ \mathrm{A}$ into a $12.0\ \mathrm{V}$, $0.400\ \Omega$ battery gives
+$12.0 + 5.00 \times 0.400 = 14.0\ \mathrm{V}$. That is why a car's electrics
+sit near $14\ \mathrm{V}$ with the engine running and near $12\ \mathrm{V}$
+without.
+
+For Kirchhoff purposes you treat the internal resistance as a plain resistor in
+series with an ideal emf, and it joins the loop equation like any other
+resistor.
+
+**Worked example 1.** A $6.00\ \mathrm{V}$ cell of internal resistance
+$1.00\ \Omega$ and a $4.50\ \mathrm{V}$ cell of internal resistance
+$0.500\ \Omega$ are wired in one loop with a $3.00\ \Omega$ resistor, the cells
+opposing.
+
+One loop, so one current. Call it $I$, clockwise, in the direction the bigger
+cell pushes. Walking clockwise you meet the $6.00\ \mathrm{V}$ cell minus-first
+($+6.00$), its own internal resistance along the current ($-1.00I$), the
+$3.00\ \Omega$ resistor along the current ($-3.00I$), the $4.50\ \mathrm{V}$
+cell plus-first ($-4.50$), and its internal resistance ($-0.500I$):
+
+$$6.00 - 1.00I - 3.00I - 4.50 - 0.500I = 0$$
+
+$$1.50 = 4.50\,I \quad\Longrightarrow\quad I = 0.333\ \mathrm{A}$$
+
+The total resistance was just the sum of all three, and the net driving emf was
+the difference of the two. That pattern — net emf over total resistance — is
+what a single loop always collapses to.
+
+<Aside label="Where this goes wrong" warn>
+  Never redraw an arrow mid-solution. The temptation, when a current comes out
+  negative, is to go back, flip the arrow, and redo the equations. Don't. The
+  sign is the answer telling you the direction, and every other quantity you
+  computed with that $I$ is already consistent with it. Flipping one arrow and
+  not the others is the single most common way to turn a correct setup into a
+  wrong number.
+</Aside>
+
+## Node voltages: one unknown per node, not one per branch
+
+For circuits with several loops, you could assign a current to every branch and
+write a junction equation for each node and a loop equation for each loop. It
+works, and it is a lot of unknowns.
+
+There is a cheaper route. Currents in a circuit are determined by potentials,
+so make the *potentials* your unknowns. Pick one node, call its potential zero,
+and call it ground. Every other node gets an unknown potential. Then the
+current from node X to node Y through a resistor $R$ is just
+$(V_X - V_Y)/R$ by Ohm's law, and you write the junction rule at each unknown
+node with every current expressed that way. Nodes held at a fixed potential by
+an ideal source are not unknowns at all: you already know them.
+
+This is worth the effort the moment there are more branches than nodes, which
+is most interesting circuits.
+
+**Worked example 2.** Two batteries in parallel across one load. Battery 1 is
+$12.00\ \mathrm{V}$ with $r_1 = 0.200\ \Omega$; battery 2 is
+$12.60\ \mathrm{V}$ with $r_2 = 0.300\ \Omega$. Both positive terminals meet at
+node A, both negative terminals at node B, and a $1.50\ \Omega$ load also joins
+A to B. What current flows in the load?
+
+Set $V_B = 0$ and let $V_A = V$, the only unknown. Current out of battery 1
+into node A is $(12.00 - V)/0.200$, because the ideal emf holds the far end of
+$r_1$ at $12.00\ \mathrm{V}$. Likewise battery 2 supplies
+$(12.60 - V)/0.300$. The load carries $V/1.50$ away. Junction rule at A:
+
+$$\frac{12.00 - V}{0.200} + \frac{12.60 - V}{0.300} = \frac{V}{1.50}$$
+
+Multiply everything by $1.50$ to clear the denominators:
+$7.50(12.00 - V) + 5.00(12.60 - V) = V$, so
+$90.0 - 7.50V + 63.0 - 5.00V = V$, giving $153.0 = 13.50V$ and
+$V = 11.333\ \mathrm{V}$. The load current is
+
+$$I_{\text{load}} = \frac{11.333}{1.50} = 7.56\ \mathrm{A}$$
+
+One equation, one unknown, no loops drawn at all. Check the branches if you
+like: battery 1 gives $(12.00-11.333)/0.200 = 3.33\ \mathrm{A}$ and battery 2
+gives $(12.60-11.333)/0.300 = 4.22\ \mathrm{A}$, which add to
+$7.56\ \mathrm{A}$ as they must. If the numbers had been less kind, one of
+those could easily have come out negative — meaning the stronger battery is
+charging the weaker one — and that is a real, physical answer, not an error.
+
+<QuickCheck
+  question="In the node-voltage method, what makes a node an unknown?"
+  options={["Every node is an unknown", "Only nodes where three or more wires meet", "Every node except the ground node and any node an ideal source pins to a known potential", "Only nodes that touch a battery"]}
+  answer={2}
+  explanation="You are free to declare one node the zero of potential, which removes it. An ideal source with one end on ground fixes its other end too. Everything left over needs an equation, which is exactly the junction rule written at that node."
+/>
+
+## The bridge, at last
+
+Back to the circuit from the opening. An ideal $6.00\ \mathrm{V}$ source runs
+from S (positive) to G (negative). From S, $100\ \Omega$ goes to A and
+$150\ \Omega$ goes to B. From A, $200\ \Omega$ goes to G; from B,
+$250\ \Omega$ goes to G. A galvanometer of resistance $50.0\ \Omega$ bridges A
+to B. What current does it carry?
+
+<Figure caption={<><b>Figure 3.</b> The bridge that will not simplify. Drag the two arms and watch the galvanometer current pass through zero. The readout also shows the product test at the bottom: when it hits zero the bridge is balanced, and the middle arm carries nothing no matter what its resistance is.</>}>
+  <Sim id="kirchhoff-bridge" />
+</Figure>
+
+**Worked example 3.** Ground G, so $V_G = 0$ and $V_S = 6.00\ \mathrm{V}$. Two
+unknowns left, $V_A$ and $V_B$.
+
+Junction rule at A — in from S, out to G, out to B:
+
+$$\frac{6.00 - V_A}{100} = \frac{V_A}{200} + \frac{V_A - V_B}{50}$$
+
+Multiply through by $200$: $2(6.00 - V_A) = V_A + 4(V_A - V_B)$, so
+$12.0 - 2V_A = 5V_A - 4V_B$, which tidies to
+
+$$7V_A - 4V_B = 12.0$$
+
+Junction rule at B — in from S, in from A, out to G:
+
+$$\frac{6.00 - V_B}{150} + \frac{V_A - V_B}{50} = \frac{V_B}{250}$$
+
+Multiply through by $750$: $5(6.00 - V_B) + 15(V_A - V_B) = 3V_B$, so
+$30.0 + 15V_A = 23V_B$, and $V_B = (30.0 + 15V_A)/23$.
+
+Substitute into the first equation and multiply by $23$:
+$161V_A - 4(30.0 + 15V_A) = 276$, so $161V_A - 120 - 60V_A = 276$ and
+$101V_A = 396$, giving $V_A = 3.921\ \mathrm{V}$. Then
+$V_B = (30.0 + 58.81)/23 = 3.861\ \mathrm{V}$. The galvanometer current is
+
+$$I_g = \frac{V_A - V_B}{50.0} = \frac{0.0594}{50.0} = 1.19\times10^{-3}\ \mathrm{A}$$
+
+It runs from A to B, because $V_A$ came out the higher. Two nodes, two
+equations, and the circuit that had no series or parallel pair anywhere in it
+is finished.
+
+One thing that fell out for free: if $V_A$ had equalled $V_B$, no current would
+cross, whatever the galvanometer's resistance. That happens when the two
+dividers split the supply in the same ratio, which works out to
+$R_1R_4 = R_2R_3$ for the four outer arms. That is the balanced Wheatstone
+bridge, and it is how unknown resistances were measured for a century.
+
+## Symmetry, when the algebra would be ugly
+
+Twelve $1\ \Omega$ resistors form the edges of a cube. Between opposite corners
+that is eight nodes and twelve branches, and nobody wants those equations.
+
+Use the principle behind the balanced bridge instead: **if two nodes are at the
+same potential, no current flows between them**, so you may join them with a
+wire or cut the wire between them, and nothing changes.
+
+Send current $I$ in at one corner. By the symmetry of the cube, the three
+edges leaving that corner are indistinguishable, so each takes $I/3$, and the
+three nodes they reach must all sit at the same potential. The three nodes
+adjacent to the far corner likewise all sit at one potential, and the far
+corner drains $I/3$ from each of them. The six middle edges connect the first
+trio to the second trio, and there are six of them sharing $I$, so each carries
+$I/6$. Walk a path from one corner to the other: $\tfrac{I}{3}(1) +
+\tfrac{I}{6}(1) + \tfrac{I}{3}(1) = \tfrac{5I}{6}$ volts. Divide by $I$:
+
+$$R = \tfrac{5}{6}\ \Omega \approx 0.833\ \Omega$$
+
+No simultaneous equations at all. Symmetry is not a different law — it is
+Kirchhoff's rules plus the observation that identical branches must carry
+identical currents.
+
+<Aside label="Worth remembering">
+  Three quick checks that catch most errors before you submit. Every current
+  you found should satisfy the junction rule at a node you didn't use to set
+  up. The total power delivered by the sources should equal the total
+  $I^2R$ dissipated. And the node you called ground should still be the
+  lowest or highest potential you'd expect it to be.
+</Aside>
+
+## Recognising when to reach for this
+
+You are looking at a Kirchhoff problem when any one of these is true.
+
+**More than one source.** Two batteries in different branches, or a battery
+buried inside one arm of a parallel pair, kills the series-parallel method
+outright. Any question about which battery is charging which is this.
+
+**A bridging element.** A galvanometer, a voltmeter, or a resistor connected
+across the middle of two dividers. Trace the circuit and try to name a series
+pair or a parallel pair. If you cannot, stop trying and write node equations.
+
+**The question asks for one branch, not the total.** "What current flows in
+the $6.00\ \Omega$ resistor" in a multi-branch network is a node-voltage
+question.
+
+**An unknown that isn't a current.** A hidden resistor, an unknown emf, an
+ammeter reading you must work backwards from. Set the unknown as a symbol,
+write the same equations, and solve for it instead of for $I$.
+
+Choosing a method is mostly counting. Fewer nodes than loops, use node
+voltages; fewer loops than nodes, assign a circulating current to each loop
+and write the loop rule for each.
+
+Next you'll let the currents change with time. Put a capacitor into one of
+these branches and the junction and loop rules still hold at every instant,
+but one of the terms now depends on how much charge has already arrived — which
+turns an algebraic equation into an exponential. That is
+[RC circuits and transients](/guide/rc-circuits).

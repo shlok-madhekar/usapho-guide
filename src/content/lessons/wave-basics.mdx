@@ -1,51 +1,334 @@
-## Describing a wave
+## Something moves, but nothing goes anywhere
 
-A travelling wave carries energy without carrying matter. Its basic relations:
+Drop a stone in a pond and a ring of ripples spreads out. A leaf floating two
+metres away bobs up and down as the ripple passes, and then sits exactly where
+it was. The disturbance travelled. The water did not.
 
-$$v = f\lambda, \qquad y(x,t) = A\sin(kx - \omega t)$$
+That is the whole trick of a wave, and it is why waves get their own set of
+tools. In the thermodynamics unit you tracked energy moving as heat and work
+through a gas, and every joule went with a lump of matter or a moving piston.
+A wave carries energy from here to there while the medium stays put. So the
+question "how fast does it go?" has a new kind of answer: not "as fast as you
+threw it", but "as fast as this medium allows".
 
-with $k = 2\pi/\lambda$ and $\omega = 2\pi f$. The speed is set by the medium,
-not by the source: on a string $v = \sqrt{T/\mu}$, so tightening a string
-raises its pitch by making waves travel faster along it.
+A transverse wave moves the medium perpendicular to the direction of travel —
+a rope you flick, the S wave from an earthquake. A longitudinal wave moves the
+medium back and forth along the direction of travel — sound, the earthquake's
+faster P wave. Almost everything below applies to both. The pictures are
+easier to draw for a rope, so the rope is where you start.
 
-## Superposition
+## Reading a snapshot
 
-Waves add. Everything interesting in this topic follows from that.
+Take a photograph of a long rope while a wave runs along it. You get a curve:
+height $y$ against position $x$. Two numbers describe it.
 
-Two waves of equal frequency travelling in opposite directions form a standing
-wave, with nodes fixed in place. For a string fixed at both ends, only
-wavelengths that fit produce a standing pattern:
+The **amplitude** $A$ is the height of a crest above the resting line, in
+metres. Not crest-to-trough — half of that. The **wavelength** $\lambda$ is
+the distance from one crest to the next crest, in metres, which is the same as
+the distance over which the pattern repeats.
 
-$$\lambda_n = \frac{2L}{n}, \qquad f_n = \frac{nv}{2L}$$
+<Figure caption={<><b>Figure 1.</b> One instant, frozen. Wavelength is a distance measured along the rope; amplitude is a distance measured across it. Notice that amplitude is crest to centre, not crest to trough.</>}>
+  <Sim id="wave-basics-anatomy" />
+</Figure>
 
-A pipe open at both ends behaves the same way. A pipe closed at one end needs
-a node at the closed end and an antinode at the open one, so only odd
-harmonics survive and the fundamental is an octave lower than an open pipe of
-the same length.
+Now stop photographing and instead watch one single speck of the rope. It goes
+up, comes back, goes down, comes back. The time for one full round trip is the
+**period** $T$, in seconds, and the number of round trips per second is the
+**frequency** $f = 1/T$, in hertz. A 512 Hz tuning fork makes 512 round trips a
+second, so one vibration takes $1/512 = 0.001953$ s.
 
-Two waves of slightly different frequency produce beats at $|f_1 - f_2|$,
-which is how a piano is tuned by ear.
+These two pictures lock together. In one period, the pattern slides forward by
+exactly one wavelength — a crest arrives where the previous crest was. Speed is
+distance over time, so
 
-## Doppler
+$$v = \frac{\lambda}{T} = f\lambda$$
 
-When the source or observer moves, the observed frequency shifts:
+Ripples at 4.0 Hz with crests 0.25 m apart travel at $4.0 \times 0.25 = 1.0$
+m/s. A singer holding 686 Hz in air, where sound goes 343 m/s, makes a
+wavelength of $343/686 = 0.50$ m. The relation is not a law of nature so much
+as bookkeeping, but it is bookkeeping you will use in half the problems in
+this unit.
+
+<Aside label="Worth remembering">
+  Of the three, the medium fixes $v$ and the source fixes $f$. Wavelength is
+  the one that adjusts. When a sound wave crosses from air into water it keeps
+  its frequency and changes its wavelength, because the pitch you hear cannot
+  depend on what the sound is passing through.
+</Aside>
+
+## Writing the wave down
+
+You want one formula that gives the height of the rope at any place and any
+time. Start with the snapshot at $t = 0$: a sine curve that repeats every
+$\lambda$ in $x$, which is $y = A\sin(kx)$ where $k = 2\pi/\lambda$. The
+constant $k$ is called the **wave number**, in radians per metre; it exists
+because sine repeats every $2\pi$ radians, and you need $k\lambda = 2\pi$ so
+the curve repeats every wavelength.
+
+Now let it move. A shape moving right at speed $v$ is the same shape with $x$
+replaced by $x - vt$, since the point of the curve that was at $x = 0$ is at
+$x = vt$ a time $t$ later. Substituting gives
+
+$$y(x,t) = A\sin\big(k(x - vt)\big) = A\sin(kx - \omega t)$$
+
+where $\omega = kv$ is the **angular frequency** in radians per second. Since
+$v = f\lambda$ and $k = 2\pi/\lambda$, you get $\omega = 2\pi f$. A minus sign
+between the terms means the wave moves in the $+x$ direction; a plus sign
+means it moves in $-x$.
+
+So from any wave written this way you can read off everything by pattern
+matching. For $y = 0.040\sin(5.0x - 200t)$ in SI units: $A = 0.040$ m, which
+is 4.0 cm; $k = 5.0$ rad/m, so $\lambda = 2\pi/5.0 = 1.257$ m; $\omega = 200$
+rad/s, so $f = 200/2\pi = 31.83$ Hz; and $v = \omega/k = 200/5.0 = 40.0$ m/s.
+
+<QuickCheck
+  question="A wave is written y = 0.02 sin(3x + 12t) in SI units. Which way does it travel, and how fast?"
+  options={["Toward +x at 4 m/s", "Toward -x at 4 m/s", "Toward -x at 36 m/s", "Toward +x at 0.25 m/s"]}
+  answer={1}
+  explanation="Speed is always omega divided by k, here 12/3 = 4 m/s. The plus sign between the terms sends it toward negative x: as t grows, a point of fixed phase needs x to shrink."
+/>
+
+### Worked example 1: how fast the rope moves
+
+A rope carries $y(x,t) = 0.030\sin(2.0x - 8.0t)$ in SI units. Find the
+transverse velocity of the element at $x = 0.50$ m at $t = 0.10$ s.
+
+The wave moves at $\omega/k = 8.0/2.0 = 4.0$ m/s, but that is not what is
+asked. A rope element does not move sideways at all. Its velocity is the rate
+of change of $y$ with the element held at fixed $x$, so differentiate with
+respect to $t$ treating $x$ as a constant:
+
+$$v_y = \frac{\partial y}{\partial t} = -\omega A\cos(kx - \omega t)$$
+
+Put the numbers in. The phase is $kx - \omega t = 2.0(0.50) - 8.0(0.10) =
+1.00 - 0.80 = 0.20$ rad. Then $\omega A = 8.0 \times 0.030 = 0.240$ m/s, and
+$\cos(0.20) = 0.9801$, so
+
+$$v_y = -0.240 \times 0.9801 = -0.235 \text{ m/s}$$
+
+Negative: that bit of rope is heading downward at this instant. The largest
+$v_y$ can ever get is $\omega A$, when the cosine hits 1, which happens as the
+element passes through $y = 0$. Differentiate once more and you get
+$a_y = -\omega^2 A \sin(kx - \omega t)$, with maximum size $\omega^2 A$,
+reached at the crests and troughs. For the wave $0.040\sin(5.0x - 200t)$ that
+is a maximum speed of $200 \times 0.040 = 8.0$ m/s and a maximum acceleration
+of $200^2 \times 0.040 = 1600$ m/s².
+
+<Aside label="Where this goes wrong" warn>
+  Two completely different speeds live in one wave, and mixing them is the
+  most common error in this topic. The **wave speed** $v = \omega/k$ is how
+  fast the pattern travels, and it is set by the medium. The **transverse
+  speed** $v_y = -\omega A\cos(\ldots)$ is how fast a piece of rope moves, and
+  it depends on amplitude. Double the amplitude and $v_y$ doubles while $v$
+  does not budge. If a question says "the speed of the wave", use $\omega/k$;
+  if it says "the speed of a point on the rope", differentiate.
+</Aside>
+
+<Figure caption={<><b>Figure 2.</b> Watch the marked dot and the arrow on it. The crest sweeps rightward, but the dot only ever moves up and down. Raise the amplitude slider and the dot moves faster while the crests keep their pace; raise the frequency slider and both change.</>}>
+  <Sim id="wave-basics-travelling" />
+</Figure>
+
+## What sets the speed
+
+Flick a rope harder and the pulse is taller, not faster. So what does control
+$v$?
+
+Two things fight over a bit of rope. Tension $T$, in newtons, pulls the
+displaced bit back toward the line — more pull, faster return, faster wave.
+Mass resists that pull — a heavier rope responds sluggishly. The relevant
+mass is the mass per unit length, called the **linear density**
+$\mu = m/L$ in kilograms per metre. A dimensional check settles the
+combination: $T/\mu$ has units of N/(kg/m) $=$ m²/s², so its square root is a
+speed, and the full derivation from Newton's second law on a small curved
+segment gives exactly
+
+$$v = \sqrt{\frac{T}{\mu}}$$
+
+A cord with $\mu = 0.010$ kg/m at 90 N carries waves at
+$\sqrt{90/0.010} = \sqrt{9000} = 94.87$ m/s. A guitar string of mass 2.5 g and
+length 1.25 m has $\mu = 0.0025/1.25 = 0.0020$ kg/m, so at 50 N it runs at
+$\sqrt{50/0.0020} = \sqrt{25000} = 158.1$ m/s.
+
+The same logic shows up everywhere. In a solid rod, stiffness plays the role
+of tension and density plays the role of $\mu$: $v = \sqrt{Y/\rho}$ with $Y$
+the Young's modulus. Steel with $Y = 2.0\times10^{11}$ Pa and
+$\rho = 7800$ kg/m³ gives $\sqrt{2.0\times10^{11}/7800} = 5064$ m/s, which is
+why a rail hums with the arriving train long before you hear it through the
+air.
+
+<Figure caption={<><b>Figure 3.</b> A pulse crossing six metres of rope, with a clock. Double the tension and the crossing time falls by a factor of root two, not two. Make the rope four times heavier and the pulse takes twice as long.</>}>
+  <Sim id="wave-basics-rope-speed" />
+</Figure>
+
+### Worked example 2: a pulse across a splice
+
+A light rope 3.0 m long with $\mu_1 = 0.0020$ kg/m is spliced to a heavy rope
+4.0 m long with $\mu_2 = 0.0080$ kg/m. The whole thing is pulled taut at 32 N.
+How long does a pulse take to go from the light end to the far end?
+
+The thing to see first: tension is the same throughout, because the splice
+transmits whatever pull is applied. Density is not. So there are two speeds
+and you time each stretch separately.
+
+$$v_1 = \sqrt{\frac{32}{0.0020}} = \sqrt{16000} = 126.5 \text{ m/s}$$
+
+$$v_2 = \sqrt{\frac{32}{0.0080}} = \sqrt{4000} = 63.25 \text{ m/s}$$
+
+Then $t_1 = 3.0/126.5 = 0.02372$ s and $t_2 = 4.0/63.25 = 0.06325$ s, for a
+total of $0.02372 + 0.06325 = 0.0870$ s. Averaging the two speeds and dividing
+once would have given 0.0737 s, which is wrong: time adds, speed does not.
+
+### Worked example 3: a rope that hangs
+
+A uniform rope of length $L = 4.0$ m hangs from a ceiling with nothing on its
+lower end. How long does a pulse take to climb from the bottom to the top?
+
+Here the tension is not constant. At a height $x$ above the bottom end, the
+rope below that point has mass $\mu x$ and hangs from it, so
+$T(x) = \mu x g$. The speed there is
+
+$$v(x) = \sqrt{\frac{\mu x g}{\mu}} = \sqrt{gx}$$
+
+The $\mu$ cancels, so the answer will not depend on how heavy the rope is. The
+speed is zero at the loose bottom end and grows as the pulse climbs. A
+changing speed means you cannot use distance over speed; you add up the little
+times $dt = dx/v(x)$:
+
+$$t = \int_0^L \frac{dx}{\sqrt{gx}} = \frac{1}{\sqrt{g}}\Big[2\sqrt{x}\Big]_0^L = 2\sqrt{\frac{L}{g}}$$
+
+With $L = 4.0$ m and $g = 9.8$ m/s², $t = 2\sqrt{4.0/9.8} = 2\sqrt{0.4082} =
+2(0.6389) = 1.278$ s. Worth noticing that this is twice the free-fall time
+from height $L$ — a fact you can quote to check your algebra.
+
+## Energy, power, intensity
+
+A wave carries energy because every element of the rope is oscillating like a
+little mass on a spring. An element of length $dx$ has mass $\mu\,dx$ and
+maximum speed $\omega A$, so its total energy is
+$\frac{1}{2}(\mu\,dx)(\omega A)^2$. Add up a whole wavelength:
+
+$$E_\lambda = \tfrac{1}{2}\mu\omega^2 A^2\lambda$$
+
+For $\mu = 0.020$ kg/m, $A = 0.010$ m, $\omega = 100$ rad/s and
+$\lambda = 0.40$ m: $\frac{1}{2}(0.020)(10000)(0.0001)(0.40) = 0.0040$ J.
+
+One wavelength passes a point every period, so the average power is
+$E_\lambda/T = \frac{1}{2}\mu\omega^2A^2 (\lambda/T)$, that is
+
+$$P = \tfrac{1}{2}\mu\omega^2 A^2 v$$
+
+Take a string with $\mu = 0.0500$ kg/m at 80 N, shaken at 60 Hz with
+$A = 0.020$ m. First $v = \sqrt{80/0.0500} = \sqrt{1600} = 40.0$ m/s and
+$\omega = 2\pi(60) = 377.0$ rad/s. Then
+$P = 0.5(0.0500)(377.0^2)(0.020^2)(40.0)$. Step by step:
+$377.0^2 = 142{,}100$; $0.5 \times 0.0500 = 0.0250$;
+$0.0250 \times 142{,}100 = 3553$; $\times 0.000400 = 1.421$;
+$\times 40.0 = 56.9$ W.
+
+The $A^2$ is the part to hold on to. Tripling the amplitude at fixed frequency
+on the same string multiplies the power by nine, so a shaker delivering 15 W
+would need $9 \times 15 = 135$ W.
+
+<QuickCheck
+  question="You halve the amplitude of a wave on a string and double its frequency, keeping tension and string the same. What happens to the power delivered?"
+  options={["It is unchanged", "It doubles", "It quadruples", "It halves"]}
+  answer={0}
+  explanation="Power goes as omega squared times amplitude squared. Doubling omega multiplies by four; halving A divides by four. The two cancel exactly."
+/>
+
+For sound spreading into open air from a small source, the useful quantity is
+**intensity** $I$: power per unit area, in W/m². A point source sending power
+$P$ equally in all directions spreads it over a sphere of area $4\pi r^2$, so
+
+$$I = \frac{P}{4\pi r^2}$$
+
+Intensity falls with the square of distance. An alarm giving
+$I = 2.0\times10^{-5}$ W/m² at 15 m radiates
+$P = 4\pi(15)^2(2.0\times10^{-5}) = 4\pi(225)(2.0\times10^{-5}) = 0.0566$ W.
+Move from 2.0 m to 10.0 m, five times further, and intensity drops by
+$5^2 = 25$: $8.0\times10^{-3}/25 = 3.2\times10^{-4}$ W/m².
+
+Ears cover an enormous range of intensity, so sound is quoted on a logarithmic
+scale. The **sound level** in decibels is
+
+$$\beta = 10\log_{10}\!\left(\frac{I}{I_0}\right), \qquad I_0 = 1.0\times10^{-12}\ \text{W/m}^2$$
+
+A vacuum cleaner at $I = 1.0\times10^{-6}$ W/m² sits at
+$10\log_{10}(10^{6}) = 60.0$ dB. Running it backwards, city traffic at 85 dB
+has $I = I_0 10^{8.5} = 10^{-12} \times 3.162\times10^{8} = 3.16\times10^{-4}$
+W/m².
+
+### Worked example 4: where the siren fades
+
+A siren radiates 0.80 W uniformly over flat open ground. At what distance is
+the level 60 dB?
+
+Go from decibels to intensity first, then from intensity to distance. 60 dB
+means $I/I_0 = 10^{6}$, so $I = 10^{-6}$ W/m². Then
+
+$$r = \sqrt{\frac{P}{4\pi I}} = \sqrt{\frac{0.80}{4\pi \times 10^{-6}}} = \sqrt{\frac{0.80}{1.2566\times10^{-5}}} = \sqrt{63{,}662} = 252 \text{ m}$$
+
+Two shortcuts save time on problems like this. Ten identical machines have ten
+times the intensity of one, and $10\log_{10}10 = 10$, so ten machines at 70 dB
+each give 80.0 dB — not 700. And every factor of ten in distance costs 20 dB,
+since intensity drops by 100. A jackhammer at 100 dB from 1.0 m is at 80 dB at
+10 m and 60 dB at 100 m.
+
+<Aside label="Where this goes wrong" warn>
+  Decibels do not add and they are not proportional to anything. Two sources
+  of equal loudness give 3 dB more, not double the number. Nothing in a
+  decibel problem works until you convert to intensity, do the physics there,
+  and convert back.
+</Aside>
+
+<Figure caption={<><b>Figure 4.</b> Sound level against distance for a point source. Drag the distance slider and watch the readout: each doubling costs about 6 dB, each factor of ten costs 20 dB. Changing the power slides the whole curve up or down without changing its shape.</>}>
+  <Sim id="wave-basics-decibels" />
+</Figure>
+
+## Two effects of relative motion
+
+If the source moves toward you, it chases its own wavefronts and packs them
+closer, shortening the wavelength in the air. The speed of sound is unchanged,
+so the frequency you receive goes up. That is the **Doppler effect**:
 
 $$f' = f\,\frac{v \pm v_o}{v \mp v_s}$$
 
-Rather than memorize the signs, reason about the direction: approaching always
-raises the pitch, receding always lowers it. Pick the signs that produce that,
-then compute.
+Rather than memorising the signs, fix them by the direction. An 800 Hz siren
+approaching at 30 m/s, with sound at 340 m/s, must sound higher, so the
+denominator has to shrink: $f' = 800 \times 340/(340 - 30) = 800 \times
+1.0968 = 877$ Hz.
 
-<Aside label="Where this goes wrong" warn>
-  A moving source and a moving observer are not symmetric. The source changes
-  the wavelength in the medium; the observer changes the rate at which
-  unchanged wavefronts arrive. At low speeds the results nearly agree, but the
-  exact expressions differ, and olympiad problems choose speeds where it shows.
-</Aside>
+Second effect: two tones of nearly equal frequency sounding together drift in
+and out of step, so the loudness pulses at the difference frequency. Forks at
+440 Hz and 444 Hz beat at $|444 - 440| = 4$ Hz, four surges a second. That is
+how a piano is tuned by ear.
 
-<QuickCheck
-  question="You tighten a guitar string without changing its length. What happens to the fundamental frequency?"
-  options={["It rises", "It falls", "It does not change", "It depends on the thickness"]}
-  answer={0}
-  explanation="Wave speed on a string goes up with tension, and the fundamental wavelength is fixed by the length. Since frequency is speed divided by wavelength, a faster wave on the same string means a higher pitch."
-/>
+## How to recognise which tool a problem wants
+
+Sort by what the problem hands you.
+
+Given two of speed, frequency and wavelength, and asking for the third, it is
+$v = f\lambda$ and nothing more. Given a rope, a tension and a mass per unit
+length, reach for $v = \sqrt{T/\mu}$ — and if only a total mass and length are
+quoted, compute $\mu$ first. If the tension varies along the rope, as it does
+for anything hanging under its own weight, the speed varies too and you have
+to integrate $dx/v(x)$ instead of dividing.
+
+Given an explicit $y(x,t)$, pattern match to $A\sin(kx - \omega t)$ and read
+the constants; if the question asks about a point on the rope rather than the
+wave, differentiate with respect to $t$. Any mention of watts, amplitude and
+frequency together points at $P = \frac{1}{2}\mu\omega^2A^2v$, and the giveaway
+is that changing the amplitude changes the answer at all. Distances from a
+source, W/m², or the word decibel mean $I = P/4\pi r^2$ and
+$\beta = 10\log(I/I_0)$. Anything moving relative to anything else is Doppler.
+Two close frequencies at once is beats.
+
+One caution on the exam: a wave problem often runs two of these in series, as
+worked example 4 did. Convert decibels to intensity, intensity to distance.
+Convert mass and length to $\mu$, $\mu$ and $T$ to $v$, $v$ and $f$ to
+$\lambda$. Write down the chain before you touch the calculator.
+
+Everything so far has followed one wave at a time. The interesting things
+start when two waves occupy the same rope at once and their displacements add,
+which is where [superposition and standing waves](/guide/standing-waves) picks
+up.

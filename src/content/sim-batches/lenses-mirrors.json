@@ -1,0 +1,92 @@
+[
+  {
+    "id": "lenses-mirrors-lens-lab",
+    "title": "Thin lens ray lab",
+    "caption": "Drag the object across the focal point and watch the image flip from real to virtual.",
+    "height": 280,
+    "params": [
+      {
+        "key": "objdist",
+        "label": "Object distance",
+        "unit": "cm",
+        "min": 5,
+        "max": 90,
+        "step": 1,
+        "value": 45
+      },
+      {
+        "key": "focal",
+        "label": "Focal length",
+        "unit": "cm",
+        "min": 8,
+        "max": 40,
+        "step": 1,
+        "value": 20
+      }
+    ],
+    "draw": "var FONT = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = FONT;\nctx.lineWidth = 1.4;\n\nvar ho = 9;                       // object height in cm\nvar f = p.focal;\nvar dob = p.objdist;\nif (Math.abs(dob - f) < 1.5) dob = f + 1.5;\nvar di = 1 / (1 / f - 1 / dob);\nvar m = -di / dob;\nvar hi = m * ho;\n\nvar cx = W * 0.40, cy = H * 0.56;\nvar s = Math.min((cx - 18) / (dob + 8), (H * 0.34) / 12);\nvar X = function (d) { return cx + d * s; };\nvar Y = function (h) { return cy - h * s; };\n\n// optic axis\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(6, cy); ctx.lineTo(W - 6, cy); ctx.stroke();\n\n// the lens itself\nvar lh = H * 0.40;\nctx.strokeStyle = C.figure;\nctx.beginPath();\nctx.moveTo(cx, cy - lh);\nctx.quadraticCurveTo(cx + 9, cy, cx, cy + lh);\nctx.quadraticCurveTo(cx - 9, cy, cx, cy - lh);\nctx.stroke();\n\n// focal points\nvar fp = [-f, f];\nctx.fillStyle = C.ink;\nfor (var k = 0; k < 2; k++) {\n  var fx = X(fp[k]);\n  ctx.beginPath(); ctx.arc(fx, cy, 2.5, 0, Math.PI * 2); ctx.fill();\n  ctx.fillText(\"F\", fx - 3, cy + 15);\n}\n\n// object arrow\nfunction arrow(x, ytail, ytip, col) {\n  ctx.strokeStyle = col; ctx.fillStyle = col;\n  ctx.beginPath(); ctx.moveTo(x, ytail); ctx.lineTo(x, ytip); ctx.stroke();\n  var dir = ytip < ytail ? -1 : 1;\n  ctx.beginPath();\n  ctx.moveTo(x, ytip);\n  ctx.lineTo(x - 4, ytip - dir * 7);\n  ctx.lineTo(x + 4, ytip - dir * 7);\n  ctx.closePath(); ctx.fill();\n}\narrow(X(-dob), cy, Y(ho), C.ink);\nctx.fillStyle = C.ink;\nctx.fillText(\"object\", X(-dob) - 18, Y(ho) - 8);\n\n// image arrow\nvar ix = X(di);\nif (ix > 4 && ix < W - 4) {\n  arrow(ix, cy, Y(hi), C.accent);\n  ctx.fillStyle = C.accent;\n  ctx.fillText(di > 0 ? \"real image\" : \"virtual image\", ix - 22, Y(hi) + (hi > 0 ? -9 : 15));\n}\n\n// one refracted ray, given the height in cm where it crosses the lens\nfunction refracted(ylcm) {\n  var px0 = cx, py0 = Y(ylcm);\n  var dx = X(di) - px0, dy = Y(hi) - py0;\n  if (di < 0) { dx = -dx; dy = -dy; }\n  var L = Math.sqrt(dx * dx + dy * dy) || 1;\n  var far = W * 1.4;\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath();\n  ctx.moveTo(px0, py0);\n  ctx.lineTo(px0 + dx / L * far, py0 + dy / L * far);\n  ctx.stroke();\n  if (di < 0) {\n    ctx.setLineDash([3, 4]);\n    ctx.beginPath(); ctx.moveTo(px0, py0); ctx.lineTo(X(di), Y(hi)); ctx.stroke();\n    ctx.setLineDash([]);\n  }\n}\n\n// ray 1: in parallel, out through the far focus\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(X(-dob), Y(ho)); ctx.lineTo(cx, Y(ho)); ctx.stroke();\nrefracted(ho);\n\n// ray 2: straight through the middle\nctx.beginPath(); ctx.moveTo(X(-dob), Y(ho)); ctx.lineTo(cx, cy); ctx.stroke();\nrefracted(0);\n\n// ray 3: in through the near focus, out parallel\nvar y3 = ho * (-f / (dob - f));\nctx.beginPath(); ctx.moveTo(X(-dob), Y(ho)); ctx.lineTo(cx, Y(y3)); ctx.stroke();\nrefracted(y3);\n\n// a pulse of light running down the middle ray, so the direction is obvious\nvar seg = Math.abs(X(-dob) - cx);\nvar travel = (t * W * 0.30) % (seg + W * 0.55);\nvar mx, my;\nif (travel < seg) {\n  var u = travel / seg;\n  mx = X(-dob) + (cx - X(-dob)) * u;\n  my = Y(ho) + (cy - Y(ho)) * u;\n} else {\n  var dx2 = X(di) - cx, dy2 = Y(hi) - cy;\n  if (di < 0) { dx2 = -dx2; dy2 = -dy2; }\n  var L2 = Math.sqrt(dx2 * dx2 + dy2 * dy2) || 1;\n  var r = travel - seg;\n  mx = cx + dx2 / L2 * r;\n  my = cy + dy2 / L2 * r;\n}\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(mx, my, 3.5, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"lens, f = \" + f.toFixed(0) + \" cm\", cx - 30, 14);\n\nout.note = \"object \" + dob.toFixed(0) + \" cm  |  image \" + di.toFixed(1) + \" cm \" +\n  (di > 0 ? \"behind (real, inverted)\" : \"in front (virtual, upright)\") +\n  \"  |  m = \" + m.toFixed(2);"
+  },
+  {
+    "id": "lenses-mirrors-mirror-lab",
+    "title": "Curved mirror lab",
+    "caption": "A curved mirror obeys the same equation as a lens, with f = R/2. Negative R makes it convex.",
+    "height": 280,
+    "params": [
+      {
+        "key": "objdist",
+        "label": "Object distance",
+        "unit": "cm",
+        "min": 5,
+        "max": 80,
+        "step": 1,
+        "value": 40
+      },
+      {
+        "key": "radius",
+        "label": "Radius of curvature",
+        "unit": "cm",
+        "min": -60,
+        "max": 60,
+        "step": 2,
+        "value": 40
+      }
+    ],
+    "draw": "var FONT = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = FONT;\nctx.lineWidth = 1.4;\n\nvar R = p.radius;\nif (Math.abs(R) < 10) R = R < 0 ? -10 : 10;\nvar f = R / 2;\nvar ho = 8;\nvar dob = p.objdist;\nif (Math.abs(dob - f) < 1.5) dob = f + 1.5;\nvar di = 1 / (1 / f - 1 / dob);\nvar m = -di / dob;\nvar hi = m * ho;\n\nvar xp = W - 26, cy = H * 0.56;              // pole of the mirror\nvar s = Math.min((xp - 22) / (dob + 10), (H * 0.32) / 11);\nvar X = function (d) { return xp - d * s; }; // distances are positive in front\nvar Y = function (h) { return cy - h * s; };\n\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(6, cy); ctx.lineTo(W - 6, cy); ctx.stroke();\n\n// mirror surface: sagitta x = y^2 / 2R\nvar half = H * 0.38;\nctx.strokeStyle = C.figure;\nctx.beginPath();\nfor (var yy = -half; yy <= half; yy += 2) {\n  var ycm = yy / s;\n  var xx = xp - (ycm * ycm / (2 * R)) * s;\n  yy === -half ? ctx.moveTo(xx, cy + yy) : ctx.lineTo(xx, cy + yy);\n}\nctx.stroke();\n\n// focus and centre of curvature\nctx.fillStyle = C.ink;\nvar pts = [[f, \"F\"], [R, \"C\"]];\nfor (var k = 0; k < 2; k++) {\n  var px1 = X(pts[k][0]);\n  if (px1 > 6 && px1 < W - 6) {\n    ctx.beginPath(); ctx.arc(px1, cy, 2.5, 0, Math.PI * 2); ctx.fill();\n    ctx.fillText(pts[k][1], px1 - 3, cy + 15);\n  }\n}\n\nfunction arrow(x, ytail, ytip, col) {\n  ctx.strokeStyle = col; ctx.fillStyle = col;\n  ctx.beginPath(); ctx.moveTo(x, ytail); ctx.lineTo(x, ytip); ctx.stroke();\n  var dir = ytip < ytail ? -1 : 1;\n  ctx.beginPath();\n  ctx.moveTo(x, ytip); ctx.lineTo(x - 4, ytip - dir * 7); ctx.lineTo(x + 4, ytip - dir * 7);\n  ctx.closePath(); ctx.fill();\n}\narrow(X(dob), cy, Y(ho), C.ink);\nctx.fillStyle = C.ink;\nctx.fillText(\"object\", X(dob) - 16, Y(ho) - 8);\n\nvar ix = X(di);\nif (ix > 4 && ix < W - 4) {\n  arrow(ix, cy, Y(hi), C.accent);\n  ctx.fillStyle = C.accent;\n  ctx.fillText(di > 0 ? \"real\" : \"virtual\", ix - 12, Y(hi) + (hi > 0 ? -9 : 15));\n}\n\n// reflected rays: they all pass through the image tip (or seem to)\nfunction reflected(ylcm) {\n  var px0 = xp - (ylcm * ylcm / (2 * R)) * s, py0 = Y(ylcm);\n  var dx = X(di) - px0, dy = Y(hi) - py0;\n  if (di < 0) { dx = -dx; dy = -dy; }\n  var L = Math.sqrt(dx * dx + dy * dy) || 1;\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath();\n  ctx.moveTo(px0, py0);\n  ctx.lineTo(px0 + dx / L * W * 1.3, py0 + dy / L * W * 1.3);\n  ctx.stroke();\n  if (di < 0) {\n    ctx.setLineDash([3, 4]);\n    ctx.beginPath(); ctx.moveTo(px0, py0); ctx.lineTo(X(di), Y(hi)); ctx.stroke();\n    ctx.setLineDash([]);\n  }\n}\n\n// incoming ray parallel to the axis, and one aimed at the pole\nctx.strokeStyle = C.rule;\nvar hitx = xp - (ho * ho / (2 * R)) * s;\nctx.beginPath(); ctx.moveTo(X(dob), Y(ho)); ctx.lineTo(hitx, Y(ho)); ctx.stroke();\nreflected(ho);\nctx.beginPath(); ctx.moveTo(X(dob), Y(ho)); ctx.lineTo(xp, cy); ctx.stroke();\nreflected(0);\n\n// travelling pulse on the parallel ray\nvar seg = Math.abs(X(dob) - hitx);\nvar travel = (t * W * 0.28) % (seg + W * 0.5);\nvar mx, my;\nif (travel < seg) {\n  var u = travel / seg;\n  mx = X(dob) + (hitx - X(dob)) * u;\n  my = Y(ho);\n} else {\n  var dx2 = X(di) - hitx, dy2 = Y(hi) - Y(ho);\n  if (di < 0) { dx2 = -dx2; dy2 = -dy2; }\n  var L2 = Math.sqrt(dx2 * dx2 + dy2 * dy2) || 1;\n  var r = travel - seg;\n  mx = hitx + dx2 / L2 * r;\n  my = Y(ho) + dy2 / L2 * r;\n}\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(mx, my, 3.5, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.fillText((R > 0 ? \"concave\" : \"convex\") + \" mirror, f = \" + f.toFixed(1) + \" cm\", 10, 14);\n\nout.note = \"R = \" + R.toFixed(0) + \" cm, f = R/2 = \" + f.toFixed(1) + \" cm  |  object \" +\n  dob.toFixed(0) + \" cm  |  image \" + di.toFixed(1) + \" cm \" +\n  (di > 0 ? \"in front (real)\" : \"behind (virtual)\") + \"  |  m = \" + m.toFixed(2);"
+  },
+  {
+    "id": "lenses-mirrors-surface",
+    "title": "Refraction at one curved surface",
+    "caption": "The single surface that every lens formula is built from.",
+    "height": 250,
+    "params": [
+      {
+        "key": "objdist",
+        "label": "Object distance in air",
+        "unit": "cm",
+        "min": 10,
+        "max": 90,
+        "step": 1,
+        "value": 60
+      },
+      {
+        "key": "n2",
+        "label": "Index of the second medium",
+        "unit": "",
+        "min": 1.05,
+        "max": 2.0,
+        "step": 0.01,
+        "value": 1.33
+      },
+      {
+        "key": "radius",
+        "label": "Radius of the surface",
+        "unit": "cm",
+        "min": -40,
+        "max": 40,
+        "step": 1,
+        "value": 10
+      }
+    ],
+    "draw": "var FONT = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = FONT;\nctx.lineWidth = 1.4;\n\nvar n1 = 1.00, n2 = p.n2, R = p.radius, dob = p.objdist;\nif (Math.abs(R) < 6) R = R < 0 ? -6 : 6;\nvar di = n2 / ((n2 - n1) / R - n1 / dob);\n\nvar cx = W * 0.46, cy = H * 0.55;\nvar s = Math.min((cx - 20) / (dob + 8), (H * 0.30) / 10);\nvar X = function (d) { return cx + d * s; };\n\n// shade the second medium\nctx.fillStyle = C.paper;\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(6, cy); ctx.lineTo(W - 6, cy); ctx.stroke();\n\n// the curved surface\nvar half = H * 0.40;\nctx.strokeStyle = C.figure;\nctx.beginPath();\nfor (var yy = -half; yy <= half; yy += 2) {\n  var ycm = yy / s;\n  var xx = cx + (ycm * ycm / (2 * R)) * s;\n  yy === -half ? ctx.moveTo(xx, cy + yy) : ctx.lineTo(xx, cy + yy);\n}\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"n1 = 1.00 (air)\", 10, 16);\nctx.fillText(\"n2 = \" + n2.toFixed(2), W - 66, 16);\nctx.fillText(\"R = \" + R.toFixed(0) + \" cm\", cx - 24, H - 8);\n\n// object point\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(X(-dob), cy, 3.5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"O\", X(-dob) - 3, cy - 10);\n\n// two rays: along the axis, and one at a small height, bent to the image\nvar hs = [4, -4];\nfor (var k = 0; k < 2; k++) {\n  var h = hs[k];\n  var hy = cy - h * s;\n  var hx = cx + (h * h / (2 * R)) * s;\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath(); ctx.moveTo(X(-dob), cy); ctx.lineTo(hx, hy); ctx.stroke();\n  var tx = X(di), ty = cy;\n  var dx = tx - hx, dy = ty - hy;\n  if (di < 0) { dx = -dx; dy = -dy; }\n  var L = Math.sqrt(dx * dx + dy * dy) || 1;\n  ctx.beginPath();\n  ctx.moveTo(hx, hy);\n  ctx.lineTo(hx + dx / L * W, hy + dy / L * W);\n  ctx.stroke();\n  if (di < 0) {\n    ctx.setLineDash([3, 4]);\n    ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(tx, ty); ctx.stroke();\n    ctx.setLineDash([]);\n  }\n}\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(X(-dob), cy); ctx.lineTo(W - 6, cy); ctx.stroke();\n\nvar ix = X(di);\nif (ix > 6 && ix < W - 6) {\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(ix, cy, 4, 0, Math.PI * 2); ctx.fill();\n  ctx.fillText(\"I\", ix - 3, cy - 10);\n}\n\nout.note = \"n1/do + n2/di = (n2 - n1)/R   gives   di = \" + di.toFixed(1) + \" cm \" +\n  (di > 0 ? \"inside the second medium (real)\" : \"back on the object side (virtual)\");"
+  }
+]

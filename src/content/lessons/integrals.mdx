@@ -1,69 +1,272 @@
-## Adding up little pieces
+## The question this answers
 
-Over a stretch of time so short that the velocity cannot change, the
-displacement is just $v\,\Delta t$. Chop a whole journey into such slivers,
-add them, and shrink the slivers to zero width. That sum is the integral.
+A car's speedometer reads 20 m/s for ten seconds. You know it went 200 metres,
+because distance is speed times time. Now suppose the needle is climbing the
+whole time, from 0 up to 20 m/s. The product $v\,t$ is meaningless: which $v$
+would you use?
 
-$$x(t) = x_0 + \int_0^t v(t')\,dt'$$
+The last lesson went the other way. Given position, the derivative
+$v = dx/dt$ told you the speed at an instant, by zooming in until the curve
+looked straight. Now you have the speed at every instant and you want the
+distance back. Differentiation chopped a curve into slopes; integration is the
+machine that glues slopes back into a curve. Almost every physics quantity you
+will meet — work, impulse, charge, moment of inertia, the centre of mass of a
+lopsided object — is a product where one factor refuses to hold still, and
+every one of them is solved the same way.
 
-Because each term is a height times a width, the integral of $v(t)$ is the
-area under the velocity-time graph. Area below the axis counts as negative,
-which is what makes the result a displacement rather than a distance.
+## Slice it, add it, shrink it
 
-Integration undoes differentiation, so it runs the chain of kinematics
-backwards: from $a$ to $v$ to $x$. Starting from constant $a$,
+Here is the trick, and it never changes. Chop the ten seconds into slivers so
+short that over one sliver the velocity has no time to change. Call a sliver
+$\Delta t$. Over that sliver the car really does move $v\,\Delta t$, because
+for that instant it may as well be moving at constant speed. Add the slivers:
 
-$$v = v_0 + \int_0^t a\,dt' = v_0 + at, \qquad x = x_0 + \int_0^t (v_0 + at')\,dt' = x_0 + v_0 t + \tfrac{1}{2}at^2$$
+$$\Delta x \approx \sum_i v(t_i)\,\Delta t$$
 
-Each integration introduces one unknown constant, fixed by an initial
-condition. Two integrations, two conditions: you need both the starting
-position and the starting velocity to predict a trajectory. That is why
-Newton's second law needs initial data before it predicts anything.
+That is an approximation, and you can see the error: inside each sliver you
+froze $v$ at its starting value, so if $v$ is rising you undercounted. Make
+the slivers thinner and the error shrinks. Take the limit as $\Delta t \to 0$
+and the sum becomes exact. That limit is written with a stretched-out S, which
+is what the integral sign is:
 
-## The rules worth knowing
+$$x(t) = x_0 + \int_0^{t} v(t')\,dt'$$
 
-$$\int t^n dt = \frac{t^{n+1}}{n+1}\ (n \neq -1), \qquad \int \frac{dt}{t} = \ln|t|, \qquad \int e^{kt} dt = \frac{e^{kt}}{k}$$
+Read it aloud as what it is: "add up $v$ times $dt$, from 0 to $t$." The $dt$
+is not decoration. It is the width of the sliver, and it carries units. If $v$
+is in m/s and $dt$ is in s, every term in the sum is in metres, so the answer
+is in metres. Checking that the integrand times $dx$ has the units of your
+answer is the fastest error check you own.
 
-Two techniques cover most of what mechanics asks for. Substitution is the
-chain rule read backwards: set $u = g(t)$ and replace $g'(t)\,dt$ with $du$.
-Integration by parts, $\int f g' = fg - \int f' g$, handles products like
-$\int t e^{-t}dt$.
+<Figure caption={<><b>Figure 1.</b> Each rectangle is one sliver: height v, width delta-t, area v times delta-t. Drag the slice count up from 1 and watch the error readout collapse. That collapse is the whole of integration.</>}>
+  <Sim id="integrals-riemann" />
+</Figure>
 
-<Aside label="Worth remembering">
-  When the integrand is a function of position rather than time, change the
-  variable of integration. The identity $a = \dfrac{dv}{dt} = v\dfrac{dv}{dx}$
-  turns a time integral into a position integral, and integrating
-  $\int v\,dv = \int a\,dx$ gives $\tfrac{1}{2}v^2 - \tfrac{1}{2}v_0^2 = \int a\,dx$
-  — the work-energy theorem, derived in one line.
+Because every term is a height times a width, the sum is an area. **The
+integral of $v(t)$ is the area under the velocity-time graph.** Area below the
+axis counts as negative, which is exactly right: driving backwards should
+subtract from your displacement.
+
+## When the graph is made of straight lines, just find the area
+
+You do not need any calculus to integrate a triangle. A great many problems
+hand you a graph built from straight segments and expect you to break it into
+rectangles and triangles and add.
+
+<Figure caption={<><b>Figure 2.</b> A train speeding up, cruising, then stopping. Notice that you never needed a formula — three areas, added. The triangle areas are one half base times height.</>}>
+  <Sim id="integrals-trapezoid" />
+</Figure>
+
+**Worked example 1.** A train starts from rest, rises linearly to 12 m/s over
+4.0 s, holds 12 m/s until $t = 10$ s, then falls linearly to zero at
+$t = 14$ s. How far does it go?
+
+Three pieces. The first is a triangle of base 4.0 s and height 12 m/s:
+$\tfrac{1}{2}(4.0)(12) = 24$ m. The middle is a rectangle, 6.0 s wide and
+12 m/s tall: $(6.0)(12) = 72$ m. The last is a triangle of base 4.0 s and
+height 12 m/s again: 24 m. Total $24 + 72 + 24 = 120$ m.
+
+The same picture works one level up. The area under an *acceleration*-time
+graph is a change in velocity, because $\Delta v = \sum a\,\Delta t$. And the
+area under a *force*-position graph is work, because $W = \sum F\,\Delta x$.
+Same machine, different labels on the axes.
+
+<QuickCheck
+  question="A cart starts from rest. Its acceleration is +3.0 m/s^2 for 5.0 s, then -2.0 m/s^2 for the next 6.0 s. What is its velocity at t = 11.0 s?"
+  options={["3.0 m/s", "15.0 m/s", "27.0 m/s", "1.0 m/s"]}
+  answer={0}
+  explanation="Area under a-t gives the change in velocity. First block: 3.0 times 5.0 = +15 m/s. Second block: -2.0 times 6.0 = -12 m/s. Starting from rest, v = 15 - 12 = 3.0 m/s. The tempting error is ignoring the sign of the second area."
+/>
+
+## Integration as undoing a derivative
+
+Curves need more than geometry. The shortcut is that the derivative rules run
+backwards. If differentiating $t^{n+1}$ gives $(n+1)t^n$, then to integrate
+$t^n$ you raise the power and divide by the new power:
+
+$$\int t^n\,dt = \frac{t^{n+1}}{n+1}\ (n \neq -1), \qquad \int \frac{dt}{t} = \ln|t|, \qquad \int e^{kt}\,dt = \frac{e^{kt}}{k}$$
+
+The $n = -1$ case is excluded because raising the power would give $t^0/0$.
+That gap is exactly where the logarithm lives, and it is why logs show up in
+rockets and in drag problems and nowhere else.
+
+Each time you integrate, you gain one unknown constant, because every function
+that differs by a constant has the same derivative. Physics fixes it with an
+initial condition. Two integrations, two conditions: you need both the
+starting velocity and the starting position before a trajectory is determined.
+That is why $F = ma$ alone predicts nothing until you say where the thing
+started and how fast it was going.
+
+**Worked example 2.** A cart starts from rest at the origin with
+$a(t) = 12 - 4t$ in SI units. Where is it at $t = 3.0$ s?
+
+Integrate once for velocity:
+
+$$v(t) = \int_0^{t}(12 - 4t')\,dt' = 12t - 2t^2$$
+
+Check it at $t=0$: $v = 0$, which matches "starts from rest", so the constant
+is zero. Integrate again:
+
+$$x(t) = \int_0^{t}(12t' - 2t'^2)\,dt' = 6t^2 - \frac{2t^3}{3}$$
+
+At $t = 3.0$ s: $6(9) = 54$ and $\tfrac{2}{3}(27) = 18$, so
+$x = 54 - 18 = 36$ m.
+
+Notice what you did *not* do: you did not reach for $x = \tfrac12 at^2$. That
+formula is itself the result of integrating a *constant* $a$, and here $a$ is
+not constant. Using it would have been a guess.
+
+<Aside label="Where this goes wrong" warn>
+  The constant-acceleration kinematic equations are not laws. They are the
+  integrals of $a = $ constant, and they are wrong the moment $a$ changes.
+  If a problem gives you $a(t)$, $a(x)$, or a force that depends on speed,
+  throw the kinematic equations out and integrate from scratch.
 </Aside>
 
-## Work, and why integrals appear everywhere
+## Any product with a varying factor
 
-A constant force over a displacement does work $Fd$. A varying force does the
-same thing sliver by sliver:
+Once you see the pattern, it is everywhere. Take the defining relationship,
+write it for an infinitesimal piece, and add the pieces up.
+
+Impulse is force times time, so for a changing force
+$J = \int F\,dt$. Charge is current times time, so $q = \int i\,dt$. The mass
+of a rod with varying thickness is $m = \int \lambda\,dx$, where $\lambda$ is
+the mass per unit length. And work is force times displacement, so for a
+varying force
 
 $$W = \int_{x_1}^{x_2} F(x)\,dx$$
 
-For a spring, $F = -kx$, so stretching from 0 to $x$ costs
-$\int_0^x kx'\,dx' = \tfrac{1}{2}kx^2$. That is where the spring potential
-energy formula comes from — not a memorized constant, but an area under a
-straight line.
+A spring pulls back with $F = kx$ when stretched a distance $x$, so the work
+you must do to stretch it from its natural length out to $x$ is
+$\int_0^{x} kx'\,dx' = \tfrac12 kx^2$. That is not a formula to memorise; it is
+the area of a triangle of base $x$ and height $kx$. With $k = 250$ N/m and
+$x = 0.12$ m: $\tfrac12(250)(0.12)^2 = \tfrac12(250)(0.0144) = 1.8$ J.
 
-The same pattern recurs constantly: impulse is $\int F\,dt$, charge is
-$\int I\,dt$, the mass of a non-uniform rod is $\int \lambda\,dx$. Whenever a
-quantity is a product but one factor varies, the answer is an integral.
+<Figure caption={<><b>Figure 3.</b> The block stretches the spring while the shaded area fills in. Push the spring constant up and watch the work grow with the square of the stretch — double the stretch, four times the area.</>}>
+  <Sim id="integrals-work" />
+</Figure>
 
-<Aside label="Where this goes wrong" warn>
-  Do not integrate a formula outside the region where it holds. Splitting the
-  domain is usually the fix: for a rope hanging partly off a table, the force
-  law changes at the table edge, so integrate the two stretches separately and
-  add. Blindly applying one expression across the whole range is the most
-  common source of a wrong factor.
-</Aside>
+A capacitor works the same way. Pushing charge $dq$ onto a capacitor already
+holding $q$ costs $dW = (q/C)\,dq$, because $q/C$ is the voltage it is already
+fighting. So the stored energy is $\int_0^{Q} q\,dq/C = Q^2/2C = \tfrac12 CV^2$.
+With $C = 4.7\ \mu$F and $V = 200$ V:
+$\tfrac12(4.7\times10^{-6})(200)^2 = \tfrac12(4.7\times10^{-6})(4\times10^{4}) = 0.094$ J.
 
 <QuickCheck
-  question="A velocity-time graph is a triangle rising from 0 to 10 m/s over 4 s. What is the displacement?"
-  options={["10 m", "20 m", "40 m", "Not determined without the acceleration"]}
-  answer={1}
-  explanation="Displacement is the area under the velocity-time curve, and the area of that triangle is one half times 4 s times 10 m/s, or 20 m."
+  question="A force along the motion is F(x) = 8.0 x squared newtons. How much work does it do from x = 0 to x = 3.0 m?"
+  options={["72 J", "216 J", "24 J", "36 J"]}
+  answer={0}
+  explanation="Integrate: the antiderivative of 8x squared is 8 x cubed over 3, which at x = 3.0 gives 8 times 27 divided by 3 = 72 J. Multiplying the final force 72 N by 3.0 m gives 216 J, which is wrong because the force was smaller than 72 N over almost the whole trip."
 />
+
+## Slicing up an object
+
+Problems about rods, disks, chains and tanks all use one recipe, and it is
+worth writing down as steps because the setup is where people lose the marks.
+
+1. Draw one representative slice and give its position a symbol.
+2. Write the slice's mass (or charge, or volume) in terms of that symbol and
+   its thickness — this is your $dm$.
+3. Write what you want for that one slice.
+4. Integrate over the range the slices actually cover.
+
+**Worked example 3.** A disk of radius $R = 0.50$ m and total mass
+$M = 2.0$ kg has areal density growing as $\sigma(r) = \sigma_0 r$. Find its
+moment of inertia about the central axis.
+
+The right slice is a thin ring of radius $r$ and thickness $dr$, because every
+point on it is the same distance from the axis. Its area is circumference
+times thickness, $2\pi r\,dr$, so its mass is
+$dm = \sigma_0 r \cdot 2\pi r\,dr = 2\pi\sigma_0 r^2\,dr$.
+
+You do not know $\sigma_0$, so get it from the total mass:
+
+$$M = \int_0^{R} 2\pi\sigma_0 r^2\,dr = \frac{2\pi\sigma_0 R^3}{3}$$
+
+Now the moment of inertia, which weights each bit of mass by $r^2$:
+
+$$I = \int_0^{R} r^2\,dm = \int_0^{R} 2\pi\sigma_0 r^4\,dr = \frac{2\pi\sigma_0 R^5}{5}$$
+
+Divide one by the other and the unknown $\sigma_0$ cancels:
+$I/M = \tfrac{3}{5}R^2$, so $I = 0.6(2.0)(0.50)^2 = 0.6(2.0)(0.25) = 0.30$
+kg·m². Forming the ratio to kill an unknown constant is a move you will use
+constantly.
+
+The same recipe handles a chain being lifted off the floor. When a length $y$
+already hangs vertically, its mass is $\lambda y$ and its centre of mass is at
+height $y/2$, so raising the next bit costs $dW = \lambda g y\,dy$ — and
+$W = \tfrac12 \lambda g L^2$. With $\lambda = 2.0$ kg/m, $L = 8.0$ m:
+$\tfrac12(2.0)(9.8)(64) = 627$ J.
+
+<Aside label="Worth remembering">
+  Check which variable your slice is labelled by, and make sure your limits
+  are in that same variable. Half of all integration errors in mechanics are
+  integrating over the wrong range: from the axis instead of the rim, or over
+  the whole chain when only the hanging part is moving.
+</Aside>
+
+## When the integral is not over time
+
+Sometimes you know force as a function of *position* or of *speed*, not of
+time, and integrating $dt$ is hopeless. The escape is a single identity from
+the chain rule:
+
+$$a = \frac{dv}{dt} = \frac{dv}{dx}\cdot\frac{dx}{dt} = v\frac{dv}{dx}$$
+
+Multiply both sides by $dx$ and integrate, and you get
+$\int v\,dv = \int a\,dx$, that is
+$\tfrac12 v^2 - \tfrac12 v_0^2 = \int a\,dx$. That is the work-energy theorem,
+derived in one line.
+
+**Worked example 4.** An 80 kg skydiver glides horizontally and feels only
+quadratic drag, $F = -cv^2$ with $c = 0.25$ kg/m. Over what distance does the
+speed fall to half?
+
+Time is not asked for, and distance is, so use the position form:
+
+$$m\,v\frac{dv}{dx} = -cv^2 \quad\Longrightarrow\quad m\frac{dv}{v} = -c\,dx$$
+
+One factor of $v$ cancelled on each side, which is why this problem is
+tractable at all. Integrate from $v_0$ to $v_0/2$ on the left and 0 to $x$ on
+the right. The left side is the $n = -1$ case, so it gives a logarithm:
+
+$$m\ln\frac{v_0/2}{v_0} = -cx \quad\Longrightarrow\quad x = \frac{m}{c}\ln 2$$
+
+The starting speed drops out entirely. $x = (80/0.25)(0.693) = 320 \times 0.693 = 222$ m.
+
+The same "integrate over position" move gives gravitational energy far from
+Earth, where $g$ is not constant. The force is $GM_Em/r^2$, so the work
+against it from $R$ to $R+h$ is
+
+$$W = \int_{R}^{R+h}\frac{GM_Em}{r^2}\,dr = GM_Em\left(\frac{1}{R} - \frac{1}{R+h}\right)$$
+
+For a 500 kg payload lifted 500 km from the surface, with
+$GM_E = 3.986\times10^{14}$: $1/R = 1.5699\times10^{-7}$ and
+$1/(R+h) = 1.4556\times10^{-7}$, a difference of $1.143\times10^{-8}$.
+Multiply by $GM_Em = 1.993\times10^{17}$ to get $2.28\times10^{9}$ J. Using
+$mgh$ instead would have given $2.45\times10^{9}$ J, about 8% high, because
+gravity weakens on the way up.
+
+## How to recognise that you need an integral
+
+Reach for this machinery when you see any of these:
+
+- **A quantity that is normally a product, with one factor varying.** Force
+  times distance, current times time, density times length. If the varying
+  factor were frozen you would just multiply; since it is not, you integrate.
+- **A graph you are asked for a total from.** "How far", "what impulse", "how
+  much work" off a plot means area, and signed area at that.
+- **A rate given as a function of time.** $a(t)$, $i(t)$, a burn rate. You want
+  the accumulated amount, so integrate.
+- **An extended object that is not uniform.** Rods, disks, cones, chains: slice
+  it, write $dm$, integrate.
+- **A force that depends on position or speed.** Then no kinematic equation
+  applies. Either integrate $F\,dx$ for energy, or use $a = v\,dv/dx$.
+
+And the negative signal: if the acceleration is genuinely constant and nothing
+is extended or non-uniform, do not integrate. The kinematic equations already
+did it for you.
+
+Derivatives and integrals are now both in hand. The next tool is the one that
+makes hard integrals and hard equations survivable at all — knowing when a
+term is small enough to throw away. That is
+[approximations and small-angle expansions](/guide/approximations).

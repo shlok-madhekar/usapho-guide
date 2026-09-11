@@ -1,68 +1,209 @@
-## Rate of change, made exact
+## The question: how fast, right now?
 
-Average velocity over an interval is displacement divided by elapsed time.
-Shrink the interval and that ratio settles onto a single number: the velocity
-at an instant. That limit is the derivative.
+A speedometer reads 27 m/s. That number is strange if you think about it. Speed is distance over time, but at the instant you glance down, no time has passed and no distance has been covered. Zero over zero. Whatever the needle is reporting, it is not an ordinary division.
 
-$$v(t) = \frac{dx}{dt} = \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta t}$$
+Something similar showed up in the [last lesson](/guide/vectors), where a vector had a definite direction at a point even though direction is a property of a whole line. Here the trick is the same: get the exact answer by watching an approximate one settle down. The tool that does this is the derivative, and it is the entire language kinematics is written in. Position, velocity, acceleration are not three separate things you memorize formulas about. They are one function and its first two derivatives.
 
-Acceleration is the same operation applied again, $a = dv/dt = d^2x/dt^2$.
-Nothing about kinematics is new here; the derivative is just the honest
-version of "slope of the graph at a point."
+## From average to instantaneous
 
-Geometrically, $v$ is the slope of the $x$ versus $t$ curve. That single fact
-carries a lot: where $x(t)$ is flat the object is momentarily at rest, where
-$x(t)$ is steep it is moving fast, and where $x(t)$ curves upward the
-acceleration is positive.
+Start with something you can actually compute. A cart's position along a track is
 
-<Figure caption={<><b>Figure 1.</b> Position and velocity plotted against the same clock. Watch the two panels together: wherever the top curve is steepest, the bottom curve is farthest from zero, and wherever the top curve turns around, the bottom curve crosses zero.</>}>
-  <Sim id="motion-graphs" />
+$$x(t) = 3t^2 - 4t + 2$$
+
+with $x$ in meters and $t$ in seconds. Over the interval from $t$ to $t + h$, the cart moves $x(t+h) - x(t)$, and the average velocity is that displacement divided by $h$. Expand it:
+
+$$\frac{x(t+h) - x(t)}{h} = \frac{3(t+h)^2 - 4(t+h) + 2 - (3t^2 - 4t + 2)}{h}$$
+
+The $3t^2$, the $-4t$ and the $2$ all cancel, leaving $6th + 3h^2 - 4h$ on top. Divide by $h$:
+
+$$\frac{x(t+h)-x(t)}{h} = 6t + 3h - 4$$
+
+Now look at what happens as the interval shrinks. The $3h$ term is the only place $h$ survives, and it goes to zero. The average velocity over a shorter and shorter window does not thrash around; it walks calmly toward $6t - 4$. That limiting value is the **derivative** of $x$ with respect to $t$, written $dx/dt$ or $\dot{x}$, and it is what the speedometer reads:
+
+$$v(t) = \frac{dx}{dt} = \lim_{h \to 0}\frac{x(t+h) - x(t)}{h} = 6t - 4$$
+
+On a graph of $x$ against $t$, the ratio you just computed is the slope of the straight line through two points on the curve — a *secant*. As the two points slide together, the secant tips over into the **tangent** at a single point. So the derivative is the slope of the tangent line, and the velocity at an instant is the steepness of the position graph there.
+
+<Figure caption={<><b>Figure 1.</b> The dashed line is the true tangent at t0; the solid line is the secant through t0 and t0 + h. Drag h down toward 0.02 s and watch the gap in the readout collapse — that collapse is the whole definition of a derivative.</>}>
+  <Sim id="derivatives-tangent" />
 </Figure>
 
-## The rules you actually use
+Acceleration is the same operation done again. Differentiate $v = 6t - 4$ and you get $a = 6\ \mathrm{m/s^2}$, constant. Written out, $a = dv/dt = d^2x/dt^2$.
 
-Four rules cover almost every derivative in mechanics.
-
-$$\frac{d}{dt}t^n = n t^{n-1}, \qquad \frac{d}{dt}(fg) = f'g + fg'$$
-
-$$\frac{d}{dt}\frac{f}{g} = \frac{f'g - fg'}{g^2}, \qquad \frac{d}{dt}f(g(t)) = f'(g)\,g'(t)$$
-
-The last one, the chain rule, is the one that matters most in physics, because
-physical quantities are usually functions of functions. The kinetic energy of
-a particle is $\tfrac{1}{2}mv^2$ where $v$ depends on time, so its rate of
-change is $mv\,\dfrac{dv}{dt} = mva$, which is exactly the power delivered by
-the net force.
-
-Also worth memorizing: $\frac{d}{dt}\sin\omega t = \omega\cos\omega t$ and
-$\frac{d}{dt}e^{kt} = ke^{kt}$. The second is why exponentials appear in every
-damped or decaying system — it is the function whose rate of change is
-proportional to itself.
-
-Now differentiate $x(t) = x_0 + v_0 t - \tfrac{1}{2}gt^2$ twice. You get
-$v = v_0 - gt$ and $a = -g$. The constant-acceleration formulas are not
-separate facts; they are one statement viewed at three levels.
-
-<Aside label="Where this goes wrong" warn>
-  Speed is $|v|$, not $v$, and the derivative of speed is not acceleration in
-  general. An object in uniform circular motion has constant speed and nonzero
-  acceleration. Differentiate the vector, then take the magnitude — never the
-  other way around.
+<Aside label="Worth remembering">
+  Differentiating $x(t) = x_0 + v_0 t - \tfrac{1}{2}gt^2$ once gives $v = v_0 - gt$, and again gives $a = -g$. The constant-acceleration formulas you already know are not three separate facts. They are one function seen at three levels.
 </Aside>
 
-## Finding a maximum
+## The rules you actually need
 
-At a smooth maximum or minimum the tangent is horizontal, so $df/dx = 0$.
-Solve that for the location, then check the second derivative: negative means
-a maximum, positive a minimum.
+Nobody computes limits by hand after the first day. Five rules cover nearly every derivative in mechanics.
 
-Take projectile range on level ground, $R(\theta) = v_0^2\sin 2\theta / g$.
-Setting $dR/d\theta = 2v_0^2\cos 2\theta/g = 0$ gives $2\theta = 90^\circ$, so
-$\theta = 45^\circ$. Any olympiad question phrased "for what value of ... is
-the ... largest" is asking you to do exactly this.
+**Powers.** $\dfrac{d}{dt}t^n = n\,t^{n-1}$, for any $n$, including negative and fractional ones. So $\frac{d}{dt}t^3 = 3t^2$, and $\frac{d}{dt}\sqrt{t} = \frac{d}{dt}t^{1/2} = \tfrac{1}{2}t^{-1/2}$. A constant has derivative zero, since a flat graph has no slope.
+
+**Sums and constant multiples.** Differentiate term by term; constants ride along. $\frac{d}{dt}(5t^3 - 2t) = 15t^2 - 2$.
+
+**Product.** $\dfrac{d}{dt}(fg) = f'g + fg'$. Each factor gets a turn.
+
+**Quotient.** $\dfrac{d}{dt}\dfrac{f}{g} = \dfrac{f'g - fg'}{g^2}$. The minus sign matters and the order on top is not symmetric.
+
+**Chain.** $\dfrac{d}{dt}f(g(t)) = f'(g)\cdot g'(t)$. This is the one physics leans on hardest, because physical quantities are almost always functions of other functions. To differentiate $\sin(4t)$, treat the sine as the outer function and $4t$ as the inner one: the derivative is $\cos(4t)\cdot 4 = 4\cos 4t$.
+
+Three specific derivatives are worth memorizing outright:
+
+$$\frac{d}{dt}\sin \omega t = \omega\cos\omega t, \qquad \frac{d}{dt}\cos\omega t = -\omega\sin\omega t, \qquad \frac{d}{dt}e^{kt} = k\,e^{kt}$$
+
+and one more, $\frac{d}{dt}\ln(t) = 1/t$, which with the chain rule gives $\frac{d}{dt}\ln(1 + t/20) = \frac{1/20}{1 + t/20}$.
+
+That exponential rule is why exponentials turn up in every decaying system. $e^{kt}$ is the function whose rate of change is proportional to itself, and "the faster it is going, the harder the drag slows it" is exactly a statement of that kind. A boat whose speed is $v = 30e^{-t/5}$ m/s has acceleration $a = 30\cdot(-\tfrac{1}{5})e^{-t/5} = -6e^{-t/5}$, so at $t = 0$ it is decelerating at $6.0\ \mathrm{m/s^2}$.
+
+<QuickCheck
+  question="A mass oscillates with x(t) = 0.50 sin(4.0t) meters. What is its maximum speed?"
+  options={["0.50 m/s", "2.0 m/s", "4.0 m/s", "8.0 m/s"]}
+  answer={1}
+  explanation="v = dx/dt = 0.50 times 4.0 times cos(4.0t), so the amplitude of v is 2.0 m/s and the cosine reaches 1. Picking 0.50 m/s means forgetting the chain rule factor of 4.0 from inside the sine."
+/>
+
+## Worked example 1: reading a polynomial
+
+*A cart has $x(t) = 3t^2 - 4t + 2$ meters. Find its speed at $t = 3\ \mathrm{s}$.*
+
+You already differentiated this one: $v(t) = 6t - 4$. Put in $t = 3$:
+
+$$v(3) = 6(3) - 4 = 18 - 4 = 14\ \mathrm{m/s}$$
+
+Speed is the magnitude, $|v| = 14$ m/s. Here $v$ was already positive so the two agree, but keep the distinction. If the question had asked about $t = 0$, you would get $v = -4$ m/s and a speed of $4$ m/s.
+
+A cousin of this problem: a bead has $x(t) = 5t^3 - 2t$. Then $v = 15t^2 - 2$ and $a = 30t$, so $a(2) = 60\ \mathrm{m/s^2}$. Differentiate twice, then substitute — never substitute first. Plugging $t = 2$ into $x$ gives a number, and the derivative of a number is zero.
+
+<Aside label="Where this goes wrong" warn>
+  Speed is $|\vec{v}|$, and the derivative of speed is not the acceleration in general. A car going round a circle at a steady 20 m/s has zero rate of change of speed and a very real acceleration pointed at the center. Differentiate the vector first, then take the magnitude. Never the other way round.
+</Aside>
+
+## Maxima: the slope is zero at the top
+
+Here is the second job derivatives do, and in olympiad problems it is the more common one. At a smooth peak, the curve is momentarily flat: coming up it had positive slope, going down it has negative slope, so right at the top the slope is zero. Same at a trough. So to find where a quantity is largest, differentiate it and set the derivative to zero.
+
+Which one you found — peak or trough — you settle by checking the second derivative, or more cheaply by evaluating the function just either side.
+
+<Figure caption={<><b>Figure 2.</b> The top panel is position, the bottom is its derivative. Notice what lines up: the peak of x sits exactly above the zero crossing of v, not above the peak of v. The maximum of a thing is a zero of its rate of change.</>}>
+  <Sim id="derivatives-extremum" />
+</Figure>
+
+*A trolley moves with $x(t) = 12t - t^3$ meters, starting at the origin. How far out does it get?*
+
+Differentiate: $v = 12 - 3t^2$. Set that to zero: $3t^2 = 12$, so $t^2 = 4$ and $t = 2$ s (reject $t = -2$, before the start). Then
+
+$$x(2) = 12(2) - 2^3 = 24 - 8 = 16\ \mathrm{m}$$
+
+Check it is a maximum: $a = dv/dt = -6t$, which is $-12\ \mathrm{m/s^2}$ at $t = 2$. Negative, so the curve is bending downward. A peak.
+
+This is also how "what angle gives the longest range" problems work. For a level launch, $R(\theta) = v_0^2\sin 2\theta / g$, and $dR/d\theta = 2v_0^2\cos 2\theta / g$, which vanishes when $2\theta = 90^\circ$, giving $\theta = 45^\circ$. When the ground is not level — a cliff edge, a hillside — the range formula is messier but the method is unchanged: write the distance as a function of one variable, differentiate, set to zero.
 
 <QuickCheck
   question="A particle's position-time graph has a horizontal tangent at t = 3 s. What is true at that instant?"
   options={["Its acceleration is zero", "Its velocity is zero", "It is at the origin", "Its speed is maximum"]}
   answer={1}
-  explanation="A horizontal tangent means the slope of x versus t is zero, and that slope is the velocity. The acceleration is the curvature there, which can be anything — a ball at the top of its flight is the standard example."
+  explanation="A horizontal tangent means the slope of x versus t is zero, and that slope is the velocity. The acceleration is the curvature there, which can be anything: a ball at the top of its flight has v = 0 and a = -g."
 />
+
+## Related rates: when the chain rule is the whole problem
+
+A large family of problems gives you one rate and asks for another. A ladder's base is dragged out; how fast does the top fall? A balloon inflates at a known rate; how fast does its volume grow? Nothing is hard about these once you see the pattern, because the pattern is always the same three steps.
+
+1. Write a geometric relation between the quantities, with no rates in it.
+2. Differentiate both sides with respect to time, using the chain rule on every symbol that changes.
+3. Only now substitute the instant's numbers.
+
+Step 3 is where people lose marks. If you plug in numbers before differentiating, you freeze a changing quantity into a constant and its derivative dies.
+
+Take the balloon. Volume and radius are tied by $V = \tfrac{4}{3}\pi r^3$. Differentiate both sides with respect to $t$, remembering $r$ is a function of $t$ so the chain rule applies:
+
+$$\frac{dV}{dt} = 4\pi r^2 \frac{dr}{dt}$$
+
+Now substitute $r = 0.50$ m and $dr/dt = 0.020$ m/s: $dV/dt = 4\pi(0.25)(0.020) = 0.0628\ \mathrm{m^3/s}$.
+
+## Worked example 2: the sliding ladder
+
+*A 5.0 m ladder leans against a vertical wall. Its base is dragged away from the wall at a steady 0.40 m/s. When the base is 3.0 m from the wall, how fast is the top sliding down? And with the base speed instead 0.60 m/s, what is the acceleration of the top at that same moment?*
+
+Call the base distance $x$ and the height of the top $y$. The ladder is rigid, so Pythagoras holds at every instant:
+
+$$x^2 + y^2 = L^2 = 25$$
+
+Differentiate with respect to time. Each square needs the chain rule, and $L$ is a constant so its derivative is zero:
+
+$$2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0 \quad\Longrightarrow\quad \frac{dy}{dt} = -\frac{x}{y}\frac{dx}{dt}$$
+
+At $x = 3.0$ m, $y = \sqrt{25 - 9} = 4.0$ m. With $dx/dt = 0.40$ m/s,
+
+$$\frac{dy}{dt} = -\frac{3.0}{4.0}(0.40) = -0.30\ \mathrm{m/s}$$
+
+The minus sign says the top is going down. The speed is 0.30 m/s.
+
+For the acceleration, differentiate again. Write $u = dx/dt$, a constant, so the relation is $\dot{y} = -xu/y$. Use the quotient rule on $x/y$:
+
+$$\frac{d^2y}{dt^2} = -u\,\frac{\dot{x}y - x\dot{y}}{y^2} = -u\,\frac{uy - x(-xu/y)}{y^2} = -\frac{u^2}{y^2}\left(y + \frac{x^2}{y}\right) = -\frac{u^2(y^2 + x^2)}{y^3} = -\frac{u^2L^2}{y^3}$$
+
+With $u = 0.60$ m/s, $L = 5.0$ m, $y = 4.0$ m:
+
+$$\frac{d^2y}{dt^2} = -\frac{(0.60)^2(25)}{64} = -\frac{9.0}{64} = -0.141\ \mathrm{m/s^2}$$
+
+So the magnitude is $0.141\ \mathrm{m/s^2}$. Note what the $y^3$ in the denominator promises: as the top nears the floor, $y \to 0$ and both its speed and its acceleration blow up. A constant push at the base makes a wildly non-constant motion at the top. That is the physical content of the whole problem.
+
+<Figure caption={<><b>Figure 3.</b> The base slides at a constant speed but the bar on the right, and the readout, show the top accelerating without bound as y shrinks. Set L to 5.0 m and the base speed to 0.60 m/s, and read off the acceleration as the base passes 3.0 m.</>}>
+  <Sim id="derivatives-ladder" />
+</Figure>
+
+## Worked example 3: the fastest-turning telescope
+
+*A rocket lifts off from rest straight up with constant acceleration $20\ \mathrm{m/s^2}$. An observer 800 m away tracks it with a telescope. What is the maximum rate at which the telescope must turn?*
+
+This one needs a real idea, because the thing being maximized is itself a rate. Two differentiations, in order.
+
+First the geometry. The rocket's height is $y = \tfrac{1}{2}(20)t^2 = 10t^2$, and the elevation angle $\theta$ satisfies
+
+$$\tan\theta = \frac{y}{800} = \frac{t^2}{80}$$
+
+Differentiate both sides in time. The left side needs the chain rule, and $\frac{d}{d\theta}\tan\theta = \sec^2\theta = 1 + \tan^2\theta$:
+
+$$(1 + \tan^2\theta)\,\frac{d\theta}{dt} = \frac{2t}{80} = \frac{t}{40}$$
+
+Replace $\tan\theta$ by $t^2/80$ so everything is in terms of $t$:
+
+$$\frac{d\theta}{dt} = \frac{t/40}{1 + t^4/6400} = \frac{160\,t}{6400 + t^4}$$
+
+Now maximize *that*. Call it $\omega(t)$ and use the quotient rule; a fraction is at a maximum when the numerator of its derivative is zero:
+
+$$160(6400 + t^4) - 160t(4t^3) = 0 \;\Longrightarrow\; 6400 + t^4 = 4t^4 \;\Longrightarrow\; t^4 = \frac{6400}{3}$$
+
+So $t^4 = 2133$ and $t = 2133^{1/4} = 6.80$ s. Feed that back in. With $t^4 = 2133$ and $t = 6.80$:
+
+$$\omega_{\max} = \frac{160(6.80)}{6400 + 2133} = \frac{1088}{8533} = 0.127\ \mathrm{rad/s}$$
+
+The shape of the answer makes sense: early on the rocket is slow and far, so the angle barely moves; late on it is fast but nearly overhead, and further height changes the angle very little. The peak sits between.
+
+## Two chain-rule tricks worth having
+
+**Trading time for position.** Sometimes you know speed as a function of position, not time. A puck slides with $v = 2.0\sqrt{x}$. Its acceleration is $dv/dt$, and the chain rule lets you route through $x$:
+
+$$a = \frac{dv}{dt} = \frac{dv}{dx}\cdot\frac{dx}{dt} = v\,\frac{dv}{dx}$$
+
+Here $dv/dx = 2.0\cdot\tfrac{1}{2}x^{-1/2} = 1/\sqrt{x}$, so $a = 2.0\sqrt{x}\cdot 1/\sqrt{x} = 2.0\ \mathrm{m/s^2}$, the same everywhere. This $a = v\,dv/dx$ form will come back constantly once you meet energy.
+
+**Circular motion.** If a particle moves on a circle of radius $r$ with angle $\theta(t)$, the arc travelled is $s = r\theta$, so its speed is $v = r\,d\theta/dt$. For $\theta = 0.50t^2$ on $r = 3.0$ m, $d\theta/dt = 1.0t$, so $v = 3.0t$ and $v(4.0) = 12\ \mathrm{m/s}$. Its acceleration has two perpendicular pieces: $a_t = dv/dt$ along the path, and $a_c = v^2/r$ toward the center. The total magnitude is $\sqrt{a_t^2 + a_c^2}$, because they are perpendicular vectors — that is the dot-product machinery from the previous lesson doing its job.
+
+## How to recognise a derivative problem
+
+Four phrasings should make you reach for $d/dt$ before you read the rest of the sentence.
+
+**"At the instant..." or "at $t = $..."** paired with a formula for position or velocity. Differentiate, then substitute, in that order.
+
+**"Maximum", "minimum", "largest", "farthest", "smallest speed that will..."** — anything asking for the best value of something. Write the quantity as a function of one variable, set the derivative to zero, solve. If the problem gives you two variables, use a constraint to kill one first.
+
+**"Stops increasing", "turns around", "reaches its highest point", "changes direction"** — all of these say a derivative crosses zero. The height is greatest when $dy/dt = 0$; a distance stops growing when the rate of change of that distance is zero; the acceleration is momentarily zero when $dv/dt = 0$.
+
+**Two changing quantities and one given rate.** Ladders, shadows, balloons, ropes being winched in, radar tracking. These are related rates: find the geometric relation, differentiate it in time, substitute last.
+
+The one habit that will save you most often is the ordering. Set up symbolically, differentiate symbolically, and only put numbers in at the final line. It is faster, it is less error-prone, and the symbolic answer usually tells you something — like that $-u^2L^2/y^3$, which explained the ladder better than $-0.141$ ever could.
+
+Derivatives take a rule and give you the motion. The [next lesson](/guide/integrals) runs the machine backwards: given the acceleration, recover the velocity and the position.

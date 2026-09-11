@@ -1,0 +1,82 @@
+[
+  {
+    "id": "kirchhoff-loop-lab",
+    "title": "One loop, two batteries",
+    "caption": "Two emfs pushing against each other round a single loop.",
+    "height": 260,
+    "params": [
+      {
+        "key": "emf1",
+        "label": "Driving emf E1",
+        "unit": "V",
+        "min": 0,
+        "max": 24,
+        "step": 0.5,
+        "value": 12
+      },
+      {
+        "key": "emf2",
+        "label": "Opposing emf E2",
+        "unit": "V",
+        "min": 0,
+        "max": 24,
+        "step": 0.5,
+        "value": 9
+      },
+      {
+        "key": "res",
+        "label": "Total loop resistance",
+        "unit": "ohm",
+        "min": 1,
+        "max": 20,
+        "step": 0.5,
+        "value": 6
+      }
+    ],
+    "draw": "\nvar E1 = p.emf1, E2 = p.emf2, R = p.res;\nvar I = (E1 - E2) / R;\n\nvar pad = Math.min(W, H) * 0.16;\nvar x0 = pad, x1 = W - pad, y0 = pad, y1 = H - pad * 0.9;\n\nctx.lineWidth = 2;\nctx.strokeStyle = C.rule;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\n\n// the loop, drawn as four sides with gaps for the components\n// top side: battery 1 (gap in the middle)\nvar midT = (x0 + x1) / 2;\nctx.beginPath();\nctx.moveTo(x0, y0); ctx.lineTo(midT - 14, y0);\nctx.moveTo(midT + 14, y0); ctx.lineTo(x1, y0);\nctx.stroke();\n\n// right side: resistor zigzag in the middle\nvar midR = (y0 + y1) / 2;\nctx.beginPath();\nctx.moveTo(x1, y0); ctx.lineTo(x1, midR - 24);\nctx.moveTo(x1, midR + 24); ctx.lineTo(x1, y1);\nctx.stroke();\n\n// bottom side: battery 2 (gap in the middle)\nctx.beginPath();\nctx.moveTo(x1, y1); ctx.lineTo(midT + 14, y1);\nctx.moveTo(midT - 14, y1); ctx.lineTo(x0, y1);\nctx.stroke();\n\n// left side: plain wire\nctx.beginPath();\nctx.moveTo(x0, y1); ctx.lineTo(x0, y0);\nctx.stroke();\n\n// battery symbol helper (horizontal), plus plate on the +x side\nfunction battH(cx, cy, flip) {\n  ctx.strokeStyle = C.ink;\n  ctx.lineWidth = 2;\n  ctx.beginPath();\n  ctx.moveTo(cx - 5 * flip, cy - 11); ctx.lineTo(cx - 5 * flip, cy + 11);\n  ctx.stroke();\n  ctx.lineWidth = 4;\n  ctx.beginPath();\n  ctx.moveTo(cx + 5 * flip, cy - 6); ctx.lineTo(cx + 5 * flip, cy + 6);\n  ctx.stroke();\n  ctx.lineWidth = 2;\n}\n\n// battery 1 on top: long (positive) plate on the left, so it drives current\n// anticlockwise round the picture, i.e. down the left wire\nbattH(midT, y0, -1);\nctx.fillStyle = C.ink;\nctx.fillText(\"E1 = \" + E1.toFixed(1) + \" V\", midT, y0 - 14);\n\n// battery 2 on the bottom, opposing\nbattH(midT, y1, 1);\nctx.fillText(\"E2 = \" + E2.toFixed(1) + \" V\", midT, y1 + 22);\n\n// resistor on the right\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(x1, midR - 24);\nvar k;\nfor (k = 0; k < 6; k++) {\n  ctx.lineTo(x1 + (k % 2 === 0 ? 9 : -9), midR - 24 + 8 * (k + 0.5));\n}\nctx.lineTo(x1, midR + 24);\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.textAlign = \"left\";\nctx.fillText(\"R = \" + R.toFixed(1) + \" ohm\", x1 + 14, midR + 4);\nctx.textAlign = \"center\";\n\n// moving charge dots: anticlockwise when I is positive\nvar per = Math.max(0.12, Math.abs(I)) * 0.5;\nvar phase = (t * per) % 1;\nvar dir = I >= 0 ? 1 : -1;\nvar Lx = x1 - x0, Ly = y1 - y0;\nvar per2 = 2 * (Lx + Ly);\nvar n;\nctx.fillStyle = C.accent;\nfor (n = 0; n < 12; n++) {\n  var s = (((n / 12 + dir * phase) % 1) + 1) % 1;\n  var d = s * per2;\n  var px, py;\n  if (d < Ly) { px = x0; py = y0 + d; }\n  else if (d < Ly + Lx) { px = x0 + (d - Ly); py = y1; }\n  else if (d < 2 * Ly + Lx) { px = x1; py = y1 - (d - Ly - Lx); }\n  else { px = x1 - (d - 2 * Ly - Lx); py = y0; }\n  ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2); ctx.fill();\n}\n\n// loop-walk arrow in the middle\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.arc(W / 2, (y0 + y1) / 2, Math.min(Lx, Ly) * 0.22, 0.4, 5.2);\nctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"walk this way\", W / 2, (y0 + y1) / 2 + 4);\n\nout.note = \"I = (\" + E1.toFixed(1) + \" - \" + E2.toFixed(1) + \") / \" + R.toFixed(1) +\n  \" = \" + I.toFixed(3) + \" A\" + (I < 0 ? \"  (runs the other way)\" : \"\") +\n  \",  drop across R = \" + (I * R).toFixed(2) + \" V\";\n"
+  },
+  {
+    "id": "kirchhoff-signs",
+    "title": "The four sign cases",
+    "caption": "Every term in a loop equation is one of these four.",
+    "height": 280,
+    "params": [],
+    "draw": "\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\nctx.textAlign = \"center\";\n\nvar colY = [H * 0.30, H * 0.72];\nvar colX = [W * 0.26, W * 0.74];\n\nfunction arrowTo(ax, ay, bx, by) {\n  ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(bx, by); ctx.stroke();\n  var a = Math.atan2(by - ay, bx - ax);\n  ctx.beginPath();\n  ctx.moveTo(bx, by);\n  ctx.lineTo(bx - 7 * Math.cos(a - 0.4), by - 7 * Math.sin(a - 0.4));\n  ctx.lineTo(bx - 7 * Math.cos(a + 0.4), by - 7 * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nfunction resistor(cx, cy, w) {\n  ctx.strokeStyle = C.figure;\n  ctx.beginPath();\n  ctx.moveTo(cx - w, cy);\n  var k;\n  for (k = 0; k < 6; k++) ctx.lineTo(cx - w + (w * 2 / 6) * (k + 0.5), cy + (k % 2 === 0 ? -8 : 8));\n  ctx.lineTo(cx + w, cy);\n  ctx.stroke();\n}\n\nfunction battery(cx, cy, plusLeft) {\n  ctx.strokeStyle = C.ink;\n  var s = plusLeft ? -1 : 1;\n  ctx.lineWidth = 4;\n  ctx.beginPath(); ctx.moveTo(cx + 5 * s, cy - 10); ctx.lineTo(cx + 5 * s, cy + 10); ctx.stroke();\n  ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(cx - 5 * s, cy - 6); ctx.lineTo(cx - 5 * s, cy + 6); ctx.stroke();\n}\n\nvar i, j;\nfor (j = 0; j < 2; j++) {\n  for (i = 0; i < 2; i++) {\n    var cx = colX[i], cy = colY[j], w = Math.min(W * 0.16, 54);\n    // lead wires\n    ctx.strokeStyle = C.rule; ctx.lineWidth = 2;\n    ctx.beginPath();\n    ctx.moveTo(cx - w - 26, cy); ctx.lineTo(cx - w, cy);\n    ctx.moveTo(cx + w, cy); ctx.lineTo(cx + w + 26, cy);\n    ctx.stroke();\n\n    if (j === 0) resistor(cx, cy, w); else battery(cx, cy, i === 1);\n\n    // walking arrow, always left to right\n    ctx.strokeStyle = C.accent; ctx.fillStyle = C.accent; ctx.lineWidth = 1.5;\n    arrowTo(cx - w - 24, cy - 26, cx - w + 6, cy - 26);\n    ctx.fillText(\"walk\", cx - w - 9, cy - 32);\n  }\n}\n\n// current arrows on the resistor row\nctx.strokeStyle = C.ink; ctx.fillStyle = C.ink; ctx.lineWidth = 1.5;\narrowTo(colX[0] - 10, colY[0] + 26, colX[0] + 24, colY[0] + 26);\narrowTo(colX[1] + 24, colY[0] + 26, colX[1] - 10, colY[0] + 26);\nctx.fillText(\"I\", colX[0] + 7, colY[0] + 42);\nctx.fillText(\"I\", colX[1] + 7, colY[0] + 42);\n\n// labels\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.ink;\nctx.fillText(\"resistor, walking with the current\", colX[0], colY[0] - 46);\nctx.fillText(\"term is  -IR\", colX[0], colY[0] + 62);\nctx.fillText(\"resistor, walking against it\", colX[1], colY[0] - 46);\nctx.fillText(\"term is  +IR\", colX[1], colY[0] + 62);\nctx.fillText(\"battery, minus plate first\", colX[0], colY[1] - 46);\nctx.fillText(\"term is  +E\", colX[0], colY[1] + 40);\nctx.fillText(\"battery, plus plate first\", colX[1], colY[1] - 46);\nctx.fillText(\"term is  -E\", colX[1], colY[1] + 40);\n\n// plate signs\nctx.fillStyle = C.figure;\nctx.fillText(\"-\", colX[0] - 14, colY[1] - 16);\nctx.fillText(\"+\", colX[0] + 16, colY[1] - 16);\nctx.fillText(\"+\", colX[1] - 14, colY[1] - 16);\nctx.fillText(\"-\", colX[1] + 16, colY[1] - 16);\n\nout.note = \"add the four kinds of term round a loop and set the total to zero\";\n"
+  },
+  {
+    "id": "kirchhoff-bridge",
+    "title": "Unbalanced bridge lab",
+    "caption": "Drag the arms until the galvanometer reads zero.",
+    "height": 280,
+    "params": [
+      {
+        "key": "r1",
+        "label": "R1, from S to A",
+        "unit": "ohm",
+        "min": 20,
+        "max": 400,
+        "step": 5,
+        "value": 100
+      },
+      {
+        "key": "r4",
+        "label": "R4, from B to ground",
+        "unit": "ohm",
+        "min": 20,
+        "max": 400,
+        "step": 5,
+        "value": 250
+      },
+      {
+        "key": "rg",
+        "label": "Galvanometer resistance",
+        "unit": "ohm",
+        "min": 5,
+        "max": 300,
+        "step": 5,
+        "value": 50
+      }
+    ],
+    "draw": "\nvar V = 6.0;\nvar R1 = p.r1, R2 = 200, R3 = 150, R4 = p.r4, Rg = p.rg;\n\n// node equations at A and B, with the source node at V and ground at 0\nvar a11 = 1 / R1 + 1 / R2 + 1 / Rg;\nvar a12 = -1 / Rg;\nvar a21 = -1 / Rg;\nvar a22 = 1 / R3 + 1 / R4 + 1 / Rg;\nvar b1 = V / R1, b2 = V / R3;\nvar det = a11 * a22 - a12 * a21;\nvar VA = (b1 * a22 - a12 * b2) / det;\nvar VB = (a11 * b2 - a21 * b1) / det;\nvar Ig = (VA - VB) / Rg;\n\nvar pad = Math.min(W, H) * 0.14;\nvar xS = W * 0.16, xM = W * 0.5, xG = W * 0.84;\nvar yA = H * 0.30, yB = H * 0.70, yMid = H * 0.5;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\nctx.lineWidth = 2;\n\nfunction seg(ax, ay, bx, by) {\n  ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(bx, by); ctx.stroke();\n}\n\nfunction box(cx, cy, label, col) {\n  ctx.fillStyle = C.paper;\n  ctx.fillRect(cx - 20, cy - 9, 40, 18);\n  ctx.strokeStyle = col; ctx.lineWidth = 2;\n  ctx.strokeRect(cx - 20, cy - 9, 40, 18);\n  ctx.fillStyle = col;\n  ctx.fillText(label, cx, cy + 4);\n}\n\n// wires\nctx.strokeStyle = C.rule;\nseg(xS, yMid, xS, yA); seg(xS, yA, xM, yA); seg(xM, yA, xG, yA); seg(xG, yA, xG, yMid);\nseg(xS, yMid, xS, yB); seg(xS, yB, xM, yB); seg(xM, yB, xG, yB); seg(xG, yB, xG, yMid);\nseg(xM, yA, xM, yB);\n\n// components\nbox((xS + xM) / 2, yA, R1.toFixed(0), C.figure);\nbox((xM + xG) / 2, yA, R2.toFixed(0), C.figure);\nbox((xS + xM) / 2, yB, R3.toFixed(0), C.figure);\nbox((xM + xG) / 2, yB, R4.toFixed(0), C.figure);\n\n// galvanometer in the bridge arm\nctx.fillStyle = C.paper;\nctx.beginPath(); ctx.arc(xM, yMid, 14, 0, Math.PI * 2); ctx.fill();\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.arc(xM, yMid, 14, 0, Math.PI * 2); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"G\", xM, yMid + 4);\n\n// node dots and names\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(xM, yA, 4, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(xM, yB, 4, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"A\", xM + 16, yA - 8);\nctx.fillText(\"B\", xM + 16, yB + 18);\nctx.fillText(\"S  \" + V.toFixed(1) + \" V\", xS, yMid - 22);\nctx.fillText(\"G  0 V\", xG, yMid + 30);\nctx.fillStyle = C.faint;\nctx.fillText(\"VA = \" + VA.toFixed(2) + \" V\", xM - 52, yA - 22);\nctx.fillText(\"VB = \" + VB.toFixed(2) + \" V\", xM - 52, yB + 32);\n\n// source terminals\nctx.strokeStyle = C.ink; ctx.lineWidth = 4;\nctx.beginPath(); ctx.moveTo(xS - 9, yMid - 6); ctx.lineTo(xS + 9, yMid - 6); ctx.stroke();\nctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(xS - 5, yMid + 4); ctx.lineTo(xS + 5, yMid + 4); ctx.stroke();\nctx.beginPath(); ctx.moveTo(xG - 12, yMid); ctx.lineTo(xG + 12, yMid); ctx.stroke();\nctx.beginPath(); ctx.moveTo(xG - 8, yMid + 5); ctx.lineTo(xG + 8, yMid + 5); ctx.stroke();\nctx.beginPath(); ctx.moveTo(xG - 4, yMid + 10); ctx.lineTo(xG + 4, yMid + 10); ctx.stroke();\n\n// current in the bridge arm, animated dots along A-B\nvar mag = Math.min(1, Math.abs(Ig) / 0.004);\nvar dir = Ig >= 0 ? 1 : -1;\nvar k;\nctx.fillStyle = C.accent;\nfor (k = 0; k < 5; k++) {\n  var s = ((k / 5 + dir * (t * (0.15 + mag)) % 1) + 1) % 1;\n  var py = yA + s * (yB - yA);\n  if (Math.abs(py - yMid) < 16) continue;\n  ctx.beginPath(); ctx.arc(xM, py, 3, 0, Math.PI * 2); ctx.fill();\n}\n\nvar bal = R1 * R4 - R2 * R3;\nout.note = \"VA - VB = \" + (VA - VB).toFixed(3) + \" V,  galvanometer current = \" +\n  (Ig * 1000).toFixed(3) + \" mA.  R1*R4 - R2*R3 = \" + bal.toFixed(0) +\n  (Math.abs(bal) < 1 ? \"  (balanced)\" : \"\");\n"
+  }
+]

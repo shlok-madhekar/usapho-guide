@@ -1,60 +1,339 @@
+Push a heavy crate across a floor. Nothing happens. Push harder — still nothing.
+Push harder again and suddenly it breaks loose and slides more easily than it
+took to start it. Somewhere in there the floor was pushing back on the crate
+with exactly the force you were applying, and then it stopped being able to.
+
+That "exactly the force you were applying" is the whole lesson. In the previous
+lesson you drew free body diagrams and every force on them had a known size:
+weight was $mg$, the normal force was whatever the surface pressed with.
+Friction is the first force you will meet whose size is not handed to you. Most
+of the time you have to solve for it.
+
 ## Two laws, two grammars
 
-Friction acts along the contact surface, opposing relative sliding. It comes in
-two kinds, and the difference between them is the whole topic:
+Friction acts along the contact surface and opposes relative sliding. It comes
+in two kinds, and the difference between them is the difference between an
+equation and an inequality.
 
-$$f_s \le \mu_s N, \qquad f_k = \mu_k N$$
+Once two surfaces are already sliding across each other, the friction force has
+a fixed magnitude set by how hard they are pressed together:
 
-Kinetic friction is a number. Once a block is sliding, friction has the
-magnitude $\mu_k N$ and points opposite the velocity — nothing to solve for.
+$$f_k = \mu_k N$$
 
-Static friction is a budget. It supplies exactly whatever force is needed to
-keep the surfaces from sliding, and $\mu_s N$ is only the largest it can
-supply. Push a crate with 20 N and it does not move: static friction is 20 N,
-not $\mu_s N$. Only at the instant of slipping does the inequality become an
-equality, and that is the one moment you may write $f_s = \mu_s N$.
+Here $N$ is the normal force, the perpendicular push of the surface on the
+object, and $\mu_k$ is the coefficient of kinetic friction — a dimensionless
+number, usually between 0.05 and 1, that depends on what the two materials are.
+Notice what is *not* in that formula: the speed, the area of contact, the
+weight. Only $N$ and the materials. A brick lying flat and the same brick
+standing on end feel the same kinetic friction.
+
+Static friction, when the surfaces are not sliding, is a different animal. It
+supplies whatever force is needed to prevent sliding, up to a limit:
+
+$$f_s \le \mu_s N$$
+
+Read that as a budget. Push the crate with 20 N and it stays put — static
+friction is 20 N, not $\mu_s N$. Push with 50 N and it stays put — static
+friction is 50 N. The number $\mu_s N$ is the largest cheque the surface can
+write. Only at the instant the crate is about to slip does the inequality
+become an equality, and that is the only moment you are allowed to write
+$f_s = \mu_s N$.
+
+<Figure caption={<><b>Figure 1.</b> The bar at the top is the static budget. Raise the push slowly and watch the friction arrow grow to match it exactly. Once the bar fills, the crate breaks loose and friction drops to the smaller kinetic value — which is why a stuck crate lurches when it finally moves.</>}>
+  <Sim id="friction-budget" />
+</Figure>
 
 <Aside label="Where this goes wrong" warn>
-  Setting $f_s = \mu_s N$ for an object in ordinary equilibrium. That equation
-  is a statement about the threshold of slipping, not about every static
-  contact. If the problem does not say "maximum", "minimum", "just barely", or
-  "on the verge", treat $f_s$ as an unknown and let the equations determine it.
+  Writing $f_s = \mu_s N$ for an object sitting in ordinary equilibrium. That
+  equation describes the threshold of slipping, not every static contact. If the
+  problem does not say "maximum", "minimum", "just barely", or "on the verge",
+  treat $f_s$ as an unknown and let Newton's second law tell you what it is.
+  A 5.0 kg block resting on a 30° slope with $\mu_s = 0.70$ feels a friction
+  force of $mg\sin 30^\circ = 24.5$ N, not $\mu_s mg\cos 30^\circ = 29.7$ N.
 </Aside>
 
-## Angle of repose
+## Worked example 1: a car that locks its brakes
 
-Tilt a plank with a block on it. Along the slope, $mg\sin\theta$ pulls down;
-across it, $N = mg\cos\theta$. Slipping starts when the demand hits the ceiling:
+A car travelling at $20\ \mathrm{m/s}$ locks its wheels on a level road with
+$\mu_k = 0.70$. How far does it skid?
 
-$$mg\sin\theta = \mu_s\, mg\cos\theta \;\Longrightarrow\; \tan\theta_{\max} = \mu_s$$
+The wheels are locked, so the tyres slide: kinetic friction, an equation, not a
+budget. On level ground the only vertical forces are weight and normal force,
+so $N = mg$. The friction force is $f_k = \mu_k mg$ and it is the only
+horizontal force, so Newton's second law along the road gives
 
-The mass cancels. A heavy block and a light one of the same material slip at
-the same angle.
+$$ma = -\mu_k mg \quad\Longrightarrow\quad a = -\mu_k g = -(0.70)(9.8) = -6.86\ \mathrm{m/s^2}.$$
 
-That angle has a geometric meaning. The contact force — normal plus friction,
-added as vectors — can tilt away from the surface normal by at most
-$\arctan\mu_s$. Sweep that limit around and you get the **friction cone**: any
-applied force whose line lies inside the cone can be balanced without sliding,
-and anything outside cannot, no matter how hard you push. This is why pressing
-a crate harder at a steep downward angle never helps — you add to $N$ and to
-the driving component in the same ratio.
+The mass cancelled. That is worth pausing on: a loaded truck and an empty one,
+same tyres, skid the same distance. Now use the kinematic relation with no time
+in it, $v^2 = v_0^2 + 2a d$, with final speed zero:
+
+$$d = \frac{v_0^2}{2\mu_k g} = \frac{20^2}{2(0.70)(9.8)} = \frac{400}{13.72} = 29.2\ \mathrm{m}.$$
+
+The same three lines run backwards give you $\mu_k$ from a measured skid, or
+from a measured deceleration: if a block slows at $2.5\ \mathrm{m/s^2}$ on a
+level table, then $\mu_k = a/g = 2.5/9.8 = 0.255$.
+
+## Slopes and the angle of repose
+
+Tilt a plank with a block on it and raise the angle $\theta$ slowly. Set up
+axes along the slope and perpendicular to it, rather than horizontal and
+vertical — that way the acceleration, if there is any, lies along one axis.
+Gravity $mg$ points straight down, which splits into $mg\sin\theta$ down the
+slope and $mg\cos\theta$ into it. Perpendicular to the surface nothing
+accelerates, so
+
+$$N = mg\cos\theta.$$
+
+Along the slope, gravity demands $mg\sin\theta$ of friction to hold the block.
+The budget is $\mu_s N = \mu_s mg\cos\theta$. The block sits still as long as
+demand does not exceed budget:
+
+$$mg\sin\theta \le \mu_s\, mg\cos\theta \quad\Longrightarrow\quad \tan\theta \le \mu_s.$$
+
+The mass cancelled again, and so did $g$. The critical angle, called the
+**angle of repose**, is $\theta_{\max} = \arctan\mu_s$. Tilt a ramp until a
+block just starts to slide at 32°, and you have measured
+$\mu_s = \tan 32^\circ = 0.625$. Go the other way: a carton with $\mu_s = 0.60$
+holds up to $\arctan 0.60 = 31.0°$.
+
+Past that angle the block slides, friction switches to $\mu_k N$ pointing up
+the slope, and
+
+$$a = g(\sin\theta - \mu_k\cos\theta).$$
+
+For a 20° slope with $\mu_k = 0.25$: $a = 9.8(0.342 - 0.25 \times 0.940)
+= 9.8(0.342 - 0.235) = 1.05\ \mathrm{m/s^2}$.
+
+One sign trap hides here. If the block is launched *up* the slope, it is still
+moving, so friction still has magnitude $\mu_k mg\cos\theta$ — but it now
+points *down* the slope, because it opposes the motion, not gravity. The two
+effects add:
+
+$$a = g(\sin\theta + \mu_k\cos\theta).$$
+
+A 6.0 kg block sent up a 25° incline with $\mu_k = 0.30$ decelerates at
+$9.8(0.423 + 0.30 \times 0.906) = 9.8(0.423 + 0.272) = 6.81\ \mathrm{m/s^2}$,
+much harder than it would accelerate coming back down.
 
 <QuickCheck
-  question="A block rests on an incline at an angle well below the angle of repose. Doubling the block's mass will:"
-  options={["Make it slip, since gravity doubled", "Leave it in place, since the slip condition has no mass in it", "Halve the friction force", "Depend on the coefficient"]}
+  question="A block rests on an incline well below the angle of repose. Doubling its mass will:"
+  options={["Make it slip, since gravity doubled", "Leave it in place, since mass cancels out of the slip condition", "Halve the friction force", "Depend on whether the slope is rough"]}
   answer={1}
-  explanation="Both the driving component and the normal force scale with m, so tan(θ) versus μs is unchanged. Mass cancels out of the slipping condition entirely."
+  explanation="Both the driving component mg sin θ and the budget μs mg cos θ scale with m, so the condition tan θ ≤ μs is unchanged. The friction force itself does double — but so does the budget."
 />
 
-## Which surface slips first
+## The friction cone
 
-Stack two blocks and drag the bottom one, or push a pair of blocks resting on
-a table. Each contact has its own $N$ and its own $\mu_s$, so each has its own
-budget. The system stays rigid only while *every* contact stays within budget.
+There is a picture that makes all of this one idea instead of several. Add the
+normal force and the friction force as vectors and call the result the contact
+force. Since $f \le \mu_s N$, the contact force can lean away from the
+perpendicular by at most $\arctan \mu_s$. Sweep that limit around and you sweep
+out a cone.
 
-The procedure: assume nothing slips, solve for the common acceleration, then
-back out the friction required at each surface. Compare each required value to
-its own $\mu_s N$. The contact that exceeds its ceiling first is the one that
-gives way — and often it is not the one carrying the largest friction force,
-because the ceilings differ too. If a contact fails, redo the problem with
-$f_k = \mu_k N$ there and independent accelerations for the two bodies.
+The rule is then: **if the other forces on the object point into the cone, the
+surface can hold it; if they point outside, nothing can.** The angle of repose
+is the moment gravity leaves the cone. It also explains why shoving a crate
+downward at a steep angle never helps you start it moving — pushing at an angle
+outside the cone adds to the driving component and to $N$ in exactly the ratio
+that keeps you outside it.
+
+<Figure caption={<><b>Figure 2.</b> The dashed wedge is the friction cone. Drag the slope angle up and watch the weight vector swing out past the cone edge; drag the coefficient up and watch the cone widen to catch it again.</>}>
+  <Sim id="friction-fbd" />
+</Figure>
+
+## Worked example 2: the best angle to pull
+
+A 25 kg sled is dragged at constant speed over ground with $\mu_k = 0.50$. You
+may choose the rope angle. What is the smallest tension that works?
+
+Blank paper first: draw the sled, the weight $mg$ down, the normal force $N$ up,
+friction $f_k$ backwards, and the rope tension $T$ at angle $\theta$ above the
+horizontal. Constant speed means zero acceleration in both directions.
+
+Vertically, the rope now carries part of the load, so the ground carries less:
+
+$$N + T\sin\theta = mg \quad\Longrightarrow\quad N = mg - T\sin\theta.$$
+
+This is the step people miss. Tilting the rope lightens the sled, which shrinks
+$N$, which shrinks friction. Horizontally,
+
+$$T\cos\theta = \mu_k N = \mu_k(mg - T\sin\theta).$$
+
+Collect the $T$ terms: $T\cos\theta + \mu_k T\sin\theta = \mu_k mg$, so
+
+$$T(\theta) = \frac{\mu_k mg}{\cos\theta + \mu_k\sin\theta}.$$
+
+Check it on an easier case first. A 20 kg trunk, $\mu_k = 0.30$, rope at 30°:
+$T = (0.30)(20)(9.8) / (0.866 + 0.30 \times 0.500) = 58.8/1.016 = 57.9$ N.
+
+To minimise $T$ you maximise the denominator. Write
+$\cos\theta + \mu\sin\theta = \sqrt{1+\mu^2}\,\cos(\theta - \arctan\mu)$ — that
+is the standard trick for turning $a\cos\theta + b\sin\theta$ into a single
+cosine — and the largest it can be is $\sqrt{1+\mu^2}$, reached when
+$\theta = \arctan\mu$. So the best rope angle is the friction cone angle, and
+
+$$T_{\min} = \frac{\mu_k mg}{\sqrt{1+\mu_k^2}} = \frac{(0.50)(25)(9.8)}{\sqrt{1.25}} = \frac{122.5}{1.118} = 110\ \mathrm{N}.$$
+
+Pulling flat would have cost 122.5 N. The curve is flat near its minimum, which
+is why nobody has to be precise about it in real life.
+
+<Figure caption={<><b>Figure 3.</b> Tension against rope angle. Drag the angle and watch the readout; notice the curve is shallow near the bottom, so being 10 degrees off costs you almost nothing, while pulling at 60 degrees costs a lot.</>}>
+  <Sim id="friction-pull-angle" />
+</Figure>
+
+The same bookkeeping runs in reverse when a force presses a block *into* a
+slope. Push horizontally with force $F$ on a 10 kg block on a 40° incline with
+$\mu_s = 0.30$, and now $F$ has a component into the surface (raising $N$) and a
+component up the slope. Perpendicular: $N = mg\cos\theta + F\sin\theta$. Along
+the slope, on the verge of sliding down, friction acts up at full budget:
+$F\cos\theta + \mu_s N = mg\sin\theta$. Solving for the minimum $F$ gives
+42.2 N. The structure is identical — resolve, note that $N$ now depends on the
+unknown, then solve.
+
+<Aside label="Worth remembering">
+  $N$ is almost never $mg$. It is $mg$ only on level ground with nothing else
+  pushing or pulling vertically. On a slope it is $mg\cos\theta$; with an angled
+  rope it is $mg \mp T\sin\theta$; in a lift it is $m(g+a)$. Since friction is
+  proportional to $N$, getting $N$ wrong wrecks everything downstream. Solve the
+  perpendicular direction first, every time.
+</Aside>
+
+## Two bodies, two budgets
+
+Stack a block on a block, or tie two together, and each contact gets its own
+$N$, its own $\mu$, and its own budget. The system moves as one rigid object
+only while *every* contact stays inside its budget.
+
+The procedure is always the same three steps. Assume nothing slips and find the
+common acceleration by treating the whole stack as one object. Then isolate one
+body and ask how much friction that acceleration requires at each contact.
+Finally compare each required value with that contact's own $\mu_s N$.
+
+**Worked example 3.** A 2.0 kg block sits on a 5.0 kg block on a frictionless
+floor, with $\mu_s = \mu_k = 0.40$ between them. A horizontal 40 N force is
+applied to the *lower* block. Find the lower block's acceleration.
+
+Assume they move together. Total mass 7.0 kg, one external horizontal force:
+
+$$a = \frac{40}{7.0} = 5.71\ \mathrm{m/s^2}.$$
+
+Now isolate the top block. The only horizontal force on it is friction from the
+block underneath, so that friction alone must produce $5.71\ \mathrm{m/s^2}$:
+
+$$f_{\text{needed}} = (2.0)(5.71) = 11.4\ \mathrm{N}.$$
+
+The budget at that contact is $\mu_s N = (0.40)(2.0)(9.8) = 7.84$ N. Demand
+beats budget, so the assumption fails: the top block slides backwards relative
+to the bottom one. Redo it with kinetic friction fixed at 7.84 N and separate
+accelerations. The top block gets $a_1 = 7.84/2.0 = 3.92\ \mathrm{m/s^2}$. The
+bottom block feels the 40 N push forward and the top block's friction dragging
+backward on it (Newton's third law):
+
+$$a_2 = \frac{40 - 7.84}{5.0} = \frac{32.16}{5.0} = 6.43\ \mathrm{m/s^2}.$$
+
+Run the same machinery to find the largest force that keeps a stack together.
+For 3.0 kg on 7.0 kg with $\mu_s = 0.40$ between them and a frictionless floor,
+the top block can be accelerated at most at $\mu_s g = 3.92\ \mathrm{m/s^2}$, so
+the whole 10 kg can be pushed with at most $F = (10)(3.92) = 39.2$ N.
+
+When the floor is rough too, there are two contacts to check and the loser is
+not always the obvious one. Put a 2.0 kg block on a 4.0 kg block on the ground,
+$\mu_s = 0.30$ between them and $0.20$ underneath, and push the *top* block.
+The top block slips once $F > (0.30)(2.0)(9.8) = 5.88$ N. The ground contact
+carries all 6.0 kg, so it does not give until $F > (0.20)(6.0)(9.8) = 11.8$ N.
+The upper surface fails first at 5.88 N, even though it is the one with the
+larger coefficient.
+
+<QuickCheck
+  question="Two blocks slide together down a rough slope, connected by a taut string, with the low-friction block in front. The string tension is:"
+  options={["Zero, because they have the same acceleration", "Nonzero, because each block alone would accelerate differently", "Equal to the weight of the rear block", "Equal to the friction on the front block"]}
+  answer={1}
+  explanation="Alone, the low-friction block would accelerate faster. Tying them forces a compromise acceleration, and the string carries whatever force is needed to enforce it — holding the front block back and dragging the rear one forward."
+/>
+
+That last check is a real problem type. A 2.0 kg block with $\mu_k = 0.10$ is
+tied ahead of a 3.0 kg block with $\mu_k = 0.40$ on a 30° slope. Treat the pair
+as one body: the effective coefficient is the weighted average
+$(0.10 \times 2.0 + 0.40 \times 3.0)/5.0 = 0.28$, so
+$a = 9.8(0.500 - 0.28 \times 0.866) = 2.52\ \mathrm{m/s^2}$. Then isolate the
+front block, where the string pulls backward:
+$T = m_1 g\sin\theta - \mu_1 m_1 g\cos\theta - m_1 a
+= 9.80 - 1.70 - 5.05 = 3.06$ N.
+
+<Figure caption={<><b>Figure 4.</b> Tilt the ramp past arctan of the coefficient and the block lets go. Watch the friction arrow: below the critical angle it tracks the gravity component exactly, and at the critical angle it stops growing.</>}>
+  <Sim id="friction-incline" />
+</Figure>
+
+## When the whole thing is accelerating
+
+Friction problems get one level harder when the surface itself accelerates. A
+block rides on the 20° face of a wedge, and the wedge is driven horizontally at
+$A = 3.0\ \mathrm{m/s^2}$ into the hill. What is the smallest $\mu_s$ that keeps
+the block from sliding on the face?
+
+Stay in the ground frame and use axes along and across the slope. The block's
+acceleration is horizontal with magnitude $A$, so its component along the slope
+is $A\cos\theta$ and across the slope is $A\sin\theta$. Perpendicular to the
+face, with the block pressed in,
+
+$$N = mg\cos\theta + mA\sin\theta.$$
+
+Along the face, gravity pulls down-slope at $mg\sin\theta$, the required
+acceleration accounts for $mA\cos\theta$ up-slope, and friction $f$ makes up the
+difference:
+
+$$mg\sin\theta - f = -mA\cos\theta \ \Longrightarrow\ f = m(g\sin\theta - A\cos\theta).$$
+
+Divide by $N$, and the mass drops out once more:
+
+$$
+
+\mu_{\min} = \frac{g\sin\theta - A\cos\theta}{g\cos\theta + A\sin\theta}
+= \frac{3.352 - 2.819}{9.209 + 1.026} = \frac{0.533}{10.24} = 0.052.
+
+$$
+
+Driving the wedge into the hill did most of the holding, so barely any friction
+is needed. Set $A=0$ and you recover $\tan\theta$, the angle-of-repose answer,
+which is a good check that the algebra is right.
+
+Multi-stage motion is the other common escalation: a block slides 3.0 m down a
+30° ramp with $\mu_k = 0.20$, then onto a floor with $\mu_k = 0.35$. Do it in
+two pieces, carrying the speed across the join. On the ramp,
+$a = 9.8(0.500 - 0.20 \times 0.866) = 3.20\ \mathrm{m/s^2}$, so
+$v^2 = 2(3.20)(3.0) = 19.2\ \mathrm{m^2/s^2}$. On the floor,
+$a = -\mu_k g = -3.43\ \mathrm{m/s^2}$, so $d = 19.2/(2 \times 3.43) = 2.80$ m.
+You never need $v$ itself, only $v^2$.
+
+## How to recognise a friction problem
+
+The word "friction" is usually there, but the useful signal is finer than that.
+
+If the problem says **"minimum force", "maximum force", "just barely", "on the
+verge", or "about to slip"**, you are at the threshold and you may write
+$f_s = \mu_s N$. That phrase is the permission slip for the equals sign.
+
+If the object is **already sliding**, you have $f_k = \mu_k N$ immediately and
+the only work left is getting the direction right: opposite the velocity, not
+opposite the applied force. Blocks moving up a rough slope are where this
+bites.
+
+If the object is **at rest and the problem asks for the friction force**, do not
+use either coefficient until you have checked. Solve the equilibrium equations
+for $f$, then compare with $\mu_s N$ to confirm it is affordable.
+
+If there is **more than one contact surface**, expect to assume no slipping,
+solve for a common acceleration, and check every contact against its own budget.
+Whichever fails first is where the motion begins.
+
+And if only an **angle** appears with no masses at all, the answer is almost
+certainly $\tan\theta = \mu$ in some disguise — the angle of repose, the best
+rope angle, or the ladder condition $\tan\theta \ge 1/(2\mu_s)$, which is the
+same friction budget argument run through a torque balance instead of a force
+balance. For $\mu_s = 0.40$ that gives $\arctan(1.25) = 51.3°$.
+
+Next you will tie these blocks together properly and send the string over
+pulleys, where the constraint that the rope has a fixed length does the work
+that the no-slip assumption did here:
+[Tension, Pulleys & Connected Systems](/guide/tension-pulleys).

@@ -1,62 +1,226 @@
-## Current is a flow rate
+Until now every charge you met was sitting still. You put charge on a conductor, waited for it to stop moving, then found the field. In a [dielectric](/guide/dielectrics) you asked how the material rearranged itself once everything had settled.
 
-Current measures how much charge passes a cross-section per second:
+Now nothing settles. A battery holds a steady potential difference across a wire, charge keeps moving through it, and yet the state of the wire stops changing. A torch runs for an hour at the same brightness. Something sets how much charge goes past per second, and the answer splits cleanly in two: what the material is made of, and what shape you cut it into. That split is the whole lesson.
+
+## Current is a flow rate, not a substance
+
+Pick a cross-section of a wire — an imaginary flat disc slicing right through it. Watch charge cross that disc. If an amount $\Delta Q$ crosses in time $\Delta t$, the current is
 
 $$I = \frac{dQ}{dt}$$
 
-Inside a wire the carriers are not fast. They drift at $v_d$, and if there are
-$n$ carriers per volume each with charge $q$, the current through area $A$ is
+which is coulombs per second, and one coulomb per second is one ampere. Current is a rate, not stuff that gets used up. In a single loop the same current passes every cross-section, because charge has nowhere else to go.
+
+For steady current the derivative is unnecessary. A toaster element carrying $8.5\ \mathrm{A}$ for $90\ \mathrm{s}$ passes
+
+$$Q = I\,t = 8.5 \times 90 = 765\ \mathrm{C}$$
+
+and since each electron carries $1.6\times10^{-19}\ \mathrm{C}$, that is $765 / (1.6\times10^{-19}) \approx 4.8\times10^{21}$ electrons. Amps and seconds in, charge or electron count out.
+
+Now look inside. Suppose the wire has $n$ mobile carriers per cubic metre, each with charge $q$, all creeping along at an average speed $v_d$ called the **drift speed**. In a time $\Delta t$ each carrier moves $v_d \Delta t$, so the ones that make it past the disc are exactly those inside a cylinder of length $v_d \Delta t$ and area $A$. That cylinder holds $n A v_d \Delta t$ carriers, with charge $qnAv_d\Delta t$. Divide by $\Delta t$:
 
 $$I = nqv_dA$$
 
-Drift speeds in copper are under a millimetre per second. The signal travels at
-nearly the speed of light because the field establishes itself throughout the
-wire almost instantly, not because electrons race down it.
+Copper has about $n = 8.5\times10^{28}$ free electrons per cubic metre. A lamp cord of diameter $2.05\ \mathrm{mm}$ has radius $1.025\times10^{-3}\ \mathrm{m}$ and area $A = \pi r^2 = 3.30\times10^{-6}\ \mathrm{m^2}$. Carrying $5.0\ \mathrm{A}$,
 
-## Resistance is geometry times material
+$$v_d = \frac{I}{nqA} = \frac{5.0}{(8.5\times10^{28})(1.6\times10^{-19})(3.30\times10^{-6})} \approx 1.1\times10^{-4}\ \mathrm{m/s}$$
 
-Resistance is not a property of a substance. Resistivity $\rho$ is. Resistance
-is what you get after you commit to a shape:
+About a tenth of a millimetre per second: an electron needs three hours to crawl the length of the cord. The lamp still lights instantly, because the field that pushes the electrons spreads through the wire at nearly light speed, so every electron in the circuit — including the ones already in the filament — starts drifting at once.
 
-$$R = \frac{\rho L}{A}$$
+<Aside label="Worth remembering">
+  Drift speed is tiny, signal speed is enormous, and they are different things. The water in a full hosepipe moves slowly, but water comes out of the nozzle the instant you open the tap.
+</Aside>
 
-Double the length, double the resistance. Double the cross-section, halve it.
-This is why a problem that stretches a wire to twice its length at constant
-volume gives four times the resistance: $L$ doubles and $A$ halves.
+Current per unit area is often handier. That is the **current density** $J = I/A = nqv_d$, in amperes per square metre. When a conductor changes width along its length, $I$ is the same everywhere but $J$ is not, and $J$ is what tells you what is happening locally.
 
-Ohm's law then relates the three quantities:
+<QuickCheck
+  question="A wire narrows partway along, so the second half has half the cross-sectional area of the first. Comparing the narrow part to the wide part:"
+  options={["The current is the same and the current density is twice as large", "Both the current and the current density are twice as large", "The current is half as large and the density is the same", "Both are unchanged"]}
+  answer={0}
+  explanation="Charge cannot pile up in a steady state, so the same coulombs per second cross every cross-section: I is unchanged. Density is I divided by A, and A has halved, so J doubles. The drift speed doubles with it."
+/>
+
+## Resistance is material times geometry
+
+Push harder and more current flows. For a wide class of materials, at fixed temperature, the current is proportional to the applied potential difference. Define the constant of proportionality by
 
 $$V = IR$$
 
+and call $R$ the **resistance**, in ohms. A car headlight with a hot resistance of $2.4\ \Omega$ across $12.0\ \mathrm{V}$ draws $I = 12.0/2.4 = 5.0\ \mathrm{A}$.
+
+But $R$ is not a property of copper. It is a property of *this piece* of copper. Imagine a uniform rod of length $L$ and area $A$ with voltage $V$ across its ends. Split it lengthwise into two rods of length $L/2$: each gets half the voltage and the same current, so each has half the resistance. Resistance goes with length. Now split it sideways into two rods of area $A/2$: each has the full voltage and half the current, so each has twice the resistance. Resistance goes inversely with area. Put those together and all that is left is a constant depending on the substance:
+
+$$R = \frac{\rho L}{A}$$
+
+$\rho$ is the **resistivity**, in ohm-metres. Copper is $1.68\times10^{-8}\ \Omega\cdot\mathrm{m}$; rubber is around $10^{13}$. That single number carries everything about the material, and $L/A$ carries everything about the shape.
+
+**Worked example 1 — an extension cord.** Copper wire of diameter $1.63\ \mathrm{mm}$, cord length $15\ \mathrm{m}$, so the current runs $15\ \mathrm{m}$ out along one conductor and $15\ \mathrm{m}$ back along the other: $L = 30\ \mathrm{m}$. Radius is $0.815\ \mathrm{mm} = 8.15\times10^{-4}\ \mathrm{m}$, so
+
+$$A = \pi (8.15\times10^{-4})^2 = 2.087\times10^{-6}\ \mathrm{m^2}$$
+
+$$R = \frac{(1.68\times10^{-8})(30)}{2.087\times10^{-6}} = \frac{5.04\times10^{-7}}{2.087\times10^{-6}} = 0.24\ \Omega$$
+
+The trap here is the factor of two in the length. Current has to come back.
+
+<Figure caption={<><b>Figure 1.</b> A wire with the resistance formula made visible. Drag the length and the diameter and watch the readout. Notice that halving the diameter quarters the area and so quadruples the resistance, while doubling the length only doubles it.</>}>
+  <Sim id="current-resistance-wire" />
+</Figure>
+
+## Stretching at constant volume
+
+A favourite problem type: pull a wire through a die so it gets longer and thinner. The metal is neither created nor destroyed, so the volume $AL$ stays fixed. That couples $A$ to $L$: if $L$ goes up by a factor $k$, $A$ goes down by the same factor $k$. Resistance depends on $L/A$, so it goes up by $k$ twice over:
+
+$$R' = \frac{\rho (kL)}{A/k} = k^2 \frac{\rho L}{A} = k^2 R$$
+
+A $2.0\ \Omega$ wire drawn to three times its length becomes $9 \times 2.0 = 18\ \Omega$. Not $6\ \Omega$. The squared factor catches people every time.
+
+**Worked example 2 — half a wire stretched.** A uniform wire has total resistance $3.00\ \Omega$. Half its length is stretched to twice that half's original length, at constant volume; the other half is untouched. Find the new total.
+
+Start from what is uniform. Each half has half the length and the same area, so each is $1.50\ \Omega$. Now treat them separately, because they are no longer the same piece. The untouched half stays at $1.50\ \Omega$. The stretched half has $k = 2$, so it becomes $2^2 \times 1.50 = 6.00\ \Omega$. They are still joined end to end, and resistances in a chain add:
+
+$$R_{\text{total}} = 1.50 + 6.00 = 7.50\ \Omega$$
+
+The lesson in the setup: when part of an object is changed, cut the object at that boundary first, then apply the scaling only to the piece it applies to.
+
 <Aside label="Where this goes wrong" warn>
-  Ohm's law is a description of certain materials, not a law of nature. Diodes,
-  filaments, gas discharges and electrolytes all violate it. A tungsten bulb
-  heats up as it conducts, its resistivity climbs, and its current-voltage
-  curve bends over. When a problem gives you a nonlinear element, work with the
-  actual curve and use $R = V/I$ only as a local ratio at one operating point.
+  Constant volume only holds when the wire is stretched or drawn. If a problem instead *replaces* the wire with a longer one of the same diameter, the area does not change and $R$ scales with $L$ alone. Read which one you were given. And check radius against diameter before squaring: a factor of two inside a square becomes a factor of four in the answer.
 </Aside>
 
-## Reduction and power
+## When the cross-section is not constant
 
-Series elements carry the same current, so their voltages add and their
-resistances add. Parallel elements share the same voltage, so their currents
-add and their conductances add. Collapse a network by finding any pair that is
-unambiguously in one configuration or the other, replace it, and repeat.
+$R = \rho L/A$ assumes $A$ is the same all the way along. When it is not, chop the object into slabs thin enough that each has a well-defined area. Slabs stacked along the current direction are in series, so their resistances add, which in the limit is an integral:
 
-Power delivered to any element is the product of the current through it and the
-voltage across it:
+$$R = \int \frac{\rho\,dx}{A(x)}$$
 
-$$P = IV = I^2R = \frac{V^2}{R}$$
+**Worked example 3 — a tapered pin.** A copper pin is a truncated cone of length $\ell = 0.0200\ \mathrm{m}$, radius $a = 1.00\ \mathrm{mm}$ at one end and $b = 3.00\ \mathrm{mm}$ at the other, varying linearly. Current runs along the axis with uniform current density across each cross-section. Take $\rho = 1.68\times10^{-8}\ \Omega\cdot\mathrm{m}$.
 
-The three forms are equal only for an ohmic resistor. Pick the one whose
-variable is held fixed. In series the current is common, so $I^2R$ says the
-largest resistor dissipates the most. In parallel the voltage is common, so
-$V^2/R$ says the smallest resistor dissipates the most. Getting that backwards
-is the most common error in a mixed network.
+At distance $x$ from the narrow end, the radius is
+
+$$r(x) = a + (b-a)\frac{x}{\ell}$$
+
+so the slab of thickness $dx$ there contributes $dR = \rho\,dx / (\pi r^2)$. Substitute $u = r(x)$, for which $du = (b-a)\,dx/\ell$, so $dx = \ell\,du/(b-a)$:
+
+$$R = \frac{\rho \ell}{\pi (b-a)} \int_a^b \frac{du}{u^2} = \frac{\rho \ell}{\pi (b-a)}\left[\frac{1}{a} - \frac{1}{b}\right] = \frac{\rho \ell}{\pi a b}$$
+
+That final form is worth remembering: a linear taper behaves like a uniform rod whose area is $\pi ab$, the *geometric* mean of the two end areas, not the average. Numerically,
+
+$$R = \frac{(1.68\times10^{-8})(0.0200)}{\pi (1.00\times10^{-3})(3.00\times10^{-3})} = \frac{3.36\times10^{-10}}{9.425\times10^{-9}} = 3.57\times10^{-5}\ \Omega$$
+
+The same chop-and-add works when the current flows *sideways*. In a coaxial cable, leakage current seeps radially outward from the inner conductor of radius $a$ to the outer one of inner radius $b$, through insulation of resistivity $\rho$ over cable length $\ell$. At radius $r$ the current crosses a cylinder of area $2\pi r \ell$, and the shells are in series going outward, so
+
+$$R = \int_a^b \frac{\rho\,dr}{2\pi r \ell} = \frac{\rho}{2\pi \ell}\ln\frac{b}{a}$$
+
+Only the crossed area changed. Always ask: at this position, what area is the current passing through, and how thick is the slab in the direction of flow?
+
+## Temperature, and the limits of Ohm's law
+
+Heat a metal and its lattice vibrates harder, scattering the drifting electrons more often, so $\rho$ climbs. Over a moderate range the rise is close to linear:
+
+$$R(T) = R_0\left[1 + \alpha (T - T_0)\right]$$
+
+where $R_0$ is the resistance at the reference temperature $T_0$ and $\alpha$ is the temperature coefficient in $\mathrm{K^{-1}}$. For tungsten $\alpha = 4.5\times10^{-3}\ \mathrm{K^{-1}}$ at $T_0 = 20^{\circ}\mathrm{C}$. A filament that is $0.30\ \Omega$ cold becomes, at $2400^{\circ}\mathrm{C}$,
+
+$$R = 0.30\left[1 + (4.5\times10^{-3})(2400-20)\right] = 0.30\,(1 + 10.71) = 3.5\ \Omega$$
+
+more than eleven times its cold value. Run it backwards to estimate a filament's operating temperature: get the hot resistance from the rated power and voltage, compare to cold, solve for $T$. A bulb rated $100\ \mathrm{W}$ at $120\ \mathrm{V}$ has hot resistance $V^2/P = 120^2/100 = 144\ \Omega$, against $4.50\ \Omega$ cold, a ratio of $32.0$. Then $1 + \alpha(T-20) = 32.0$ gives $T - 20 = 31.0/(4.5\times10^{-3}) = 6890$, so $T \approx 6.9\times10^{3}\,^{\circ}\mathrm{C}$. That is hotter than tungsten can possibly be, which tells you the linear model has been pushed far past where it works. Problems still ask for the number; give it, and know what it means.
+
+<Aside label="Where this goes wrong" warn>
+  $V = IR$ describes certain materials; it is not a law of nature. Diodes, filaments, gas discharges and electrolytes all break it. For a device with a curved current-voltage graph, $R = V/I$ is still defined at any one operating point, but it is a different number at every point and you may not carry it from one to another. If a problem hands you a curve, read the operating point off the curve.
+</Aside>
+
+## Power, and how networks combine
+
+Move a charge $\Delta Q$ through a potential drop $V$ and the field does work $\Delta Q\,V$ on it. In a resistor that work is not stored; it goes to the lattice as heat. Divide by the time and use $I = \Delta Q/\Delta t$:
+
+$$P = IV$$
+
+Substituting $V = IR$ or $I = V/R$ gives the other two faces of the same statement:
+
+$$P = I^2R = \frac{V^2}{R}$$
+
+A hair dryer drawing $12.5\ \mathrm{A}$ from $120\ \mathrm{V}$ consumes $12.5 \times 120 = 1500\ \mathrm{W}$. A welding cable of $8.0\ \Omega$ carrying $3.0\ \mathrm{A}$ wastes $3.0^2 \times 8.0 = 72\ \mathrm{W}$. A toaster rated $1200\ \mathrm{W}$ at $120\ \mathrm{V}$ has element resistance $V^2/P = 14400/1200 = 12\ \Omega$.
+
+Two resistors joined end to end carry the same current, since charge cannot leak away in between. The drops add, so $V = IR_1 + IR_2 = I(R_1+R_2)$, and the pair behaves as one resistor with
+
+$$R_{\text{series}} = R_1 + R_2 + \cdots$$
+
+Two resistors joined across the same pair of nodes have the same voltage across each. The currents add, so $I = V/R_1 + V/R_2$, and
+
+$$\frac{1}{R_{\text{parallel}}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots$$
+
+A $60\ \Omega$ and a $30\ \Omega$ coil in parallel give $1/R = 1/60+1/30 = 3/60$, so $R = 20\ \Omega$ — less than either, always true of a parallel pair, because you have opened a second path.
+
+Pick the power formula whose variable is the shared one. In series the current is common, so $P = I^2R$ says the *largest* resistor runs hottest. In parallel the voltage is common, so $P = V^2/R$ says the *smallest* one does. Getting that backwards is the commonest error in a mixed network.
 
 <QuickCheck
   question="Two unequal resistors are connected in parallel across a battery. Which dissipates more power?"
   options={["The larger resistance", "The smaller resistance", "They dissipate equally", "It depends on the battery voltage"]}
   answer={1}
-  explanation="Parallel elements share a common voltage, so power goes as V squared over R. The smaller resistance draws more current and dissipates more. In series the opposite holds, because there the current is what is shared."
+  explanation="Parallel elements share a common voltage, so power goes as V squared over R, and the smaller resistance draws more current. In series the opposite holds, because there it is the current that is shared."
 />
+
+To collapse a network, find any pair that is *unambiguously* in series or in parallel, replace it, redraw, repeat. Take the chain: $4.0\ \Omega$ from the terminal to node A, then $6.0\ \Omega$ and $12.0\ \Omega$ in parallel from A to B, then $2.0\ \Omega$ from B back. The parallel pair is $1/R = 1/6+1/12 = 3/12$, so $R = 4.0\ \Omega$. Now three resistors sit in one chain: $4.0 + 4.0 + 2.0 = 10.0\ \Omega$.
+
+<Figure caption={<><b>Figure 2.</b> The same network collapsing one step at a time. Drag the step slider from left to right and watch the parallel pair become a single box, then the chain become one resistor. The current shown is what a 12 V battery would drive through it.</>}>
+  <Sim id="current-resistance-network" />
+</Figure>
+
+## Real sources, and choosing the load
+
+A real battery is not an ideal voltage source. Chemistry sets an **emf** $\mathcal{E}$, the work done per coulomb, but the electrolyte and electrodes themselves resist current. Model that as a small **internal resistance** $r$ in series with an ideal source. A load $R$ across the terminals then forms one loop:
+
+$$I = \frac{\mathcal{E}}{R + r}$$
+
+A AA cell of $1.50\ \mathrm{V}$ and $r = 0.30\ \Omega$ feeding a $2.70\ \Omega$ lamp drives $I = 1.50/3.00 = 0.50\ \mathrm{A}$. The terminal voltage you would measure is not $1.50\ \mathrm{V}$ but $IR = 1.35\ \mathrm{V}$; the missing $0.15\ \mathrm{V}$ is dropped inside the cell.
+
+**Worked example 4 — the best load.** A generator of emf $24.0\ \mathrm{V}$ and internal resistance $0.500\ \Omega$ feeds a load through a cable of total resistance $1.50\ \Omega$. You may choose $R$ freely. What is the greatest power you can deliver to the load?
+
+Lump everything that is not the load. The internal resistance and the cable are in series with each other and with $R$, so the fixed part is $r_{\text{eff}} = 0.500 + 1.50 = 2.00\ \Omega$. The current is $I = \mathcal{E}/(R + r_{\text{eff}})$ and the load power is
+
+$$P = I^2R = \frac{\mathcal{E}^2 R}{(R + r_{\text{eff}})^2}$$
+
+Make $R$ tiny and $P \to 0$: no voltage across the load. Make $R$ huge and $P \to 0$ again: no current. So there is a maximum in between. Differentiate, or use this tidier trick — divide top and bottom by $R$,
+
+$$P = \frac{\mathcal{E}^2}{\left(\sqrt{R} + r_{\text{eff}}/\sqrt{R}\right)^2}$$
+
+The bracket is minimised when the two terms are equal, which happens at $R = r_{\text{eff}}$. At that point the bracket is $2\sqrt{r_{\text{eff}}}$, so
+
+$$P_{\max} = \frac{\mathcal{E}^2}{4 r_{\text{eff}}} = \frac{24.0^2}{4 \times 2.00} = \frac{576}{8.00} = 72.0\ \mathrm{W}$$
+
+This is **maximum power transfer**: most power into a load when the load matches everything in series with it. Efficiency there is only 50 percent — half the power burns in the cable and the generator. Power delivered and efficiency are different targets, and the problem will tell you which it wants.
+
+<Figure caption={<><b>Figure 3.</b> Load power against load resistance, with the circuit above it. Drag the load and watch the readout: power peaks exactly where the load equals the source plus cable resistance, and the peak is broad, so being off by 30 percent costs you very little.</>}>
+  <Sim id="current-resistance-load" />
+</Figure>
+
+<QuickCheck
+  question="A battery of emf 12 V and internal resistance 2 ohms is connected to a 2 ohm load. What fraction of the chemical power produced reaches the load?"
+  options={["All of it", "Three quarters", "One half", "One quarter"]}
+  answer={2}
+  explanation="Equal resistances in series carry the same current and so dissipate equal power. Half the power goes to the load, half is lost inside the battery. Matching maximises the power delivered, not the efficiency."
+/>
+
+A real voltmeter is a large but finite resistance placed in parallel with whatever it measures, so connecting it changes what it reads. That is not a defect to ignore; it is a resistor you draw in.
+
+Take a $30.0\ \mathrm{V}$ ideal supply driving a $20.0\ \mathrm{k}\Omega$ resistor in series with an unknown $R$. A voltmeter of internal resistance $50.0\ \mathrm{k}\Omega$ across $R$ reads $10.0\ \mathrm{V}$. Draw it: the meter is in parallel with $R$, and that combination $R_p$ is in series with $20.0\ \mathrm{k}\Omega$. The reading is the voltage across $R_p$, so by the voltage divider,
+
+$$10.0 = 30.0 \times \frac{R_p}{R_p + 20.0} \quad\Rightarrow\quad R_p + 20.0 = 3R_p \quad\Rightarrow\quad R_p = 10.0\ \mathrm{k}\Omega$$
+
+Now undo the parallel combination: $1/10.0 = 1/R + 1/50.0$, so $1/R = 0.1 - 0.02 = 0.08$, and $R = 12.5\ \mathrm{k}\Omega$. Without the meter, $R$ would have read $12.0\ \mathrm{V}$; the meter pulled the reading down by stealing current. An ammeter does the mirror image: it adds a small resistance in series and so reads slightly less than the current that flowed before it was inserted.
+
+Two network tricks belong here, and neither needs anything beyond series and parallel. **Self-similarity:** an infinite ladder looks identical after you strip one cell off the front, so $R_{in} = R_1 + (R_2 R_{in})/(R_2 + R_{in})$, a quadratic. With $R_1 = 2.00$ and $R_2 = 3.00$ it gives $R_{in} \approx 3.65\ \Omega$. **Symmetry:** in a cube of twelve equal resistors driven corner to opposite corner, the three edges at the input carry equal current, as do the three at the output, leaving six in the middle to split the current six ways. Summing drops along a path gives $R = R_e(1/3 + 1/6 + 1/3) = (5/6)R_e$, so $5.00\ \Omega$ for $6.00\ \Omega$ edges. Nodes at equal potential can be merged or cut apart freely, and spotting that is usually the whole problem.
+
+## Recognising these problems
+
+The signals are unusually clean here.
+
+If the problem mentions amps and seconds and asks for coulombs or a number of electrons, it wants $I = Q/t$ and nothing more. If it gives $n$, a wire diameter and a current, it wants $I = nqv_dA$, and the answer will be absurdly small — that is the point.
+
+If a length, an area or a diameter appears alongside a material name or a resistivity, it wants $R = \rho L/A$. If the shape changes at constant volume, remember $R$ scales as the length ratio squared. If the cross-section varies along the wire, or the current spreads radially outward, you cannot use $L/A$ directly: set up $\int \rho\,dx/A(x)$ with $A(x)$ being whatever area the current crosses at that position.
+
+If a temperature or an $\alpha$ appears, it is the linear $R = R_0[1+\alpha\Delta T]$, run forwards or backwards.
+
+If you are given two of power, voltage, current and resistance and asked for a third, pick whichever of $P = IV = I^2R = V^2/R$ contains the two you have. If a network has to be reduced, look for a pair sharing both nodes (parallel) or a node with nothing else attached to it (series), and keep collapsing. If neither exists anywhere, look for symmetry or self-similarity before assuming you need something harder.
+
+If the question says "the load may be chosen freely" and asks for maximum power, match the load to everything in series with it, and the answer is $\mathcal{E}^2/4r_{\text{eff}}$.
+
+And when a network has no two elements that are plainly in series or plainly in parallel — a bridge, or several loops with sources scattered around them — reduction has run out. That is what [Kirchhoff's laws](/guide/kirchhoff) are for, and they are next.

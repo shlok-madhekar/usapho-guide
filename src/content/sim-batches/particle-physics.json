@@ -1,0 +1,82 @@
+[
+  {
+    "id": "particle-physics-zoo",
+    "title": "The twelve fundamental fermions",
+    "caption": "Three generations of quarks and leptons, with their electric charges.",
+    "height": 250,
+    "params": [],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\nvar padL = W * 0.19, padR = W * 0.17, padT = 30, padB = 22;\nvar cw = (W - padL - padR) / 3;\nvar rh = (H - padT - padB) / 4;\nvar sym = [\n  [\"u\", \"c\", \"t\"],\n  [\"d\", \"s\", \"b\"],\n  [\"e\", \"mu\", \"tau\"],\n  [\"nu e\", \"nu mu\", \"nu tau\"]\n];\nvar chg = [\"+2/3\", \"-1/3\", \"-1\", \"0\"];\nvar i, j, x, y;\n\nctx.textAlign = \"center\";\nctx.fillStyle = C.ink;\nfor (j = 0; j < 3; j++) {\n  ctx.fillText(\"generation \" + (j + 1), padL + cw * (j + 0.5), padT - 12);\n}\n\nfor (i = 0; i < 4; i++) {\n  for (j = 0; j < 3; j++) {\n    x = padL + cw * j;\n    y = padT + rh * i;\n    ctx.fillStyle = i < 2 ? C.faint : C.paper;\n    ctx.fillRect(x + 3, y + 3, cw - 6, rh - 6);\n    ctx.strokeStyle = C.rule;\n    ctx.lineWidth = 1;\n    ctx.strokeRect(x + 3, y + 3, cw - 6, rh - 6);\n    ctx.fillStyle = i < 2 ? C.accent : C.figure;\n    ctx.font = \"14px ui-sans-serif, system-ui, sans-serif\";\n    ctx.fillText(sym[i][j], x + cw / 2, y + rh / 2);\n  }\n}\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\nctx.fillStyle = C.ink;\nfor (i = 0; i < 4; i++) {\n  ctx.fillText(\"charge \" + chg[i], padL + cw * 3 + 8, padT + rh * (i + 0.5));\n}\n\nctx.textAlign = \"right\";\nctx.fillStyle = C.accent;\nctx.fillText(\"quarks\", padL - 8, padT + rh);\nctx.fillStyle = C.figure;\nctx.fillText(\"leptons\", padL - 8, padT + rh * 3);\n\nctx.textAlign = \"center\";\nctx.fillStyle = C.ink;\nctx.fillText(\"6 quarks + 6 leptons = 12 fundamental fermions\", W / 2, H - padB / 2);"
+  },
+  {
+    "id": "particle-physics-quark-content",
+    "title": "Quark content of a hadron",
+    "caption": "Add the quark charges and read off the charge, baryon number and strangeness.",
+    "height": 250,
+    "params": [
+      {
+        "key": "which",
+        "label": "Hadron (0 p, 1 n, 2 lambda, 3 omega, 4 pi+, 5 K-)",
+        "unit": "",
+        "min": 0,
+        "max": 5,
+        "step": 1,
+        "value": 0
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\nvar names = [\"proton\", \"neutron\", \"lambda-0\", \"omega-minus\", \"pi-plus\", \"K-minus\"];\nvar content = [\n  [\"u\", \"u\", \"d\"],\n  [\"u\", \"d\", \"d\"],\n  [\"u\", \"d\", \"s\"],\n  [\"s\", \"s\", \"s\"],\n  [\"u\", \"anti-d\"],\n  [\"s\", \"anti-u\"]\n];\nvar qc = { u: 2 / 3, d: -1 / 3, s: -1 / 3 };\nvar lab = { u: \"+2/3\", d: \"-1/3\", s: \"-1/3\" };\nvar k = Math.round(p.which);\nif (k < 0) k = 0;\nif (k > 5) k = 5;\nvar qs = content[k];\nvar n = qs.length;\n\nvar Q = 0, B = 0, S = 0, i;\nfor (i = 0; i < n; i++) {\n  var s0 = qs[i];\n  var anti = s0.indexOf(\"anti-\") === 0;\n  var f = anti ? s0.substring(5) : s0;\n  var sign = anti ? -1 : 1;\n  Q += sign * qc[f];\n  B += sign / 3;\n  if (f === \"s\") S += sign * -1;\n}\n\nctx.textAlign = \"center\";\nctx.fillStyle = C.ink;\nctx.font = \"14px ui-sans-serif, system-ui, sans-serif\";\nctx.fillText(names[k], W / 2, 22);\n\nvar r = Math.min(34, W / 12);\nvar gap = r * 2.9;\nvar cx0 = W / 2 - gap * (n - 1) / 2;\nvar cy = H * 0.5;\nctx.font = \"13px ui-sans-serif, system-ui, sans-serif\";\nfor (i = 0; i < n; i++) {\n  var cx = cx0 + gap * i;\n  var s1 = qs[i];\n  var anti1 = s1.indexOf(\"anti-\") === 0;\n  var f1 = anti1 ? s1.substring(5) : s1;\n  ctx.beginPath();\n  ctx.arc(cx, cy, r, 0, Math.PI * 2);\n  ctx.fillStyle = anti1 ? C.paper : C.faint;\n  ctx.fill();\n  ctx.strokeStyle = anti1 ? C.figure : C.accent;\n  ctx.lineWidth = 2;\n  if (anti1) ctx.setLineDash([4, 4]);\n  ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.ink;\n  ctx.fillText(s1, cx, cy - 8);\n  var qv = (anti1 ? -1 : 1) * qc[f1];\n  ctx.fillStyle = C.figure;\n  ctx.font = \"11px ui-sans-serif, system-ui, sans-serif\";\n  ctx.fillText((qv > 0 ? \"+\" : \"\") + (Math.abs(qv - 2 / 3) < 1e-6 ? \"2/3\" : Math.abs(qv + 2 / 3) < 1e-6 ? \"-2/3\" : qv > 0 ? \"1/3\" : \"-1/3\"), cx, cy + 12);\n  ctx.font = \"13px ui-sans-serif, system-ui, sans-serif\";\n  if (i < n - 1) {\n    ctx.fillStyle = C.rule;\n    ctx.fillText(\"+\", cx + gap / 2, cy);\n  }\n}\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(W * 0.12, cy + r + 22);\nctx.lineTo(W * 0.88, cy + r + 22);\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar line = \"charge \" + (Q > 0 ? \"+\" : \"\") + Math.round(Q) + \"e    baryon number \" + Math.round(B) + \"    strangeness \" + Math.round(S);\nctx.fillText(line, W / 2, cy + r + 40);\nctx.fillStyle = C.figure;\nctx.fillText(n === 3 ? \"three quarks: this is a baryon\" : \"quark plus antiquark: this is a meson\", W / 2, cy + r + 60);\n\nout.note = names[k] + \": Q = \" + (Q > 0 ? \"+\" : \"\") + Math.round(Q) + \"e, B = \" + Math.round(B) + \", S = \" + Math.round(S);"
+  },
+  {
+    "id": "particle-physics-two-body",
+    "title": "Two-body decay lab",
+    "caption": "A parent at rest splits into two daughters with equal and opposite momenta.",
+    "height": 250,
+    "params": [
+      {
+        "key": "M",
+        "label": "Parent rest energy",
+        "unit": "MeV",
+        "min": 140,
+        "max": 2000,
+        "step": 1,
+        "value": 1115.7
+      },
+      {
+        "key": "m1",
+        "label": "Daughter 1 rest energy",
+        "unit": "MeV",
+        "min": 0,
+        "max": 1200,
+        "step": 0.1,
+        "value": 938.3
+      },
+      {
+        "key": "m2",
+        "label": "Daughter 2 rest energy",
+        "unit": "MeV",
+        "min": 0,
+        "max": 1200,
+        "step": 0.1,
+        "value": 139.6
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\nvar M = p.M, m1 = p.m1, m2 = p.m2;\nvar ok = M > m1 + m2;\nvar pc = 0, E1 = 0, E2 = 0, b1 = 0, b2 = 0;\nif (ok) {\n  var A = M * M - (m1 + m2) * (m1 + m2);\n  var Bb = M * M - (m1 - m2) * (m1 - m2);\n  pc = Math.sqrt(A * Bb) / (2 * M);\n  E1 = Math.sqrt(pc * pc + m1 * m1);\n  E2 = Math.sqrt(pc * pc + m2 * m2);\n  b1 = pc / E1;\n  b2 = pc / E2;\n}\n\nvar cy = H * 0.52;\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(W * 0.06, cy);\nctx.lineTo(W * 0.94, cy);\nctx.stroke();\n\nctx.textAlign = \"center\";\nctx.fillStyle = C.ink;\nctx.fillText(\"parent at rest, momentum zero\", W / 2, 18);\n\nvar period = 3.2;\nvar ph = t % period;\nvar reach = W * 0.40;\n\nif (!ok) {\n  ctx.fillStyle = C.figure;\n  ctx.fillText(\"forbidden: parent lighter than the two daughters\", W / 2, cy - 24);\n  ctx.beginPath();\n  ctx.arc(W / 2, cy, 12, 0, Math.PI * 2);\n  ctx.fillStyle = C.faint;\n  ctx.fill();\n  ctx.strokeStyle = C.rule;\n  ctx.stroke();\n  out.note = \"M = \" + M.toFixed(1) + \" MeV is below m1 + m2 = \" + (m1 + m2).toFixed(1) + \" MeV, so there is no decay\";\n} else if (ph < 0.9) {\n  ctx.beginPath();\n  ctx.arc(W / 2, cy, 14, 0, Math.PI * 2);\n  ctx.fillStyle = C.accent;\n  ctx.fill();\n  ctx.fillStyle = C.paper;\n  ctx.fillText(\"M\", W / 2, cy);\n} else {\n  var u = (ph - 0.9) / (period - 0.9);\n  var bmax = Math.max(b1, b2, 1e-6);\n  var d1 = reach * u * (b1 / bmax);\n  var d2 = reach * u * (b2 / bmax);\n  var x1 = W / 2 - d1, x2 = W / 2 + d2;\n\n  ctx.strokeStyle = C.accent;\n  ctx.lineWidth = 2;\n  ctx.beginPath();\n  ctx.moveTo(W / 2, cy);\n  ctx.lineTo(x1, cy);\n  ctx.moveTo(W / 2, cy);\n  ctx.lineTo(x2, cy);\n  ctx.stroke();\n\n  ctx.fillStyle = C.accent;\n  ctx.beginPath();\n  ctx.arc(x1, cy, 10, 0, Math.PI * 2);\n  ctx.fill();\n  ctx.fillStyle = C.figure;\n  ctx.beginPath();\n  ctx.arc(x2, cy, 10, 0, Math.PI * 2);\n  ctx.fill();\n\n  ctx.fillStyle = C.ink;\n  ctx.fillText(\"m1 = \" + m1.toFixed(1), x1, cy - 24);\n  ctx.fillText(\"m2 = \" + m2.toFixed(1), x2, cy - 24);\n  ctx.fillText(\"p = \" + pc.toFixed(1) + \" MeV/c\", x1, cy + 26);\n  ctx.fillText(\"p = \" + pc.toFixed(1) + \" MeV/c\", x2, cy + 26);\n}\n\nctx.textAlign = \"left\";\nctx.fillStyle = C.figure;\nctx.fillText(\"equal and opposite momenta, always\", W * 0.06, H - 14);\n\nif (ok) {\n  out.note = \"p = \" + pc.toFixed(1) + \" MeV/c, E1 = \" + E1.toFixed(1) + \" MeV, E2 = \" + E2.toFixed(1) + \" MeV, energy released \" + (M - m1 - m2).toFixed(1) + \" MeV\";\n}"
+  },
+  {
+    "id": "particle-physics-cm-energy",
+    "title": "Collider versus fixed target",
+    "caption": "Available centre-of-mass energy against beam energy, log-log.",
+    "height": 260,
+    "params": [
+      {
+        "key": "beam",
+        "label": "Beam energy",
+        "unit": "GeV",
+        "min": 1,
+        "max": 10000,
+        "step": 1,
+        "value": 7000
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\nvar mp = 0.9383;\nvar padL = 46, padR = 16, padT = 20, padB = 34;\nvar x0 = padL, x1 = W - padR, y0 = H - padB, y1 = padT;\nvar lxmin = 0, lxmax = 4;\nvar lymin = 0, lymax = 4.4;\nvar X = function (lx) { return x0 + (lx - lxmin) / (lxmax - lxmin) * (x1 - x0); };\nvar Y = function (ly) { return y0 + (ly - lymin) / (lymax - lymin) * (y1 - y0); };\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(x0, y1); ctx.lineTo(x0, y0); ctx.lineTo(x1, y0);\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nvar labx = [\"1 GeV\", \"10\", \"100\", \"1 TeV\", \"10 TeV\"];\nvar i;\nfor (i = 0; i <= 4; i++) {\n  ctx.beginPath();\n  ctx.moveTo(X(i), y0); ctx.lineTo(X(i), y0 + 4);\n  ctx.strokeStyle = C.rule;\n  ctx.stroke();\n  ctx.fillText(labx[i], X(i), y0 + 14);\n}\nctx.textAlign = \"right\";\nvar laby = [\"1\", \"10\", \"100\", \"1000\", \"10000\"];\nfor (i = 0; i <= 4; i++) {\n  ctx.beginPath();\n  ctx.moveTo(x0 - 4, Y(i)); ctx.lineTo(x0, Y(i));\n  ctx.strokeStyle = C.rule;\n  ctx.stroke();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(laby[i], x0 - 7, Y(i));\n}\nctx.textAlign = \"left\";\nctx.fillStyle = C.figure;\nctx.fillText(\"root-s in GeV\", x0 - 40, padT - 10);\nctx.textAlign = \"right\";\nctx.fillText(\"beam energy\", x1, y0 + 26);\n\nvar lx, E, v;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (lx = lxmin; lx <= lxmax + 1e-9; lx += 0.05) {\n  E = Math.pow(10, lx);\n  v = Math.log(2 * E) / Math.LN10;\n  if (lx === lxmin) ctx.moveTo(X(lx), Y(v)); else ctx.lineTo(X(lx), Y(v));\n}\nctx.stroke();\n\nctx.strokeStyle = C.figure;\nctx.beginPath();\nfor (lx = lxmin; lx <= lxmax + 1e-9; lx += 0.05) {\n  E = Math.pow(10, lx);\n  v = Math.log(Math.sqrt(2 * mp * mp + 2 * mp * E)) / Math.LN10;\n  if (lx === lxmin) ctx.moveTo(X(lx), Y(v)); else ctx.lineTo(X(lx), Y(v));\n}\nctx.stroke();\n\nvar Ec = p.beam;\nvar lxc = Math.log(Ec) / Math.LN10;\nvar col = 2 * Ec;\nvar fix = Math.sqrt(2 * mp * mp + 2 * mp * Ec);\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath();\nctx.moveTo(X(lxc), y0); ctx.lineTo(X(lxc), Y(Math.log(col) / Math.LN10));\nctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.arc(X(lxc), Y(Math.log(col) / Math.LN10), 5, 0, Math.PI * 2);\nctx.fill();\nctx.fillStyle = C.figure;\nctx.beginPath();\nctx.arc(X(lxc), Y(Math.log(fix) / Math.LN10), 5, 0, Math.PI * 2);\nctx.fill();\n\nctx.textAlign = \"left\";\nctx.fillStyle = C.accent;\nctx.fillText(\"collider, two beams head-on\", X(0.15), Y(3.9));\nctx.fillStyle = C.figure;\nctx.fillText(\"fixed target, stationary proton\", X(0.15), Y(3.55));\n\nout.note = \"beam \" + (Ec >= 1000 ? (Ec / 1000).toFixed(2) + \" TeV\" : Ec.toFixed(0) + \" GeV\") + \": collider root-s = \" + col.toFixed(0) + \" GeV, fixed target root-s = \" + fix.toFixed(1) + \" GeV\";"
+  }
+]

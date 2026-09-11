@@ -1,55 +1,414 @@
-## Describing a spin
+## Why rotation gets its own variables
 
-A point on a spinning wheel travels a different distance depending on how far
-it sits from the axle, but every point sweeps the same angle in the same time.
-That is why rotation is described by angle rather than position.
+Put a strip of tape near the axle of a bicycle wheel and another strip out on
+the rim, then spin the wheel. In one second the outer strip races through
+something like a metre of arc; the inner one barely moves. If you tried to
+describe the wheel by "where its parts are", you would need a different answer
+for every point on it, and none of those answers would be the same two moments
+running.
 
-Angular position $\theta$ is measured in radians, and radians are chosen so
-that arc length is simply $s = r\theta$. Angular velocity is how fast the angle
-changes, $\omega = d\theta/dt$, and angular acceleration is how fast that
-changes, $\alpha = d\omega/dt$.
+But something is shared. In the time the outer strip sweeps a quarter turn, so
+does the inner strip. Every particle of a rigid spinning body turns through the
+*same angle* in the same time. That single number describes the whole object,
+and it is why rotation gets its own set of variables. In the last lesson you
+replaced a swarm of particles by one point, the
+[centre of mass](/guide/center-of-mass), to talk about how a system moves as a
+whole. Now you need the other half: how it turns about that point.
 
-Signs matter and are a convention you pick: counterclockwise positive is the
-usual choice. A wheel slowing down while spinning counterclockwise has positive
-$\omega$ and negative $\alpha$, exactly as a car braking has positive $v$ and
-negative $a$.
+Angular position $\theta$ is the angle between some line painted on the body
+and a fixed reference direction. Positive is usually counterclockwise; that is
+a convention, and you are free to pick the other one as long as you keep it.
 
-## The equations you already know
+The unit matters more than it looks. Define the radian by the rule that an
+angle of $\theta$ radians subtends an arc of length
 
-Because $\theta$, $\omega$, $\alpha$ relate to each other by the same
-derivatives that link $x$, $v$, $a$, constant angular acceleration gives the
-same five equations with the letters swapped.
+$$s = r\theta$$
 
-$$\omega = \omega_0 + \alpha t, \qquad \theta = \omega_0 t + \tfrac12\alpha t^2$$
+on a circle of radius $r$. A full turn wraps the whole circumference, $s = 2\pi
+r$, so a full turn is $2\pi$ radians. That is the entire content of "one
+revolution equals $2\pi$ rad". Three and a half revolutions is
+$3.5 \times 2\pi = 21.99$ rad.
 
-$$\omega^2 = \omega_0^2 + 2\alpha\theta$$
+Every formula below comes out of $s = r\theta$, and $s = r\theta$ is
+only true in radians. Degrees and revolutions are data formats: convert them the
+moment they appear, and never carry them into a calculation.
 
-A record player spun up from rest at $\alpha = 2\ \text{rad/s}^2$ reaches
-$\omega = 6$ rad/s in 3 s, having turned $\tfrac12(2)(9) = 9$ radians, or about
-1.4 revolutions. No new physics — only new symbols.
+Rpm — revolutions per minute — is the commonest one you will meet. A motor at
+1800 rpm turns 1800 revolutions in 60 seconds, so
 
-## Back to the rim
+$$\omega = \frac{1800 \times 2\pi\ \text{rad}}{60\ \text{s}} = 188.5\ \text{rad/s}.$$
 
-To connect a rotating body to a point on it, multiply by the radius:
-
-$$v = \omega r, \qquad a_t = \alpha r$$
-
-Here $v$ is the speed along the circular path and $a_t$ is the tangential
-acceleration, the part that changes speed. There is a second piece: the
-centripetal acceleration $a_c = \omega^2 r$, which changes direction instead.
-The total acceleration of a rim point is the vector sum of the two, and they
-are perpendicular.
+Going the other way, the period $T$ is the time for one full turn, so
+$\omega T = 2\pi$ and $T = 2\pi/\omega$. A carousel at 0.40 rad/s has
+$T = 2\pi/0.40 = 15.7$ s.
 
 <Aside label="Where this goes wrong" warn>
-  Every one of these relations assumes $\theta$ is in radians. Feeding degrees
-  into $v = \omega r$ gives an answer off by a factor of 57. Convert at the very
-  start, and treat revolutions and rpm as raw data to be converted, never as
-  units you can compute with.
+  Degrees are the classic wreck. Feeding 30 into $v = \omega r$ when you meant
+  30 degrees per second gives an answer 57 times too large, and it will look
+  perfectly plausible. Convert revolutions, degrees and rpm to radians on the
+  first line of your work, before anything else happens.
 </Aside>
 
+## Rates: angular velocity and angular acceleration
+
+Angular velocity is how fast the angle changes,
+
+$$\omega = \frac{d\theta}{dt},$$
+
+measured in rad/s, and angular acceleration is how fast *that* changes,
+
+$$\alpha = \frac{d\omega}{dt} = \frac{d^2\theta}{dt^2},$$
+
+in rad/s². These are the same two derivatives that took you from $x$ to $v$ to
+$a$ in a straight line. Nothing new is being claimed. If you are handed
+$\theta(t)$ you differentiate; if you are handed $\alpha(t)$ you integrate.
+
+Sign works the way it does on a line. Counterclockwise positive means a wheel
+spinning counterclockwise and slowing has $\omega > 0$ and $\alpha < 0$,
+exactly as a car moving forward and braking has $v > 0$ and $a < 0$. A negative
+$\alpha$ does not mean "slowing"; it means "turning more clockwise per second".
+Those coincide only when $\omega$ is positive.
+
+**Worked example 1.** A disk turns so that $\theta(t) = 2t^3 - 5t$, with
+$\theta$ in radians and $t$ in seconds. Find $\omega$ at $t = 2.0$ s and
+$\alpha$ at $t = 3.0$ s.
+
+Differentiate once: $\omega = d\theta/dt = 6t^2 - 5$. At $t = 2.0$,
+$\omega = 6(4) - 5 = 24 - 5 = 19$ rad/s.
+
+Differentiate again: $\alpha = d\omega/dt = 12t$. At $t = 3.0$,
+$\alpha = 12(3.0) = 36$ rad/s². Note that $\alpha$ here is not constant, so the
+constant-acceleration formulas in the next section would give nonsense. Check
+that before you reach for them.
+
 <QuickCheck
-  question="A wheel spins at constant angular velocity. What is true of a point on its rim?"
+  question="A wheel has angular velocity omega = -4 rad/s and angular acceleration alpha = +2 rad/s squared. What is it doing?"
+  options={["Spinning clockwise and speeding up", "Spinning clockwise and slowing down", "Spinning counterclockwise and speeding up", "At rest and about to start"]}
+  answer={1}
+  explanation="Negative omega means clockwise with the usual convention. Alpha has the opposite sign to omega, so the magnitude of omega is shrinking: it is slowing. Speeding up or slowing down is about whether the signs match, not about the sign of alpha alone."
+/>
+
+## When alpha is constant
+
+If $\alpha$ is a constant, the integrals are the ones you already did for
+straight-line motion. Integrating $d\omega/dt = \alpha$ from $0$ to $t$ gives
+$\omega = \omega_0 + \alpha t$, where $\omega_0$ is the angular velocity at
+$t = 0$. Integrating that again gives the angle turned:
+
+$$
+
+\omega = \omega_0 + \alpha t, \qquad
+\theta = \omega_0 t + \tfrac12 \alpha t^2
+
+$$
+
+and eliminating $t$ between them gives the timeless one,
+
+$$\omega^2 = \omega_0^2 + 2\alpha\theta.$$
+
+Here $\theta$ means the angle turned *since the start*, not an absolute
+position. Every technique you used on the linear versions carries over
+untouched: pick the equation missing the variable you neither know nor want.
+
+A flywheel at 60 rad/s stopped at 5.0 rad/s² takes
+$t = (0 - 60)/(-5.0) = 12$ s. A disk from rest at 4.0 rad/s² turns
+$\theta = \tfrac12 (4.0)(5.0)^2 = 50$ rad in 5.0 s. That is all these are.
+
+<Figure caption={<><b>Figure 1.</b> The angle is the shaded wedge, and it keeps growing even after the wheel has gone round many times. Set the angular acceleration negative with a positive start and watch the wheel stop, reverse, and unwind the angle it had built up.</>}>
+  <Sim id="angular-kinematics-spinup" />
+</Figure>
+
+**Worked example 2.** A centrifuge starts from rest and reaches 8000 rpm after
+220 revolutions. Find its angular acceleration, assumed constant.
+
+First convert, before anything else. The final angular speed is
+
+$$\omega = \frac{8000 \times 2\pi}{60} = \frac{50265}{60} = 837.76\ \text{rad/s},$$
+
+and the angle turned is $\theta = 220 \times 2\pi = 1382.3$ rad.
+
+You know $\omega_0 = 0$, $\omega$, and $\theta$; you want $\alpha$ and you do
+not know or care about $t$. So use the equation without $t$:
+
+$$
+
+\omega^2 = \omega_0^2 + 2\alpha\theta \;\Rightarrow\;
+\alpha = \frac{\omega^2}{2\theta} = \frac{(837.76)^2}{2(1382.3)}
+= \frac{701,846}{2764.6} = 253.9\ \text{rad/s}^2.
+
+$$
+
+If you had converted 8000 rpm to anything else, or left $\theta$ in
+revolutions, the number would have been wrong by a factor of $2\pi$ or 60 and
+nothing in the algebra would have warned you.
+
+## From the axle back to the rim
+
+The whole point of $\theta$ was that it describes every point at once. To get
+back to what an individual point is doing, multiply by how far out it sits.
+
+Take a point at radius $r$. In time $dt$ the body turns $d\theta$, so the point
+travels an arc $ds = r\, d\theta$. Divide by $dt$:
+
+$$v = \frac{ds}{dt} = r\frac{d\theta}{dt} = \omega r.$$
+
+That is its speed along its circular path. A rim point 0.35 m out on a wheel at
+20 rad/s moves at $v = 20 \times 0.35 = 7.0$ m/s. Differentiate again, holding
+$r$ fixed, and you get the rate at which that *speed* changes:
+
+$$a_t = \frac{dv}{dt} = r\frac{d\omega}{dt} = \alpha r.$$
+
+This is the **tangential acceleration** — tangential because it points along
+the direction of motion. It is the piece that makes the point go faster or
+slower.
+
+But a point going in a circle is accelerating even at constant speed, because
+its direction keeps turning. That is the **centripetal acceleration** you met
+with circular motion, $a_c = v^2/r$, which in angular language is
+
+$$a_c = \frac{v^2}{r} = \frac{(\omega r)^2}{r} = \omega^2 r,$$
+
+pointing straight at the axis. A point 0.20 m out on a wheel at 30 rad/s has
+$a_c = (30)^2(0.20) = 900 \times 0.20 = 180$ m/s².
+
+These two pieces are perpendicular: one along the motion, one across it. So the
+total acceleration of the point has magnitude
+
+$$a = \sqrt{a_t^2 + a_c^2} = r\sqrt{\alpha^2 + \omega^4},$$
+
+and it is tilted away from the velocity by an angle $\phi$ with
+
+$$\tan\phi = \frac{a_c}{a_t} = \frac{\omega^2}{\alpha}.$$
+
+The radius cancels out of that angle. Every point on the body, near the axle or
+out at the rim, has its acceleration tilted by the same $\phi$.
+
+<Figure caption={<><b>Figure 2.</b> The velocity runs along the rim, the centripetal part points at the axle, and the total is their diagonal. Push the angular velocity up while holding alpha fixed and watch the total swing round until it points almost straight at the centre.</>}>
+  <Sim id="angular-kinematics-rim" />
+</Figure>
+
+**Worked example 3.** A point on a wheel of radius 0.25 m has $\omega = 4.0$
+rad/s and $\alpha = 8.0$ rad/s². What angle does its total acceleration make
+with its velocity?
+
+The velocity is tangential, so the angle you want is the angle between the
+total acceleration and the tangential direction. The two components are
+
+$$
+
+a_t = \alpha r = 8.0 \times 0.25 = 2.0\ \text{m/s}^2, \qquad
+a_c = \omega^2 r = 16 \times 0.25 = 4.0\ \text{m/s}^2.
+
+$$
+
+The centripetal part is across the velocity, the tangential part along it, so
+
+$$
+
+\tan\phi = \frac{a_c}{a_t} = \frac{4.0}{2.0} = 2.0,
+\qquad \phi = \arctan(2.0) = 63.4^\circ.
+
+$$
+
+The radius did cancel, as promised: $\tan\phi = \omega^2/\alpha = 16/8 = 2$
+without ever using 0.25 m.
+
+<QuickCheck
+  question="A wheel spins at a constant angular velocity. What is true of a point on its rim?"
   options={["Both tangential and centripetal acceleration are zero", "Tangential acceleration is zero but centripetal is not", "Centripetal acceleration is zero but tangential is not", "Both are nonzero and equal"]}
   answer={1}
-  explanation="Constant omega means alpha is zero, so the tangential acceleration vanishes. The direction still changes, so the centripetal piece remains."
+  explanation="Constant omega means alpha is zero, so a_t = alpha r vanishes. The direction of the velocity still turns, so a_c = omega squared times r survives. Constant speed is not zero acceleration."
 />
+
+## Ropes, spools and rolling
+
+Whenever something flexible runs over a wheel without slipping, the contact
+forces its speed to match the rim's. A cord unwinding from a spool of radius
+$r$ pays out length at exactly the rate the rim moves, so $v_{\text{cord}} =
+\omega r$ and $a_{\text{cord}} = \alpha r$. Pull a cord off a 0.12 m spool from
+rest at a steady 2.0 m/s²: then $\alpha = a/r = 2.0/0.12 = 16.67$ rad/s², and
+after 4.0 s the spool turns at $\omega = \alpha t = 16.67 \times 4.0 = 66.7$
+rad/s.
+
+A wheel rolling on the ground is the same condition in disguise. "Rolling
+without slipping" means the patch of rim touching the ground is not sliding
+along it — at that instant, the contact point is at rest. Work out what that
+forces. The axle moves forward at $v$; relative to the axle, every rim point
+moves at $\omega r$. At the bottom of the wheel the rim's motion relative to
+the axle points backwards, so the ground-frame speed there is $v - \omega r$.
+Setting that to zero gives the rolling condition:
+
+$$v = \omega r, \qquad a = \alpha r.$$
+
+Now add the two motions everywhere else. At the *top*, the rim's motion
+relative to the axle points forwards, in the same direction as $v$, so
+
+$$v_{\text{top}} = v + \omega r = 2v.$$
+
+A wheel of radius 0.30 m rolling at 4.0 m/s has a top point moving at 8.0 m/s.
+This is not a trick: the top of a rolling wheel really does move twice as fast
+as the car it carries, and the bottom is momentarily stationary.
+
+At the side, level with the axle, the relative motion is *vertical* while the
+axle's motion is horizontal. They are perpendicular, so you add them as
+vectors:
+
+$$
+
+v_{\text{side}} = \sqrt{v^2 + (\omega r)^2} = \sqrt{v^2 + v^2} = v\sqrt{2}
+= 4.0 \times 1.414 = 5.66\ \text{m/s}.
+
+$$
+
+In general, a point whose angle from the contact point is $\psi$ has speed
+$2v\sin(\psi/2)$, which gives 0 at the bottom, $v\sqrt2$ at the side and $2v$
+at the top. Rolling also links turns to distance travelled: one revolution
+rolls out one circumference, so 40 turns of a 0.34 m wheel covers
+$40 \times 2\pi \times 0.34 = 85.5$ m.
+
+<Figure caption={<><b>Figure 3.</b> The dashed curve is the path traced by the marked point — it has cusps where it touches the ground, because it is momentarily at rest there. Drag the probe angle to 180 degrees and watch the readout hit exactly twice the axle speed.</>}>
+  <Sim id="angular-kinematics-rolling" />
+</Figure>
+
+<Aside label="Worth remembering">
+  The bottom of a rolling wheel is instantaneously at rest. That is the whole
+  content of "rolling without slipping", and every other rolling result —
+  $v = \omega r$, the doubled speed at the top, the cusped path — is squeezed
+  out of it.
+</Aside>
+
+## When alpha is not constant
+
+Two kinds of problem break the constant-$\alpha$ formulas, and each has a
+standard escape.
+
+**Alpha given as a function of time.** Then you integrate. If a wheel starts
+from rest with $\alpha(t) = 6t$, integrate once for the angular velocity:
+
+$$\omega(t) = \int_0^t 6t'\,dt' = 3t^2,$$
+
+with no constant because $\omega(0) = 0$. Integrate again for the angle:
+
+$$\theta(t) = \int_0^t 3t'^2\,dt' = t^3.$$
+
+At $t = 4.0$ s, $\theta = 4.0^3 = 64$ rad. Had you wrongly used
+$\theta = \tfrac12\alpha t^2$ with the $\alpha$ at $t=4$, you would have got
+$\tfrac12(24)(16) = 192$ rad, three times too big.
+
+**Alpha given in terms of omega.** A rotor coasting against a drag torque
+proportional to speed obeys $\alpha = -k\omega$. You cannot integrate that in
+$t$ directly, because the right side keeps changing. Separate the variables:
+
+$$
+
+\frac{d\omega}{dt} = -k\omega \;\Rightarrow\;
+\frac{d\omega}{\omega} = -k\,dt \;\Rightarrow\;
+\ln\frac{\omega}{\omega_0} = -kt \;\Rightarrow\;
+\omega = \omega_0 e^{-kt}.
+
+$$
+
+With $\omega_0 = 12$ rad/s and $k = 0.25$ s⁻¹, after 6.0 s
+
+$$
+
+\omega = 12 e^{-0.25 \times 6.0} = 12 e^{-1.5} = 12 \times 0.2231
+= 2.68\ \text{rad/s}.
+
+$$
+
+It never quite reaches zero, but the total angle is still finite. To get it,
+switch the variable you differentiate against. Use the chain rule to trade $t$
+for $\theta$:
+
+$$
+
+\alpha = \frac{d\omega}{dt} = \frac{d\omega}{d\theta}\frac{d\theta}{dt}
+= \omega\frac{d\omega}{d\theta}.
+
+$$
+
+That identity is worth memorising; it is the rotational twin of $a = v\,dv/dx$
+and it is the tool for anything that depends on position rather than time.
+Putting $\alpha = -k\omega$ into it,
+
+$$
+
+\omega\frac{d\omega}{d\theta} = -k\omega \;\Rightarrow\;
+\frac{d\omega}{d\theta} = -k,
+
+$$
+
+so $\omega$ falls off *linearly in angle*, even though it falls off
+exponentially in time. Starting at $\omega_0$ and ending at $\omega = 0$:
+
+$$\theta_{\text{total}} = \frac{\omega_0}{k} = \frac{12}{0.25} = 48\ \text{rad}.$$
+
+<QuickCheck
+  question="A rotor obeys alpha = -k omega. How does its angular speed depend on the angle it has turned?"
+  options={["It decays exponentially with angle", "It falls linearly with angle and reaches zero after a finite angle", "It stays constant", "It falls as the square root of the angle"]}
+  answer={1}
+  explanation="Writing alpha as omega times d omega by d theta cancels one factor of omega, leaving d omega by d theta equal to minus k. That is a constant slope, so omega drops linearly and hits zero after a total angle of omega-zero over k, even though in time it only approaches zero."
+/>
+
+## Two things going round at once
+
+When two objects circle the same axis, subtract their angles the way you
+subtract positions in a relative-velocity problem. The angle by which the
+faster one leads is $\Delta\theta = (\omega_1 - \omega_2)t$, and it laps the
+slower one when that gap reaches a full turn:
+
+$$
+
+(\omega_1 - \omega_2)t = 2\pi \;\Rightarrow\;
+t = \frac{2\pi}{\omega_1 - \omega_2}.
+
+$$
+
+Two runners on a track at 0.16 and 0.10 rad/s have a relative angular speed of
+0.06 rad/s, so the lap happens at $t = 2\pi/0.06 = 104.7$ s. The radius of the
+track, 50 m, never enters — lapping is about angle, not distance. That is a
+good habit to notice: if the question is about who is where, work in angle and
+leave the radius alone until the very end.
+
+<Aside label="Worth remembering">
+  Angular kinematics has no new physics in it. Every result here is a linear
+  kinematics result with $x \to \theta$, $v \to \omega$, $a \to \alpha$, plus
+  the single bridge $s = r\theta$ that carries you back to metres when the
+  question asks for them.
+</Aside>
+
+## Recognising the technique
+
+You are in an angular kinematics problem when the quantities given are about
+turning rather than travelling: revolutions, rpm, a period, "how many turns",
+an angle in radians, a radius paired with a rate. Then:
+
+- **Everything constant, a wheel spinning up or down uniformly.** Convert to
+  radians and rad/s, then use the three constant-$\alpha$ equations, choosing
+  the one that omits the variable you neither have nor want. If the problem
+  gives you revolutions and asks for time, that is $\omega = \omega_0 + \alpha
+  t$ after converting.
+- **The answer is wanted in metres or m/s, but the data is angular** (or the
+  reverse). You need $s = r\theta$, $v = \omega r$ or $a_t = \alpha r$ — one
+  multiplication by the radius, at the end.
+- **A question about the acceleration of a point, not of the body.** Two
+  perpendicular pieces: $a_t = \alpha r$ along the motion and $a_c = \omega^2
+  r$ toward the axis. Combine with Pythagoras, and use $\tan\phi = \omega^2/\alpha$
+  for the direction.
+- **A cord, belt, chain or a wheel on the ground, with "does not slip".** That
+  phrase is the equation $v = \omega r$. Write it down first.
+- **$\alpha$ given as a formula.** If it depends on $t$, integrate in $t$. If
+  it depends on $\omega$ or $\theta$, separate variables, and reach for
+  $\alpha = \omega\, d\omega/d\theta$ the moment the question asks for a total
+  angle rather than a time.
+- **Two things going round together.** Work with the difference of the angles,
+  and set it to $2\pi$ for a lap.
+
+The one mistake that costs more marks than all the others is a unit left
+unconverted. Write the radian conversion on the first line, every time, even
+when it feels unnecessary.
+
+Next you will stop describing the spin and start asking what causes it: forces
+applied off-axis, and the quantity that measures their turning effect, in
+[Torque & Static Equilibrium](/guide/torque-equilibrium).

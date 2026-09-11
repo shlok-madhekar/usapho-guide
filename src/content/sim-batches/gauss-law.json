@@ -1,0 +1,90 @@
+[
+ {
+  "id": "gauss-law-flux",
+  "title": "Flux through a tilted panel",
+  "caption": "Turn the panel and watch the flux drop to zero edge-on.",
+  "height": 260,
+  "params": [
+   {
+    "key": "angle",
+    "label": "Angle between normal and field",
+    "unit": "deg",
+    "min": 0,
+    "max": 90,
+    "step": 1,
+    "value": 30
+   },
+   {
+    "key": "field",
+    "label": "Field strength",
+    "unit": "N/C",
+    "min": 50,
+    "max": 500,
+    "step": 10,
+    "value": 250
+   },
+   {
+    "key": "area",
+    "label": "Panel area",
+    "unit": "m^2",
+    "min": 0.02,
+    "max": 0.5,
+    "step": 0.01,
+    "value": 0.12
+   }
+  ],
+  "draw": "\nvar th = p.angle * Math.PI / 180;\nvar E = p.field, A = p.area;\nvar flux = E * A * Math.cos(th);\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\n\n// uniform field: drifting arrowheads on horizontal lines\nctx.strokeStyle = C.faint;\nctx.fillStyle = C.faint;\nctx.lineWidth = 1;\nvar rows = 7;\nfor (var i = 0; i < rows; i++) {\n  var y = H * (i + 1) / (rows + 1);\n  ctx.beginPath(); ctx.moveTo(W * 0.06, y); ctx.lineTo(W * 0.94, y); ctx.stroke();\n  for (var j = 0; j < 4; j++) {\n    var span = W * 0.88;\n    var x = W * 0.06 + ((j * span / 4 + t * 26) % span);\n    ctx.beginPath();\n    ctx.moveTo(x, y); ctx.lineTo(x - 7, y - 3.5); ctx.lineTo(x - 7, y + 3.5);\n    ctx.closePath(); ctx.fill();\n  }\n}\n\nvar cx = W * 0.46, cy = H * 0.5;\nvar L = Math.min(H * 0.33, W * 0.2);\n\n// panel: normal at angle th from the field (+x); panel runs perpendicular to it\nvar nx = Math.cos(th), ny = Math.sin(th);\nvar dx = -Math.sin(th), dy = Math.cos(th);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 4;\nctx.beginPath();\nctx.moveTo(cx + dx * L, cy - dy * L);\nctx.lineTo(cx - dx * L, cy + dy * L);\nctx.stroke();\n\n// normal arrow\nvar NL = L * 0.85;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(cx, cy);\nctx.lineTo(cx + nx * NL, cy - ny * NL);\nctx.stroke();\nctx.fillStyle = C.figure;\nvar ax = cx + nx * NL, ay = cy - ny * NL;\nctx.beginPath();\nctx.moveTo(ax, ay);\nctx.lineTo(ax - nx * 9 - ny * 5, ay + ny * 9 - nx * 5);\nctx.lineTo(ax - nx * 9 + ny * 5, ay + ny * 9 + nx * 5);\nctx.closePath(); ctx.fill();\nctx.fillText(\"normal\", ax + 6, ay - 4);\n\n// reference line along the field, and the angle\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + NL + 20, cy); ctx.stroke();\nctx.setLineDash([]);\nctx.beginPath();\nctx.arc(cx, cy, 26, -th, 0);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"angle \" + p.angle.toFixed(0) + \" deg\", cx + 30, cy - 10 - 14 * Math.sin(th));\nctx.fillStyle = C.accent;\nctx.fillText(\"panel\", cx + dx * L - 34, cy - dy * L - 6);\nctx.fillStyle = C.ink;\nctx.fillText(\"E = \" + E.toFixed(0) + \" N/C\", W * 0.06, H - 6);\n\nout.note = \"flux = E A cos(angle) = \" + E.toFixed(0) + \" x \" + A.toFixed(2) + \" x \" +\n  Math.cos(th).toFixed(3) + \" = \" + flux.toFixed(1) + \" N.m^2/C\";\n"
+ },
+ {
+  "id": "gauss-law-surfaces",
+  "title": "The three Gaussian surfaces",
+  "caption": "Sphere, coaxial can, pillbox.",
+  "height": 210,
+  "params": [],
+  "draw": "\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\nvar cy = H * 0.46;\nvar s = Math.min(W / 3, H) ;\nvar r = Math.min(s * 0.21, H * 0.26);\n\nfunction arrow(x0, y0, x1, y1, col) {\n  ctx.strokeStyle = col; ctx.lineWidth = 1.5;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();\n  var ux = x1 - x0, uy = y1 - y0, m = Math.sqrt(ux * ux + uy * uy);\n  ux /= m; uy /= m;\n  ctx.fillStyle = col;\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - ux * 8 - uy * 4, y1 - uy * 8 + ux * 4);\n  ctx.lineTo(x1 - ux * 8 + uy * 4, y1 - uy * 8 - ux * 4);\n  ctx.closePath(); ctx.fill();\n}\n\n// ---- 1. sphere\nvar c1 = W / 6;\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(c1, cy, r * 0.42, 0, Math.PI * 2); ctx.fill();\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.setLineDash([5, 4]);\nctx.beginPath(); ctx.arc(c1, cy, r, 0, Math.PI * 2); ctx.stroke();\nctx.setLineDash([]);\nfor (var i = 0; i < 8; i++) {\n  var a = i * Math.PI / 4;\n  arrow(c1 + Math.cos(a) * r, cy + Math.sin(a) * r,\n        c1 + Math.cos(a) * (r + 14), cy + Math.sin(a) * (r + 14), C.rule);\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"sphere, area 4 pi r^2\", c1, H - 20);\nctx.fillText(\"E out everywhere\", c1, H - 6);\n\n// ---- 2. coaxial cylinder\nvar c2 = W / 2;\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(c2, cy - r * 1.25); ctx.lineTo(c2, cy + r * 1.25); ctx.stroke();\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.setLineDash([5, 4]);\nvar cw = r * 0.85, ch = r * 0.75;\nctx.strokeRect(c2 - cw, cy - ch, cw * 2, ch * 2);\nctx.beginPath(); ctx.ellipse(c2, cy - ch, cw, cw * 0.28, 0, 0, Math.PI * 2); ctx.stroke();\nctx.beginPath(); ctx.ellipse(c2, cy + ch, cw, cw * 0.28, 0, 0, Math.PI * 2); ctx.stroke();\nctx.setLineDash([]);\narrow(c2 + cw, cy, c2 + cw + 16, cy, C.rule);\narrow(c2 - cw, cy, c2 - cw - 16, cy, C.rule);\nctx.fillStyle = C.ink;\nctx.fillText(\"can, side area 2 pi r L\", c2, H - 20);\nctx.fillText(\"flat ends catch nothing\", c2, H - 6);\n\n// ---- 3. pillbox in a sheet\nvar c3 = 5 * W / 6;\nctx.strokeStyle = C.figure; ctx.lineWidth = 3;\nctx.beginPath(); ctx.moveTo(c3 - r * 1.25, cy); ctx.lineTo(c3 + r * 1.25, cy); ctx.stroke();\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.setLineDash([5, 4]);\nvar pw = r * 0.55, ph = r * 0.6;\nctx.strokeRect(c3 - pw, cy - ph, pw * 2, ph * 2);\nctx.setLineDash([]);\narrow(c3, cy - ph, c3, cy - ph - 16, C.rule);\narrow(c3, cy + ph, c3, cy + ph + 16, C.rule);\nctx.fillStyle = C.ink;\nctx.fillText(\"pillbox, two faces of area A\", c3, H - 20);\nctx.fillText(\"curved side catches nothing\", c3, H - 6);\n\nctx.textAlign = \"left\";\n"
+ },
+ {
+  "id": "gauss-law-sphere",
+  "title": "Field of a uniformly charged ball",
+  "caption": "Drag the Gaussian radius and read the enclosed charge.",
+  "height": 260,
+  "params": [
+   {
+    "key": "r",
+    "label": "Gaussian radius",
+    "unit": "cm",
+    "min": 0.5,
+    "max": 24,
+    "step": 0.5,
+    "value": 8
+   },
+   {
+    "key": "R",
+    "label": "Ball radius R",
+    "unit": "cm",
+    "min": 2,
+    "max": 12,
+    "step": 0.5,
+    "value": 5
+   },
+   {
+    "key": "Q",
+    "label": "Total charge",
+    "unit": "nC",
+    "min": 1,
+    "max": 20,
+    "step": 0.5,
+    "value": 8
+   }
+  ],
+  "draw": "\nvar k = 8.99e9;\nvar R = p.R / 100.0;\nvar Q = p.Q * 1e-9;\nvar rp = p.r / 100.0;\nvar rmax = 0.25;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nfunction Efield(r) {\n  if (r <= 0) return 0;\n  if (r < R) return k * Q * r / (R * R * R);\n  return k * Q / (r * r);\n}\nvar Epeak = k * Q / (R * R);\nvar Enow = Efield(rp);\nvar Qenc = rp < R ? Q * Math.pow(rp / R, 3) : Q;\n\n// ---- left panel: cross section\nvar cx = W * 0.2, cy = H * 0.5;\nvar scale = Math.min(W * 0.17, H * 0.42) / rmax;\nctx.fillStyle = C.figure;\nctx.globalAlpha = 0.35;\nctx.beginPath(); ctx.arc(cx, cy, R * scale, 0, Math.PI * 2); ctx.fill();\nctx.globalAlpha = 1;\nctx.strokeStyle = C.figure; ctx.lineWidth = 1.5;\nctx.beginPath(); ctx.arc(cx, cy, R * scale, 0, Math.PI * 2); ctx.stroke();\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.setLineDash([5, 4]);\nctx.beginPath(); ctx.arc(cx, cy, rp * scale, 0, Math.PI * 2); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"Gaussian sphere\", cx, H - 6);\nctx.textAlign = \"left\";\n\n// ---- right panel: E versus r\nvar x0 = W * 0.42, x1 = W - 16, y0 = H - 30, y1 = 18;\nvar gw = x1 - x0, gh = y0 - y1;\nvar Emax = Math.max(Epeak * 1.15, 1);\nvar GX = function (r) { return x0 + r / rmax * gw; };\nvar GY = function (e) { return y0 - Math.min(e, Emax) / Emax * gh; };\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x0, y1); ctx.lineTo(x0, y0); ctx.lineTo(x1, y0); ctx.stroke();\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(GX(R), y0); ctx.lineTo(GX(R), y1); ctx.stroke();\nctx.setLineDash([]);\n\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 220; i++) {\n  var r = rmax * i / 220;\n  var X = GX(r), Y = GY(Efield(r));\n  i === 0 ? ctx.moveTo(X, Y) : ctx.lineTo(X, Y);\n}\nctx.stroke();\n\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(GX(rp), GY(Enow), 4.5, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"E (N/C)\", x0 + 4, y1 + 4);\nctx.fillText(\"r (cm)\", x1 - 36, y0 + 16);\nctx.fillText(\"0\", x0 - 4, y0 + 16);\nctx.fillText(\"r = R\", GX(R) + 4, y1 + 16);\nctx.fillText(\"25\", x1 - 10, y0 + 16);\n\nout.note = \"r = \" + p.r.toFixed(1) + \" cm, enclosed charge \" + (Qenc * 1e9).toFixed(2) +\n  \" nC, E = \" + Enow.toFixed(0) + \" N/C (surface value \" + Epeak.toFixed(0) + \" N/C)\";\n"
+ },
+ {
+  "id": "gauss-law-shell",
+  "title": "Charge inside a hollow conductor",
+  "caption": "Induced charge on both walls of the metal.",
+  "height": 250,
+  "params": [],
+  "draw": "\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\nvar cx = W * 0.5, cy = H * 0.5;\nvar u = Math.min(W * 0.42, H * 0.44);\nvar rIn = u * 0.42, rOut = u * 0.68;\n\n// metal shell\nctx.fillStyle = C.figure;\nctx.globalAlpha = 0.3;\nctx.beginPath();\nctx.arc(cx, cy, rOut, 0, Math.PI * 2);\nctx.arc(cx, cy, rIn, 0, Math.PI * 2, true);\nctx.fill();\nctx.globalAlpha = 1;\nctx.strokeStyle = C.figure; ctx.lineWidth = 1.5;\nctx.beginPath(); ctx.arc(cx, cy, rOut, 0, Math.PI * 2); ctx.stroke();\nctx.beginPath(); ctx.arc(cx, cy, rIn, 0, Math.PI * 2); ctx.stroke();\n\n// the charge in the cavity, off centre\nvar qx = cx - rIn * 0.45, qy = cy + rIn * 0.25;\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(qx, qy, 6, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.paper;\nctx.fillText(\"+\", qx, qy + 4);\n\n// induced signs\nctx.fillStyle = C.ink;\nfor (var i = 0; i < 12; i++) {\n  var a = i * Math.PI / 6;\n  ctx.fillText(\"-\", cx + Math.cos(a) * (rIn + 9), cy + Math.sin(a) * (rIn + 9) + 4);\n  ctx.fillText(\"+\", cx + Math.cos(a) * (rOut - 9), cy + Math.sin(a) * (rOut - 9) + 4);\n}\n\n// gaussian surface drawn inside the metal\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.setLineDash([5, 4]);\nctx.beginPath(); ctx.arc(cx, cy, (rIn + rOut) / 2, 0, Math.PI * 2); ctx.stroke();\nctx.setLineDash([]);\n\n// outside field arrows\nctx.strokeStyle = C.rule; ctx.fillStyle = C.rule; ctx.lineWidth = 1.5;\nfor (var j = 0; j < 8; j++) {\n  var b = j * Math.PI / 4 + 0.39;\n  var sx = cx + Math.cos(b) * (rOut + 4), sy = cy + Math.sin(b) * (rOut + 4);\n  var ex = cx + Math.cos(b) * (rOut + 20), ey = cy + Math.sin(b) * (rOut + 20);\n  ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(ex, ey);\n  ctx.lineTo(ex - Math.cos(b) * 7 - Math.sin(b) * 3.5, ey - Math.sin(b) * 7 + Math.cos(b) * 3.5);\n  ctx.lineTo(ex - Math.cos(b) * 7 + Math.sin(b) * 3.5, ey - Math.sin(b) * 7 - Math.cos(b) * 3.5);\n  ctx.closePath(); ctx.fill();\n}\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"E = 0 inside the metal\", 8, 16);\nctx.fillText(\"inner wall: -q\", 8, H - 20);\nctx.fillText(\"outer wall: +q, spread evenly\", 8, H - 6);\nctx.textAlign = \"center\";\nctx.fillStyle = C.accent;\nctx.fillText(\"Gaussian surface encloses zero net charge\", cx, cy - rOut - 6);\nctx.textAlign = \"left\";\n"
+ }
+]

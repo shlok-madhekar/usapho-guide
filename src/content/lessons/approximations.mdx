@@ -1,71 +1,339 @@
-## Near a point, everything is a polynomial
+## The lie that makes physics solvable
 
-Zoom in far enough on any smooth curve and it looks like a straight line —
-its tangent. Zoom in less and it looks like a parabola. Taylor's theorem makes
-that precise: near $x = 0$,
+A pendulum swinging through a small arc keeps almost perfect time. That fact
+runs every grandfather clock ever built, and it is not obvious — the equation
+that governs a pendulum, written honestly, cannot be solved with any function
+you know. Write down Newton's second law along the arc and you get
+$\ddot\theta = -(g/L)\sin\theta$. That $\sin$ is fatal. There is no formula
+for $\theta(t)$ in terms of sines, exponentials, logs, or anything else with a
+name.
 
-$$f(x) = f(0) + f'(0)\,x + \tfrac{1}{2}f''(0)\,x^2 + \dots$$
+So physicists tell a lie. For small $\theta$, they write $\sin\theta \approx
+\theta$, the equation becomes $\ddot\theta = -(g/L)\theta$, and out drops
+$T = 2\pi\sqrt{L/g}$. The lie is tiny — at $10^\circ$ it is wrong by less than
+a fifth of a percent — and without it there is no pendulum formula at all.
 
-Keep as many terms as the problem needs. Usually one or two is plenty, because
-each extra term is smaller by another factor of $x$, and $x$ is small.
+This lesson is about telling that kind of lie on purpose, and knowing exactly
+how big it is. You have just spent two lessons on derivatives and integrals.
+The derivative is about to earn its keep: it is the machine that generates
+every approximation below.
 
-The three expansions that appear again and again:
+## Near a point, every curve is a polynomial
 
-$$\sin x \approx x - \frac{x^3}{6}, \qquad \cos x \approx 1 - \frac{x^2}{2}, \qquad (1+x)^n \approx 1 + nx$$
+Start with what a derivative means. If you know $f(0)$ and you know the slope
+$f'(0)$, then moving a short distance $x$ away from zero changes $f$ by about
+slope times distance:
 
-and $e^x \approx 1 + x$, $\ln(1+x) \approx x$. All valid for $|x| \ll 1$.
+$$f(x) \approx f(0) + f'(0)\,x$$
 
-The binomial form is the workhorse. It handles any power, including negative
-and fractional ones: $1/(1+x) \approx 1 - x$ and $\sqrt{1+x} \approx 1 + x/2$
-are the same rule with $n = -1$ and $n = 1/2$.
+That is the tangent line, and it is the first approximation. It is exact at
+$x = 0$ and drifts away as you leave. Which direction does it drift? That
+depends on the curvature, which is $f''$. Adding a term that has the right
+second derivative and does not disturb the first two gives
+
+$$f(x) \approx f(0) + f'(0)\,x + \tfrac{1}{2}f''(0)\,x^2$$
+
+Keep going and you get the **Taylor series**: the $n$th term is
+$f^{(n)}(0)x^n/n!$. You will almost never need more than two terms, because
+each term is smaller than the one before by another factor of $x$, and the
+whole game is played where $x$ is small.
+
+Run the machine on $\sin x$. You have $\sin 0 = 0$, and the derivative of
+$\sin$ is $\cos$, so $f'(0) = \cos 0 = 1$. The second derivative is $-\sin$,
+which is $0$ at the origin, so the $x^2$ term vanishes. The third derivative
+is $-\cos$, giving $-1$ at the origin, so the cubic term is $-x^3/3! = -x^3/6$.
+That is where the standard results come from:
+
+$$
+
+\sin x \approx x - \frac{x^3}{6}, \qquad \cos x \approx 1 - \frac{x^2}{2},
+\qquad \tan x \approx x + \frac{x^3}{3}
+
+$$
+
+$$e^x \approx 1 + x, \qquad \ln(1+x) \approx x, \qquad (1+x)^n \approx 1 + nx$$
+
+Every one of these is exact at $x = 0$ and good for $|x| \ll 1$.
+
+<Figure caption={<><b>Figure 1.</b> The straight line $y = x$ against the true
+$\sin x$, and against the cubic correction. Drag the angle up from a few
+degrees and watch the gap between the line and the curve stay invisible for a
+surprisingly long way, then open up fast. Notice that the cubic stays glued to
+the truth well past $40^\circ$.</>}>
+  <Sim id="approximations-sine" />
+</Figure>
 
 <Aside label="Where this goes wrong" warn>
-  $\sin\theta \approx \theta$ requires $\theta$ in radians. In degrees the
-  derivative of $\sin$ carries a factor of $\pi/180$ and every expansion above
-  is wrong. Convert first, always. This single mistake ruins more pendulum
-  problems than any conceptual error.
+  $\sin\theta \approx \theta$ is only true in **radians**. In degrees the
+  derivative of $\sin$ carries a factor of $\pi/180$, and every expansion above
+  is wrong by that factor. Convert to radians first, every time. This one
+  mistake ruins more pendulum problems than any conceptual error.
 </Aside>
-
-## Recognising the cue
-
-A problem is asking for an expansion when it says "small oscillations", "for
-$x \gg d$", "to first order in", "thin", "slightly displaced", or gives you a
-quantity that is obviously tiny compared to another in the problem.
-
-The pendulum is the standard case. The exact equation of motion is
-$\ddot\theta = -(g/L)\sin\theta$, which has no elementary solution. Replace
-$\sin\theta$ by $\theta$ and it becomes $\ddot\theta = -(g/L)\theta$, the
-simple harmonic oscillator, with period $2\pi\sqrt{L/g}$. The approximation is
-not laziness; it is what makes the problem solvable at all, and at $10^\circ$
-it is accurate to better than 0.2%.
-
-The far-field cue works the same way. A dipole of charges $\pm q$ separated by
-$d$, seen from distance $r \gg d$, has potential
-$\frac{kq}{r - d/2} - \frac{kq}{r + d/2}$. Factor out $r$, expand each term
-with the binomial rule, and the leading $1$'s cancel, leaving $kqd/r^2$. The
-cancellation is the point: you needed the first-order term precisely because
-the zeroth-order terms killed each other.
-
-<Aside label="Worth remembering">
-  Expand to one order past the first surviving term when terms might cancel.
-  If you truncate too early in a difference of two nearly equal quantities,
-  you get zero instead of the answer.
-</Aside>
-
-## How far can you push it
-
-Set a small parameter and track it. If $\epsilon = 0.1$, then first order is
-good to about 1%, second order to about 0.1%. Once you know the size of the
-first neglected term, you know your error bar.
-
-Judgement matters more than the algebra. Expanding in the wrong variable, or
-expanding a quantity that is not actually small, produces a confident and
-completely wrong answer. Ask what is small compared to what, name it, and
-expand in that.
 
 <QuickCheck
-  question="For a satellite at height h above Earth's surface with h much less than R, gravitational acceleration is g times R squared over the quantity R plus h, squared. To first order in h over R, how does it behave?"
-  options={["It is unchanged from g", "It decreases by a factor of 1 minus h over R", "It decreases by a factor of 1 minus 2h over R", "It decreases by a factor of 1 minus h squared over R squared"]}
-  answer={2}
-  explanation="Write the expression as g times the quantity 1 plus h over R, raised to the power negative 2, then apply the binomial rule with n equal to negative 2. The exponent comes straight down as the coefficient."
+  question="A pendulum bob of mass 0.25 kg hangs on a string displaced 4.0 degrees from vertical. The restoring force along the arc is mg sin theta. Using the small-angle rule, what is it?"
+  options={["0.171 N", "9.80 N", "2.45 N", "0.0428 N"]}
+  answer={0}
+  explanation="First convert: 4.0 degrees is 4.0 times pi over 180, which is 0.0698 radians. Then the force is 0.25 times 9.8 times 0.0698, or 0.171 N. Answer 9.80 N is what you get by forgetting radians and putting 4.0 straight into the formula."
 />
+
+## The binomial approximation, and the percent rule
+
+Of the expansions above, $(1+x)^n \approx 1 + nx$ is the one you will use most,
+so derive it once and trust it forever. Let $f(x) = (1+x)^n$. Then $f(0) = 1$,
+and $f'(x) = n(1+x)^{n-1}$, so $f'(0) = n$. Tangent line: $1 + nx$. Done.
+
+What makes it a workhorse is that $n$ can be anything. Negative:
+$\dfrac{1}{1+x} = (1+x)^{-1} \approx 1 - x$. Fractional:
+$\sqrt{1+x} \approx 1 + \tfrac{1}{2}x$. Both at once:
+$\dfrac{1}{\sqrt{1-x}} \approx 1 + \tfrac{1}{2}x$, which is the whole of
+special relativity at low speed.
+
+Now the most useful consequence. Suppose some quantity is built from others by
+powers, like $T = 2\pi\sqrt{L/g} = 2\pi L^{1/2} g^{-1/2}$. Change $L$ by a
+small fraction $\delta L/L$ and hold $g$ fixed. Then
+
+$$
+
+\frac{T + \Delta T}{T} = \left(\frac{L + \Delta L}{L}\right)^{1/2}
+= \left(1 + \frac{\Delta L}{L}\right)^{1/2} \approx 1 + \frac{1}{2}\frac{\Delta L}{L}
+
+$$
+
+so $\dfrac{\Delta T}{T} \approx \dfrac{1}{2}\dfrac{\Delta L}{L}$. In words:
+**multiply the fractional change by the exponent.** A quantity that enters
+squared doubles its fractional change; one under a square root halves it; one
+in the denominator flips the sign.
+
+That single sentence answers a whole family of problems without any calculus
+on the page. Lengthen a pendulum by $0.60\%$ and the period grows by
+$\tfrac{1}{2}(0.60\%) = 0.30\%$. Weaken $g$ by $0.30\%$ and, since $g$ carries
+exponent $-\tfrac{1}{2}$, the period grows by $0.15\%$.
+
+<Figure caption={<><b>Figure 2.</b> The true curve $(1+x)^n$ and its straight-line
+stand-in $1+nx$. Try $n = -2$, then drag $x$ out to $0.4$ and watch the error
+climb past ten percent. Then bring $x$ back to $0.05$ and see it collapse to
+almost nothing. The error grows like $x^2$, so halving $x$ quarters it.</>}>
+  <Sim id="approximations-binomial" />
+</Figure>
+
+<Aside label="Worth remembering">
+  Fractional changes of independent quantities add, each weighted by its
+  exponent. For $g = 4\pi^2 L/T^2$ the worst-case uncertainty is
+  $\left|\frac{\Delta L}{L}\right| + 2\left|\frac{\Delta T}{T}\right|$. With
+  $L$ known to $0.20\%$ and $T$ to $0.10\%$, that is
+  $0.20\% + 2(0.10\%) = 0.40\%$. This is where error propagation formulas come
+  from — they are first-order Taylor expansions wearing a lab coat.
+</Aside>
+
+## Worked example 1: how much weaker is gravity in orbit
+
+The field strength at height $h$ above the surface is
+
+$$
+
+g(h) = \frac{GM_E}{(R+h)^2} = \frac{GM_E}{R^2}\left(1 + \frac{h}{R}\right)^{-2}
+= g_0\left(1 + \frac{h}{R}\right)^{-2}
+
+$$
+
+Pulling $R$ out of the bracket is the move that makes the whole thing work: it
+turns the expression into $(1 + \text{small})^n$, which is the only form the
+binomial rule accepts. Here the small thing is $x = h/R$ and the exponent is
+$n = -2$.
+
+With $h = 250$ km $= 2.50\times10^5$ m and $R = 6.37\times10^6$ m,
+
+$$x = \frac{2.50\times10^5}{6.37\times10^6} = 0.03925$$
+
+That is comfortably less than one, so first order will do:
+
+$$g \approx g_0(1 - 2x) = g_0(1 - 0.0785)$$
+
+The field drops by $7.85\%$. Worth pausing on: the International Space Station
+orbits at about this height, and gravity there is $92\%$ of its surface value.
+Astronauts float because they are falling, not because gravity ran out.
+
+Check the size of the error you accepted. The next term in the expansion of
+$(1+x)^{-2}$ is $\tfrac{1}{2}n(n-1)x^2 = 3x^2 = 3(0.03925)^2 = 0.0046$, so the
+true answer differs from yours in the fourth decimal place. First order was
+plenty.
+
+## Worked example 2: the tidal force, where the leading terms cancel
+
+The Moon pulls on the near side of Earth harder than on the far side, and that
+difference raises the tides. Put the Moon at distance $d$ from Earth's center,
+and ask for the acceleration at the sublunar point (the spot on Earth directly
+under the Moon, a distance $R$ closer) compared with the acceleration of Earth
+as a whole.
+
+$$a_{\text{tide}} = \frac{GM}{(d-R)^2} - \frac{GM}{d^2}$$
+
+Here is the trap. Both terms are about $3.3\times10^{-5}\ \mathrm{m/s^2}$, and
+the answer is around $10^{-6}$. If you round either term to three digits and
+subtract, you get garbage. You must expand.
+
+Factor $d$ out of the first denominator, exactly as before:
+
+$$
+
+\frac{GM}{(d-R)^2} = \frac{GM}{d^2}\left(1 - \frac{R}{d}\right)^{-2}
+\approx \frac{GM}{d^2}\left(1 + \frac{2R}{d}\right)
+
+$$
+
+Now subtract, and the $1$ cancels the second term exactly:
+
+$$a_{\text{tide}} \approx \frac{GM}{d^2}\cdot\frac{2R}{d} = \frac{2GMR}{d^3}$$
+
+Notice what just happened: the answer came entirely from the first-order term,
+because the zeroth-order pieces annihilated each other. **When you are
+subtracting two nearly equal things, the term you would normally throw away is
+the entire answer.**
+
+Numbers, with $M = 7.35\times10^{22}$ kg, $R = 6.37\times10^{6}$ m,
+$d = 3.84\times10^{8}$ m, $G = 6.674\times10^{-11}$:
+
+$$GM = (6.674\times10^{-11})(7.35\times10^{22}) = 4.905\times10^{12}$$
+$$2GMR = 2(4.905\times10^{12})(6.37\times10^{6}) = 6.25\times10^{19}$$
+$$d^3 = (3.84\times10^{8})^3 = 5.66\times10^{25}$$
+$$a_{\text{tide}} = \frac{6.25\times10^{19}}{5.66\times10^{25}} = 1.1\times10^{-6}\ \mathrm{m/s^2}$$
+
+About one ten-millionth of $g$, and it moves the oceans.
+
+<Figure caption={<><b>Figure 3.</b> Why the tide is a difference, not a pull.
+The three long arrows are the Moon's pull at the near point, the center, and
+the far point — nearly identical. Subtract the middle one from each and what
+survives is the small stretching pair below. The scale factor tells you how
+much the residual arrows have been magnified to be visible at all.</>}>
+  <Sim id="approximations-tide" />
+</Figure>
+
+<Aside label="Worth remembering">
+  Expand one order past the first term you expect to survive. If two leading
+  terms might cancel, truncating too early gives you a confident zero instead
+  of the answer.
+</Aside>
+
+<QuickCheck
+  question="An astronaut 1.8 m tall floats radially in orbit. Why can you not find the difference in gravitational acceleration between head and feet by computing GM over r squared at both ends with a calculator?"
+  options={["Because the formula does not apply in orbit", "Because the two values agree to about seven digits, so the subtraction destroys all your precision", "Because acceleration is zero in free fall", "Because you would need the astronaut's mass"]}
+  answer={1}
+  explanation="The height is a ten-millionth of the orbital radius, so the two field values differ far out past where a calculator display or a rounded input can tell them apart. Expanding first gives the difference directly as minus 2 GM h over r cubed, with no cancellation of large numbers."
+/>
+
+## Worked example 3: how small does a small angle have to be
+
+A pendulum swung to amplitude $\theta_0$ does not have period exactly
+$T_0 = 2\pi\sqrt{L/g}$. Carrying the expansion of $\sin\theta$ one term
+further leads to the correction
+
+$$T = T_0\left(1 + \frac{\theta_0^2}{16} + \dots\right)$$
+
+with $\theta_0$ in radians. Two questions follow immediately.
+
+**First: how bad is a sloppy clock?** Suppose the clock is regulated on the
+assumption of $T_0$ but actually swings to $\theta_0 = 20^\circ$. Convert:
+
+$$\theta_0 = 20\times\frac{\pi}{180} = 0.3491\ \text{rad}$$
+$$\frac{\theta_0^2}{16} = \frac{0.1219}{16} = 0.007615$$
+
+Each real swing takes $0.7615\%$ longer than the clock thinks. Over a day of
+$86400$ s that is
+
+$$86400 \times 0.007615 = 658\ \text{s}$$
+
+The clock loses about eleven minutes a day. Note that $L$ and $g$ never
+appeared — the fractional error does not care how long the pendulum is, which
+is exactly the kind of thing an expansion is good at telling you.
+
+**Second: run it backwards.** What amplitude keeps the simple formula accurate
+to $0.10\%$? Set the correction equal to the tolerance:
+
+$$
+
+\frac{\theta_0^2}{16} = 0.0010 \quad\Longrightarrow\quad
+\theta_0^2 = 0.016 \quad\Longrightarrow\quad \theta_0 = 0.1265\ \text{rad}
+
+$$
+
+$$\theta_0 = 0.1265 \times \frac{180}{\pi} = 7.2^\circ$$
+
+So "small angle" means about seven degrees if you want three-digit accuracy,
+and more like twenty degrees if one percent is fine. There is no universal
+answer, and any problem that says "small" without a tolerance is telling you
+the tolerance is loose.
+
+<QuickCheck
+  question="A pendulum's length is increased by 0.60 percent. By what percent does its period change?"
+  options={["It increases by 0.60 percent", "It increases by 0.30 percent", "It increases by 1.2 percent", "It decreases by 0.30 percent"]}
+  answer={1}
+  explanation="Period goes as L to the one half power, so the fractional change in T is one half the fractional change in L: half of 0.60 percent is 0.30 percent. Choosing 1.2 percent means you multiplied by the exponent of L squared instead of L to the one half."
+/>
+
+## Choosing the small parameter
+
+The algebra is easy. The judgement is the hard part, and it comes down to one
+question you must answer before writing anything: **small compared with what?**
+
+An expansion parameter has to be dimensionless. "The height is small" is
+meaningless — small next to what? In the orbit problem, the answer was $h/R$.
+In the tide problem, $R/d$. In relativity, $v/c$. In a decay problem,
+$t/\tau$. Find the ratio, confirm it is much less than one, and expand in it.
+If you cannot name a dimensionless small quantity, you do not yet have an
+approximation, you have a hope.
+
+Three more that appear constantly:
+
+**Short-time decay.** A sample with half-life $t_{1/2}$ decays as
+$N = N_0 e^{-t/\tau}$ where $\tau = t_{1/2}/\ln 2$. Over a short interval, the
+fraction decayed is $1 - e^{-t/\tau} \approx t/\tau$. For a $12.0$ h half-life
+and $6.0$ minutes $= 0.10$ h: $\tau = 12.0/0.693 = 17.31$ h, so the fraction is
+$0.10/17.31 = 0.00578$. The small parameter is $t/\tau$, not $t$.
+
+**Slow relativity.** $\gamma = (1 - v^2/c^2)^{-1/2} \approx 1 + \tfrac{1}{2}v^2/c^2$.
+At $v = 0.010c$ this gives $\gamma - 1 = \tfrac{1}{2}(10^{-4}) = 5\times10^{-5}$.
+The small parameter is $v^2/c^2$, which is already tiny when $v/c$ is merely
+small — that is why Newtonian mechanics survives so well.
+
+**Sagging a curve into a parabola.** A circle of radius $R$ dips below its own
+tangent by $R - \sqrt{R^2 - r^2} = R\left(1 - \sqrt{1 - r^2/R^2}\right)
+\approx R\cdot\tfrac{1}{2}(r^2/R^2) = r^2/2R$. That is the air gap under a
+lens in Newton's rings, the shape of a shallow dish, and the reason small
+sections of spheres act like parabolas. Small parameter: $r^2/R^2$.
+
+<Aside label="Where this goes wrong" warn>
+  Expanding in a quantity that is not actually small gives a confident, clean,
+  wrong answer, with no warning from the algebra. Before you expand, compute
+  the number. If $x = 0.4$, first order is off by roughly ten percent and you
+  should say so; if $x = 1.5$ the series may not converge at all and the whole
+  approach is void.
+</Aside>
+
+## How to recognise that this is the technique
+
+The cue is almost always a word, not an equation. Reach for an expansion when
+a problem says:
+
+- "small oscillations", "small amplitude", "slightly displaced" — expand the
+  potential or the force about the equilibrium point, and you will land on
+  simple harmonic motion.
+- "to first order in", "estimate", "approximately" — the problem is telling
+  you outright.
+- "for $r \gg d$", "far from", "thin", "shallow" — form the ratio of the small
+  length to the big one and expand in it.
+- a percent change, or an uncertainty, in a formula built from powers — use
+  the exponent rule and skip the calculus entirely.
+- a **difference of two nearly equal quantities** — tides, dipoles, beat
+  frequencies, clock corrections. Here the expansion is not a convenience, it
+  is the only way to get a nonzero answer without twelve digits of precision.
+
+And one negative cue worth internalising. If a problem hands you a number like
+$\theta_0 = 20^\circ$ and asks "how much does the simple formula get wrong",
+it wants the *first correction*, not the leading term. The leading term is
+what you already assumed. The question is always about the next one down.
+
+You now have the whole toolkit: vectors, units, derivatives, integrals, and
+the expansions that make hard functions behave. What is left is knowing which
+tool to pick up and in what order, which is the subject of
+[Problem-Solving Strategy](/guide/problem-strategy).

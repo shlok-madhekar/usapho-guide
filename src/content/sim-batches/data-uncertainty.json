@@ -1,0 +1,64 @@
+[
+  {
+    "id": "data-uncertainty-fit",
+    "title": "Least squares by hand",
+    "caption": "Drag the slope and intercept and watch the sum of squared residuals.",
+    "height": 260,
+    "params": [
+      {
+        "key": "slope",
+        "label": "Trial slope",
+        "unit": "",
+        "min": 1.4,
+        "max": 2.6,
+        "step": 0.02,
+        "value": 1.7
+      },
+      {
+        "key": "intercept",
+        "label": "Trial intercept",
+        "unit": "",
+        "min": -1.5,
+        "max": 1.5,
+        "step": 0.02,
+        "value": 0.6
+      }
+    ],
+    "draw": "var xs = [1,2,3,4,5];\nvar ys = [2.1,3.9,6.2,7.9,10.1];\nvar m = p.slope, b = p.intercept;\nvar pad = 38;\nvar X = function(x){ return pad + (x/6) * (W - pad - 14); };\nvar Y = function(y){ return H - pad - (y/12) * (H - pad - 14); };\n\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(6), Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(0), Y(12)); ctx.stroke();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.figure;\nctx.fillText(\"x\", X(5.8), Y(0) + 16);\nctx.fillText(\"y\", X(0) - 22, Y(11.4));\nctx.strokeStyle = C.faint;\nvar gi;\nfor (gi = 2; gi <= 10; gi += 2) {\n  ctx.beginPath(); ctx.moveTo(X(0), Y(gi)); ctx.lineTo(X(6), Y(gi)); ctx.stroke();\n  ctx.fillText(String(gi), X(0) - 20, Y(gi) + 4);\n}\nfor (gi = 1; gi <= 5; gi += 1) {\n  ctx.fillText(String(gi), X(gi) - 3, Y(0) + 16);\n}\n\n// trial line\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(X(0), Y(b)); ctx.lineTo(X(6), Y(m * 6 + b)); ctx.stroke();\n\n// residuals\nvar ssr = 0, i, fit, r;\nctx.lineWidth = 4;\nctx.strokeStyle = C.figure;\nfor (i = 0; i < xs.length; i++) {\n  fit = m * xs[i] + b;\n  r = ys[i] - fit;\n  ssr += r * r;\n  ctx.beginPath();\n  ctx.moveTo(X(xs[i]), Y(fit));\n  ctx.lineTo(X(xs[i]), Y(ys[i]));\n  ctx.stroke();\n}\n\n// points\nctx.fillStyle = C.ink;\nfor (i = 0; i < xs.length; i++) {\n  ctx.beginPath(); ctx.arc(X(xs[i]), Y(ys[i]), 4, 0, Math.PI * 2); ctx.fill();\n}\n\nctx.fillStyle = C.figure;\nctx.fillText(\"thick bars are the residuals\", X(0.3), Y(11.2));\nctx.fillText(\"best fit: slope 2.00, intercept 0.04, sum 0.072\", X(0.3), Y(10.2));\n\nout.note = \"sum of squared residuals = \" + ssr.toFixed(3) + (ssr < 0.0725 ? \"  (this is the least-squares line)\" : \"  (drag closer to the minimum)\");"
+  },
+  {
+    "id": "data-uncertainty-linearize",
+    "title": "Straightening an exponential",
+    "caption": "Same data, two choices of vertical axis.",
+    "height": 250,
+    "params": [
+      {
+        "key": "tau",
+        "label": "Time constant",
+        "unit": "s",
+        "min": 8,
+        "max": 60,
+        "step": 1,
+        "value": 34
+      },
+      {
+        "key": "mode",
+        "label": "Vertical axis: 0 = A, 1 = ln A",
+        "unit": "",
+        "min": 0,
+        "max": 1,
+        "step": 1,
+        "value": 0
+      }
+    ],
+    "draw": "var tau = p.tau, mode = p.mode;\nvar ts = [0, 10, 20, 30, 40, 50];\nvar pad = 42;\nvar i, v;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\nvar A = function(tt){ return 100 * Math.exp(-tt / tau); };\n\nvar yMax = mode < 0.5 ? 110 : 5.2;\nvar yMin = mode < 0.5 ? 0 : 0;\nvar X = function(x){ return pad + (x / 55) * (W - pad - 16); };\nvar Y = function(y){ return H - pad - ((y - yMin) / (yMax - yMin)) * (H - pad - 18); };\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(X(0), Y(yMin)); ctx.lineTo(X(55), Y(yMin)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X(0), Y(yMin)); ctx.lineTo(X(0), Y(yMax)); ctx.stroke();\n\nctx.fillStyle = C.figure;\nctx.fillText(\"t (s)\", X(48), Y(yMin) + 16);\nctx.fillText(mode < 0.5 ? \"A (mm)\" : \"ln A\", X(0) - 30, Y(yMax) - 4);\nfor (i = 0; i <= 50; i += 10) { ctx.fillText(String(i), X(i) - 6, Y(yMin) + 16); }\n\n// smooth model curve\nctx.strokeStyle = C.rule;\nctx.setLineDash([4, 5]);\nctx.beginPath();\nfor (i = 0; i <= 110; i++) {\n  var tt = i * 0.5;\n  v = mode < 0.5 ? A(tt) : Math.log(A(tt));\n  if (i === 0) ctx.moveTo(X(tt), Y(v)); else ctx.lineTo(X(tt), Y(v));\n}\nctx.stroke();\nctx.setLineDash([]);\n\n// data points appear one by one\nvar shown = 1 + Math.floor((t % 6) );\nif (shown > ts.length) shown = ts.length;\nctx.fillStyle = C.accent;\nfor (i = 0; i < shown; i++) {\n  v = mode < 0.5 ? A(ts[i]) : Math.log(A(ts[i]));\n  ctx.beginPath(); ctx.arc(X(ts[i]), Y(v), 4.5, 0, Math.PI * 2); ctx.fill();\n}\n\nctx.fillStyle = C.ink;\nctx.fillText(mode < 0.5 ? \"A against t: a curve, no slope to read\" : \"ln A against t: a straight line of slope -1/tau\",\n             X(3), Y(yMax) - 4);\n\nout.note = mode < 0.5\n  ? \"tau = \" + tau.toFixed(0) + \" s. Curved. Push the axis slider to 1 to take logs.\"\n  : \"tau = \" + tau.toFixed(0) + \" s, slope = -1/tau = \" + (-1 / tau).toFixed(4) + \" per s\";"
+  },
+  {
+    "id": "data-uncertainty-budget",
+    "title": "Error budget",
+    "caption": "Which measurement actually limits the answer.",
+    "height": 230,
+    "params": [],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar parts = [\n  { name: \"F  (1 x 1.0%)\", v: 1.0 },\n  { name: \"L  (1 x 0.5%)\", v: 0.5 },\n  { name: \"d  (2 x 1.5%)\", v: 3.0 },\n  { name: \"e  (1 x 3.0%)\", v: 3.0 }\n];\nvar i, sq = 0;\nfor (i = 0; i < parts.length; i++) sq += parts[i].v * parts[i].v;\nvar total = Math.sqrt(sq);\n\nvar left = 110;\nvar barW = W - left - 70;\nvar top = 26;\nvar rowH = (H - top - 52) / 5;\nvar scale = barW / 5.0;\n\nctx.fillStyle = C.ink;\nctx.fillText(\"Error budget for Y = 4FL / (pi d^2 e)\", 12, 16);\n\nfor (i = 0; i < parts.length; i++) {\n  var y = top + rowH * i + 14;\n  ctx.fillStyle = C.figure;\n  ctx.fillText(parts[i].name, 12, y + 4);\n  ctx.fillStyle = C.rule;\n  ctx.fillRect(left, y - 8, parts[i].v * scale, 13);\n  ctx.fillStyle = C.figure;\n  ctx.fillText(parts[i].v.toFixed(1) + \"%\", left + parts[i].v * scale + 6, y + 4);\n}\n\nvar yt = top + rowH * 4 + 20;\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(12, yt - 12); ctx.lineTo(W - 12, yt - 12); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"total (quadrature)\", 12, yt + 6);\nctx.fillStyle = C.accent;\nctx.fillRect(left, yt - 6, total * scale, 13);\nctx.fillStyle = C.ink;\nctx.fillText(total.toFixed(2) + \"%\", left + total * scale + 6, yt + 6);\n\nctx.fillStyle = C.figure;\nctx.fillText(\"The total is smaller than the plain sum, 7.5%. Only the two biggest terms matter.\", 12, H - 10);\n\nout.note = \"d and e together supply \" + ((9 + 9) / sq * 100).toFixed(0) + \" percent of the variance\";"
+  }
+]

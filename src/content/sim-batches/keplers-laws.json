@@ -1,0 +1,65 @@
+[
+ {
+  "id": "keplers-laws-ellipse",
+  "title": "Anatomy of an ellipse",
+  "caption": "Drag the eccentricity and watch the Sun slide away from the centre.",
+  "height": 260,
+  "params": [
+   {
+    "key": "ecc",
+    "label": "Eccentricity e",
+    "unit": "",
+    "min": 0,
+    "max": 0.9,
+    "step": 0.01,
+    "value": 0.6
+   }
+  ],
+  "draw": "var e = p.ecc;\nvar pad = 46;\nvar s = Math.min((W - pad * 2) / 2.35, (H - 44) / 2.05);\nvar cx = W / 2 + s * e * 0.5;\nvar cy = H / 2;\nvar b = Math.sqrt(1 - e * e);\nvar X = function (x) { return cx + x * s; };\nvar Y = function (y) { return cy - y * s; };\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.6;\n\n// the ellipse (focus at origin of x,y)\nctx.strokeStyle = C.figure;\nctx.beginPath();\nfor (var i = 0; i <= 200; i++) {\n  var E = i * Math.PI * 2 / 200;\n  var x = Math.cos(E) - e, y = b * Math.sin(E);\n  i === 0 ? ctx.moveTo(X(x), Y(y)) : ctx.lineTo(X(x), Y(y));\n}\nctx.closePath();\nctx.stroke();\n\n// major axis from aphelion to perihelion\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(-1 - e), Y(0)); ctx.lineTo(X(1 - e), Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X(-e), Y(-b)); ctx.lineTo(X(-e), Y(b)); ctx.stroke();\nctx.setLineDash([]);\n\n// centre, empty focus, Sun at the occupied focus\nctx.fillStyle = C.rule;\nctx.beginPath(); ctx.arc(X(-e), Y(0), 3, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(X(-2 * e), Y(0), 3, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(0), Y(0), 6, 0, Math.PI * 2); ctx.fill();\n\n// the c = ae offset\nctx.strokeStyle = C.accent;\nctx.beginPath(); ctx.moveTo(X(-e), Y(0)); ctx.lineTo(X(0), Y(0)); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"Sun (focus)\", X(0), Y(0) + 20);\nctx.fillText(\"centre\", X(-e), Y(0) - 10);\nctx.fillText(\"empty focus\", X(-2 * e), Y(0) + 20);\nctx.fillText(\"c = ae\", X(-e / 2), Y(0) - 26);\nctx.textAlign = \"left\";\nctx.fillText(\"perihelion  a(1-e)\", X(1 - e) - 96, Y(0) - 12);\nctx.fillText(\"aphelion  a(1+e)\", X(-1 - e) + 4, Y(0) - 12);\nctx.fillText(\"b = a sqrt(1-e^2)\", X(-e) + 6, Y(b * 0.55));\nctx.fillStyle = C.figure;\nctx.fillText(\"semi-major axis a\", X(-e) + 6, Y(0) + 16);\n\nout.note = \"e = \" + e.toFixed(2) + \"   perihelion = \" + (1 - e).toFixed(3) + \" a   aphelion = \" + (1 + e).toFixed(3) + \" a   b = \" + b.toFixed(3) + \" a\";\n"
+ },
+ {
+  "id": "keplers-laws-areas",
+  "title": "Equal areas lab",
+  "caption": "Two wedges of equal duration, one at perihelion and one at aphelion.",
+  "height": 280,
+  "params": [
+   {
+    "key": "ecc",
+    "label": "Eccentricity e",
+    "unit": "",
+    "min": 0,
+    "max": 0.85,
+    "step": 0.01,
+    "value": 0.6
+   },
+   {
+    "key": "sweep",
+    "label": "Wedge duration",
+    "unit": "% of period",
+    "min": 2,
+    "max": 20,
+    "step": 1,
+    "value": 10
+   }
+  ],
+  "draw": "var e = p.ecc;\nvar period = 8.0;\nvar frac = p.sweep / 100;\nvar b = Math.sqrt(1 - e * e);\nvar pad = 34;\nvar s = Math.min((W - pad * 2) / 2.3, (H - 52) / 2.05);\nvar cx = W / 2 + s * e * 0.5;\nvar cy = H / 2 + 6;\nvar X = function (x) { return cx + x * s; };\nvar Y = function (y) { return cy - y * s; };\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// solve Kepler's equation M = E - e sin E by Newton iteration\nvar posAt = function (time) {\n  var M = 2 * Math.PI * (time / period);\n  M = M - Math.floor(M / (2 * Math.PI)) * 2 * Math.PI;\n  var E = M;\n  for (var k = 0; k < 24; k++) {\n    E = E - (E - e * Math.sin(E) - M) / (1 - e * Math.cos(E));\n  }\n  return [Math.cos(E) - e, b * Math.sin(E)];\n};\n\n// orbit outline\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.4;\nctx.beginPath();\nfor (var i = 0; i <= 220; i++) {\n  var E2 = i * Math.PI * 2 / 220;\n  var ox = Math.cos(E2) - e, oy = b * Math.sin(E2);\n  i === 0 ? ctx.moveTo(X(ox), Y(oy)) : ctx.lineTo(X(ox), Y(oy));\n}\nctx.closePath();\nctx.stroke();\n\n// two swept wedges of equal duration: one at perihelion, one at aphelion\nvar dt = frac * period;\nvar wedge = function (t0) {\n  ctx.beginPath();\n  ctx.moveTo(X(0), Y(0));\n  for (var j = 0; j <= 40; j++) {\n    var q = posAt(t0 + dt * j / 40);\n    ctx.lineTo(X(q[0]), Y(q[1]));\n  }\n  ctx.closePath();\n  ctx.fill();\n  ctx.stroke();\n};\nctx.fillStyle = C.faint;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1;\nwedge(-dt / 2);\nwedge(period / 2 - dt / 2);\n\n// moving planet and its radius line\nvar now = t % period;\nvar q0 = posAt(now);\nvar r = Math.sqrt(q0[0] * q0[0] + q0[1] * q0[1]);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(q0[0]), Y(q0[1])); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(q0[0]), Y(q0[1]), 5, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(X(0), Y(0), 6, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"Sun\", X(0), Y(0) + 20);\nctx.fillText(\"fast, short wedge\", X(1 - e), Y(0) - 16);\nctx.fillText(\"slow, long wedge\", X(-1 - e) + 40, Y(0) - 16);\nctx.textAlign = \"left\";\n\n// both wedges have the same area: report it\nvar area = Math.PI * b * frac;\nvar v = Math.sqrt(2 / r - 1);\nout.note = \"each wedge spans \" + (frac * 100).toFixed(0) + \"% of the period, area = \" + area.toFixed(3) + \" a^2 each   |   planet now at r = \" + r.toFixed(3) + \" a, speed = \" + v.toFixed(2) + \" (units of sqrt(GM/a))\";\n"
+ },
+ {
+  "id": "keplers-laws-third",
+  "title": "Third law lab",
+  "caption": "T = a^1.5 in AU and years, with the planets sitting on the curve.",
+  "height": 270,
+  "params": [
+   {
+    "key": "a",
+    "label": "Semi-major axis",
+    "unit": "AU",
+    "min": 0.4,
+    "max": 32,
+    "step": 0.1,
+    "value": 4
+   }
+  ],
+  "draw": "var aMax = 32;\nvar tMax = Math.pow(aMax, 1.5);\nvar padL = 46, padB = 34, padT = 16, padR = 14;\nvar X = function (a) { return padL + (a / aMax) * (W - padL - padR); };\nvar Y = function (T) { return H - padB - (T / tMax) * (H - padB - padT); };\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.2;\n\n// axes\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"T (years)\", padL - 40, padT + 10);\nctx.fillText(\"a (AU)\", W - padR - 44, H - padB + 22);\nvar gx, gy;\nfor (gx = 10; gx <= 30; gx += 10) {\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath(); ctx.moveTo(X(gx), H - padB); ctx.lineTo(X(gx), padT); ctx.stroke();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(String(gx), X(gx) - 6, H - padB + 16);\n}\nfor (gy = 50; gy <= 150; gy += 50) {\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath(); ctx.moveTo(padL, Y(gy)); ctx.lineTo(W - padR, Y(gy)); ctx.stroke();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(String(gy), padL - 28, Y(gy) + 4);\n}\n\n// the curve T = a^(3/2)\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.8;\nctx.beginPath();\nfor (var i = 0; i <= 200; i++) {\n  var a = aMax * i / 200;\n  i === 0 ? ctx.moveTo(X(a), Y(Math.pow(a, 1.5))) : ctx.lineTo(X(a), Y(Math.pow(a, 1.5)));\n}\nctx.stroke();\n\n// real bodies sit on the curve\nvar names = [\"Earth\", \"Mars\", \"Jupiter\", \"Saturn\", \"Uranus\", \"Neptune\"];\nvar axes = [1.0, 1.524, 5.203, 9.537, 19.19, 30.07];\nctx.fillStyle = C.rule;\nfor (var k = 0; k < axes.length; k++) {\n  var Tk = Math.pow(axes[k], 1.5);\n  ctx.beginPath(); ctx.arc(X(axes[k]), Y(Tk), 3.5, 0, Math.PI * 2); ctx.fill();\n  ctx.fillText(names[k], X(axes[k]) + 6, Y(Tk) + 2);\n}\n\n// the reader's body\nvar aSel = p.a;\nvar tSel = Math.pow(aSel, 1.5);\nctx.strokeStyle = C.accent;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(aSel), H - padB); ctx.lineTo(X(aSel), Y(tSel)); ctx.lineTo(padL, Y(tSel)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(aSel), Y(tSel), 5, 0, Math.PI * 2); ctx.fill();\n\nout.note = \"a = \" + aSel.toFixed(2) + \" AU  ->  T = a^1.5 = \" + tSel.toFixed(2) + \" years   (T^2/a^3 = \" + (tSel * tSel / (aSel * aSel * aSel)).toFixed(3) + \", the same for every body here)\";\n"
+ }
+]

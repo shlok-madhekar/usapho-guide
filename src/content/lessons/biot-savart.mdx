@@ -1,68 +1,324 @@
-## Field from a piece of current
+## A field with no source to point at
 
-There is no such thing as an isolated current element, but treating a current
-as a sum of little pieces and adding their contributions works. Each element
-$I\,d\vec{\ell}$ contributes a field at displacement $\vec{r}$ from it:
+In [magnetic force](/guide/magnetic-force) you took the field as given. Someone
+handed you a $\vec{B}$, you crossed it with $q\vec{v}$ or with $I\vec{L}$, and
+out came a force. Now turn the question around. Where did that field come from?
 
-$$d\vec{B} = \frac{\mu_0}{4\pi}\,\frac{I\,d\vec{\ell}\times\hat{r}}{r^2}$$
+Hold a compass next to a wire carrying a big current and the needle swings. Not
+towards the wire and not away from it — it lines up *around* it, tangent to a
+circle whose centre is the wire. That is already strange. An electric charge
+makes a field that points away from itself, so the field has an obvious source
+sitting at the middle of it. A current makes a field that closes on itself with
+nothing in the middle to point at. Whatever rule produces $\vec{B}$ from a
+current has to build that sideways-ness in from the start.
 
-with $\mu_0 = 4\pi \times 10^{-7}$ T·m/A. The structure mirrors Coulomb's law —
-an inverse square, a constant out front — with two differences that matter. The
-source is a vector, and the cross product puts the field perpendicular to both
-the current element and the line joining it to the field point. That is why
-magnetic field lines circle a wire instead of radiating from it.
+The rule is the Biot-Savart law, and it is the magnetic twin of Coulomb's law:
+chop the source into tiny pieces, work out what one piece sends to the point
+you care about, add the pieces up as vectors. Everything below is that one
+sentence, applied to wires bent into different shapes.
 
-Two immediate consequences: an element contributes nothing along its own axis,
-since $d\vec{\ell}\times\hat{r}$ vanishes when the two are parallel, and the
-contribution is largest broadside.
+## What one piece of current sends out
+
+Take a wire carrying current $I$ and mentally cut out a short length of it.
+Call that stub $d\vec{\ell}$: a vector whose length is the length of the stub in
+metres and whose direction is the direction the current flows there. The
+product $I\,d\vec{\ell}$ is the source — a current element, measured in
+ampere-metres.
+
+Pick a field point $P$. Let $\vec{r}$ run from the element to $P$, let $r$ be
+its length, and let $\hat{r}$ be the unit vector along it ($\hat{r} =
+\vec{r}/r$, length one, direction only). Three things have to be true of the
+field $d\vec{B}$ this element makes at $P$. It should grow with the current and
+with the size of the stub. It should fall off with distance the way every
+point-source field does, as $1/r^2$. And it must come out sideways, because the
+compass says so. A cross product is the only clean way to write "sideways to
+both". Put those together:
+
+$$
+d\vec{B} = \frac{\mu_0}{4\pi}\,\frac{I\,d\vec{\ell}\times\hat{r}}{r^2}
+$$
+
+The constant $\mu_0 = 4\pi\times10^{-7}$ T·m/A is the permeability of free
+space; the $4\pi$ is packed into it so that it cancels in the tidiest answers.
+The combination $\mu_0/4\pi = 1.0\times10^{-7}$ in SI units is the number you
+will actually punch into a calculator, so learn it in that form.
+
+Read the cross product carefully, because it does two separate jobs. Its
+*magnitude* is $d\ell\sin\theta$, where $\theta$ is the angle between the
+element and the line to $P$. So an element sends nothing at all to a point
+straight ahead of itself or straight behind it, and sends the most to a point
+off to its side. Its *direction* is given by the right-hand rule: point your
+fingers along the current, curl them towards $\hat{r}$, and your thumb gives
+$d\vec{B}$. For a point beside a wire that means the field circles the wire.
+
+<Figure caption={<><b>Figure 1.</b> One element and one field point. Drag the angle to zero or to 180 degrees and the contribution dies; at 90 degrees it is largest. The circle at P is the field coming out of the screen, drawn to scale.</>}>
+  <Sim id="biot-savart-element" />
+</Figure>
+
+<QuickCheck
+  question="A short current element points north. At which point does it produce the largest field?"
+  options={["A point due east of it", "A point due north of it", "A point due south of it", "The same at all three"]}
+  answer={0}
+  explanation="The magnitude carries a factor sin of the angle between the element and the line to the point. Due east that angle is 90 degrees and the sine is one. Due north or south the angle is 0 or 180 degrees, the sine is zero, and the element contributes nothing along its own line."
+/>
 
 ## The straight wire
 
-Integrate along an infinite straight wire at perpendicular distance $d$. Every
-element pushes the field in the same circumferential direction, so the vector
-integral becomes a scalar one, and it evaluates to
+Now add elements up. Put a straight wire along a line and a field point $P$ a
+perpendicular distance $d$ from it. Every element of the wire lies in the plane
+of the page, and $P$ is in that plane too, so every $d\vec{\ell}\times\hat{r}$
+points the same way: straight out of the page. That is the piece of luck that
+makes this problem doable. The vector sum collapses into an ordinary sum of
+magnitudes, and the only question left is how much each element gives.
 
-$$B = \frac{\mu_0 I}{2\pi d}$$
+Measure position along the wire by the angle $\theta$ from the perpendicular
+through $P$, positive on one side and negative on the other. Doing the integral
+(it is a standard one, and the substitution $x = d\tan\theta$ is what makes it
+go) gives, for a segment whose ends sit at angles $\theta_1$ and $\theta_2$,
 
-circling the wire by the right-hand rule. For a finite segment the same
-integral, cut off at the ends, gives
+$$
+B = \frac{\mu_0 I}{4\pi d}\left(\sin\theta_2 - \sin\theta_1\right)
+$$
 
-$$B = \frac{\mu_0 I}{4\pi d}\left(\sin\theta_2 - \sin\theta_1\right)$$
+Memorise this one. Nearly every straight-wire problem in the bank is this
+formula used once per segment. Two special cases fall straight out. Let the
+wire run forever both ways: $\theta_2 \to +90^\circ$, $\theta_1 \to -90^\circ$,
+the bracket becomes $1-(-1) = 2$, and
 
-with the angles measured from the perpendicular to the two ends. Keep this
-form. Polygon problems — the field at the centre of a square or triangular
-loop — are just this result applied once per side and added.
+$$
+B = \frac{\mu_0 I}{2\pi d}
+$$
 
-## On the axis of a loop
+Let it run in from infinity and stop level with $P$ (a **semi-infinite** wire):
+the bracket is $1 - 0 = 1$, and you get exactly half of that, $\mu_0 I/4\pi d$.
 
-For a circular loop of radius $R$, at height $z$ on the axis, symmetry kills
-every component except the axial one, and each element sits the same distance
-from the field point:
+<Figure caption={<><b>Figure 2.</b> A wire of finite length. Watch the travelling dot: elements near the foot of the perpendicular do nearly all the work, which is why stretching the wire past a few times d barely changes the answer. Drag the half length up and see the percentage climb towards 100.</>}>
+  <Sim id="biot-savart-segment" />
+</Figure>
 
-$$B = \frac{\mu_0 I R^2}{2\left(R^2 + z^2\right)^{3/2}}$$
+**Worked example 1.** A long straight wire carries 5.0 A. Find $B$ at 10 cm.
 
-At the centre this reduces to $\mu_0 I / 2R$. Far away it falls as $1/z^3$,
-the dipole signature.
+Straight substitution into the infinite-wire result:
+
+$$
+B = \frac{\mu_0 I}{2\pi d} = \frac{(4\pi\times10^{-7})(5.0)}{2\pi(0.10)}
+$$
+
+The $\pi$ cancels against the $\pi$ upstairs, leaving $B = (2\times10^{-7})(5.0)/(0.10) = 1.0\times10^{-5}$ T.
+Ten microtesla, about a fifth of the Earth's field. That grouping,
+$B = 2\times10^{-7}\,I/d$, is worth keeping: it saves you from mishandling the
+$\pi$'s under time pressure.
+
+Now the same formula twice. Two long wires 0.30 m apart carry 8.0 A and 2.0 A
+in the same direction. Where between them does the field vanish? Between the
+wires the two fields point opposite ways, so they can cancel; outside, they
+point the same way and cannot. Let $x$ be the distance from the 8.0 A wire.
+Setting magnitudes equal,
+
+$$
+\frac{\mu_0 (8.0)}{2\pi x} = \frac{\mu_0 (2.0)}{2\pi (0.30 - x)}
+$$
+
+Everything common cancels, so $8.0(0.30-x) = 2.0x$, giving $2.4 = 10.0x$ and
+$x = 0.24$ m. The null point sits closer to the *weaker* wire, four times
+further from the 8 A wire than from the 2 A one, because the ratio of currents
+is four. Check that against your intuition before you move on.
 
 <Aside label="Where this goes wrong" warn>
-  Do not integrate magnitudes. $dB$ is a vector, and adding $|d\vec{B}|$ over a
-  loop gives a number several times too large. Choose axes first, argue from
-  symmetry which components cancel, and integrate only the surviving component.
-  Off the axis of a loop the components do not cancel and there is no closed
-  form — that integral is elliptic, and an olympiad problem will not ask for it.
+  Do not add magnitudes when the directions differ. Three long wires through the
+  corners of an equilateral triangle, all carrying the same current out of the
+  page, produce three equal fields at the centroid, each perpendicular to its own
+  radius and each rotated 120 degrees from the next. Three equal vectors at 120
+  degrees sum to zero, so the field at the centroid is zero, not three times one
+  wire's field. Draw the arrows before you reach for the calculator.
 </Aside>
 
-## When you actually need it
+## Arcs, loops and polygons
 
-Ampere's law is faster whenever the geometry has enough symmetry to make
-$\oint\vec{B}\cdot d\vec{\ell}$ trivial. Biot-Savart is what remains for
-everything else: finite segments, loops, arcs, polygons, and any point where
-the field magnitude is not constant along a convenient closed path. Reach for
-symmetry first, and for this integral when symmetry runs out.
+Bend the wire into a circular arc of radius $R$ and ask for the field at the
+centre of curvature. This is the easiest integral in the subject, because every
+element is the same distance $R$ away and every element is perpendicular to its
+own $\hat{r}$, so $\sin\theta = 1$ throughout and every contribution points the
+same way. The magnitudes just add, and the total length of an arc subtending
+angle $\phi$ (in radians) is $R\phi$:
+
+$$
+B = \frac{\mu_0 I}{4\pi R^2}\,(R\phi) = \frac{\mu_0 I \phi}{4\pi R}
+$$
+
+A full circle has $\phi = 2\pi$ and gives $B = \mu_0 I/2R$. So an arc gives the
+fraction $\phi/2\pi$ of a full loop: a semicircle gives half, a quarter arc
+gives a quarter. And straight leads that run *radially* in or out from the
+centre contribute nothing at all, since they point along their own $\hat{r}$.
+That is why so many problems are drawn with radial leads — it is a way of
+handing you the arc alone.
+
+**Worked example 2.** A wire carries 10 A in from far away, runs parallel to
+the $x$ axis, curls round a semicircle of radius 5.0 cm, and heads back out
+parallel to the $x$ axis on the other side — a hairpin. Find $B$ at the centre.
+
+Three pieces. The semicircle: $\phi = \pi$, so
+
+$$
+B_{\text{arc}} = \frac{\mu_0 I}{4R} = \frac{(4\pi\times10^{-7})(10)}{4(0.050)} = 6.28\times10^{-5}\ \text{T}
+$$
+
+Each straight lead is semi-infinite and lies a perpendicular distance
+$R = 0.050$ m from the centre, so each gives
+
+$$
+B_{\text{lead}} = \frac{\mu_0 I}{4\pi R} = \frac{(1.0\times10^{-7})(10)}{0.050} = 2.0\times10^{-5}\ \text{T}
+$$
+
+All three point the same way (check with the right hand: the current sweeps the
+same sense past the centre in all three pieces), so they add:
+$6.28\times10^{-5} + 2(2.0\times10^{-5}) = 1.03\times10^{-4}$ T. Had the leads
+run radially instead of parallel, the answer would have been the arc alone.
+
+A polygon is the same trick with the finite-segment formula. For a regular
+$n$-gon of side $a$, the centre is a distance $d = a/(2\tan(\pi/n))$ from each
+side, and each side subtends angles $\pm\pi/n$, so each contributes
+$\frac{\mu_0 I}{4\pi d}\cdot 2\sin(\pi/n)$, and there are $n$ of them.
+
+<Figure caption={<><b>Figure 3.</b> Raise the number of sides and the polygon's field creeps up on the field of the circle through its corners. The bars compare one side, the whole loop, and that circle.</>}>
+  <Sim id="biot-savart-polygon" />
+</Figure>
+
+**Worked example 3.** A square loop of side 10 cm carries 6.0 A. Find $B$ at
+one *corner*.
+
+The trap here is doing the centre calculation by mistake. Sit at the corner and
+look at the four sides. Two of them start at your corner and run away from you
+along straight lines that pass through you: $\theta = 0$ or $180^\circ$ for
+every element, so those two sides give nothing. Only the far two matter, and
+each is a distance $a = 0.10$ m away. For one of them, the near end is level
+with you ($\theta_1 = 0$) and the far end is at the opposite corner, at
+$45^\circ$. So
+
+$$
+B_{\text{one}} = \frac{\mu_0 I}{4\pi a}\left(\sin 45^\circ - 0\right) = \frac{(1.0\times10^{-7})(6.0)}{0.10}(0.7071) = 4.24\times10^{-6}\ \text{T}
+$$
+
+The two far sides carry current in senses that give fields the same way out of
+the page, so double it: $B = 8.49\times10^{-6}$ T.
 
 <QuickCheck
-  question="At the centre of a circular arc of radius R subtending angle theta, the field magnitude is what fraction of a full loop's centre field?"
-  options={["theta over 2 pi", "theta over pi", "theta squared over 2 pi", "One, independent of theta"]}
+  question="A wire is bent into a 120 degree arc with straight radial leads at both ends. The field at the centre of curvature is what fraction of the full circle's centre field?"
+  options={["One third", "Two thirds", "One sixth", "The same, since the leads make up the rest"]}
   answer={0}
-  explanation="Every element of the arc is the same distance R away and contributes in the same direction, so the integral is simply proportional to arc length. A fraction theta over 2 pi of the circle gives that fraction of the field."
+  explanation="Every element of an arc sits the same distance R from the centre and contributes in the same direction, so the total is proportional to arc length. A 120 degree arc is a third of the circle. The radial leads point along their own line to the centre, so they contribute nothing."
 />
+
+## Off the centre: the loop axis
+
+Step off the centre of a circular loop and onto its axis, a distance $z$ away.
+Now the elements are not all equivalent in direction. Each one is still a
+distance $\sqrt{R^2+z^2}$ from the field point and still perpendicular to its
+$\hat{r}$, so each $|d\vec{B}|$ is the same, but each is tilted: it has a
+component along the axis and a component perpendicular to it. Pair up any
+element with the one diametrically opposite and the perpendicular components
+cancel exactly, while the axial ones add. So only the axial part survives, and
+the tilt factor is $R/\sqrt{R^2+z^2}$. Multiply the total magnitude
+$\mu_0 I (2\pi R)/4\pi(R^2+z^2)$ by that factor:
+
+$$
+B = \frac{\mu_0 I R^2}{2\left(R^2+z^2\right)^{3/2}}
+$$
+
+Set $z = 0$ and it returns $\mu_0 I/2R$, as it must. Let $z \gg R$ and the
+$R^2$ under the root drops out, leaving $B \approx \mu_0 I R^2/2z^3$ — the
+$1/z^3$ falloff of a magnetic dipole. For $N$ turns wound close together,
+multiply by $N$: every turn does the same job.
+
+<Figure caption={<><b>Figure 4.</b> Slide the field point out along the axis. Notice how flat the curve is near the centre, which is why a loop is a decent place to put something that needs a uniform field, and how fast it dies past one radius.</>}>
+  <Sim id="biot-savart-loop" />
+</Figure>
+
+<Aside label="Worth remembering">
+  Off the axis of a loop there is no elementary formula — that integral is
+  elliptic, and no olympiad problem will ask for it. If a question about a loop
+  gives you a point that is not on the axis and not the centre, you have
+  misread the geometry.
+</Aside>
+
+Stack loops and you get a solenoid. Treat a length $dz$ of a solenoid with $n$
+turns per metre as a loop carrying current $n I\,dz$, integrate the axial
+formula over the length, and the result for a solenoid of length $L$ and radius
+$R$, at its midpoint, is
+
+$$
+B = \mu_0 n I \frac{L}{\sqrt{L^2 + 4R^2}}
+$$
+
+For $L = 0.30$ m, $R = 0.020$ m, $n = 2000$ per metre and $I = 3.0$ A:
+$\mu_0 n I = (4\pi\times10^{-7})(2000)(3.0) = 7.54\times10^{-3}$ T, and the
+geometric factor is $0.30/\sqrt{0.09+0.0016} = 0.30/0.3027 = 0.991$. So
+$B = 7.47\times10^{-3}$ T. The factor being close to one says this solenoid is
+long enough to count as infinite, which is what the next lesson will assume.
+
+## Currents that are not wires
+
+A current is charge passing a point per second, and nothing in the Biot-Savart
+law cares whether that charge is in a wire. Spin a charged object and you have
+a current.
+
+**Worked example 4.** A flat insulating disk of radius $R = 5.0$ cm carries
+$q = 2.0\ \mu$C spread evenly over its face and spins at $\omega = 100$ rad/s.
+Find $B$ at its centre.
+
+You cannot use the ring answer directly, because different parts of the disk
+sit at different radii. So build it from rings. The surface charge density is
+
+$$
+\sigma = \frac{q}{\pi R^2} = \frac{2.0\times10^{-6}}{\pi(0.050)^2} = 2.55\times10^{-4}\ \text{C/m}^2
+$$
+
+A ring between radius $r$ and $r+dr$ holds charge $dq = \sigma\,2\pi r\,dr$.
+That charge goes round once every $2\pi/\omega$ seconds, so the current it
+represents is charge over period:
+
+$$
+dI = dq\,\frac{\omega}{2\pi} = \sigma\,\omega\,r\,dr
+$$
+
+Each ring is a full loop of radius $r$, so it puts $\mu_0\,dI/2r$ at the
+centre. The $r$ cancels, which is the small miracle that makes this problem
+easy:
+
+$$
+dB = \frac{\mu_0 \sigma \omega r\,dr}{2r} = \frac{\mu_0\sigma\omega}{2}\,dr
+$$
+
+Every ring contributes equally, so integrating from $0$ to $R$ just multiplies
+by $R$:
+
+$$
+B = \frac{\mu_0 \sigma \omega R}{2} = \frac{(4\pi\times10^{-7})(2.55\times10^{-4})(100)(0.050)}{2} = 8.0\times10^{-10}\ \text{T}
+$$
+
+A ring is even easier: all the charge is at one radius, so the current is
+$I = q f$ with $f$ the revolutions per second, and $B = \mu_0 I/2R$. The same
+reasoning handles a sheet of charge sliding sideways, which is where the
+surface current density $K$ (amperes per metre of width) comes from; an
+infinite sheet gives $B = \mu_0 K/2$ on each side, pointing opposite ways.
+
+## Knowing when to reach for it
+
+The next lesson, [Ampere's law](/guide/amperes-law), gets the same fields far
+faster whenever the geometry is symmetric enough — infinite wires, infinite
+solenoids, coaxial cables. So the real skill is telling the two apart.
+
+Reach for Biot-Savart when the problem names a **shape**: an arc, a square, a
+hexagon, a finite segment, a loop seen from a point on its axis, a pair of
+coils. Any time there is a length or a corner or an angle in the statement, the
+field will not be constant along any convenient closed loop, and Ampere's law
+has nothing to grip.
+
+Then run the same four steps every time. One: decide which pieces contribute
+nothing, because a piece pointing along its own line to the field point is
+free. Two: get the direction of each surviving piece with your right hand, and
+draw the arrows. Three: add what is left — as scalars if the arrows agree, as
+vectors if they do not. Four: check the size against a familiar anchor, such as
+$\mu_0 I/2R$ for a loop's centre or $2\times10^{-7} I/d$ for a long wire. A
+bent-wire answer that comes out ten times either of those is a sign you dropped
+a $\pi$ or a factor of two.

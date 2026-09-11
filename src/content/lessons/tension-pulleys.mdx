@@ -1,59 +1,376 @@
-## What "massless" buys you
+A crate sits on a table. A rope runs from it, over a little wheel at the table's
+edge, and down to a bucket hanging in the air. Let go, and the bucket falls, the
+crate slides, and the two of them somehow agree on a speed. They are not
+touching. The only thing they share is a rope.
 
-A real rope has mass, and pulling one end accelerates the rope itself, so the
-tension at the far end is smaller. Setting the mass to zero removes that
-difference: with $m = 0$, any net force would give infinite acceleration, so
-the net force on every segment must vanish and the tension is the same
-everywhere along the rope.
+That rope is doing something worth understanding. It carries a force from one
+object to another, it changes the direction of that force when it goes round the
+wheel, and it forces the two objects to move in lockstep. Get those three ideas
+straight and a whole family of problems — Atwood machines, blocks on inclines,
+trains of blocks, block and tackle, monkeys climbing ropes — becomes the same
+problem wearing different clothes.
 
-An ideal pulley extends this around a corner. It has no mass and no bearing
-friction, so it needs no net torque, and the tension is unchanged from one side
-to the other. All it does is redirect the rope.
+In the [friction](/guide/friction) lesson you drew a free body diagram for one
+block and solved it. Nothing about that changes here. What is new is that you
+now draw *two* diagrams, get two equations, and need one more relation — the
+constraint — to close the system.
 
-Drop either idealization and tension stops being uniform. A pulley with moment
-of inertia $I$ needs a torque to spin up, which requires $T_1 \ne T_2$. A heavy
-hanging rope has more tension at the top than the bottom, since the upper part
-supports more weight.
+## What a rope can and cannot do
+
+A rope pulls. It never pushes. That is the whole of it, and it is the first
+thing to check when a sign comes out wrong: if your algebra hands you a negative
+tension, the rope has gone slack and your model is broken, not merely off by a
+minus sign.
+
+The magnitude of that pull is the **tension** $T$, measured in newtons. Pick any
+point along the rope and cut it there in your imagination. The tension at that
+point is the force each half exerts on the other. Both halves feel the same
+size of pull, in opposite directions — that is Newton's third law applied to a
+cut.
+
+Now ask whether $T$ is the same at every point. Take a short segment of rope of
+mass $\delta m$, with tension $T_{\text{above}}$ pulling up on it and
+$T_{\text{below}}$ pulling down, in a system accelerating upward at $a$. Newton
+gives
+
+$$T_{\text{above}} - T_{\text{below}} - \delta m\, g = \delta m\, a.$$
+
+So the tensions differ by $\delta m\,(g+a)$. Set $\delta m = 0$ — a **massless**
+or "light" rope — and the difference vanishes. The tension is the same
+everywhere along a single massless rope. That is the entire content of the word
+"light" in a problem statement, and it is why you are allowed to write one
+symbol $T$ instead of a different one at every point.
+
+An **ideal pulley** carries this round a corner. It has no mass and no bearing
+friction, so it needs no net torque to spin, so the rope does not have to pull
+harder on one side than the other. A pulley changes the *direction* of the
+tension and nothing else.
 
 <Aside label="Worth remembering">
-  Tension is uniform along a single massless rope, but two different ropes are
-  two different unknowns. Label them $T_1$ and $T_2$ from the start; a rope that
-  passes through a hand, a knot, or a body is not one rope.
+One massless rope, one tension. But two different ropes are two different
+unknowns, even if they look like one. A rope that passes through a hand, a
+knot, a body, or a block is not one rope: label the pieces $T_1$ and $T_2$
+from the start and let the algebra tell you if they happen to be equal.
 </Aside>
 
 ## The Atwood machine
 
-Masses $m_1$ and $m_2$ hang from a rope over an ideal pulley. Take down as
-positive for $m_1$ and up as positive for $m_2$, which builds the constraint
-into the signs: whatever distance one falls, the other rises.
+Two masses, $m_1$ and $m_2$, hang from the ends of a light rope over an ideal
+pulley. Say $m_1 > m_2$, so $m_1$ goes down and $m_2$ goes up.
 
-$$m_1 g - T = m_1 a, \qquad T - m_2 g = m_2 a$$
+Draw each block on its own. On $m_1$: weight $m_1 g$ down, tension $T$ up. On
+$m_2$: weight $m_2 g$ down, the same $T$ up. Now the constraint. The rope cannot
+stretch, so whatever distance $m_1$ falls, $m_2$ rises — same distance, same
+speed, same magnitude of acceleration $a$.
 
-Add the two equations and $T$ disappears:
+The trick that saves sign errors is to choose "positive" separately for each
+block, in the direction you expect it to move. Down is positive for $m_1$, up is
+positive for $m_2$. Then both blocks have the same positive $a$:
 
-$$a = \frac{m_1 - m_2}{m_1 + m_2}\,g, \qquad T = \frac{2m_1m_2}{m_1+m_2}\,g$$
+$$m_1 g - T = m_1 a, \qquad T - m_2 g = m_2 a.$$
 
-Check the limits. Equal masses give $a = 0$. If $m_2 \to 0$, then $a \to g$ and
-$T \to 0$: free fall. And $T$ always lies strictly between $m_2 g$ and $m_1 g$
-— the tension can never be the full weight of either side unless nothing
-accelerates.
+Two equations, two unknowns. Add them, and $T$ cancels:
 
-## Writing the constraint
+$$(m_1 - m_2) g = (m_1 + m_2) a \quad\Longrightarrow\quad a = \frac{m_1 - m_2}{m_1 + m_2}\, g.$$
 
-The constraint is a statement about lengths, and the reliable way to get it is
-to write the total rope length in terms of positions and note that it is
-constant. Differentiate twice and you have a relation among the accelerations.
+Put that back into either equation to get the tension:
 
-For a movable pulley with two rope segments supporting it, the length
-bookkeeping gives $x_{\text{load}} = \tfrac{1}{2}x_{\text{end}}$: pull the free
-end a metre and the load rises half a metre, at half the speed and half the
-acceleration. In exchange, the load feels twice the tension. This is the whole
-mechanical advantage of a block and tackle, and it falls out of length
-counting, not force intuition.
+$$T = m_1(g - a) = \frac{2 m_1 m_2}{m_1 + m_2}\, g.$$
+
+Read what those say. The numerator $m_1 - m_2$ is the unbalanced weight; the
+denominator $m_1 + m_2$ is all the mass that has to be moved. Equal masses give
+$a = 0$ and $T = m g$, a stalemate. Let $m_2 \to 0$ and you get $a \to g$ and
+$T \to 0$: free fall, with a rope that has forgotten it exists.
+
+<Figure caption={<><b>Figure 1.</b> Drag the two masses. Notice that the
+tension is never as big as the heavier weight and never as small as the lighter
+one — it always sits between them. Set them equal and watch the tension jump to
+the full weight of one side.</>}>
+  <Sim id="tension-pulleys-atwood" />
+</Figure>
+
+That tension result is worth staring at. $T$ lies strictly between $m_2 g$ and
+$m_1 g$. It cannot equal $m_1 g$, because then $m_1$ would not accelerate. A
+very common wrong answer is "the tension is the weight of the lighter block".
+It is not, unless nothing is moving.
 
 <QuickCheck
-  question="A movable pulley is held up by two segments of one massless rope of tension T. The load hanging from it accelerates:"
-  options={["At the same rate as the free end", "At twice the rate of the free end", "At half the rate of the free end, feeling an upward force 2T", "At half the rate, feeling an upward force T"]}
-  answer={2}
-  explanation="Two segments support the pulley, so the upward force is 2T while the load moves half as far and half as fast as the free end. Force gained, distance lost."
+  question="An Atwood machine has 5.0 kg on one side and 3.0 kg on the other. What is the rope tension?"
+  options={["29.4 N, the weight of the lighter block", "36.75 N", "49.0 N, the weight of the heavier block", "78.4 N, the two weights added"]}
+  answer={1}
+  explanation="T = 2 m1 m2 g / (m1 + m2) = 2(5)(3)(9.8)/8 = 36.75 N. It has to sit between 29.4 N and 49.0 N: below the heavier weight so that block can fall, above the lighter weight so that block can rise."
 />
+
+## Worked example 1: the crate and the bucket
+
+A $4.0\;\mathrm{kg}$ block on a frictionless table is joined by a light string
+over a pulley at the table edge to a $2.0\;\mathrm{kg}$ block hanging freely.
+Find the acceleration and the tension. Use $g = 9.8\;\mathrm{m/s^2}$.
+
+Start on blank paper with two free body diagrams, not with an equation.
+
+The table block, call it $M = 4.0\;\mathrm{kg}$, feels its weight down, the
+normal force up, and $T$ horizontally toward the pulley. Vertically it is not
+accelerating, so $N = Mg$ and the vertical direction tells you nothing else.
+Horizontally, taking "toward the pulley" as positive:
+
+$$T = M a.$$
+
+The hanging block, $m = 2.0\;\mathrm{kg}$, feels $mg$ down and $T$ up. Taking
+down as positive:
+
+$$mg - T = m a.$$
+
+Same $a$, because the string is inextensible: the block slides exactly as fast
+as the bucket drops. Substitute the first into the second:
+
+$$mg - Ma = ma \quad\Longrightarrow\quad a = \frac{m}{M+m}\,g = \frac{2.0}{6.0}(9.8) = 3.27\;\mathrm{m/s^2}.$$
+
+Then $T = Ma = (4.0)(3.27) = 13.1\;\mathrm{N}$.
+
+Sanity check: $mg = 19.6\;\mathrm{N}$, and the tension came out less than that,
+as it must for the bucket to fall at all.
+
+<Figure caption={<><b>Figure 2.</b> The two diagrams behind that example. The
+same letter $T$ appears in both because it is the same rope. The same letter
+$a$ appears in both because the rope has a fixed length. Those two shared
+letters are what make it one problem instead of two.</>}>
+  <Sim id="tension-pulleys-fbd" />
+</Figure>
+
+There is a shortcut hiding here. Adding the two equations killed $T$ and left
+$mg = (M+m)a$: the driving force is the hanging weight, and the mass being
+moved is everything on the rope. You can go straight to that if you only want
+$a$. But you can only do it when nothing internal is asked for — the moment a
+question says "find the tension", you need the individual equations back.
+
+<Aside label="Where this goes wrong" warn>
+Do not put the weight of the table block into the horizontal equation. Its
+$Mg$ is cancelled by the normal force and contributes nothing to the motion. A
+frictionless table block of $4\;\mathrm{kg}$ and one of $400\;\mathrm{kg}$
+differ only in inertia. That is also why friction changes the answer so much:
+friction is the one way a horizontal block's weight gets back into the
+horizontal equation, through $f_k = \mu_k N = \mu_k M g$.
+</Aside>
+
+If that table had friction with $\mu_k$, the table block's equation becomes
+$T - \mu_k M g = M a$ and everything else is unchanged. Try it with
+$M = 5.0\;\mathrm{kg}$, $\mu_k = 0.20$, $m = 3.0\;\mathrm{kg}$: adding the two
+equations gives $mg - \mu_k M g = (M+m) a$, so
+$a = (29.4 - 9.8)/8.0 = 2.45\;\mathrm{m/s^2}$.
+
+## Writing the constraint properly
+
+For two blocks on one straight rope, the constraint is obvious: same speed,
+same acceleration. For anything more tangled, guessing is how people lose
+points. The reliable method is to write the total rope length as a sum of
+segment lengths, note that it is constant, and differentiate twice.
+
+Take a **movable pulley**: a load hangs from a pulley that is itself held up by
+two parallel segments of one rope. One end of the rope is anchored to the
+ceiling, the rope goes down round the movable pulley, up over a fixed pulley,
+and out to your hand.
+
+Measure downward from the ceiling. Let $y$ be the depth of the movable pulley
+and $x$ be the depth of the free end. The rope length is
+
+$$L = y + y + x + (\text{constants for the bits round the fixed pulley}) = 2y + x + \text{const}.$$
+
+$L$ never changes, so $2\dot y + \dot x = 0$ and $2\ddot y + \ddot x = 0$. In
+words: the free end moves twice as far, twice as fast, and with twice the
+acceleration of the load.
+
+$$a_{\text{end}} = 2\, a_{\text{load}}.$$
+
+Meanwhile the force side goes the other way. Two rope segments pull up on the
+movable pulley, each with tension $T$, so the upward force on the load assembly
+is $2T$. You pull with $T$ and the load feels $2T$. Twice the force over half
+the distance, which is exactly what has to happen if energy is not to appear
+from nowhere.
+
+<Figure caption={<><b>Figure 3.</b> Drag the "free end pulled down" slider and
+watch the readout: the load always rises half as far as you pull. Then change
+the load mass and notice the holding force is always half its weight. Force
+gained, distance lost.</>}>
+  <Sim id="tension-pulleys-movable" />
+</Figure>
+
+<QuickCheck
+  question="A 40 kg load hangs from a movable pulley supported by two parallel segments of one rope, and you raise it at constant speed. What force do you apply to the free end?"
+  options={["98 N", "196 N", "392 N", "784 N"]}
+  answer={1}
+  explanation="At constant speed the two segments must together support the weight, 40 times 9.8 = 392 N, so each carries 196 N. The tension is the same all along the rope, so your hand pulls with 196 N and does so over twice the distance."
+/>
+
+## Worked example 2: a movable pulley with a counterweight
+
+An $8.0\;\mathrm{kg}$ block hangs from one end of a rope. The rope runs up over
+a fixed pulley, down around a movable pulley carrying a $5.0\;\mathrm{kg}$
+load, and its other end is tied to the ceiling. Find the acceleration of the
+$5.0\;\mathrm{kg}$ load.
+
+Two idealizations do the heavy lifting. One rope means one tension $T$
+throughout, including the two segments holding the movable pulley. And the
+$8.0\;\mathrm{kg}$ block is the free end, so its acceleration is twice the
+load's. Call the load's acceleration $a$ upward; then the block's acceleration
+is $2a$ downward.
+
+Block, taking down as positive:
+
+$$m_1 g - T = m_1 (2a), \qquad (8.0)(9.8) - T = 16.0\,a.$$
+
+Movable pulley plus load, taking up as positive, with $2T$ up and $m_2 g$ down:
+
+$$2T - m_2 g = m_2 a, \qquad 2T - (5.0)(9.8) = 5.0\,a.$$
+
+From the first, $T = 78.4 - 16.0 a$. Substitute:
+
+$$2(78.4 - 16.0a) - 49.0 = 5.0a$$
+$$156.8 - 32.0a - 49.0 = 5.0a$$
+$$107.8 = 37.0 a \quad\Longrightarrow\quad a = 2.91\;\mathrm{m/s^2}.$$
+
+The load accelerates up at $2.91\;\mathrm{m/s^2}$ and the block falls at
+$5.83\;\mathrm{m/s^2}$. Check the plausibility: $5.0\;\mathrm{kg}$ hanging on
+two segments behaves like a much lighter load, so the $8.0\;\mathrm{kg}$ block
+wins easily, and it should. Also check the block's number is below $g$. It is.
+
+<Aside label="Where this goes wrong" warn>
+The commonest error in movable pulley problems is writing $2T$ on the force
+side but forgetting the factor of 2 on the acceleration side, or the reverse.
+They always come as a pair. If one object's force is multiplied by $n$, its
+displacement is divided by $n$. Whenever you write a $2T$, go back and check
+you have also written the $a/2$.
+</Aside>
+
+## Trains of blocks, and where to cut
+
+Blocks in a line joined by strings need no pulleys, but the same two ideas.
+Three blocks of $1.0$, $2.0$ and $3.0\;\mathrm{kg}$ sit connected in that order
+on a frictionless floor, and an $18\;\mathrm{N}$ force pulls the
+$1.0\;\mathrm{kg}$ block. Find the tension between the $2.0$ and the
+$3.0\;\mathrm{kg}$ blocks.
+
+Everything moves together, so treat the train as one object of
+$6.0\;\mathrm{kg}$:
+
+$$a = \frac{18}{6.0} = 3.0\;\mathrm{m/s^2}.$$
+
+Now cut the train at the string you care about, and look at just one side of
+the cut. The clean side here is the $3.0\;\mathrm{kg}$ block on its own: the
+only horizontal force on it is that tension, so
+
+$$T = (3.0)(3.0) = 9.0\;\mathrm{N}.$$
+
+Choosing which side of the cut to take is the whole skill. Take the side with
+fewer forces on it. Had you taken the $1.0 + 2.0$ side instead you would write
+$18 - T = (3.0)(3.0)$ and get the same $9.0\;\mathrm{N}$, with more chances to
+slip.
+
+This also explains why a string nearer the back of a train carries less
+tension: it only has to accelerate the blocks behind it.
+
+## Worked example 3: two inclines and a pulley
+
+A $4.0\;\mathrm{kg}$ block sits on a frictionless $30^\circ$ incline. Over a
+pulley at the apex, a rope connects it to a $5.0\;\mathrm{kg}$ block on a
+frictionless $45^\circ$ incline on the other side. Find the acceleration.
+
+Nothing conceptual is new, but the geometry is. From the friction lesson, the
+component of weight *along* a slope of angle $\theta$ is $mg\sin\theta$, and
+the component pressing into the surface is $mg\cos\theta$. Only the along-slope
+component matters here, because the ropes and motion are along the slopes.
+
+Guess a direction: the $5.0\;\mathrm{kg}$ block on the steeper side slides
+down. Take positive as "down the $45^\circ$ slope, and therefore up the
+$30^\circ$ slope", which is one consistent direction round the rope.
+
+$$m_2 g\sin 45^\circ - T = m_2 a, \qquad T - m_1 g \sin 30^\circ = m_1 a.$$
+
+Add them:
+
+$$g(m_2 \sin 45^\circ - m_1 \sin 30^\circ) = (m_1 + m_2)\,a.$$
+
+Now the numbers. $\sin 45^\circ = 0.7071$, so $m_2 \sin 45^\circ = 3.536$.
+$\sin 30^\circ = 0.5$, so $m_1 \sin 30^\circ = 2.00$. The difference is
+$1.536\;\mathrm{kg}$, and the total mass is $9.0\;\mathrm{kg}$:
+
+$$a = \frac{(9.8)(1.536)}{9.0} = \frac{15.05}{9.0} = 1.67\;\mathrm{m/s^2}.$$
+
+Positive, so the guessed direction was right. Had it come out negative, the
+magnitude would still be correct and you would just report the motion as the
+other way. That is the practical reason to guess rather than agonise.
+
+## When the frame moves, and when the rope has mass
+
+Two more situations break the simplest picture, and both appear in the
+problems.
+
+**An Atwood machine inside an accelerating elevator.** If the elevator
+accelerates upward at $A$, then relative to the elevator everything behaves as
+if gravity were stronger: $g_{\text{eff}} = g + A$. Every formula you derived
+carries over with $g$ replaced by $g_{\text{eff}}$. For $2.0$ and
+$3.0\;\mathrm{kg}$ in an elevator accelerating up at $2.0\;\mathrm{m/s^2}$:
+
+$$T = \frac{2 m_1 m_2}{m_1+m_2}\,g_{\text{eff}} = \frac{2(2.0)(3.0)}{5.0}(11.8) = (2.4)(11.8) = 28.3\;\mathrm{N}.$$
+
+**A rope with mass.** Then the tension is not uniform, and you go back to the
+segment argument from the start of this lesson. The tension at any cut must
+support everything below the cut and accelerate it. A $7.0\;\mathrm{kg}$ block
+hangs from a uniform rope of mass $3.0\;\mathrm{kg}$, all accelerating upward
+at $2.0\;\mathrm{m/s^2}$. At a point one quarter of the way up the rope from the
+block, what is below is the block plus a quarter of the rope:
+
+$$m_{\text{below}} = 7.0 + 0.25(3.0) = 7.75\;\mathrm{kg},$$
+$$T = m_{\text{below}}(g + a) = (7.75)(11.8) = 91.5\;\mathrm{N}.$$
+
+The same cut-and-look-below rule handles the monkey problems. A monkey climbing
+a rope is not a passenger: it pulls on the rope with its hands, and the rope
+pulls back. Write $T - mg = m a_{\text{monkey}}$ where $a_{\text{monkey}}$ is
+measured relative to the *ground*. If a problem gives the monkey's acceleration
+relative to the rope, convert first: the rope's own acceleration on the
+monkey's side is minus the counterweight's, so
+$a_{\text{monkey}} = a_{\text{rel}} - a_{\text{block}}$ when the block rises.
+
+<QuickCheck
+  question="A 20 kg monkey on a rope over a pulley balances a 25 kg counterweight. The monkey climbs, accelerating upward at 1.2 m/s squared relative to the ground. What is the rope tension?"
+  options={["196 N", "220 N", "245 N", "269 N"]}
+  answer={1}
+  explanation="For the monkey, T minus mg equals m a, so T = 20(9.8) + 20(1.2) = 196 + 24 = 220 N. The counterweight then has 220 N up against 245 N down, so it accelerates downward at 1.0 m/s squared."
+/>
+
+## How to recognise this technique
+
+Reach for connected-system methods when a problem statement contains any of
+these signals.
+
+A **rope, string, cord or cable joining two things that both move**. The
+giveaway is that you cannot solve either object alone: each free body diagram
+has an unknown $T$ in it, so you need both diagrams plus a constraint.
+
+The words **light**, **massless**, **ideal** or **frictionless pulley**. These
+are permission slips. They mean one tension for the whole rope, and they are
+stated precisely because without them the problem would be much harder.
+
+A question that asks for a **tension specifically**. That tells you the
+add-the-equations shortcut is not enough on its own; you will need to go back
+into one block's equation. And it tells you which block to cut at: the one with
+the fewest other forces on it.
+
+Anything **hanging from something else that hangs**, or any **pulley that is
+itself free to move**. Both mean a constraint that is not simply
+$a_1 = a_2$. Write the rope length as a sum, differentiate twice, and trust
+the result over your intuition.
+
+A **pulley axle** question. The rope pulls down on the axle with $T$ on each
+side, so the total is $2T$ — for the $5.0$ and $3.0\;\mathrm{kg}$ Atwood
+machine, $2(36.75) = 73.5\;\mathrm{N}$, which is less than the combined weight
+of $78.4\;\mathrm{N}$ because part of the system is accelerating downward.
+
+Your routine, every time: draw a separate free body diagram for each object,
+choose a positive direction for each one in the direction you expect it to
+move, write $F = ma$ for each, write the length constraint, then solve. Do not
+skip the constraint and do not merge objects together until you have checked
+that the question does not ask about the force between them.
+
+Next you will meet a connector that is not rigid at all, one whose pull depends
+on how far you stretch it: [springs and Hooke's law](/guide/springs-hooke).

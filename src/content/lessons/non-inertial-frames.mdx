@@ -1,62 +1,421 @@
-## Physics in a lurching bus
+## The bag that slides forward by itself
 
-Newton's second law only holds in an inertial frame. Stand in a bus that brakes
-hard and, from your own point of view, a bag on a smooth floor accelerates
-forward with nothing touching it. Either the law fails, or the frame is wrong.
+You are sitting in a bus with a shopping bag on the smooth floor beside you. The
+driver brakes hard. The bag slides forward, and nothing is touching it. No hand,
+no string, no wind. Newton says an object accelerates only when something pushes
+it. Something pushed it, then — but what?
 
-The standard resolution is to keep the law and pay a fee. In a frame
-accelerating at $\vec{a}_f$, add to every mass $m$ a pseudo-force
+Your friend on the pavement has no puzzle. She sees the bag carrying on at a
+steady velocity, exactly as an object with no horizontal force should, while the
+bus slows around it. Two observers, one event, and only one of them needs a
+mystery force.
 
-$$\vec{F}_{\text{pseudo}} = -m\vec{a}_f$$
+That is the whole subject. Newton's second law is a law about the universe *as
+measured from a frame that is not itself accelerating*. Such a frame is called
+**inertial**. The pavement is close enough to one. The braking bus is not. You
+found the shape of a fluid at rest under gravity last lesson; here you will find
+the shape of one in a tank being dragged sideways, and a lot else, by learning
+what to do inside the wrong frame instead of climbing out of it.
 
-directed opposite the frame's acceleration. With that term included,
-$\sum \vec{F} = m\vec{a}'$ works exactly as usual, where $\vec{a}'$ is the
-acceleration measured inside the frame. The bag has no real forward force; the
-pseudo-force accounts for the bus decelerating out from under it.
+You could refuse and work in the ground frame. Often that is horrible, because
+there the thing you care about is moving, rotating, or riding on a surface that
+is itself accelerating, and you end up with coupled equations.
 
-Pseudo-forces are proportional to mass and have no source object — no third-law
-partner. That is what marks them as bookkeeping rather than interaction.
+So keep the accelerating frame and repair the law. Let the frame accelerate at
+$\vec{a}_f$ as seen from the ground, and let an object of mass $m$ have ground
+acceleration $\vec{a}$. Velocities and accelerations just subtract, so the
+acceleration you measure inside the frame is
 
-## The rotating case
+$$\vec{a}' = \vec{a} - \vec{a}_f.$$
 
-A frame rotating at $\omega$ accelerates toward the centre at $\omega^2 r$, so
-the pseudo-force points outward:
+In the ground frame the real forces obey $\sum\vec{F} = m\vec{a}$. Substitute
+$\vec{a} = \vec{a}' + \vec{a}_f$ and move the extra term to the left:
 
-$$F_{\text{cf}} = m\omega^2 r$$
+$$\sum\vec{F} - m\vec{a}_f = m\vec{a}'.$$
 
-This is centrifugal force, and it exists only in the rotating frame. On a
-carousel you feel flung outward; a friend on the ground sees the floor pushing
-you inward and nothing else. Both descriptions are correct in their own frames.
+Read that as an instruction. To write $\sum\vec{F} = m\vec{a}'$ inside the
+accelerating frame, add one extra force to every mass:
 
-Never mix them. Writing centripetal *and* centrifugal force into one equation
-double-counts and yields nonsense.
+$$\vec{F}_{\text{pseudo}} = -m\,\vec{a}_f,$$
 
-## When it pays
+pointing opposite the frame's acceleration, with magnitude $ma_f$. The bus
+accelerates backward while braking, so the bag feels a forward pseudo-force. No
+mystery left.
 
-The accelerating frame is worth the trouble when it turns motion into
-statics.
+Two features mark a pseudo-force out. It is exactly proportional to mass, like
+gravity, and it has no source object, so nothing anywhere feels a
+Newton's-third-law reaction to it. The first feature is the useful one: since
+$-m\vec{a}_f$ and real weight $m\vec{g}$ both scale with $m$, you can merge them
+into a single **effective gravity**
 
-A pendulum hangs in a truck accelerating at $a$. In the ground frame it has a
-horizontal acceleration and you must resolve tension into components and solve
-two coupled equations. In the truck's frame the bob simply hangs at rest under
-gravity plus a backward pseudo-force $ma$; the string lines up with their sum,
-and $\tan\theta = a/g$ falls out in one line. The combination $\sqrt{a^2+g^2}$
-behaves as an effective gravity for everything inside — including the period of
-that pendulum.
+$$
+\vec{g}_{\text{eff}} = \vec{g} - \vec{a}_f, \qquad
+g_{\text{eff}} = \sqrt{g^2 + a_f^2}\ \text{ for a horizontal } \vec{a}_f .
+$$
 
-Use the same trick for a block on an accelerating wedge, or for a bead in a
-spinning tube, where the ground frame requires tracking a moving contact point.
+Inside a sealed accelerating cabin everything behaves as if gravity were tilted
+and stronger. Pendulums, floating blocks, water surfaces, the lot.
 
-<Aside label="Where this goes wrong" warn>
-  A frame moving in a circle at constant speed is still non-inertial — its
-  velocity changes direction. And $\vec{a}_f$ means the frame's acceleration,
-  not the object's; the sign error from confusing the two flips the pseudo-force
-  and quietly doubles the answer.
+<Aside label="Worth remembering">
+  The pseudo-force uses the acceleration of the <i>frame</i>, not of the object
+  you are studying. Get those two mixed up and the force points the wrong way,
+  which usually turns a subtraction into an addition and hides itself well.
 </Aside>
 
+## The pendulum accelerometer
+
+Hang a bob from the ceiling of a cart accelerating forward at $a$ and work
+inside the cart. The bob hangs still, so it is in equilibrium under three
+forces: tension $T$ along the string, weight $mg$ down, pseudo-force $ma$
+backward. The string must point along $\vec{g}_{\text{eff}}$, since tension has
+to cancel the other two. Resolve: horizontally
+$T\sin\theta = ma$, vertically $T\cos\theta = mg$. Divide the first by the
+second and $T$ disappears:
+
+$$\tan\theta = \frac{a}{g}.$$
+
+The string tilts backward from the true vertical by that angle, and the tension
+is $T = m\sqrt{g^2+a^2} = mg_{\text{eff}}$.
+
+<Figure caption={<><b>Figure 1.</b> The bob hangs along the effective gravity, not along the true vertical. Drag the acceleration up and watch the angle grow while the tension arrow lengthens. Notice that even at a = g the angle is only 45 degrees.</>}>
+  <Sim id="non-inertial-frames-cart" />
+</Figure>
+
+**Example 1.** A train accelerates at $a = 2.50\ \mathrm{m/s^2}$, with
+$g = 9.8\ \mathrm{m/s^2}$. Then $\tan\theta = 2.50/9.8 = 0.2551$, so
+$\theta = 14.31^\circ$ from the vertical, tilted toward the back.
+
+That angle is where the bob *settles*. Start the cart suddenly and the bob is
+released from rest $\theta$ away from its new equilibrium, so it swings — and
+swings about the tilted direction, not the vertical. It is an ordinary pendulum
+living under $g_{\text{eff}}$ instead of $g$, so the small
+oscillation period is $T = 2\pi\sqrt{\ell/g_{\text{eff}}}$. For
+$\ell = 0.800\ \mathrm{m}$ in a cart at $a = 5.00\ \mathrm{m/s^2}$:
+$g_{\text{eff}} = \sqrt{9.8^2 + 5.00^2} = \sqrt{96.04+25.0} = \sqrt{121.04} =
+11.00\ \mathrm{m/s^2}$, so $T = 2\pi\sqrt{0.800/11.00} =
+2\pi\sqrt{0.07273} = 2\pi(0.2697) = 1.694\ \mathrm{s}$. Faster than at rest,
+because the effective gravity is stronger.
+
+In an elevator $\vec a_f$ is vertical instead, so $g_{\text{eff}} = g \pm a$ and
+the scale reads $m(g+a)$ going up: $70.0 \times 11.8 = 826\ \mathrm{N}$ at
+$a = 2.00\ \mathrm{m/s^2}$. Accelerating down at $3.00\ \mathrm{m/s^2}$,
+$g_{\text{eff}} = 6.8$ and a $5.00\ \mathrm{kg}$ box presses with
+$34.0\ \mathrm{N}$.
+
+A crate pressed against the inside back wall of a truck is the same idea with a
+twist. In the truck's frame it is static; horizontally the wall's normal force
+$N$ balances the pseudo-force, so $N = ma$, and vertically friction must carry
+the weight, $\mu N \ge mg$. The mass cancels: $a \ge g/\mu$. With
+$\mu = 0.400$, $a_{\min} = 9.8/0.400 = 24.5\ \mathrm{m/s^2}$.
+
 <QuickCheck
-  question="A pendulum hangs in a cart accelerating horizontally. In the cart's frame, what holds the bob at a fixed angle?"
-  options={["Gravity alone", "Tension alone", "Gravity, tension, and a backward pseudo-force summing to zero", "A centripetal force toward the cart's front"]}
-  answer={2}
-  explanation="Inside the accelerating frame the bob is in equilibrium, so the three forces, including the pseudo-force opposite the acceleration, must cancel."
+  question="A cabin accelerates horizontally at 4.00 m/s^2 with g = 9.8 m/s^2. What is the effective gravitational field inside?"
+  options={["5.80 m/s^2", "10.58 m/s^2", "13.80 m/s^2", "9.80 m/s^2, unchanged"]}
+  answer={1}
+  explanation="Horizontal acceleration is perpendicular to gravity, so the two combine as a right triangle: the square root of 9.8 squared plus 4.00 squared is 10.58. Adding them directly would only be right if the acceleration were vertical."
 />
+
+## Fluids in an accelerating tank
+
+A free liquid surface always sits perpendicular to the local effective gravity.
+If it did not, some of $\vec g_{\text{eff}}$ would lie along the surface and the
+liquid would flow until it did. Tilt the gravity, tilt the surface. In a tank
+accelerating horizontally at $a$, the surface angle obeys the pendulum relation
+again:
+
+$$\tan\alpha = \frac{a}{g}.$$
+
+For a tanker at $3.00\ \mathrm{m/s^2}$, $\tan\alpha = 0.3061$ and
+$\alpha = 17.02^\circ$, fuel piled at the back. Over a tank of length $L$ the
+end-to-end height difference is $\Delta h = L\tan\alpha = La/g$: for
+$L = 1.20\ \mathrm{m}$ at $a = 2.00\ \mathrm{m/s^2}$,
+$\Delta h = 0.2449\ \mathrm{m}$.
+
+The surface tilts about its midpoint, because the volume of liquid has not
+changed: the rear end rises $\Delta h/2$ and the front drops the same. That is
+what you need for pressure at the bottom of the rear wall, which is still just
+$\rho g$ times the depth *there*. **Example 2.** An open tank $1.00\ \mathrm{m}$
+long, rest depth $0.400\ \mathrm{m}$, accelerating at $3.00\ \mathrm{m/s^2}$:
+$\Delta h = 1.00 \times 3.00/9.8 = 0.3061\ \mathrm{m}$, so the rear depth is
+$0.400 + 0.3061/2 = 0.5531\ \mathrm{m}$ and the gauge pressure is
+$1000 \times 9.8 \times 0.5531 = 5420\ \mathrm{Pa}$.
+
+If the tank is *sealed and completely full*, there is no surface to tilt, but
+the pressure gradient is still the one that supplies the acceleration. Take a
+horizontal slab of fluid of area $A$ and length $L$, mass $\rho AL$. The only
+horizontal push on it is the pressure difference across its ends, so
+$(p_{\text{rear}} - p_{\text{front}})A = \rho A L a$, giving
+
+$$\Delta p = \rho a L.$$
+
+A sealed tank $2.00\ \mathrm{m}$ long, full of water
+($\rho = 1000\ \mathrm{kg/m^3}$), at $4.00\ \mathrm{m/s^2}$ gives
+$\Delta p = 1000 \times 4.00 \times 2.00 = 8000\ \mathrm{Pa}$, rear wall
+higher. Note that $g$ never entered: at equal heights, gravity contributes
+nothing to the difference.
+
+<Aside label="Where this goes wrong" warn>
+  Pseudo-force arguments only work this cleanly when the frame's acceleration
+  is the same everywhere in it. A frame that is also rotating has a
+  position-dependent pseudo-force, which is the next section, and a frame whose
+  acceleration changes with time cannot be treated as static equilibrium at all.
+  Check that $\vec a_f$ is constant before you declare anything to be at rest.
+</Aside>
+
+## Blocks on wedges
+
+Here the accelerating frame really earns its keep. A block sits on the
+frictionless face of a wedge of angle $\theta$, and you push the wedge
+horizontally so the block does not slide on the face. What acceleration do you
+need?
+
+Work in the wedge's frame. The block is at rest there, so weight $mg$ down,
+normal force $N$ perpendicular to the face, and pseudo-force $ma$ backward must
+cancel. Resolve along the face — the direction the block would slide, and the
+one $N$ contributes nothing to. Weight pulls $mg\sin\theta$ down the slope; the
+pseudo-force pushes $ma\cos\theta$ up it. Setting them equal:
+
+$$ma\cos\theta = mg\sin\theta \quad\Longrightarrow\quad a = g\tan\theta.$$
+
+For $\theta = 25.0^\circ$: $a = 9.8 \times 0.4663 = 4.570\ \mathrm{m/s^2}$.
+Equivalently, the effective gravity must point straight into the face.
+
+<Figure caption={<><b>Figure 2.</b> The three forces on the block as seen from the wedge. Set the face angle, then drag the acceleration until the readout says the block stays put, and check it against g tan of the angle. Below that value the block creeps down the face; above it, up.</>}>
+  <Sim id="non-inertial-frames-wedge" />
+</Figure>
+
+Add friction and the answer becomes a range. At the *minimum* acceleration the
+block is on the verge of sliding down, so static friction acts up the slope at
+full strength, $f = \mu N$. Along the slope, up-slope positive,
+
+$$ma\cos\theta + \mu N - mg\sin\theta = 0,$$
+
+and perpendicular to the slope it has no acceleration, so
+
+$$N = mg\cos\theta + ma\sin\theta.$$
+
+Substitute, cancel $m$, gather the $a$ terms on one side, and divide top and
+bottom by $\cos\theta$:
+
+$$a_{\min} = g\,\frac{\tan\theta - \mu}{1 + \mu\tan\theta}.$$
+
+**Example 3.** $\theta = 30.0^\circ$, $\mu = 0.250$. Then
+$\tan 30.0^\circ = 0.5774$. Numerator: $0.5774 - 0.250 = 0.3274$. Denominator:
+$1 + 0.250 \times 0.5774 = 1.1443$. So
+$a_{\min} = 9.8 \times 0.3274/1.1443 = 9.8 \times 0.2861 =
+2.803\ \mathrm{m/s^2}$. If $\mu$ exceeded $\tan\theta$ the numerator would go
+negative — the frame telling you the block never needed help.
+
+One harder variant: let the wedge, mass $M$, slide freely on a frictionless
+floor with the block, mass $m$, on its frictionless $\theta$ face. Nobody pushes
+the wedge; it recoils because the block leans on it. Its acceleration $A$ is
+unknown, and this is where the frame trick pays: treat the block in the wedge
+frame, the wedge in the ground frame.
+
+In the wedge frame the block feels a pseudo-force $mA$ opposite the wedge's
+acceleration, and it stays on the face, so perpendicular to the face it has no
+acceleration at all. That one direction gives $N$ immediately: weight
+contributes $mg\cos\theta$ into the face, the pseudo-force $mA\sin\theta$ away
+from it, so
+
+$$N = mg\cos\theta - mA\sin\theta .$$
+
+Now the wedge, from the ground. The only horizontal force on it is the block's
+normal force pressing on the face, whose horizontal component is $N\sin\theta$:
+
+$$MA = N\sin\theta = (mg\cos\theta - mA\sin\theta)\sin\theta .$$
+
+Collect the $A$ terms, $MA + mA\sin^2\theta = mg\sin\theta\cos\theta$, and
+
+$$A = \frac{mg\sin\theta\cos\theta}{M + m\sin^2\theta}.$$
+
+For $m = 1.00$, $M = 3.00\ \mathrm{kg}$, $\theta = 40.0^\circ$:
+$\sin\theta\cos\theta = 0.6428 \times 0.7660 = 0.4924$, and
+$M + m\sin^2\theta = 3.00 + 0.4132 = 3.413$. So
+$A = 9.8 \times 0.4924/3.413 = 1.414\ \mathrm{m/s^2}$.
+
+<QuickCheck
+  question="Why is the pseudo-force added to the block but not to the wedge when you solve the recoiling-wedge problem in the wedge frame?"
+  options={["It is added to every mass in the frame, including the wedge", "The wedge is at rest in its own frame, so its equation is written in the ground frame instead", "Pseudo-forces only act on the lighter object", "Friction cancels it for the wedge"]}
+  answer={1}
+  explanation="Each body needs one consistent frame. The block is handled in the wedge frame, where the pseudo-force appears; the wedge's own motion is what defines that frame, so its equation of motion is written from the ground."
+/>
+
+## Rotating frames and the centrifugal term
+
+A frame turning at constant angular speed $\omega$ is non-inertial too, because
+the direction of every velocity keeps changing. A point a distance $r$ from the
+axis has ground acceleration $\omega^2 r$ toward the axis, so $-m\vec a_f$
+points *outward*:
+
+$$F_{\text{cf}} = m\omega^2 r,$$
+
+the **centrifugal force**. It grows with $r$, so it is not uniform, but at any
+one point you can still add it to gravity.
+
+On a turntable at $\omega = 6.00\ \mathrm{rad/s}$, an object at
+$r = 0.500\ \mathrm{m}$ sits in a centrifugal field of
+$\omega^2 r = 36.0 \times 0.500 = 18.0\ \mathrm{m/s^2}$. A $60.0\ \mathrm{kg}$
+passenger in a car rounding an $80.0\ \mathrm{m}$ curve at
+$20.0\ \mathrm{m/s}$ feels $mv^2/r = 60.0 \times 400/80.0 = 300\ \mathrm{N}$
+pushing outward.
+
+A ring space station of radius $90.0\ \mathrm{m}$ wanting
+$\omega^2 R = 9.8\ \mathrm{m/s^2}$ at the rim needs
+$\omega = \sqrt{9.8/90.0} = 0.330\ \mathrm{rad/s}$; the crew stand on the inside
+of the rim with the centrifugal force playing the part of weight. A centrifuge
+at $4000\ \mathrm{rev/min} = 4000\times2\pi/60 = 418.9\ \mathrm{rad/s}$ gives a
+sample at $r = 0.0800\ \mathrm{m}$ an acceleration
+$418.9^2 \times 0.0800 = 1.404\times10^{4}\ \mathrm{m/s^2}$, about 1400 $g$.
+
+Every centripetal-force problem becomes a statics problem. A coin on a
+turntable at $r = 0.120\ \mathrm{m}$ with $\mu = 0.350$ stays put while
+friction can balance the centrifugal term:
+$\mu m g \ge m\omega^2 r$, so
+$\omega_{\max} = \sqrt{\mu g/r} = \sqrt{0.350\times 9.8/0.120} =
+\sqrt{28.58} = 5.346\ \mathrm{rad/s}$. A banked curve with no friction needs
+the effective gravity perpendicular to the road, i.e.
+$\tan\beta = v^2/(rg)$, so $v = \sqrt{rg\tan\beta} =
+\sqrt{120 \times 9.8 \times \tan 12.0^\circ} = \sqrt{250.0} =
+15.81\ \mathrm{m/s}$. A conical pendulum of length $\ell$ at half-angle
+$\theta$ has $r = \ell\sin\theta$ and $\tan\theta = \omega^2 r/g$, giving
+$\omega = \sqrt{g/(\ell\cos\theta)} = \sqrt{9.8/(1.20\times 0.8660)} =
+3.071\ \mathrm{rad/s}$.
+
+Swing a bucket of water in a vertical circle of radius $r$. At the top, in the
+bucket's frame, the water feels $mg$ down and $mv^2/r$ up. It stays in as long
+as the bucket does not have to *pull*, so the limit is $mv^2/r = mg$ and
+$v_{\min} = \sqrt{gr} = \sqrt{9.8} = 3.13\ \mathrm{m/s}$ for $r = 1.00$ m.
+
+### Coriolis: the second rotating pseudo-force
+
+Centrifugal force is the whole story only while the object sits still in the
+rotating frame. Start it moving and a second pseudo-force appears. Roll a ball
+outward from the centre of a turntable: from above it travels in a straight
+line, but the floor beneath it is turning, so in turntable coordinates its track
+curves sideways. Nothing pushed it; the frame swung out from under it.
+
+That apparent sideways push is the **Coriolis force**. For a velocity
+$\vec v\,'$ measured in a frame rotating at $\vec\Omega$, it is
+
+$$\vec F_{\text{Cor}} = -2m\,\vec\Omega \times \vec v\,',$$
+
+with magnitude $2m\Omega v'\sin\phi$, where $\phi$ is the angle between
+$\vec\Omega$ and $\vec v\,'$, directed perpendicular to both. It vanishes for
+anything at rest in the frame, which is why everything above could ignore it.
+
+An aircraft at $v = 200\ \mathrm{m/s}$ flying horizontally over the North Pole
+moves perpendicular to Earth's spin axis, so $\sin\phi = 1$ and the Coriolis
+acceleration is $2\Omega v = 2 \times 7.292\times10^{-5} \times 200 =
+0.0292\ \mathrm{m/s^2}$. Tiny next to $g$, but it acts sideways for hours, and
+that is what spins hurricanes.
+
+<QuickCheck
+  question="A puck slides across a turntable that spins counterclockwise as seen from above. In the turntable frame, which pseudo-forces act on the puck?"
+  options={["Centrifugal only", "Coriolis only", "Both centrifugal and Coriolis", "Neither, because the puck is not touching the turntable"]}
+  answer={2}
+  explanation="Centrifugal force depends only on position and acts on anything at any radius. Coriolis depends on velocity in the rotating frame, and the puck has one, so both are present. If the puck were sitting still on the turntable, only the centrifugal term would survive."
+/>
+
+## The rotating bucket
+
+Spin a cylinder of water about its axis and the surface curves up at the rim.
+Use the surface rule again: the free surface is perpendicular to
+$\vec g_{\text{eff}}$, which at radius $r$ is $g$ down and $\omega^2 r$ outward.
+The slope of the surface is therefore
+
+$$
+\frac{dz}{dr} = \frac{\omega^2 r}{g}
+\quad\Longrightarrow\quad z(r) = z_0 + \frac{\omega^2 r^2}{2g}.
+$$
+
+A parabola. The rise from the axis out to radius $r$ is $\omega^2 r^2/2g$: at
+$\omega = 8.00\ \mathrm{rad/s}$ and $r = 0.100\ \mathrm{m}$, that is
+$64.0 \times 0.0100/19.6 = 0.0327\ \mathrm{m}$.
+
+To locate $z_0$ you need volume conservation, and one geometric fact settles it:
+a paraboloid fills exactly half the cylinder containing it, so the mean surface
+height is still the rest depth $H$. With total rise $h = \omega^2R^2/2g$ across
+the radius, the centre sits at $H - h/2$ and the rim at $H + h/2$.
+
+<Figure caption={<><b>Figure 3.</b> The surface is a parabola and the dashed line is where the water sat at rest. The centre drops exactly as far as the rim rises. Push the spin rate up until the readout reports a dry patch, then try to reach that point by widening the cylinder instead.</>}>
+  <Sim id="non-inertial-frames-bucket" />
+</Figure>
+
+**Example 4.** A bucket of radius $0.150\ \mathrm{m}$ holds water
+$0.200\ \mathrm{m}$ deep. At what $\omega$ does the surface just touch the
+centre of the bottom?
+
+Touching the bottom means the centre has dropped the full depth:
+$h/2 = 0.200\ \mathrm{m}$, so $h = 0.400\ \mathrm{m}$. Then
+$\omega^2 R^2/(2g) = 0.400$, so
+$\omega^2 = 0.400 \times 2 \times 9.8/(0.150)^2 = 7.84/0.0225 = 348.4$, and
+$\omega = 18.67\ \mathrm{rad/s}$.
+
+Spin faster and a disc of the bottom goes dry. The half-volume trick fails —
+the paraboloid is truncated — so integrate. With dry radius $r_0$ the surface is
+$z = \omega^2(r^2-r_0^2)/2g$ for $r \ge r_0$, and the water volume is
+
+$$
+\int_{r_0}^{R} \frac{\omega^2 (r^2-r_0^2)}{2g}\,2\pi r\,dr
+= \frac{\pi\omega^2}{4g}\left(R^2-r_0^2\right)^2 = \pi R^2 H,
+$$
+
+so $R^2 - r_0^2 = 2R\sqrt{gH}/\omega$. For $R = 0.120\ \mathrm{m}$,
+$H = 0.100\ \mathrm{m}$, $\omega = 25.0\ \mathrm{rad/s}$:
+$2 \times 0.120 \times \sqrt{0.980}/25.0 = 0.240\times0.9899/25.0 =
+0.009504$. Then $r_0^2 = 0.0144 - 0.009504 = 0.004896$ and
+$r_0 = 0.0700\ \mathrm{m}$.
+
+## Two traps, and the Earth itself
+
+The first trap is double counting. Centripetal force is not a new force; it is
+the name for the net inward force in the ground frame, while centrifugal force
+is a pseudo-force in the rotating frame. Write both into one equation and you
+have counted the same physics twice with opposite signs. Pick a frame, name it
+out loud, stay there.
+
+The second trap is asking whether a pseudo-force is "real". Inside the frame it
+is as real as anything: it bends the water surface and it reads on the scale.
+It just has no source.
+
+A last example. The Earth rotates, so a plumb bob does not point at the centre.
+Let true gravity be $g$ toward the centre and the latitude $\lambda$. The
+distance to the spin axis is $R\cos\lambda$, so the centrifugal term is
+$\Omega^2 R\cos\lambda$ away from the axis. Split it: $\Omega^2R\cos^2\lambda$
+straight up, weakening apparent gravity, and $\Omega^2R\sin\lambda\cos\lambda$
+horizontal toward the equator, tilting the plumb line by
+
+$$\tan\varepsilon = \frac{\Omega^2 R\sin\lambda\cos\lambda}{g - \Omega^2R\cos^2\lambda}.$$
+
+At $\lambda = 45.0^\circ$ with $\Omega = 7.292\times10^{-5}\ \mathrm{rad/s}$ and
+$R = 6.371\times10^6\ \mathrm{m}$: $\Omega^2 R = 0.03388\ \mathrm{m/s^2}$.
+Both $\sin45^\circ\cos45^\circ$ and $\cos^2 45^\circ$ are $0.500$, so the
+numerator is $0.01694$ and the denominator $9.8 - 0.01694 = 9.783$, giving
+$\tan\varepsilon = 0.001731$ and $\varepsilon = 0.0992^\circ$. At the equator
+the tilt vanishes and the whole term points up:
+$g_{\text{eff}} = 9.8 - 0.03388 = 9.766\ \mathrm{m/s^2}$.
+
+## Recognising the technique
+
+Reach for a non-inertial frame when the problem hands you a container and asks
+about what is inside it: "inside the accelerating cart", "relative to the
+wedge", "the surface in the rotating bucket", "what does the scale read".
+Anything at rest *with respect to something that is accelerating* is a statics
+problem in disguise. Three questions:
+
+1. Is there an object that stays put relative to an accelerating or rotating
+   body? Go to that body's frame; the object is then in equilibrium.
+2. Is the frame's acceleration uniform? If so, fold it into
+   $\vec g_{\text{eff}}$ and treat the whole problem as ordinary statics under a
+   tilted, stronger gravity — surfaces perpendicular to it, pendulums along it.
+3. Is the frame rotating? Then the pseudo-force is $m\omega^2 r$ outward and
+   grows with $r$, so write it as a function of position before you balance
+   anything — and add the Coriolis term $2m\Omega v'$ if the object is also
+   moving in that frame.
+
+If none of those fit, the ground frame is probably still the better bet. The
+trick is a tool, not an obligation.
+
+Next you leave mechanics behind and start on the force that runs the rest of the
+course, in [Coulomb's Law and superposition](/guide/coulomb-superposition).

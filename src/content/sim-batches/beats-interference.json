@@ -1,0 +1,83 @@
+[
+  {
+    "id": "beats-interference-beats",
+    "title": "Beats lab",
+    "caption": "Two nearby frequencies added at one point. The slow dashed envelope swells and shrinks; the ear hears a loud moment at every bulge, top or bottom.",
+    "height": 300,
+    "params": [
+      {
+        "key": "f1",
+        "label": "First frequency",
+        "unit": "Hz",
+        "min": 8,
+        "max": 16,
+        "step": 0.1,
+        "value": 12
+      },
+      {
+        "key": "f2",
+        "label": "Second frequency",
+        "unit": "Hz",
+        "min": 8,
+        "max": 16,
+        "step": 0.1,
+        "value": 14
+      }
+    ],
+    "draw": "\nvar f1 = p.f1, f2 = p.f2;\nvar pad = 40;\nvar Tw = 2.0;\nvar X = function (s) { return pad + s / Tw * (W - pad - 12); };\n\nctx.lineWidth = 1;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\n\nvar y1 = H * 0.16, y2 = H * 0.36, ys = H * 0.72;\nvar a  = H * 0.072, as = H * 0.19;\n\n// baselines\nctx.strokeStyle = C.faint;\nvar rows = [y1, y2, ys];\nfor (var r = 0; r < rows.length; r++) {\n  ctx.beginPath(); ctx.moveTo(pad, rows[r]); ctx.lineTo(W - 10, rows[r]); ctx.stroke();\n}\n\nvar N = 700, i, s;\n\n// the two pure tones\nctx.strokeStyle = C.rule;\nctx.beginPath();\nfor (i = 0; i <= N; i++) { s = Tw * i / N; ctx.lineTo(X(s), y1 - a * Math.cos(2 * Math.PI * f1 * s)); }\nctx.stroke();\nctx.beginPath();\nfor (i = 0; i <= N; i++) { s = Tw * i / N; ctx.lineTo(X(s), y2 - a * Math.cos(2 * Math.PI * f2 * s)); }\nctx.stroke();\n\n// envelope\nctx.strokeStyle = C.figure;\nctx.setLineDash([4, 4]);\nctx.beginPath();\nfor (i = 0; i <= N; i++) { s = Tw * i / N; ctx.lineTo(X(s), ys - as * Math.cos(Math.PI * (f1 - f2) * s)); }\nctx.stroke();\nctx.beginPath();\nfor (i = 0; i <= N; i++) { s = Tw * i / N; ctx.lineTo(X(s), ys + as * Math.cos(Math.PI * (f1 - f2) * s)); }\nctx.stroke();\nctx.setLineDash([]);\n\n// the sum\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.6;\nctx.beginPath();\nfor (i = 0; i <= N; i++) {\n  s = Tw * i / N;\n  var yv = 0.5 * as * (Math.cos(2 * Math.PI * f1 * s) + Math.cos(2 * Math.PI * f2 * s));\n  ctx.lineTo(X(s), ys - yv);\n}\nctx.stroke();\nctx.lineWidth = 1;\n\n// moving cursor\nvar now = t % Tw;\nctx.strokeStyle = C.figure;\nctx.beginPath(); ctx.moveTo(X(now), H * 0.06); ctx.lineTo(X(now), H * 0.96); ctx.stroke();\n\n// labels\nctx.fillStyle = C.ink;\nctx.textAlign = \"right\";\nctx.fillText(\"f1\", pad - 6, y1);\nctx.fillText(\"f2\", pad - 6, y2);\nctx.fillText(\"sum\", pad - 6, ys);\nctx.textAlign = \"left\";\nctx.fillStyle = C.figure;\nctx.fillText(\"envelope\", pad + 6, ys - as - 10);\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"time (s)\", W / 2, H - 8);\nctx.textAlign = \"left\";\nctx.fillText(\"0\", pad - 3, H - 8);\nctx.textAlign = \"right\";\nctx.fillText(Tw.toFixed(1), W - 12, H - 8);\n\nvar fb = Math.abs(f1 - f2);\nvar note = \"beat frequency \" + fb.toFixed(2) + \" Hz\";\nif (fb > 0) { note += \", one loud moment every \" + (1 / fb).toFixed(3) + \" s\"; }\nelse { note += \" (identical tones, no beating)\"; }\nnote += \"  -  envelope repeats half as often as the loudness does\";\nout.note = note;\n"
+  },
+  {
+    "id": "beats-interference-paths",
+    "title": "Two speakers, one listener",
+    "caption": "Two speakers on a wall, a listener walking a line 4 metres out. The readout gives the path difference in wavelengths.",
+    "height": 280,
+    "params": [
+      {
+        "key": "sep",
+        "label": "Speaker separation",
+        "unit": "m",
+        "min": 0.5,
+        "max": 4,
+        "step": 0.05,
+        "value": 3
+      },
+      {
+        "key": "freq",
+        "label": "Frequency",
+        "unit": "Hz",
+        "min": 150,
+        "max": 1200,
+        "step": 5,
+        "value": 500
+      },
+      {
+        "key": "pos",
+        "label": "Listener position along the line",
+        "unit": "m",
+        "min": -3,
+        "max": 3,
+        "step": 0.01,
+        "value": 0
+      }
+    ],
+    "draw": "\nvar d = p.sep, f = p.freq, yl = p.pos;\nvar L = 4.0;\nvar lam = 343 / f;\nvar r1 = Math.sqrt(L * L + (yl + d / 2) * (yl + d / 2));\nvar r2 = Math.sqrt(L * L + (yl - d / 2) * (yl - d / 2));\nvar dr = r1 - r2;\nvar n = dr / lam;\n\nvar pad = 46;\nvar halfY = Math.max(d / 2, Math.abs(yl)) + 0.6;\nvar sc = Math.min((W - pad - 26) / (L + 0.5), (H - 46) / (2 * halfY));\nvar cx = pad, cy = H / 2;\nvar PX = function (x) { return cx + x * sc; };\nvar PY = function (y) { return cy - y * sc; };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\nctx.lineWidth = 1;\n\n// the wall\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(PX(0), 8); ctx.lineTo(PX(0), H - 8); ctx.stroke();\n\n// the walking line\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(PX(L), 12); ctx.lineTo(PX(L), H - 12); ctx.stroke();\nctx.setLineDash([]);\n\nvar sy1 = d / 2, sy2 = -d / 2;\n\n// paths\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(PX(0), PY(sy1)); ctx.lineTo(PX(L), PY(yl)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(PX(0), PY(sy2)); ctx.lineTo(PX(L), PY(yl)); ctx.stroke();\n\n// speakers\nctx.fillStyle = C.ink;\nctx.fillRect(PX(0) - 5, PY(sy1) - 8, 10, 16);\nctx.fillRect(PX(0) - 5, PY(sy2) - 8, 10, 16);\n\n// listener, pulsing gently so the eye finds her\nvar pulse = 5 + 1.2 * (1 + Math.sin(2 * Math.PI * t / 1.5)) / 2;\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(PX(L), PY(yl), pulse, 0, Math.PI * 2); ctx.fill();\n\n// path labels\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"r1 = \" + r1.toFixed(3) + \" m\", (PX(0) + PX(L)) / 2, (PY(sy1) + PY(yl)) / 2 - 10);\nctx.fillText(\"r2 = \" + r2.toFixed(3) + \" m\", (PX(0) + PX(L)) / 2, (PY(sy2) + PY(yl)) / 2 + 12);\nctx.textAlign = \"left\";\nctx.fillText(\"speaker 1\", PX(0) + 9, PY(sy1) - 16);\nctx.fillText(\"speaker 2\", PX(0) + 9, PY(sy2) + 16);\nctx.textAlign = \"right\";\nctx.fillText(\"listener\", PX(L) - 10, PY(yl) - 14);\n\n// separation marker\nctx.strokeStyle = C.figure;\nctx.beginPath(); ctx.moveTo(PX(0) - 16, PY(sy1)); ctx.lineTo(PX(0) - 16, PY(sy2)); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.save();\nctx.translate(PX(0) - 22, cy);\nctx.rotate(-Math.PI / 2);\nctx.textAlign = \"center\";\nctx.fillText(\"d = \" + d.toFixed(2) + \" m\", 0, 0);\nctx.restore();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"4.00 m\", (PX(0) + PX(L)) / 2, H - 12);\n\nvar frac = Math.abs(n - Math.round(n));\nvar verdict;\nif (frac < 0.06) { verdict = \"LOUD (near a whole number of wavelengths)\"; }\nelse if (Math.abs(frac - 0.5) < 0.06) { verdict = \"QUIET (near a half-odd number)\"; }\nelse { verdict = \"in between\"; }\n\nout.note = \"wavelength \" + lam.toFixed(3) + \" m, path difference \" + dr.toFixed(3) +\n  \" m = \" + n.toFixed(3) + \" wavelengths  ->  \" + verdict;\n"
+  },
+  {
+    "id": "beats-interference-phasor",
+    "title": "Adding two equal waves",
+    "caption": "Two arrows of equal length, set apart by the phase difference. The long arrow is what the ear gets, and the bar on the right tracks its length.",
+    "height": 250,
+    "params": [
+      {
+        "key": "phase",
+        "label": "Phase difference",
+        "unit": "deg",
+        "min": 0,
+        "max": 360,
+        "step": 1,
+        "value": 60
+      }
+    ],
+    "draw": "\nvar ph = p.phase * Math.PI / 180;\nvar A = 1;\nvar R = 2 * A * Math.abs(Math.cos(ph / 2));\n\nvar cx = W * 0.30, cy = H * 0.62;\nvar len = Math.min(W * 0.20, H * 0.34);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\nctx.lineWidth = 1;\n\nvar arrow = function (x0, y0, x1, y1, col, wid) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = wid;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();\n  var an = Math.atan2(y1 - y0, x1 - x0);\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 9 * Math.cos(an - 0.4), y1 - 9 * Math.sin(an - 0.4));\n  ctx.lineTo(x1 - 9 * Math.cos(an + 0.4), y1 - 9 * Math.sin(an + 0.4));\n  ctx.closePath(); ctx.fill();\n  ctx.lineWidth = 1;\n};\n\n// phasor 1 along the x axis, phasor 2 tipped by the phase difference\nvar ax = cx + len, ay = cy;\nvar bx = ax + len * Math.cos(-ph), by = ay + len * Math.sin(-ph);\n\narrow(cx, cy, ax, ay, C.rule, 2);\narrow(ax, ay, bx, by, C.rule, 2);\narrow(cx, cy, bx, by, C.accent, 2.4);\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"A\", (cx + ax) / 2, ay + 14);\nctx.fillText(\"A\", (ax + bx) / 2 + 12, (ay + by) / 2);\nctx.fillStyle = C.accent;\nctx.fillText(\"resultant\", (cx + bx) / 2 - 6, (cy + by) / 2 - 14);\n\n// the angle at the tip\nctx.strokeStyle = C.figure;\nctx.beginPath();\nctx.arc(ax, ay, 22, 0, -ph, ph > 0);\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.textAlign = \"left\";\nctx.fillText(\"phase difference \" + p.phase.toFixed(0) + \" deg\", ax + 26, ay - 26);\n\n// amplitude bar on the right\nvar bx0 = W * 0.80, top = H * 0.16, bot = H * 0.84;\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(bx0 - 18, bot); ctx.lineTo(bx0 + 18, bot); ctx.stroke();\nctx.beginPath(); ctx.moveTo(bx0 - 18, top); ctx.lineTo(bx0 + 18, top); ctx.stroke();\nctx.fillStyle = C.accent;\nvar hgt = (bot - top) * R / 2;\nctx.fillRect(bx0 - 12, bot - hgt, 24, hgt);\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"2A\", bx0, top - 10);\nctx.fillText(\"0\", bx0, bot + 12);\nctx.fillText(R.toFixed(3) + \" A\", bx0, bot - hgt - 12);\n\nout.note = \"resultant amplitude = 2A|cos(\" + (p.phase / 2).toFixed(1) +\n  \" deg)| = \" + R.toFixed(3) + \" A  -  zero at 180 deg, full 2A at 0 and 360 deg\";\n"
+  }
+]

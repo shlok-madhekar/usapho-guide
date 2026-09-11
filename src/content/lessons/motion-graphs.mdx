@@ -1,54 +1,279 @@
-## Slopes and areas
+## A picture that already contains the algebra
 
-A motion graph carries the same information as an equation, but it puts the
-calculus where you can see it. Position, velocity, and acceleration form a
-chain: each one is the slope of the graph before it, and the area under each
-one is the change in the graph before it.
+In [Motion in One Dimension](/guide/motion-1d) you learned the constant-acceleration
+formulas, and you used them by picking the one with the right letters in it.
+That works right up until the acceleration stops being constant. A cart that
+gets pushed, then coasts, then gets braked has three different accelerations in
+eight seconds, and no single formula covers it.
 
-$$v = \frac{dx}{dt}, \qquad a = \frac{dv}{dt}, \qquad \Delta x = \int v\,dt, \qquad \Delta v = \int a\,dt$$
+A graph covers it. Draw acceleration against time, or velocity against time, or
+position against time, and everything you want to know is sitting there as a
+steepness or as an amount of shaded space. The formulas you already know are
+just the areas of triangles. Once you can see that, a problem that would take
+three separate applications of $x = x_0 + v_0t + \tfrac12 at^2$ becomes a bit of
+arithmetic with rectangles.
 
-So reading a graph is two questions. How steep is it here? And how much area
-has piled up so far?
+There are only two questions you ever ask a motion graph. *How steep is it here?*
+and *how much area is under it so far?* This lesson is those two questions,
+repeated until they are automatic.
 
-A car at rest that accelerates uniformly gives a straight $v$-$t$ line rising
-from the origin. Its slope is the constant acceleration. The area under it up
-to time $t$ is a triangle of area $\tfrac{1}{2}(t)(at) = \tfrac{1}{2}at^2$,
-which is exactly the distance travelled. The kinematic formula and the triangle
-are the same statement.
+## Slope takes you down the chain
 
-<Figure caption={<><b>Figure 1.</b> The three graphs move together. Watch where the velocity curve crosses zero and confirm that the position curve is flat at that instant, not zero.</>}>
-  <Sim id="motion-graphs" />
-</Figure>
+Start with position. Call it $x$, measured in metres from some origin you chose,
+and plot it against time $t$. If the object is at $x = 5$ m at $t = 0$ and at
+$x = 29$ m at $t = 8$ s, it covered 24 m in 8 s. That rate, 24 m divided by 8 s,
+is 3 m/s — and it is exactly the slope of the line joining those two points,
+rise over run.
 
-## Signed area, and what it costs you
+That is not a coincidence or an analogy. Velocity is *defined* as the rate at
+which position changes, and slope is what "rate of change" looks like on a
+graph. So
 
-Area below the time axis counts as negative. On a $v$-$t$ graph, a chunk below
-the axis means motion backward, and it subtracts from displacement.
+$$v = \frac{\Delta x}{\Delta t} \quad \text{over an interval,} \qquad v = \frac{dx}{dt} \quad \text{at an instant.}$$
 
-That is why displacement and distance travelled come apart. Displacement is the
-signed area. Distance is the area with every piece counted positive. A ball
-thrown up and caught again has zero displacement and a very nonzero distance.
+The first version is the slope of the straight line between two points on the
+curve, which gives you the *average* velocity over that stretch. The second is
+the slope of the tangent, the steepness right at one instant, which is the
+*instantaneous* velocity. If the graph is a straight line the two are the same
+number, because a straight line has the same steepness everywhere.
 
-<Aside label="Where this goes wrong" warn>
-  A common misread is treating height on one graph as slope on the next. On an
-  $x$-$t$ graph, a high point does not mean fast, it means far. An object at
-  the top of its arc has maximum $x$ and zero $v$. Before answering, decide
-  whether the question is about height, slope, or area.
+Acceleration is the same move again, one level down. It is the rate at which
+velocity changes, so it is the slope of the $v$-$t$ graph:
+
+$$a = \frac{\Delta v}{\Delta t}.$$
+
+A $v$-$t$ line climbing from 0 to 12 m/s in 4.0 s has slope $12/4.0 = 3.0$ m/s²,
+and that is the acceleration. Units come out right automatically: metres per
+second, divided by seconds, is metres per second squared.
+
+<Aside label="Worth remembering">
+  Height and slope are different questions. On an $x$-$t$ graph a high point
+  means *far from the origin*, not *fast*. A flat spot means stopped, no matter
+  how high up it is. Decide which of the two you are being asked about before
+  you look at the graph.
 </Aside>
 
-## Sketching in the other direction
+<QuickCheck
+  question="A position-time graph is a horizontal line at x = 40 m for three seconds. What is the object doing?"
+  options={["Sitting still 40 m from the origin", "Moving at 40 m/s", "Slowing down from 40 m/s", "Accelerating at 40 m per second squared"]}
+  answer={0}
+  explanation="Velocity is the slope, and a horizontal line has zero slope. The 40 is a position, not a speed. Height on an x-t graph never tells you how fast something is going."
+/>
 
-Going from $a$ to $v$ to $x$ needs one extra thing the graph cannot give you:
-the starting value. Area only tells you the change.
+## Area takes you back up the chain
 
-Sketch by segments. Constant $a$ makes $v$ linear and $x$ quadratic. Zero $a$
-makes $v$ flat and $x$ linear. Where $a$ jumps, $v$ has a kink but no jump, and
-$x$ stays smooth. Each level of integration is one degree smoother than the
-last, so a discontinuous acceleration never produces a broken position curve.
+Now run the chain the other way. If an object moves at a steady 6 m/s for 7 s,
+its displacement is $6 \times 7 = 42$ m. On a $v$-$t$ graph that is a flat line
+at 6 m/s, and the rectangle beneath it is 6 units tall and 7 units wide. Its
+area is 42. The area under the velocity graph *is* the displacement.
+
+That argument only used a constant velocity, but it generalises immediately.
+Chop any velocity graph into slices so thin that $v$ is nearly constant across
+each slice. Each slice contributes (its height) $\times$ (its width), a tiny
+displacement. Add them all up and you have the total. That sum of thin
+rectangles is what the integral sign means:
+
+$$\Delta x = \int v \, dt = \text{area under the } v\text{-}t \text{ graph.}$$
+
+The same reasoning one level down gives
+
+$$\Delta v = \int a \, dt = \text{area under the } a\text{-}t \text{ graph.}$$
+
+So an object starting from rest with a constant $2.5$ m/s² for 6.0 s has
+velocity equal to the rectangle $2.5 \times 6.0 = 15$ m/s. And a car starting
+from rest with constant acceleration $a$ has a $v$-$t$ graph that is a straight
+line from the origin, reaching height $at$ at time $t$. The area under it is a
+triangle: $\tfrac12 \times \text{base} \times \text{height} = \tfrac12 \times t
+\times at = \tfrac12 at^2$. That is the formula you memorised last lesson. It is
+the area of a triangle, and nothing more.
+
+<Aside label="What area cannot tell you" warn>
+  Area gives you the *change*, never the value. The area under a $v$-$t$ graph
+  is $\Delta x$, the displacement — to get an actual position you must add the
+  starting position $x_0$, which the graph does not know. Same for $a$-$t$:
+  the area is $\Delta v$, so you need $v_0$ too. Problems that say "starts from
+  rest at the origin" are handing you $v_0 = 0$ and $x_0 = 0$ so you can skip
+  this step. When they do not say it, do not assume it.
+</Aside>
+
+## Signed area, and why distance is not displacement
+
+Area below the time axis counts as negative. That is not a rule bolted on; it
+follows from what the axis means. Below the axis, $v$ is negative, the object is
+moving backwards, and its displacement over that stretch is negative. A
+rectangle of "negative height" has negative area.
+
+This is where two words split apart that you may have been using
+interchangeably. **Displacement** is the signed area: forwards minus backwards,
+the net change in position. **Distance travelled** is the total area counted as
+positive, forwards plus backwards, what the odometer reads. A ball thrown
+straight up and caught again has zero displacement and a very nonzero distance.
+
+So whenever a $v$-$t$ line crosses the axis, you must handle the two pieces
+separately. Find the crossing time first: that is the instant the object stops
+and turns round. It is also, for the same reason, the instant of maximum
+displacement — up to then you were adding area, after it you start subtracting.
+
+<Figure caption={<><b>Figure 1.</b> The shaded area is the displacement so far, and the sweep line carries the running total. Drag the slope negative so the line dips below the axis, then watch displacement and distance stop agreeing at exactly the moment the line crosses zero.</>}>
+  <Sim id="motion-graphs-signed-area" />
+</Figure>
+
+## Three graphs of the same motion
+
+Everything so far links neighbouring graphs. Put all three above each other and
+the links become visible at once. Take a cart that starts from rest at the
+origin, is pushed at $+4.0$ m/s² for 2.0 s, coasts with zero acceleration until
+5.0 s, then is braked at $-4.0$ m/s² until 8.0 s.
+
+The $a$-$t$ graph is three flat steps. Integrating it — that is, accumulating
+area — gives a $v$-$t$ graph that ramps up to $4.0 \times 2.0 = 8.0$ m/s, holds
+flat at 8.0 m/s, then ramps back down to zero. Integrating *that* gives an
+$x$-$t$ graph that curves upward, then runs straight, then flattens out.
+
+Notice the smoothing. Where $a$ jumps, $v$ has a kink but no jump. Where $v$ has
+a kink, $x$ stays perfectly smooth. Each trip up the chain makes the curve one
+degree gentler, so a discontinuous acceleration can never produce a broken
+position graph. If you sketch one with a jump in it, you have made a mistake.
+
+<Figure caption={<><b>Figure 2.</b> Read it downwards as slopes and upwards as areas. Check that the velocity graph is flat exactly where the acceleration is zero, and that the position graph is steepest exactly where the velocity is highest.</>}>
+  <Sim id="motion-graphs-chain" />
+</Figure>
+
+## Worked examples
+
+**1. Ramp and hold.** A golf cart's velocity rises linearly from 0 to 12 m/s
+over the first 4.0 s, then stays at 12 m/s until $t = 10$ s. Find the
+acceleration over the first stretch, and the total displacement.
+
+The acceleration is the slope of the first piece: $(12 - 0)/(4.0 - 0) = 3.0$
+m/s². The displacement is the whole area, and the shape is a triangle glued to a
+rectangle. Triangle: $\tfrac12 \times 4.0 \times 12 = 24$ m. Rectangle: the
+flat stretch runs from 4.0 s to 10 s, so its width is 6.0 s, and its area is
+$6.0 \times 12 = 72$ m. Total: $24 + 72 = 96$ m.
+
+The general shape here — ramp up, hold, ramp down — is a trapezoid, and it is
+the single most common figure in this topic. Split it into a triangle, a
+rectangle and a triangle every time.
+
+<Figure caption={<><b>Figure 3.</b> The trapezoid journey, cut into the three pieces you should always cut it into. Drag the cruise time to zero and the trapezoid collapses into a triangle; drag the slowing-down time up and watch the average speed fall below the cruise speed.</>}>
+  <Sim id="motion-graphs-trapezoid" />
+</Figure>
+
+**2. A line that crosses the axis.** A velocity graph is a straight line from
+$+12$ m/s at $t = 0$ down to $-6.0$ m/s at $t = 9.0$ s. Find the maximum
+displacement from the start, and the displacement over the full 9.0 s.
+
+First the slope: $a = (-6.0 - 12)/(9.0 - 0) = -18/9.0 = -2.0$ m/s². Now find the
+crossing. Starting at 12 m/s and losing 2.0 m/s every second, the velocity
+reaches zero at $t = 12/2.0 = 6.0$ s. That is the turning point, so the maximum
+displacement is the area of the first triangle:
+
+$$\tfrac12 \times 6.0 \times 12 = 36 \text{ m}.$$
+
+After that the object goes backwards. The second triangle runs from 6.0 s to
+9.0 s, a base of 3.0 s, and drops to a depth of $-6.0$ m/s, so its signed area
+is $\tfrac12 \times 3.0 \times (-6.0) = -9.0$ m. The net displacement is
+$36 - 9.0 = 27$ m. The distance travelled, if you were asked for it, would be
+$36 + 9.0 = 45$ m instead.
 
 <QuickCheck
-  question="On a velocity-time graph, an object's curve is above the axis for 3 s, then below the axis for 3 s with the same shape reflected. What is the displacement?"
-  options={["Zero", "Twice the area of one piece", "Equal to the distance travelled", "Undefined without the starting position"]}
+  question="A velocity-time graph is a straight line from -8.0 m/s at t = 0 to +12 m/s at t = 10 s. Which is bigger, the distance travelled or the magnitude of the displacement?"
+  options={["The distance, because the backward stretch adds instead of cancelling", "The displacement, because it counts the whole interval", "They are equal, since the line is straight", "Neither can be found without the starting position"]}
   answer={0}
-  explanation="Area below the axis is negative, so the two equal pieces cancel. The distance travelled is not zero, since distance ignores the sign."
+  explanation="The line crosses zero at t = 4.0 s. The first piece has signed area -16 m and the second +40 m, so the displacement is 20 m but the distance is 16 + 40 = 56 m. Starting position never matters for either."
 />
+
+**3. Working backwards to a time.** A car's velocity rises linearly from 0 to
+30 m/s over $0 \le t \le 6.0$ s, then falls linearly to zero at $t = 10.0$ s.
+At what time has it travelled exactly 100 m?
+
+Check the first piece before assuming anything: its area is
+$\tfrac12 \times 6.0 \times 30 = 90$ m. That is short of 100 m, so the answer
+lies in the second piece, and you need 10 m more.
+
+On the second piece the velocity falls from 30 m/s to 0 over 4.0 s, so its slope
+is $-30/4.0 = -7.5$ m/s². Measure time from the 6.0 s mark with a new variable
+$\tau = t - 6.0$. Then $v = 30 - 7.5\tau$, and the extra area is the standard
+constant-acceleration result:
+
+$$\Delta x = 30\tau - \tfrac12(7.5)\tau^2 = 30\tau - 3.75\tau^2 = 10.$$
+
+Rearranged, $3.75\tau^2 - 30\tau + 10 = 0$. The quadratic formula gives
+
+$$\tau = \frac{30 \pm \sqrt{900 - 4(3.75)(10)}}{2(3.75)} = \frac{30 \pm \sqrt{750}}{7.5} = \frac{30 \pm 27.386}{7.5}.$$
+
+The plus sign gives $\tau = 7.65$ s, which is past the end of the second piece
+and therefore not real. The minus sign gives $\tau = 2.614/7.5 = 0.349$ s. So
+$t = 6.0 + 0.349 = 6.35$ s.
+
+**4. A curved acceleration graph.** A car starts from rest at the origin. Its
+acceleration rises linearly from 0 to 6.0 m/s² over $0 \le t \le 3.0$ s, then
+falls linearly back to zero at $t = 6.0$ s. How far has it gone at 6.0 s?
+
+Do it one level at a time. On the first piece $a = 2.0t$, since it must reach
+6.0 at $t = 3.0$. The velocity is the accumulated area under that line, which up
+to time $t$ is a triangle of base $t$ and height $2.0t$:
+
+$$v = \tfrac12 \times t \times 2.0t = t^2.$$
+
+So $v = 9.0$ m/s at $t = 3.0$ s. To get position you need the area under $v = t^2$,
+and here you need one fact from calculus: the area under $t^n$ up to time $t$ is
+$t^{n+1}/(n+1)$. It is the same rule that turned the straight line $v = at$ into
+$\tfrac12 at^2$. With $n = 2$:
+
+$$x(3.0) = \frac{(3.0)^3}{3} = 9.0 \text{ m}.$$
+
+For the second piece, write $a = 12 - 2.0t$, which is 6.0 at $t = 3.0$ and zero
+at $t = 6.0$. Accumulating its area from 3.0 s onward and adding the 9.0 m/s you
+already had gives $v = -18 + 12t - t^2$. Check it at $t = 6.0$: $-18 + 72 - 36 =
+18$ m/s. That matches the total area of the acceleration triangle,
+$\tfrac12 \times 6.0 \times 6.0 = 18$ m/s, which is a good sign that nothing
+went wrong.
+
+Accumulating area under that velocity from 3.0 s to 6.0 s gives
+
+$$\left[-18t + 6t^2 - \tfrac{t^3}{3}\right]_{3.0}^{6.0} = (-108 + 216 - 72) - (-54 + 54 - 9) = 36 + 9 = 45 \text{ m}.$$
+
+Total: $9.0 + 45 = 54$ m.
+
+## Traps that cost real points
+
+**Reading height as slope.** Covered above, and it is the single most common
+error. The top of a hill on an $x$-$t$ graph is where $v = 0$, not where $v$ is
+biggest.
+
+**Forgetting the width of the middle piece.** In example 1 the flat stretch runs
+from 4.0 s to 10 s, so its width is 6.0 s, not 10 s. Trapezoids punish
+carelessness here more than anything else.
+
+**Averaging velocities instead of using area.** Average velocity is
+*displacement divided by total time*, not the average of the numbers you see on
+the graph. For a staircase graph that sits at 5, 10, 15 and 20 m/s for 2 s each
+those happen to agree, both giving 12.5 m/s, because the intervals are equal.
+For the trapezoid in Figure 3 they do not agree at all. Compute the area, then
+divide by the total time.
+
+**Mixing distance into a displacement question, or the reverse.** Read the last
+five words of the question again before you write the number down.
+
+## How to recognise this technique
+
+Reach for slopes and areas whenever the problem hands you a *graph* instead of a
+list of numbers, or describes motion in *pieces* — "for the first 3 seconds...
+then... then". The word "then" is the signal. A single formula cannot span a
+"then"; a sum of areas can.
+
+Three specific triggers. If the question gives a velocity graph and asks for
+displacement, distance or average velocity, you want area. If it gives a
+velocity or position graph and asks for acceleration or velocity, you want
+slope. If it asks for a *maximum* displacement or the moment something turns
+round, find where $v$ crosses zero and take the area up to there.
+
+And if the shape it describes is a straight line, a triangle, a rectangle or a
+trapezoid, the answer is arithmetic on areas you learned in primary school.
+Sketch the graph even when the problem does not ask you to. A five-second sketch
+turns most of these into one line of working.
+
+Next comes the most common constant acceleration in physics, and the
+complications that arrive when acceleration refuses to stay constant:
+[Free Fall and Variable Acceleration](/guide/free-fall).

@@ -1,0 +1,101 @@
+[
+ {
+  "id": "lagrangian-wedge",
+  "title": "Two coordinates, no constraint forces",
+  "caption": "The block slides on the wedge while the wedge slides on the floor.",
+  "height": 260,
+  "params": [
+   {
+    "key": "angle",
+    "label": "Wedge angle",
+    "unit": "deg",
+    "min": 10,
+    "max": 60,
+    "step": 1,
+    "value": 30
+   },
+   {
+    "key": "m",
+    "label": "Block mass",
+    "unit": "kg",
+    "min": 0.5,
+    "max": 8,
+    "step": 0.5,
+    "value": 2.0
+   },
+   {
+    "key": "M",
+    "label": "Wedge mass",
+    "unit": "kg",
+    "min": 1,
+    "max": 15,
+    "step": 0.5,
+    "value": 5.0
+   }
+  ],
+  "draw": "var F = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = F;\nvar a = p.angle * Math.PI / 180;\nvar m = p.m, M = p.M, g = 9.8;\nvar A = m * g * Math.sin(a) * Math.cos(a) / (M + m * Math.sin(a) * Math.sin(a));\nvar sdd = (M + m) * g * Math.sin(a) / (M + m * Math.sin(a) * Math.sin(a));\n\nvar floorY = H * 0.86;\nvar x0 = W * 0.16;\nvar base = W * 0.56;\nvar hgt = base * Math.tan(a);\nif (hgt > H * 0.56) { base = (H * 0.56) / Math.tan(a); hgt = H * 0.56; }\nvar apexX = x0, apexY = floorY - hgt;\nvar rightX = x0 + base;\n\n// floor\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(0, floorY); ctx.lineTo(W, floorY); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"frictionless floor\", W * 0.02, floorY + 16);\n\n// wedge\nctx.fillStyle = C.paper;\nctx.strokeStyle = C.ink;\nctx.beginPath();\nctx.moveTo(apexX, apexY); ctx.lineTo(rightX, floorY); ctx.lineTo(apexX, floorY);\nctx.closePath(); ctx.fill(); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"M\", apexX + 16, floorY - 14);\n\n// angle mark at the bottom right corner\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.arc(rightX, floorY, 26, Math.PI, Math.PI + a); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"alpha = \" + p.angle.toFixed(0) + \" deg\", rightX - 78, floorY - 8);\n\n// block a third of the way down the face\nvar f = 0.38;\nvar bx = apexX + (rightX - apexX) * f;\nvar by = apexY + (floorY - apexY) * f;\nvar bs = 18;\nvar nx = -Math.sin(a), ny = -Math.cos(a);\nctx.save();\nctx.translate(bx + nx * bs * 0.7, by + ny * bs * 0.7);\nctx.rotate(a);\nctx.fillStyle = C.paper;\nctx.fillRect(-bs / 2, -bs / 2, bs, bs);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.8;\nctx.strokeRect(-bs / 2, -bs / 2, bs, bs);\nctx.restore();\nvar cxb = bx + nx * bs * 0.7, cyb = by + ny * bs * 0.7;\nctx.fillStyle = C.ink;\nctx.fillText(\"m\", cxb - 20, cyb - 10);\n\nfunction arrow(x1, y1, x2, y2, col) {\n  ctx.strokeStyle = col; ctx.lineWidth = 1.6;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var ang = Math.atan2(y2 - y1, x2 - x1);\n  ctx.fillStyle = col;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - 7 * Math.cos(ang - 0.4), y2 - 7 * Math.sin(ang - 0.4));\n  ctx.lineTo(x2 - 7 * Math.cos(ang + 0.4), y2 - 7 * Math.sin(ang + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\n// normal force on block (does no work in the ground frame only if wedge is fixed)\narrow(cxb, cyb, cxb + nx * 44, cyb + ny * 44, C.figure);\nctx.fillStyle = C.figure;\nctx.fillText(\"N (never appears in L)\", cxb + nx * 44 - 30, cyb + ny * 44 - 8);\n\n// gravity on block\narrow(cxb, cyb, cxb, cyb + 40, C.ink);\nctx.fillStyle = C.ink;\nctx.fillText(\"mg\", cxb + 6, cyb + 38);\n\n// s along the face\nvar sx = apexX + (rightX - apexX) * 0.70, sy = apexY + (floorY - apexY) * 0.70;\narrow(apexX, apexY, sx, sy, C.accent);\nctx.fillStyle = C.accent;\nctx.fillText(\"s: block along the face\", apexX + 26, apexY + 34);\n\n// X of the wedge\narrow(rightX - 40, floorY + 26, rightX + 20, floorY + 26, C.accent);\nctx.fillStyle = C.accent;\nctx.fillText(\"X: wedge along the floor\", rightX - 150, floorY + 42);\n\nout.note = \"wedge acceleration \" + A.toFixed(2) + \" m/s^2, block along the face \" +\n  sdd.toFixed(2) + \" m/s^2\";"
+ },
+ {
+  "id": "lagrangian-cart-pendulum",
+  "title": "Pendulum on a free cart",
+  "caption": "Let the pivot recoil and the pendulum speeds up.",
+  "height": 260,
+  "params": [
+   {
+    "key": "M",
+    "label": "Cart mass",
+    "unit": "kg",
+    "min": 0.2,
+    "max": 8,
+    "step": 0.1,
+    "value": 2.0
+   },
+   {
+    "key": "m",
+    "label": "Bob mass",
+    "unit": "kg",
+    "min": 0.1,
+    "max": 5,
+    "step": 0.1,
+    "value": 0.5
+   },
+   {
+    "key": "L",
+    "label": "Rod length",
+    "unit": "m",
+    "min": 0.3,
+    "max": 1.5,
+    "step": 0.05,
+    "value": 0.8
+   }
+  ],
+  "draw": "var F = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar M = p.M, m = p.m, L = p.L, g = 9.8;\nvar w = Math.sqrt(g * (M + m) / (M * L));\nvar th0 = 0.30;\nvar th = th0 * Math.cos(w * t);\n\nvar railY = H * 0.26;\nvar mid = W * 0.5;\nvar scale = (H * 0.56) / L;\nvar xc = -(m * L / (M + m)) * Math.sin(th);\nvar cx = mid + xc * scale;\n\nctx.lineWidth = 1;\nctx.font = F;\n\n// rail\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(W * 0.06, railY); ctx.lineTo(W * 0.94, railY); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"frictionless rail\", W * 0.06, railY - 8);\n\n// centre line\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(mid, railY - 14); ctx.lineTo(mid, H * 0.92); ctx.stroke();\nctx.setLineDash([]);\n\n// cart\nvar cw = Math.max(36, W * 0.13), ch = 20;\nctx.fillStyle = C.paper;\nctx.fillRect(cx - cw / 2, railY - ch, cw, ch);\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1.5;\nctx.strokeRect(cx - cw / 2, railY - ch, cw, ch);\nctx.fillStyle = C.ink;\nctx.fillText(\"M\", cx - 4, railY - ch / 2 + 4);\n\n// rod and bob\nvar bx = cx + L * scale * Math.sin(th);\nvar by = railY + L * scale * Math.cos(th);\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(cx, railY); ctx.lineTo(bx, by); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(bx, by, 8, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"m\", bx + 12, by + 4);\n\n// vertical from pivot, and theta label\nctx.strokeStyle = C.faint;\nctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(cx, railY); ctx.lineTo(cx, railY + L * scale); ctx.stroke();\nctx.setLineDash([]);\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.arc(cx, railY, 30, Math.PI / 2, Math.PI / 2 - th, th > 0);\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"theta\", cx + (th > 0 ? 10 : -40), railY + 46);\n\n// cart displacement arrow\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(mid, railY - 34); ctx.lineTo(cx, railY - 34); ctx.stroke();\nctx.beginPath();\nvar dir = cx >= mid ? 1 : -1;\nctx.moveTo(cx, railY - 34); ctx.lineTo(cx - dir * 6, railY - 38); ctx.lineTo(cx - dir * 6, railY - 30);\nctx.closePath(); ctx.fillStyle = C.accent; ctx.fill();\nctx.fillStyle = C.accent;\nctx.fillText(\"cart recoil X\", mid - 30, railY - 42);\n\nout.note = \"omega = \" + w.toFixed(2) + \" rad/s   (fixed pivot would give \" +\n  Math.sqrt(g / L).toFixed(2) + \")   cart amplitude \" +\n  (m * L / (M + m) * Math.sin(th0)).toFixed(3) + \" m\";"
+ },
+ {
+  "id": "lagrangian-hoop",
+  "title": "Bead on a spinning hoop",
+  "caption": "Spin fast enough and the bottom of the hoop stops being the place to sit.",
+  "height": 270,
+  "params": [
+   {
+    "key": "R",
+    "label": "Hoop radius",
+    "unit": "m",
+    "min": 0.1,
+    "max": 1.0,
+    "step": 0.05,
+    "value": 0.4
+   },
+   {
+    "key": "spin",
+    "label": "Spin rate",
+    "unit": "rad/s",
+    "min": 0.5,
+    "max": 12,
+    "step": 0.1,
+    "value": 8.0
+   }
+  ],
+  "draw": "var F = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = F;\nvar R = p.R, w = p.spin, g = 9.8;\nvar beta = w * w * R / g;\nvar supercrit = beta > 1;\nvar th0 = supercrit ? Math.acos(1 / beta) : 0;\nvar wosc = supercrit ? w * Math.sqrt(1 - 1 / (beta * beta)) : Math.sqrt(g / R - w * w);\nvar amp = 0.20;\nvar th = th0 + amp * Math.cos(wosc * t);\n\n// ---- left panel: the hoop ----\nvar cxh = W * 0.22, cyh = H * 0.48;\nvar rad = Math.min(W * 0.17, H * 0.34);\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.arc(cxh, cyh, rad, 0, Math.PI * 2); ctx.stroke();\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(cxh, cyh - rad - 16); ctx.lineTo(cxh, cyh + rad + 16); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"spin axis\", cxh + 6, cyh - rad - 6);\n\n// bead\nvar bxp = cxh + rad * Math.sin(th), byp = cyh + rad * Math.cos(th);\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(cxh, cyh); ctx.lineTo(bxp, byp); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(bxp, byp, 7, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.figure;\nctx.beginPath();\nctx.arc(cxh, cyh, 22, Math.PI / 2, Math.PI / 2 - th, th > 0);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"theta from the bottom\", cxh - 40, cyh + rad + 30);\n\n// ---- right panel: effective potential ----\nvar px0 = W * 0.46, px1 = W * 0.96;\nvar py0 = H * 0.16, py1 = H * 0.80;\nvar lo = -2.6, hi = 2.6;\nfunction u(x) { return (1 - Math.cos(x)) - 0.5 * beta * Math.sin(x) * Math.sin(x); }\nvar umin = 1e9, umax = -1e9, i, xx, vv;\nfor (i = 0; i <= 200; i++) {\n  xx = lo + (hi - lo) * i / 200; vv = u(xx);\n  if (vv < umin) umin = vv;\n  if (vv > umax) umax = vv;\n}\nif (umax - umin < 1e-6) { umax = umin + 1; }\nfunction PX(x) { return px0 + (x - lo) / (hi - lo) * (px1 - px0); }\nfunction PY(v) { return py1 - (v - umin) / (umax - umin) * (py1 - py0); }\n\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(PX(0), py0 - 6); ctx.lineTo(PX(0), py1 + 6); ctx.stroke();\nctx.beginPath(); ctx.moveTo(px0, PY(u(0))); ctx.lineTo(px1, PY(u(0))); ctx.stroke();\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (i = 0; i <= 200; i++) {\n  xx = lo + (hi - lo) * i / 200;\n  if (i === 0) ctx.moveTo(PX(xx), PY(u(xx))); else ctx.lineTo(PX(xx), PY(u(xx)));\n}\nctx.stroke();\n\n// bead on the curve\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(PX(th), PY(u(th)), 6, 0, Math.PI * 2); ctx.fill();\n\n// equilibrium markers\nctx.strokeStyle = C.accent;\nctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(PX(th0), PY(u(th0))); ctx.lineTo(PX(th0), py1 + 4); ctx.stroke();\nif (supercrit) {\n  ctx.beginPath(); ctx.moveTo(PX(-th0), PY(u(-th0))); ctx.lineTo(PX(-th0), py1 + 4); ctx.stroke();\n}\nctx.setLineDash([]);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"effective potential U(theta)\", px0, py0 - 4);\nctx.fillStyle = C.faint;\nctx.fillText(\"theta\", px1 - 26, py1 + 18);\nctx.fillStyle = C.accent;\nctx.fillText(supercrit ? \"tilted minimum\" : \"bottom is stable\", PX(th0) - 30, py1 + 18);\n\nout.note = supercrit\n  ? \"spinning above critical: equilibrium at \" + (th0 * 180 / Math.PI).toFixed(1) +\n    \" deg, small oscillations at \" + wosc.toFixed(2) + \" rad/s\"\n  : \"below critical (\" + Math.sqrt(g / R).toFixed(2) +\n    \" rad/s): bottom still stable, small oscillations at \" + wosc.toFixed(2) + \" rad/s\";"
+ }
+]

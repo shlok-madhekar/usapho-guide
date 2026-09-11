@@ -1,0 +1,101 @@
+[
+  {
+    "id": "newtons-laws-fbd-pair",
+    "title": "Two blocks, three diagrams",
+    "caption": "The applied force acts on m1 only. m2 is pushed by the contact force.",
+    "height": 300,
+    "params": [
+      {
+        "key": "force",
+        "label": "Applied force F",
+        "unit": "N",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "value": 20
+      },
+      {
+        "key": "m1",
+        "label": "Front-pushed block m1",
+        "unit": "kg",
+        "min": 1,
+        "max": 6,
+        "step": 0.5,
+        "value": 2
+      },
+      {
+        "key": "m2",
+        "label": "Second block m2",
+        "unit": "kg",
+        "min": 1,
+        "max": 6,
+        "step": 0.5,
+        "value": 3
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\nvar m1 = p.m1, m2 = p.m2, F = p.force;\nvar a = F / (m1 + m2);\nvar Cf = m2 * a;\n\nvar arrow = function (x, y, dx, dy, label, lx, ly) {\n  var ex = x + dx, ey = y + dy;\n  ctx.strokeStyle = C.accent; ctx.fillStyle = C.accent; ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(ex, ey); ctx.stroke();\n  var len = Math.sqrt(dx * dx + dy * dy);\n  if (len > 1) {\n    var hx = dx / len, hy = dy / len;\n    ctx.beginPath();\n    ctx.moveTo(ex, ey);\n    ctx.lineTo(ex - 7 * hx + 4 * hy, ey - 7 * hy - 4 * hx);\n    ctx.lineTo(ex - 7 * hx - 4 * hy, ey - 7 * hy + 4 * hx);\n    ctx.closePath(); ctx.fill();\n  }\n  ctx.fillStyle = C.ink;\n  ctx.fillText(label, ex + lx, ey + ly);\n};\n\n// ---- top: the real picture ----\nvar fy = H * 0.36;\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(W * 0.08, fy); ctx.lineTo(W * 0.92, fy); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"the real picture\", W * 0.08, H * 0.09);\n\nvar h1 = 26 + m1 * 4, h2 = 26 + m2 * 4;\nvar w1 = 44, w2 = 44;\nvar bx = W * 0.36;\nctx.fillStyle = C.paper; ctx.strokeStyle = C.ink;\nctx.fillRect(bx, fy - h1, w1, h1); ctx.strokeRect(bx, fy - h1, w1, h1);\nctx.fillRect(bx + w1, fy - h2, w2, h2); ctx.strokeRect(bx + w1, fy - h2, w2, h2);\nctx.fillStyle = C.ink;\nctx.fillText(\"m1\", bx + 14, fy - h1 / 2 + 4);\nctx.fillText(\"m2\", bx + w1 + 14, fy - h2 / 2 + 4);\narrow(bx - 48, fy - h1 / 2, 44, 0, \"F\", -46, -8);\n\n// ---- bottom: one diagram per object ----\nctx.fillStyle = C.ink;\nctx.fillText(\"one free body diagram per object\", W * 0.08, H * 0.56);\nvar by = H * 0.79;\nvar c1 = W * 0.28, c2 = W * 0.68;\nctx.setLineDash([4, 4]);\nctx.strokeStyle = C.rule;\nctx.strokeRect(c1 - 22, by - 20, 44, 40);\nctx.strokeRect(c2 - 22, by - 20, 44, 40);\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"m1\", c1 - 8, by + 4);\nctx.fillText(\"m2\", c2 - 8, by + 4);\n\nvar sc = 30 / Math.max(F, 1);\nvar fl = Math.max(F * sc, 8), cl = Math.max(Cf * sc, 8);\narrow(c1, by, fl, 0, \"F\", 2, -8);\narrow(c1, by, -cl, 0, \"C\", -14, -8);\narrow(c2, by, cl, 0, \"C\", 2, -8);\narrow(c1, by, 0, -24, \"N1\", -22, -2);\narrow(c1, by, 0, 24, \"W1\", -22, 10);\narrow(c2, by, 0, -24, \"N2\", -22, -2);\narrow(c2, by, 0, 24, \"W2\", -22, 10);\nctx.fillStyle = C.ink;\nctx.fillText(\"C pushes m1 backward\", c1 - 60, by + 52);\nctx.fillText(\"and m2 forward: equal and opposite\", c2 - 100, by + 52);\n\nout.note = \"a = F / (m1 + m2) = \" + a.toFixed(2) + \" m/s^2, contact force C = m2 a = \" + Cf.toFixed(1) + \" N\";"
+  },
+  {
+    "id": "newtons-laws-fbd-incline",
+    "title": "Incline lab",
+    "caption": "Switch the horizontal hold on and off and watch the normal force change direction of trend.",
+    "height": 270,
+    "params": [
+      {
+        "key": "angle",
+        "label": "Ramp angle",
+        "unit": "deg",
+        "min": 5,
+        "max": 60,
+        "step": 1,
+        "value": 25
+      },
+      {
+        "key": "mass",
+        "label": "Block mass",
+        "unit": "kg",
+        "min": 1,
+        "max": 10,
+        "step": 0.5,
+        "value": 2
+      },
+      {
+        "key": "hold",
+        "label": "Horizontal hold force (0 off, 1 on)",
+        "unit": "",
+        "min": 0,
+        "max": 1,
+        "step": 1,
+        "value": 0
+      }
+    ],
+    "draw": "var th = p.angle * Math.PI / 180;\nvar g = 9.8, m = p.mass, hold = p.hold;\nvar pad = 34;\nvar base = W - pad * 2;\nvar hgt = base * Math.tan(th);\nvar maxH = H - pad * 2.2;\nif (hgt > maxH) { base = maxH / Math.max(Math.tan(th), 0.001); hgt = maxH; }\nvar x0 = pad, y0 = H - pad;\nvar x1 = x0 + base, y1 = y0 - hgt;\nvar ux = Math.cos(th), uy = -Math.sin(th);\nvar nx = -Math.sin(th), ny = -Math.cos(th);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\n// the wedge\nctx.strokeStyle = C.rule;\nctx.fillStyle = C.faint;\nctx.beginPath();\nctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.lineTo(x1, y0); ctx.closePath();\nctx.fill(); ctx.stroke();\n\n// ground\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(0, y0); ctx.lineTo(W, y0); ctx.stroke();\n\n// angle mark\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(x0, y0, 24, -th, 0); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(p.angle.toFixed(0) + \" deg\", x0 + 28, y0 - 6);\n\n// physics\nvar N, Fh, a;\nif (hold > 0.5) { N = m * g / Math.cos(th); Fh = m * g * Math.tan(th); a = 0; }\nelse { N = m * g * Math.cos(th); Fh = 0; a = g * Math.sin(th); }\n\n// where the block sits\nvar L = Math.sqrt(base * base + hgt * hgt);\nvar s;\nif (hold > 0.5) { s = L * 0.55; }\nelse {\n  var ppm = 14;\n  var per = Math.sqrt(2 * (L * 0.85 / ppm) / Math.max(a, 0.05)) + 0.7;\n  var tt = t % per;\n  s = L * 0.9 - 0.5 * a * tt * tt * ppm;\n  if (s < L * 0.06) s = L * 0.06;\n}\nvar bx = x0 + ux * s, by = y0 + uy * s;\nvar bs = 26;\nvar cx = bx + nx * bs / 2, cy = by + ny * bs / 2;\n\n// block\nctx.save();\nctx.translate(cx, cy);\nctx.rotate(-th);\nctx.fillStyle = C.paper; ctx.strokeStyle = C.ink;\nctx.fillRect(-bs / 2, -bs / 2, bs, bs);\nctx.strokeRect(-bs / 2, -bs / 2, bs, bs);\nctx.restore();\n\nvar sc = 58 / (m * g);\nvar arrow = function (dx, dy, label, lx, ly) {\n  var ex = cx + dx, ey = cy + dy;\n  ctx.strokeStyle = C.accent; ctx.fillStyle = C.accent; ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ex, ey); ctx.stroke();\n  var len = Math.sqrt(dx * dx + dy * dy);\n  if (len < 1) return;\n  var hx = dx / len, hy = dy / len;\n  ctx.beginPath();\n  ctx.moveTo(ex, ey);\n  ctx.lineTo(ex - 7 * hx + 4 * hy, ey - 7 * hy - 4 * hx);\n  ctx.lineTo(ex - 7 * hx - 4 * hy, ey - 7 * hy + 4 * hx);\n  ctx.closePath(); ctx.fill();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(label, ex + lx, ey + ly);\n};\n\narrow(0, m * g * sc, \"W = mg\", -14, 14);\narrow(nx * N * sc, ny * N * sc, \"N\", -4, -6);\nif (hold > 0.5) arrow(Fh * sc, 0, \"F\", 4, 4);\n\nif (hold > 0.5) {\n  out.note = \"held: N = mg / cos(th) = \" + N.toFixed(1) + \" N, F = mg tan(th) = \" + Fh.toFixed(1) +\n             \" N  (mg cos(th) would be \" + (m * g * Math.cos(th)).toFixed(1) + \" N)\";\n} else {\n  out.note = \"free: N = mg cos(th) = \" + N.toFixed(1) + \" N, a = g sin(th) = \" + a.toFixed(2) + \" m/s^2\";\n}"
+  },
+  {
+    "id": "newtons-laws-fbd-elevator",
+    "title": "Elevator scale lab",
+    "caption": "The scale reads the normal force, not the weight.",
+    "height": 280,
+    "params": [
+      {
+        "key": "mass",
+        "label": "Standing mass",
+        "unit": "kg",
+        "min": 30,
+        "max": 120,
+        "step": 1,
+        "value": 65
+      },
+      {
+        "key": "accel",
+        "label": "Acceleration (up positive)",
+        "unit": "m/s^2",
+        "min": -9.8,
+        "max": 5,
+        "step": 0.1,
+        "value": 1.5
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\nvar g = 9.8, m = p.mass, a = p.accel;\nvar N = m * (g + a);\nif (N < 0) N = 0;\n\nvar cw = Math.min(W * 0.42, 190);\nvar chh = H - 44;\nvar cx = W * 0.5 - cw / 2;\nvar cy = 26;\n\n// shaft walls with moving ticks (motion cue)\nvar v = a * ((t % 3) - 1.5);\nvar off = ((v * 18) % 26 + 26) % 26;\nctx.strokeStyle = C.faint;\nfor (var i = -1; i < H / 26 + 1; i++) {\n  var yy = cy + i * 26 + off;\n  if (yy > cy && yy < cy + chh) {\n    ctx.beginPath();\n    ctx.moveTo(cx - 26, yy); ctx.lineTo(cx - 8, yy);\n    ctx.moveTo(cx + cw + 8, yy); ctx.lineTo(cx + cw + 26, yy);\n    ctx.stroke();\n  }\n}\n\n// cable and car\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(cx + cw / 2, 0); ctx.lineTo(cx + cw / 2, cy); ctx.stroke();\nctx.fillStyle = C.paper;\nctx.fillRect(cx, cy, cw, chh); ctx.strokeRect(cx, cy, cw, chh);\n\n// scale slab on the floor of the car\nvar fy = cy + chh;\nctx.fillStyle = C.faint; ctx.strokeStyle = C.rule;\nctx.fillRect(cx + cw / 2 - 34, fy - 12, 68, 12);\nctx.strokeRect(cx + cw / 2 - 34, fy - 12, 68, 12);\n\n// person as a box\nvar px = cx + cw / 2 - 16, ph = 52;\nctx.fillStyle = C.paper; ctx.strokeStyle = C.ink;\nctx.fillRect(px, fy - 12 - ph, 32, ph);\nctx.strokeRect(px, fy - 12 - ph, 32, ph);\n\nvar mx = cx + cw / 2, my = fy - 12 - ph / 2;\nvar sc = 46 / (m * g);\nvar arrow = function (dx, dy, label, lx, ly) {\n  var ex = mx + dx, ey = my + dy;\n  ctx.strokeStyle = C.accent; ctx.fillStyle = C.accent; ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(ex, ey); ctx.stroke();\n  var len = Math.sqrt(dx * dx + dy * dy);\n  if (len > 1) {\n    var hx = dx / len, hy = dy / len;\n    ctx.beginPath();\n    ctx.moveTo(ex, ey);\n    ctx.lineTo(ex - 7 * hx + 4 * hy, ey - 7 * hy - 4 * hx);\n    ctx.lineTo(ex - 7 * hx - 4 * hy, ey - 7 * hy + 4 * hx);\n    ctx.closePath(); ctx.fill();\n  }\n  ctx.fillStyle = C.ink;\n  ctx.fillText(label, ex + lx, ey + ly);\n};\narrow(0, m * g * sc, \"W = mg\", -18, 14);\narrow(0, -N * sc, \"N (scale reading)\", -34, -6);\n\n// acceleration arrow outside the car\nctx.strokeStyle = C.figure; ctx.fillStyle = C.figure; ctx.lineWidth = 2;\nvar ax0 = cx + cw + 44, ay0 = cy + chh / 2;\nvar alen = a * 7;\nctx.beginPath(); ctx.moveTo(ax0, ay0); ctx.lineTo(ax0, ay0 - alen); ctx.stroke();\nif (Math.abs(alen) > 2) {\n  var sgn = alen > 0 ? 1 : -1;\n  ctx.beginPath();\n  ctx.moveTo(ax0, ay0 - alen);\n  ctx.lineTo(ax0 - 4, ay0 - alen + 7 * sgn);\n  ctx.lineTo(ax0 + 4, ay0 - alen + 7 * sgn);\n  ctx.closePath(); ctx.fill();\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"a = \" + a.toFixed(1) + \" m/s^2\", ax0 - 18, ay0 + 30);\n\nout.note = \"scale reads N = m(g + a) = \" + N.toFixed(1) + \" N; at rest it would read \" + (m * g).toFixed(1) + \" N\";"
+  }
+]

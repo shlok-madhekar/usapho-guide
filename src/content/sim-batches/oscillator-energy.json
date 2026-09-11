@@ -1,0 +1,119 @@
+[
+  {
+    "id": "oscillator-energy-bars",
+    "title": "Energy trading lab",
+    "caption": "Kinetic and potential energy swap twice per cycle while the sum stays flat.",
+    "height": 300,
+    "params": [
+      {
+        "key": "k",
+        "label": "Spring constant",
+        "unit": "N/m",
+        "min": 20,
+        "max": 300,
+        "step": 5,
+        "value": 200
+      },
+      {
+        "key": "mass",
+        "label": "Mass",
+        "unit": "kg",
+        "min": 0.1,
+        "max": 3,
+        "step": 0.05,
+        "value": 0.5
+      },
+      {
+        "key": "amplitude",
+        "label": "Amplitude",
+        "unit": "m",
+        "min": 0.02,
+        "max": 0.2,
+        "step": 0.01,
+        "value": 0.1
+      }
+    ],
+    "draw": "\nvar k = p.k, m = p.mass, A = p.amplitude;\nvar w = Math.sqrt(k / m);\nvar x = A * Math.cos(w * t);\nvar v = -A * w * Math.sin(w * t);\nvar U = 0.5 * k * x * x;\nvar K = 0.5 * m * v * v;\nvar E = 0.5 * k * A * A;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\nctx.textBaseline = \"alphabetic\";\n\nvar wallX = W * 0.06;\nvar eqX = W * 0.42;\nvar scale = (W * 0.28) / Math.max(A, 0.01);\nvar midY = H * 0.28;\nvar massX = eqX + x * scale;\nvar half = Math.max(10, W * 0.028);\n\n// ground line\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(wallX, midY + half + 4);\nctx.lineTo(W - 8, midY + half + 4);\nctx.stroke();\n\n// wall\nctx.fillStyle = C.faint;\nctx.fillRect(wallX - 7, midY - half - 12, 7, 2 * half + 16);\n\n// spring\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(wallX, midY);\nvar span = massX - half - wallX;\nfor (var i = 1; i <= 14; i++) {\n  var sx = wallX + span * i / 14;\n  var sy = midY + (i % 2 === 0 ? -9 : 9) * (i === 14 ? 0 : 1);\n  ctx.lineTo(sx, sy);\n}\nctx.lineTo(massX - half, midY);\nctx.stroke();\n\n// equilibrium marker and turning points\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 5]);\nctx.beginPath();\nctx.moveTo(eqX, midY - half - 18); ctx.lineTo(eqX, midY + half + 4);\nctx.moveTo(eqX - A * scale, midY - half - 10); ctx.lineTo(eqX - A * scale, midY + half + 4);\nctx.moveTo(eqX + A * scale, midY - half - 10); ctx.lineTo(eqX + A * scale, midY + half + 4);\nctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"x = 0\", eqX, midY - half - 22);\nctx.fillText(\"-A\", eqX - A * scale, midY - half - 14);\nctx.fillText(\"+A\", eqX + A * scale, midY - half - 14);\n\n// mass\nctx.fillStyle = C.figure;\nctx.fillRect(massX - half, midY - half, 2 * half, 2 * half);\n\n// velocity arrow\nif (Math.abs(v) > 0.01 * A * w + 1e-6) {\n  var dir = v > 0 ? 1 : -1;\n  var len = (Math.abs(v) / Math.max(A * w, 1e-6)) * W * 0.11;\n  ctx.strokeStyle = C.accent;\n  ctx.lineWidth = 2;\n  ctx.beginPath();\n  ctx.moveTo(massX, midY);\n  ctx.lineTo(massX + dir * len, midY);\n  ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(massX + dir * len, midY);\n  ctx.lineTo(massX + dir * (len - 6), midY - 4);\n  ctx.lineTo(massX + dir * (len - 6), midY + 4);\n  ctx.closePath();\n  ctx.fillStyle = C.accent;\n  ctx.fill();\n  ctx.fillStyle = C.accent;\n  ctx.textAlign = \"center\";\n  ctx.fillText(\"v\", massX + dir * len * 0.5, midY - 8);\n}\n\n// energy bars\nvar baseY = H * 0.90;\nvar topY = H * 0.52;\nvar full = baseY - topY;\nvar bw = Math.max(26, W * 0.10);\nvar gap = W * 0.055;\nvar x0 = W * 0.16;\nvar labels = [\"U\", \"K\", \"U + K\"];\nvar vals = [U, K, U + K];\nfor (var b = 0; b < 3; b++) {\n  var bx = x0 + b * (bw + gap);\n  var frac = E > 0 ? vals[b] / E : 0;\n  if (frac > 1) frac = 1;\n  ctx.strokeStyle = C.rule;\n  ctx.lineWidth = 1;\n  ctx.strokeRect(bx, topY, bw, full);\n  ctx.fillStyle = b === 2 ? C.figure : C.accent;\n  ctx.fillRect(bx, baseY - full * frac, bw, full * frac);\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"center\";\n  ctx.fillText(labels[b], bx + bw / 2, baseY + 14);\n  ctx.fillText(vals[b].toFixed(2) + \" J\", bx + bw / 2, topY - 6);\n}\n\n// the ceiling line: total energy\nctx.strokeStyle = C.faint;\nctx.setLineDash([2, 4]);\nctx.beginPath();\nctx.moveTo(x0 - 8, topY); ctx.lineTo(x0 + 3 * bw + 2 * gap + 8, topY);\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"E = kA^2 / 2 = \" + E.toFixed(2) + \" J\", x0 + 3 * bw + 2 * gap + 14, topY + 4);\n\nout.note = \"x = \" + x.toFixed(3) + \" m, v = \" + v.toFixed(2) + \" m/s, U = \" + U.toFixed(3) +\n  \" J, K = \" + K.toFixed(3) + \" J, sum = \" + (U + K).toFixed(3) + \" J\";\n"
+  },
+  {
+    "id": "oscillator-energy-well",
+    "title": "The energy line in the spring well",
+    "caption": "The parabola is the stored energy; the flat line is the total; the gap between them is kinetic.",
+    "height": 280,
+    "params": [
+      {
+        "key": "k",
+        "label": "Spring constant",
+        "unit": "N/m",
+        "min": 20,
+        "max": 300,
+        "step": 5,
+        "value": 100
+      },
+      {
+        "key": "amplitude",
+        "label": "Amplitude",
+        "unit": "m",
+        "min": 0.04,
+        "max": 0.2,
+        "step": 0.01,
+        "value": 0.12
+      },
+      {
+        "key": "frac",
+        "label": "Displacement as a fraction of A",
+        "unit": "",
+        "min": -1,
+        "max": 1,
+        "step": 0.05,
+        "value": 0.6
+      }
+    ],
+    "draw": "\nvar k = p.k, A = p.amplitude, f = p.frac;\nvar E = 0.5 * k * A * A;\nvar x = f * A;\nvar U = 0.5 * k * x * x;\nvar K = E - U;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"alphabetic\";\n\nvar padL = W * 0.12, padR = W * 0.06;\nvar x0 = padL, x1 = W - padR;\nvar cx = (x0 + x1) / 2;\nvar baseY = H * 0.86, topY = H * 0.14;\nvar xs = (x1 - x0) / 2 / (1.25 * A);\nvar ys = (baseY - topY) / (0.5 * k * (1.25 * A) * (1.25 * A));\n\n// axes\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(x0, baseY); ctx.lineTo(x1, baseY);\nctx.moveTo(cx, baseY + 6); ctx.lineTo(cx, topY - 6);\nctx.stroke();\nctx.fillStyle = C.faint;\nctx.textAlign = \"right\";\nctx.fillText(\"energy\", cx - 8, topY + 2);\nctx.textAlign = \"left\";\nctx.fillText(\"x\", x1 - 10, baseY + 16);\n\n// the parabola U = kx^2/2\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 120; i++) {\n  var xx = -1.25 * A + (2.5 * A) * i / 120;\n  var px = cx + xx * xs;\n  var py = baseY - 0.5 * k * xx * xx * ys;\n  if (py < topY) py = topY;\n  i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);\n}\nctx.stroke();\n\n// total energy line\nvar eY = baseY - E * ys;\nctx.strokeStyle = C.accent;\nctx.setLineDash([5, 4]);\nctx.beginPath();\nctx.moveTo(x0, eY); ctx.lineTo(x1, eY);\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"E = \" + E.toFixed(2) + \" J\", x0 + 2, eY - 6);\n\n// turning points\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"-A\", cx - A * xs, baseY + 16);\nctx.fillText(\"+A\", cx + A * xs, baseY + 16);\nctx.strokeStyle = C.rule;\nctx.setLineDash([2, 4]);\nctx.beginPath();\nctx.moveTo(cx - A * xs, baseY); ctx.lineTo(cx - A * xs, eY);\nctx.moveTo(cx + A * xs, baseY); ctx.lineTo(cx + A * xs, eY);\nctx.stroke();\nctx.setLineDash([]);\n\n// the split at x\nvar px2 = cx + x * xs;\nvar uY = baseY - U * ys;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 5;\nctx.beginPath();\nctx.moveTo(px2, baseY); ctx.lineTo(px2, uY);\nctx.stroke();\nctx.strokeStyle = C.accent;\nctx.beginPath();\nctx.moveTo(px2, uY); ctx.lineTo(px2, eY);\nctx.stroke();\nctx.lineWidth = 1;\n\nctx.fillStyle = C.figure;\nctx.textAlign = px2 > cx ? \"left\" : \"right\";\nvar off = px2 > cx ? 8 : -8;\nctx.fillText(\"U = \" + U.toFixed(2) + \" J\", px2 + off, (baseY + uY) / 2 + 4);\nctx.fillStyle = C.accent;\nctx.fillText(\"K = \" + K.toFixed(2) + \" J\", px2 + off, (uY + eY) / 2 + 4);\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"x = \" + x.toFixed(3) + \" m\", px2, baseY + 30);\n\nout.note = \"at x = \" + f.toFixed(2) + \"A the kinetic share is \" +\n  (1 - f * f).toFixed(3) + \" of E; K = U when x = 0.707A\";\n"
+  },
+  {
+    "id": "oscillator-energy-friction",
+    "title": "Friction staircase lab",
+    "caption": "Sliding friction takes a fixed bite of energy per unit distance, so the amplitude falls in equal steps.",
+    "height": 320,
+    "params": [
+      {
+        "key": "k",
+        "label": "Spring constant",
+        "unit": "N/m",
+        "min": 40,
+        "max": 300,
+        "step": 10,
+        "value": 160
+      },
+      {
+        "key": "mass",
+        "label": "Mass",
+        "unit": "kg",
+        "min": 0.2,
+        "max": 2,
+        "step": 0.05,
+        "value": 0.8
+      },
+      {
+        "key": "mu",
+        "label": "Kinetic friction coefficient",
+        "unit": "",
+        "min": 0.02,
+        "max": 0.4,
+        "step": 0.01,
+        "value": 0.2
+      },
+      {
+        "key": "A0",
+        "label": "Starting displacement",
+        "unit": "m",
+        "min": 0.05,
+        "max": 0.3,
+        "step": 0.01,
+        "value": 0.15
+      }
+    ],
+    "draw": "\nvar k = p.k, m = p.mass, mu = p.mu, A0 = p.A0;\nvar g = 9.8;\nvar w = Math.sqrt(k / m);\nvar T = 2 * Math.PI / w;\nvar x0 = mu * m * g / k;\n\n// position at time tt, walking half-cycle by half-cycle\nvar amp = function (n) { return A0 - 2 * n * x0; };\nvar stopN = 0;\nwhile (amp(stopN) > 2 * x0 && stopN < 400) { stopN++; }\n\n// resting place: where it stalls, on the far side of the last half-cycle\nvar restX;\nif (stopN === 0) {\n  restX = A0;\n} else {\n  var sPrev = (stopN - 1) % 2 === 0 ? 1 : -1;\n  restX = -sPrev * amp(stopN);\n}\n\nvar xAt = function (tt) {\n  var n = Math.floor(tt / (T / 2));\n  if (n >= stopN) { return restX; }\n  var s = n % 2 === 0 ? 1 : -1;\n  var a = amp(n);\n  var tau = tt - n * (T / 2);\n  return s * (x0 + (a - x0) * Math.cos(w * tau));\n};\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"alphabetic\";\n\nvar x = xAt(t);\nvar n = Math.floor(t / (T / 2));\nif (n > stopN) n = stopN;\nvar Enow = 0.5 * k * (n >= stopN ? restX * restX : amp(n) * amp(n));\nvar E0 = 0.5 * k * A0 * A0;\n\nvar eqX = W * 0.5;\nvar midY = H * 0.26;\nvar scale = (W * 0.40) / Math.max(A0, 0.01);\nvar half = Math.max(9, W * 0.022);\nvar massX = eqX + x * scale;\n\n// rough ground\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(W * 0.05, midY + half + 4); ctx.lineTo(W * 0.95, midY + half + 4);\nctx.stroke();\nfor (var i = 0; i < 24; i++) {\n  var hx = W * 0.05 + (W * 0.90) * i / 23;\n  ctx.beginPath();\n  ctx.moveTo(hx, midY + half + 4); ctx.lineTo(hx - 5, midY + half + 10);\n  ctx.stroke();\n}\n\n// dead band\nctx.fillStyle = C.faint;\nctx.globalAlpha = 0.25;\nctx.fillRect(eqX - x0 * scale, midY - half - 14, 2 * x0 * scale, 2 * half + 18);\nctx.globalAlpha = 1;\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"stuck band, width 2mu*m*g/k\", eqX, midY - half - 20);\n\n// block\nctx.fillStyle = C.figure;\nctx.fillRect(massX - half, midY - half, 2 * half, 2 * half);\n\n// friction arrow, opposing motion\nvar vsign = 0;\nvar dt = 0.004;\nvsign = xAt(t + dt) - xAt(t - dt) > 0 ? 1 : -1;\nif (n < stopN) {\n  ctx.strokeStyle = C.accent;\n  ctx.lineWidth = 2;\n  var fl = W * 0.07;\n  ctx.beginPath();\n  ctx.moveTo(massX, midY + half + 12);\n  ctx.lineTo(massX - vsign * fl, midY + half + 12);\n  ctx.stroke();\n  ctx.fillStyle = C.accent;\n  ctx.textAlign = \"center\";\n  ctx.fillText(\"friction\", massX - vsign * fl * 0.5, midY + half + 26);\n}\n\n// amplitude staircase: x(t) trace with straight envelope\nvar gTop = H * 0.50, gBot = H * 0.95;\nvar gMid = (gTop + gBot) / 2;\nvar gy = (gBot - gTop) / 2 / Math.max(A0, 0.01);\nvar tSpan = Math.max(stopN + 1, 2) * (T / 2);\nvar gx0 = W * 0.08, gx1 = W * 0.92;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(gx0, gMid); ctx.lineTo(gx1, gMid);\nctx.stroke();\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"x versus time\", gx0, gTop + 10);\n\n// envelope\nctx.strokeStyle = C.faint;\nctx.setLineDash([4, 4]);\nctx.beginPath();\nctx.moveTo(gx0, gMid - A0 * gy);\nctx.lineTo(gx0 + (gx1 - gx0) * (stopN * (T / 2)) / tSpan, gMid - Math.max(amp(stopN), 0) * gy);\nctx.moveTo(gx0, gMid + A0 * gy);\nctx.lineTo(gx0 + (gx1 - gx0) * (stopN * (T / 2)) / tSpan, gMid + Math.max(amp(stopN), 0) * gy);\nctx.stroke();\nctx.setLineDash([]);\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.5;\nctx.beginPath();\nvar drawnTo = Math.min(t, tSpan);\nfor (var j = 0; j <= 400; j++) {\n  var tt = drawnTo * j / 400;\n  var gpx = gx0 + (gx1 - gx0) * tt / tSpan;\n  var gpy = gMid - xAt(tt) * gy;\n  j === 0 ? ctx.moveTo(gpx, gpy) : ctx.lineTo(gpx, gpy);\n}\nctx.stroke();\nctx.lineWidth = 1;\n\nout.note = \"half-cycles done \" + n + \" of \" + stopN + \" (complete cycles \" + Math.floor(n / 2) +\n  \" of \" + Math.floor(stopN / 2) + \"), amplitude now \" +\n  (n >= stopN ? Math.abs(restX) : amp(n)).toFixed(4) + \" m, energy left \" +\n  Enow.toFixed(4) + \" J of \" + E0.toFixed(4) + \" J, total path so far \" +\n  ((E0 - Enow) / (mu * m * g)).toFixed(3) + \" m\";\n"
+  }
+]

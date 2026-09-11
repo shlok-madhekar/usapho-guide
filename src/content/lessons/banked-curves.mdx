@@ -1,70 +1,363 @@
-## Circular motion needs a horizontal force
+## A curve you can take on ice
 
-A car rounding a curve of radius $r$ at speed $v$ accelerates toward the centre
-of the circle, with magnitude $v^2/r$. That acceleration is horizontal, and
-something has to supply it. On a flat road it is friction. Bank the road and
-the normal force can do the job instead.
+Watch a bobsled run, or the corner of a NASCAR oval, and you notice the track is
+not flat. It leans. The outside edge is lifted, sometimes by a few degrees,
+sometimes by more than thirty, and the sleds and cars carve through the corner
+far faster than anything could manage on level ground.
 
-Tilt the surface by an angle $\theta$. The normal force is perpendicular to the
-road, so it now has a horizontal component pointing inward. With no friction,
-the two axes read:
+A flat road turns a car using friction between the tyres and the tarmac. Wet the
+road, ice it, or wear the tyres smooth, and the turn stops working. A banked road
+turns the car using the road's own push — the force that would be there even if
+the surface were polished glass. Get the angle right for the speed and you can
+round the corner with no friction whatsoever. That is a strange claim, so this
+lesson earns it.
 
-$$N\sin\theta = \frac{mv^2}{r}, \qquad N\cos\theta = mg$$
+## The only new decision is which axes to use
+
+From the [last lesson](/guide/circular-motion) you have the one fact this whole
+topic rests on: a body moving in a circle of radius $r$ at speed $v$ has
+acceleration of magnitude
+
+$$a = \frac{v^2}{r}$$
+
+pointed at the centre of the circle. Not along the velocity. Not along the
+surface. At the centre. For a car on a banked road the centre of the circle is
+off to the side at the same height as the car, so that acceleration is
+**horizontal**.
+
+Now list the forces. The road pushes on the tyres perpendicular to the road
+surface — that is the *normal force* $N$, where "normal" is the geometry word for
+perpendicular. Gravity pulls down with $mg$. Leave friction out for now.
+
+Here is the move that decides everything. When you did blocks on ramps you tilted
+your axes to lie along the slope, because the acceleration was along the slope.
+That reason is gone. Here the acceleration is horizontal, so use horizontal and
+vertical axes and let $N$ be the vector you break apart.
+
+$N$ is perpendicular to a surface tilted by $\theta$ from the horizontal, so $N$
+itself is tilted by $\theta$ from the vertical. Its vertical component is
+$N\cos\theta$ and its horizontal component is $N\sin\theta$, pointing toward the
+inside of the curve. Vertically nothing accelerates, so the vertical forces
+cancel. Horizontally, the only horizontal force is that component of $N$, and it
+must supply the whole $mv^2/r$:
+
+$$N\cos\theta = mg, \qquad N\sin\theta = \frac{mv^2}{r}$$
+
+<Figure caption={<><b>Figure 1.</b> Drag the bank angle. Notice that $N$ always
+points perpendicular to the surface, and that its vertical part never changes —
+it is always exactly $mg$ — while its inward part grows with the angle. That
+inward part is the entire reason a banked curve works.</>}>
+  <Sim id="banked-curves-fbd" />
+</Figure>
 
 <Aside label="Where this goes wrong" warn>
-  Tilting the axes to lie along the incline, as you would for a block sliding
-  down a ramp. Do not. The acceleration here is horizontal, pointing at the
-  centre of the circle, so use horizontal and vertical axes and let $N$ be the
-  vector you decompose. Choosing axes along the acceleration is the rule; on a
-  banked curve the acceleration is not along the slope.
+  Tilting the axes to lie along the incline, the way you would for a block
+  sliding down a ramp. The rule you learned is "put an axis along the
+  acceleration", and on a banked curve the acceleration is horizontal, not down
+  the slope. Tilted axes are not wrong here, but they force you to split the
+  acceleration into two components and most people drop one. Horizontal and
+  vertical is the safe default.
 </Aside>
 
-## Design speed
+## The design speed
 
-Divide the two equations and $N$ and $m$ both vanish:
+You have two equations and two unknowns you did not ask for, $N$ and $m$. Divide
+the second by the first and both disappear at once, because $N$ appears in each
+and so does $m$:
 
-$$\tan\theta = \frac{v^2}{rg}$$
+$$
 
-This is the **design speed** of the bank: the one speed at which the curve can
-be taken with no friction at all. Highway engineers pick $\theta$ for the
-expected traffic speed, so an icy banked ramp is safe at the posted speed and
-only at that speed.
+\frac{N\sin\theta}{N\cos\theta} = \frac{mv^2/r}{mg} \quad\Longrightarrow\quad
+\boxed{\tan\theta = \frac{v^2}{rg}}
 
-Go faster and the horizontal component of $N$ is not enough; you need friction
-pointing down the slope to make up the difference. Go slower and you slide
-*inward*, needing friction pointing up the slope. That is the useful mental
-picture: friction is a correction that covers the mismatch between your actual
-speed and the design speed, and it is bounded by $\mu_s N$ in either direction.
-So a real banked curve has a range of safe speeds around $\sqrt{rg\tan\theta}$,
-not a single value.
+$$
 
-Note that mass dropped out. A loaded truck and a motorcycle have the same
-design speed on the same curve.
+There is no mass in it. A motorcycle and a loaded truck behave identically on the
+same bank, which is why engineers can post one number for everyone. And for a
+given track — given $\theta$ and $r$ — exactly one speed satisfies it:
+
+$$v_{\text{design}} = \sqrt{rg\tan\theta}$$
+
+This is the **design speed**. At that speed and only at that speed, a frictionless
+banked curve holds you. Go faster and $N\sin\theta$ is too small to bend your path
+tightly enough, so you drift outward and up the bank. Go slower and $N\sin\theta$
+is more inward force than you need, so you slide down the bank toward the centre.
+On ice, both of those happen. On tarmac, friction covers the gap, and the next
+section is about how much gap it can cover.
+
+**Worked example 1.** A curve of radius $80\;\mathrm{m}$ is to be banked so a car
+at $20\;\mathrm{m/s}$ needs no friction. Find the angle.
+
+Write down the relation before anything else, because it is the only one you have:
+$\tan\theta = v^2/(rg)$. Then
+
+$$\tan\theta = \frac{(20)^2}{(80)(9.8)} = \frac{400}{784} = 0.5102$$
+
+$$\theta = \arctan(0.5102) = 27.0^\circ$$
+
+Sanity check: a higher design speed would grow the numerator and so the angle.
+Faster corners need steeper banks, which matches every racetrack you have seen.
 
 <QuickCheck
-  question="A car takes a frictionless banked curve at less than the design speed. It tends to slide:"
-  options={["Outward, up the bank", "Inward, down the bank", "Neither, since the bank always balances", "Backward along the road"]}
-  answer={1}
-  explanation="Below the design speed the inward component of the normal force exceeds the required mv²/r, so the excess pushes the car down the slope toward the centre."
+  question="A frictionless curve is banked for 25 m/s. A truck twice as heavy as a car takes the same curve. The truck's design speed is:"
+  options={["Also 25 m/s", "Higher, because it is heavier", "Lower, because it is heavier", "Impossible to say without the radius"]}
+  answer={0}
+  explanation="Mass cancels when you divide the two equations, so tan theta = v squared over rg contains no m at all. Both vehicles have the same design speed on the same curve."
 />
 
-## The conical pendulum
+## Friction as the correction term
 
-A mass on a string of length $L$ swings in a horizontal circle while the string
-traces out a cone at angle $\theta$ from the vertical. The forces are gravity
-and tension only, and the analysis is the same shape as the banked curve with
-$T$ in place of $N$:
+Real roads have grip, so a real banked curve works over a *range* of speeds.
 
-$$T\sin\theta = \frac{mv^2}{r}, \qquad T\cos\theta = mg$$
+Friction acts along the surface, up the slope or down it, depending on which way
+you would otherwise slide. Above the design speed you tend to ride up the bank, so
+static friction acts **down** the slope. Below it you tend to slide down, so
+friction acts **up** the slope. Either way the most it can give is $f = \mu_s N$.
 
-with $r = L\sin\theta$. Dividing gives $\tan\theta = v^2/(rg)$ again. Writing it
-in terms of the period is more revealing — substitute $v = 2\pi r/T_{\text{per}}$
-and the radius cancels:
+Take the fast case. Let up-the-slope be the positive direction along the surface,
+and set up the two components as before, with $f$ pointing down the slope:
 
-$$T_{\text{per}} = 2\pi\sqrt{\frac{L\cos\theta}{g}}$$
+$$\text{vertical:}\quad N\cos\theta - f\sin\theta = mg$$
+$$\text{horizontal:}\quad N\sin\theta + f\cos\theta = \frac{mv^2}{r}$$
 
-The vertical height of the pivot above the circle, $L\cos\theta$, is what sets
-the period — not the radius, not the speed, not the mass. Push the cone wider
-and the mass moves faster but takes less time per revolution. As $\theta \to
-90^\circ$ the required speed diverges: the string can never reach horizontal,
-because a horizontal string has no vertical component to hold up the weight.
+Check each term against the picture. $f$ points down the slope, which is down and
+outward, so it has a downward vertical part $f\sin\theta$ (hence the minus sign
+when it joins $N\cos\theta$ on the left) and an inward horizontal part
+$f\cos\theta$ (hence the plus). At the maximum speed the tyres are on the verge of
+sliding, so $f = \mu_s N$. Substitute that and divide the second equation by the
+first; $N$ cancels again, and so does $m$:
+
+$$\frac{\sin\theta + \mu_s\cos\theta}{\cos\theta - \mu_s\sin\theta} = \frac{v^2}{rg}$$
+
+Divide top and bottom by $\cos\theta$ to make it readable:
+
+$$v_{\max} = \sqrt{rg\,\frac{\tan\theta + \mu_s}{1 - \mu_s\tan\theta}}$$
+
+The slow case is the same calculation with $f$ flipped, which flips the sign of
+$\mu_s$ in both places:
+
+$$v_{\min} = \sqrt{rg\,\frac{\tan\theta - \mu_s}{1 + \mu_s\tan\theta}}$$
+
+Both formulas collapse to $\sqrt{rg\tan\theta}$ when $\mu_s = 0$, as they must.
+And if $\mu_s \ge \tan\theta$ the quantity under the root in $v_{\min}$ goes
+negative, which is the algebra's way of saying there is no minimum: friction alone
+can hold the car at rest on that slope, so you can crawl round at any speed you
+like, even zero.
+
+<Figure caption={<><b>Figure 2.</b> The shaded band is the set of speeds that
+hold. Push the bank angle up from zero and watch the band slide right and widen.
+Then set the friction to 0 and watch it collapse to a single line at the design
+speed. Try angle 45 degrees with friction 0.9 and see the upper limit run off the
+scale.</>}>
+  <Sim id="banked-curves-lab" />
+</Figure>
+
+**Worked example 2.** A track of radius $90\;\mathrm{m}$ is banked at $12^\circ$
+with $\mu_s = 0.50$. What is the maximum speed?
+
+Get the pieces first. $\tan 12^\circ = 0.2126$, and $rg = (90)(9.8) = 882$.
+
+$$
+
+\frac{\tan\theta + \mu_s}{1 - \mu_s\tan\theta} = \frac{0.2126 + 0.50}{1 - (0.50)(0.2126)}
+= \frac{0.7126}{0.8937} = 0.7973
+
+$$
+
+$$v_{\max} = \sqrt{(882)(0.7973)} = \sqrt{703.2} = 26.5\;\mathrm{m/s}$$
+
+Worth comparing: the design speed here is $\sqrt{882 \times 0.2126} = 13.7\;
+\mathrm{m/s}$. Friction nearly doubles what the bank alone can do.
+
+<Aside label="When the formula blows up">
+  If $\mu_s\tan\theta \ge 1$ the denominator in $v_{\max}$ hits zero or turns
+  negative, and the formula reports an infinite maximum speed. That is not a bug.
+  On a steep enough, grippy enough bank, pressing harder into the road increases
+  $N$, which increases the friction available, which lets you go faster, which
+  presses you harder still. Nothing in the model stops it. In reality the tyres or
+  the driver give out first. A track at $45^\circ$ with $\mu_s = 0.90$ gives
+  $v_{\max} = \sqrt{(50)(9.8)(1.9/0.1)} = 96\;\mathrm{m/s}$, already absurd.
+</Aside>
+
+**Worked example 3.** A $1200\;\mathrm{kg}$ car creeps at $10\;\mathrm{m/s}$
+around a curve of radius $70\;\mathrm{m}$ banked at $18^\circ$. How large is the
+friction force on it, and which way does it point?
+
+This one is different in kind. Nothing is on the verge of sliding, so $f \ne \mu_s
+N$ — the friction is whatever it needs to be, and you have to solve for it. First
+decide the direction. The design speed is $\sqrt{(70)(9.8)\tan 18^\circ} =
+\sqrt{686 \times 0.3249} = 14.9\;\mathrm{m/s}$. The car is slower than that, so it
+tends to slide down the bank and friction points up the slope.
+
+Here the tilted axes finally pay off, because they let you get $f$ in one line
+without ever finding $N$. Take the axis pointing up the slope. Along that axis,
+gravity contributes $-mg\sin\theta$, friction contributes $+f$, and $N$ contributes
+nothing. The acceleration is horizontal with magnitude $v^2/r$ pointing inward,
+and its component along the up-slope direction is $-(v^2/r)\cos\theta$, since
+inward is partly down the slope. So
+
+$$f - mg\sin\theta = -m\frac{v^2}{r}\cos\theta$$
+
+$$f = mg\sin\theta - m\frac{v^2}{r}\cos\theta$$
+
+Numbers. $\sin 18^\circ = 0.3090$, $\cos 18^\circ = 0.9511$, and $v^2/r =
+100/70 = 1.429\;\mathrm{m/s^2}$.
+
+$$f = (1200)(9.8)(0.3090) - (1200)(1.429)(0.9511) = 3634 - 1630 = 2004\;\mathrm{N}$$
+
+Positive, so it does point up the slope, confirming the guess. And it is well
+under $\mu_s N$ for any ordinary road, so the car holds.
+
+<QuickCheck
+  question="On a banked curve with friction, a car travels faster than the design speed. Static friction on the car points:"
+  options={["Up the slope", "Down the slope", "Horizontally inward", "There is no friction above the design speed"]}
+  answer={1}
+  explanation="Above the design speed the inward push from the normal force is too small, so the car tends to ride up the bank. Static friction opposes that tendency and therefore acts down the slope, adding its own inward component."
+/>
+
+## The conical pendulum is the same problem
+
+Tie a ball to a string, whirl it so it travels a horizontal circle while the
+string sweeps out a cone at angle $\theta$ from the vertical. Two forces act:
+gravity $mg$ down, and tension $T$ along the string — one vertical, one tilted by
+$\theta$ from the vertical. It is the banked curve's free body diagram with $T$
+written where $N$ was, so the equations copy across with no new thinking:
+
+$$T\cos\theta = mg, \qquad T\sin\theta = \frac{mv^2}{r}$$
+
+with one extra piece of geometry — the radius is not given to you, it is set by
+the string. If the string has length $L$, the ball is a horizontal distance
+$r = L\sin\theta$ from the axis, and hangs a vertical distance $h = L\cos\theta$
+below the pivot.
+
+Dividing gives $\tan\theta = v^2/(rg)$ again, and substituting $r = L\sin\theta$
+lets you solve for the speed:
+
+$$v^2 = rg\tan\theta = gL\sin\theta\tan\theta$$
+
+The tension comes straight from the vertical equation alone: $T = mg/\cos\theta$.
+That grows without limit as $\theta$ approaches $90^\circ$, which is the precise
+reason you can never whirl a string fully horizontal. A horizontal string has no
+upward component at all, so nothing holds the weight up.
+
+The prettiest result is the period. Substitute $v = 2\pi r / T_{\text{per}}$ into
+$\tan\theta = v^2/(rg)$:
+
+$$\tan\theta = \frac{4\pi^2 r^2}{T_{\text{per}}^2 \, r g} = \frac{4\pi^2 r}{T_{\text{per}}^2 g}$$
+
+Now put in $r = L\sin\theta$ and use $\tan\theta = \sin\theta/\cos\theta$. The
+$\sin\theta$ cancels off both sides:
+
+$$T_{\text{per}} = 2\pi\sqrt{\frac{L\cos\theta}{g}} = 2\pi\sqrt{\frac{h}{g}}$$
+
+The period depends only on $h$, the height of the pivot above the circle. Not on
+the mass, not on the radius, not on the speed. Two pendulums of the same length
+hanging at the same angle, one with a marble and one with a brick, come round
+together.
+
+<Figure caption={<><b>Figure 3.</b> Push the angle out toward 80 degrees and
+watch the readout: the speed climbs, the tension climbs faster, and the period
+falls. Then change the mass and confirm that the speed and period do not move at
+all — only the tension does.</>}>
+  <Sim id="banked-curves-cone" />
+</Figure>
+
+**Worked example 4.** A $0.60\;\mathrm{kg}$ ball on a $1.2\;\mathrm{m}$ string is
+swung as a conical pendulum. The string snaps at $20\;\mathrm{N}$. What is the
+fastest the ball can go?
+
+You are not given the angle, which is the whole difficulty. But tension and angle
+are locked together by the vertical equation, so the breaking tension fixes the
+angle:
+
+$$\cos\theta = \frac{mg}{T} = \frac{(0.60)(9.8)}{20} = \frac{5.88}{20} = 0.2940$$
+
+so $\theta = 72.9^\circ$ and $\sin\theta = 0.9558$. The radius follows:
+
+$$r = L\sin\theta = (1.2)(0.9558) = 1.147\;\mathrm{m}$$
+
+Now the horizontal equation, which you have not used yet:
+
+$$\frac{mv^2}{r} = T\sin\theta = (20)(0.9558) = 19.12\;\mathrm{N}$$
+
+$$
+
+v^2 = \frac{(19.12)(1.147)}{0.60} = \frac{21.93}{0.60} = 36.55 \quad\Longrightarrow\quad
+v = 6.05\;\mathrm{m/s}
+
+$$
+
+The pattern is worth naming: one equation gave the angle, geometry gave the
+radius, the other equation gave the speed. Almost every problem in this topic is
+that three-step chain in some order.
+
+<Aside label="Which angle did they give you" warn>
+  Half the mistakes in this topic are about the angle, not the physics. The
+  $\theta$ in $\tan\theta = v^2/(rg)$ is measured from the horizontal for a
+  surface and from the vertical for a string — and those are the same $\theta$,
+  because a surface tilted $\theta$ from horizontal has its normal tilted $\theta$
+  from vertical. Cones and funnels are where this bites. If a problem describes a
+  cone by its half-angle at the apex, measured from the vertical axis, the surface
+  tilt from horizontal is $90^\circ$ minus that. Sketch it and mark which angle
+  the normal force makes with the vertical before writing a single equation.
+</Aside>
+
+## A puck in a funnel, an aeroplane in a turn
+
+The reason this topic is worth a lesson of its own is that the same two-equation
+skeleton keeps reappearing in disguise.
+
+A puck sliding on the smooth inside of a funnel has exactly two forces on it: its
+weight, and a normal force from the wall pointing up and inward. That is the
+banked curve with the road replaced by the funnel wall, so $v = \sqrt{rg\tan\theta}$
+with $\theta$ the tilt of the wall.
+
+An aeroplane in a level turn banks its wings by $\theta$. The lift force is
+perpendicular to the wings, so it tilts by $\theta$ from the vertical. Two forces:
+lift and weight. Same equations, with $L$ in place of $N$. For a plane at
+$150\;\mathrm{m/s}$ banked at $30^\circ$,
+
+$$
+
+r = \frac{v^2}{g\tan\theta} = \frac{(150)^2}{(9.8)(0.5774)} = \frac{22500}{5.658}
+= 3977\;\mathrm{m}
+
+$$
+
+which is why airliners need a great deal of sky to turn around in.
+
+A bead on the inside of a smooth cone, a motorcyclist leaning into a corner — all
+the same. Two forces, one vertical, one tilted, and a horizontal acceleration.
+
+## How to recognise this kind of problem
+
+Reach for the banked-curve method when all of these are true:
+
+- Something moves in a **horizontal circle** at constant speed. Horizontal is the
+  key word. A ball on a vertical circle is a different lesson, because there the
+  acceleration is not horizontal.
+- Exactly one force is **tilted** out of the vertical — a normal force from a
+  sloped surface, a string tension, an aerodynamic lift. Everything else is
+  gravity.
+- The problem hands you an angle, or asks for one.
+
+When you see that, write these three lines on blank paper before you do anything
+else:
+
+1. Vertical: the tilted force's vertical component equals $mg$.
+2. Horizontal: its horizontal component equals $mv^2/r$.
+3. Geometry: what is $r$? Given directly on a road, but $r = L\sin\theta$ on a
+   string, and it may need a sketch inside a cone.
+
+Then decide which of the four quantities $\theta$, $v$, $r$, $T$ or $N$ you were
+given and which you want, and divide or substitute accordingly. If friction is
+mentioned, ask first whether the problem says "maximum", "minimum" or "on the
+verge" — those mean $f = \mu_s N$ and you use the $v_{\max}$ or $v_{\min}$
+formula. If it gives you an actual speed and asks for the friction force, friction
+is an unknown you solve for, as in worked example 3.
+
+Everything here came from one idea: a force tilted out of the vertical does two
+jobs at once, holding the weight up and bending the path. In the [next
+lesson](/guide/gravitation) that tilted force is replaced by gravity itself, and
+the circle becomes an orbit — but the two equations you write down first will look
+very familiar.

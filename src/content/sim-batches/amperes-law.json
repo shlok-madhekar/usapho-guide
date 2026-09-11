@@ -1,0 +1,82 @@
+[
+  {
+    "id": "amperes-law-thick-wire",
+    "title": "Field in and around a thick wire",
+    "caption": "Slide the probe radius through the surface and watch the field turn over.",
+    "height": 260,
+    "params": [
+      {
+        "key": "current",
+        "label": "Current",
+        "unit": "A",
+        "min": 1,
+        "max": 30,
+        "step": 0.5,
+        "value": 10
+      },
+      {
+        "key": "radius",
+        "label": "Wire radius",
+        "unit": "mm",
+        "min": 1,
+        "max": 5,
+        "step": 0.1,
+        "value": 2
+      },
+      {
+        "key": "probe",
+        "label": "Loop radius",
+        "unit": "mm",
+        "min": 0.2,
+        "max": 14,
+        "step": 0.1,
+        "value": 1
+      }
+    ],
+    "draw": "\nvar mu0 = 4 * Math.PI * 1e-7;\nvar I = p.current, a = p.radius / 1000, rp = p.probe / 1000;\nvar Bsurf = mu0 * I / (2 * Math.PI * a);\nvar B = rp <= a ? mu0 * I * rp / (2 * Math.PI * a * a) : mu0 * I / (2 * Math.PI * rp);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\nctx.textBaseline = \"alphabetic\";\n\n// ---- left panel: cross-section ----\nvar cx = W * 0.24, cy = H * 0.52;\nvar rmax = a * 3;                       // metres shown across the panel\nvar pix = Math.min(W * 0.20, H * 0.38) / rmax;   // pixels per metre\nvar wireR = a * pix;\n\nctx.strokeStyle = C.rule;\nctx.fillStyle = C.faint;\nctx.beginPath(); ctx.arc(cx, cy, wireR, 0, Math.PI * 2); ctx.fill(); ctx.stroke();\n\n// current-out-of-page dots\nctx.fillStyle = C.figure;\nfor (var ix = -2; ix <= 2; ix++) {\n  for (var iy = -2; iy <= 2; iy++) {\n    var dx = ix * wireR * 0.42, dy = iy * wireR * 0.42;\n    if (dx * dx + dy * dy < wireR * wireR * 0.75) {\n      ctx.beginPath(); ctx.arc(cx + dx, cy + dy, 1.6, 0, Math.PI * 2); ctx.fill();\n    }\n  }\n}\n\n// the Amperian circle\nvar pr = rp * pix;\nctx.strokeStyle = C.accent;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.arc(cx, cy, pr, 0, Math.PI * 2); ctx.stroke();\nctx.setLineDash([]);\n\n// a marker running round the loop, faster where B is bigger\nvar speed = 0.7 + 5.0 * (B / (Bsurf + 1e-30));\nvar ang = (t * speed) % (Math.PI * 2);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(cx + pr * Math.cos(ang), cy + pr * Math.sin(ang), 4, 0, Math.PI * 2); ctx.fill();\n\n// B arrow, tangent to the loop at the marker\nvar tx = -Math.sin(ang), ty = Math.cos(ang);\nvar hx = cx + pr * Math.cos(ang), hy = cy + pr * Math.sin(ang);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(hx, hy); ctx.lineTo(hx + tx * 18, hy + ty * 18); ctx.stroke();\nctx.lineWidth = 1;\n\nctx.fillStyle = C.ink;\nctx.fillText(\"current I out of page\", cx - wireR, cy + Math.min(W * 0.20, H * 0.38) + 16);\nctx.fillStyle = C.accent;\nctx.fillText(\"Amperian loop\", cx - wireR, cy - Math.min(W * 0.20, H * 0.38) - 6);\n\n// ---- right panel: B against r ----\nvar gx0 = W * 0.50, gx1 = W - 14, gy0 = 18, gy1 = H - 30;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(gx0, gy0); ctx.lineTo(gx0, gy1); ctx.lineTo(gx1, gy1); ctx.stroke();\n\nvar Bpeak = Bsurf * 1.15;\nvar GX = function (r) { return gx0 + (r / rmax) * (gx1 - gx0); };\nvar GY = function (b) { return gy1 - (b / Bpeak) * (gy1 - gy0); };\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var k = 0; k <= 160; k++) {\n  var r = rmax * k / 160;\n  var bv = r <= a ? mu0 * I * r / (2 * Math.PI * a * a) : mu0 * I / (2 * Math.PI * r);\n  if (r === 0) { ctx.moveTo(GX(0), GY(0)); } else { ctx.lineTo(GX(r), GY(bv)); }\n}\nctx.stroke();\nctx.lineWidth = 1;\n\n// surface line\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(GX(a), gy0); ctx.lineTo(GX(a), gy1); ctx.stroke();\nctx.setLineDash([]);\n\n// probe marker on the curve\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(GX(rp), GY(B), 4, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"B\", gx0 + 4, gy0 + 10);\nctx.fillText(\"r\", gx1 - 10, gy1 + 14);\nctx.fillStyle = C.faint;\nctx.fillText(\"surface\", GX(a) + 3, gy0 + 24);\nctx.fillStyle = C.ink;\nctx.fillText(\"rises as r inside, falls as 1/r outside\", gx0, H - 8);\n\nout.note = \"r = \" + p.probe.toFixed(1) + \" mm, B = \" + (B * 1e6).toFixed(1) +\n  \" microtesla  (surface value \" + (Bsurf * 1e6).toFixed(1) + \")\";\n"
+  },
+  {
+    "id": "amperes-law-solenoid-loop",
+    "title": "The rectangular loop inside a solenoid",
+    "caption": "Four sides, and only one of them contributes to the circulation.",
+    "height": 240,
+    "params": [],
+    "draw": "\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\nctx.textBaseline = \"alphabetic\";\n\nvar x0 = W * 0.10, x1 = W * 0.90;\nvar yTop = H * 0.30, yBot = H * 0.62;\n\n// solenoid walls: rows of turns, current out of page on top, into page on bottom\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(x0, yTop); ctx.lineTo(x1, yTop); ctx.stroke();\nctx.beginPath(); ctx.moveTo(x0, yBot); ctx.lineTo(x1, yBot); ctx.stroke();\n\nvar n = 14;\nfor (var i = 0; i < n; i++) {\n  var x = x0 + (x1 - x0) * (i + 0.5) / n;\n  // top: dot (out of page)\n  ctx.strokeStyle = C.figure; ctx.fillStyle = C.figure;\n  ctx.beginPath(); ctx.arc(x, yTop, 4.5, 0, Math.PI * 2); ctx.stroke();\n  ctx.beginPath(); ctx.arc(x, yTop, 1.6, 0, Math.PI * 2); ctx.fill();\n  // bottom: cross (into page)\n  ctx.beginPath(); ctx.arc(x, yBot, 4.5, 0, Math.PI * 2); ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(x - 3.2, yBot - 3.2); ctx.lineTo(x + 3.2, yBot + 3.2);\n  ctx.moveTo(x + 3.2, yBot - 3.2); ctx.lineTo(x - 3.2, yBot + 3.2);\n  ctx.stroke();\n}\n\n// interior field arrows\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.5;\nfor (var j = 0; j < 5; j++) {\n  var ax = x0 + (x1 - x0) * (0.12 + 0.19 * j);\n  var ay = (yTop + yBot) / 2;\n  ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ax + 34, ay); ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(ax + 34, ay); ctx.lineTo(ax + 27, ay - 4);\n  ctx.lineTo(ax + 27, ay + 4); ctx.closePath();\n  ctx.fillStyle = C.accent; ctx.fill();\n}\nctx.lineWidth = 1;\n\n// the Amperian rectangle\nvar rx0 = W * 0.32, rx1 = W * 0.62;\nvar ryIn = (yTop + yBot) / 2 + 14;\nvar ryOut = H * 0.13;\nctx.strokeStyle = C.ink;\nctx.setLineDash([5, 4]);\nctx.strokeRect(rx0, ryOut, rx1 - rx0, ryIn - ryOut);\nctx.setLineDash([]);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"1  inside, along B: gives B L\", rx0 + 6, ryIn - 6);\nctx.fillText(\"3  outside: B is about zero\", rx0 + 6, ryOut - 6);\nctx.save();\nctx.translate(rx0 - 6, (ryIn + ryOut) / 2);\nctx.rotate(-Math.PI / 2);\nctx.textAlign = \"center\";\nctx.fillText(\"2, 4  perpendicular to B: zero\", 0, 0);\nctx.restore();\nctx.textAlign = \"left\";\n\nctx.fillStyle = C.figure;\nctx.fillText(\"turns carrying I, n per metre\", x0, yBot + 26);\nctx.fillStyle = C.accent;\nctx.fillText(\"B = mu0 n I, uniform inside\", x0, H - 10);\nctx.fillStyle = C.ink;\nctx.fillText(\"loop encloses n L turns\", rx1 + 8, ryOut + 14);\n"
+  },
+  {
+    "id": "amperes-law-coax",
+    "title": "Coaxial cable lab",
+    "caption": "Change the two currents and see which regions of the field notice.",
+    "height": 260,
+    "params": [
+      {
+        "key": "inner",
+        "label": "Core current (out)",
+        "unit": "A",
+        "min": 0,
+        "max": 12,
+        "step": 0.5,
+        "value": 8
+      },
+      {
+        "key": "shield",
+        "label": "Shield current (back)",
+        "unit": "A",
+        "min": 0,
+        "max": 12,
+        "step": 0.5,
+        "value": 8
+      },
+      {
+        "key": "probe",
+        "label": "Loop radius",
+        "unit": "mm",
+        "min": 0.2,
+        "max": 8,
+        "step": 0.05,
+        "value": 2
+      }
+    ],
+    "draw": "\nvar mu0 = 4 * Math.PI * 1e-7;\nvar Iin = p.inner, Ish = p.shield, rp = p.probe / 1000;\nvar a = 0.001, b = 0.003, c = 0.005;   // metres: inner radius, shield inner, shield outer\n\nfunction enc(r) {\n  var e = 0;\n  e += r >= a ? Iin : Iin * (r * r) / (a * a);\n  if (r > b) {\n    var f = r >= c ? 1 : (r * r - b * b) / (c * c - b * b);\n    e -= Ish * f;\n  }\n  return e;\n}\nfunction field(r) { return r <= 0 ? 0 : mu0 * enc(r) / (2 * Math.PI * r); }\n\nvar B = field(rp);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\nctx.textBaseline = \"alphabetic\";\n\n// ---- left: cross-section ----\nvar cx = W * 0.22, cy = H * 0.50;\nvar rmax = 0.008;\nvar pix = Math.min(W * 0.18, H * 0.40) / rmax;\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(cx, cy, c * pix, 0, Math.PI * 2); ctx.stroke();\nctx.beginPath(); ctx.arc(cx, cy, b * pix, 0, Math.PI * 2); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(cx, cy, a * pix, 0, Math.PI * 2); ctx.fill();\n\n// shield hatching\nctx.strokeStyle = C.faint;\nfor (var k = 0; k < 24; k++) {\n  var th = k * Math.PI * 2 / 24;\n  ctx.beginPath();\n  ctx.moveTo(cx + b * pix * Math.cos(th), cy + b * pix * Math.sin(th));\n  ctx.lineTo(cx + c * pix * Math.cos(th), cy + c * pix * Math.sin(th));\n  ctx.stroke();\n}\n\n// Amperian circle with a travelling marker\nvar pr = rp * pix;\nctx.strokeStyle = C.accent;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.arc(cx, cy, pr, 0, Math.PI * 2); ctx.stroke();\nctx.setLineDash([]);\nvar dir = B >= 0 ? 1 : -1;\nvar ang = dir * (t * 1.6) % (Math.PI * 2);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(cx + pr * Math.cos(ang), cy + pr * Math.sin(ang), 4, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"core  shield  gap\", cx - c * pix, cy + Math.min(W * 0.18, H * 0.40) + 18);\n\n// ---- right: B(r) ----\nvar gx0 = W * 0.46, gx1 = W - 14, gy0 = 18, gy1 = H - 30;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(gx0, gy0); ctx.lineTo(gx0, gy1); ctx.lineTo(gx1, gy1); ctx.stroke();\n\nvar peak = 0;\nfor (var k2 = 1; k2 <= 200; k2++) {\n  var rr = rmax * k2 / 200;\n  var v = Math.abs(field(rr));\n  if (v > peak) peak = v;\n}\nif (peak <= 0) peak = 1e-9;\npeak = peak * 1.15;\n\nvar GX = function (r) { return gx0 + (r / rmax) * (gx1 - gx0); };\nvar GY = function (bv) { return gy1 - (bv / peak) * (gy1 - gy0); };\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var k3 = 1; k3 <= 200; k3++) {\n  var r3 = rmax * k3 / 200;\n  var b3 = Math.abs(field(r3));\n  if (k3 === 1) { ctx.moveTo(GX(r3), GY(b3)); } else { ctx.lineTo(GX(r3), GY(b3)); }\n}\nctx.stroke();\nctx.lineWidth = 1;\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(GX(b), gy0); ctx.lineTo(GX(b), gy1); ctx.stroke();\nctx.beginPath(); ctx.moveTo(GX(c), gy0); ctx.lineTo(GX(c), gy1); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(GX(rp), GY(Math.abs(B)), 4, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"B\", gx0 + 4, gy0 + 10);\nctx.fillText(\"r\", gx1 - 10, gy1 + 14);\nctx.fillStyle = C.faint;\nctx.fillText(\"3 mm\", GX(b) + 3, gy0 + 24);\nctx.fillText(\"5 mm\", GX(c) + 3, gy0 + 38);\nctx.fillStyle = C.ink;\nctx.fillText(\"outside, only the net current matters\", gx0, H - 8);\n\nout.note = \"r = \" + p.probe.toFixed(2) + \" mm: enclosed \" + enc(rp).toFixed(2) +\n  \" A, B = \" + (Math.abs(B) * 1e6).toFixed(1) + \" microtesla\";\n"
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "projectiles-independence",
+    "title": "Two balls, one clock",
+    "caption": "One ball is dropped, the other is launched horizontally at the same instant from the same height.",
+    "height": 240,
+    "params": [
+      {
+        "key": "speed",
+        "label": "Horizontal launch speed",
+        "unit": "m/s",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "value": 15
+      },
+      {
+        "key": "gravity",
+        "label": "Gravity",
+        "unit": "m/s^2",
+        "min": 1.6,
+        "max": 20,
+        "step": 0.1,
+        "value": 9.8
+      }
+    ],
+    "draw": "var g = p.gravity, v0 = p.speed;\nvar hDrop = 45;\nvar pad = 30;\nvar maxX = Math.max(v0 * Math.sqrt(2 * hDrop / g) * 1.25, 20);\nvar sx = (W - pad * 2) / maxX;\nvar sy = (H - pad * 2) / (hDrop * 1.12);\nfunction X(x) { return pad + x * sx; }\nfunction Y(y) { return H - pad - y * sy; }\n\nvar tFall = Math.sqrt(2 * hDrop / g);\nvar now = t % (tFall + 0.8);\nvar cur = Math.min(now, tFall);\nvar yNow = hDrop - 0.5 * g * cur * cur;\nvar xNow = v0 * cur;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\n// ground\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(0, Y(0)); ctx.lineTo(W, Y(0)); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"ground\", W - 54, Y(0) + 15);\n\n// equal-height tie line\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(0), Y(yNow)); ctx.lineTo(X(xNow), Y(yNow)); ctx.stroke();\nctx.setLineDash([]);\n\n// dropped ball path\nctx.strokeStyle = C.rule;\nctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(X(0), Y(hDrop)); ctx.lineTo(X(0), Y(0)); ctx.stroke();\nctx.setLineDash([]);\n\n// launched ball full path\nctx.strokeStyle = C.rule;\nctx.setLineDash([4, 5]);\nctx.beginPath();\nfor (var s = 0; s <= tFall; s += tFall / 100) {\n  var xx = v0 * s, yy = hDrop - 0.5 * g * s * s;\n  if (s === 0) ctx.moveTo(X(xx), Y(yy)); else ctx.lineTo(X(xx), Y(yy));\n}\nctx.stroke();\nctx.setLineDash([]);\n\n// balls\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(X(0), Y(yNow), 5, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(xNow), Y(yNow), 5, 0, Math.PI * 2); ctx.fill();\n\n// labels\nctx.fillStyle = C.figure;\nctx.fillText(\"dropped\", X(0) + 8, Y(hDrop) - 8);\nctx.fillStyle = C.accent;\nctx.fillText(\"launched sideways\", X(0) + 8, Y(hDrop) - 24);\nctx.fillStyle = C.ink;\nctx.fillText(\"same height, always\", X(0) + 8, Y(yNow) - 9);\n\nout.note = \"t = \" + cur.toFixed(2) + \" s, height \" + yNow.toFixed(1) + \" m for BOTH balls, horizontal gap \" + xNow.toFixed(1) + \" m\";"
+  },
+  {
+    "id": "projectiles-slope",
+    "title": "Landing on a slope",
+    "caption": "Fire from the foot of an incline and read off the distance measured along the slope.",
+    "height": 260,
+    "params": [
+      {
+        "key": "speed",
+        "label": "Launch speed",
+        "unit": "m/s",
+        "min": 5,
+        "max": 40,
+        "step": 1,
+        "value": 25
+      },
+      {
+        "key": "angle",
+        "label": "Launch angle above horizontal",
+        "unit": "deg",
+        "min": -40,
+        "max": 120,
+        "step": 1,
+        "value": 50
+      },
+      {
+        "key": "slope",
+        "label": "Slope angle (negative is downhill)",
+        "unit": "deg",
+        "min": -40,
+        "max": 40,
+        "step": 1,
+        "value": 20
+      }
+    ],
+    "draw": "var g = 9.8;\nvar v0 = p.speed;\nvar th = p.angle * Math.PI / 180;\nvar ph = p.slope * Math.PI / 180;\n\n// time to land on the line y = x tan(phi)\nvar num = 2 * v0 * (Math.sin(th) - Math.cos(th) * Math.tan(ph));\nvar tLand = num / g;\nvar valid = tLand > 0.05;\nif (!valid) tLand = 0.6;\n\nvar xL = v0 * Math.cos(th) * tLand;\nvar yL = v0 * Math.sin(th) * tLand - 0.5 * g * tLand * tLand;\nvar L = xL / Math.cos(ph);\n\nvar pad = 34;\nvar xs = [0, xL], ys = [0, yL];\nfor (var s = 0; s <= tLand; s += tLand / 40) {\n  xs.push(v0 * Math.cos(th) * s);\n  ys.push(v0 * Math.sin(th) * s - 0.5 * g * s * s);\n}\nvar xmin = 0, xmax = 1, ymin = 0, ymax = 1;\nfor (var i = 0; i < xs.length; i++) {\n  if (xs[i] > xmax) xmax = xs[i];\n  if (xs[i] < xmin) xmin = xs[i];\n  if (ys[i] > ymax) ymax = ys[i];\n  if (ys[i] < ymin) ymin = ys[i];\n}\nxmax = xmax * 1.1 + 2;\nxmin = xmin * 1.1 - 2;\nymax = ymax * 1.2 + 2;\nymin = ymin * 1.2 - 2;\nvar sx = (W - pad * 2) / (xmax - xmin);\nvar sy = (H - pad * 2) / (ymax - ymin);\nvar sc = Math.min(sx, sy);\nfunction X(x) { return pad + (x - xmin) * sc; }\nfunction Y(y) { return H - pad - (y - ymin) * sc; }\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\n// horizontal reference\nctx.strokeStyle = C.faint;\nctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(0, Y(0)); ctx.lineTo(W, Y(0)); ctx.stroke();\nctx.setLineDash([]);\n\n// the slope itself\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(X(xmin), Y(xmin * Math.tan(ph)));\nctx.lineTo(X(xmax), Y(xmax * Math.tan(ph)));\nctx.stroke();\nctx.lineWidth = 1;\n\n// full trajectory\nctx.strokeStyle = C.rule;\nctx.setLineDash([4, 5]);\nctx.beginPath();\nfor (var s2 = 0; s2 <= tLand; s2 += tLand / 100) {\n  var xx = v0 * Math.cos(th) * s2, yy = v0 * Math.sin(th) * s2 - 0.5 * g * s2 * s2;\n  if (s2 === 0) ctx.moveTo(X(xx), Y(yy)); else ctx.lineTo(X(xx), Y(yy));\n}\nctx.stroke();\nctx.setLineDash([]);\n\n// animated portion\nvar now = t % (tLand + 0.7);\nvar cur = Math.min(now, tLand);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var s3 = 0; s3 <= cur; s3 += tLand / 100) {\n  var ax = v0 * Math.cos(th) * s3, ay = v0 * Math.sin(th) * s3 - 0.5 * g * s3 * s3;\n  if (s3 === 0) ctx.moveTo(X(ax), Y(ay)); else ctx.lineTo(X(ax), Y(ay));\n}\nctx.stroke();\nctx.lineWidth = 1;\n\nvar px = v0 * Math.cos(th) * cur, py = v0 * Math.sin(th) * cur - 0.5 * g * cur * cur;\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(px), Y(py), 5, 0, Math.PI * 2); ctx.fill();\n\n// landing point and distance along slope\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(X(xL), Y(yL), 3.5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"lands here\", X(xL) - 30, Y(yL) + (ph >= 0 ? -10 : 18));\nctx.fillStyle = C.figure;\nvar lx = xmin + (xmax - xmin) * 0.8;\nctx.fillText(\"slope\", X(lx), Y(lx * Math.tan(ph)) + 16);\nctx.fillStyle = C.ink;\nctx.fillText(\"launch\", X(0) + 4, Y(0) - 8);\n\nif (valid) {\n  out.note = \"distance along slope L = \" + Math.abs(L).toFixed(2) + \" m, flight time \" + tLand.toFixed(2) + \" s\";\n} else {\n  out.note = \"at this angle the ball never comes back to the slope: aim higher above it\";\n}"
+  },
+  {
+    "id": "projectiles-components",
+    "title": "Velocity components along the flight",
+    "caption": "The same trajectory with its velocity split into horizontal and vertical parts at three moments.",
+    "height": 250,
+    "params": [],
+    "draw": "var g = 9.8, v0 = 20, th = 50 * Math.PI / 180;\nvar T = 2 * v0 * Math.sin(th) / g;\nvar R = v0 * v0 * Math.sin(2 * th) / g;\nvar Hm = v0 * v0 * Math.sin(th) * Math.sin(th) / (2 * g);\nvar pad = 36;\nvar sc = Math.min((W - pad * 2) / (R * 1.05), (H - pad * 2) / (Hm * 1.7));\nfunction X(x) { return pad + x * sc; }\nfunction Y(y) { return H - pad - y * sc; }\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\n// ground\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(0, Y(0)); ctx.lineTo(W, Y(0)); ctx.stroke();\n\n// path\nctx.strokeStyle = C.rule;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var s = 0; s <= T; s += T / 120) {\n  var xx = v0 * Math.cos(th) * s, yy = v0 * Math.sin(th) * s - 0.5 * g * s * s;\n  if (s === 0) ctx.moveTo(X(xx), Y(yy)); else ctx.lineTo(X(xx), Y(yy));\n}\nctx.stroke();\nctx.lineWidth = 1;\n\nfunction arrow(x0, y0, x1, y1, col) {\n  ctx.strokeStyle = col; ctx.fillStyle = col;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();\n  var a = Math.atan2(y1 - y0, x1 - x0);\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 7 * Math.cos(a - 0.4), y1 - 7 * Math.sin(a - 0.4));\n  ctx.lineTo(x1 - 7 * Math.cos(a + 0.4), y1 - 7 * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nvar marks = [0, T / 2, T];\nvar names = [\"launch\", \"top\", \"landing\"];\nfor (var k = 0; k < 3; k++) {\n  var tk = marks[k];\n  var xk = v0 * Math.cos(th) * tk, yk = v0 * Math.sin(th) * tk - 0.5 * g * tk * tk;\n  var vx = v0 * Math.cos(th), vy = v0 * Math.sin(th) - g * tk;\n  var Px = X(xk), Py = Y(yk);\n  ctx.fillStyle = C.ink;\n  ctx.beginPath(); ctx.arc(Px, Py, 4, 0, Math.PI * 2); ctx.fill();\n  // components\n  arrow(Px, Py, Px + vx * 2.2, Py, C.accent);\n  if (Math.abs(vy) > 0.3) arrow(Px, Py, Px, Py - vy * 2.2, C.figure);\n  ctx.strokeStyle = C.rule;\n  ctx.setLineDash([2, 3]);\n  ctx.beginPath(); ctx.moveTo(Px, Py); ctx.lineTo(Px + vx * 2.2, Py - vy * 2.2); ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.ink;\n  ctx.fillText(names[k], Px - 12, Py + 18);\n  ctx.fillStyle = C.accent;\n  ctx.fillText(\"vx = \" + vx.toFixed(1), Px + vx * 2.2 + 4, Py + 4);\n  if (Math.abs(vy) > 0.3) {\n    ctx.fillStyle = C.figure;\n    ctx.fillText(\"vy = \" + vy.toFixed(1), Px + 5, Py - vy * 2.2 + (vy > 0 ? -4 : 12));\n  } else {\n    ctx.fillStyle = C.figure;\n    ctx.fillText(\"vy = 0\", Px + 5, Py - 8);\n  }\n}\n\n// height and range labels\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(R / 2), Y(0)); ctx.lineTo(X(R / 2), Y(Hm)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"H = \" + Hm.toFixed(1) + \" m\", X(R / 2) + 6, Y(Hm / 2));\nctx.fillText(\"R = \" + R.toFixed(1) + \" m\", X(R / 2) - 28, Y(0) + 16);\nctx.fillText(\"v0 = 20 m/s at 50 deg, g = 9.8 m/s^2\", pad, pad - 14);\n\nout.note = \"vx is the same at all three points; vy flips sign and keeps its size by landing\";"
+  }
+]

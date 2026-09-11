@@ -1,66 +1,334 @@
+A bicycle dynamo is a small magnet spinning near a coil. It costs you nothing
+when the lamp is switched off, and the moment you switch the lamp on the pedals
+get heavier. Nothing about the magnet changed. Nothing about the coil changed.
+The only thing you did was give the current somewhere to go.
+
+That is the whole subject of this lesson. In [Faraday's law](/guide/faraday-lenz)
+you had a fixed circuit and a changing field. Here the field is constant and it
+is the circuit that moves, so the flux changes because the area does. The
+algebra is easier than Faraday's, but there is a second half that Faraday alone
+does not give you: the moving conductor gets pushed back, and working out how
+hard is what most problems are really asking.
+
 ## The rod on rails
 
-Faraday's law already tells you that a changing flux drives an emf. Motional
-emf is the case where the field is static and the *circuit* is what changes.
-Take a conducting rod of length $L$ sliding at speed $v$ along two parallel
-rails, in a uniform field $B$ perpendicular to the plane of the circuit. The
-enclosed area grows at rate $Lv$, so
+Take two long parallel rails a distance $L$ apart, joined at one end by a
+resistor $R$. Lay a conducting rod across them so it can slide, and fill the
+region with a uniform magnetic field $B$ pointing perpendicular to the plane
+the rails lie in. Push the rod along at speed $v$.
+
+The loop of circuit is a rectangle with one side $L$ and the other side growing.
+In a time $\Delta t$ the rod moves $v\,\Delta t$, so the enclosed area grows by
+$\Delta A = Lv\,\Delta t$. The flux through the loop is $\Phi = BA$, so
+
+$$\frac{\Delta \Phi}{\Delta t} = B\frac{\Delta A}{\Delta t} = BLv$$
+
+and Faraday's law says the magnitude of the emf around the loop is that rate.
+So the rod behaves like a battery of voltage
 
 $$\mathcal{E} = BLv$$
 
-There is a second route to the same number, and it is worth carrying because it
-generalises. Each free charge in the rod moves with the rod, so it feels
-$q\vec{v}\times\vec{B}$ pushing it along the rod's length. That force per unit
-charge, integrated along the rod, is the emf:
+Each symbol: $B$ in teslas, $L$ the length of rod actually *between the rails*
+in metres (not the whole rod, only the part carrying the circuit), $v$ the speed
+in metres per second, and $\mathcal{E}$ the emf in volts. Double any one of them
+and the emf doubles. If the rod stops, the emf is zero — a static circuit in a
+static field produces nothing, no matter how strong $B$ is.
 
-$$\mathcal{E} = \int (\vec{v}\times\vec{B})\cdot d\vec{\ell}$$
+<Figure caption={<><b>Figure 1.</b> The rod, the rails and the resistor. Push the speed slider up and watch the emf, the current and the braking force all rise together. Then halve the resistance and notice that only the emf stays put.</>}>
+  <Sim id="motional-emf-rails" />
+</Figure>
 
-For a rod rotating about one end with angular velocity $\omega$, the local
-speed is $\omega r$ and this integral gives $\tfrac12 B\omega L^2$ — a result
-the flux picture also produces, but the integral gets there without any
-argument about what area is being swept.
+There is a second route to $BLv$, and it is worth having because it survives
+into cases where "the area swept out" is awkward to define. The rod is full of
+mobile charges, and they are being carried sideways at speed $v$ along with it.
+A charge $q$ moving at $v$ through a field $B$ feels the magnetic force
+$q\vec v \times \vec B$. With $\vec v$ along the rails and $\vec B$ out of the
+plane, that force points *along the rod*, and it has magnitude $qvB$.
 
-## The force balance
+So charge gets shoved towards one end of the rod and piles up there, leaving
+the other end positive. The pile-up makes an electric field inside the rod that
+pushes back, and the shoving stops when the two balance: $qE = qvB$, so
+$E = vB$. The potential difference between the ends is that field times the
+length, $\mathcal{E} = vBL$. Same answer, arrived at without mentioning flux at
+all. The general statement is
 
-This is what makes the topic more than a restatement of Faraday. The emf drives
-a current $I = BLv/R$ around the loop. That current sits in the same field, so
-the rod feels a force $F = BIL$. Substituting:
+$$\mathcal{E} = \int (\vec v \times \vec B)\cdot d\vec{\ell}$$
 
-$$F = \frac{B^2L^2v}{R}$$
+which just says: walk along the conductor, and at each point add up how hard the
+magnetic force pushes charge in the direction you are walking.
 
-Lenz's law fixes the sign: the force opposes the motion. Note the structure —
-the retarding force is proportional to $v$, exactly like linear drag. A rod
-released with initial speed $v_0$ and no applied force obeys $m\dot{v} =
--B^2L^2v/R$ and decays exponentially with time constant $mR/B^2L^2$. A rod
-sliding down inclined rails under gravity reaches a terminal velocity when
-$mg\sin\theta$ balances the magnetic force.
+<Figure caption={<><b>Figure 2.</b> Left, why the rod is a battery: the carriers are dragged sideways, so the magnetic force drives them along the rod. Right, the two horizontal forces on a rod being pulled at steady speed.</>}>
+  <Sim id="motional-emf-fbd" />
+</Figure>
 
-## Why generators need work
-
-Pull the rod at constant speed and you must supply force $F = B^2L^2v/R$
-against that opposition. The mechanical power you deliver is
-
-$$P_{mech} = Fv = \frac{B^2L^2v^2}{R} = \frac{(BLv)^2}{R} = \frac{\mathcal{E}^2}{R}$$
-
-which is exactly the electrical power dissipated in the resistor. Not
-approximately — identically. Every joule of electrical energy came from the
-agent pulling the rod.
-
-This is the whole principle of a generator. Turn on a large load and the
-turbine gets harder to turn. Nothing converts motion into current for free; the
-retarding force is the price, and it is set by how much current you draw.
-
-<Aside label="Where this goes wrong" warn>
-  Do not add the magnetic force on the *charges* to your energy accounting. The
-  magnetic force does no net work — it redirects the work done by whoever moves
-  the rod. The correct ledger has two entries: mechanical work in, resistive
-  dissipation out. Adding a third term for the magnetic field double-counts and
-  will produce a factor-of-two error.
+<Aside label="Worth remembering">
+  Only the component of $B$ perpendicular to the plane of the circuit counts,
+  and only the length of conductor perpendicular to the motion counts. An
+  aeroplane with a $35$ m wingspan flying at $250$ m/s gets its emf from the
+  *vertical* component of Earth's field, not from the total.
 </Aside>
 
 <QuickCheck
-  question="The rail resistance R is halved while the rod is pulled at the same constant speed. The force needed to keep it moving:"
-  options={["Halves", "Is unchanged", "Doubles", "Quadruples"]}
-  answer={2}
-  explanation="The emf depends only on B, L and v, so it is unchanged, but the current doubles when R is halved. The retarding force B I L therefore doubles, and so does the mechanical power you must supply."
+  question="A rod slides on rails at 5 m/s. The field is doubled and the speed is halved. The emf:"
+  options={["Is unchanged", "Doubles", "Halves", "Quadruples"]}
+  answer={0}
+  explanation="The emf is B times L times v, so a factor of two up and a factor of two down cancel exactly. Only the product matters."
 />
+
+## Worked example 1: emf, current, force, power
+
+A copper rod of length $0.50$ m slides at $3.0$ m/s on horizontal rails in a
+uniform $0.40$ T field perpendicular to the plane of the rails. The rails are
+joined by a $2.0\ \Omega$ resistor and nothing else in the circuit has any
+resistance.
+
+Start with the emf, because everything else hangs off it:
+
+$$\mathcal{E} = BLv = (0.40)(0.50)(3.0) = 0.60\ \text{V}$$
+
+The rod is a $0.60$ V battery driving current round a $2.0\ \Omega$ loop, so by
+Ohm's law
+
+$$I = \frac{\mathcal{E}}{R} = \frac{0.60}{2.0} = 0.30\ \text{A}$$
+
+Now the part that Faraday's law alone does not hand you. The rod is a
+current-carrying wire sitting in a magnetic field, so it feels a force
+$F = BIL$:
+
+$$F = (0.40)(0.30)(0.50) = 0.060\ \text{N}$$
+
+Which way? Lenz's law: the induced effects oppose the change that caused them,
+so this force points backwards along the rod's motion. It brakes. To keep the
+rod at a steady $3.0$ m/s you must push with $0.060$ N, and the power you spend
+is
+
+$$P = Fv = (0.060)(3.0) = 0.18\ \text{W}$$
+
+Check that against the resistor: $P = I^2R = (0.30)^2(2.0) = 0.18$ W. The same
+number, and it has to be. Your muscles are the only energy source in the
+problem.
+
+That pattern is worth writing once in general. Substituting $I = BLv/R$ into
+$F = BIL$,
+
+$$F = \frac{B^2L^2v}{R}, \qquad P = Fv = \frac{B^2L^2v^2}{R} = \frac{\mathcal{E}^2}{R}$$
+
+The braking force is proportional to speed. That is exactly the form of linear
+drag, and it means every result you know about drag transfers over: terminal
+velocity, exponential decay, the lot.
+
+<Aside label="Where this goes wrong" warn>
+  Do not put the magnetic force into your energy ledger as a source or a sink.
+  A magnetic force never does net work — it only redirects work done by
+  whatever is moving the rod. The correct accounting has exactly two entries:
+  mechanical work in, resistive heat out. Adding a third term for "work done by
+  the field" double counts and typically produces a factor-of-two error.
+</Aside>
+
+## Terminal speed
+
+If something steady drives the rod — gravity, a hanging mass, a constant pull —
+then since the braking force grows with $v$, sooner or later it matches the
+drive and the acceleration goes to zero. That speed is the terminal speed, and
+you find it by setting the two forces equal. You never have to solve a
+differential equation for it.
+
+**Worked example 2.** Frictionless rails $0.30$ m apart lie on a plane inclined
+at $30^\circ$. A $0.050$ kg rod slides down them, a $0.40\ \Omega$ resistor
+closes the circuit, and a $0.50$ T field points perpendicular to the inclined
+plane. Take $g = 9.8$ m/s². Find the terminal speed.
+
+Work in coordinates along the incline, as you did for blocks on ramps. The
+component of gravity down the slope is $mg\sin\theta$:
+
+$$mg\sin\theta = (0.050)(9.8)(0.5) = 0.245\ \text{N}$$
+
+The magnetic force up the slope is $B^2L^2v/R$. At terminal speed they are
+equal:
+
+$$mg\sin\theta = \frac{B^2L^2v_t}{R} \;\Rightarrow\; v_t = \frac{mgR\sin\theta}{B^2L^2}$$
+
+Put the numbers in. The denominator first: $B^2L^2 = (0.50)^2(0.30)^2 =
+(0.25)(0.09) = 0.0225$. The numerator is $0.245 \times 0.40 = 0.098$. So
+
+$$v_t = \frac{0.098}{0.0225} = 4.36\ \text{m/s}$$
+
+Two variations show up constantly. If the rails are *vertical* and the field is
+horizontal, it is the same problem with $\sin\theta = 1$. If there is friction
+between rod and rails, the normal force is $mg\cos\theta$ and you subtract
+$\mu mg\cos\theta$ from the driving force before balancing — the magnetic part
+is untouched. And if a hanging block of mass $M$ pulls the rod over a pulley,
+the drive is $Mg$ and the balance is $Mg = B^2L^2v_t/R$.
+
+<QuickCheck
+  question="A rod reaches terminal speed on inclined rails. You now replace the resistor with one of twice the resistance. The new terminal speed is:"
+  options={["Half as large", "Unchanged", "Twice as large", "Four times as large"]}
+  answer={2}
+  explanation="Terminal speed is m g R sin theta over B squared L squared, so it is proportional to R. More resistance means less current for the same speed, so the rod must go faster before the braking force can match gravity."
+/>
+
+## Coasting to a stop: time, distance, heat
+
+Now take the drive away. A rod given speed $v_0$ on frictionless rails, with
+nothing but the resistor to slow it, obeys Newton's second law with the
+magnetic force as the only horizontal force:
+
+$$m\frac{dv}{dt} = -\frac{B^2L^2}{R}v$$
+
+Rate of change proportional to the thing itself, with a minus sign: that is an
+exponential. Writing $\tau = mR/B^2L^2$, the solution is
+$v(t) = v_0 e^{-t/\tau}$. The rod never formally stops, but after a few $\tau$
+it might as well have.
+
+Three questions get asked about this, and each has a shortcut.
+
+**Time to half speed.** Set $v_0 e^{-t/\tau} = v_0/2$, so $t = \tau \ln 2$.
+
+**Total distance.** You could integrate the exponential, but the impulse route
+is cleaner and works even when you have not solved for $v(t)$. Multiply
+Newton's law by $dt$ and add up:
+
+$$m\,\Delta v = -\frac{B^2L^2}{R}\int v\,dt = -\frac{B^2L^2}{R}\,\Delta x$$
+
+Since the rod goes from $v_0$ to zero, $\Delta x = mv_0R/B^2L^2 = v_0\tau$.
+
+**Total heat.** No integration at all. The rod's kinetic energy has nowhere else
+to go, so the resistor dissipates $\tfrac12 mv_0^2$.
+
+<Figure caption={<><b>Figure 3.</b> The coasting rod. Drag the resistance down and watch the curve collapse towards the axis while the total heat, which depends only on mass and starting speed, refuses to move.</>}>
+  <Sim id="motional-emf-brake" />
+</Figure>
+
+**Worked example 3.** A $0.050$ kg rod of length $0.50$ m is launched at
+$4.0$ m/s along frictionless rails in a perpendicular $0.40$ T field, and coasts
+to rest through induction alone. How much total charge circulates?
+
+You are not told the resistance, which is the hint. Charge is
+$q = \int I\,dt$, and the impulse equation above already contains that integral.
+The braking force is $F = BIL$, so the total impulse on the rod is
+
+$$\int F\,dt = BL\int I\,dt = BLq$$
+
+and that impulse equals the momentum lost, $mv_0$. So
+
+$$q = \frac{mv_0}{BL} = \frac{(0.050)(4.0)}{(0.40)(0.50)} = \frac{0.20}{0.20} = 1.0\ \text{C}$$
+
+Resistance genuinely does not appear: a smaller $R$ gives a bigger current for a
+shorter time, and the product is fixed.
+
+The other charge formula worth keeping is the flux version. Since
+$I = \mathcal{E}/R = (B L v)/R$ and $v\,dt = dx$,
+
+$$q = \frac{BL\,\Delta x}{R} = \frac{\Delta\Phi}{R}$$
+
+Use this one when you are told the distance and the resistance. Remember to
+include the rod's own resistance in $R$ when the problem gives it — the rod and
+the external element are in series.
+
+## Rotating rods, disks and generators
+
+Not every conductor slides in a straight line. Pin one end of a rod and spin it
+at angular speed $\omega$, with its far end brushing a circular rail and the
+field parallel to the rotation axis. Now different parts of the rod move at
+different speeds, so $BLv$ cannot be used as it stands. The integral version
+handles it. A little piece of rod at radius $r$, of length $dr$, moves at
+$v = \omega r$ and contributes $B\omega r\,dr$ to the emf. Add them up from the
+pivot out to the tip:
+
+$$\mathcal{E} = \int_0^L B\omega r\,dr = \tfrac12 B\omega L^2$$
+
+The factor of a half is the average of $\omega r$ over the rod. A spinning metal
+disk with brushes at its axle and rim gives the same expression with $L$ the
+radius — each radial line of the disk is one of these rods, all in parallel.
+For a disk of radius $0.10$ m spinning at $30$ revolutions per second,
+$\omega = 2\pi(30) = 188.5$ rad/s and in a $0.20$ T field the emf is
+$\tfrac12(0.20)(188.5)(0.10)^2 = 0.188$ V.
+
+<Figure caption={<><b>Figure 4.</b> The rotating rod. Double the length slider and the emf goes up by four, because the outer half of the rod is doing most of the work.</>}>
+  <Sim id="motional-emf-rotor" />
+</Figure>
+
+A generator is the third case: a flat coil of $N$ turns and area $A$ spinning at
+$\omega$ about an axis perpendicular to $B$. The flux through one turn is
+$BA\cos\omega t$, and Faraday's law differentiates it, so
+
+$$\mathcal{E} = NBA\omega \sin\omega t$$
+
+The peak value is $\mathcal{E}_0 = NBA\omega$. Because the output is a sine
+wave, the rms value — the steady voltage that would heat a resistor at the same
+average rate — is $\mathcal{E}_0/\sqrt2$, and the average power into a resistor
+$R$ is $\mathcal{E}_0^2/2R$. Watch the units on the spin rate: $1500$ rpm is
+$1500 \times 2\pi/60 = 157.1$ rad/s.
+
+<Aside label="Worth remembering">
+  Three emf formulas, one idea. Sliding rod: $\mathcal{E} = BLv$. Rotating rod
+  or disk: $\mathcal{E} = \tfrac12 B\omega L^2$. Spinning coil:
+  $\mathcal{E}_0 = NBA\omega$. All three are $\int (\vec v\times\vec B)\cdot
+  d\vec\ell$ with different geometry, and all three vanish the instant the
+  motion stops.
+</Aside>
+
+## When the load is not a resistor
+
+Replace the resistor with a capacitor or an inductor and the force law
+$F = BIL$ still holds — only the relation between emf and current changes.
+
+With a **capacitor** $C$ across the rails, the charge is $q = C\mathcal{E} =
+CBLv$, so the current is $I = dq/dt = CBL\,a$ where $a$ is the rod's
+acceleration. The magnetic force is then $BIL = CB^2L^2a$, pointing backwards,
+and Newton's second law for an applied force $F$ reads
+$F - CB^2L^2a = ma$. So
+
+$$a = \frac{F}{m + CB^2L^2}$$
+
+The circuit acts like extra inertia, not like friction, and the motion is
+uniformly accelerated. No energy is lost.
+
+With an **inductor** $L_{\text{ind}}$ across resistanceless rails, the loop
+equation is $BLv = L_{\text{ind}}\,di/dt$. Integrating from the start,
+$i = BL(x)/L_{\text{ind}}$ where $x$ is the distance travelled — current is
+proportional to *displacement*. Then $m\,dv/dt = -B^2L^2x/L_{\text{ind}}$,
+which is Hooke's law in disguise: the rod oscillates with
+$\omega = BL/\sqrt{mL_{\text{ind}}}$ and the farthest it gets is
+$x_{\max} = v_0/\omega$. Again nothing is dissipated; the kinetic energy goes
+into the magnetic field of the inductor and comes back.
+
+And if **two rods are free** on the same rails, there is no external horizontal
+force on the pair, so their total momentum is conserved. Current flows only
+while their speeds differ, so the motion settles when they move together. Find
+the common speed from momentum conservation, then the heat is whatever kinetic
+energy went missing.
+
+<QuickCheck
+  question="Two identical free rods on frictionless rails, one moving and one at rest. Once the current has died away:"
+  options={["Both rods are at rest", "They move together at half the original speed", "The first rod keeps its original speed", "They move apart at equal speeds"]}
+  answer={1}
+  explanation="Momentum is conserved because the magnetic forces on the two rods are equal and opposite. Current flows only while the relative speed is non-zero, so it stops when they match, which by momentum conservation is half the original speed for equal masses."
+/>
+
+## Recognising it
+
+Reach for motional emf when the problem has a **conductor physically moving**
+through a field that is not itself changing. The tell-tales:
+
+- A rod, bar, wire or wingspan with a length and a speed, in a field described
+  as perpendicular. Start with $\mathcal{E} = BLv$.
+- The words *terminal speed*, *steady speed*, *constant velocity*. Balance the
+  drive against $B^2L^2v/R$ and solve. No calculus needed.
+- *Total distance*, *total charge*, *total heat* with no time given. These are
+  the three conserved-quantity shortcuts: distance from impulse, charge from
+  $\Delta\Phi/R$ or $mv_0/BL$, heat from the kinetic energy lost.
+- *Time to half speed*, *how long until*. That is the exponential, with
+  $\tau = mR/B^2L^2$.
+- A **pivot** rather than rails, or a spinning disk. Use $\tfrac12 B\omega L^2$.
+  A coil with a number of turns means $NBA\omega$ instead.
+- A capacitor or inductor instead of a resistor. Nothing is dissipated: expect
+  constant acceleration or oscillation, not a terminal speed.
+
+The habit that saves the most time: whenever you compute a current here, ask
+what force it makes and where the energy is going. Most of the hard problems in
+this bank are energy bookkeeping wearing a magnetic costume.
+
+The inductor case above was only a sketch. Circuits where the current itself
+resists being changed have their own arithmetic, and that is
+[inductance and LR/LC circuits](/guide/inductance).

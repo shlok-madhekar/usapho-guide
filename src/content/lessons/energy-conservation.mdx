@@ -1,48 +1,320 @@
-## Two laws that answer different questions
+## A shortcut past the middle of the problem
 
-Momentum $\vec p = m\vec v$ is conserved whenever no external force acts, or
-when the interaction is brief enough that external forces have no time to
-matter. Mechanical energy is conserved only when nothing dissipative does
-work. Collisions are exactly the case where those two conditions diverge,
-which is why the topic is worth its own module.
+A child starts at rest at the top of a slide 3.2 m high and arrives at the
+bottom moving. If you attack that with forces you need the shape of the slide,
+the angle at every point, the normal force at every point, and an integration
+you cannot do by hand. Yet the answer is one line long, and it does not depend
+on the shape of the slide at all.
 
-$$W = \int \vec F \cdot d\vec x, \qquad K = \tfrac{1}{2}mv^2, \qquad \vec p_i = \vec p_f$$
+That is what conservation of energy buys you. It ignores the middle of the
+problem. You take a snapshot at the start, a snapshot at the end, and demand
+that one number match. Everything that happened in between — the curving, the
+speeding up, the changing direction — never has to be described.
 
-## Collisions
+The previous lesson, [conservative forces and potential energy](/guide/potential-energy),
+built the tool: a force is conservative when the work it does depends only on
+where you start and where you finish, and for such a force you can define a
+potential energy $U$ whose drop equals the work done. Gravity near the ground
+gives $U_g = mgy$. An ideal spring gives $U_s = \tfrac12 k x^2$. This lesson is
+about using those to run a problem from end to end.
 
-Elastic collisions conserve both momentum and kinetic energy. Perfectly
-inelastic ones conserve momentum only, and lose the most energy possible while
-still respecting it, which is not all of the energy unless the total momentum
-is zero.
+## The ledger
 
-Two facts save a lot of algebra. In one dimension, an elastic collision
-reverses the relative velocity:
+Start from the work-energy theorem, which you already have: the total work
+done on an object equals the change in its kinetic energy,
 
-$$v_{1i} - v_{2i} = -(v_{1f} - v_{2f})$$
+$$W_{\text{total}} = \Delta K = \tfrac12 m v_f^2 - \tfrac12 m v_i^2 .$$
 
-And in two dimensions, equal masses colliding elastically always separate at
-90°, which is why pool players can predict a cue ball.
+Here $K = \tfrac12 m v^2$ is the kinetic energy in joules, $m$ the mass in kg,
+$v$ the speed in m/s. Now split the total work into two piles: work done by
+conservative forces, and work done by everything else.
 
-<Figure caption={<><b>Figure 1.</b> A moving block striking a stationary one. Toggle between elastic and perfectly inelastic and watch the energy readout. Make the masses equal and the elastic collision transfers all the motion; make the target heavy and the incoming block bounces back.</>}>
-  <Sim id="collision" />
+$$W_{\text{cons}} + W_{\text{other}} = \Delta K .$$
+
+The whole point of a potential energy is that $W_{\text{cons}} = -\Delta U$.
+Gravity doing $+50$ J of work on a falling rock is the same statement as the
+gravitational potential energy dropping by 50 J. Substitute that in and move it
+across:
+
+$$W_{\text{other}} = \Delta K + \Delta U .$$
+
+Define the **mechanical energy** $E = K + U$, the sum of kinetic and all
+potential energies. Then
+
+$$\boxed{\,E_f = E_i + W_{\text{other}}\,}$$
+
+Read that as an account statement. $E_i$ is what you start with. $W_{\text{other}}$
+is everything deposited or withdrawn by forces that have no potential energy —
+friction, air drag, a hand pushing, a rope being pulled by a motor. $E_f$ is
+what you end with. When no such force does work, $W_{\text{other}} = 0$ and
+
+$$\tfrac12 m v_i^2 + U_i = \tfrac12 m v_f^2 + U_f .$$
+
+Two snapshots, one equation. Notice what is *not* in it: time, distance along
+the path, the shape of the track, or the direction of motion. Energy is a
+scalar. It has no components and no signs to chase.
+
+<Figure caption={<><b>Figure 1.</b> One kilogram released on a ramp, then crossing a rough floor. The stacked bar is the ledger: potential energy converting to kinetic, then kinetic bleeding into heat. Raise the start height and every bar grows together. Set friction to zero and the bar never turns grey — the total length never changes at all, which is what conservation means.</>}>
+  <Sim id="energy-conservation-ledger" />
 </Figure>
 
-<Aside label="A frame that helps">
-  When the algebra gets ugly, move to the center-of-mass frame. Total momentum
-  there is zero, an elastic collision simply reverses both velocities, and the
-  answer transforms back easily.
+<Aside label="Worth remembering">
+  The zero of potential energy is yours to choose. Put $y = 0$ at the bottom of
+  the slide, at the top, at sea level — the answer cannot depend on it, because
+  only the *difference* $U_f - U_i$ ever appears. Choose the level that makes
+  the most terms vanish, then write it down explicitly so you do not forget it
+  halfway through.
 </Aside>
 
+**Worked example 1.** A 25 kg child starts from rest at the top of a
+frictionless slide 3.2 m high. How fast is she moving at the bottom?
+
+Put $y = 0$ at the bottom. Snapshot one: $v_i = 0$, $y_i = 3.2$ m. Snapshot
+two: $v_f = ?$, $y_f = 0$. Nothing but gravity and the normal force acts, and
+the normal force is perpendicular to the motion so it does no work. So
+
+$$\tfrac12 m v_i^2 + m g y_i = \tfrac12 m v_f^2 + m g y_f$$
+
+$$0 + m g (3.2) = \tfrac12 m v_f^2 + 0 .$$
+
+Every term has an $m$, so cancel it. This happens constantly, and it is why
+the mass of the child was never needed.
+
+$$v_f = \sqrt{2 g h} = \sqrt{2(9.8)(3.2)} = \sqrt{62.72} = 7.92\ \text{m/s}.$$
+
+The same single line handles a dropped stone ($h = 5.0$ m gives 9.90 m/s), a
+pendulum bob released 0.45 m above its lowest point (2.97 m/s), and a
+skateboarder who enters a bowl at 8.0 m/s and rises until all her kinetic
+energy is potential: $h = v^2/2g = 64/19.6 = 3.27$ m. Different pictures, one
+equation.
+
 <QuickCheck
-  question="A bullet embeds itself in a block on a frictionless table. During the impact, what is conserved?"
-  options={["Momentum only", "Kinetic energy only", "Both", "Neither"]}
+  question="A cart is released from rest at 6.0 m on a frictionless track and passes over a hill 2.0 m high. What sets its speed at the top of the hill?"
+  options={["The 4.0 m drop from start to hilltop", "The full 6.0 m start height", "The 2.0 m hill height", "You cannot tell without the shape of the track"]}
   answer={0}
-  explanation="They stick together, which is the signature of a perfectly inelastic collision. Momentum survives because no external horizontal force acts. Most of the kinetic energy becomes heat and deformation, and problems often ask you to compute exactly how much."
+  explanation="Only the change in height matters, so the kinetic energy at the hilltop is mg times 4.0 m, giving v = 8.85 m/s. The full 6.0 m would be the speed at the very bottom, not at the hilltop, and the shape of the track between the two points is irrelevant because the normal force never does work."
 />
 
-## Center of mass
+## When energy leaks out
 
-The center of mass of an isolated system moves at constant velocity no matter
-what happens internally. An exploding projectile is the standard illustration:
-the fragments scatter, but their center of mass continues along the original
-parabola until a fragment lands.
+$W_{\text{other}}$ is usually friction, and friction is the one non-conservative
+force you will meet constantly. A kinetic friction force of magnitude
+$f_k = \mu_k N$ opposes the motion at every instant, so over a path of length
+$d$ it does work $-f_k d$. The minus sign is the whole story: friction always
+withdraws from the account.
+
+Notice the $d$. Unlike gravity, friction cares about the *length of the path*,
+not the displacement. Take a longer route and you lose more. That is exactly
+the property that makes it non-conservative, and it means you cannot define a
+"friction potential energy".
+
+**Worked example 2.** A 1.0 kg block slides down a frictionless ramp from 2.0 m
+high, then crosses a rough floor with $\mu_k = 0.40$. How far does it go before
+stopping?
+
+Take the two snapshots as far apart as possible: at the top of the ramp, and
+where the block stops. Both have $v = 0$, so both kinetic energies are zero.
+There is no need to find the speed at the bottom of the ramp at all.
+
+$$E_f - E_i = W_{\text{other}}$$
+$$(0 + 0) - (0 + mgh) = -\mu_k m g d$$
+$$mgh = \mu_k m g d \quad\Rightarrow\quad d = \frac{h}{\mu_k} = \frac{2.0}{0.40} = 5.0\ \text{m}.$$
+
+On the flat floor the normal force is $N = mg$, which is why $f_k = \mu_k mg$.
+On an incline it is not: there $N = mg\cos\theta$, and forgetting the cosine is
+the most common way this goes wrong.
+
+<Aside label="Where this goes wrong" warn>
+  Energy conservation is not a law you may apply through a collision. When a
+  bullet embeds in a block, or two carts couple together, kinetic energy
+  disappears into deformation and heat and you have no way to compute how much.
+  Use momentum for the impact — $p = mv$ is conserved because the impact is too
+  brief for external forces to matter — and then energy for the smooth motion
+  before and after. A 10 g bullet at 400 m/s into a 1.99 kg block gives
+  $v = (0.010)(400)/2.00 = 2.0$ m/s by momentum. Try to get that from energy
+  and you will get a badly wrong number with no warning.
+</Aside>
+
+**Worked example 3.** A 2.0 kg block is released from rest on a $35^\circ$
+incline, slides 1.5 m down against $\mu_k = 0.20$, and then compresses a spring
+of stiffness $k = 2000$ N/m mounted along the incline. Find the maximum
+compression $x$.
+
+Take snapshot one at release and snapshot two at maximum compression. At
+maximum compression the block is momentarily at rest, so both kinetic energies
+are zero again. Between them the block travels a total distance $1.5 + x$ along
+the incline, dropping a height $(1.5 + x)\sin 35^\circ$, and friction acts over
+that whole distance including the part inside the spring. That "$+x$" is the
+part people drop.
+
+Gravity releases $mg\sin\theta\,(1.5+x)$. With $mg = 19.6$ N and
+$\sin 35^\circ = 0.5736$, that coefficient is $19.6 \times 0.5736 = 11.24$ N.
+Friction takes $\mu_k m g\cos\theta\,(1.5+x)$, and with
+$\cos 35^\circ = 0.8192$ that coefficient is
+$0.20 \times 19.6 \times 0.8192 = 3.21$ N. The spring stores $\tfrac12 k x^2$.
+So
+
+$$(11.24 - 3.21)(1.5 + x) = \tfrac12 (2000) x^2$$
+$$8.03(1.5 + x) = 1000 x^2$$
+$$1000x^2 - 8.03x - 12.05 = 0 .$$
+
+Quadratic formula: $x = \dfrac{8.03 + \sqrt{8.03^2 + 4(1000)(12.05)}}{2000}
+= \dfrac{8.03 + \sqrt{64.5 + 48200}}{2000} = \dfrac{8.03 + 219.6}{2000}
+= 0.114\ \text{m}.$
+
+Take the positive root; the negative one describes a spring stretched the wrong
+way, which the setup does not allow.
+
+<Figure caption={<><b>Figure 2.</b> The bookkeeping for that example, drawn. Both snapshots have zero kinetic energy, so the whole gravitational drop on the left has to reappear on the right as spring energy plus heat. Before you do any algebra, sketch these two columns and label every block you expect. If a block is missing on one side, your equation is wrong.</>}>
+  <Sim id="energy-conservation-snapshots" />
+</Figure>
+
+<QuickCheck
+  question="A 0.20 kg ball dropped from 1.5 m rebounds to only 1.1 m. How much mechanical energy did it lose?"
+  options={["0.784 J", "2.94 J", "2.16 J", "You need the contact time to say"]}
+  answer={0}
+  explanation="The loss is mg times the height difference: 0.20 times 9.8 times 0.4 equals 0.784 J. Both snapshots have zero speed, so the kinetic terms drop out entirely and the contact time never enters. 2.94 J and 2.16 J are the energies at each height separately, not the difference."
+/>
+
+## When the track pushes back: loops and spheres
+
+Some problems need one more equation, because energy alone cannot tell you
+whether an object is still touching the track. Energy gives you speed; contact
+is a statement about the normal force, and for that you need Newton's second
+law in the radial direction.
+
+At the top of a vertical loop of radius $R$, both gravity and the normal force
+point down, toward the centre, and together they supply the centripetal force:
+
+$$N + mg = \frac{m v_{\text{top}}^2}{R}.$$
+
+The track can only push, never pull, so $N \ge 0$. The slowest the object can
+go and still be held on the circle is the case $N = 0$, where gravity alone
+does the job:
+
+$$v_{\text{top}}^2 = gR .$$
+
+That is the condition. Now, and only now, bring in energy to find where it must
+start. Releasing from rest at height $h$ above the bottom of the loop, on a
+frictionless track:
+
+$$mgh = \tfrac12 m v_{\text{top}}^2 + mg(2R) .$$
+
+Substitute $v_{\text{top}}^2 = gR$, cancel $m$, and divide by $g$:
+
+$$h = \tfrac12 R + 2R = 2.5R .$$
+
+**Worked example 4.** For a loop of radius 2 m with $g = 10$ m/s², the minimum
+release height is $h = 2.5(2) = 5$ m. For $R = 2.5$ m it is 6.25 m. The answer
+is always $2.5R$ and never involves the mass.
+
+If friction dissipates a known amount $Q$ around the loop, the ledger just
+gains one term. A 0.40 kg bead needing to clear a loop of $R = 0.50$ m while
+losing 0.30 J to friction needs, at the bottom,
+
+$$\tfrac12 m v_b^2 = \tfrac12 m (gR) + mg(2R) + Q = \tfrac12(0.40)(9.8)(0.50) + (0.40)(9.8)(1.0) + 0.30$$
+$$\tfrac12(0.40)v_b^2 = 0.98 + 3.92 + 0.30 = 5.20 \quad\Rightarrow\quad v_b^2 = 26.0,\ v_b = 5.10\ \text{m/s}.$$
+
+<Figure caption={<><b>Figure 3.</b> Drag the release height and watch the cart run the loop. Below 2.5 times the radius it peels off the track partway up, and the readout tells you the speed it has at the top against the speed it needs. Notice that changing the radius changes both numbers, but the critical height is always exactly 2.5R.</>}>
+  <Sim id="energy-conservation-loop" />
+</Figure>
+
+The block sliding off a sphere is the same idea turned inside out. On the
+outside of a sphere of radius $R$, gravity points partly inward and the normal
+force points outward, so at an angle $\theta$ from the top,
+
+$$mg\cos\theta - N = \frac{mv^2}{R},$$
+
+and the block leaves when $N = 0$, that is when $v^2 = gR\cos\theta$. Energy
+supplies the other relation: it has fallen a height $R(1 - \cos\theta)$, so
+$v^2 = 2gR(1-\cos\theta)$. Set them equal:
+
+$$2gR(1 - \cos\theta) = gR\cos\theta \quad\Rightarrow\quad \cos\theta = \tfrac23 .$$
+
+The block always leaves at the height $\tfrac23 R$ above the centre, whatever
+$R$ and whatever $m$. For $R = 1.6$ m that is 1.07 m. Its speed there is
+$v = \sqrt{gR\cos\theta} = \sqrt{2gR/3}$; for $R = 2.4$ m,
+$v = \sqrt{2(9.8)(2.4)/3} = \sqrt{15.68} = 3.96$ m/s.
+
+<QuickCheck
+  question="Why can energy conservation alone not tell you where a block leaves a frictionless sphere?"
+  options={["Energy gives the speed but says nothing about the normal force", "Energy is not conserved on a sphere", "The mass cancels, so the equation is useless", "The normal force does work on the way down"]}
+  answer={0}
+  explanation="Contact is a condition on N, and N never appears in the energy equation because it does no work. You need the radial form of Newton's second law to say when N reaches zero, then energy to supply the speed at that point. The two together pin down the angle."
+/>
+
+## More than one moving thing
+
+When several objects move, put every one of them in the same ledger. The
+kinetic energy term becomes a sum, and so does the potential energy term.
+
+**Worked example 5.** A 3.0 kg block on a frictionless table is joined over a
+massless pulley to a 2.0 kg hanging block. Find their common speed after the
+hanging block descends 0.80 m from rest.
+
+The rope is inextensible, so both blocks always move at the same speed $v$.
+Only the hanging block changes height. The rope tension does positive work on
+one block and exactly the same amount of negative work on the other, so it
+cancels out of the total — which is why treating the two blocks as one system
+is worth doing.
+
+$$m_2 g d = \tfrac12 (m_1 + m_2) v^2$$
+$$(2.0)(9.8)(0.80) = \tfrac12 (5.0) v^2$$
+$$15.68 = 2.5 v^2 \quad\Rightarrow\quad v^2 = 6.272,\ v = 2.50\ \text{m/s}.$$
+
+Two more wrinkles show up in harder versions of this. First, if the system can
+recoil — a block sliding down a wedge that is itself free to slide — momentum
+in the free direction is conserved too, and you need both equations, because
+the wedge carries away some of the kinetic energy. Second, for an extended
+object like a chain or a rope, the gravitational potential energy is
+$Mgy_{\text{cm}}$, using the height of the **centre of mass**.
+
+**Worked example 6.** A uniform chain of length 1.8 m lies along a frictionless
+table with one end at the edge, and slides off over a smooth peg. How fast is
+it moving when the last link leaves the table?
+
+You cannot track the links one at a time. But you do not have to: the whole
+chain always moves at one speed, so $K = \tfrac12 M v^2$ no matter how it is
+draped. Initially it lies flat on the table, so its centre of mass is at table
+height, $y_{\text{cm},i} = 0$. Finally it hangs straight down from the edge, a
+length 1.8 m, so its centre of mass is at $-0.9$ m. The drop is $L/2$:
+
+$$Mg\frac{L}{2} = \tfrac12 M v^2 \quad\Rightarrow\quad v = \sqrt{gL} = \sqrt{(9.8)(1.8)} = \sqrt{17.64} = 4.2\ \text{m/s}.$$
+
+The mass cancels again, and the answer is just the free-fall speed for a drop
+of $L/2$.
+
+<Aside label="Where this goes wrong" warn>
+  A leaky bucket, a chain piling onto the floor, a rocket — anything shedding or
+  gathering mass — is not a closed energy account. Material that lands and stops
+  dead loses its kinetic energy to the impact, exactly like a collision. If a
+  problem says mass leaves or joins the moving system, do not assume mechanical
+  energy is conserved. Write momentum or force equations for the mass transfer
+  and use energy only on the stretches where the system is intact.
+</Aside>
+
+## How to recognise that this is the technique
+
+Reach for energy conservation when a problem gives you **two states and asks
+for a speed, a height, a compression, or a distance** connecting them, and says
+nothing about time. The giveaway phrases: "released from rest", "how fast at
+the bottom", "how high does it rise", "maximum compression", "how far before it
+stops". If the word *time* or *acceleration* appears in the question, energy is
+probably the wrong tool and kinematics or $F = ma$ is the right one.
+
+A second signal is a track whose shape you are not told. A curved slide, a
+bowl, a ski jump, a rope swing — the problem is deliberately withholding the
+geometry because the answer does not need it. That is energy telling you what
+it is.
+
+The procedure, every time: pick your two snapshots and put them as far apart as
+you can, choose and write down $y = 0$, list every energy term at each snapshot
+including the zeros, then add $W_{\text{other}}$ for friction or an applied
+force. If the problem asks whether something stays on a track, you will need
+one extra line from Newton's second law in the radial direction. If it contains
+a collision or a sudden grab, split the problem at that instant and use
+momentum across it.
+
+What energy will never tell you is how long anything took, or how hard you had
+to work per second to do it. That question — the rate of energy transfer — is
+what [power](/guide/power) is for.

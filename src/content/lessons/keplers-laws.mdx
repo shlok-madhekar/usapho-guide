@@ -1,72 +1,409 @@
-## Three empirical statements
+## An orbit is not a circle, and that matters
 
-Kepler extracted these from Tycho Brahe's naked-eye observations decades before
-Newton explained them.
+In the last lesson you set gravity equal to the centripetal force and got a
+clean result: a satellite in a circle of radius $r$ around a mass $M$ moves at
+$v = \sqrt{GM/r}$. Every orbit in that lesson was a circle, and for a circle
+speed and distance never change, so there was nothing to track.
 
-1. **Orbits are ellipses**, with the Sun at one focus — not at the centre.
-2. **The line from the Sun to the planet sweeps equal areas in equal times.**
-3. **$T^2 \propto a^3$**, where $a$ is the semi-major axis.
+Real orbits are not circles. Halley's comet comes closer to the Sun than Venus
+and then goes out past Neptune. Somewhere in between it must speed up and slow
+down enormously, and the radius that appeared in $v=\sqrt{GM/r}$ is no longer a
+single number. So you need three things a circle never asked for: a shape, a
+rule for how fast the body moves at each point of that shape, and a period that
+still makes sense when there is no one radius.
 
-An ellipse is described by its semi-major axis $a$ and eccentricity $e$. The
-closest and farthest points, perihelion and aphelion, sit at $a(1-e)$ and
-$a(1+e)$ from the focus. A circle is the special case $e = 0$, with the two
-foci merged at the centre.
+Kepler found all three by staring at Tycho Brahe's naked-eye positions of Mars,
+decades before Newton could explain any of them. They are the three laws, and
+between them they answer almost every orbit question you will be asked.
 
-<Aside label="Where this goes wrong" warn>
-  Treating Earth's seasons as a consequence of the first law. Earth's orbit has
-  $e \approx 0.017$, so the Sun's distance varies by under 4% — and perihelion
-  falls in early January, during northern winter. Seasons come from axial tilt.
-  Kepler's laws describe the geometry of the orbit, not the climate.
+## The shape: ellipses, and the two numbers that fix them
+
+**Kepler's first law: each planet moves on an ellipse with the Sun at one
+focus.** Not at the centre — at a focus, which is off to one side.
+
+An ellipse has two special interior points, the foci. The defining property is
+that the sum of the distances from the two foci to any point on the curve is
+the same everywhere on the curve. Two numbers pin the ellipse down completely:
+
+- $a$, the **semi-major axis** — half the long diameter. This is the size.
+- $e$, the **eccentricity**, a pure number between 0 and 1. This is the shape.
+
+The centre of the ellipse and either focus are separated by a distance $c = ae$.
+So $e$ measures how far off-centre the Sun sits, as a fraction of $a$. If
+$e=0$ the two foci merge at the centre and you have a circle. As $e$ climbs
+toward 1 the ellipse stretches into a sliver.
+
+Two distances get used constantly. The closest point to the Sun is
+**perihelion**, on the near end of the long axis, at distance $a - c$. The
+farthest is **aphelion**, at $a + c$. So
+
+$$r_p = a(1-e), \qquad r_a = a(1+e)$$
+
+(For Earth satellites the words are perigee and apogee; the geometry is
+identical.) Add those two and the $e$ cancels:
+
+$$r_p + r_a = 2a$$
+
+That is the single most useful line on this page. Whenever a problem hands
+you the closest and the farthest distance, you already have $a$: it is their
+average. Subtract them instead and you get $r_a - r_p = 2ae$, so
+
+$$e = \frac{r_a - r_p}{r_a + r_p}$$
+
+<Figure caption={<><b>Figure 1.</b> The parts of an ellipse. Drag the eccentricity to zero and the two foci and the centre collapse together into a circle; drag it to 0.9 and notice how close the Sun gets to one end. Watch the readout: perihelion is a(1-e) and aphelion is a(1+e), always averaging to a.</>}>
+  <Sim id="keplers-laws-ellipse" />
+</Figure>
+
+<Aside label="Worth remembering">
+  Earth's orbit has $e \approx 0.017$. Drawn to scale it is indistinguishable
+  from a circle — the Sun sits 1.7% of $a$ off centre. Textbook orbit pictures
+  are drawn with big eccentricities so you can see what is going on, which
+  leaves most people with a badly wrong mental image of the solar system.
 </Aside>
 
-## The second law is angular momentum
-
-In a short time $dt$, the planet moves $\vec v\,dt$ and the swept region is
-nearly a triangle with the Sun. Its area is half the magnitude of the cross
-product of the two sides, so
-
-$$\frac{dA}{dt} = \frac{1}{2}\,|\vec r \times \vec v| = \frac{L}{2m}$$
-
-Gravity always points from the planet straight back at the Sun, parallel to
-$\vec r$. A force along $\vec r$ exerts no torque about that point, so $L$ is
-constant — and therefore so is $dA/dt$. Equal areas in equal times is angular
-momentum conservation, wearing a geometric disguise.
-
-This is why it holds for *any* central force, not just inverse square. The
-first and third laws are specific to $1/r^2$; the second is much more general.
-
-It also gives you a fast tool. At perihelion and aphelion the velocity is
-perpendicular to $\vec r$, so $L = mvr$ at both, and
-
-$$v_p\, r_p = v_a\, r_a$$
-
-Combine that with energy conservation and you can solve most two-point orbit
-problems without touching the shape of the ellipse.
+<Aside label="Where this goes wrong" warn>
+  Blaming the seasons on the first law. Earth's distance to the Sun varies by
+  under 4% over the year, and perihelion falls in early January — the middle of
+  northern winter. Seasons come from axial tilt. Kepler's laws describe the
+  geometry of an orbit, not the weather on the planet.
+</Aside>
 
 <QuickCheck
-  question="A comet is four times farther from the Sun at aphelion than at perihelion. Its speed at aphelion is:"
-  options={["Four times the perihelion speed", "Twice the perihelion speed", "One quarter of the perihelion speed", "The same, since energy is conserved"]}
-  answer={2}
-  explanation="At both turning points the velocity is perpendicular to the radius, so mvr is the same at each. Four times the distance means one quarter the speed."
+  question="A comet's closest approach to the Sun is 0.60 AU and its farthest distance is 5.40 AU. Its semi-major axis is:"
+  options={["3.00 AU", "2.70 AU", "6.00 AU", "1.80 AU"]}
+  answer={0}
+  explanation="Perihelion plus aphelion equals 2a, so a is the average of the two: (0.60 + 5.40)/2 = 3.00 AU. Picking 2.70 is halving the aphelion and forgetting the Sun is off centre."
 />
 
-## Where the third law comes from
+## The second law: equal areas, which is angular momentum
 
-For a circular orbit the derivation is two lines. Gravity supplies the
-centripetal force:
+**Kepler's second law: the line from the Sun to the planet sweeps out equal
+areas in equal times.** Near perihelion the line is short, so to sweep the same
+area the planet must race around; near aphelion the line is long and the planet
+crawls.
 
-$$\frac{GMm}{r^2} = m\omega^2 r, \qquad \omega = \frac{2\pi}{T}$$
+Here is why it is true. In a short time $dt$ the planet moves by $\vec v\,dt$.
+The region swept is very nearly a triangle with one vertex at the Sun and two
+sides $\vec r$ and $\vec v\,dt$. The area of a triangle built on two vectors is
+half the magnitude of their cross product, so
 
-Rearranging,
+$$\frac{dA}{dt} = \tfrac12\,|\vec r \times \vec v| = \frac{L}{2m}$$
 
-$$T^2 = \frac{4\pi^2}{GM}\,r^3$$
+where $L = m|\vec r \times \vec v|$ is the angular momentum about the Sun and
+$m$ is the planet's mass. Gravity pulls the planet straight back along $\vec r$
+toward the Sun. A force parallel to $\vec r$ has zero torque about that point,
+so $L$ never changes — and therefore neither does $dA/dt$. Equal areas in equal
+times is conservation of angular momentum wearing a geometric disguise.
 
-The full result replaces $r$ with the semi-major axis $a$ and is exact for
-ellipses too. The proportionality constant $4\pi^2/GM$ depends only on the
-central mass, which is what makes the law useful: measure a moon's period and
-orbital radius, and you have weighed the planet. The orbiting body's own mass
-never appears, so long as it is small compared to $M$.
+Because the argument only used "the force points at the Sun", the second law
+holds for *any* central force. The first and third laws need the force to be
+exactly inverse-square; the second does not.
 
-The exponents are worth remembering as a pattern. Doubling the semi-major axis
-multiplies the period by $2^{3/2} \approx 2.83$ and divides the speed by
-$\sqrt{2}$.
+The practical payoff comes at the two ends of the orbit. At perihelion and at
+aphelion the velocity is perpendicular to $\vec r$ (that is what it means to be
+at the closest or farthest point — the distance is momentarily not changing, so
+there is no radial velocity). With $\vec r \perp \vec v$, the cross product is
+just $rv$, and equating $L$ at the two ends:
+
+$$v_p r_p = v_a r_a \qquad\Longrightarrow\qquad \frac{v_p}{v_a} = \frac{r_a}{r_p} = \frac{1+e}{1-e}$$
+
+<Figure caption={<><b>Figure 2.</b> Two wedges of identical duration, one straddling perihelion and one straddling aphelion. They have equal areas, which the readout confirms. Notice that the perihelion wedge is short and fat and the aphelion one is long and thin, and that the dot visibly hurries through the near end. Raise the eccentricity and the contrast gets extreme.</>}>
+  <Sim id="keplers-laws-areas" />
+</Figure>
+
+<QuickCheck
+  question="A comet moves at 5.0 km/s at aphelion, which is four times farther from the Sun than its perihelion. Its perihelion speed is:"
+  options={["20 km/s", "1.25 km/s", "10 km/s", "40 km/s"]}
+  answer={0}
+  explanation="At both turning points the velocity is perpendicular to the radius, so v times r is the same at each end. One quarter the distance means four times the speed: 20 km/s."
+/>
+
+## The third law: period from size alone
+
+**Kepler's third law: $T^2 \propto a^3$.** The period depends on the size of
+the orbit and on nothing else — not on the eccentricity, not on the orbiting
+body's mass.
+
+For a circle you can derive it in two lines, and the result turns out to be
+exactly right for ellipses too if you read $r$ as $a$. Gravity supplies the
+centripetal force on a body of mass $m$ in a circle of radius $r$:
+
+$$\frac{GMm}{r^2} = m\omega^2 r$$
+
+The $m$ cancels, which is already the reason the law knows nothing about the
+planet. Put in $\omega = 2\pi/T$:
+
+$$\frac{GM}{r^2} = \frac{4\pi^2 r}{T^2} \qquad\Longrightarrow\qquad T^2 = \frac{4\pi^2}{GM}\,a^3$$
+
+Read that in words. $T^2/a^3$ equals $4\pi^2/GM$, a constant that depends only
+on the central mass. Every object orbiting the same central body shares it.
+That is what makes the law a measuring instrument: watch a moon go round, time
+it, measure its distance, and you have weighed the planet without going there.
+
+For solar-system work there is a shortcut that removes $G$ and $M$ entirely.
+Measure $a$ in astronomical units (1 AU is Earth's semi-major axis) and $T$ in
+years. Earth has $a=1$ and $T=1$, so the constant is 1, and
+
+$$T^2 = a^3 \quad\text{(AU and years, Sun at the focus)}$$
+
+so $T = a^{3/2}$. Most of the easy orbit problems you will meet are one press
+of this on a calculator.
+
+<Figure caption={<><b>Figure 3.</b> T against a in AU and years. The planets are plotted as dots and they land on the curve without any adjustment. Drag the slider to 4 AU and read off 8 years; drag to 9 AU and read 27. Whenever a and T are both perfect cubes and squares the arithmetic is exact.</>}>
+  <Sim id="keplers-laws-third" />
+</Figure>
+
+### Worked example 1: the period of Ceres
+
+Ceres orbits the Sun with $a = 2.77\ \mathrm{AU}$. Find $T$.
+
+Everything is already in AU and the central body is the Sun, so use $T=a^{3/2}$
+directly. Take it in two steps so you can see the arithmetic:
+
+$$\sqrt{2.77} = 1.6643, \qquad T = 1.6643 \times 2.77 = 4.61\ \text{years}$$
+
+Going backwards is just as easy. If a comet has $T = 27.0$ years, then
+$a = T^{2/3} = 27^{2/3} = (27^{1/3})^2 = 3^2 = 9.00\ \mathrm{AU}$.
+
+### Worked example 2: how many orbits a day
+
+A satellite orbits Earth at an altitude of $700\ \mathrm{km}$. Using
+$GM_E = 3.983\times10^{14}\ \mathrm{m^3/s^2}$ and Earth's radius
+$6.37\times10^6\ \mathrm{m}$, how many complete orbits does it make in a day?
+
+First the trap: orbital radius is measured from the **centre** of the Earth,
+not from the ground. Altitude is not radius.
+
+$$r = 6.37\times10^6 + 0.700\times10^6 = 7.07\times10^6\ \mathrm{m}$$
+
+Now the SI form of the third law, solved for $T$:
+
+$$T = 2\pi\sqrt{\frac{r^3}{GM}}$$
+
+$$r^3 = (7.07\times10^6)^3 = 3.534\times10^{20}\ \mathrm{m^3}$$
+
+$$\frac{r^3}{GM} = \frac{3.534\times10^{20}}{3.983\times10^{14}} = 8.873\times10^{5}\ \mathrm{s^2}$$
+
+$$T = 2\pi\sqrt{8.873\times10^5} = 2\pi(941.9) = 5919\ \mathrm{s}$$
+
+That is about 99 minutes, which should feel right for low Earth orbit. In one
+day:
+
+$$\frac{86400}{5919} = 14.6 \text{ orbits}$$
+
+<Aside label="Where this goes wrong" warn>
+  Two habits will cost you most of the marks available in this topic. First,
+  using altitude where the formula wants radius from the centre. Second,
+  using the diameter of the orbit, or the full long axis of an ellipse, where
+  the formula wants the *semi*-major axis. Write down "$a =$" on your page and
+  fill it in deliberately before you touch the calculator.
+</Aside>
+
+## Speed at any point: vis-viva
+
+The second law relates the two ends of an orbit to each other, and the third
+law gives the period. Neither one tells you the speed at a general point. For
+that you need energy.
+
+The total energy of a body of mass $m$ in orbit is kinetic plus gravitational
+potential, $E = \tfrac12 mv^2 - GMm/r$, and it is conserved. What is not
+obvious, but is true for every ellipse, is that this energy depends only on the
+semi-major axis:
+
+$$E = -\frac{GMm}{2a}$$
+
+You can check it fast on a circle, where $r=a$ and $v^2 = GM/r$:
+$E = \tfrac12 m(GM/a) - GMm/a = -GMm/2a$. Setting the two expressions for $E$
+equal and cancelling $m$ gives the **vis-viva equation**:
+
+$$v^2 = GM\left(\frac{2}{r} - \frac{1}{a}\right)$$
+
+This is the workhorse. Given the central mass, your current distance $r$, and
+the size $a$ of the orbit you are on, it hands you your speed. Two special
+cases are worth noticing. On a circle $r=a$ and it collapses to
+$v=\sqrt{GM/r}$, the result from the last lesson. And $a\to\infty$ gives
+$v = \sqrt{2GM/r}$, escape speed: an infinitely large orbit is one that never
+comes back.
+
+Turned around, vis-viva also finds the orbit from the motion. If you know $r$
+and $v$ at one instant, solve for $a$, and then $r_a = 2a - r$ gives the far
+end.
+
+### Worked example 3: apogee of a fast launch
+
+A projectile is launched horizontally from Earth's surface at
+$9000\ \mathrm{m/s}$ (ignore the atmosphere). How far from Earth's centre does
+it get? Use $GM_E = 3.983\times10^{14}$, $R_E = 6.37\times10^6\ \mathrm{m}$.
+
+Horizontal launch means the velocity is perpendicular to $\vec r$, so the
+launch point is a turning point of the orbit — here, the perigee. Find $a$ from
+vis-viva at that point.
+
+$$\frac{1}{a} = \frac{2}{r} - \frac{v^2}{GM}$$
+
+$$\frac{2}{r} = \frac{2}{6.37\times10^6} = 3.140\times10^{-7}\ \mathrm{m^{-1}}$$
+
+$$\frac{v^2}{GM} = \frac{(9000)^2}{3.983\times10^{14}} = \frac{8.10\times10^7}{3.983\times10^{14}} = 2.034\times10^{-7}\ \mathrm{m^{-1}}$$
+
+$$\frac{1}{a} = 3.140\times10^{-7} - 2.034\times10^{-7} = 1.106\times10^{-7}$$
+
+$$a = 9.04\times10^{6}\ \mathrm{m}$$
+
+The apogee is the other end of the long axis, and the two ends add to $2a$:
+
+$$r_a = 2a - r_p = 1.808\times10^{7} - 6.37\times10^{6} = 1.17\times10^{7}\ \mathrm{m}$$
+
+Check the sign of the story: $9000\ \mathrm{m/s}$ is faster than the circular
+speed at the surface ($\sqrt{GM/R} = 7906\ \mathrm{m/s}$) and slower than
+escape ($11180\ \mathrm{m/s}$), so it should rise to an apogee and come back.
+It does.
+
+<QuickCheck
+  question="A satellite is at distance r moving perpendicular to the radius, faster than the circular speed at r but slower than escape speed. That point of its orbit is:"
+  options={["Perigee, the closest point", "Apogee, the farthest point", "Neither, it is a general point of the orbit", "It depends on the mass of the satellite"]}
+  answer={0}
+  explanation="Perpendicular velocity means the distance is momentarily not changing, so it is a turning point. Since it is moving faster than circular, the orbit bulges outward from there: the point is the closest one, the perigee."
+/>
+
+### Worked example 4: the burn that raises an apogee
+
+A satellite is in a circular orbit of radius $7.00\times10^6\ \mathrm{m}$ and
+fires its engine to enter an ellipse with apogee $4.20\times10^7\ \mathrm{m}$.
+How big a speed change does it need? Use $GM_E = 3.983\times10^{14}$.
+
+The engine burns briefly, so the satellite stays at $r = 7.00\times10^6$ during
+the burn; only its speed changes. Get the speed before and the speed after at
+that same radius, and subtract.
+
+Before, on the circle:
+
+$$v_1 = \sqrt{\frac{3.983\times10^{14}}{7.00\times10^6}} = \sqrt{5.690\times10^{7}} = 7543\ \mathrm{m/s}$$
+
+After, on the ellipse. The burn point becomes the perigee, and the apogee is
+given, so
+
+$$a = \tfrac12(7.00\times10^6 + 4.20\times10^7) = 2.45\times10^{7}\ \mathrm{m}$$
+
+$$v_2^2 = GM\left(\frac{2}{7.00\times10^6} - \frac{1}{2.45\times10^7}\right) = 3.983\times10^{14}\,(2.857\times10^{-7} - 0.408\times10^{-7})$$
+
+$$v_2^2 = 3.983\times10^{14} \times 2.449\times10^{-7} = 9.754\times10^{7}$$
+
+$$v_2 = 9877\ \mathrm{m/s}$$
+
+$$\Delta v = 9877 - 7543 = 2333\ \mathrm{m/s}$$
+
+Both velocities point the same way — along the track — so the speeds subtract
+directly. If the burn had been at an angle you would have to subtract the
+vectors instead.
+
+## Transfer orbits and degenerate ones
+
+Two classic setups are just the three laws pointed at an unusual question.
+
+A **Hohmann transfer** moves a spacecraft between two circular orbits using an
+ellipse that is tangent to both: its perihelion sits on the inner circle and
+its aphelion on the outer one. So $2a = r_\text{inner} + r_\text{outer}$, and
+because you travel from one end of the long axis to the other, the trip takes
+exactly half a period.
+
+### Worked example 5: how long to Mars
+
+A spacecraft leaves Earth's orbit ($1.00\ \mathrm{AU}$) on an ellipse whose
+aphelion just touches Mars's orbit ($1.524\ \mathrm{AU}$). How long is the
+crossing?
+
+$$a = \frac{1.000 + 1.524}{2} = 1.262\ \mathrm{AU}$$
+
+$$T = a^{3/2}: \quad \sqrt{1.262} = 1.1234, \quad T = 1.1234 \times 1.262 = 1.4177\ \text{years}$$
+
+Half of that is the trip:
+
+$$t = \tfrac12(1.4177) = 0.709\ \text{years} \approx 259\ \text{days}$$
+
+The other setup is the **degenerate ellipse**. Stop a planet dead in its orbit
+and let it fall straight into the Sun. That radial line looks like nothing at
+all, but it is the limit $e \to 1$ of an ellipse: a path that goes out to a
+maximum distance $r_\text{max} = 2a$ and comes back. So the fall starts at
+"aphelion" with $r_a = 2a$, giving $a = r_\text{max}/2$, and the third law
+still applies. The fall to the centre is half of that orbit, so it takes $T/2$.
+
+Earth stopped at $1.00\ \mathrm{AU}$ and released has $a = 0.500\ \mathrm{AU}$,
+so $T = 0.5^{3/2} = 0.3536$ years, and the fall takes $0.1768$ years, about 65
+days. No integration required.
+
+<Aside label="Worth remembering">
+  Every orbit problem with two named distances is asking you to add them and
+  halve. Perihelion and aphelion, inner and outer transfer circles, launch
+  point and apogee, start of a radial fall and the centre — all of them are
+  $2a = r_1 + r_2$. Find $a$ first and the rest falls out.
+</Aside>
+
+## Weighing things with the third law
+
+Rearrange $T^2 = 4\pi^2 a^3/GM$ for the mass:
+
+$$M = \frac{4\pi^2 a^3}{G T^2}$$
+
+In SI that needs $G$ and careful powers of ten. But there is a version with no
+constants at all. Since the Sun with $a$ in AU and $T$ in years gives
+$T^2 = a^3$, a central mass of $M$ solar masses gives $T^2 = a^3/M$, so
+
+$$M = \frac{a^3}{T^2} \quad \text{(solar masses, AU, years)}$$
+
+A star orbiting a galactic centre at $a = 1000\ \mathrm{AU}$ with
+$T = 15.0$ years gives $M = 10^9/225 = 4.44\times10^6$ solar masses. That is
+how the black hole at the centre of the Milky Way was weighed.
+
+One caveat for binaries. When the two masses are comparable, both orbit their
+common centre of mass, and what the law returns is the **sum** $M_1 + M_2$,
+with $a$ the separation between them. Two stars with $T=50.0$ years and a
+separation of $20.0\ \mathrm{AU}$ have a combined mass of
+$20^3/50^2 = 8000/2500 = 3.2$ solar masses.
+
+There is one more disguise worth spotting. For an orbit skimming the surface of
+a uniform sphere of density $\rho$, put $M = \tfrac43\pi R^3 \rho$ and $a = R$
+into the third law:
+
+$$T^2 = \frac{4\pi^2 R^3}{G \cdot \tfrac43 \pi R^3 \rho} = \frac{3\pi}{G\rho}$$
+
+The radius cancels completely. A surface-skimming orbit has a period that
+depends only on density. For rock at $5500\ \mathrm{kg/m^3}$,
+$T = \sqrt{3\pi/(6.67\times10^{-11}\times5500)} = \sqrt{2.569\times10^{7}}
+= 5070\ \mathrm{s}$, about 84 minutes — which is why every low orbit around
+every rocky body takes roughly an hour and a half.
+
+## How to recognise which law you need
+
+Read the problem for what it gives you and what it asks.
+
+**Two distances and a period, or a period and a distance.** Third law. Convert
+to AU and years if the Sun is at the centre and skip $G$ entirely; use
+$T = 2\pi\sqrt{a^3/GM}$ if it is a planet. If the two distances are the ends of
+an orbit, average them for $a$ first.
+
+**Two speeds, or a speed at one end and a question about the other end.**
+Second law: $v_p r_p = v_a r_a$. The word "perihelion", "aphelion", "perigee",
+"apogee", "closest", or "farthest" is the signal, because only at those points
+is $\vec v$ perpendicular to $\vec r$ and the relation that simple.
+
+**A speed at a general point, or a $\Delta v$, or "how far out does it get".**
+Vis-viva. Any problem with a rocket burn, a launch speed, or a maximum distance
+wants $v^2 = GM(2/r - 1/a)$, usually run once to find $a$ and once to find a
+speed.
+
+**A mass you are asked to find.** Third law rearranged. Check whether the units
+let you use $M = a^3/T^2$ in solar masses.
+
+**"Eccentricity" in the question.** Convert immediately to $r_p = a(1-e)$ and
+$r_a = a(1+e)$, then treat it as a two-distance problem. Eccentricity almost
+never appears in a final formula; it is a way of stating the two distances.
+
+One structural warning. The third law never involves speed and the second law
+never involves the period. If your chain of reasoning needs both a speed and a
+time, you almost certainly need vis-viva or energy in the middle.
+
+The thread running through all of it is that the orbit is fixed by its energy
+and its angular momentum: energy sets $a$, and the pair together set $e$. In
+the next lesson you will look properly at the quantity that has been quietly
+doing the work here, in
+[Work and the work-energy theorem](/guide/work-energy-theorem).

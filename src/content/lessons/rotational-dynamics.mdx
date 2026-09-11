@@ -1,52 +1,373 @@
-## The same laws, rewritten
+## A pulley that fights back
 
-Rotation reuses everything from linear dynamics with each quantity replaced by
-its angular counterpart: force by torque, mass by moment of inertia, velocity
-by angular velocity.
+In every pulley problem you have solved so far, the cord tension was the same
+on both sides. That was never a law. It was an assumption — that the pulley had
+no mass — and a massless pulley needs no net torque to spin up, so the two pulls
+on it must balance.
 
-$$\tau = I\alpha, \qquad L = I\omega, \qquad K_{rot} = \tfrac12 I\omega^2$$
+Real pulleys have mass. Hang a brick from a cord wrapped around a heavy flywheel
+and the brick falls slowly, with the cord pulling on it well below its full
+weight. Something is absorbing part of the fall. To say how much, you need a law
+for how hard it is to change a spinning object's rate of spin. From
+[moment of inertia](/guide/moment-of-inertia) you know $I$ measures how much a
+body resists being spun; from linear dynamics you know $F = ma$. The two fit
+together in a way you can derive rather than memorise.
 
-Torque is $\tau = rF\sin\theta$, and only the component of force perpendicular
-to the lever arm produces it. Pushing a door toward its hinge does nothing.
+## Torque: the part of a force that twists
 
-Moment of inertia depends on how mass is distributed, not just how much there
-is. Worth memorizing: a hoop is $mr^2$, a disk $\tfrac12 mr^2$, a solid sphere
-$\tfrac25 mr^2$, a rod about its center $\tfrac{1}{12}mL^2$ and about its end
-$\tfrac13 mL^2$. The parallel axis theorem, $I = I_{cm} + md^2$, gets you the
-rest.
+Push a door on the handle and it swings. Push with the same force right next to
+the hinge and almost nothing happens. Push straight at the hinge and nothing
+happens at all. So the turning effect of a force depends on the force, on where
+you apply it, and on the direction you push.
 
-## Rolling without slipping
+Let $\vec r$ be the vector from the pivot to the point where the force acts,
+with length $r$ in metres, and let $\theta$ be the angle between $\vec r$ and
+the force $\vec F$ in newtons. Split $\vec F$ into a piece along $\vec r$ and a
+piece perpendicular to it. The piece along $\vec r$ pulls the body toward or
+away from the pivot; the pivot absorbs it and nothing turns. Only the
+perpendicular piece, of size $F\sin\theta$, twists, and it should count for more
+when applied further out. So the turning effect is
 
-Rolling is the constraint $v = \omega r$, which couples the translation to the
-rotation. Its main consequence: energy released by a rolling object has to be
-shared between the two motions.
+$$\tau = r F \sin\theta$$
 
-$$mgh = \tfrac12 mv^2 + \tfrac12 I\omega^2 = \tfrac12 mv^2\left(1 + \frac{I}{mr^2}\right)$$
+and it is called **torque**, measured in newton-metres. Read it two ways. Group
+it as $r\,(F\sin\theta)$ — the perpendicular part of the force times the
+distance. Or group it as $(r\sin\theta)F$ — the whole force times the **lever
+arm**, the perpendicular distance from the pivot to the line the force acts
+along. Same number; use whichever is easier to see. Torque is zero at
+$\theta = 0$ or $180^\circ$ and largest at $\theta = 90^\circ$, where
+$\tau = rF$. Pick one sense of rotation as positive and give each torque a sign.
 
-So a race down a ramp is decided entirely by $I/mr^2$, not by mass or radius.
-A sphere beats a disk, which beats a hoop, every time. Anything sliding
-frictionlessly beats all of them.
-
-<Aside label="Worth remembering">
-  Friction is what makes rolling possible, but in rolling without slipping the
-  contact point is instantaneously at rest, so static friction does no work.
-  Energy conservation still applies.
-</Aside>
-
-## Angular momentum
-
-When no external torque acts, $L$ is conserved. Because $I$ can change while
-$L$ cannot, pulling mass inward speeds up the rotation, which is the skater
-and the collapsing star.
-
-Angular momentum is defined about a point, and the choice is yours. Picking
-the point where an unknown force acts removes its torque from the equation.
-That single choice is what makes most collision-with-a-pivot problems
-tractable.
+<Figure caption={<><b>Figure 1.</b> The dashed line is the line of action of the force, and the dashed segment from the pivot to it is the lever arm. Drag the angle to 0 degrees and watch the torque vanish even though the force is as large as ever. Then hold the angle at 90 degrees and drag the distance instead.</>}>
+  <Sim id="rotational-dynamics-torque" />
+</Figure>
 
 <QuickCheck
-  question="A solid disk and a hoop of the same mass and radius roll from rest down the same ramp. Which reaches the bottom first?"
-  options={["The disk", "The hoop", "They tie", "It depends on the mass"]}
+  question="A cord wrapped around the rim of a pulley of radius 0.15 m is pulled with 20 N. What torque does it apply about the pulley's axle?"
+  options={["3.0 N·m", "0.0075 N·m", "133 N·m", "20 N·m"]}
   answer={0}
-  explanation="Energy splits between moving and spinning, and the hoop keeps all its mass at the rim, so more of the released energy goes into rotation. The disk keeps more for translation and wins. Mass and radius cancel out entirely."
+  explanation="A cord leaving the rim runs tangentially, so it is perpendicular to the radius and sin theta = 1. The torque is r F = 0.15 times 20 = 3.0 N·m. The tempting error is dividing by r instead of multiplying."
 />
+
+## Why torque equals I times alpha
+
+Start with the simplest spinning thing there is: a single point mass $m$ stuck
+to the end of a massless rod of length $r$, free to swing about a pivot. Push
+it perpendicular to the rod with a force $F$. Newton's second law still holds
+for that mass, in the direction it is free to move:
+
+$$F = m a_t$$
+
+where $a_t$ is its acceleration along the circle, called the tangential
+acceleration. But the mass is going round a circle of fixed radius, so its
+tangential acceleration and the angular acceleration $\alpha$ (in rad/s²) are
+locked together by $a_t = r\alpha$. Substitute:
+
+$$F = m r \alpha$$
+
+Now multiply both sides by $r$. On the left you get $rF$, which is the torque,
+since the push was perpendicular. On the right you get $mr^2\alpha$, and
+$mr^2$ is exactly the moment of inertia of a point mass at radius $r$. So
+
+$$\tau = I\alpha$$
+
+For an extended body, do this for every particle and add. Internal forces come
+in equal and opposite pairs along the line joining the particles, so their
+torques cancel and only external torques survive; every particle shares the same
+$\alpha$ because the body is rigid. You get the same equation with $I$ now the
+moment of inertia of the whole body about the axis you chose:
+
+$$\tau_{\text{net}} = I\alpha$$
+
+Read it the way you read $F = ma$. Double the torque and you double the angular
+acceleration. Double $I$, by moving the same mass further out, and you halve it
+for the same torque. Zero net torque means constant $\omega$, not zero $\omega$.
+
+Two more results fall out. If a torque turns a body through a small angle
+$d\theta$, the force's application point moves $ds = r\,d\theta$, so
+$dW = F_\perp\,ds = (rF_\perp)\,d\theta$, giving $W = \tau\theta$ for a constant
+torque and $P = \tau\omega$ for the power — the mirrors of $W = Fd$ and
+$P = Fv$. A torque of 8.0 N·m through 25 rad does 200 J; 14 N·m at 50 rad/s
+delivers 700 W.
+
+<Aside label="Worth remembering">
+  The whole rotational toolkit is the linear one with three swaps: $F \to \tau$,
+  $m \to I$, $a \to \alpha$. So $W = \tau\theta$, $P = \tau\omega$,
+  $K = \tfrac12 I\omega^2$, and the constant-$\alpha$ kinematics
+  $\omega = \omega_0 + \alpha t$ and $\theta = \omega_0 t + \tfrac12\alpha t^2$
+  are the same equations you already know.
+</Aside>
+
+## Worked example 1: spinning up a grindstone
+
+A grindstone with $I = 0.60\ \mathrm{kg\,m^2}$ starts from rest and is driven by
+a constant torque of $3.0\ \mathrm{N\,m}$. How fast is it turning after
+$8.0\ \mathrm{s}$?
+
+Find the angular acceleration first:
+
+$$\alpha = \frac{\tau}{I} = \frac{3.0\ \mathrm{N\,m}}{0.60\ \mathrm{kg\,m^2}} = 5.0\ \mathrm{rad/s^2}$$
+
+The torque is constant, so $\alpha$ is constant, and the rotational version of
+$v = v_0 + at$ applies:
+
+$$\omega = 0 + (5.0)(8.0) = 40\ \mathrm{rad/s}$$
+
+Those two lines answer a family of problems. A flywheel with
+$I = 5.0\ \mathrm{kg\,m^2}$ spinning at $40\ \mathrm{rad/s}$ stopped in
+$10\ \mathrm{s}$ needs $\alpha = -40/10 = -4.0\ \mathrm{rad/s^2}$, so
+$\tau = (5.0)(4.0) = 20\ \mathrm{N\,m}$ opposing the spin.
+
+Brakes need one extra step to get the torque. A pad pressed
+against a disk of radius $0.30\ \mathrm{m}$ with a normal force of
+$200\ \mathrm{N}$ and $\mu_k = 0.35$ produces a friction force
+$f = \mu_k N = (0.35)(200) = 70\ \mathrm{N}$, tangent to the rim, so
+$\tau = (0.30)(70) = 21\ \mathrm{N\,m}$. With $I = 1.2\ \mathrm{kg\,m^2}$ that
+is $\alpha = 21/1.2 = 17.5\ \mathrm{rad/s^2}$, and stopping from
+$50\ \mathrm{rad/s}$ takes $t = 50/17.5 = 2.86\ \mathrm{s}$.
+
+## Worked example 2: the pulley with mass
+
+Now the brick and the flywheel. A $3.0\ \mathrm{kg}$ block hangs from a cord
+wrapped over a pulley that is a solid disk of mass $M = 2.0\ \mathrm{kg}$ and
+radius $R = 0.20\ \mathrm{m}$. Find the block's acceleration and the tension.
+
+On blank paper, write down three things before touching any numbers: Newton's
+second law for the block, $\tau = I\alpha$ for the pulley, and the constraint
+that ties them together.
+
+The block feels gravity down and tension up. Taking down as positive,
+
+$$mg - T = ma$$
+
+The pulley feels the cord pulling tangentially at its rim with the same $T$
+(the cord does not stretch or slip), so the torque on it is $TR$, and
+
+$$TR = I\alpha, \qquad I = \tfrac12 MR^2$$
+
+The constraint: the cord does not slip on the rim, so the speed of the cord
+equals the speed of the rim, $v = \omega R$, and differentiating,
+$a = \alpha R$, so $\alpha = a/R$. Substitute that into the pulley equation:
+
+$$TR = \tfrac12 MR^2\cdot\frac{a}{R} = \tfrac12 MRa \quad\Longrightarrow\quad T = \tfrac12 Ma$$
+
+Tension is no longer whatever it needs to be; it is set by how hard you are
+spinning up the pulley. Put it into the block equation:
+
+$$mg - \tfrac12 Ma = ma \quad\Longrightarrow\quad a = \frac{mg}{m + \tfrac12 M}$$
+
+With numbers, $a = (3.0)(9.8)/(3.0 + 1.0) = 29.4/4.0 = 7.35\ \mathrm{m/s^2}$.
+The tension follows: $T = \tfrac12 Ma = (1.0)(7.35) = 7.35\ \mathrm{N}$, well
+under the block's weight of 29.4 N.
+
+Notice the shape of the answer. The pulley contributes $I/R^2 = \tfrac12 M$ to
+the denominator, as if the system carried an extra $\tfrac12 M$ of mass that has
+to be accelerated. That "effective mass" $I/R^2$ is worth carrying in your head.
+
+<Figure caption={<><b>Figure 2.</b> Drag the pulley mass to zero and the acceleration bar rises to g while the tension drops to zero, which is the massless-pulley answer you are used to. Make the pulley heavy and watch the block barely move.</>}>
+  <Sim id="rotational-dynamics-pulley" />
+</Figure>
+
+<QuickCheck
+  question="In the massless-pulley limit, what happens to the cord tension on a freely falling hanging block?"
+  options={["It goes to zero", "It goes to mg", "It goes to mg/2", "It is unchanged"]}
+  answer={0}
+  explanation="With no pulley to spin up, nothing resists the fall, so a goes to g and the block is in free fall. A body in free fall has only gravity on it, so T = m(g - a) = 0."
+/>
+
+## When the cord runs over a table
+
+Add a second block and only the bookkeeping changes. A $4.0\ \mathrm{kg}$ block
+sits on a table with $\mu_k = 0.20$, pulled by a cord over a solid-disk pulley
+of mass $1.0\ \mathrm{kg}$ to a $3.0\ \mathrm{kg}$ hanging block. Find the
+acceleration.
+
+The trap: the tensions on the two sides of the pulley are **not** equal. If they
+were, the net torque on the pulley would be zero and it would never spin up.
+Call them $T_1$ on the table side and $T_2$ on the hanging side.
+
+Table block, horizontal, with normal force $N = m_1g$ so friction is
+$f = \mu_k m_1 g = (0.20)(4.0)(9.8) = 7.84\ \mathrm{N}$:
+
+$$T_1 - f = m_1 a$$
+
+Hanging block:
+
+$$m_2 g - T_2 = m_2 a$$
+
+Pulley, with the two cords pulling at the rim in opposite senses:
+
+$$T_2 R - T_1 R = I\alpha = \tfrac12 MR^2\cdot\frac{a}{R} \quad\Longrightarrow\quad T_2 - T_1 = \tfrac12 Ma$$
+
+Three equations, three unknowns. Add them all together and both tensions
+cancel:
+
+$$m_2 g - f = \left(m_1 + m_2 + \tfrac12 M\right)a$$
+
+$$a = \frac{(3.0)(9.8) - 7.84}{4.0 + 3.0 + 0.5} = \frac{29.4 - 7.84}{7.5} = \frac{21.56}{7.5} = 2.87\ \mathrm{m/s^2}$$
+
+The pattern generalises: driving forces on top, total inertia including $I/R^2$
+on the bottom. An Atwood machine with $4.0$ and $2.0\ \mathrm{kg}$ over a
+$1.0\ \mathrm{kg}$ disk gives
+$a = (4.0 - 2.0)(9.8)/(4.0 + 2.0 + 0.5) = 19.6/6.5 = 3.02\ \mathrm{m/s^2}$ in one
+line.
+
+<Figure caption={<><b>Figure 3.</b> The forces in that problem, drawn out. Notice that the two cord tensions are labelled separately: T2 minus T1 is what supplies the pulley's torque, and it is zero only if the pulley is massless.</>}>
+  <Sim id="rotational-dynamics-fbd" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  Never write one tension across a pulley that has mass. It is the single most
+  common mistake in this topic, and it silently gives the massless answer. The
+  giveaway is that the problem bothered to tell you the pulley's mass, radius or
+  moment of inertia. If it did, the two tensions differ by $I\alpha/R$.
+</Aside>
+
+If the pulley is stepped, each cord just carries its own radius into both the
+torque and the constraint, $a_i = \alpha r_i$. For $I = 0.40\ \mathrm{kg\,m^2}$,
+a $5.0\ \mathrm{kg}$ mass at $r_1 = 0.30\ \mathrm{m}$ and an $8.0\ \mathrm{kg}$
+mass on the opposite side at $r_2 = 0.15\ \mathrm{m}$, eliminating the tensions
+the same way gives
+
+$$\alpha = \frac{m_1 g r_1 - m_2 g r_2}{I + m_1 r_1^2 + m_2 r_2^2} = \frac{(5.0)(9.8)(0.30) - (8.0)(9.8)(0.15)}{0.40 + (5.0)(0.09) + (8.0)(0.0225)}$$
+
+$$\alpha = \frac{14.7 - 11.76}{0.40 + 0.45 + 0.18} = \frac{2.94}{1.03} = 2.85\ \mathrm{rad/s^2}$$
+
+The 8 kg mass is heavier but sits on the small radius, so the 5 kg mass wins.
+Each $m_i r_i^2$ is that block's contribution to the system's effective moment
+of inertia, exactly like the $\tfrac12 M$ before.
+
+## Worked example 3: the falling rod
+
+A uniform rod of mass $M$ and length $L$, hinged at one end, is released from
+rest held horizontal. This is where torque stops being constant.
+
+Gravity acts on every bit of the rod, but for torque purposes the whole weight
+$Mg$ acts at the centre of mass, $L/2$ from the hinge. Held horizontal, the
+weight is perpendicular to the rod, so the torque about the hinge is $Mg(L/2)$,
+and a rod about its end has $I = \tfrac13 ML^2$. So
+
+$$\alpha = \frac{\tau}{I} = \frac{MgL/2}{ML^2/3} = \frac{3g}{2L}$$
+
+For $L = 1.2\ \mathrm{m}$, that is $\alpha = 3(9.8)/(2)(1.2) = 12.25\ \mathrm{rad/s^2}$.
+
+Two things here. The mass cancelled, as it always does when gravity is the only
+thing acting. And the centre of mass
+accelerates at $a_{cm} = \alpha(L/2) = 3g/4 = 7.35\ \mathrm{m/s^2}$, which is
+*less* than $g$. Something must be holding the rod up, and it is the hinge.
+Apply $F = ma$ to the rod as a whole, taking down as positive:
+
+$$Mg - F_{\text{hinge}} = M a_{cm} = M\tfrac34 g \quad\Longrightarrow\quad F_{\text{hinge}} = \tfrac14 Mg$$
+
+For $M = 2.0\ \mathrm{kg}$ that is $(0.25)(2.0)(9.8) = 4.9\ \mathrm{N}$ upward.
+Note what did *not* happen: the hinge does not support the full weight. A rod
+being released is not a rod in equilibrium.
+
+Now the harder question. Once the rod starts swinging, $\theta$ changes, so the
+lever arm $(L/2)\cos\theta$ changes, so $\alpha$ changes every instant. You
+cannot use constant-$\alpha$ kinematics. Use energy instead. Take a rod held
+vertically on a frictionless pivot at its base, released, and ask for the speed
+of its tip when it hits the ground. The centre of mass drops from $L/2$ to zero,
+releasing $Mg(L/2)$ of potential energy, and all of it becomes rotational
+kinetic energy about the pivot:
+
+$$Mg\frac{L}{2} = \tfrac12 I\omega^2 = \tfrac12\left(\tfrac13 ML^2\right)\omega^2 = \tfrac16 ML^2\omega^2$$
+
+$M$ cancels. Solve for $\omega$:
+
+$$\omega = \sqrt{\frac{3g}{L}}$$
+
+With $L = 1.2\ \mathrm{m}$ and $g = 10\ \mathrm{m/s^2}$,
+$\omega = \sqrt{30/1.2} = \sqrt{25} = 5.0\ \mathrm{rad/s}$. The tip is at radius
+$L$, so its speed is $v = \omega L = (5.0)(1.2) = 6.0\ \mathrm{m/s}$. A rod
+released from $30^\circ$ above the horizontal instead falls through a height
+$(L/2)\sin 30^\circ$ before reaching horizontal, so
+$\omega = \sqrt{3g\sin 30^\circ/L} = \sqrt{3(9.8)(0.5)/1.4} = 3.24\ \mathrm{rad/s}$.
+
+<Figure caption={<><b>Figure 4.</b> Set the release angle near vertical and watch the angular acceleration start near zero, because the lever arm is nearly zero when the rod is upright, then grow as the rod swings down. That changing alpha is why you need energy, not kinematics, to get the final speed.</>}>
+  <Sim id="rotational-dynamics-rod" />
+</Figure>
+
+<QuickCheck
+  question="Why can you not find the falling rod's final angular speed with omega equals alpha times t?"
+  options={["Because alpha changes as the rod swings", "Because the rod's mass cancels", "Because energy is not conserved", "Because the hinge does work on the rod"]}
+  answer={0}
+  explanation="The torque is Mg times the lever arm (L/2) cos theta, and the lever arm shrinks as the rod approaches vertical and grows as it falls. Constant-acceleration kinematics need a constant alpha. Energy is conserved here: the hinge force acts at a point that never moves, so it does no work."
+/>
+
+## Rolling, and choosing a smarter pivot
+
+Rolling without slipping is the same constraint as the cord on the pulley,
+$v = \omega R$ and $a = \alpha R$, but now the whole body moves. Energy
+conservation for something rolling from a height $h$ reads
+
+$$mgh = \tfrac12 mv^2 + \tfrac12 I\omega^2 = \tfrac12 mv^2\left(1 + \frac{I}{mR^2}\right)$$
+
+using $\omega = v/R$. Only the dimensionless ratio $I/mR^2$ survives, so mass
+and radius do not matter in a rolling race. A solid sphere has
+$I/mR^2 = 2/5$, so from $h = 2\ \mathrm{m}$ with $g = 10\ \mathrm{m/s^2}$,
+$v = \sqrt{2(10)(2)/1.4} = \sqrt{28.6} = 5.35\ \mathrm{m/s}$. A disk (ratio
+$1/2$) is slower, a hoop (ratio 1) slower still.
+
+For rolling *dynamics*, you get a large shortcut by taking torques about the
+contact point instead of the centre. The contact point is instantaneously at
+rest, friction acts there, and a force applied at your pivot has zero lever arm
+and so disappears from the equation. Take a spool of mass $3.0\ \mathrm{kg}$,
+radius $R = 0.20\ \mathrm{m}$, $I_{cm} = \tfrac12 MR^2$, with a cord pulled
+horizontally with $12\ \mathrm{N}$ from the *top* of the spool. About the
+contact point, the cord's lever arm is $2R$ (it acts a full diameter above),
+and by the parallel axis theorem
+$I_{\text{contact}} = \tfrac12 MR^2 + MR^2 = \tfrac32 MR^2$. So
+
+$$\alpha = \frac{F(2R)}{\tfrac32 MR^2} = \frac{4F}{3MR}, \qquad a = \alpha R = \frac{4F}{3M} = \frac{4(12)}{3(3.0)} = 5.33\ \mathrm{m/s^2}$$
+
+No need to ever name the friction force. That same trick — pivot where the
+unknown force acts — handles the **centre of percussion**. Hit a hinged rod of
+length $L$ perpendicular with an impulse $J$ at distance $d$ from the hinge. If
+the hinge feels nothing, then $J$ alone gives the rod its motion, so
+$J = M v_{cm}$ and $Jd = I\omega = \tfrac13 ML^2\omega$. The hinge is fixed, so
+$v_{cm} = \omega(L/2)$. Divide the second equation by the first:
+
+$$d = \frac{\tfrac13 ML^2\omega}{M\omega L/2} = \frac{2L}{3}$$
+
+For $L = 1.0\ \mathrm{m}$, $d = 0.667\ \mathrm{m}$. That is the sweet spot on a
+bat, and it is the last thing $\tau = I\alpha$ gives you before you meet impulse
+properly in [angular momentum](/guide/angular-momentum).
+
+<Aside label="Where this goes wrong" warn>
+  $\tau = I\alpha$ and $I$ must be about the *same* axis, and only three axes are
+  safe: a fixed pivot, the centre of mass, or the instantaneous contact point of
+  a rolling body. Taking torques about a random moving point and using $I_{cm}$
+  will give a wrong answer that looks reasonable.
+</Aside>
+
+## Recognising the technique
+
+Reach for $\tau = I\alpha$ when a problem gives you a moment of inertia, or
+gives you enough to compute one (a mass and a shape name: disk, hoop, rod,
+sphere), and then asks for a rate of change: an angular acceleration, a time to
+stop, a linear acceleration in a system that includes something rotating.
+
+Three signals in particular:
+
+- **The problem tells you a pulley's mass, radius, or $I$.** That detail is
+  never decoration. It means two different tensions and an extra $I/R^2$ of
+  effective mass. Write $F = ma$ for each block, $\tau = I\alpha$ for the
+  pulley, and $a = \alpha R$ to link them, then add to kill the tensions.
+- **Something pivots or hinges.** Torque about the hinge, $I$ about the hinge,
+  and remember the hinge force never appears because its lever arm is zero. If
+  the question asks for the hinge force, get $\alpha$ first, then
+  $a_{cm} = \alpha r_{cm}$, then $F = Ma_{cm}$ for the whole body.
+- **Something rolls.** Use $a = \alpha R$, and take torques about the contact
+  point if an unknown friction force is in the way.
+
+And the fork that decides your method: if the question asks for an
+*acceleration, a force, or a time*, use $\tau = I\alpha$. If it asks for a
+*speed after moving through some angle or height*, and the torque changes along
+the way, use energy: $Mg\Delta h = \tfrac12 I\omega^2$. Problems about falling
+rods and rolling balls usually want both, in that order — $\tau = I\alpha$ for
+the instant of release, energy for the finish.
+
+What $\tau = I\alpha$ cannot do is handle a collision, where forces are huge and
+brief and $I$ itself may change. For those you need the rotational analogue of
+momentum, which is next: [angular momentum](/guide/angular-momentum).

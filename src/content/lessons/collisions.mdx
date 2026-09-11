@@ -1,74 +1,215 @@
-## Sort the collision before solving it
+Two cars meet at an intersection, crumple, and slide away together as one mangled object. You do not know the force between them. You do not know how long the crash lasted, or how the bumpers deformed, or where the heat went. And yet, if you know the two masses and the two velocities going in, you can tell someone exactly how fast the wreck slides and in which direction.
 
-Every collision conserves total momentum. What varies is how much kinetic
-energy survives, and that is the first thing to establish, because it decides
-how many equations you get.
+That is the strange gift of momentum. In the previous lesson you found that impulse equals change in momentum, and that when two objects push only on each other, their pushes are equal and opposite at every instant, so the total momentum of the pair never changes. A collision is the extreme case: enormous forces, tiny duration, complicated internal details, and none of it matters. This lesson is about turning that fact into answers.
 
-- **Elastic**: kinetic energy is conserved too. Two equations per dimension of
-  motion, so a head-on collision of two known masses is fully determined.
-- **Perfectly inelastic**: the bodies leave with a common velocity. Momentum
-  alone determines the answer, and the energy loss is whatever is left over.
-- **Partially inelastic**: everything in between. You need a third piece of
-  information, usually the coefficient of restitution
-  $e = |v_{\text{sep}}| / |v_{\text{app}}|$, which is $1$ for elastic and $0$
-  for perfectly inelastic.
+## What survives a collision, and what does not
 
-A useful phrasing of the loss: the kinetic energy that can disappear is only
-the part associated with relative motion. The energy carried by the motion of
-the center of mass can never be lost, because that is fixed by momentum
-conservation.
+During a collision, the two bodies exert forces on each other. By Newton's third law those forces are equal and opposite at every moment, so the impulses they deliver are equal and opposite too. Whatever momentum one body gains, the other loses. Add them and the total does not move:
 
-## One dimension: use the relative velocity
+$$m_1\vec v_{1i} + m_2\vec v_{2i} = m_1\vec v_{1f} + m_2\vec v_{2f}$$
 
-Solving two simultaneous equations, one of them quadratic, is slow and
-error-prone. Replace the energy equation with its linear consequence: in an
-elastic collision the relative velocity reverses.
+Here $m$ is mass, $\vec v_i$ is a velocity just before the collision and $\vec v_f$ just after. The arrows matter: this is a vector equation, and in a plane it is really two equations, one for the $x$ components and one for the $y$ components.
 
-$$v_{1i} - v_{2i} = -(v_{1f} - v_{2f})$$
+Outside forces like gravity or friction do act during the crash, but a collision lasts milliseconds and those forces are small compared to the bang. Their impulse is negligible, so you treat total momentum as exactly conserved across the collision itself. Before and after, gravity is back in charge.
 
-Pair that with momentum conservation and you have two linear equations. For a
-mass $m_1$ striking a stationary $m_2$:
+Kinetic energy gets no such protection. Bending metal, heating rubber, and making noise all cost kinetic energy, and nothing in the laws says you get it back. So kinetic energy is a quantity you check, not a quantity you assume.
 
-$$v_{1f} = \frac{m_1 - m_2}{m_1 + m_2}v_{1i}, \qquad v_{2f} = \frac{2m_1}{m_1 + m_2}v_{1i}$$
+<Aside label="Worth remembering">
+  Momentum is conserved in every collision. Kinetic energy is conserved only in the special ones. When a problem says "elastic", it is handing you a second equation. When it says "stick together" or "embeds", it is handing you a different second equation. Find that second fact before you start algebra.
+</Aside>
 
-Check the limits, since they are worth memorizing as behavior rather than
-formula. Equal masses: the incoming body stops dead and the target leaves with
-the full speed. A light body hitting a very heavy one: it bounces back at
-nearly its original speed, like a ball off a wall. A heavy body hitting a light
-one: it barely slows, and the light one leaves at nearly twice the incoming
-speed.
+## Three kinds of collision
 
-<Figure caption={<><b>Figure 1.</b> Vary the mass ratio and watch the three limits appear. Equal masses transfer all the motion; a light incoming block reverses; a heavy one plows through almost unchanged.</>}>
+Sort a collision before you solve it, because the sorting decides your equations.
+
+**Perfectly inelastic.** The bodies leave with one common velocity — they stick, embed, couple, or crumple into a single lump. Momentum alone fixes the answer. This is the most energy a collision can lose while still conserving momentum.
+
+**Elastic.** Kinetic energy is conserved as well. Steel balls, billiard balls, atoms, subatomic particles.
+
+**Partially inelastic.** Everything between. You need a third piece of information, almost always the *coefficient of restitution* $e$, defined as the separation speed divided by the approach speed:
+
+$$e = \frac{|v_{2f} - v_{1f}|}{|v_{1i} - v_{2i}|}$$
+
+$e = 1$ is elastic, $e = 0$ is perfectly inelastic, and a dropped tennis ball is about $0.75$.
+
+Here is a useful way to see why the perfectly inelastic case loses the most. Split the kinetic energy into the energy of the whole system drifting along plus the energy of the two bodies moving relative to each other. The drifting part is locked to the total momentum, which cannot change, so it cannot be lost. Only the relative-motion part is available to be destroyed. Sticking together kills all of it.
+
+<QuickCheck
+  question="A 2.0 kg cart at 6.0 m/s runs into a stationary 4.0 kg cart and they lock together. What is their common speed?"
+  options={["2.0 m/s", "3.0 m/s", "4.0 m/s", "6.0 m/s"]}
+  answer={0}
+  explanation="Momentum before is 2.0 times 6.0 = 12 kg m/s. After, the moving mass is 6.0 kg, so v = 12 / 6.0 = 2.0 m/s. Speed does not simply halve; it drops by the ratio of the masses."
+/>
+
+### Worked example 1: the cost of sticking
+
+Take that same collision: $m_1 = 2.0\ \mathrm{kg}$ at $u = 6.0\ \mathrm{m/s}$ into $m_2 = 4.0\ \mathrm{kg}$ at rest. How much kinetic energy disappears?
+
+Momentum first. $p = (2.0)(6.0) = 12\ \mathrm{kg\,m/s}$, and after the collision the whole $6.0\ \mathrm{kg}$ moves at $v$, so $6.0v = 12$ and $v = 2.0\ \mathrm{m/s}$.
+
+Now the energies. Before:
+
+$$K_i = \tfrac12 (2.0)(6.0)^2 = \tfrac12 (2.0)(36) = 36\ \mathrm{J}$$
+
+After:
+
+$$K_f = \tfrac12 (6.0)(2.0)^2 = \tfrac12 (6.0)(4.0) = 12\ \mathrm{J}$$
+
+So $36 - 12 = 24\ \mathrm{J}$ went into crumpling and heat. Two thirds of the kinetic energy gone, and momentum never flinched. That gap between the two bookkeepings is the whole point of the topic.
+
+The same machinery handles a bullet in a block. A $20\ \mathrm{g}$ bullet at $300\ \mathrm{m/s}$ into a $1.98\ \mathrm{kg}$ block gives $(0.020)(300) = 6.0\ \mathrm{kg\,m/s}$, shared by $2.00\ \mathrm{kg}$, so the block leaves at $3.0\ \mathrm{m/s}$. If the block then swings up on a string, switch bookkeeping: the collision is over, energy is now conserved, and $\tfrac12 v^2 = gh$ gives the rise. Momentum through the bang, energy after it. Never both at once.
+
+<Aside label="Where this goes wrong" warn>
+  Do not run energy conservation through an inelastic collision, and do not run momentum conservation through the swing that follows. A ballistic pendulum is two separate problems glued end to end, and the glue is the common velocity immediately after impact. Students who write one long energy equation from bullet to top of swing get answers that are too big, every time.
+</Aside>
+
+<Figure caption={<><b>Figure 1.</b> The two halves of a ballistic pendulum, drawn side by side. Notice that the only thing crossing the dashed line is the common velocity V. Try covering one half with your hand: each half is a problem you already know how to do.</>}>
+  <Sim id="collisions-pendulum" />
+</Figure>
+
+## Head-on elastic collisions without the quadratic
+
+For an elastic collision in one dimension you have two statements: momentum,
+
+$$m_1u_1 + m_2u_2 = m_1v_1 + m_2v_2$$
+
+and energy,
+
+$$\tfrac12 m_1u_1^2 + \tfrac12 m_2u_2^2 = \tfrac12 m_1v_1^2 + \tfrac12 m_2v_2^2$$
+
+where $u$ means before and $v$ means after. Solving a quadratic simultaneously with a linear equation is slow and invites sign errors. There is a much better route.
+
+Move all the $m_1$ terms to one side of each equation. Momentum gives $m_1(u_1 - v_1) = m_2(v_2 - u_2)$. Energy, after cancelling the halves and factoring each difference of squares, gives $m_1(u_1 - v_1)(u_1 + v_1) = m_2(v_2 - u_2)(v_2 + u_2)$. Divide the second by the first — legal as long as the collision actually changed something — and everything with a mass in it cancels:
+
+$$u_1 + v_1 = v_2 + u_2 \quad\Longrightarrow\quad u_1 - u_2 = -(v_1 - v_2)$$
+
+In words: **in an elastic collision the relative velocity reverses**. They separate exactly as fast as they approached. That is the energy equation in linear form, and it is what $e = 1$ means.
+
+Pair it with momentum for the common case $u_2 = 0$, and the algebra is two lines:
+
+$$v_1 = \frac{m_1 - m_2}{m_1 + m_2}u_1, \qquad v_2 = \frac{2m_1}{m_1 + m_2}u_1$$
+
+Read the limits as behaviour, not formulas. Equal masses: $v_1 = 0$ and $v_2 = u_1$, so the incoming body stops dead and hands over everything. Light hits heavy ($m_1 \ll m_2$): $v_1 \to -u_1$, a bounce off a wall, with the heavy target barely stirring. Heavy hits light ($m_1 \gg m_2$): $v_1 \to u_1$ and $v_2 \to 2u_1$, the plough goes through and the light body leaves at twice the speed of the thing that hit it.
+
+<Figure caption={<><b>Figure 2.</b> Drag the two masses and watch the three regimes. Set them equal and the incoming block stops dead. Make the incoming block light and it rebounds. Flip the toggle to the inelastic setting and read how much kinetic energy the collision destroys.</>}>
   <Sim id="collision" />
 </Figure>
 
-## Two dimensions: momentum is a vector
+<QuickCheck
+  question="A 0.50 kg ball at 8.0 m/s hits a stationary 4.0 kg ball elastically head-on. Roughly what happens to the light ball?"
+  options={["It bounces back at a bit under 8 m/s", "It stops", "It continues forward at about 4 m/s", "It bounces back at about 16 m/s"]}
+  answer={0}
+  explanation="With m1 much smaller than m2 the factor (m1 - m2)/(m1 + m2) is close to -1. Here it is -3.5/4.5 = -0.778, so the ball returns at 6.2 m/s. It can never come back faster than it arrived, since that would create energy."
+/>
 
-In a plane, conserve $p_x$ and $p_y$ separately. That is two equations, plus
-one more if the collision is elastic — still one short of the four unknown
-final components, which is why 2D problems must hand you an extra fact such as
-one outgoing angle.
+### Worked example 2: how much energy a neutron loses
 
-Set your axes along the initial velocity so that the incoming momentum has no
-$y$ component. Then the $y$ equation reads simply
-$m_1 v_{1f}\sin\theta_1 = m_2 v_{2f}\sin\theta_2$, with the two bodies going to
-opposite sides.
+A neutron of mass $1.0\ \mathrm{u}$ hits a stationary carbon nucleus of mass $12\ \mathrm{u}$ head-on and elastically. What fraction of its kinetic energy does it lose? This is the real question behind a nuclear reactor's moderator: you want to slow neutrons down fast.
 
-One result is worth carrying: **equal masses colliding elastically, one
-initially at rest, always separate at 90°.** Momentum gives
-$\vec v_i = \vec v_1 + \vec v_2$, and energy gives $v_i^2 = v_1^2 + v_2^2$;
-squaring the first and comparing forces $\vec v_1 \cdot \vec v_2 = 0$. Pool
-players rely on it. If the angle is not 90°, the collision was not elastic.
+Start with the formula. $v_1 = \dfrac{1 - 12}{1 + 12}u_1 = -\dfrac{11}{13}u_1$.
+
+Kinetic energy goes as speed squared, so the fraction of energy the neutron keeps is
+
+$$\frac{K_f}{K_i} = \left(\frac{v_1}{u_1}\right)^2 = \left(\frac{11}{13}\right)^2 = \frac{121}{169} = 0.716$$
+
+So it loses $1 - 0.716 = 0.284$, about 28%. Note that the sign of $v_1$ vanished when you squared, which is why you may not answer this one by feel: the neutron bounces backwards, yet keeps most of its energy.
+
+The general version is worth carrying. The fraction of kinetic energy transferred from $m_1$ to a stationary $m_2$ in a head-on elastic collision is
+
+$$\frac{\Delta K}{K_i} = \frac{4m_1m_2}{(m_1+m_2)^2}$$
+
+which equals $1$ only when $m_1 = m_2$. Check it here: $4(1)(12)/169 = 48/169 = 0.284$. Matched. And it explains why reactors moderate with hydrogen or deuterium rather than lead — you want the target to weigh about what the neutron weighs.
+
+## Bouncing, and the coefficient of restitution
+
+A ball dropped from height $h$ arrives at the floor with speed $u = \sqrt{2gh}$, where $g = 9.8\ \mathrm{m/s^2}$. The floor does not move, so the approach speed is $u$ and the separation speed is $eu$. Rising with speed $eu$ it reaches
+
+$$h' = \frac{(eu)^2}{2g} = e^2h$$
+
+Each bounce multiplies the height by $e^2$. That also gives you a clean way to measure $e$: drop from $2.0\ \mathrm{m}$, see it return to $1.28\ \mathrm{m}$, and $e = \sqrt{1.28/2.0} = \sqrt{0.64} = 0.80$.
+
+The total path length is a geometric series. The ball falls $h$, then goes up and down $e^2h$, then up and down $e^4h$, and so on:
+
+$$d = h + 2h(e^2 + e^4 + e^6 + \cdots) = h + 2h\frac{e^2}{1-e^2} = h\,\frac{1+e^2}{1-e^2}$$
+
+For $h = 2.0\ \mathrm{m}$ and $e = 0.75$: $e^2 = 0.5625$, so $d = 2.0 \times 1.5625 / 0.4375 = 7.14\ \mathrm{m}$. Infinitely many bounces, finite distance, and in fact finite time too.
+
+<Figure caption={<><b>Figure 3.</b> A dropped ball with adjustable restitution. Drag e down toward 0.3 and watch the bounces collapse almost immediately; push it to 0.95 and the total path length climbs steeply. The readout tracks the current peak height and the total distance the ball will ever travel.</>}>
+  <Sim id="collisions-restitution" />
+</Figure>
+
+## Two dimensions: split into components, always
+
+Off-centre collisions stay in a plane. Conserve $p_x$ and $p_y$ separately — two independent equations — and if the collision is elastic you get a third from kinetic energy. There are four unknown final components, so a 2D problem must hand you one more fact, usually one outgoing angle.
+
+The standard setup: point the $x$ axis along the incoming velocity, so the initial $y$ momentum is zero. Then
+
+$$m_1u_1 = m_1v_1\cos\theta_1 + m_2v_2\cos\theta_2, \qquad 0 = m_1v_1\sin\theta_1 - m_2v_2\sin\theta_2$$
+
+with the two bodies going to opposite sides of the axis.
 
 <Aside label="Where this goes wrong" warn>
-  Do not write a conservation equation for speeds. Momentum conservation is a
-  vector statement, so $m_1v_{1i} = m_1v_{1f} + m_2v_{2f}$ is wrong in two
-  dimensions. Resolve into components first, every time.
+  Never write a conservation law for speeds. In two dimensions $m_1u_1 = m_1v_1 + m_2v_2$ is meaningless — those are magnitudes and magnitudes do not add. Resolve into components first, every single time. The same trap appears with impulse: a puck striking a smooth wall at $30^\circ$ from the normal keeps its tangential velocity component and reverses only the normal one, so the impulse magnitude is $2mu\cos 30^\circ$, not $2mu$.
 </Aside>
 
-<QuickCheck
-  question="On a frictionless table, a moving puck strikes an identical stationary puck and the two move off at 60 degrees to each other. What does this tell you?"
-  options={["Kinetic energy was lost", "The collision was elastic", "Momentum was not conserved", "One puck must have been spinning"]}
-  answer={0}
-  explanation="Equal masses in an elastic collision must separate at exactly 90 degrees. An angle smaller than that means some kinetic energy went into deformation or heat, so the collision was inelastic."
-/>
+One result deserves memorising. **Equal masses, one at rest, elastic: the two leave at exactly 90° to each other.** Momentum says $\vec u = \vec v_1 + \vec v_2$. Square both sides as vectors: $u^2 = v_1^2 + v_2^2 + 2\vec v_1\cdot\vec v_2$. Energy says $u^2 = v_1^2 + v_2^2$. Subtract and $\vec v_1 \cdot \vec v_2 = 0$, so the velocities are perpendicular. Pool players live by this. If you see an angle that is not 90° between equal masses, energy was lost.
+
+When the masses are unequal, the incoming body can only be deflected so far. For $m_1 > m_2$ the maximum deflection angle satisfies $\sin\theta_{\max} = m_2/m_1$. A $5.0\ \mathrm{kg}$ ball on a $2.0\ \mathrm{kg}$ ball can turn at most $\arcsin(0.40) = 23.6^\circ$ — a heavy thing cannot be knocked sideways by a light one, no matter how you aim.
+
+<Figure caption={<><b>Figure 4.</b> An elastic collision in a plane, with the momentum triangle drawn beside it. Change the mass ratio and the scattering angle and watch the triangle close. With m1 heavier than m2 the angle slider refuses to go past the maximum deflection, which is the geometric fact behind that arcsine.</>}>
+  <Sim id="collisions-2d" />
+</Figure>
+
+### Worked example 3: finding a recoil speed
+
+A $4.0\ \mathrm{kg}$ mass moving east at $5.0\ \mathrm{m/s}$ strikes a $6.0\ \mathrm{kg}$ mass at rest. Afterwards the $4.0\ \mathrm{kg}$ mass moves at $3.0\ \mathrm{m/s}$ at $40^\circ$ north of east. How fast does the $6.0\ \mathrm{kg}$ mass go?
+
+Write down the momentum components before anything else. East is $x$, north is $y$.
+
+Before: $p_x = (4.0)(5.0) = 20\ \mathrm{kg\,m/s}$, $p_y = 0$.
+
+After, for the light mass: $p_x = (4.0)(3.0)\cos 40^\circ = 12 \times 0.766 = 9.19$, and $p_y = (4.0)(3.0)\sin 40^\circ = 12 \times 0.643 = 7.71$.
+
+The heavy mass must carry the rest:
+
+$$p_{2x} = 20 - 9.19 = 10.81, \qquad p_{2y} = 0 - 7.71 = -7.71$$
+
+Its momentum magnitude is $\sqrt{10.81^2 + 7.71^2} = \sqrt{116.9 + 59.4} = \sqrt{176.3} = 13.28\ \mathrm{kg\,m/s}$, so
+
+$$v_2 = \frac{13.28}{6.0} = 2.21\ \mathrm{m/s}$$
+
+directed $\arctan(7.71/10.81) = 35.5^\circ$ south of east. Nobody told you this collision was elastic and you never needed to know. Two component equations and one supplied angle were enough.
+
+The same recipe handles explosions, which are collisions run backwards. A stationary $9.0\ \mathrm{kg}$ shell bursting into pieces starts with zero total momentum, so the final momenta must add to zero: a $3.0\ \mathrm{kg}$ piece east at $8.0$ carries $24$, a $2.0\ \mathrm{kg}$ piece north at $6.0$ carries $12$, and the last $4.0\ \mathrm{kg}$ piece must carry $\sqrt{24^2+12^2} = 26.83$ the other way, giving $6.71\ \mathrm{m/s}$.
+
+### Worked example 4: the superball trick
+
+A tiny superball rests on top of a basketball. Both are dropped from $h = 1.0\ \mathrm{m}$. The basketball bounces elastically off the floor and then hits the superball elastically. How high does the superball go, if its mass is negligible?
+
+Both balls arrive travelling down at $v = \sqrt{2gh}$. The basketball bounces and is now travelling *up* at $v$ while the superball is still coming *down* at $v$. That is the picture to draw.
+
+Now use the relative-velocity rule, which is easier than the mass formulas here. Approach speed between the two balls is $v + v = 2v$. Elastic, so the separation speed is also $2v$. The basketball is enormously heavier, so it keeps moving up at $v$ essentially unchanged. For the superball to be separating from it at $2v$, the superball must be moving up at $v + 2v = 3v$.
+
+Triple the speed means nine times the height:
+
+$$h' = \frac{(3v)^2}{2g} = 9\frac{v^2}{2g} = 9h = 9.0\ \mathrm{m}$$
+
+This is what "shift to the frame of the heavy body" buys you. In that frame the light ball simply reverses, and coming back to the ground frame adds the heavy body's velocity twice over.
+
+The same manoeuvre solves the spring problem. A $1.0\ \mathrm{kg}$ block at $6.0\ \mathrm{m/s}$ hits a $2.0\ \mathrm{kg}$ block carrying a spring. The spring stores the most energy at the instant of maximum compression, and that is the instant the two blocks move at the same speed — otherwise the gap is still closing or already opening. Common speed is $v = (1.0)(6.0)/3.0 = 2.0\ \mathrm{m/s}$. Energy before is $\tfrac12(1.0)(36) = 18\ \mathrm{J}$; kinetic energy at that instant is $\tfrac12(3.0)(2.0)^2 = 6.0\ \mathrm{J}$; the missing $12\ \mathrm{J}$ is in the spring.
+
+## Recognising a collision problem
+
+Some signals are obvious: "collide", "strike", "explode", "bounce", "embeds". The useful skill is spotting the ones that do not say so.
+
+**Reach for momentum conservation when** the problem gives you masses and velocities on both sides of a short, violent event and tells you nothing about the force or the duration. If you find yourself wishing you knew the force, that is the signal — the fact that you cannot know it is exactly why momentum is the tool.
+
+**Look for the second equation in the wording.** "Stick together", "embed", "couple", "come to rest relative to each other" all mean one common final velocity. "Elastic", "billiard balls", "no energy lost" mean the relative velocity reverses. A number given for restitution, or a pair of drop and rebound heights, means partially inelastic.
+
+**Split the problem at the collision.** Anything before it (a slide down a ramp, a free fall) and anything after it (a swing, a compression, a rise) is an energy or kinematics problem. The collision itself is a momentum problem. The two halves meet at a single velocity.
+
+**If the geometry is not a straight line, go to components immediately.** Do not try to be clever with magnitudes and angles until the momentum bookkeeping is written as two scalar equations.
+
+**"Maximum compression", "maximum stored energy", "closest approach"** all mean the same thing: the moment the two bodies move at a common velocity. Compute that velocity from momentum and put the missing kinetic energy where the problem says it went.
+
+One idea runs under all of this: a system of colliding bodies has a velocity that never changes, no matter what the bodies do to each other. That velocity belongs to a point, and the next lesson gives it a name and a set of tools — [center of mass and systems of particles](/guide/center-of-mass).

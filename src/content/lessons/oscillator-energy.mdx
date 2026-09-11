@@ -1,59 +1,376 @@
+## The question a stopwatch cannot answer
+
+You have spent the last lesson on [pendulums](/guide/pendulums), finding the
+period of a swing and writing the angle as a cosine in time. That machinery
+answers "where is it at 2.4 seconds?" But most oscillator problems never
+mention time at all. They ask how fast the bob is moving at the bottom, or how
+far a block gets before it stops, or what happens to the swing when you drop a
+lump of putty on it. Solving those with $x(t) = A\cos\omega t$ means finding
+the phase, differentiating, and hoping the algebra closes.
+
+There is a shortcut, and it is the single most useful tool in this unit. An
+oscillator has a fixed budget of energy. It spends that budget on stretching
+the spring and on moving the mass, and the split between the two changes
+constantly while the total sits still. Track the budget instead of the clock
+and most of these questions collapse to one line of algebra.
+
 ## A constant total, traded back and forth
 
-A mass on a spring carries two kinds of energy. Stretching stores potential
-energy in the spring; moving carries kinetic energy in the mass. With no
-friction their sum never changes:
+Take a block of mass $m$ on a horizontal spring of stiffness $k$, and let $x$
+be the displacement from the relaxed position. Two things hold energy here.
+The spring holds potential energy $U = \tfrac{1}{2}kx^2$: that is the work you
+do stretching it, since the force $kx$ grows from zero and averages $\tfrac12
+kx$ over a pull of length $x$. The block holds kinetic energy $K =
+\tfrac{1}{2}mv^2$.
 
-$$E = \tfrac{1}{2}kx^2 + \tfrac{1}{2}mv^2 = \tfrac{1}{2}kA^2$$
+Nothing else takes a cut. Gravity and the normal force are both perpendicular
+to the motion, so neither does work. With no friction, the sum is conserved:
 
-The right-hand form comes from evaluating $E$ at the turning point, where
-$x = A$ and $v = 0$. That single line is the most useful equation in
-oscillations, because it relates position and speed without ever mentioning
-time.
+$$E = \tfrac{1}{2}mv^2 + \tfrac{1}{2}kx^2 = \text{constant}$$
 
-Evaluating instead at the center, where $x = 0$, gives the maximum speed
-directly: $v_{\max} = A\sqrt{k/m} = \omega A$.
+That constant is worth naming in a useful way. Evaluate it at the turning
+point, where the block is momentarily at rest at $x = A$, the amplitude. There
+$v = 0$, so every joule sits in the spring:
 
-<Figure caption={<><b>Figure 1.</b> The spring stores energy at the extremes and gives it back at the center. Watch the two energy bars swap twice per cycle while their sum stays flat.</>}>
-  <Sim id="spring" />
+$$E = \tfrac{1}{2}kA^2$$
+
+Now evaluate the same constant at the centre, where $x = 0$ and the spring
+holds nothing. Every joule is kinetic, and the block is moving at its fastest:
+
+$$
+\tfrac{1}{2}mv_{\max}^2 = \tfrac{1}{2}kA^2 \quad\Longrightarrow\quad v_{\max} = A\sqrt{k/m} = \omega A
+$$
+
+The $\omega = \sqrt{k/m}$ is the same angular frequency from the last two
+lessons, which is a decent sign the bookkeeping is right. Notice what the
+energy statement does not contain: $t$. It connects a position to a speed
+directly, which is exactly the connection those problems ask for.
+
+<Figure caption={<><b>Figure 1.</b> The two energy bars swap twice per cycle
+while the third bar, their sum, never moves. Drag the amplitude and watch the
+total climb much faster than the amplitude does, then drag the mass and watch
+the total refuse to change at all.</>}>
+  <Sim id="oscillator-energy-bars" />
 </Figure>
 
-## Energy goes as amplitude squared
+## Reading a speed off the energy line
 
-$E = \tfrac{1}{2}kA^2$ says the stored energy scales with the *square* of the
-amplitude. Doubling the swing costs four times the energy. This is why damping
-looks the way it does: a system losing a fixed fraction of its energy per cycle
-loses only half that fraction of its amplitude.
+Set the total at a general position equal to the total at the turning point:
 
-The same quadratic shows up in waves, in circuit oscillations, and in radiated
-power. It is a property of the potential $U = \tfrac{1}{2}kx^2$, not of springs
-specifically.
+$$\tfrac{1}{2}mv^2 + \tfrac{1}{2}kx^2 = \tfrac{1}{2}kA^2$$
+
+Multiply through by $2/m$ and use $\omega^2 = k/m$:
+
+$$
+v^2 = \frac{k}{m}\left(A^2 - x^2\right) \quad\Longrightarrow\quad v = \omega\sqrt{A^2 - x^2}
+$$
+
+Read that as a sentence. The speed is largest at $x=0$, falls to zero at $x =
+\pm A$, and depends on $x$ only through $x^2$, so the block moves equally fast
+on the way out and on the way back. The mass never appears except inside
+$\omega$.
+
+Two ratio facts follow immediately, and problems love them because they need no
+numbers at all. The potential share is
+$U/E = (\tfrac12 kx^2)/(\tfrac12 kA^2) = x^2/A^2$, so the kinetic share is
+$K/E = 1 - x^2/A^2$. At $x = 0.60A$ the kinetic fraction is
+$1 - 0.36 = 0.64$. And $K = U$ means each holds half, so
+$\tfrac12 kx^2 = \tfrac12\left(\tfrac12 kA^2\right)$, giving $x^2 = A^2/2$ and
+
+$$x = \frac{A}{\sqrt 2} \approx 0.707A$$
+
+<Figure caption={<><b>Figure 2.</b> The curve is the stored energy, the flat
+dashed line is the fixed total, and the vertical gap between them is whatever
+is left over as kinetic energy. Slide the displacement out to the turning
+point and watch the gap close; slide it to plus or minus 0.7 of the amplitude
+and watch the two pieces come out equal.</>}>
+  <Sim id="oscillator-energy-well" />
+</Figure>
+
+<Aside label="Worth remembering">
+  The total goes as the square of the amplitude, $E = \tfrac12 kA^2$. Doubling
+  the swing costs four times the energy. Run it backwards and a system that has
+  lost 36% of its energy has lost only 20% of its amplitude, because
+  $\sqrt{0.64} = 0.8$. Amplitude ratios and energy ratios are never the same
+  number.
+</Aside>
+
+**Example 1.** A 0.25 kg puck on a spring of stiffness 100 N/m swings with
+amplitude 8.0 cm. How fast is it moving 4.0 cm from equilibrium?
+
+Start with $\omega$, because $v = \omega\sqrt{A^2-x^2}$ needs it:
+$\omega = \sqrt{100/0.25} = \sqrt{400} = 20$ rad/s. Then
+$A^2 - x^2 = (0.080)^2 - (0.040)^2 = 0.0064 - 0.0016 = 0.0048$ m$^2$, and
+$\sqrt{0.0048} = 0.0693$ m. So $v = 20 \times 0.0693 = 1.39$ m/s.
+
+Check it against the maximum, $v_{\max} = \omega A = 20 \times 0.080 = 1.6$
+m/s. Halfway out in position, the puck is still at 87% of top speed. That is
+the parabola doing its work: near the centre, the spring holds almost nothing.
+
+<QuickCheck
+  question="A block on a spring has amplitude A. At what displacement is its kinetic energy exactly equal to the spring potential energy?"
+  options={["At A over the square root of two, about 0.707A", "At half of A", "At a quarter of A", "Only at the centre"]}
+  answer={0}
+  explanation="Equal energies means each holds half the total, so k x squared over two equals half of k A squared over two. That gives x squared equal to A squared over two. Answering A over two is the common slip: it splits the displacement evenly, not the energy."
+/>
+
+## Vertical springs and pendulums store it somewhere else
+
+Hang the same block from the spring and gravity now does work as it moves. The
+fix is short. Let $y$ be the displacement measured from the *hanging*
+equilibrium, where the stretch is $y_0 = mg/k$. Add the spring and gravity
+terms and expand:
+
+$$
+U = \tfrac{1}{2}k(y_0+y)^2 - mg\,(y_0 + y) = \tfrac{1}{2}ky^2 + \left(\tfrac{1}{2}ky_0^2 - mg\,y_0\right)
+$$
+
+The cross terms cancel because $ky_0 = mg$, and what is left is
+$\tfrac12 ky^2$ plus a constant that never changes. So a vertical spring
+behaves exactly like a horizontal one, provided you measure from the new
+equilibrium and forget gravity entirely. A 1.5 kg mass on a 45 N/m spring
+pulled 8.0 cm below its hanging position reaches
+$v_{\max} = 0.080\sqrt{45/1.5} = 0.080 \times 5.477 = 0.438$ m/s, with $g$
+appearing nowhere.
+
+A pendulum keeps its potential energy in height instead. A bob on a string of
+length $L$ at angle $\theta$ from vertical sits a height
+$h = L(1-\cos\theta)$ above the bottom of its swing, so $U = mgL(1-\cos\theta)$.
+Released from rest at $\theta_0$, energy conservation to the lowest point gives
+$\tfrac12 mv^2 = mgL(1-\cos\theta_0)$, so
+
+$$v = \sqrt{2gL\,(1-\cos\theta_0)}$$
+
+This one is exact at any angle, small or not. For a 1.20 m string released at
+$15^\circ$: $1-\cos 15^\circ = 1 - 0.9659 = 0.0341$, so
+$v = \sqrt{2(9.8)(1.20)(0.0341)} = \sqrt{0.8014} = 0.895$ m/s.
+
+**Example 2.** A bob on a 1.00 m string is released from rest at $60^\circ$
+from vertical. At the lowest point, what is the ratio of string tension to
+weight?
+
+Energy alone will not answer this, because tension does no work and so never
+appears in the energy equation. It gives you the speed; Newton's second law
+turns the speed into a force. Do them in that order.
+
+Speed first: $v^2 = 2gL(1-\cos 60^\circ) = 2gL(1-0.5) = gL$.
+
+Now the bottom of the swing. The bob moves on a circle of radius $L$, so its
+acceleration there points straight up, towards the pivot, with magnitude
+$v^2/L$. Two vertical forces act: tension $T$ up and weight $mg$ down.
+
+$$T - mg = \frac{mv^2}{L} = \frac{m(gL)}{L} = mg$$
+
+So $T = 2mg$ and the ratio is exactly 2. A cleaner way to hold it: at the
+bottom, $T/mg = 3 - 2\cos\theta_0$, which you can get by leaving $\theta_0$
+general. At $60^\circ$ that is $3-1 = 2$.
+
+<Aside label="Where this goes wrong" warn>
+  Tension and the normal force never enter an energy equation, because they
+  point perpendicular to the motion and do no work. Every problem that asks for
+  a force at some point in an oscillation is a two-step problem: energy to get
+  $v$, then $\sum F = ma$ with $a = v^2/r$ at that point. Writing
+  $T = mg + \tfrac12 mv^2/L$, or setting $T = mg$ at the bottom, are the two
+  standard ways to lose the question.
+</Aside>
 
 ## Averages over a cycle
 
-Substitute $x = A\cos\omega t$ into the two energies:
+Put $x = A\cos\omega t$ into both energies, with
+$v = -A\omega\sin\omega t$ and $m\omega^2 = k$:
 
-$$U = \tfrac{1}{2}kA^2\cos^2\omega t, \qquad K = \tfrac{1}{2}kA^2\sin^2\omega t$$
+$$
+U = \tfrac{1}{2}kA^2\cos^2\omega t, \qquad K = \tfrac{1}{2}kA^2\sin^2\omega t
+$$
 
-Each oscillates, and the average of $\cos^2$ or $\sin^2$ over a full cycle is
-$\tfrac{1}{2}$. So
+Over a full cycle the average of $\cos^2$ and of $\sin^2$ is $\tfrac12$ each,
+since the two averages must be equal and must add to 1. So
 
-$$\langle U \rangle = \langle K \rangle = \tfrac{1}{4}kA^2 = \tfrac{1}{2}E$$
+$$\langle U\rangle = \langle K\rangle = \tfrac{1}{4}kA^2 = \tfrac{1}{2}E$$
 
-On average the energy splits evenly. Note also the frequency: both $\cos^2$ and
-$\sin^2$ complete two cycles for every one of the motion, so the energies
-oscillate at $2\omega$ while the mass oscillates at $\omega$.
+On average, the energy splits down the middle. For a 0.40 kg mass on a 90 N/m
+spring with $A = 5.0$ cm, the mean kinetic energy is
+$\tfrac14 (90)(0.050)^2 = \tfrac14 (90)(0.0025) = 0.0563$ J.
 
-<Aside label="Where this goes wrong" warn>
-  Half the total energy is not the same as half the time spent fast. The mass
-  moves slowly near the turning points and quickly through the center, so it
-  spends more of each cycle out near the extremes. Equal *average* energies do
-  not mean the oscillator is kinetic-dominated half the time.
+Both $\cos^2$ and $\sin^2$ run through two full periods for every one period of
+the motion, so the energies slosh at $2\omega$ while the block oscillates at
+$\omega$. That factor of two is behind a lot of otherwise mysterious answers.
+
+<Aside label="Worth remembering">
+  Equal average energies do not mean the oscillator spends half its time fast.
+  It crawls near the turning points and flies through the centre, so it is out
+  near the extremes for more of each cycle than a glance at the averages
+  suggests.
 </Aside>
 
+## When the mass changes mid-oscillation
+
+A popular problem type drops a lump of putty on a moving block, or lifts a
+rider off it, and asks for the new amplitude. Energy is not conserved in a
+sticking collision, so you cannot start there. What you can do is ask, at the
+instant of the change, which of $x$ and $v$ survives it — then rebuild the
+energy from whichever survived.
+
+At the **centre**, the block is moving and $x = 0$. A vertical drop of putty
+adds no horizontal momentum, so horizontal momentum is conserved:
+$mv = (m+M)v'$. The new state is "speed $v'$ at $x=0$", so the whole new energy
+is kinetic and $\tfrac12(m+M)v'^2 = \tfrac12 kA'^2$.
+
+At the **turning point**, $v=0$ and the spring is stretched by $A$. Adding or
+removing mass there changes no stored energy at all, so the amplitude is
+unchanged. Only the speed later on changes, through the new $\omega$.
+
+**Example 3.** A 0.60 kg block oscillates on a $k = 240$ N/m spring with
+amplitude 10.0 cm. A 0.30 kg lump of putty is dropped onto it and sticks. Find
+the new amplitude if the drop happens at the centre, and the new maximum speed
+if it happens at the turning point instead.
+
+*Dropped at the centre.* The speed there before the drop is
+$v = \omega A = \sqrt{240/0.60}\times 0.100 = \sqrt{400}\times 0.100 = 20
+\times 0.100 = 2.00$ m/s. Momentum: $(0.60)(2.00) = (0.90)v'$, so
+$v' = 1.20/0.90 = 1.333$ m/s. That 0.9 kg moving at 1.333 m/s carries
+$\tfrac12(0.90)(1.333)^2 = 0.45 \times 1.778 = 0.800$ J. Setting
+$\tfrac12(240)A'^2 = 0.800$ gives $A'^2 = 1.600/240 = 0.006667$ m$^2$ and
+$A' = 0.0817$ m. The amplitude shrank, because the collision threw away energy.
+
+*Dropped at the turning point.* Nothing is moving, so no energy is lost and no
+momentum argument is needed. The stored energy is still
+$\tfrac12(240)(0.100)^2 = 1.20$ J, and the amplitude is still 10.0 cm. But
+that energy now has to accelerate 0.90 kg:
+$\tfrac12(0.90)v_{\max}^2 = 1.20$, so $v_{\max}^2 = 2.40/0.90 = 2.667$ and
+$v_{\max} = 1.63$ m/s. Compare with 2.00 m/s before: heavier means slower for
+the same stored energy.
+
 <QuickCheck
-  question="A mass on a spring oscillates with amplitude A. At what displacement is the kinetic energy equal to the potential energy?"
-  options={["At A divided by the square root of two", "At A divided by two", "At A divided by four", "Only at the center"]}
+  question="A rider block is lifted straight off an oscillating block exactly at maximum displacement. What happens to the amplitude?"
+  options={["It stays the same, but the oscillation gets faster", "It grows, because the spring pushes less mass", "It shrinks in proportion to the mass removed", "It cannot be found without knowing the period"]}
   answer={0}
-  explanation="Equal energies means each holds half the total, so the spring term equals half of kA squared over two. Solving gives x squared equal to A squared over two."
+  explanation="At maximum displacement nothing is moving, so the stored spring energy is untouched and the amplitude is unchanged. Only the frequency changes, since omega is the square root of k over m and m just fell. Removing mass at the centre is the opposite case: there the speed is untouched and the amplitude shrinks."
 />
+
+## When energy leaks away
+
+Real oscillators run down. Two kinds of loss show up constantly, and they
+behave completely differently.
+
+**Sliding friction** takes a fixed amount per metre travelled. A kinetic
+friction force $f = \mu m g$ opposing the motion removes $f\,d$ of energy over
+a path length $d$, no matter how fast the block is going. That single sentence
+solves a whole family of problems.
+
+Two consequences worth deriving. First, the block stops for good once its total
+energy has drained, so the total path length is
+$d_{\text{tot}} = E_0/(\mu m g)$ up to the small energy still stored where it
+finally stalls. Second, over one half-cycle the block travels from amplitude
+$A_n$ to amplitude $A_{n+1}$, a distance $A_n + A_{n+1}$, so
+
+$$\tfrac12 kA_n^2 - \tfrac12 kA_{n+1}^2 = \mu m g\,(A_n + A_{n+1})$$
+
+The difference of squares factors, the common $(A_n + A_{n+1})$ cancels, and
+what is left is startlingly simple:
+
+$$A_n - A_{n+1} = \frac{2\mu m g}{k}$$
+
+The amplitude falls by the *same amount* every half-swing. The envelope is a
+straight line, not the exponential you get from air drag. And the motion stops
+for good once the spring force can no longer beat static friction, which
+happens inside the band $|x| < \mu m g/k$.
+
+<Figure caption={<><b>Figure 3.</b> The trace shows straight-line decay, not a
+decaying exponential: each half-swing loses the same slice of amplitude. Push
+the friction coefficient up and watch the shaded stuck band widen until the
+block dies after one or two swings, and watch the running total of path length
+approach the starting energy divided by the friction force.</>}>
+  <Sim id="oscillator-energy-friction" />
+</Figure>
+
+**Example 4.** A 0.80 kg block on a spring with $k = 160$ N/m sits on a
+surface with $\mu = 0.20$, with $g = 9.8$ m/s$^2$. It is pulled 15.0 cm out and
+released. How many complete cycles does it manage?
+
+The friction force is $f = \mu m g = (0.20)(0.80)(9.8) = 1.568$ N. Two lengths
+come from it. The half-width of the dead band is
+$x_0 = f/k = 1.568/160 = 0.0098$ m, and the amplitude loss per half-cycle is
+$2x_0 = 0.0196$ m.
+
+So after $n$ half-swings the amplitude is $A_n = 0.150 - 0.0196n$. The block
+completes a half-swing only if it can reach the far side, which needs
+$A_{n+1} > 0$, that is $A_n > 0.0196$ m. Count:
+
+$A_0 = 0.1500$, $A_1 = 0.1304$, $A_2 = 0.1108$, $A_3 = 0.0912$,
+$A_4 = 0.0716$, $A_5 = 0.0520$, $A_6 = 0.0324$, $A_7 = 0.0128$ m.
+
+$A_6 = 0.0324$ m is bigger than 0.0196 m, so the seventh half-swing happens and
+lands at $A_7 = 0.0128$ m. But $A_7$ is smaller than 0.0196 m, so there is no
+longer enough stored energy to carry the block all the way across, and it
+stalls part-way through the eighth half-swing. Seven complete half-swings is
+three and a half swings, which is **3 complete cycles**.
+
+**Air drag** behaves differently: the loss per cycle is a fixed *fraction* of
+the energy, so $E$ decays exponentially. That is what a quality factor $Q$
+encodes, through $E(t) = E_0 e^{-\omega_0 t/Q}$. Over one period
+$T = 2\pi/\omega_0$ the exponent becomes $-\omega_0 T/Q = -2\pi/Q$, so the
+fraction lost per cycle is
+
+$$\frac{\Delta E}{E} = 1 - e^{-2\pi/Q}$$
+
+For $Q = 40$: $2\pi/40 = 0.1571$, $e^{-0.1571} = 0.8546$, so the fork loses
+$1 - 0.8546 = 0.145$ of its energy each period. High $Q$ means a stingy
+oscillator.
+
+## When the moving thing is not one block
+
+$K = \tfrac12 mv^2$ is a special case. Two upgrades cover most of what the
+problems throw at you, and both leave every other formula here
+intact — you only swap in a different effective mass.
+
+If the oscillating object **rolls without slipping**, it stores kinetic energy
+in spin as well as in translation:
+$K = \tfrac12 mv^2 + \tfrac12 I\omega_{\text{spin}}^2$ with
+$\omega_{\text{spin}} = v/R$, which becomes
+$K = \tfrac12 m v^2 (1 + I/mR^2)$. A uniform solid cylinder has
+$I = \tfrac12 mR^2$, so the bracket is $1.5$ and $K = \tfrac34 mv^2$. For a
+0.60 kg cylinder on a 180 N/m spring released at 9.0 cm:
+$\tfrac12(180)(0.090)^2 = 0.729$ J, and setting
+$\tfrac34(0.60)v^2 = 0.729$ gives $v^2 = 0.729/0.45 = 1.62$ and $v = 1.27$
+m/s. Slower than a sliding block would be, because a third of the budget went
+into spin.
+
+If **two masses share one spring** with the centre of mass at rest, the kinetic
+energy written in terms of the relative speed $v_{\text{rel}}$ is
+$K = \tfrac12 m_* v_{\text{rel}}^2$, where
+$m_* = m_1m_2/(m_1+m_2)$ is the *reduced mass* (a different $\mu$ is already
+doing duty as the friction coefficient, so it gets a star here). With 0.40 kg
+and 0.60 kg, $m_* = 0.24/1.00 = 0.24$ kg, and a 250 N/m spring stretched
+5.0 cm gives $\tfrac12(0.24)v_{\text{rel}}^2 = \tfrac12(250)(0.050)^2$, so
+$v_{\text{rel}} = 0.050\sqrt{250/0.24} = 0.050 \times 32.27 = 1.61$ m/s.
+
+One last idea, for the problem where the mass drifts slowly, like sand leaking
+from a swinging bucket. If a parameter changes over many periods, the ratio
+$E/\omega$ stays fixed. Since $E = \tfrac12 kA^2$ and $\omega = \sqrt{k/m}$,
+that forces $A^2 \propto \omega \propto m^{-1/2}$, so $A \propto m^{-1/4}$.
+Lose three quarters of the sand and the amplitude grows by
+$4^{1/4} = \sqrt2$.
+
+## Recognising that this is the tool
+
+Reach for energy, not for $x(t)$, when a problem shows any of these:
+
+- It asks for a **speed at a stated position**, or a position where the speed
+  takes some value, and never mentions the time. That is $v = \omega\sqrt{A^2-x^2}$.
+- It asks for an **amplitude after something changed** — putty added, a rider
+  removed, drag applied. Find the energy just after the change and set it equal
+  to $\tfrac12 kA'^2$.
+- It gives a **friction coefficient** and asks for cycles, distance, or a final
+  resting place. Energy in minus $\mu m g d$ out.
+- It quotes a **fraction of energy**, a ratio of energies, or a $Q$. Ratios
+  never need numbers for $m$ or $k$.
+- It asks for a **force** at some point in the swing. Energy first for the
+  speed, then $\sum F = mv^2/r$.
+
+Time-domain methods answer "when". Energy answers everything else, and it does
+not care whether the restoring force came from a spring, from gravity on a
+pendulum, or from something stranger. That last point is the opening for the
+[next lesson](/guide/effective-potentials), where you stop assuming the
+potential is a parabola and start finding out what oscillates near the bottom
+of any well at all.

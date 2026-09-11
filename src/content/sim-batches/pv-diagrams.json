@@ -1,0 +1,83 @@
+[
+  {
+    "id": "pv-diagrams-legs",
+    "title": "The four standard legs",
+    "caption": "Four processes leaving one state.",
+    "height": 260,
+    "params": [
+      {
+        "key": "gamma",
+        "label": "Adiabatic index",
+        "unit": "",
+        "min": 1.1,
+        "max": 1.9,
+        "step": 0.05,
+        "value": 1.67
+      }
+    ],
+    "draw": "var pad = 34;\nvar Vmax = 5.2, Pmax = 5.2;\nvar X = function(v){ return pad + v / Vmax * (W - pad - 14); };\nvar Y = function(q){ return H - pad - q / Pmax * (H - pad - 16); };\n\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(X(0), Y(0)); ctx.lineTo(X(Vmax), Y(0));\nctx.moveTo(X(0), Y(0)); ctx.lineTo(X(0), Y(Pmax));\nctx.stroke();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.ink;\nctx.fillText(\"V\", X(Vmax) - 10, Y(0) + 16);\nctx.fillText(\"P\", X(0) - 16, Y(Pmax) + 10);\n\nvar V0 = 2.0, P0 = 2.0;\nvar g = p.gamma;\n\n// isochore: straight up\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(X(V0), Y(P0)); ctx.lineTo(X(V0), Y(4.6)); ctx.stroke();\n\n// isobar: straight right\nctx.beginPath(); ctx.moveTo(X(V0), Y(P0)); ctx.lineTo(X(4.9), Y(P0)); ctx.stroke();\n\n// isotherm through the point\nvar k = P0 * V0;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nvar first = true;\nfor (var v = 0.85; v <= 5.0; v += 0.05) {\n  var q = k / v;\n  if (q > Pmax) { first = true; continue; }\n  if (first) { ctx.moveTo(X(v), Y(q)); first = false; } else { ctx.lineTo(X(v), Y(q)); }\n}\nctx.stroke();\n\n// adiabat through the same point, steeper\nvar ka = P0 * Math.pow(V0, g);\nctx.strokeStyle = C.ink;\nctx.lineWidth = 2;\nctx.setLineDash([5, 4]);\nctx.beginPath();\nfirst = true;\nfor (var v2 = 0.85; v2 <= 5.0; v2 += 0.05) {\n  var q2 = ka / Math.pow(v2, g);\n  if (q2 > Pmax) { first = true; continue; }\n  if (first) { ctx.moveTo(X(v2), Y(q2)); first = false; } else { ctx.lineTo(X(v2), Y(q2)); }\n}\nctx.stroke();\nctx.setLineDash([]);\n\n// the shared state point\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(V0), Y(P0), 4.5, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"isochore  W = 0\", X(V0) + 6, Y(4.5));\nctx.fillText(\"isobar  W = P dV\", X(3.1), Y(P0) - 8);\nctx.fillStyle = C.accent;\nctx.fillText(\"isotherm  PV const\", X(2.9), Y(k / 3.6) + 16);\nctx.fillStyle = C.ink;\nctx.fillText(\"adiabat  PV^g const\", X(0.95), Y(ka / Math.pow(1.05, g)) - 6);\nctx.fillStyle = C.faint;\nctx.fillText(\"start state\", X(V0) - 62, Y(P0) + 4);\n\nout.note = \"gamma = \" + g.toFixed(2) + \". At the shared point the adiabat slope is \" + g.toFixed(2) + \" times the isotherm slope, so it always falls away faster.\";"
+  },
+  {
+    "id": "pv-diagrams-cycle",
+    "title": "Rectangular cycle lab",
+    "caption": "Walk a rectangle leg by leg and watch the work add up.",
+    "height": 280,
+    "params": [
+      {
+        "key": "vmax",
+        "label": "Volume at B",
+        "unit": "L",
+        "min": 2,
+        "max": 6,
+        "step": 0.5,
+        "value": 5
+      },
+      {
+        "key": "phigh",
+        "label": "Upper pressure",
+        "unit": "bar",
+        "min": 1.5,
+        "max": 5,
+        "step": 0.5,
+        "value": 4
+      },
+      {
+        "key": "direction",
+        "label": "Clockwise (1) or counterclockwise (0)",
+        "unit": "",
+        "min": 0,
+        "max": 1,
+        "step": 1,
+        "value": 1
+      }
+    ],
+    "draw": "var pad = 36;\nvar Vax = 6.4, Pax = 5.6;\nvar X = function(v){ return pad + v / Vax * (W - pad - 16); };\nvar Y = function(q){ return H - pad - q / Pax * (H - pad - 30); };\n\nvar V1 = 1.0, V2 = p.vmax, P1 = 1.0, P2 = p.phigh;\nvar cw = p.direction > 0.5;\n\n// axes\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(X(0), Y(0)); ctx.lineTo(X(Vax), Y(0));\nctx.moveTo(X(0), Y(0)); ctx.lineTo(X(0), Y(Pax));\nctx.stroke();\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.ink;\nctx.fillText(\"V (litres)\", X(Vax) - 56, Y(0) + 16);\nctx.fillText(\"P (bar)\", X(0) + 4, Y(Pax) + 8);\n\n// enclosed area\nctx.fillStyle = C.faint;\nctx.globalAlpha = 0.35;\nctx.beginPath();\nctx.moveTo(X(V1), Y(P1)); ctx.lineTo(X(V2), Y(P1));\nctx.lineTo(X(V2), Y(P2)); ctx.lineTo(X(V1), Y(P2));\nctx.closePath(); ctx.fill();\nctx.globalAlpha = 1;\n\n// the loop\nctx.strokeStyle = C.rule;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(X(V1), Y(P2)); ctx.lineTo(X(V2), Y(P2));\nctx.lineTo(X(V2), Y(P1)); ctx.lineTo(X(V1), Y(P1));\nctx.closePath(); ctx.stroke();\n\n// corners, clockwise from top left\nvar cx = [V1, V2, V2, V1];\nvar cy = [P2, P2, P1, P1];\nvar nm = [\"A\", \"B\", \"C\", \"D\"];\nctx.fillStyle = C.ink;\nfor (var i = 0; i < 4; i++) {\n  ctx.beginPath(); ctx.arc(X(cx[i]), Y(cy[i]), 3.5, 0, Math.PI * 2); ctx.fill();\n  ctx.fillText(nm[i], X(cx[i]) + (i === 1 || i === 2 ? 8 : -16), Y(cy[i]) + (i < 2 ? -8 : 16));\n}\n\n// moving state point\nvar per = 4.0;\nvar u = (t % per) / per * 4;\nif (!cw) u = 4 - u;\nvar seg = Math.floor(u) % 4;\nvar f = u - Math.floor(u);\nvar ax = cx[seg], ay = cy[seg];\nvar bx = cx[(seg + 1) % 4], by = cy[(seg + 1) % 4];\nvar px = ax + (bx - ax) * f, py = ay + (by - ay) * f;\n\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(px), Y(py), 6, 0, Math.PI * 2); ctx.fill();\n\n// work done so far on this leg, in joules: 1 litre * 1 bar = 100 J\nvar legW = (bx - ax) * f * ay * 100;\nvar legName = nm[seg] + \" to \" + nm[(seg + 1) % 4];\nvar kind = (Math.abs(bx - ax) > 1e-9) ? \"isobaric\" : \"isochoric\";\n\n// arrow showing direction of travel\nvar dx = bx - ax, dy = by - ay;\nvar L = Math.sqrt(dx * dx * 900 + dy * dy * 900);\nif (L > 0) {\n  var ux = (X(bx) - X(ax)), uy = (Y(by) - Y(ay));\n  var un = Math.sqrt(ux * ux + uy * uy);\n  ux /= un; uy /= un;\n  ctx.strokeStyle = C.accent;\n  ctx.lineWidth = 2;\n  ctx.beginPath();\n  ctx.moveTo(X(px), Y(py));\n  ctx.lineTo(X(px) + ux * 20, Y(py) + uy * 20);\n  ctx.stroke();\n}\n\nvar Wnet = (P2 - P1) * (V2 - V1) * 100 * (cw ? 1 : -1);\nctx.fillStyle = C.ink;\nctx.fillText(\"enclosed area = \" + Math.abs(Wnet).toFixed(0) + \" J\", X(0) + 10, Y(Pax) + 26);\n\nout.note = \"leg \" + legName + \" (\" + kind + \"), work on this leg so far \" + legW.toFixed(0) + \" J. Net work per cycle \" + Wnet.toFixed(0) + \" J, so this loop is \" + (cw ? \"an engine.\" : \"a refrigerator.\");"
+  },
+  {
+    "id": "pv-diagrams-area",
+    "title": "Work as area under an isotherm",
+    "caption": "Drag the final volume and compare the curved area with the rectangle.",
+    "height": 260,
+    "params": [
+      {
+        "key": "vf",
+        "label": "Final volume",
+        "unit": "L",
+        "min": 1.2,
+        "max": 6,
+        "step": 0.1,
+        "value": 3
+      },
+      {
+        "key": "temp",
+        "label": "Temperature",
+        "unit": "K",
+        "min": 150,
+        "max": 600,
+        "step": 10,
+        "value": 300
+      }
+    ],
+    "draw": "var pad = 36;\nvar R = 8.31;\nvar n = 1.0, T = p.temp, Vi = 1.0;\nvar Vf = p.vf;\n\nvar Vax = 6.4;\nvar Pi = n * R * T / (Vi * 1e-3) / 1e5;\nvar Pax = Math.max(Pi * 1.25, 1);\n\nvar X = function(v){ return pad + v / Vax * (W - pad - 16); };\nvar Y = function(q){ return H - pad - q / Pax * (H - pad - 26); };\n\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(X(0), Y(0)); ctx.lineTo(X(Vax), Y(0));\nctx.moveTo(X(0), Y(0)); ctx.lineTo(X(0), Y(Pax));\nctx.stroke();\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.ink;\nctx.fillText(\"V (litres)\", X(Vax) - 56, Y(0) + 16);\nctx.fillText(\"P (bar)\", X(0) + 4, Y(Pax) + 8);\n\nvar Pof = function(v){ return n * R * T / (v * 1e-3) / 1e5; };\n\n// shaded area under the isotherm from Vi to Vf\nctx.fillStyle = C.faint;\nctx.globalAlpha = 0.4;\nctx.beginPath();\nctx.moveTo(X(Vi), Y(0));\nfor (var v = Vi; v <= Vf + 1e-9; v += (Vf - Vi) / 80) { ctx.lineTo(X(v), Y(Pof(v))); }\nctx.lineTo(X(Vf), Y(0));\nctx.closePath(); ctx.fill();\nctx.globalAlpha = 1;\n\n// the isotherm itself\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nvar first = true;\nfor (var v2 = 0.5; v2 <= Vax; v2 += 0.04) {\n  var q = Pof(v2);\n  if (q > Pax) { first = true; continue; }\n  if (first) { ctx.moveTo(X(v2), Y(q)); first = false; } else { ctx.lineTo(X(v2), Y(q)); }\n}\nctx.stroke();\n\n// the isobar at the same start pressure, for comparison\nctx.strokeStyle = C.ink;\nctx.setLineDash([5, 4]);\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(X(Vi), Y(Pi)); ctx.lineTo(X(Vf), Y(Pi)); ctx.stroke();\nctx.setLineDash([]);\n\n// end points\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(X(Vi), Y(Pi), 4, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(X(Vf), Y(Pof(Vf)), 4, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"start\", X(Vi) - 6, Y(Pi) - 8);\nctx.fillText(\"end\", X(Vf) + 6, Y(Pof(Vf)) - 6);\nctx.fillStyle = C.faint;\nctx.fillText(\"isobar at the same start pressure\", X(Vi) + 8, Y(Pi) + 16);\n\nvar Wiso = n * R * T * Math.log(Vf / Vi);\nvar Wbar = Pi * 1e5 * (Vf - Vi) * 1e-3;\n\nout.note = \"isothermal work (shaded) = nRT ln(Vf/Vi) = \" + Wiso.toFixed(0) + \" J. Along the dashed isobar the same volume change would give P dV = \" + Wbar.toFixed(0) + \" J.\";"
+  }
+]

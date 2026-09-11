@@ -1,82 +1,417 @@
-## Two oscillators that talk to each other
+## Two carts that will not leave each other alone
 
-A single mass on a spring has one frequency and every motion is a sine wave at
-that frequency. Couple two masses and the motion stops looking periodic:
-energy sloshes from one mass to the other and back, and neither trace is a
-clean sine.
+Put one cart on an air track, tie it to a wall with a spring, pull it aside and
+let go. You get a sine wave at one frequency, forever. Nothing surprising.
 
-Take two equal masses $m$ on a line, each tied to a wall by a spring of
-constant $k$, with a third spring of constant $k_c$ between them. Let $x_1$
-and $x_2$ be displacements from equilibrium. The middle spring is stretched by
-$x_2 - x_1$, so
+Now put a second cart next to it, tie that one to the opposite wall, and join
+the two carts with a third, much weaker spring. Pull only the first cart aside
+and release. For a few seconds it swings and the second cart barely stirs. Then
+the second one starts to build. A minute later the first cart is hanging dead
+still and the second is doing all the swinging. Then it comes back. Nobody
+pushed anything; the energy walked from one cart to the other through a spring
+that is barely there.
 
-$$m\ddot x_1 = -kx_1 + k_c(x_2 - x_1)$$
-$$m\ddot x_2 = -kx_2 - k_c(x_2 - x_1)$$
+The [Lagrangian](/guide/lagrangian) gave you a machine for writing equations of
+motion for systems with several coordinates. This lesson is about what to do
+with those equations once you have them, when the coordinates refuse to
+separate. The answer is always the same: find the special motions in which the
+whole system rings at a single frequency. Those are the **normal modes**, and
+once you have them, every other motion in the system is just a sum of them.
 
-Neither equation can be solved alone; each contains the other's coordinate.
-That coupling is the whole difficulty, and the whole trick is to find
-combinations of $x_1$ and $x_2$ that uncouple.
+## Why the equations refuse to separate
 
-## Normal modes
+Take two equal masses $m$ on a line. Each is tied to its nearby wall by a
+spring of stiffness $k$, and a coupling spring of stiffness $k_c$ joins them.
+Let $x_1$ and $x_2$ be displacements from equilibrium, both measured to the
+right.
 
-A **normal mode** is a motion in which every part of the system oscillates at
-the same frequency with a fixed ratio of amplitudes. The shape does not
-change, only its overall size. For symmetric systems you can usually guess the
-modes from the symmetry.
+The wall spring on cart 1 is stretched by $x_1$ and pulls back with $-kx_1$.
+The middle spring's length has changed by $x_2 - x_1$: if cart 2 has moved
+right more than cart 1, the middle spring is stretched and pulls cart 1 to the
+right. So it contributes $+k_c(x_2-x_1)$ to cart 1 and the opposite to cart 2.
+That gives
 
-**Symmetric mode.** Both masses move together, $x_1 = x_2$. Then
-$x_2 - x_1 = 0$, the middle spring is never stretched, and it contributes
-nothing. Each mass sees only its wall spring:
+$$
+m\ddot x_1 = -kx_1 + k_c(x_2-x_1)
+$$
 
-$$\omega_s = \sqrt{\frac{k}{m}}$$
+$$
+m\ddot x_2 = -kx_2 - k_c(x_2-x_1)
+$$
 
-**Antisymmetric mode.** The masses move oppositely, $x_2 = -x_1$. The middle
-spring stretches by $2x_1$, so mass one feels $-kx_1 - 2k_c x_1$:
+Neither line can be solved by itself: each one contains the other cart's
+coordinate. That is what "coupled" means, and it is the entire difficulty.
 
-$$\omega_a = \sqrt{\frac{k + 2k_c}{m}}$$
+There is a cheap trick here that shows you the way out. Add the two equations.
+The $k_c$ terms cancel exactly, and with $s = x_1+x_2$ you get
+$m\ddot s = -ks$. Subtract them instead. With $d = x_1-x_2$ the coupling terms
+add rather than cancel, and you get $m\ddot d = -(k+2k_c)d$.
 
-The antisymmetric mode is always the faster one, because that is the mode that
-deforms the coupling spring. Stronger coupling pushes the two frequencies
-further apart and leaves the symmetric one untouched.
+Two ordinary, uncoupled oscillator equations. Each combination has its own
+single frequency:
 
-Add the two equations of motion and the coupling cancels, giving an equation
-for $x_1 + x_2$ alone; subtract them and you get one for $x_1 - x_2$. Those
-sums and differences are the **normal coordinates**, each a plain simple
-harmonic oscillator. Guessing by symmetry and doing the algebra give the same
-answer.
+$$
+\omega_+=\sqrt{\frac{k}{m}},\qquad \omega_-=\sqrt{\frac{k+2k_c}{m}}
+$$
 
-## Any motion is a superposition
+$s$ and $d$ are called **normal coordinates**. The physical motions they
+describe are the normal modes. In the $s$ mode ($d=0$, so $x_1=x_2$) the carts
+move together, the middle spring never changes length, and it might as well not
+exist — hence $\omega_+$ has no $k_c$ in it at all. In the $d$ mode
+($s=0$, so $x_2=-x_1$) the carts move oppositely, the middle spring is
+stretched by $2x_1$, and each cart feels an extra restoring force $2k_cx_1$.
 
-The equations are linear, so the general solution is a sum of the two modes:
+The antiphase mode is always the faster one, because it is the one that
+deforms the coupling spring. Turn the coupling up and the two frequencies
+spread apart, with the in-phase one pinned in place.
 
-$$x_1(t) = A\cos(\omega_s t + \phi_s) + B\cos(\omega_a t + \phi_a)$$
-$$x_2(t) = A\cos(\omega_s t + \phi_s) - B\cos(\omega_a t + \phi_a)$$
-
-Four constants for four initial conditions. This is why the energy transfer is
-not mysterious. Hold mass two fixed, pull mass one aside, release both: that
-initial condition needs equal amounts of each mode, $A = B$. The two modes
-drift out of phase, and when they are fully opposed the first mass sits still
-while the second carries all the amplitude. The beat period is set by
-$\omega_a - \omega_s$, so weak coupling means slow, complete energy exchange.
+<Figure caption={<><b>Figure 1.</b> The two normal modes of the coupled carts, and what each does to the middle spring. Notice that in the in-phase mode the middle spring keeps its natural length the whole time, which is why its stiffness never appears in that frequency.</>}>
+  <Sim id="coupled-oscillators-modes" />
+</Figure>
 
 <Aside label="Worth remembering">
-  Count first. A system of $N$ masses moving in one dimension has $N$ degrees
-  of freedom and therefore exactly $N$ normal modes. If your symmetry argument
-  has produced fewer than that, you have missed one, often a zero-frequency
-  mode in which the whole system translates without deforming any spring.
-</Aside>
-
-<Aside label="Where this goes wrong" warn>
-  The symmetric and antisymmetric guesses only work when the system genuinely
-  has that symmetry: equal masses and a mirror-symmetric spring arrangement.
-  Make the masses unequal and the modes are still real but the amplitude ratio
-  is no longer plus or minus one, and you must solve the determinant condition
-  rather than guess. Check the symmetry before you use the shortcut.
+Count the modes before you hunt for them. $N$ masses moving along one line have
+$N$ degrees of freedom and therefore exactly $N$ normal modes. If your symmetry
+guesses have produced fewer, you have missed one — often a zero-frequency mode
+in which the whole system drifts without stretching any spring.
 </Aside>
 
 <QuickCheck
-  question="Two equal masses are joined to walls by identical springs and to each other by a coupling spring. Why is the in-phase mode frequency independent of the coupling spring?"
-  options={["The coupling spring is assumed massless", "Both masses move identically, so the coupling spring never changes length", "The coupling force cancels against the wall springs", "The in-phase mode has zero frequency"]}
+  question="Two equal carts are tied to walls by identical springs and to each other by a coupling spring. Why does the coupling stiffness not appear in the in-phase frequency?"
+  options={["The coupling spring is assumed massless", "Both carts move identically, so the coupling spring never changes length", "The coupling force cancels against the wall springs", "The in-phase mode has zero frequency"]}
   answer={1}
-  explanation="In the symmetric mode the two displacements are equal at every instant, so the separation between the masses never changes and the middle spring is never stretched or compressed. It exerts no force, and each mass behaves as if only its wall spring were present."
+  explanation="In the in-phase mode the two displacements are equal at every instant, so the gap between the carts never changes. A spring that never changes length exerts no extra force, and each cart behaves as if only its wall spring were there. The tempting wrong answer is that the coupling force cancels against the wall spring, but the wall spring force is still fully present."
 />
+
+## Worked example 1: the numbers for a real pair
+
+Two carts of mass $m=0.50$ kg, wall springs $k=200$ N/m, coupling spring
+$k_c = 50$ N/m.
+
+In-phase:
+
+$$
+\omega_+=\sqrt{\frac{200}{0.50}}=\sqrt{400}=20.0\ \text{rad/s}
+$$
+
+Antiphase:
+
+$$
+\omega_-=\sqrt{\frac{200+2(50)}{0.50}}=\sqrt{\frac{300}{0.50}}=\sqrt{600}=24.49\ \text{rad/s}
+$$
+
+That is the whole calculation for the easy version of this problem. Write down
+the two shapes, ask what each does to the coupling spring, read off the
+effective stiffness.
+
+## Any motion at all is a sum of the modes
+
+The equations are linear, so if two motions solve them, so does their sum. The
+general solution is
+
+$$
+x_1(t)=A\cos(\omega_+t+\phi_+)+B\cos(\omega_-t+\phi_-)
+$$
+
+$$
+x_2(t)=A\cos(\omega_+t+\phi_+)-B\cos(\omega_-t+\phi_-)
+$$
+
+Four constants $A,B,\phi_+,\phi_-$ for four initial conditions (two positions,
+two velocities). The sign flip on $B$ is the only difference between the lines,
+and it is just the statement that the second mode is antiphase.
+
+Now the opening mystery is not mysterious. Hold cart 2 at rest, pull cart 1
+aside by $a$, release both. You need $x_1(0)=a$, $x_2(0)=0$, which forces
+$A=B=a/2$, and zero initial velocities force $\phi_\pm=0$. Then
+
+$$
+x_1(t)=\frac{a}{2}\left(\cos\omega_+t+\cos\omega_-t\right)
+= a\cos\!\left(\frac{\omega_--\omega_+}{2}t\right)\cos\!\left(\frac{\omega_-+\omega_+}{2}t\right)
+$$
+
+using the identity $\cos P+\cos Q = 2\cos\frac{P-Q}{2}\cos\frac{P+Q}{2}$. The
+second factor is a fast wobble at the average frequency. The first is a slowly
+changing envelope. Cart 2 gets the same expression with a sine in place of the
+first cosine, so when one envelope is at its largest the other is at zero.
+That is a **beat**, and it is the energy sloshing back and forth.
+
+Two timescales matter, and people mix them up constantly. The envelope of
+$x_1$ vanishes when $\frac{\omega_--\omega_+}{2}t=\pi/2$, so the energy is
+fully handed over after
+
+$$
+t_{\text{transfer}}=\frac{\pi}{\omega_--\omega_+}
+$$
+
+and the whole pattern repeats — cart 1 loud again — after twice that,
+
+$$
+T_{\text{beat}}=\frac{2\pi}{\omega_--\omega_+}
+$$
+
+If the modes are quoted in hertz rather than rad/s, those become
+$t_{\text{transfer}} = 1/(2\Delta f)$ and $T_{\text{beat}}=1/\Delta f$.
+
+<Aside label="Where this goes wrong" warn>
+The beat period is set by the difference of the two mode frequencies, not by
+either frequency and not by their average. And the energy has moved across in
+*half* a beat period, because energy does not care about the sign of the
+amplitude. Two modes at 3.00 Hz and 3.20 Hz give $\Delta f = 0.20$ Hz, a beat
+period of 5.0 s, and complete transfer after 2.5 s.
+</Aside>
+
+<Figure caption={<><b>Figure 2.</b> Start one cart alone and watch the energy walk across. Turn the coupling stiffness down and the exchange gets slower but stays complete; the readout gives the beat period. Then detune the second cart and watch the handover become partial, never emptying the first cart.</>}>
+  <Sim id="coupled-oscillators-beats" />
+</Figure>
+
+## Worked example 2: unequal masses, no symmetry to lean on
+
+Symmetry guessing dies the moment the two sides stop matching. A cart of
+$m_1=1.0$ kg and a cart of $m_2=2.0$ kg each have a wall spring of
+$k=400$ N/m, joined by $k_c=200$ N/m. Find the mode frequencies and the shape
+of the slower one.
+
+The equations of motion are built exactly as before, only with different
+masses:
+
+$$
+m_1\ddot x_1 = -(k+k_c)x_1 + k_cx_2,\qquad
+m_2\ddot x_2 = -(k+k_c)x_2 + k_cx_1
+$$
+
+A normal mode means both carts moving at one frequency, so try
+$x_1 = A_1\cos\omega t$ and $x_2=A_2\cos\omega t$. Each $\ddot x$ brings down
+$-\omega^2$, the cosines divide out, and you are left with two algebraic
+equations:
+
+$$
+(600-1.0\,\omega^2)A_1 = 200A_2,\qquad (600-2.0\,\omega^2)A_2=200A_1
+$$
+
+with $k+k_c=600$ N/m. Multiply them together and cancel $A_1A_2$:
+
+$$
+(600-\omega^2)(600-2\omega^2)=200^2=40000
+$$
+
+Expand: $360000-1200\omega^2-600\omega^2+2\omega^4=40000$, so
+$2\omega^4-1800\omega^2+320000=0$, and dividing by 2,
+
+$$
+\omega^4-900\omega^2+160000=0
+$$
+
+This is a quadratic in $\omega^2$. The discriminant is
+$900^2-4(160000)=810000-640000=170000$, whose square root is $412.3$. So
+
+$$
+\omega^2=\frac{900\pm412.3}{2}=656.2\ \text{or}\ 243.8\ \text{s}^{-2}
+$$
+
+giving $\omega_- = \sqrt{656.2}=25.6$ rad/s and
+$\omega_+=\sqrt{243.8}=15.6$ rad/s. Two masses, two modes, as promised.
+
+For the shape, put $\omega^2=243.8$ back into the *first* equation, which you
+never used on its own:
+
+$$
+\frac{A_2}{A_1}=\frac{600-243.8}{200}=\frac{356.2}{200}=1.78
+$$
+
+The heavy cart swings $1.78$ times as far as the light one in the slow mode.
+That should feel right: this is the mode where they move in the same
+direction, and the mode adjusts until the momenta balance out sensibly.
+
+The recipe generalises with no changes. Assume every coordinate goes as
+$\cos\omega t$, get a set of linear equations in the amplitudes, and demand
+that the determinant of the coefficient matrix vanish (otherwise the only
+solution is all amplitudes zero). For three masses that determinant is a cubic
+in $\omega^2$; for the chain of $1.0$, $2.0$ and $3.0$ kg between four springs
+of $500$ N/m it gives modes at $11.8$, $24.5$ and $34.6$ rad/s.
+
+<QuickCheck
+  question="You set up three coupled masses, assume every coordinate varies as cos(omega t), and get three linear equations in the three amplitudes. What condition picks out the allowed frequencies?"
+  options={["The amplitudes must sum to zero", "The determinant of the coefficient matrix must be zero", "The total energy must be conserved", "The largest amplitude must equal one"]}
+  answer={1}
+  explanation="The equations are homogeneous, so a nonzero set of amplitudes exists only when the coefficient matrix is singular. Setting its determinant to zero gives a polynomial in omega squared with one root per degree of freedom. Energy conservation is true but is already built into the equations and picks out nothing."
+/>
+
+## Chains, rings, and free systems
+
+Three shortcuts cover most of what appears in competition.
+
+**A uniform chain between fixed walls.** $N$ equal masses $m$ joined by $N+1$
+identical springs $k$ to each other and to two walls. The mode shapes are
+sampled sine waves that vanish at the walls, and the frequencies are
+
+$$
+\omega_n = 2\sqrt{\frac{k}{m}}\,\sin\!\left(\frac{n\pi}{2(N+1)}\right),
+\qquad n=1,2,\dots,N
+$$
+
+You can check it against the case you already did: $N=1$ gives
+$2\sqrt{k/m}\sin(\pi/4)=\sqrt{2k/m}$, which is right for one mass between two
+springs. Use this whenever the chain is uniform; setting up a five-by-five
+determinant by hand when the formula exists is a way to lose twenty minutes.
+
+**A free system.** If nothing is tied to a wall, one mode has $\omega=0$: the
+whole thing translates. Two free masses $m_1,m_2$ joined by a spring $k$ have
+that zero mode plus one real one at $\omega=\sqrt{k/\mu}$, where
+$\mu = m_1m_2/(m_1+m_2)$ is the reduced mass. For $1.0$ and $2.0$ kg with
+$k=300$ N/m, $\mu = 2/3$ kg and $\omega=\sqrt{450}=21.2$ rad/s.
+
+**A ring.** Three equal masses joined head to tail in a loop by three identical
+springs has the zero translation mode plus a doubly degenerate mode at
+$\omega=\sqrt{3k/m}$. For $m=0.50$ kg and $k=200$ N/m that is $\sqrt{1200}=34.6$
+rad/s. The counting works: three masses, three modes, one of them zero.
+
+<Figure caption={<><b>Figure 3.</b> Mode shapes of a uniform chain. Drag the number of beads and the mode number and watch the shape stay a sine that is pinned at both walls; the readout gives the frequency. Notice how the highest mode has neighbours moving in opposite directions, which is why it is the stiffest.</>}>
+  <Sim id="coupled-oscillators-chain" />
+</Figure>
+
+## Worked example 3: two pendulums of different lengths
+
+This one combines everything: a coupling that is not symmetric because the two
+oscillators are not identical.
+
+Two bobs of mass $m=0.40$ kg hang on strings of length $L_1=1.00$ m and
+$L_2=1.20$ m, joined by a spring $k=3.0$ N/m that is unstretched when both hang
+straight down. Take $g = 9.80$ m/s². Use the horizontal bob displacements
+$x_1,x_2$ as coordinates.
+
+A pendulum of length $L$ displaced by $x$ feels a restoring force $-mgx/L$, so
+on its own it has $\omega^2 = g/L$. The spring adds a coupling exactly like the
+carts:
+
+$$
+m\ddot x_1 = -\frac{mg}{L_1}x_1 + k(x_2-x_1),\qquad
+m\ddot x_2 = -\frac{mg}{L_2}x_2 - k(x_2-x_1)
+$$
+
+Divide by $m$ and write $\omega_1^2 = g/L_1 + k/m$ and
+$\omega_2^2 = g/L_2 + k/m$ for the diagonal entries, with $k/m$ appearing on
+the off-diagonal too. Numbers: $k/m = 3.0/0.40 = 7.5$ s⁻²,
+$g/L_1 = 9.80$ s⁻², $g/L_2 = 9.80/1.20 = 8.167$ s⁻². So
+$\omega_1^2 = 17.30$ and $\omega_2^2=15.667$ s⁻².
+
+The determinant condition for a two-by-two system of this shape has a tidy
+closed form worth memorising:
+
+$$
+\omega^2 = \frac{\omega_1^2+\omega_2^2}{2}\pm\sqrt{\left(\frac{\omega_1^2-\omega_2^2}{2}\right)^2+\left(\frac{k}{m}\right)^2}
+$$
+
+The mean of the two uncoupled values, plus or minus a term that mixes the
+detuning with the coupling. Here the mean is $(17.30+15.667)/2 = 16.483$, the
+half-difference is $(17.30-15.667)/2=0.8167$, and
+
+$$
+\sqrt{0.8167^2+7.5^2}=\sqrt{0.667+56.25}=\sqrt{56.92}=7.544
+$$
+
+So $\omega^2 = 16.483 - 7.544 = 8.939$, giving the lower mode
+$\omega=\sqrt{8.939}=2.99$ rad/s, and $\omega^2 = 24.03$ for the upper,
+$\omega = 4.90$ rad/s.
+
+That formula also tells you what detuning does. If the two oscillators are
+identical the square root is just $k/m$ and the splitting is symmetric about
+the common frequency. Make them different and the splitting *grows*, but the
+modes stop being fifty-fifty mixtures: each mode leans towards the oscillator
+it started closest to. Which is why detuned oscillators never fully hand their
+energy over. Writing $\kappa$ for the coupling rate and $\delta$ for half the
+frequency difference, the largest fraction of energy that ever reaches the
+second oscillator is
+
+$$
+f_{\max}=\frac{\kappa^2}{\kappa^2+\delta^2}
+$$
+
+With $\kappa = 0.40$ rad/s and $\delta = 0.60$ rad/s, that is
+$0.16/(0.16+0.36)=0.16/0.52 = 0.308$. Not even a third of the energy gets
+across, no matter how long you wait. Detuning kills transfer; that is the whole
+reason a tuning fork rings a matched fork across the room and ignores a
+mismatched one.
+
+<Aside label="Worth remembering">
+Two nearly degenerate oscillators joined by any coupling at all split into two
+modes and trade energy back and forth. It does not matter that one mode is a
+vertical bounce and the other a twist, as in a Wilberforce pendulum. Measure
+the two mode frequencies, take the difference, and every timing question
+follows: modes at $1.480$ and $1.560$ Hz differ by $0.080$ Hz, so pure bounce
+becomes pure twist after $1/(2\times0.080)=6.25$ s.
+</Aside>
+
+## Driving a coupled system
+
+Push cart 1 with a force $F\cos\omega t$ and let the damping be tiny. In steady
+state both carts oscillate at the drive frequency $\omega$, so put
+$x_1 = X_1\cos\omega t$, $x_2 = X_2\cos\omega t$ into the equations. Cart 2 has
+no drive of its own, so its equation is
+
+$$
+-m\omega^2X_2 = -(k+k_c)X_2 + k_cX_1
+\quad\Longrightarrow\quad
+\frac{X_2}{X_1}=\frac{k_c}{k+k_c-m\omega^2}
+$$
+
+That single expression answers a family of problems. For $m=0.50$ kg,
+$k=200$ N/m, $k_c=50$ N/m, drive at the in-phase mode $\omega=20.0$ rad/s:
+$m\omega^2 = 0.50\times400=200$, the denominator is $250-200=50$, and the ratio
+is $50/50 = 1.0$. The carts move together, which is what driving at a mode
+frequency should do — the drive builds up that mode and nothing else. Drive at
+$22.0$ rad/s instead, between the modes: $m\omega^2=0.50\times484=242$, the
+denominator is $250-242 = 8$, and the ratio is $50/8 = 6.25$. The undriven cart
+swings six times as far as the driven one.
+
+Push that further and you get the **vibration absorber**. The denominator of
+$X_1$ (not $X_2$) carries a factor $k_a - m_a\omega^2$ when you bolt a small
+mass $m_a$ on a spring $k_a$ to a shaking machine. Tune it so
+$\omega^2 = k_a/m_a$ at the drive frequency and the machine stops dead: the
+absorber moves exactly enough to cancel the drive. To quiet a machine driven at
+$14.14$ rad/s with an absorber of $m_a = 0.40$ kg you need
+
+$$
+k_a = m_a\omega^2 = 0.40\times(14.14)^2=0.40\times200=80\ \text{N/m}
+$$
+
+<QuickCheck
+  question="A two-cart system is driven at a frequency lying between its two normal-mode frequencies, with negligible damping. What happens to the ratio of the undriven cart's amplitude to the driven one's?"
+  options={["It is always less than one because the drive is on cart 1", "It can be much larger than one, since the denominator k plus kc minus m omega squared gets small", "It is fixed at the amplitude ratio of the nearest mode", "It is zero because the undriven cart has no force on it"]}
+  answer={1}
+  explanation="The undriven cart's equation gives X2 over X1 equal to kc divided by k plus kc minus m omega squared. Between the modes that denominator passes through small values, so the undriven cart can swing far more than the driven one. It is not zero: the coupling spring is the force on cart 2."
+/>
+
+## Recognising the technique
+
+Reach for normal modes the moment a problem has **more than one thing that can
+oscillate and a spring, string, or torque linking them**. The specific
+giveaways:
+
+- Two or more masses, and the equation for each contains the other's
+  coordinate. That is the definition of coupled, and guessing single-frequency
+  motion is the only general way out.
+- The words *in phase*, *antiphase*, *symmetric*, *antisymmetric*, or a
+  question asking for "the higher mode" or "the lowest mode". Count degrees of
+  freedom first, then hunt for exactly that many frequencies.
+- **Beats, energy transfer, or sloshing.** Any question about how long until
+  the other oscillator has the energy is really asking for two mode frequencies
+  and their difference. Find $\omega_-$ and $\omega_+$, subtract, then use
+  $\pi/\Delta\omega$ for transfer and $2\pi/\Delta\omega$ for the full beat.
+- A uniform line of $N$ identical masses and identical springs. Use the sine
+  formula, not a determinant.
+- Nothing attached to a wall. Expect a zero-frequency mode and use the reduced
+  mass for the remaining one.
+- A driven system where the question asks for an amplitude ratio or how to make
+  something stop shaking. Write the undriven body's equation alone.
+
+The general strategy never changes: choose coordinates measured from
+equilibrium, write one equation of motion per coordinate, assume everything
+goes as $\cos\omega t$, and demand that the resulting homogeneous system have a
+nonzero solution. Symmetry, when the system has it, just lets you skip to the
+answer.
+
+The same idea — find the special shapes in which a whole extended system
+oscillates coherently — is what makes fields tractable too. Next you use it on
+space rather than on a handful of masses, in
+[boundary-value problems in E&M](/guide/boundary-value-em).

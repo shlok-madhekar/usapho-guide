@@ -1,71 +1,383 @@
 ## An answer without an uncertainty is not a measurement
 
-Every measured number carries a range. The job of data analysis is to carry
-that range through the algebra so the final result has one too, and to arrange
-the algebra so a straight line does the work.
+You time twenty swings of a pendulum, divide by twenty, and get a period. You
+put it into $g = 4\pi^2 L/T^2$ and out comes 9.81 m/s². It looks like an
+answer. It is not one yet, because you have no idea whether the next student
+down the bench would have got 9.80 or 9.4.
 
-Two rules cover almost every propagation you will need. For a sum or
-difference, absolute uncertainties add in quadrature:
+Everything below is about that gap. A measured number is really a
+short interval, and once you do algebra to it, the interval has to come along
+for the ride. There is a second half to the job too: real experiments almost
+never hand you one number, they hand you a table. Getting a physical constant
+out of a table means drawing a straight line through it, and if the data are
+not straight, changing what you plot until they are.
 
-$$Q = a \pm b \quad \Rightarrow \quad \delta Q = \sqrt{(\delta a)^2 + (\delta b)^2}$$
+The physics in the last unit was about what exists. This is about what you can
+honestly claim to know.
 
-For a product, quotient, or power, *relative* uncertainties add in quadrature,
-with the exponent as a multiplier:
+## Where quadrature comes from
 
-$$Q = a^m b^n \quad \Rightarrow \quad \frac{\delta Q}{Q} = \sqrt{\left(m\,\frac{\delta a}{a}\right)^2 + \left(n\,\frac{\delta b}{b}\right)^2}$$
+Lay two rods end to end. The first is $L_1 = 2.50 \pm 0.03$ m and the second
+is $L_2 = 1.20 \pm 0.04$ m. The total is 3.70 m. What is its uncertainty?
 
-The quadrature is there because independent errors do not conspire; they
-partly cancel. Add them linearly only if the two inputs share a common
-systematic source.
+The lazy answer is 0.07 m, the two errors added. But that is the worst case:
+it assumes that whenever rod one reads long, rod two also reads long. The two
+measurements were made separately with no connection between them. Half the
+time the errors point the same way and add, half the time they point opposite
+ways and cancel. Averaging over all the ways they can land, the typical size of
+the combined error is not $\delta_1 + \delta_2$ but the hypotenuse of a right
+triangle with those legs. That is **quadrature**, and for a sum or difference
+it says
 
-The exponent matters more than people expect. Measuring $g$ from a pendulum
-uses $g = 4\pi^2 L / T^2$, so a 1% error in $T$ becomes a 2% error in $g$,
-while a 1% error in $L$ stays 1%. Time many periods at once and divide.
+$$
+\delta Q = \sqrt{(\delta L_1)^2 + (\delta L_2)^2}.
+$$
 
-## Linearize before you fit
+Here that is $\sqrt{0.03^2 + 0.04^2} = \sqrt{0.0009 + 0.0016} = \sqrt{0.0025}
+= 0.05$ m. So $3.70 \pm 0.05$ m. Notice the total error is smaller than the sum
+and larger than either piece alone.
 
-A graph is only useful if you expect a straight line, because the eye and the
-least-squares fit are both good at lines and bad at curves. So transform until
-the model is linear.
-
-For a power law $y = Ax^n$, take logs: $\ln y = \ln A + n \ln x$. Plot
-$\ln y$ against $\ln x$ and the slope is the exponent $n$, the intercept is
-$\ln A$.
-
-For an exponential decay $N = N_0 e^{-t/\tau}$, take logs of $N$ only:
-$\ln N = \ln N_0 - t/\tau$. Plot $\ln N$ against $t$ and the slope is
-$-1/\tau$.
-
-Sometimes no logs are needed, just a smarter choice of axes. For a pendulum,
-plotting $T^2$ against $L$ gives a line of slope $4\pi^2/g$ through the
-origin, which also lets you check the origin as a diagnostic: a nonzero
-intercept is evidence of a systematic offset.
-
-## Reading a slope and its uncertainty
-
-Draw the best-fit line by eye through the error bars, then draw the steepest
-and shallowest lines that still pass through essentially all of them. Half the
-difference of those two slopes is a defensible uncertainty:
-
-$$\delta m \approx \frac{m_{\max} - m_{\min}}{2}$$
-
-Then propagate. If the slope is $4\pi^2/g$, then $g = 4\pi^2/m$ and
-$\delta g / g = \delta m / m$. Quote the result with one or at most two
-significant figures in the uncertainty, and round the value to match:
-$g = 9.75 \pm 0.14~\text{m/s}^2$, never $9.7482 \pm 0.1413$.
+The same formula holds for a difference, because an error of unknown sign does
+not care whether you add or subtract the quantity. That fact has teeth. If
+$t_1 = 12.48 \pm 0.05$ s and $t_2 = 12.31 \pm 0.05$ s, then
+$\Delta t = 0.17$ s with uncertainty $\sqrt{0.05^2 + 0.05^2} = 0.071$ s. Each
+time was good to 0.4 percent; their difference is good to only
+$0.071/0.17 = 42$ percent.
 
 <Aside label="Where this goes wrong" warn>
-  Propagating relative uncertainty through a *difference* of two close numbers
-  is the classic disaster. If $a = 10.0 \pm 0.1$ and $b = 9.8 \pm 0.1$, then
-  $a - b = 0.2 \pm 0.14$, a 70% uncertainty out of two 1% measurements. When a
-  problem hands you a subtraction of near-equal quantities, that is usually the
-  point of the problem: find an experimental design that measures the small
-  difference directly.
+  Subtracting two nearly equal measured numbers destroys precision. The
+  absolute error stays the same size while the quantity you are dividing by
+  collapses. If a problem hands you a difference of close numbers, that
+  collapse is usually the whole point of the problem, and the fix in a real lab
+  is to redesign the experiment so it measures the small difference directly
+  rather than as the gap between two large readings.
 </Aside>
 
+## Products, quotients and powers
+
+Sums combine absolute errors. Products combine *fractional* errors, which are
+the error divided by the quantity, usually quoted as a percent.
+
+Here is why. Write the area of a plate as $A = ab$. Nudge $a$ by $\delta a$ and
+$b$ by $\delta b$:
+
+$$
+(a + \delta a)(b + \delta b) = ab + a\,\delta b + b\,\delta a + \delta a\,\delta b.
+$$
+
+The last term is tiny, a small number times a small number, so drop it. The
+change in the area is $a\,\delta b + b\,\delta a$. Divide through by $A = ab$
+and the clutter cancels:
+
+$$
+\frac{\delta A}{A} = \frac{\delta a}{a} + \frac{\delta b}{b}.
+$$
+
+Then apply the independence argument from before and combine those two
+fractional errors in quadrature rather than straight. For a general product of
+powers $Q = a^{m} b^{n}$, the same expansion gives each exponent as a
+multiplier:
+
+$$
+\frac{\delta Q}{Q} = \sqrt{\left(m\,\frac{\delta a}{a}\right)^2 + \left(n\,\frac{\delta b}{b}\right)^2}.
+$$
+
+The exponent multiplies the fractional error *before* it is squared. A
+quantity that enters squared is twice as damaging as one that enters linearly;
+a cube root is only a third as damaging. This single fact decides where you
+should spend your effort in a lab.
+
+For the plate, $a = 12.0 \pm 0.2$ cm and $b = 8.0 \pm 0.3$ cm. The fractional
+errors are $0.2/12.0 = 1.667\%$ and $0.3/8.0 = 3.75\%$. Both exponents are 1,
+so $\delta A/A = \sqrt{1.667^2 + 3.75^2} = \sqrt{2.78 + 14.06} = \sqrt{16.84} =
+4.1\%$.
+
+<Figure caption={<><b>Figure 1.</b> An error budget for a Young modulus
+measurement. Notice how the diameter, measured to a tight 1.5 percent, still
+contributes as much as the extension at 3 percent, because the diameter enters
+squared. Notice also that the 0.5 percent term is invisible.</>}>
+  <Sim id="data-uncertainty-budget" />
+</Figure>
+
+That figure is worth sitting with. When you square small numbers, the small
+ones vanish. A term that is a third the size of the biggest one contributes a
+ninth as much to the variance. In practice only the largest one or two terms
+matter, and if you want a better result you must attack the largest.
+
 <QuickCheck
-  question="Data is expected to follow a power law in x. Which plot makes the exponent readable as a slope?"
-  options={["y against x", "y against log x", "log y against log x", "log y against x"]}
-  answer={2}
-  explanation="Taking the log of both sides of a power law gives log y equal to the exponent times log x plus a constant. So a log-log plot is a straight line whose slope is the exponent. Log y against x is the right choice for an exponential instead."
+  question="A quantity is computed from Q = a b squared divided by c. The fractional errors are 3 percent in a, 1 percent in b, and 2 percent in c. Which term contributes most to the error in Q?"
+  options={["a, at 3 percent", "b, which becomes 2 percent", "c, at 2 percent", "They contribute equally"]}
+  answer={0}
+  explanation="b enters squared so its 1 percent becomes 2 percent, matching c. But a is 3 percent, and 3 squared is 9 against 4 and 4. a supplies more than half the variance, so a is where you would spend effort to improve the result."
 />
+
+### Worked example 1: g from a pendulum
+
+A pendulum of length $L = 1.000 \pm 0.005$ m is timed over 20 full swings,
+giving $20T = 40.12 \pm 0.20$ s. Find $g$ and its uncertainty from
+$g = 4\pi^2 L/T^2$.
+
+First the period. Dividing by 20 divides both the value and its uncertainty:
+$T = 2.006$ s and $\delta T = 0.010$ s. This is why you time twenty swings
+instead of one — your reaction time error is fixed at around 0.2 s no matter
+how many swings you count, so spreading it over twenty cuts the fractional
+error by twenty.
+
+The central value: $g = 4\pi^2(1.000)/(2.006)^2 = 39.478/4.024 = 9.811$ m/s².
+
+Now the fractional errors. In $L$: $0.005/1.000 = 0.500\%$. In $T$:
+$0.010/2.006 = 0.4985\%$. But $T$ appears squared and in the denominator, so
+its exponent is $-2$ and it enters with a multiplier of 2:
+
+$$
+\frac{\delta g}{g} = \sqrt{(0.500)^2 + (2 \times 0.4985)^2} = \sqrt{0.250 + 0.994} = \sqrt{1.244} = 1.115\%.
+$$
+
+So $\delta g = 0.01115 \times 9.811 = 0.109$ m/s², and you report
+$g = 9.81 \pm 0.11$ m/s². Round the uncertainty to one or two significant
+figures and round the value to match its last decimal place. Never write
+$9.8106 \pm 0.1094$; you are claiming a precision the third digit already
+rules out.
+
+<Aside label="Worth remembering">
+  Turn the rule around when you are planning an experiment. If you need $g$ to
+  0.10 percent and $L$ is already known to 0.050 percent, then
+  $(2\,\delta T/T)^2 = 0.10^2 - 0.050^2 = 0.0075$, so $2\,\delta T/T = 0.0866$
+  and the period must be known to 0.043 percent. That tells you how many swings
+  to time before you start.
+</Aside>
+
+## Averaging, and how much averaging buys you
+
+Repeat a measurement $N$ times and you get a spread. The standard deviation
+$\sigma$ of that spread describes a single reading, and it does not shrink as
+you take more data. What shrinks is the uncertainty of the *mean*, called the
+standard error:
+
+$$
+\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{N}}.
+$$
+
+The $\sqrt{N}$ is the same quadrature idea: you are adding $N$ independent
+errors and dividing by $N$, which gives $\sqrt{N}\sigma/N$. Five stopwatch
+readings of 10.1, 10.3, 9.8, 10.2, 10.0 s have mean 10.08 s and standard
+deviation 0.192 s, so the mean is good to $0.192/\sqrt{5} = 0.086$ s.
+
+Because it is $\sqrt{N}$ and not $N$, averaging is an expensive way to buy
+precision. To take a spread of $\sigma = 0.24$ s down to 0.050 s in the mean
+you need $N = (0.24/0.050)^2 = 23.0$, so 24 trials — and the next factor of two
+would cost you 96.
+
+Counting experiments give you $\sigma$ for free. Radioactive decays arrive
+independently, so a count of $N$ has uncertainty $\sqrt{N}$. Record 2500
+decays and the fractional uncertainty is $\sqrt{2500}/2500 = 50/2500 = 2.0\%$.
+To halve that you need four times the counts.
+
+When you have two results of *different* quality, do not average them plainly.
+Weight each by $w_i = 1/\sigma_i^2$, so a measurement twice as precise counts
+four times as much:
+
+$$
+\bar{x} = \frac{\sum w_i x_i}{\sum w_i}, \qquad \sigma_{\bar{x}} = \frac{1}{\sqrt{\sum w_i}}.
+$$
+
+For $g = 9.79 \pm 0.03$ and $g = 9.83 \pm 0.02$: $w_1 = 1/0.0009 = 1111$ and
+$w_2 = 1/0.0004 = 2500$. The average is
+$(1111 \times 9.79 + 2500 \times 9.83)/3611 = 35453/3611 = 9.818$ m/s², pulled
+toward the better measurement. Its uncertainty is $1/\sqrt{3611} = 0.0166$
+m/s², smaller than either input.
+
+To ask whether two results agree, take their difference over the quadrature
+sum of their errors. For $9.81 \pm 0.03$ and $9.74 \pm 0.04$, that is
+$0.07/\sqrt{0.03^2+0.04^2} = 0.07/0.05 = 1.4$. A disagreement of 1.4 combined
+standard deviations is unremarkable; around 3 you should start looking for a
+systematic error.
+
+<QuickCheck
+  question="You have averaged 9 timings and want to halve the uncertainty of the mean. How many total timings do you need?"
+  options={["18", "27", "36", "81"]}
+  answer={2}
+  explanation="The standard error falls as one over the square root of N, so halving it needs four times the data: 36 timings in total."
+/>
+
+## Make the data straight before you fit it
+
+Your eye is good at straight lines and terrible at curves. So is least squares.
+The move is always the same: do algebra to the model until it reads
+$Y = mX + c$ for some $X$ and $Y$ you can compute from the data.
+
+For a power law $y = Ax^{n}$, take logs of both sides: $\log y = n \log x +
+\log A$. Plot $\log y$ against $\log x$ and the slope is the exponent, the
+intercept is $\log A$. Drag on a sphere at $F = 0.80$ N when $v = 2.0$ m/s and
+$F = 6.5$ N when $v = 6.0$ m/s gives
+$n = \ln(6.5/0.80)/\ln(6.0/2.0) = 2.0956/1.0986 = 1.91$.
+
+For an exponential $A = A_0 e^{-t/\tau}$, take logs of the vertical axis only:
+$\ln A = \ln A_0 - t/\tau$. Plot $\ln A$ against $t$, slope $-1/\tau$.
+
+Sometimes no logs are needed, just better axes. For a mass on a spring,
+$T = 2\pi\sqrt{m/k}$ gives $T^2 = (4\pi^2/k)m$, so $T^2$ against $m$ is a line
+through the origin with slope $4\pi^2/k$. A measured slope of 3.95 s²/kg gives
+$k = 4\pi^2/3.95 = 9.99$ N/m. For uniform acceleration, $v^2 = v_0^2 + 2ax$
+means $v^2$ against $x$ has slope $2a$, so a slope of 7.30 gives
+$a = 3.65$ m/s².
+
+And for anything with a sum in the denominator, try reciprocals.
+
+<Figure caption={<><b>Figure 2.</b> The same decay, plotted two ways. Push the
+axis slider from 0 to 1 to take logs of the vertical axis, and watch the curve
+become a line whose slope you can actually read. Then drag the time constant
+and check that a longer tau gives a shallower line.</>}>
+  <Sim id="data-uncertainty-linearize" />
+</Figure>
+
+### Worked example 2: a saturating response
+
+A response obeys $y = ax/(1+bx)$. It rises and then flattens, so neither a
+log-log nor a semilog plot will straighten it. Take reciprocals instead:
+
+$$
+\frac{1}{y} = \frac{1 + bx}{ax} = \frac{1}{a}\cdot\frac{1}{x} + \frac{b}{a}.
+$$
+
+So $1/y$ against $1/x$ is straight, with slope $1/a$ and intercept $b/a$. A
+student's line passes through $(1/x, 1/y) = (1.00, 2.00)$ and $(0.250, 1.00)$.
+The slope is $(2.00 - 1.00)/(1.00 - 0.250) = 1.00/0.750 = 1.333$. Since the
+slope is $1/a$, you get $a = 1/1.333 = 0.75$.
+
+Two habits make this kind of problem quick. Always ask what the slope *means*
+in terms of the constants before you compute it, and always check whether the
+constant you want is the slope, its reciprocal, or the intercept divided by the
+slope.
+
+## Least squares, and the uncertainty of a slope
+
+A best-fit line is the one that makes the sum of the squared vertical
+residuals as small as possible. A residual $r_i = y_i - (mx_i + b)$ is how far
+a point sits above the line. Squaring it means an outlier hurts a lot, and
+means the answer has a clean closed form:
+
+$$
+m = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}, \qquad b = \bar{y} - m\bar{x}.
+$$
+
+The intercept formula says the fit always passes through the centre of mass of
+the data, the point $(\bar{x}, \bar{y})$. If theory forces the line through the
+origin instead, drop the intercept and the minimisation gives
+$m = \sum x_i y_i / \sum x_i^2$.
+
+<Figure caption={<><b>Figure 3.</b> The five points from the worked example
+below, with your trial line and its residuals drawn as thick bars. Drag the
+slope and intercept and try to drive the sum of squared residuals below 0.072.
+You cannot: that number is the least-squares minimum.</>}>
+  <Sim id="data-uncertainty-fit" />
+</Figure>
+
+### Worked example 3: slope, intercept, and the error in the slope
+
+Take the five points $(1.0, 2.1)$, $(2.0, 3.9)$, $(3.0, 6.2)$, $(4.0, 7.9)$,
+$(5.0, 10.1)$.
+
+The means are $\bar{x} = 15/5 = 3.00$ and $\bar{y} = 30.2/5 = 6.04$. Build the
+two sums. For the bottom, the deviations in $x$ are $-2, -1, 0, 1, 2$, so
+$\sum (x_i - \bar{x})^2 = 4 + 1 + 0 + 1 + 4 = 10$. For the top, the deviations
+in $y$ are $-3.94, -2.14, 0.16, 1.86, 4.06$, so the products are
+$7.88 + 2.14 + 0 + 1.86 + 8.12 = 20.00$.
+
+So $m = 20.00/10 = 2.00$ and $b = 6.04 - 2.00 \times 3.00 = 0.04$.
+
+Now the uncertainty. The fitted values are 2.04, 4.04, 6.04, 8.04, 10.04, so
+the residuals are $+0.06, -0.14, +0.16, -0.14, +0.06$ and
+$\sum r_i^2 = 0.0036 + 0.0196 + 0.0256 + 0.0196 + 0.0036 = 0.0720$. The
+standard formula is
+
+$$
+\sigma_m^2 = \frac{1}{N-2}\,\frac{\sum r_i^2}{\sum (x_i - \bar{x})^2} = \frac{1}{3}\cdot\frac{0.0720}{10} = 0.00240,
+$$
+
+giving $\sigma_m = 0.049$. The $N - 2$ is there because two parameters were
+already spent fitting the line, so five points leave only three independent
+checks on it. Two points would give $N - 2 = 0$ and an infinite uncertainty,
+which is right: a line through two points has no evidence at all about its own
+reliability.
+
+### Worked example 4: a time constant from a semilog fit
+
+An amplitude decays as $A = A_0 e^{-t/\tau}$, measured as 100 mm at 0 s, 74 mm
+at 10 s, 55 mm at 20 s and 41 mm at 30 s. Fit $\ln A$ against $t$.
+
+The logs are $4.6052, 4.3041, 4.0073, 3.7136$. Then $\bar{t} = 15.0$ and
+$\overline{\ln A} = 16.6301/4 = 4.1575$.
+
+Bottom sum: deviations in $t$ are $-15, -5, 5, 15$, squares
+$225 + 25 + 25 + 225 = 500$. Top sum: deviations in $\ln A$ are
+$0.4477, 0.1466, -0.1502, -0.4440$, so the products are
+$-6.715 - 0.733 - 0.751 - 6.659 = -14.858$.
+
+Slope $= -14.858/500 = -0.02972$ per second. Since the slope is $-1/\tau$,
+$\tau = 1/0.02972 = 33.7$ s. The half-life follows from the same fit:
+$A$ halves when $t/\tau = \ln 2$, so $t_{1/2} = 0.693 \times 33.7 = 23.3$ s.
+
+One warning about log fits. Taking logs also transforms the error bars: a
+constant percentage error in $y$ becomes a constant absolute error in $\ln y$,
+which is exactly what plain least squares assumes. But a constant *absolute*
+error in $y$ becomes a huge error bar on the smallest points, and an unweighted
+log fit will then take those noisy tail points far too seriously.
+
+If you need the uncertainty in a fitted exponent, work backwards through the
+same relation. Probe $y = Ax^n$ at two $x$ values a factor of ten apart with
+2.0 percent uncertainty on each $y$. Then $n = \Delta \ln y/\Delta \ln x$, and
+$\delta(\ln y) = \delta y/y = 0.020$ at each end, so
+$\delta(\Delta \ln y) = \sqrt{0.020^2 + 0.020^2} = 0.0283$. Dividing by
+$\Delta \ln x = \ln 10 = 2.303$ gives $\delta n = 0.0123$.
+
+## Reading a line off a plotted graph
+
+Exam questions often give you two points on a plotted line rather than raw
+data. Take the slope from them directly. A velocity-time line through
+$(2.0, 5.0)$ and $(8.0, 17.0)$ has slope $(17.0 - 5.0)/(8.0 - 2.0) = 2.0$
+m/s², which is the acceleration.
+
+On a log-log plot, read the slope the same way but remember what the axes hold.
+A line through $(\log_{10} x, \log_{10} y) = (0.50, 1.20)$ and $(2.00, 3.00)$
+has slope $(3.00 - 1.20)/(2.00 - 0.50) = 1.80/1.50 = 1.20$, so $n = 1.20$. For
+the prefactor, use the intercept at $\log_{10} x = 0$:
+$\log_{10} A = 1.20 - 1.20 \times 0.50 = 0.60$, so $A = 10^{0.60} = 3.98$. The
+prefactor is never the number you read straight off the axis; you have to undo
+the log.
+
+Finally, significant figures. A quotient carries the figures of its worst
+input. With $I = 0.035$ A (two figures) and $V = 12.0$ V (three),
+$R = 12.0/0.035 = 342.857$, which you report as 340 ohm.
+
+## How to recognise these problems
+
+The tells are blunt once you know them.
+
+A value written with a $\pm$, or a "percent uncertainty", or the word
+"tolerance", means propagation. Decide first whether the combination is a sum
+or a product. Sums and differences take absolute errors in quadrature.
+Products, quotients and powers take fractional errors in quadrature, each
+multiplied by its exponent. Nothing else is needed for most of them.
+
+A table of $x$ and $y$ with more than three rows and a request for a slope
+means least squares. Compute $\bar{x}$ and $\bar{y}$ first; everything else is
+deviations from those.
+
+A model of the form $y = Ax^n$, $y = A e^{kx}$ or anything with $x$ in a
+denominator, plus the words "linearize", "what should the student plot" or
+"straight line", means transform the axes. Logs of both sides for a power law,
+logs of one side for an exponential, reciprocals for a saturating curve.
+
+Repeated readings of the same quantity mean standard error, and the answer will
+contain a $\sqrt{N}$. Several independent published results mean a weighted
+average with $w = 1/\sigma^2$. Counts from a detector mean $\sqrt{N}$ again,
+this time as the uncertainty itself.
+
+And whenever a problem asks you to design rather than compute — how precisely
+must I time this, how many runs do I need — write the propagation formula and
+solve it for the term you control. The algebra is the same, run backwards.
+
+Next comes a different kind of power tool: [Lagrangian
+mechanics](/guide/lagrangian), which replaces forces and free body diagrams
+with a single scalar function and a recipe for differentiating it.

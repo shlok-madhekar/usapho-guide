@@ -1,0 +1,64 @@
+[
+ {
+  "id": "integrals-riemann",
+  "title": "Riemann sum lab",
+  "caption": "Slicing the area under a velocity curve into rectangles.",
+  "height": 260,
+  "params": [
+   {
+    "key": "n",
+    "label": "Number of slices",
+    "unit": "",
+    "min": 1,
+    "max": 40,
+    "step": 1,
+    "value": 4
+   },
+   {
+    "key": "c",
+    "label": "Curvature of v(t)",
+    "unit": "m/s^3",
+    "min": 0,
+    "max": 1.5,
+    "step": 0.05,
+    "value": 0.75
+   }
+  ],
+  "draw": "\nvar L = 46, R = W - 18, B = H - 34, T = 18;\nvar T1 = 4;\nfunction vOf(x) { return 2 + p.c * x * x; }\nvar vmax = vOf(T1) * 1.15 + 0.001;\nfunction px(x) { return L + (R - L) * (x / T1); }\nfunction py(v) { return B - (B - T) * (v / vmax); }\n\n// axes\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(L, T); ctx.lineTo(L, B); ctx.lineTo(R, B); ctx.stroke();\n\n// rectangles (left endpoint)\nvar n = Math.round(p.n), dt = T1 / n, sum = 0, i;\nvar sweep = (t * 0.9) % (n + 1.4);\nfor (i = 0; i < n; i++) {\n  var x0 = i * dt, h = vOf(x0);\n  sum += h * dt;\n  var lit = (i < sweep);\n  ctx.fillStyle = lit ? C.accent : C.faint;\n  ctx.globalAlpha = lit ? 0.30 : 0.18;\n  ctx.fillRect(px(x0), py(h), px(x0 + dt) - px(x0), B - py(h));\n  ctx.globalAlpha = 1;\n  ctx.strokeStyle = C.rule;\n  ctx.strokeRect(px(x0), py(h), px(x0 + dt) - px(x0), B - py(h));\n}\n\n// curve\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nfor (i = 0; i <= 120; i++) {\n  var xx = T1 * i / 120;\n  i === 0 ? ctx.moveTo(px(xx), py(vOf(xx))) : ctx.lineTo(px(xx), py(vOf(xx)));\n}\nctx.stroke();\n\n// labels\nctx.fillStyle = C.ink;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillText(\"v (m/s)\", 6, T + 2);\nctx.fillText(\"t (s)\", R - 24, B + 18);\nctx.fillText(\"0\", L - 4, B + 18);\nctx.fillText(\"4\", R - 4, B + 18);\nctx.fillText(\"area = displacement\", px(0.35), py(vOf(T1) * 0.25));\n\nvar exact = 2 * T1 + p.c * T1 * T1 * T1 / 3;\nout.note = \"slices: \" + n + \"   rectangle sum = \" + sum.toFixed(3) +\n  \" m   exact area = \" + exact.toFixed(3) + \" m   error = \" + (exact - sum).toFixed(3) + \" m\";\n"
+ },
+ {
+  "id": "integrals-trapezoid",
+  "title": "Reading displacement off a v-t graph",
+  "caption": "The train problem, split into three areas.",
+  "height": 250,
+  "params": [],
+  "draw": "\nvar L = 44, R = W - 16, B = H - 34, T = 26;\nvar TMAX = 14, VMAX = 15;\nfunction px(x) { return L + (R - L) * (x / TMAX); }\nfunction py(v) { return B - (B - T) * (v / VMAX); }\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(L, T); ctx.lineTo(L, B); ctx.lineTo(R, B); ctx.stroke();\n\n// filled regions\nctx.fillStyle = C.accent; ctx.globalAlpha = 0.22;\nctx.beginPath();\nctx.moveTo(px(0), py(0)); ctx.lineTo(px(4), py(12)); ctx.lineTo(px(4), py(0)); ctx.closePath(); ctx.fill();\nctx.beginPath();\nctx.moveTo(px(4), py(0)); ctx.lineTo(px(4), py(12)); ctx.lineTo(px(10), py(12)); ctx.lineTo(px(10), py(0)); ctx.closePath(); ctx.fill();\nctx.beginPath();\nctx.moveTo(px(10), py(0)); ctx.lineTo(px(10), py(12)); ctx.lineTo(px(14), py(0)); ctx.closePath(); ctx.fill();\nctx.globalAlpha = 1;\n\n// dividing lines\nctx.strokeStyle = C.rule; ctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(px(4), py(0)); ctx.lineTo(px(4), py(12)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(px(10), py(0)); ctx.lineTo(px(10), py(12)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(L, py(12)); ctx.lineTo(px(10), py(12)); ctx.stroke();\nctx.setLineDash([]);\n\n// the curve\nctx.strokeStyle = C.figure; ctx.lineWidth = 2.5;\nctx.beginPath();\nctx.moveTo(px(0), py(0)); ctx.lineTo(px(4), py(12)); ctx.lineTo(px(10), py(12)); ctx.lineTo(px(14), py(0));\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillText(\"v (m/s)\", 4, T - 10);\nctx.fillText(\"t (s)\", R - 22, B + 20);\nctx.fillText(\"12\", L - 22, py(12) + 4);\nctx.fillText(\"0\", L - 10, B + 4);\nctx.fillText(\"4\", px(4) - 3, B + 18);\nctx.fillText(\"10\", px(10) - 6, B + 18);\nctx.fillText(\"14\", px(14) - 10, B + 18);\nctx.fillText(\"24 m\", px(2.1) - 12, py(4));\nctx.fillText(\"72 m\", px(7) - 14, py(6));\nctx.fillText(\"24 m\", px(11.4) - 10, py(4));\nout.note = \"total area = 24 + 72 + 24 = 120 m\";\n"
+ },
+ {
+  "id": "integrals-work",
+  "title": "Work as area under F(x)",
+  "caption": "Stretching a spring, with the work accumulating as area.",
+  "height": 270,
+  "params": [
+   {
+    "key": "k",
+    "label": "Spring constant",
+    "unit": "N/m",
+    "min": 50,
+    "max": 500,
+    "step": 10,
+    "value": 250
+   },
+   {
+    "key": "xmax",
+    "label": "Final stretch",
+    "unit": "m",
+    "min": 0.04,
+    "max": 0.3,
+    "step": 0.01,
+    "value": 0.12
+   }
+  ],
+  "draw": "\nvar L = 52, R = W - 18, B = H - 40, T = 54;\nvar XM = 0.30, FM = 500 * 0.30;\nfunction px(x) { return L + (R - L) * (x / XM); }\nfunction py(f) { return B - (B - T) * (f / FM); }\n\nvar frac = 0.5 - 0.5 * Math.cos(t * 1.1);\nvar x = p.xmax * frac;\n\n// shaded work so far\nctx.fillStyle = C.accent; ctx.globalAlpha = 0.28;\nctx.beginPath();\nctx.moveTo(px(0), py(0)); ctx.lineTo(px(x), py(p.k * x)); ctx.lineTo(px(x), py(0)); ctx.closePath(); ctx.fill();\nctx.globalAlpha = 1;\n\n// full triangle outline\nctx.strokeStyle = C.rule; ctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(px(p.xmax), py(0)); ctx.lineTo(px(p.xmax), py(p.k * p.xmax)); ctx.stroke();\nctx.setLineDash([]);\n\n// axes\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(L, T - 30); ctx.lineTo(L, B); ctx.lineTo(R, B); ctx.stroke();\n\n// line F = kx\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(px(0), py(0)); ctx.lineTo(px(p.xmax), py(p.k * p.xmax)); ctx.stroke();\n\n// moving marker\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(px(x), py(p.k * x), 4.5, 0, 6.2832); ctx.fill();\n\n// spring cartoon along the top\nvar sy = 24, sx0 = L, sx1 = px(x) + 30;\nctx.fillStyle = C.faint; ctx.fillRect(sx0 - 6, sy - 14, 6, 28);\nctx.strokeStyle = C.figure; ctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(sx0, sy);\nfor (var i = 1; i <= 14; i++) {\n  ctx.lineTo(sx0 + (sx1 - 12 - sx0) * i / 14, sy + (i % 2 === 0 ? -8 : 8) * (i === 14 ? 0 : 1));\n}\nctx.lineTo(sx1 - 12, sy); ctx.stroke();\nctx.fillStyle = C.figure; ctx.fillRect(sx1 - 12, sy - 10, 20, 20);\n\nctx.fillStyle = C.ink;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillText(\"F (N)\", 6, T - 32);\nctx.fillText(\"x (m)\", R - 28, B + 20);\nctx.fillText(\"0\", L - 10, B + 16);\nctx.fillText(\"F = kx\", px(p.xmax) - 50, py(p.k * p.xmax) - 8);\nctx.fillText(\"work done so far\", px(0.02), py(p.k * p.xmax * 0.18));\n\nout.note = \"x = \" + x.toFixed(3) + \" m   F = \" + (p.k * x).toFixed(1) +\n  \" N   W = \" + (0.5 * p.k * x * x).toFixed(3) + \" J   (full stretch: \" +\n  (0.5 * p.k * p.xmax * p.xmax).toFixed(3) + \" J)\";\n"
+ }
+]

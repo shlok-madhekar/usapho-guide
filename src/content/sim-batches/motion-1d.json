@@ -1,0 +1,83 @@
+[
+  {
+    "id": "motion-1d-lab",
+    "title": "Constant-acceleration lab",
+    "caption": "A cart with adjustable v0 and a, next to its velocity-time graph.",
+    "height": 300,
+    "params": [
+      {
+        "key": "v0",
+        "label": "Initial velocity",
+        "unit": "m/s",
+        "min": -10,
+        "max": 10,
+        "step": 0.5,
+        "value": 6
+      },
+      {
+        "key": "a",
+        "label": "Acceleration",
+        "unit": "m/s^2",
+        "min": -3,
+        "max": 3,
+        "step": 0.1,
+        "value": -1.5
+      }
+    ],
+    "draw": "\nvar T = 8, pad = 26;\nvar xf = function (s) { return p.v0 * s + 0.5 * p.a * s * s; };\nvar vf = function (s) { return p.v0 + p.a * s; };\nvar xLo = 0, xHi = 0, vLo = 0, vHi = 0, s;\nfor (s = 0; s <= T; s += 0.05) {\n  xLo = Math.min(xLo, xf(s)); xHi = Math.max(xHi, xf(s));\n  vLo = Math.min(vLo, vf(s)); vHi = Math.max(vHi, vf(s));\n}\nif (xHi - xLo < 1) xHi = xLo + 1;\nif (vHi - vLo < 1) vHi = vLo + 1;\nvar now = t % T;\nctx.font = \"11px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\n\n// ---- top: the track\nvar trackY = H * 0.30;\nvar PX = function (val) { return pad + (val - xLo) / (xHi - xLo) * (W - 2 * pad); };\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(pad, trackY); ctx.lineTo(W - pad, trackY); ctx.stroke();\nctx.fillStyle = C.faint;\nfor (s = 0; s <= T + 0.001; s += 0.5) {\n  ctx.beginPath(); ctx.arc(PX(xf(s)), trackY, 2, 0, Math.PI * 2); ctx.fill();\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"position on the track (dots = every 0.5 s)\", pad, trackY - 14);\nvar cx = PX(xf(now));\nctx.fillStyle = C.accent;\nctx.fillRect(cx - 7, trackY - 6, 14, 12);\n// velocity arrow on the cart\nvar vnow = vf(now);\nvar arrow = vnow / Math.max(Math.abs(vLo), Math.abs(vHi)) * (W * 0.16);\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(cx, trackY - 12); ctx.lineTo(cx + arrow, trackY - 12); ctx.stroke();\nif (Math.abs(arrow) > 4) {\n  var sg = arrow > 0 ? 1 : -1;\n  ctx.beginPath();\n  ctx.moveTo(cx + arrow, trackY - 12);\n  ctx.lineTo(cx + arrow - 6 * sg, trackY - 15);\n  ctx.lineTo(cx + arrow - 6 * sg, trackY - 9);\n  ctx.closePath(); ctx.fillStyle = C.figure; ctx.fill();\n}\nctx.fillStyle = C.figure;\nctx.fillText(\"v\", cx + arrow / 2 - 3, trackY - 17);\n\n// ---- bottom: the v-t graph, shaded to the current time\nvar gTop = H * 0.46, gBot = H - 20;\nvar GX = function (sec) { return pad + sec / T * (W - 2 * pad); };\nvar GY = function (val) { return gBot - (val - vLo) / (vHi - vLo) * (gBot - gTop); };\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(GX(0), gTop); ctx.lineTo(GX(0), gBot); ctx.stroke();\nctx.beginPath(); ctx.moveTo(GX(0), GY(0)); ctx.lineTo(GX(T), GY(0)); ctx.stroke();\n\nctx.globalAlpha = 0.25;\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.moveTo(GX(0), GY(0));\nfor (s = 0; s <= now; s += 0.02) ctx.lineTo(GX(s), GY(vf(s)));\nctx.lineTo(GX(now), GY(0));\nctx.closePath(); ctx.fill();\nctx.globalAlpha = 1;\n\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nctx.beginPath();\nfor (s = 0; s <= T; s += 0.05) {\n  var gx = GX(s), gy = GY(vf(s));\n  if (s === 0) ctx.moveTo(gx, gy); else ctx.lineTo(gx, gy);\n}\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(GX(now), GY(vf(now)), 4, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"v (m/s)\", GX(0) + 5, gTop + 10);\nctx.fillText(\"t (s)\", GX(T) - 26, GY(0) - 6);\nctx.fillText(\"shaded area = displacement\", GX(0) + 5, gBot - 4);\n\nout.note = \"t = \" + now.toFixed(2) + \" s   v = \" + vf(now).toFixed(2) +\n  \" m/s   x = \" + xf(now).toFixed(2) + \" m\";\n"
+  },
+  {
+    "id": "motion-1d-trapezoid",
+    "title": "Where the equations come from",
+    "caption": "The velocity-time trapezoid: its height rise is a t, its area is the displacement.",
+    "height": 260,
+    "params": [
+      {
+        "key": "v0",
+        "label": "Initial velocity",
+        "unit": "m/s",
+        "min": 0,
+        "max": 20,
+        "step": 0.5,
+        "value": 4
+      },
+      {
+        "key": "a",
+        "label": "Acceleration",
+        "unit": "m/s^2",
+        "min": -3,
+        "max": 3,
+        "step": 0.1,
+        "value": 2
+      }
+    ],
+    "draw": "\nvar pad = 40, gTop = 28, gBot = H - 30;\nvar T = 6;\nvar v0 = p.v0, a = p.a;\nvar vEnd = v0 + a * T;\nvar vHi = Math.max(v0, vEnd, 0) * 1.15 + 1;\nvar vLo = Math.min(v0, vEnd, 0) * 1.15;\nif (vHi - vLo < 1) vHi = vLo + 1;\nvar GX = function (s) { return pad + s / T * (W - pad - 30); };\nvar GY = function (v) { return gBot - (v - vLo) / (vHi - vLo) * (gBot - gTop); };\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(GX(0), gTop); ctx.lineTo(GX(0), gBot); ctx.stroke();\nctx.beginPath(); ctx.moveTo(GX(0), GY(0)); ctx.lineTo(GX(T) + 14, GY(0)); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"v\", GX(0) - 14, gTop + 8);\nctx.fillText(\"t\", GX(T) + 16, GY(0) + 4);\n\n// the trapezoid\nctx.globalAlpha = 0.22;\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.moveTo(GX(0), GY(0));\nctx.lineTo(GX(0), GY(v0));\nctx.lineTo(GX(T), GY(vEnd));\nctx.lineTo(GX(T), GY(0));\nctx.closePath(); ctx.fill();\nctx.globalAlpha = 1;\n\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(GX(0), GY(v0)); ctx.lineTo(GX(T), GY(vEnd)); ctx.stroke();\n\n// dashed helpers\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(GX(0), GY(vEnd)); ctx.lineTo(GX(T), GY(vEnd)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(GX(T), GY(0)); ctx.lineTo(GX(T), GY(vEnd)); ctx.stroke();\n\n// the \"at\" riser\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(GX(T) - 2, GY(v0)); ctx.lineTo(GX(T) - 2, GY(vEnd)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(GX(0), GY(v0)); ctx.lineTo(GX(T), GY(v0)); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"v0\", GX(0) - 24, GY(v0) + 4);\nctx.fillText(\"v = v0 + at\", GX(T) + 4, GY(vEnd) + 4);\nctx.fillStyle = C.accent;\nctx.fillText(\"rise = a t\", GX(T) - 66, (GY(v0) + GY(vEnd)) / 2 + 4);\nctx.fillStyle = C.ink;\nctx.fillText(\"area = displacement\", GX(T) * 0.30, (GY(0) + GY(v0)) / 2 + 10);\nctx.fillText(\"base = t\", GX(T) / 2 - 22, GY(0) + 16);\n\nvar disp = (v0 + vEnd) / 2 * T;\nout.note = \"over t = 6.0 s:  v goes \" + v0.toFixed(1) + \" to \" + vEnd.toFixed(1) +\n  \" m/s,  displacement = (v0 + v)/2 x t = \" + disp.toFixed(1) + \" m\";\n"
+  },
+  {
+    "id": "motion-1d-balloon",
+    "title": "Dropped from a rising balloon",
+    "caption": "The bag leaves with the balloon's upward velocity, so it rises before it falls.",
+    "height": 300,
+    "params": [
+      {
+        "key": "u",
+        "label": "Balloon rise speed",
+        "unit": "m/s",
+        "min": 0,
+        "max": 15,
+        "step": 0.5,
+        "value": 5
+      },
+      {
+        "key": "h",
+        "label": "Release height",
+        "unit": "m",
+        "min": 20,
+        "max": 120,
+        "step": 5,
+        "value": 60
+      }
+    ],
+    "draw": "\nvar g = 10;\nvar h0 = p.h, u = p.u;\nvar tLand = (u + Math.sqrt(u * u + 2 * g * h0)) / g;\nvar cycle = tLand + 1.2;\nvar now = t % cycle;\nvar s = Math.min(now, tLand);\nvar y = h0 + u * s - 0.5 * g * s * s;\nvar v = u - g * s;\nvar apexT = u / g;\nvar apexY = h0 + u * u / (2 * g);\nvar top = Math.max(apexY, h0) * 1.12 + 2;\nvar pad = 34, ground = H - 26;\nvar PY = function (m) { return ground - m / top * (ground - 18); };\nctx.font = \"11px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\n\n// ground\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(0, ground); ctx.lineTo(W, ground); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"ground, y = 0\", 6, ground + 14);\n\n// height axis\nctx.beginPath(); ctx.moveTo(pad, ground); ctx.lineTo(pad, 14); ctx.stroke();\nctx.fillStyle = C.ink;\nfor (var m = 0; m <= top; m += Math.max(10, Math.round(top / 5 / 10) * 10)) {\n  ctx.beginPath(); ctx.moveTo(pad - 4, PY(m)); ctx.lineTo(pad, PY(m)); ctx.stroke();\n  ctx.fillText(m.toFixed(0), pad - 26, PY(m) + 4);\n}\nctx.fillText(\"y (m)\", pad - 28, 12);\n\n// release point marker\nvar bx = W * 0.45;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(pad, PY(h0)); ctx.lineTo(W - 10, PY(h0)); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"release height \" + h0.toFixed(0) + \" m\", W - 150, PY(h0) - 6);\n\n// the balloon keeps rising\nvar by = h0 + u * s;\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nctx.beginPath(); ctx.arc(bx, PY(by), 9, 0, Math.PI * 2); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"balloon, steady \" + u.toFixed(1) + \" m/s up\", bx + 14, PY(by) + 4);\n\n// trail of the bag\nctx.fillStyle = C.faint;\nfor (var k = 0; k <= s; k += 0.1) {\n  var yy = h0 + u * k - 0.5 * g * k * k;\n  ctx.beginPath(); ctx.arc(bx - 26, PY(yy), 1.5, 0, Math.PI * 2); ctx.fill();\n}\n// the bag\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(bx - 26, PY(Math.max(y, 0)), 5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"sandbag\", bx - 26 - 58, PY(Math.max(y, 0)) + 4);\n\n// apex marker\nctx.strokeStyle = C.accent; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(bx - 44, PY(apexY)); ctx.lineTo(bx - 8, PY(apexY)); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"apex \" + apexY.toFixed(1) + \" m at t = \" + apexT.toFixed(2) + \" s\", bx - 26 + 16, PY(apexY) - 6);\n\nout.note = \"t = \" + s.toFixed(2) + \" s   y = \" + Math.max(y, 0).toFixed(1) +\n  \" m   v = \" + (s < tLand ? v.toFixed(1) : \"impact \" + v.toFixed(1)) +\n  \" m/s   lands at t = \" + tLand.toFixed(2) + \" s\";\n"
+  }
+]

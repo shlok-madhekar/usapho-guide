@@ -1,49 +1,307 @@
-## Fields from currents
+Drop a small bar magnet down a vertical copper pipe. It does not clatter down
+in a fifth of a second the way a pebble does. It drifts, taking several
+seconds, and when it finally appears at the bottom it is moving slowly and
+steadily. Copper is not magnetic. Nothing is touching the magnet. Nothing is
+holding it up except the field it carries with it and the metal it is passing.
 
-Moving charge makes a magnetic field, and a magnetic field pushes on moving
-charge. The force is a cross product, so it is always perpendicular to the
-velocity:
+That is induction, and it is the other half of magnetism. Ampère's law told you
+that a current makes a field: point your thumb along the current and your
+fingers curl the way $\vec B$ goes, giving $B = \mu_0 I / 2\pi r$ outside a long
+wire. This lesson runs the sentence backwards. A field that changes pushes
+charge around a loop, with no battery anywhere in the circuit. Get that right,
+and the copper pipe, the electric guitar pickup, and every power station on the
+grid are the same problem.
 
-$$\vec F = q\vec v \times \vec B, \qquad \vec F = I\vec L \times \vec B$$
+## Flux: how much field goes through the loop
 
-Because the force is perpendicular to the motion, a magnetic field does no
-work. It bends paths without changing speeds. A charge moving perpendicular to
-a uniform field travels a circle of radius $r = mv/qB$.
+The first thing to build is a number that says how much magnetic field is
+threading a loop of wire. Field strength alone is not enough — a strong field
+sliding past the *edge* of a loop does nothing, and a loop twice as big catches
+twice as much of the same field. So the quantity has to involve the field, the
+area, and the angle between them.
 
-For the fields themselves, symmetry decides the tool. Ampère's law plays the
-role Gauss's law plays in electrostatics:
+That quantity is the **magnetic flux**:
 
-$$\oint \vec B \cdot d\vec\ell = \mu_0 I_{enc}$$
+$$\Phi_B = \int \vec B \cdot d\vec A = BA\cos\theta \ \ \text{(uniform field, flat loop)}$$
 
-giving $B = \mu_0 I/2\pi r$ for a long wire and $B = \mu_0 n I$ inside a
-solenoid. When the geometry is not symmetric, Biot-Savart and an integral are
-the fallback.
+Here $A$ is the area of the loop in square metres, $B$ is the field in tesla,
+and $\theta$ is the angle between $\vec B$ and the *normal* to the loop — the
+direction sticking straight out of the loop's face, perpendicular to it. When
+the field runs straight through the face, $\theta = 0$ and $\Phi_B = BA$. When
+the field lies in the plane of the loop, skimming past it, $\theta = 90^\circ$
+and the flux is zero. The unit is the weber: $1\ \text{Wb} = 1\ \text{T}\cdot
+\text{m}^2$.
 
-## Induction
+A circular loop of radius $0.10$ m lying square-on to a $0.40$ T field has
+$A = \pi(0.10)^2 = 0.0314\ \text{m}^2$ and $\Phi_B = (0.40)(0.0314) = 0.0126$ Wb.
+That is the whole calculation. The integral sign in the definition only earns
+its keep when $\vec B$ varies across the loop, which happens later in this
+lesson and is worth waiting for.
 
-A changing flux drives an EMF:
+## Faraday's law
 
-$$\mathcal{E} = -\frac{d\Phi_B}{dt}, \qquad \Phi_B = \int \vec B \cdot d\vec A$$
+Now the experiment. Hold a loop still in a field that is getting stronger. A
+current flows. Hold the field steady and yank the loop out. A current flows.
+Spin the loop in place. A current flows, back and forth. In every case the one
+thing that changed was the flux, and the faster you changed it the bigger the
+current. Careful measurement gives the law exactly:
 
-Flux changes three ways: the field changes, the area changes, or the
-orientation changes. A rotating loop uses the third and produces the sinusoid
-that makes AC generation possible.
+$$\mathcal{E} = -N\frac{d\Phi_B}{dt}$$
 
-The minus sign is Lenz's law, and it is a statement about energy rather than a
-sign convention. The induced current opposes the change that created it, which
-is why a magnet dropped through a copper pipe falls slowly and why generators
-get harder to turn as you draw more current from them.
+$\mathcal{E}$ is the **EMF** — electromotive force, which is not a force at all
+but a voltage, measured in volts. It is the push per unit charge that the loop
+supplies, the same role a battery plays in a circuit. $N$ is the number of
+turns, because each turn is its own loop in series with the rest and the pushes
+add. The minus sign is Lenz's law, which gets its own section; for now read the
+equation as "the EMF equals the rate at which flux changes".
 
-<Aside label="Where this goes wrong" warn>
-  Motional EMF problems ask for force, current and power in a loop that is
-  simultaneously being pushed and pushed back on. Solve them in order: EMF
-  from the flux rule, then current from the EMF, then the retarding force from
-  that current. Trying to shortcut to the force usually loses a factor.
+Three things can make $\Phi_B = BA\cos\theta$ change, and every induction
+problem you will meet changes at least one of them: the field $B$, the area
+$A$, or the orientation $\theta$. Naming which one is moving is the first thing
+to write on blank paper.
+
+If the loop is a closed circuit of total resistance $R$, the EMF drives a
+current the same way a battery would:
+
+$$I = \frac{\mathcal{E}}{R}$$
+
+<Figure caption={<><b>Figure 1.</b> A loop in a field that is changing at a rate you control. Push the rate slider to zero and the current stops even though the field is still there. Then take the rate negative and watch the current reverse. Notice that doubling the radius quadruples the EMF, because area goes as r squared.</>}>
+  <Sim id="faraday-lenz-ramp" />
+</Figure>
+
+**Example 1.** A coil of $200$ turns, each of area $0.0050$ m², lies
+perpendicular to a field changing at $1.2$ T/s. Find the EMF.
+
+Perpendicular to the field means the field runs straight through the face, so
+$\cos\theta = 1$ and $\Phi_B = BA$ per turn. The area is fixed, so only $B$ is
+moving:
+
+$$|\mathcal{E}| = N A \frac{dB}{dt} = (200)(0.0050\ \text{m}^2)(1.2\ \text{T/s}) = 1.2\ \text{V}$$
+
+Two hundred turns of small coil produce more than a volt out of a field change
+you could not feel. That is why pickup coils have many turns.
+
+<QuickCheck
+  question="A loop sits in a strong, perfectly steady magnetic field. What current flows in it?"
+  options={["A large current, because the field is strong", "A small steady current", "No current at all", "A current that grows with time"]}
+  answer={2}
+  explanation="Faraday's law contains the rate of change of flux, not the flux itself. A steady field means no change, so no EMF and no current, however strong the field is. The tempting wrong answer treats flux like a battery voltage."
+/>
+
+## Lenz's law: getting the direction right
+
+The minus sign says: **the induced current flows in whatever direction fights
+the change that produced it.** Not the field — the *change*.
+
+That is a statement about energy, not about sign conventions. If the induced
+current helped the change along, the change would drive more current, which
+would help more, and a nudge would run away into infinite energy. The universe
+does not offer that. So the loop always pushes back, and if you want to keep
+changing the flux you have to keep paying.
+
+Here is a recipe that works every time. Three steps, in order:
+
+1. Which way does the existing flux point through the loop, and is it growing
+   or shrinking?
+2. The induced current wants to make flux *inside the loop* that opposes that
+   change: if the flux is growing, the induced field inside points the other
+   way; if it is shrinking, the induced field inside points the same way, to
+   prop it up.
+3. Point your right thumb along the induced field you want inside the loop;
+   your fingers curl the way the current goes.
+
+Try it on the magnet in the pipe. As the magnet approaches a ring of copper,
+the downward flux through that ring grows, so the ring's current makes upward
+flux inside itself, and the ring becomes a magnet whose top face repels the
+magnet's approaching pole. After the magnet passes, the flux through the ring
+is shrinking, so the current reverses and the ring now attracts the magnet
+back. Approaching rings push up, departing rings pull up. Both retard the fall.
+
+<Aside label="Worth remembering">
+  Lenz's law opposes the change, not the field. A loop in a strong downward
+  field that is getting weaker carries a current that makes *more* downward
+  flux. Ask "growing or shrinking" before anything else.
 </Aside>
 
 <QuickCheck
-  question="You drop a bar magnet down a long vertical copper pipe. What happens?"
-  options={["It falls freely, since copper is not magnetic", "It falls much more slowly than in free fall", "It sticks to the pipe wall", "It accelerates faster than gravity"]}
-  answer={1}
-  explanation="The changing flux drives currents in the pipe, and by Lenz's law those currents oppose the change that made them, so they retard the magnet. Copper is not ferromagnetic, but it conducts, and that is what matters here."
+  question="A loop lies flat with a magnetic field pointing up through it, and that field is weakening. Seen from above, which way does the induced current go?"
+  options={["Counterclockwise, to maintain the upward flux", "Clockwise, to cancel the upward flux", "It depends on the loop's resistance", "No current flows because the field is not reversing"]}
+  answer={0}
+  explanation="The flux is shrinking, so the loop props it up by making its own upward field inside itself. Right thumb up means fingers curl counterclockwise as seen from above. Resistance sets the size of the current, never its direction."
 />
+
+## When the field is not uniform across the loop
+
+Put a rectangular loop beside a long straight wire, with its long sides
+parallel to the wire. The wire's field is $B = \mu_0 I / 2\pi r$, which is
+larger at the near edge than at the far edge. There is no single $B$ to
+multiply by the area, so you go back to the integral definition and slice the
+loop into strips parallel to the wire, each at distance $r$, each of width $dr$
+and length $L$, so each has area $L\,dr$ and a field that is constant across it.
+
+<Figure caption={<><b>Figure 2.</b> The field crosses thin near the far edge and thick near the wire. Each shaded strip has one value of the field across it, so you can integrate strip by strip from the near edge to the far edge.</>}>
+  <Sim id="faraday-lenz-wire" />
+</Figure>
+
+Adding the strips from the near edge $a$ to the far edge $b$:
+
+$$\Phi_B = \int_a^b \frac{\mu_0 I}{2\pi r} L\,dr = \frac{\mu_0 I L}{2\pi}\ln\!\frac{b}{a}$$
+
+Everything in front of $I$ is fixed geometry, so if the current changes the
+flux follows it in proportion, and
+
+$$\mathcal{E} = \frac{\mu_0 L}{2\pi}\ln\!\frac{b}{a}\ \frac{dI}{dt}$$
+
+**Example 2.** A loop with sides $0.30$ m long parallel to a wire sits with its
+near edge $2.0$ cm and its far edge $8.0$ cm from the wire. The wire's current
+rises at $200$ A/s. Find the EMF.
+
+Take the geometry factor first, so the arithmetic stays clean:
+
+$$\frac{\mu_0 L}{2\pi} = (2\times10^{-7})(0.30) = 6.0\times10^{-8}\ \text{T}\cdot\text{m/A}$$
+
+using $\mu_0/2\pi = 2\times 10^{-7}$. The log is $\ln(0.080/0.020) = \ln 4 =
+1.386$. So
+
+$$|\mathcal{E}| = (6.0\times10^{-8})(1.386)(200) = 1.66\times10^{-5}\ \text{V}$$
+
+Small, and it should be. If instead of ramping the current you dragged the loop
+away from the wire at speed $v$, the same flux formula applies but now $a$ and
+$b$ both grow with time, and you differentiate with respect to them:
+$d\Phi/dt = \frac{\mu_0 I L}{2\pi}\left(\frac{1}{b} - \frac{1}{a}\right)v$.
+
+<Aside label="Where this goes wrong" warn>
+  Do not evaluate the wire's field at the centre of the loop and multiply by
+  the area. Because $1/r$ is curved, the average of the field is not the field
+  at the average position, and you will be off by several percent or more. The
+  shortcut is legitimate only when the loop is small compared with its distance
+  from the source — a small loop at the centre of a big one, for example, where
+  you may treat $B = \mu_0 I / 2R$ as uniform across the little loop.
+</Aside>
+
+## Rods, rails, force and power
+
+Now change the area instead of the field. A rod of length $L$ slides at speed
+$v$ along two rails in a perpendicular field $B$, closing a circuit of
+resistance $R$. In a time $dt$ the enclosed area grows by $L v\,dt$, so
+
+$$\mathcal{E} = \frac{d\Phi}{dt} = B L v$$
+
+and the current is $I = BLv/R$. But that current is sitting in the field, so
+the rod feels a force $F = BIL = B^2L^2v/R$, and by Lenz's law it points
+backwards, against the motion. To hold the rod at constant speed you must push
+with that force, doing work at a rate $Fv = B^2L^2v^2/R$, which is exactly
+$\mathcal{E}^2/R$ — the power appearing as heat in the resistor. Nothing is
+free, and nothing is lost.
+
+<Figure caption={<><b>Figure 3.</b> Slide the speed up and watch four numbers move together. The drag grows as the square of the speed while the EMF grows linearly, which is what makes a terminal speed exist. Set the resistance low and see the drag get much larger.</>}>
+  <Sim id="faraday-lenz-rails" />
+</Figure>
+
+If nobody pushes, that drag is all there is, and $m\,dv/dt = -B^2L^2v/R$. The
+speed decays exponentially with time constant $\tau = mR/B^2L^2$. If instead
+gravity pulls a loop down through the edge of a field region, the loop speeds
+up until the drag matches the weight, and at that terminal speed
+
+$$mg = \frac{B^2L^2 v_t}{R} \quad\Longrightarrow\quad v_t = \frac{mgR}{B^2L^2}$$
+
+**Example 3.** A square loop of side $0.25$ m, mass $20$ g and resistance
+$0.60\ \Omega$ falls with its lower edge crossing the boundary of a $0.50$ T
+field region. Find its terminal speed, then say how much heat it makes while
+falling $0.80$ m at that speed.
+
+Only the lower edge is in the field and only it contributes EMF, so $L = 0.25$ m.
+
+$$v_t = \frac{(0.020)(9.8)(0.60)}{(0.50)^2(0.25)^2} = \frac{0.1176}{0.015625} = 7.53\ \text{m/s}$$
+
+For the heat, resist the urge to compute $I^2R$ and multiply by a time you do
+not know. At terminal speed the kinetic energy is not changing, so every joule
+gravity delivers goes into the resistor:
+
+$$Q = mgh = (0.020)(9.8)(0.80) = 0.157\ \text{J}$$
+
+That trick — energy in equals heat out, whenever the speed is constant —
+turns several genuinely hard problems into one line.
+
+Two relatives of the sliding rod are worth knowing. A flat coil of $N$ turns
+and area $A$ spinning at angular frequency $\omega$ in a field $B$ has
+$\Phi = BA\cos\omega t$, so $\mathcal{E} = NAB\omega\sin\omega t$: a sinusoid of
+peak value $NAB\omega$, and RMS value $NAB\omega/\sqrt2$. That is a generator.
+And a solid disk of radius $a$ spinning at $\omega$ about its axis in an axial
+field has each radial element contributing $B\omega r\,dr$, which integrates to
+$\mathcal{E} = \tfrac12 B\omega a^2$ between axle and rim. That is the Faraday
+disk. The next lesson, [motional EMF](/guide/motional-emf), takes these apart
+from the force-on-a-charge side and shows why both pictures agree.
+
+## Charge, not current
+
+Sometimes a problem asks not for a current but for the total charge that flows
+during some change. The current is changing throughout, so you have to
+integrate — and the integral collapses:
+
+$$q = \int I\,dt = \int \frac{N}{R}\frac{d\Phi}{dt}dt = \frac{N\,\Delta\Phi}{R}$$
+
+The time cancels out. Only the *total* flux change matters, not how fast you
+made it happen. Whip the magnet away or ease it away over a minute: the same
+charge flows.
+
+A $120$-turn coil of area $0.0040$ m² sits perpendicular to a $0.25$ T field
+and is flipped over through $180^\circ$, in a circuit of resistance
+$8.0\ \Omega$. The flux per turn goes from $+BA$ to $-BA$, so
+$|\Delta\Phi| = 2BA = 2(0.25)(0.0040) = 0.0020$ Wb, and
+
+$$q = \frac{(120)(0.0020)}{8.0} = 0.030\ \text{C}$$
+
+Forgetting the factor of two on a flip is the single most common slip here.
+
+## The field with no wire in it
+
+One last idea, and it is the deep one. The loop in Figure 1 does not know
+whether the wire is there. The changing magnetic field creates a circulating
+*electric* field in space, and the wire only reveals it by letting charge move.
+Written for the field itself, Faraday's law is
+
+$$\oint \vec E \cdot d\vec\ell = -\frac{d\Phi_B}{dt}$$
+
+For a region of circular symmetry — inside a long solenoid, say — the induced
+$\vec E$ runs in circles, so the integral around a circle of radius $r$ is
+$E(2\pi r)$ and you can solve for $E$ the way Ampère's law gives you $B$.
+
+Inside a solenoid of radius $a$ with the field changing at $dB/dt$, a circle of
+radius $r < a$ encloses flux $B\pi r^2$, so $E(2\pi r) = \pi r^2\,dB/dt$ and
+$E = \tfrac{r}{2}\,dB/dt$. With $a = 6.0$ cm and $dB/dt = 0.80$ T/s, at
+$r = 3.0$ cm: $E = (0.015)(0.80) = 0.012$ V/m.
+
+Outside the windings the enclosed flux stops growing with $r$, because there is
+no field out there to enclose: $E(2\pi r) = \pi a^2\,dB/dt$, so
+$E = \frac{a^2}{2r}\frac{dB}{dt}$. At $r = 10$ cm that is
+$\frac{(0.060)^2}{2(0.10)}(0.80) = 0.0144$ V/m. The field is nonzero in a
+region where $\vec B$ is zero. Compare this to the charge case: an electric
+field made this way has no start and no end, and pushing a charge once around a
+closed path gains it energy. There is no potential here.
+
+## Recognising it
+
+Reach for Faraday's law when a problem mentions a loop, coil, ring, rail or
+disk *and* something in the setup is changing with time. The trigger words are
+"increasing at", "per second", "is pulled out of", "spins at", "collapses",
+"falls through".
+
+Then sort it by what is changing, because that decides the algebra:
+
+- **$B$ changes, geometry fixed.** $\mathcal{E} = NA\,dB/dt$. If the source is
+  a current in another wire, find $B$ from Ampère or Biot-Savart first, then
+  differentiate.
+- **Area changes.** Sliding rod, collapsing loop, shrinking radius. Write $A(t)$
+  and differentiate — for a circle of shrinking radius, $d(\pi r^2)/dt =
+  2\pi r\,\dot r$.
+- **Orientation changes.** Spinning coil, coil flipped over. $\cos\omega t$, a
+  sinusoidal EMF, and a factor of two on a full flip.
+- **$B$ varies across the loop.** Slice into strips and integrate, as with the
+  long wire.
+
+Finally, watch what is being asked for. If it is a charge, use $q = N\Delta\Phi/R$
+and do not touch the timing. If it is a force or a terminal speed, go in order:
+EMF, then current, then $F = BIL$, then balance. If it is heat, ask whether the
+kinetic energy is constant — if it is, the work done against the drag is the
+heat, and you never need the current at all.

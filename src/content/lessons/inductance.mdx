@@ -1,73 +1,374 @@
-## A coil resists change
+## A coil that fights its own change
 
-A current produces flux, and if the current changes the flux changes, and by
-Faraday's law that induces an emf in the very coil producing it. Self-inductance
-is the proportionality between current and its own flux linkage,
-$N\Phi = LI$, which turns Faraday's law into
+Pull the plug on a running vacuum cleaner in a dark room and you sometimes see a
+blue spark jump inside the socket. Nothing was pushing that spark a moment
+earlier — the appliance was running quietly on a steady current. The spark
+appears at the instant the current is *cut off*, and it can carry a voltage far
+larger than the 120 V the wall was supplying.
+
+In [Motional EMF](/guide/motional-emf) you moved a conductor through a field and
+got an emf out of it. Nothing had to move here. The coil inside the motor made
+its own magnetic field, that field threaded its own turns, and when the current
+died the field died with it. A changing flux through a loop induces an emf,
+whether the flux came from a magnet across the room or from the very current
+flowing in the loop. That second case is what follows, together with the two
+circuits — LR and LC — where it dominates everything.
+
+## Flux linkage, and the number called L
+
+Start with a single coil of $N$ turns carrying current $I$. That current makes a
+magnetic field everywhere, and everywhere in space the field is proportional to
+$I$: double the current and you double $B$ at every point. So the flux $\Phi$
+through one turn is proportional to $I$ too, and so is the **flux linkage**
+$N\Phi$, the total flux counted once per turn.
+
+Proportional means there's a constant of proportionality. Name it $L$:
+
+$$N\Phi = LI$$
+
+$L$ is the **self-inductance**, measured in henries (1 H = 1 Wb/A). Because both
+sides scale with $I$ in the same way, $L$ itself does not depend on $I$ at all.
+It depends only on the shape of the coil — how many turns, how big, how long.
+Inductance is geometry, exactly as capacitance is geometry.
+
+Now put that into Faraday's law. The emf around the coil is $-d(N\Phi)/dt$, and
+since $L$ is a constant,
 
 $$\mathcal{E} = -L\frac{dI}{dt}$$
 
-The minus sign is Lenz's law: the induced emf always opposes the *change*, not
-the current itself. A coil carrying a steady current opposes nothing. Try to
-increase the current and it pushes back; try to cut the current and it pushes
-forward, sometimes hard enough to arc across an opening switch.
+Read it in words. The coil produces a voltage proportional to the *rate of
+change* of its current. A steady current, however large, produces none. The
+minus sign is Lenz's law: the emf opposes the change. Push the current up and
+the coil pushes back like a headwind. Cut the current and the coil pushes
+forward, trying to keep it going — that is the spark in the socket.
 
-For a long solenoid of $n$ turns per length, cross-section $A$ and length
-$\ell$, the field $\mu_0 n I$ gives
+<Aside label="Worth remembering">
+  A capacitor cannot change its voltage instantly. An inductor cannot change its
+  current instantly. A jump in $I$ would mean infinite $dI/dt$ and infinite emf.
+  Almost every transient problem below is solved by writing down what
+  the inductor current was just before the switch moved, and insisting it is the
+  same just after.
+</Aside>
+
+## Getting L from the geometry
+
+The recipe is always the same three steps: assume a current $I$, find the field
+it makes, integrate the field to get the flux linkage, then divide by $I$.
+
+Do it for a long solenoid of length $\ell$, cross-sectional area $A$, with $N$
+turns, so $n = N/\ell$ turns per metre. Ampère's law gave you $B = \mu_0 n I$
+inside and essentially zero outside. Each turn is threaded by $\Phi = BA = \mu_0
+n I A$, and there are $N = n\ell$ of them, so
+
+$$N\Phi = n\ell \cdot \mu_0 n I A = \mu_0 n^2 A \ell \, I$$
+
+Divide by $I$ and the current vanishes, as it must:
 
 $$L = \mu_0 n^2 A \ell$$
 
-Inductance, like capacitance, is pure geometry — no current in the formula.
+<Figure caption={<><b>Figure 1.</b> The chain that defines inductance: current makes field, field makes flux, flux counted once per turn is L times the current. Notice that the current cancels out of the last step, which is why L depends only on the turns, the area and the length.</>}>
+  <Sim id="inductance-solenoid" />
+</Figure>
 
-## Current is the continuous variable
+**Worked example 1.** A solenoid has 500 turns over a length of 0.25 m with
+cross-section $4.0\times10^{-4}$ m². Find $L$, and find the emf when the current
+in it rises at a steady 40 A/s.
 
-Where a capacitor cannot change its voltage discontinuously, an inductor cannot
-change its current discontinuously. That single fact answers most LR transient
-questions.
+Turn density first: $n = 500/0.25 = 2000$ turns per metre. Then
 
-**At $t = 0^+$** after a switch closes on a previously dead circuit, the
-inductor current is still zero, so it acts like a break. **As $t\to\infty$**,
-nothing is changing, $dI/dt = 0$, no emf is induced, and it acts like a plain
-wire. In between, an LR circuit relaxes exponentially with time constant
+$$L = (4\pi\times10^{-7})(2000)^2(4.0\times10^{-4})(0.25)$$
 
-$$\tau = \frac{L}{R}$$
+Take it piece by piece. $(2000)^2 = 4.0\times10^6$. Times $4\pi\times10^{-7}$
+gives $5.027$. Times $4.0\times10^{-4}$ gives $2.011\times10^{-3}$. Times $0.25$
+gives
 
-Note that $\tau$ grows with $L$ but *shrinks* with $R$ — the opposite of RC. A
-larger resistance forces the current to its final value faster.
+$$L = 5.03\times10^{-4}\ \text{H}$$
 
-Energy stored follows from integrating $P = LI\,dI/dt$:
+The emf is $|\mathcal{E}| = L\,|dI/dt| = (5.03\times10^{-4})(40) = 2.0\times10^{-2}$ V.
+Small, because the coil is small. A 0.15 H coil with the same 40 A/s would give
+6.0 V.
 
-$$U = \tfrac12 LI^2$$
+A toroid works the same way but its field isn't uniform. For a toroid of $N$
+turns, rectangular cross-section of height $h$, inner radius $a$ and outer
+radius $b$, Ampère's law on a circle of radius $r$ inside gives $B = \mu_0 N
+I/(2\pi r)$. The flux through one turn needs an integral because $B$ falls off
+across the cross-section:
 
-<Aside label="Where this goes wrong" warn>
-  An inductor is not a resistor with a delay, and it never has a well-defined
-  "resistance". Do not write $V = IL$ or try to combine an inductor into a
-  series-parallel reduction with resistors. Its voltage depends on the slope of
-  the current, so the only correct move is to solve the loop equation, or to
-  use the two limiting behaviours above and interpolate exponentially.
-</Aside>
+$$\Phi = \int_a^b \frac{\mu_0 N I}{2\pi r} h\,dr = \frac{\mu_0 N I h}{2\pi}\ln\frac{b}{a}$$
 
-## LC oscillation
+so
 
-Connect a charged capacitor to an inductor with no resistor. The loop rule
-gives $Q/C + L\,d^2Q/dt^2 = 0$, which is the harmonic oscillator equation with
+$$L = \frac{\mu_0 N^2 h}{2\pi}\ln\frac{b}{a}$$
 
-$$\omega = \frac{1}{\sqrt{LC}}$$
-
-Energy sloshes between the electric field of the capacitor and the magnetic
-field of the inductor, and the total is constant:
-
-$$\frac{Q^2}{2C} + \tfrac12 LI^2 = \text{constant}$$
-
-The mechanical analogy is exact and worth using. Charge plays the role of
-position, current the role of velocity, $1/C$ the spring constant, and $L$ the
-mass. Every result from the mass-spring problem carries over, including the
-quarter-period phase lag between current and charge: the current peaks when the
-capacitor is empty, just as a mass moves fastest through equilibrium.
+Inductors in series and in parallel combine like resistors, not like capacitors,
+as long as they are far enough apart that neither one's field threads the other.
+In series the same $dI/dt$ runs through both and the emfs add, so $L = L_1 +
+L_2$. In parallel the voltages match and the currents add, so $1/L = 1/L_1 +
+1/L_2$. Two coils of 0.30 H and 0.60 H in parallel give $L = (0.30)(0.60)/0.90 =
+0.20$ H.
 
 <QuickCheck
-  question="In an ideal LC circuit, the current through the inductor is largest at the moment when:"
-  options={["The capacitor charge is largest", "The capacitor charge is zero", "The capacitor voltage equals the peak value", "The inductor energy is zero"]}
-  answer={1}
-  explanation="Energy is conserved between the two elements, so all of it sits in the inductor exactly when none is left in the capacitor. That is the empty-capacitor moment, matching a mass at maximum speed passing through equilibrium."
+  question="A solenoid's inductance is L. You unwind it and rewind the same wire over the same length and area, but with twice as many turns. The new inductance is:"
+  options={["L/2", "2L", "4L", "unchanged, because L does not depend on current"]}
+  answer={2}
+  explanation="L is proportional to n squared, so doubling the turn density multiplies L by four. The last option confuses two different things: L is independent of the current, but it is very much dependent on the number of turns."
 />
+
+## Energy in the magnetic field
+
+Building up a current in an inductor costs work, because the whole time you are
+pushing against the induced emf. The external source must supply a voltage
+$L\,dI/dt$ just to overcome it, so the power it delivers is
+
+$$P = I \cdot L\frac{dI}{dt}$$
+
+Energy is the time integral of power, and $I\,dI/dt\,dt = I\,dI$, so pushing the
+current from 0 up to some final $I$ costs
+
+$$U = \int_0^{I} LI'\,dI' = \tfrac12 L I^2$$
+
+That energy is not lost. It sits in the magnetic field and comes back out when
+the current falls. A 0.20 H coil carrying 3.0 A holds $\tfrac12(0.20)(9.0) =
+0.90$ J.
+
+You can also count the energy field-point by field-point. Put $\tfrac12 LI^2$
+for a solenoid next to its volume $A\ell$ and its field $B = \mu_0 n I$:
+
+$$\frac{U}{A\ell} = \frac{\tfrac12 \mu_0 n^2 A\ell I^2}{A\ell} = \tfrac12 \mu_0 n^2 I^2 = \frac{B^2}{2\mu_0}$$
+
+The geometry dropped out entirely, which is the sign that this is a general
+truth about fields, not a fact about solenoids. The **magnetic energy density**
+anywhere is
+
+$$u_B = \frac{B^2}{2\mu_0}$$
+
+A field of 0.80 T carries $0.64/(2\times4\pi\times10^{-7}) = 2.55\times10^{5}$
+J per cubic metre.
+
+**Worked example 2.** A coaxial cable carries 10 A out along an inner conductor
+of radius 1.0 mm and back along an outer conductor at radius 5.0 mm. How much
+magnetic energy is stored per metre?
+
+There's no coil here, so $\tfrac12 LI^2$ has nothing obvious to plug into. Use
+the density instead. Between the conductors, Ampère's law on a circle of radius
+$r$ encloses the full 10 A, giving $B = \mu_0 I/(2\pi r)$. Outside the outer
+conductor the enclosed current is zero, so there is no field and no energy
+there.
+
+Take a thin cylindrical shell of radius $r$, thickness $dr$, one metre long. Its
+volume is $2\pi r\,dr$, and
+
+$$dU = \frac{B^2}{2\mu_0}\,2\pi r\,dr = \frac{\mu_0 I^2}{8\pi^2 r^2}\,2\pi r\,dr = \frac{\mu_0 I^2}{4\pi}\frac{dr}{r}$$
+
+Integrate from $a$ to $b$:
+
+$$U = \frac{\mu_0 I^2}{4\pi}\ln\frac{b}{a} = (10^{-7})(100)\ln 5$$
+
+$\ln 5 = 1.609$, so $U = (10^{-5})(1.609) = 1.61\times10^{-5}$ J per metre. Thin
+shells and a logarithm: that combination shows up every time the field goes like
+$1/r$.
+
+<Aside label="Where this goes wrong" warn>
+  An inductor never has a resistance, and it is not a resistor with a delay. Do
+  not write $V = IL$, and do not fold an inductor into a series-parallel
+  reduction with resistors. Its voltage is set by the slope of its current, not
+  its value. The only legal moves are to solve the loop equation, or to use the
+  two limiting behaviours: at the first instant after a switch flips the
+  inductor holds its old current, and after a long time with everything steady
+  it acts as a plain wire.
+</Aside>
+
+## Mutual inductance
+
+Now two coils. Run current $I_1$ through the first; some of its flux threads the
+second. That flux linkage is again proportional to $I_1$, so define
+
+$$N_2\Phi_2 = M I_1, \qquad \mathcal{E}_2 = -M\frac{dI_1}{dt}$$
+
+$M$ is the **mutual inductance**, also in henries. A remarkable fact, which you
+can take on trust here: $M$ comes out the same whichever coil you drive. Two
+coils with $M = 0.020$ H, one of them carrying a current changing at 150 A/s,
+induce $(0.020)(150) = 3.0$ V in the other.
+
+The practical recipe is to drive whichever coil has the field you can compute.
+For a small 100-turn coil of radius 1.0 cm sitting at the centre of a large
+20-turn coil of radius 0.20 m, do not try to find the little coil's field at the
+big one. Drive the big coil instead: at its centre $B = \mu_0 N_1 I/(2R) =
+(4\pi\times10^{-7})(20)I/(0.40) = 6.28\times10^{-5}I$ T, essentially uniform over
+the tiny coil. Its area is $\pi(0.010)^2 = 3.14\times10^{-4}$ m², so one turn
+catches $1.97\times10^{-8} I$ Wb and 100 turns catch $1.97\times10^{-6}I$. Hence
+$M = 1.97\times10^{-6}$ H.
+
+## LR circuits: the switch closes, the switch opens
+
+Put a battery $\mathcal{E}$, a resistor $R$ and an inductor $L$ in a loop and
+close the switch at $t = 0$. Going round the loop, the battery lifts the
+potential by $\mathcal{E}$, the resistor drops $IR$, and the inductor drops
+$L\,dI/dt$:
+
+$$\mathcal{E} = IR + L\frac{dI}{dt}$$
+
+At the first instant $I = 0$ (it was zero before, and current is continuous), so
+the whole battery voltage goes into $L\,dI/dt$: the current starts climbing at
+$\mathcal{E}/L$. A 15 V battery on a 50 mH coil starts at $15/0.050 = 300$ A/s
+whatever the resistance is. As $I$ grows, the resistor eats more of the voltage
+and the climb flattens, until at $dI/dt = 0$ the current sits at
+$I_\infty = \mathcal{E}/R$. Separating variables in the loop equation gives the
+curve between:
+
+$$I(t) = \frac{\mathcal{E}}{R}\left(1 - e^{-t/\tau}\right), \qquad \tau = \frac{L}{R}$$
+
+Check that $\tau = L/R$ has units of seconds: henries are volt-seconds per amp,
+ohms are volts per amp, so the division leaves seconds. And note the direction:
+$\tau$ grows with $L$ but *shrinks* with $R$, opposite to the RC circuit. More
+resistance drives the current to its final value faster.
+
+<Figure caption={<><b>Figure 2.</b> The rise of current in an LR circuit. The straight line is the initial slope, emf over L, and it always hits the final value at exactly one time constant. Drag R up and watch two things happen at once: the final current falls and the curve gets faster.</>}>
+  <Sim id="inductance-lr-lab" />
+</Figure>
+
+Open the switch on a decaying loop instead and the same algebra with no battery
+gives $I(t) = I_0 e^{-t/\tau}$. A 0.50 H coil dumping into 20 Ω has $\tau =
+0.025$ s, and falling to a tenth of its starting current takes $t = \tau\ln 10 =
+(0.025)(2.303) = 0.0576$ s.
+
+**Worked example 3.** A 10 V battery, a 5.0 Ω resistor and a 0.50 H inductor are
+connected in series at $t = 0$. How much heat does the resistor dissipate
+between $t = 0$ and $t = \tau$?
+
+Heat is not $I^2R\tau$, because $I$ is changing the whole time. You have to
+integrate. First the constants: $I_\infty = 10/5.0 = 2.0$ A and $\tau =
+0.50/5.0 = 0.10$ s. Then
+
+$$Q = \int_0^{\tau} I^2 R\,dt = I_\infty^2 R\int_0^{\tau}\left(1 - e^{-t/\tau}\right)^2 dt$$
+
+Expand the square into $1 - 2e^{-t/\tau} + e^{-2t/\tau}$ and integrate each
+piece over $0$ to $\tau$. The first gives $\tau$. The second gives
+$-2\tau(1 - e^{-1})$. The third gives $\tfrac{\tau}{2}(1 - e^{-2})$. With
+$e^{-1} = 0.3679$ and $e^{-2} = 0.1353$, the bracket is
+
+$$\tau\left[1 - 2(0.6321) + \tfrac12(0.8647)\right] = \tau\left[1 - 1.2642 + 0.4323\right] = 0.1681\,\tau$$
+
+So $Q = (2.0)^2(5.0)(0.10)(0.1681) = (2.0)(0.1681) = 0.336$ J. Sanity check: if
+the current had been at its full 2.0 A the whole time you'd get $I^2R\tau = 2.0$
+J, so 0.336 J is comfortably smaller, as it must be.
+
+**Worked example 4.** A 0.40 H inductor and an 8.0 Ω resistor are switched
+across a battery at $t = 0$. When does the inductor hold half of its eventual
+energy?
+
+Half the *energy*, not half the current — that's the whole problem. Energy goes
+like $I^2$, so half the energy means $I = I_\infty/\sqrt{2} = 0.7071 I_\infty$.
+Set that equal to the rise curve:
+
+$$1 - e^{-t/\tau} = 0.7071 \;\Longrightarrow\; e^{-t/\tau} = 0.2929$$
+
+Take logs: $t/\tau = -\ln(0.2929) = 1.228$. With $\tau = 0.40/8.0 = 0.050$ s,
+
+$$t = (1.228)(0.050) = 0.0614\ \text{s}$$
+
+Notice it takes longer than one time constant, because at $t = \tau$ the current
+is only 63% of final and the energy only $0.63^2 = 40\%$.
+
+<QuickCheck
+  question="In an LR circuit at the instant the switch closes on a dead circuit, the inductor behaves like:"
+  options={["A short circuit, a plain wire", "An open circuit, a break", "A resistor equal to L over R", "A battery of emf L times I"]}
+  answer={1}
+  explanation="The current through it was zero and cannot jump, so no current flows through that branch at the first instant, which is what a break does. A long time later, with the current steady, it becomes the plain wire instead."
+/>
+
+That continuity rule also explains the spark. Suppose a 12 V battery sits in
+series with 4.0 Ω, and an ideal inductor is wired in parallel with a 6.0 Ω
+resistor. After a long time the inductor is a plain wire, so it shorts out the
+6.0 Ω and carries the full $12/4.0 = 3.0$ A. Now open the switch. The inductor's
+3.0 A cannot vanish, and the only path left is the 6.0 Ω resistor, so 3.0 A is
+forced through it: $V = (3.0)(6.0) = 18$ V, larger than the battery that started
+it. Real switches with air gaps and big coils are how you get thousands of
+volts, and a spark.
+
+## LC circuits: a circuit that oscillates
+
+Take the resistor out. Charge a capacitor to $Q_0$, connect it across an
+inductor, and let go. The loop rule says the capacitor's voltage $Q/C$ equals
+the inductor's $L\,dI/dt$, and the current is the rate the capacitor discharges,
+$I = -dQ/dt$. Substituting:
+
+$$\frac{Q}{C} + L\frac{d^2Q}{dt^2} = 0 \quad\Longrightarrow\quad \frac{d^2Q}{dt^2} = -\frac{1}{LC}Q$$
+
+That is exactly the equation you solved for a mass on a spring, with $Q$ in
+place of $x$. So the answer is already known:
+
+$$Q(t) = Q_0\cos\omega t, \qquad \omega = \frac{1}{\sqrt{LC}}$$
+
+and the current $I = -dQ/dt = \omega Q_0 \sin\omega t$ has amplitude $I_{\max} =
+\omega Q_0$. The analogy is exact and worth keeping: charge plays position,
+current plays velocity, $L$ plays mass, and $1/C$ plays the spring constant. The
+current peaks a quarter period after the charge does, just as a mass moves
+fastest through equilibrium.
+
+For $L = 2.0$ mH and $C = 5.0$ µF, $\omega = 1/\sqrt{(2.0\times10^{-3})(5.0\times10^{-6})}
+= 1/\sqrt{10^{-8}} = 10^{4}$ rad/s, so $f = \omega/2\pi = 1592$ Hz.
+
+Energy makes most LC problems faster than solving for the time dependence. The
+total is constant:
+
+$$\frac{Q^2}{2C} + \tfrac12 LI^2 = \frac{Q_0^2}{2C} = \tfrac12 LI_{\max}^2$$
+
+<Figure caption={<><b>Figure 3.</b> The two energy bars always add to the same height. Watch the moment the capacitor bar empties: that is exactly when the current is largest. Drag the capacitance up and the oscillation gets slower while the peak current changes too.</>}>
+  <Sim id="inductance-lc-lab" />
+</Figure>
+
+**Worked example 5.** A 4.0 µF capacitor charged to 20 V is connected through a
+2.0 mH inductor to an identical uncharged 4.0 µF capacitor. Resistance is
+negligible. What is the maximum current?
+
+This one needs an idea, because there is no single capacitor with a fixed
+charge. Ask when the current is maximum. Current grows as long as there is a net
+voltage around the loop to push it, and the push vanishes when the two capacitor
+voltages are equal. Charge is conserved, so the 80 µC starts on one and ends
+split evenly: 10 V on each.
+
+Energy before: $\tfrac12(4.0\times10^{-6})(20)^2 = 8.0\times10^{-4}$ J. Energy in
+the capacitors at that moment: two of them at 10 V, so
+$2\times\tfrac12(4.0\times10^{-6})(100) = 4.0\times10^{-4}$ J. The missing
+$4.0\times10^{-4}$ J is in the inductor:
+
+$$\tfrac12 L I^2 = 4.0\times10^{-4} \;\Longrightarrow\; I^2 = \frac{8.0\times10^{-4}}{2.0\times10^{-3}} = 0.40$$
+
+$I_{\max} = \sqrt{0.40} = 0.63$ A. Exactly half the stored energy ends up in the
+inductor at that instant — a result worth remembering for any two-capacitor
+sharing problem.
+
+## Recognising it
+
+Reach for this lesson when you see any of these:
+
+A number given in henries, or a component described as a coil, solenoid, toroid
+or choke. Then $L$ is either handed to you or has to be built from geometry with
+the three-step recipe.
+
+The words "immediately after the switch is closed" or "a long time later". Those
+are the two limiting behaviours, and almost no algebra is needed: current
+continuous at the switch, $dI/dt = 0$ at the end.
+
+An exponential asked for at a specific time, or a time asked for at a specific
+current. That's $\tau = L/R$ and one logarithm. If the question asks about
+*energy* rather than current, remember to take a square root before you take the
+log, as in example 4.
+
+Heat, or total charge, over an interval rather than at an instant. That is an
+integral of $I^2R$ or $I$, never a product with $\tau$.
+
+A capacitor and an inductor in a loop with no resistance mentioned. That's
+oscillation: get $\omega = 1/\sqrt{LC}$ first, and if the question asks for a
+current or a charge at some condition, try energy conservation before you try
+solving for time.
+
+A surprising voltage across something, larger than any battery in the circuit.
+An inductor's current was interrupted and it forced that current through
+whatever path was left.
+
+Next you leave fields behind for a while and pick up the other great
+conservation story in physics, starting with
+[Temperature and the First Law](/guide/first-law), where the energy you have
+been shuttling between capacitor and coil starts leaking irreversibly into heat.

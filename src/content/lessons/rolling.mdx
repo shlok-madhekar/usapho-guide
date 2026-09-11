@@ -1,60 +1,399 @@
+Put a solid ball and a hollow ball of the same mass and the same radius at the
+top of a ramp and let them go together. They do not tie. The solid one wins,
+every time, and the gap does not depend on how heavy they are or how big they
+are. Nothing about the ramp cares which is which — same gravity, same slope,
+same height. So the difference has to come from inside the balls.
+
+That is the whole subject of this lesson. When something rolls, the energy you
+give it gets split between moving forward and spinning, and the split is
+decided by how the mass is arranged. In the [previous lesson](/guide/angular-momentum)
+you treated rotation on its own: a wheel on a fixed axle, spinning in place. Now
+the axle moves too, and the two motions are locked together by the fact that the
+object is touching the ground.
+
 ## The constraint
 
-A wheel rolling without slipping lays its rim onto the ground like tape: one
-turn advances it exactly one circumference. Differentiate $x = r\theta$ and you
-get the constraint that ties the two motions together.
+Roll a wheel of radius $r$ along the floor without letting it slip. Mark the rim
+with chalk. After one full turn the chalk has laid down the whole circumference
+onto the floor, once, without stretching or skidding, so the wheel has advanced
+exactly $2\pi r$. Turn it through a smaller angle $\theta$ (in radians) and it
+advances the corresponding arc:
 
-$$v_{cm} = \omega r, \qquad a_{cm} = \alpha r$$
+$$x = r\theta$$
 
-This is a geometric statement about the contact, not a law of nature. It holds
-only while the surface grips. Kick a ball hard and initially $v > \omega r$ —
-it skids, friction acts until the two agree, and only then does true rolling
-begin.
+Here $x$ is how far the centre has moved and $\theta$ is how far the wheel has
+turned. Both are measured from the same starting moment. Now differentiate with
+respect to time. The rate of change of $x$ is the speed of the centre, $v_{cm}$,
+and the rate of change of $\theta$ is the angular speed $\omega$:
 
-A cleaner way to see it: the contact point is instantaneously at rest. The
-whole body is momentarily rotating about that point, so the top of the wheel
-moves at $2v$ and the center at $v$. Watch a car's hubcap in a photograph —
-the bottom spokes are sharp and the top ones are blurred.
+$$v_{cm} = \omega r$$
 
-## Two places for the energy
+Differentiate once more and you get the same link for the accelerations:
 
-Because the constraint links them, the kinetic energy of a rolling object
-splits into a translation and a rotation:
+$$a_{cm} = \alpha r$$
 
-$$K = \tfrac12 mv^2 + \tfrac12 I\omega^2 = \tfrac12 mv^2\left(1 + k\right),
-\qquad k = \frac{I}{mr^2}$$
+where $\alpha$ is the angular acceleration. These two equations are the rolling
+constraint, and almost every problem here uses one of them. Notice what kind of
+statement this is. It is not a law of physics. It is
+geometry, and it is true only while the contact grips. Kick a ball hard along
+the floor and for a while it slides: the centre is moving faster than $\omega r$
+and the constraint is simply false. You will handle that case later in the
+lesson.
 
-The shape factor $k$ is all that survives: $0.4$ for a solid sphere, $0.5$ for
-a disk, $1$ for a hoop. Release from height $h$ and
+There is a second way to see rolling that is worth as much as the algebra. The
+point of the object touching the floor is instantaneously at rest. It has to be
+— if it were moving, it would be sliding. So at each instant the whole body is
+rotating about the contact point, like a door about its hinge. The centre is a
+distance $r$ from that pivot, so it moves at $\omega r$. The top of the wheel is
+a distance $2r$ from it, so the top moves at $2\omega r$, which is twice the
+speed of the car it belongs to. Look at a photograph of a moving car: the bottom
+of the wheel is sharp and the top is a blur.
 
-$$v = \sqrt{\frac{2gh}{1+k}}, \qquad a = \frac{g\sin\theta}{1+k}$$
-
-Neither expression contains $m$ or $r$. A marble and a bowling ball tie; a
-sphere always beats a disk, which always beats a hoop, because the hoop must
-divert half its energy into spin. A frictionless slider ($k = 0$) beats every
-rolling object.
-
-## Friction that costs nothing
-
-Static friction is what supplies the torque that spins the object up, so
-rolling is impossible without it. Yet the contact point does not move, and work
-is force times displacement *at the point of application* — so static friction
-does zero work. Mechanical energy is conserved.
-
-That stops being true the moment the object slips. Then the contact slides,
-kinetic friction acts, energy is lost, and $v = \omega r$ no longer applies. On
-a steep enough ramp, or with too little $\mu_s$, this is exactly what happens.
-
-<Aside label="Where this goes wrong" warn>
-  Do not assume the friction on a rolling object equals $\mu N$. Static friction
-  takes whatever value the constraint demands, up to that maximum. Solve for it
-  from $\tau = I\alpha$ together with $a = \alpha r$, then check it is below
-  $\mu_s N$; if it is not, the object slips and the whole approach changes.
-</Aside>
+<Figure caption={<><b>Figure 1.</b> The arrows are the true velocities of the top, the centre and the contact point. Leave the spin ratio at 1 and the contact arrow vanishes — that is rolling. Drag the ratio below 1 and the contact point slides forward, which is a skid; push it above 1 and the wheel spins out backwards like a car on ice.</>}>
+  <Sim id="rolling-wheel" />
+</Figure>
 
 <QuickCheck
-  question="A hollow sphere and a solid sphere of the same mass and radius roll from rest down the same ramp. Which reaches the bottom first?"
-  options={["The solid sphere", "The hollow sphere", "They tie", "It depends on the ramp angle"]}
+  question="A wheel of radius 0.32 m rolls without slipping at 6.4 m/s. What is its angular speed?"
+  options={["20 rad/s", "2.05 rad/s", "0.05 rad/s", "6.4 rad/s"]}
   answer={0}
-  explanation="The solid sphere has the smaller shape factor, 0.4 versus about 0.67, so more of its energy goes into translation."
+  explanation="Use omega = v/r = 6.4/0.32 = 20 rad/s. Dividing the other way around gives 0.05 and is the usual slip."
 />
+
+## Where the energy goes
+
+A rolling object has two kinds of kinetic energy at once. The centre of mass is
+moving, which is worth $\tfrac12 M v_{cm}^2$, and the body is spinning about the
+centre of mass, which is worth $\tfrac12 I\omega^2$, where $I$ is the moment of
+inertia about the centre. Those add:
+
+$$K = \tfrac12 M v_{cm}^2 + \tfrac12 I \omega^2$$
+
+On its own that has two unknowns. The constraint fixes it. Write $\omega =
+v_{cm}/r$ and substitute:
+
+$$K = \tfrac12 M v^2 + \tfrac12 I \frac{v^2}{r^2} = \tfrac12 M v^2\left(1 + \frac{I}{Mr^2}\right)$$
+
+dropping the subscript on $v$ from here on. The combination $I/Mr^2$ appears
+constantly, so give it a name. Call it $\beta$:
+
+$$\beta = \frac{I}{Mr^2}, \qquad K = \tfrac12 M v^2 (1 + \beta)$$
+
+$\beta$ is a pure number that depends only on the shape, because the $M$ and the
+$r^2$ have been divided out. A hoop or a thin ring has all its mass at radius
+$r$, so $I = Mr^2$ and $\beta = 1$. A solid disk or cylinder has $I = \tfrac12
+Mr^2$, so $\beta = \tfrac12$. A solid sphere has $I = \tfrac25 Mr^2$, so $\beta
+= \tfrac25$. A hollow spherical shell has $\beta = \tfrac23$. Mass pushed out
+towards the rim means a bigger $\beta$.
+
+Read the formula in words: a rolling object carries $(1+\beta)$ times as much
+kinetic energy as a sliding one at the same speed. Equivalently, the fraction of
+the total that is rotational is
+
+$$\frac{K_{rot}}{K} = \frac{\tfrac12 I\omega^2}{\tfrac12 Mv^2(1+\beta)} = \frac{\beta}{1+\beta}$$
+
+For a solid sphere that is $(2/5)/(7/5) = 2/7 \approx 0.286$. For a hoop it is
+$1/2$: exactly half of a rolling hoop's energy is spin.
+
+<Aside label="Worth remembering">
+  $\beta = I/Mr^2$ is the only thing about the object that ever enters these
+  answers. Not its mass, not its radius. Two objects with the same $\beta$
+  behave identically, which is why a marble and a bowling ball tie.
+</Aside>
+
+**Example 1.** A hoop of mass $2.0\ \mathrm{kg}$ rolls without slipping at
+$3.0\ \mathrm{m/s}$. Find its total kinetic energy.
+
+A hoop has $\beta = 1$. So
+
+$$K = \tfrac12 (2.0)(3.0)^2 (1 + 1) = \tfrac12 (2.0)(9.0)(2) = 18\ \mathrm{J}$$
+
+Half of that, $9.0\ \mathrm{J}$, is rotational. Had it been a solid disk
+($\beta = \tfrac12$) at the same speed, you would have got $\tfrac12(2.0)(9.0)
+(1.5) = 13.5\ \mathrm{J}$ instead.
+
+## Down a ramp: who wins
+
+Now release an object from rest and let it roll down a slope, dropping a height
+$h$. Static friction is what makes it roll rather than slide, and here is the
+key fact about it: the contact point is not moving, and work is force times the
+displacement *of the point where the force acts*, so static friction does zero
+work. No energy is lost. Mechanical energy is conserved, even though friction is
+essential to the motion.
+
+So all the lost height turns into that two-part kinetic energy:
+
+$$Mgh = \tfrac12 M v^2 (1 + \beta)$$
+
+The $M$ cancels from both sides, which is why mass never appears in the answer.
+Solve for $v$:
+
+$$v = \sqrt{\frac{2gh}{1+\beta}}$$
+
+Compare that with a frictionless slider, which would arrive at $\sqrt{2gh}$.
+Every rolling object is slower, and the bigger $\beta$ is, the slower it is,
+because more of the same energy budget has been diverted into spin. That settles
+the race: sphere ($\beta=0.4$) beats disk ($0.5$) beats shell ($0.667$) beats
+hoop ($1$), regardless of mass, radius, slope, or height.
+
+**Example 2.** A solid sphere rolls from rest down a $1.5\ \mathrm{m}$ drop.
+Find the speed of its centre at the bottom.
+
+$\beta = 2/5$, so $1 + \beta = 1.4$.
+
+$$v = \sqrt{\frac{2(9.8)(1.5)}{1.4}} = \sqrt{\frac{29.4}{1.4}} = \sqrt{21.0} = 4.58\ \mathrm{m/s}$$
+
+A solid cylinder on the same ramp gets $\sqrt{29.4/1.5} = \sqrt{19.6} = 4.43\
+\mathrm{m/s}$. The sphere wins by about three percent.
+
+Because $h$ appears inside the same square root for both, a ratio of arrival
+speeds loses the ramp entirely:
+
+$$\frac{v_1}{v_2} = \sqrt{\frac{1+\beta_2}{1+\beta_1}}$$
+
+Solid sphere against hoop: $\sqrt{2/1.4} = \sqrt{1.4286} = 1.195$. Solid sphere
+against hollow shell: $\sqrt{(5/3)/(7/5)} = \sqrt{1.1905} = 1.091$.
+
+<Figure caption={<><b>Figure 2.</b> All three start together and separate immediately. Change the angle or the ramp length and watch the finishing order stay fixed while the times change; the ratio in the readout never budges.</>}>
+  <Sim id="rolling-race" />
+</Figure>
+
+<QuickCheck
+  question="A solid sphere and a hollow shell of the same mass and radius roll from rest down the same ramp. Which reaches the bottom first?"
+  options={["The solid sphere", "The hollow shell", "They tie", "It depends on the ramp angle"]}
+  answer={0}
+  explanation="The solid sphere has the smaller shape factor, 0.4 against 0.667, so a larger share of the same energy goes into forward motion. The angle changes how long it takes but not the order."
+/>
+
+## Forces and torques: the acceleration
+
+Energy gives you the speed after a drop but not the acceleration along the way,
+and it never gives you the friction force. For those, go back to Newton.
+
+Three forces act on a ball rolling down a slope of angle $\theta$: gravity $Mg$
+straight down, the normal force $N$ perpendicular to the surface, and static
+friction $f$ along the surface. Take axes along and perpendicular to the slope.
+Along the slope, with downhill positive:
+
+$$Mg\sin\theta - f = Ma$$
+
+Friction points uphill. It has to, because it is the only force with a torque
+about the centre, and that torque must spin the ball up in the forward
+direction. Take torques about the centre of mass. Gravity acts at the centre so
+its lever arm is zero; $N$ points straight at the centre so its torque is zero
+too. Only $f$ is left, at distance $r$:
+
+$$f r = I\alpha = (\beta M r^2)\frac{a}{r}$$
+
+using $I = \beta Mr^2$ and the constraint $\alpha = a/r$. One $r$ cancels from
+each side, leaving
+
+$$f = \beta M a$$
+
+Put that into the force equation:
+
+$$Mg\sin\theta - \beta M a = Ma \quad\Longrightarrow\quad a = \frac{g\sin\theta}{1+\beta}$$
+
+The same $1+\beta$ as before, which is the sign you did it right. And now you
+also have the friction force for free: $f = \beta M a = \beta Mg\sin\theta/
+(1+\beta)$.
+
+**Example 3.** A solid cylinder rolls without slipping down a $30^\circ$
+incline. What is the smallest coefficient of static friction that allows it?
+
+First the acceleration, with $\beta = 1/2$:
+
+$$a = \frac{9.8 \sin 30^\circ}{1.5} = \frac{9.8(0.500)}{1.5} = 3.267\ \mathrm{m/s^2}$$
+
+The friction actually required is
+
+$$f = \beta M a = (0.5)M(3.267) = 1.633M$$
+
+The most static friction can supply is $\mu_s N$, and perpendicular to the slope
+$N = Mg\cos\theta = M(9.8)(0.866) = 8.487M$. Rolling is possible only if $f \le
+\mu_s N$:
+
+$$\mu_s \ge \frac{1.633M}{8.487M} = 0.192$$
+
+The $M$ cancels, as it must. In symbols the condition is
+
+$$\mu_s \ge \frac{\beta\tan\theta}{1+\beta}$$
+
+Worth committing to memory, because it is the check that tells you which of the
+two worlds a problem lives in.
+
+<Figure caption={<><b>Figure 3.</b> The three forces, drawn where they actually act — notice friction is at the contact point, not at the centre. Slide beta from 0.4 up to 1 and watch the acceleration fall while the friction the object demands rises.</>}>
+  <Sim id="rolling-incline-fbd" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  Do not write $f = \mu_s N$ for a rolling object. Static friction takes whatever
+  value the constraint demands, up to that maximum and no more. Solve for $f$
+  from the torque equation, then check it against $\mu_s N$. Only when the check
+  fails does $\mu$ enter the answer — and then it is $\mu_k$, not $\mu_s$.
+</Aside>
+
+**Example 4.** A solid sphere is placed on a $40^\circ$ incline with $\mu_s =
+0.20$. Find the acceleration of its centre.
+
+Run the check first. With $\beta = 2/5$, rolling needs
+
+$$\mu_s \ge \frac{(0.4)\tan 40^\circ}{1.4} = \frac{(0.4)(0.8391)}{1.4} = 0.240$$
+
+You only have $0.20$, so the sphere cannot roll without slipping. Throw away the
+constraint. Now the contact really slides, kinetic friction acts at its full
+value $\mu_k N$ up the slope, and the translation no longer knows about $\beta$
+at all:
+
+$$Ma = Mg\sin\theta - \mu_k Mg\cos\theta$$
+$$a = 9.8\left(\sin 40^\circ - 0.20\cos 40^\circ\right) = 9.8\left(0.6428 - 0.20(0.7660)\right)$$
+$$a = 9.8(0.6428 - 0.1532) = 9.8(0.4896) = 4.80\ \mathrm{m/s^2}$$
+
+Faster than the $3.15\ \mathrm{m/s^2}$ it would have had while rolling, because
+less of gravity is being spent spinning it up. It is also losing energy now,
+which the rolling version never did.
+
+## Skid, then roll
+
+Bowl a ball down a lane and it leaves your hand with a forward speed $v_0$ and
+essentially no spin. The constraint is badly violated: $v_0 > \omega r = 0$, so
+the contact point is sliding forward. Kinetic friction acts backwards on the
+ball, at the contact. Two things happen at once. The backward force slows the
+centre:
+
+$$v(t) = v_0 - \mu_k g t$$
+
+And the same force, acting at distance $r$ below the centre, exerts a torque
+that spins the ball up:
+
+$$\mu_k M g\, r = I\alpha = \beta M r^2 \alpha \quad\Longrightarrow\quad \alpha = \frac{\mu_k g}{\beta r}$$
+$$\omega(t) r = \frac{\mu_k g}{\beta} t$$
+
+One quantity is falling, the other is rising. When they meet, the contact point
+stops sliding, kinetic friction switches off, and the ball rolls from then on at
+constant speed. Set them equal:
+
+$$v_0 - \mu_k g t = \frac{\mu_k g}{\beta} t \quad\Longrightarrow\quad t = \frac{\beta v_0}{\mu_k g (1+\beta)}$$
+
+Substitute back to get the speed at that moment:
+
+$$v = v_0 - \mu_k g \cdot \frac{\beta v_0}{\mu_k g(1+\beta)} = v_0\left(1 - \frac{\beta}{1+\beta}\right) = \frac{v_0}{1+\beta}$$
+
+Clean, and $\mu_k$ has dropped out. Friction decides *when* and *where* rolling
+starts, never *at what speed*.
+
+**Example 5.** A $6.0\ \mathrm{kg}$ bowling ball ($\beta = 2/5$) is launched at
+$8.0\ \mathrm{m/s}$ with no spin onto a lane with $\mu_k = 0.10$. Find the
+rolling speed, the distance it slides first, and the energy lost.
+
+Rolling speed:
+
+$$v = \frac{8.0}{1.4} = 5.714\ \mathrm{m/s}$$
+
+For the distance, use the constant deceleration $a = \mu_k g = (0.10)(9.8) =
+0.98\ \mathrm{m/s^2}$ with $v^2 = v_0^2 - 2ad$:
+
+$$d = \frac{v_0^2 - v^2}{2a} = \frac{64.0 - 32.653}{2(0.98)} = \frac{31.347}{1.96} = 16.0\ \mathrm{m}$$
+
+For the energy, compare start and finish. At the start there is no spin, so
+$K_i = \tfrac12(6.0)(8.0)^2 = 192.0\ \mathrm{J}$. At the end it rolls, so use
+the $(1+\beta)$ form:
+
+$$K_f = \tfrac12 (6.0)(5.714)^2(1.4) = \tfrac12(6.0)(32.653)(1.4) = 137.14\ \mathrm{J}$$
+
+$$\Delta K = 192.0 - 137.14 = 54.9\ \mathrm{J}$$
+
+lost to heat at the sliding contact. Do not try to conserve energy here — the
+contact point moves, so this friction does real work.
+
+<Figure caption={<><b>Figure 4.</b> The falling line is the centre's speed, the rising one is the rim speed omega times R. Rolling begins where they cross. Drag the friction slider: the crossing moves left and right but its height never changes.</>}>
+  <Sim id="rolling-skid" />
+</Figure>
+
+The mirror image works the same way. Spin a ball up to $\omega_0$ in the air and
+drop it on the floor with no forward speed. Friction now points forward, pushing
+the centre up to speed while slowing the spin. Setting $\mu_k g t = \omega_0 r -
+(\mu_k g/\beta)t$ and solving gives
+
+$$v = \frac{\beta}{1+\beta}\,\omega_0 r$$
+
+For a solid ball spun at $40\ \mathrm{rad/s}$ with $r = 0.10\ \mathrm{m}$:
+$v = (0.4/1.4)(40)(0.10) = 1.14\ \mathrm{m/s}$. That is the backspin shot that
+comes back towards you, halfway through its life.
+
+<QuickCheck
+  question="A ball is bowled with no spin and skids before it starts rolling. If you bowl it on a slicker lane with half the friction, what happens to the speed at which rolling finally begins?"
+  options={["Unchanged", "Halved", "Doubled", "Reduced, but by less than half"]}
+  answer={0}
+  explanation="The final speed is v0 divided by (1 + beta), with no mu in it. Less friction means it takes longer and slides further, but it arrives at the same rolling speed."
+/>
+
+## Two harder shapes
+
+A **spool** has a cord wound round an inner axle of radius $r$ inside a wheel of
+outer radius $R$ that touches the ground. Pull the cord at angle $\theta$ above
+the horizontal and the spool can roll *towards* you, which is the surprise.
+Torque about the contact point settles it in one line: the normal force and
+friction both act there, so only the tension $T$ has a torque about it. Its
+lever arm is the perpendicular distance from the contact point to the line of
+the cord, which works out to $R\cos\theta - r$. If that is positive the spool
+rolls forward; if negative it rolls back; if zero it does not turn at all:
+
+$$\cos\theta = \frac{r}{R}$$
+
+With $R = 0.20\ \mathrm{m}$ and $r = 0.08\ \mathrm{m}$, $\cos\theta = 0.40$ and
+$\theta = 66.4^\circ$.
+
+A **ball rolling inside a bowl** is the rolling version of a pendulum. A ball of
+radius $r$ inside a bowl of radius $R$ has its centre on a circle of radius
+$R - r$, so if the centre is at angle $\phi$ from the bottom, its speed is
+$(R-r)\dot\phi$ and its height above the lowest point is
+$(R-r)(1-\cos\phi)$. Energy conservation, with the rolling factor:
+
+$$\tfrac12 M (1+\beta)(R-r)^2\dot\phi^2 + Mg(R-r)(1-\cos\phi) = \text{constant}$$
+
+That is exactly a pendulum's energy equation with $g$ replaced by
+$g/(1+\beta)$, so the small-oscillation angular frequency is
+
+$$\omega_{osc} = \sqrt{\frac{g}{(1+\beta)(R-r)}}$$
+
+For a solid ball of $r = 0.020\ \mathrm{m}$ in a bowl of $R = 0.50\ \mathrm{m}$:
+$\omega_{osc} = \sqrt{9.8/(1.4 \times 0.48)} = \sqrt{14.58} = 3.82\
+\mathrm{rad/s}$. Note the symbol clash and keep them apart: $\omega_{osc}$ is
+the rate of the back-and-forth, not the spin rate of the ball. That $1/(1+\beta)$
+slowdown is the first thing the [next lesson](/guide/shm) will ask you to
+recognise.
+
+<Aside label="Torques about the contact point">
+  Taking torques about the contact instead of the centre kills both $N$ and $f$
+  at a stroke, since neither has a lever arm there. The price is that you must
+  use $I$ about that point, which the parallel axis theorem gives as
+  $I_{contact} = (1+\beta)Mr^2$. For the spool and for any "which way does it
+  roll" question, this is much the faster route.
+</Aside>
+
+## Recognising a rolling problem
+
+Three questions sort nearly everything.
+
+**Is the contact slipping?** If the problem says "rolls without slipping", you
+have $v = \omega r$ and $a = \alpha r$ and static friction does no work, so
+energy conservation is legal. If it says "launched with no spin", "placed
+spinning", "the surface is slick", or gives you $\mu_k$, the contact is sliding:
+the constraint is gone, friction is $\mu_k N$ at full value, and energy is lost.
+If it gives you $\mu_s$ and an angle, it is asking you to *test* which case you
+are in with $\mu_s \ge \beta\tan\theta/(1+\beta)$.
+
+**Do you need a force, or just a speed?** A question that asks only for the
+speed after a known drop, or a ratio of speeds, wants energy: one line,
+$Mgh = \tfrac12 Mv^2(1+\beta)$. A question that asks for acceleration, friction,
+or a minimum $\mu$ wants $F = Ma$ together with $\tau = I\alpha$ and the
+constraint linking them. Asking for both means writing both.
+
+**What is $\beta$?** Every answer comes out in terms of $I/Mr^2$, so identify
+the shape first and write the number down before anything else: $2/5$ sphere,
+$1/2$ disk, $2/3$ shell, $1$ hoop. If mass or radius survives to your final
+answer in a problem that gave you neither, you have made an algebra mistake.
+
+And one habit worth building: if the answer to a ramp question does not contain
+$1+\beta$ somewhere, look again.

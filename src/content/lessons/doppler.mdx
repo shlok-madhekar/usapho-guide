@@ -1,57 +1,324 @@
+An ambulance comes down the street with its siren going, passes you, and drives
+off. The pitch you hear is high while it approaches, and low once it has gone
+by. The driver hears neither of those. Inside the cab the siren sounds exactly
+the same the whole time, because the siren never changes what it is doing.
+
+So the change is not in the source. It is in the trip the sound takes from the
+source to your ear. In the [previous lesson](/guide/beats-interference) you
+counted crests arriving from two fixed sources and watched them beat against
+each other. Here you count crests again, but now the counting itself is what
+motion interferes with. Every result below comes from one honest
+question: in one second, how many crests actually reach your ear?
+
+## The air sets the speed, and nothing else does
+
+Sound is a pressure wave in air. Once a crest has left the source it travels
+outward at the speed the air allows, about $v = 343$ m/s at room temperature,
+and it has no memory of how the source was moving when it was born. A crest
+from a parked truck and a crest from a truck doing 30 m/s spread out as circles
+growing at the same rate.
+
+That single fact is the whole lesson. The source cannot speed its sound up. All
+it can do is move to a new place before it emits the next crest. And the
+observer cannot slow the sound down. All they can do is run into the crests, or
+run away from them.
+
+Two mechanisms, then, and they are not the same mechanism. Take them one at a
+time.
+
 ## A moving source squeezes the wavelength
 
-Sound travels at speed $v$ set by the air, regardless of what the source is
-doing. A source emitting period $T$ while moving toward you advances $v_s T$
-between one crest and the next, so the crests land closer together:
+Let the source emit crests at a steady rate $f$, one every period
+$T = 1/f$, and let it move toward you at speed $v_s$.
 
-$$\lambda' = (v - v_s)T$$
+Emit a crest. It starts spreading. Wait one period. In that time the crest has
+run a distance $vT$ toward you, and the source has moved $v_s T$ toward you as
+well. Now the source emits the next crest, from that new closer spot. The gap
+between the two crests — the wavelength in the air ahead of the source — is
+what is left over:
 
-The observer at rest still receives them at speed $v$, so
-$f' = v/\lambda' = f\,v/(v - v_s)$. The wavelength in the medium really has
-changed. Photograph the air and you would see it.
+$$\lambda_{\text{ahead}} = vT - v_s T = (v - v_s)T$$
 
-## A moving observer meets them faster
+Behind the source the source has been running away from its own old crest, so
+the gap opens up instead: $\lambda_{\text{behind}} = (v + v_s)T$.
 
-Now let the source sit still. The wavelength in the air is untouched at
-$\lambda = v/f$. What changes is your closing speed on the crests: moving
-toward the source at $v_o$, you sweep past them at $v + v_o$, so
+This is a real, physical change in the air. If you could photograph the
+pressure pattern you would see the crests crowded on one side and stretched on
+the other. It is not an illusion of hearing.
+
+<Figure caption={<><b>Figure 1.</b> Three crests emitted one period apart, drawn at the instant the third leaves. Drag the source speed up and watch the circles crowd ahead and spread behind while every circle keeps growing at the same rate.</>}>
+  <Sim id="doppler-crests" />
+</Figure>
+
+You stand still, so those crests reach you at the ordinary speed $v$. The rate
+they arrive is speed divided by spacing:
+
+$$f' = \frac{v}{\lambda_{\text{ahead}}} = \frac{v}{(v - v_s)T} = f\,\frac{v}{v - v_s}$$
+
+Read that. The denominator is smaller than $v$, so $f'$ is bigger than $f$:
+approaching means higher pitch, as it should. If the source recedes, put
+$-v_s$ in for $v_s$ and the denominator grows, so the pitch drops.
+
+<Aside label="Worth remembering">
+  The moving-source shift lives in the denominator. The moving-observer shift,
+  coming next, lives in the numerator. If you can remember which is which you
+  never have to memorise the four sign cases.
+</Aside>
+
+## A moving observer runs into the crests
+
+Now park the source and move yourself. The source is at rest, so it lays down
+an ordinary wavelength $\lambda = v/f$ in the air, evenly spaced, unchanged.
+Nothing is squeezed.
+
+What changes is how fast you sweep through that pattern. Sit still and crests
+pass you at $v$. Walk toward the source at $v_o$ and, in your frame, the crests
+come at you at $v + v_o$. Same spacing, faster closing speed, so you meet more
+of them per second:
 
 $$f' = \frac{v + v_o}{\lambda} = f\,\frac{v + v_o}{v}$$
 
-Two different mechanisms, two different algebraic forms. Combined:
+Move away instead and you are partly outrunning them: $f' = f(v - v_o)/v$. If
+you could run at $v_o = v$ you would keep pace with a crest and hear nothing at
+all.
+
+Put the two together and you have the general result, with the source speed in
+the denominator and the observer speed in the numerator:
 
 $$f' = f\,\frac{v \pm v_o}{v \mp v_s}$$
 
-## Why the asymmetry is real
-
-Take $v_s = v_o = v/2$. A source approaching a still observer gives $2f$. An
-observer approaching a still source gives $1.5f$. The medium picks out a rest
-frame, so "who is moving" is a physically meaningful question — unlike the
-relativistic Doppler effect for light, where only relative velocity survives.
-
-Expand both to first order and each gives $f(1 + u/v)$. That is why the
-asymmetry is invisible at everyday speeds and why olympiad problems choose
-speeds that are not small.
-
-Do not memorize the four sign cases. Ask one question: does the motion bring
-them together? If yes the frequency must rise, so pick the signs that shrink
-the denominator or grow the numerator. Then substitute.
-
-Only the velocity component along the line joining source and observer counts.
-At the instant of closest approach that component is zero and the shift
-vanishes — the frequency you hear passes through the true frequency exactly as
-the siren goes by, not before.
-
-<Aside label="Where this goes wrong" warn>
-  As $v_s \to v$ the denominator goes to zero and the formula diverges. That is
-  not a real infinity; it is the formula telling you the crests have piled up
-  into a shock front. Beyond $v_s > v$ the expression is meaningless and you
-  need the Mach cone with $\sin\theta = v/v_s$ instead.
-</Aside>
+The signs are not a table to learn. Ask one question before you write anything:
+does the motion bring them closer together? If yes, the frequency must go up,
+so choose the signs that make the numerator bigger or the denominator smaller.
+If no, choose the other ones. Then substitute numbers.
 
 <QuickCheck
-  question="A source and an observer both move at half the speed of sound, in the setups compared above. Which produces the larger shift?"
-  options={["The moving source", "The moving observer", "They are identical", "Neither shifts"]}
+  question="A source and an observer each move at half the speed of sound, in separate experiments, always closing. Which gives the bigger frequency?"
+  options={["The moving source", "The moving observer", "They are identical", "Neither shifts at all"]}
   answer={0}
-  explanation="A moving source compresses the wavelength itself, giving 2f, while a moving observer only meets unchanged crests faster, giving 1.5f."
+  explanation="Moving source: f times v over (v minus v/2), which is 2f. Moving observer: f times (v plus v/2) over v, which is 1.5f. Compressing the wavelength beats meeting fixed crests faster. The two mechanisms are genuinely different, which is why the air's rest frame matters."
 />
+
+## Worked example 1: the ambulance, both ways
+
+A siren emits $f = 800$ Hz. The ambulance drives toward a listener standing
+still at $v_s = 25.0$ m/s, with $v = 343$ m/s.
+
+Source moving, observer still, closing. So the denominator shrinks:
+
+$$f' = 800 \times \frac{343}{343 - 25.0} = 800 \times \frac{343}{318} = 800 \times 1.07862 = 862.9 \text{ Hz}$$
+
+After it passes, the same ambulance recedes at 25.0 m/s. Now the denominator
+grows:
+
+$$f' = 800 \times \frac{343}{343 + 25.0} = 800 \times \frac{343}{368} = 800 \times 0.93207 = 745.7 \text{ Hz}$$
+
+A drop of 117 Hz across the pass, about two semitones — which is exactly the
+swoop you hear.
+
+Notice the shift up (62.9 Hz) is bigger than the shift down (54.3 Hz). It is
+not symmetric, because $v/(v-v_s)$ and $v/(v+v_s)$ are not symmetric about 1.
+That asymmetry is what lets you work backwards from the two heard pitches to
+the speed, which you will do in example 3.
+
+<Figure caption={<><b>Figure 2.</b> A source moving through still air, emitting one crest every 0.3 s. Read the note above the canvas as you drag: it gives the pitch heard ahead and behind. Push the speed past 343 m/s and the circles stop being able to get out in front at all.</>}>
+  <Sim id="doppler-wavefronts" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  Only the part of the velocity along the line joining source and observer
+  counts. An ambulance doing 30.0 m/s along a road, heard by a pedestrian
+  standing 20.0 m off to the side, is moving <i>across</i> her line of sight at
+  the instant of closest approach — the component toward her is zero, so the
+  sound emitted at that instant arrives at exactly the true 700 Hz, unshifted.
+  The pitch you hear passes through the true pitch as the siren goes by, not
+  before and not after.
+</Aside>
+
+## Worked example 2: both of them moving
+
+A truck carries a 500 Hz siren and drives at $v_s = 25.0$ m/s toward a
+motorcyclist, who rides at $v_o = 10.0$ m/s toward the truck. Take
+$v = 343$ m/s.
+
+Before any algebra, decide the direction of the answer: they are closing, so
+the pitch must rise. Both effects push the same way. The observer's motion
+enlarges the numerator, the source's motion shrinks the denominator:
+
+$$f' = 500 \times \frac{343 + 10.0}{343 - 25.0} = 500 \times \frac{353}{318}$$
+
+Do the division: $353/318 = 1.11006$. So $f' = 555.0$ Hz.
+
+The same recipe handles a chase. A van's 400 Hz horn moves away from a car at
+20.0 m/s while the car chases it at 15.0 m/s. The van running away enlarges the
+denominator; the car giving chase enlarges the numerator:
+
+$$f' = 400 \times \frac{343 + 15.0}{343 + 20.0} = 400 \times \frac{358}{363} = 400 \times 0.98623 = 394.5 \text{ Hz}$$
+
+Still below 400 Hz, because the van is winning the race. If the car chased
+faster than the van fled, the pitch would come out above 400 Hz. The formula
+gets the crossover right on its own; you do not have to decide in advance.
+
+<QuickCheck
+  question="A car chases a receding source. Which single quantity decides whether the heard frequency is above or below the emitted one?"
+  options={["The observer speed alone", "The source speed alone", "The sign of observer speed minus source speed", "The speed of sound"]}
+  answer={2}
+  explanation="With both moving the same way, f prime equals f times (v plus vo) over (v plus vs). That ratio exceeds 1 exactly when vo is greater than vs, so the gap between them is closing. Nothing else in the expression can flip the comparison."
+/>
+
+## Worked example 3: reading the speed off the pitch drop
+
+Here is one that needs an idea rather than a substitution. A bystander hears a
+passing siren drop from 870 Hz on the way in to 800 Hz on the way out. Neither
+the true frequency $f$ nor the ambulance speed $u$ is given. Two unknowns, so
+you need two equations, and you have them:
+
+$$f_{\text{in}} = f\,\frac{v}{v - u}, \qquad f_{\text{out}} = f\,\frac{v}{v + u}$$
+
+The trick is that $f$ appears in both. Divide one by the other and it cancels,
+leaving only the thing you want:
+
+$$\frac{f_{\text{in}}}{f_{\text{out}}} = \frac{v + u}{v - u} = \frac{870}{800} = 1.0875$$
+
+Cross-multiply: $v + u = 1.0875(v - u)$, so $v + u = 1.0875v - 1.0875u$, so
+$u(1 + 1.0875) = 0.0875v$, giving
+
+$$u = \frac{0.0875 \times 343}{2.0875} = \frac{30.01}{2.0875} = 14.38 \text{ m/s}$$
+
+About 32 mph. Now put that back into either equation for the true pitch:
+
+$$f = f_{\text{in}}\,\frac{v - u}{v} = 870 \times \frac{343 - 14.38}{343} = 870 \times \frac{328.62}{343} = 833.5 \text{ Hz}$$
+
+Worth noticing: 833.5 Hz is not the average of 870 and 800, which would be 835.
+The true pitch sits slightly below the midpoint, because the upward shift is
+the larger of the two.
+
+## Worked example 4: echoes, done in two steps
+
+A bat flies at 5.00 m/s straight at a cave wall, calling steadily at 50.0 kHz.
+What beat frequency does it hear between its own call and the echo?
+
+Never try to do a reflection in one formula. Do it in two, because there
+genuinely are two Doppler shifts and one relay station in between.
+
+**Step one, wall as observer.** The wall is a still listener; the bat is a
+source closing at 5.00 m/s. So the frequency arriving at the wall is
+
+$$f_1 = 50000 \times \frac{343}{343 - 5.00} = 50000 \times \frac{343}{338} = 50739.6 \text{ Hz}$$
+
+**Step two, wall as source.** The wall re-radiates whatever it received, at
+that same $f_1$, and it is not moving, so it is a stationary source. The bat is
+now the observer, closing at 5.00 m/s, so the numerator grows:
+
+$$f_2 = f_1 \times \frac{343 + 5.00}{343} = 50739.6 \times \frac{348}{343} = 51479.3 \text{ Hz}$$
+
+The two factors of 343 cancel if you chain them, which is the tidy way to write
+it:
+
+$$f_2 = f\,\frac{v + v_{\text{bat}}}{v - v_{\text{bat}}} = 50000 \times \frac{348}{338} = 51479 \text{ Hz}$$
+
+The beat frequency is the difference between the two tones present at the bat's
+ear, the call and the echo:
+
+$$f_{\text{beat}} = 51479.3 - 50000 = 1479 \text{ Hz}$$
+
+That is a beat the bat can hear directly, and it is how a bat measures closing
+speed — the same trick as police radar, done with sound.
+
+If the reflector moves instead, run the same two steps with the roles swapped:
+a 2000 Hz stationary speaker aimed at a panel approaching at 5.00 m/s gives
+$f_1 = 2000 \times 348/343$ at the panel (moving observer), then
+$f_2 = f_1 \times 343/338$ back at the microphone (moving source), which is
+$2000 \times 348/338 = 2059$ Hz.
+
+<Figure caption={<><b>Figure 3.</b> The echo done as two separate shifts. Set the wall speed to zero and move the bat, then freeze the bat and move the wall, and watch the beat readout come out nearly the same. Both shifts always push the same direction when the gap is closing.</>}>
+  <Sim id="doppler-echo" />
+</Figure>
+
+## Wind, light, and going supersonic
+
+Three extensions cover everything else that gets asked.
+
+**Wind.** Air that is itself moving changes only $v$, and only for the leg of
+the trip between source and observer. Add the wind component pointing from
+source to observer: a 10.0 m/s tailwind makes the effective sound speed
+$v = 353$ m/s, a headwind makes it 333 m/s. The source and observer speeds stay
+measured against the ground, unchanged. So a 500 Hz source closing at 25.0 m/s
+on a still listener, with a 10.0 m/s tailwind, gives
+$500 \times 353/(353 - 25.0) = 538.1$ Hz. Do it with the headwind and you get
+540.6 Hz — slightly more, not less, because shrinking $v$ makes the ratio
+$v/(v - v_s)$ more lopsided. That surprises people.
+
+**Light.** Light needs no medium, so there is no rest frame to ask about and
+only the relative speed can matter. For speeds well below $c$ the fractional
+change in wavelength is just the speed ratio:
+
+$$\frac{\Delta\lambda}{\lambda} \approx \frac{v}{c}$$
+
+A hydrogen line emitted at 656.3 nm seen at 658.0 nm has shifted by 1.7 nm, so
+$v = c\,\Delta\lambda/\lambda = 3.00\times10^8 \times 1.7/656.3 = 7.771\times10^5$
+m/s, or 777 km/s. Longer wavelength means receding, and that is a redshift.
+
+**Supersonic.** As $v_s \to v$ the denominator $v - v_s$ goes to zero and the
+formula blows up. That is not a real infinity. It is the algebra telling you
+the crests ahead have piled onto each other into a single shock front. Past
+$v_s > v$ the source outruns its own sound and the fronts wrap into a cone
+whose half-angle $\theta$ obeys
+
+$$\sin\theta = \frac{v}{v_s} = \frac{1}{M}$$
+
+where $M = v_s/v$ is the Mach number. At Mach 2.00, $\sin\theta = 0.500$ so
+$\theta = 30.0^\circ$. Backwards: a measured cone of $25.0^\circ$ gives
+$M = 1/\sin 25.0^\circ = 1/0.4226 = 2.366$, so $v_s = 2.366 \times 343 = 811.6$
+m/s.
+
+The timing question follows from geometry. A plane at height $h = 8000$ m flying
+at Mach 1.50 passes overhead. The cone trails behind it at half-angle
+$\theta = \arcsin(1/1.50) = 41.81^\circ$. The boom reaches the ground observer
+when the cone's edge sweeps over her, and by then the plane has flown a
+horizontal distance $h/\tan\theta$ past overhead. With $\tan 41.81^\circ =
+0.8944$ that distance is $8000/0.8944 = 8944$ m, covered at
+$v_s = 1.50 \times 343 = 514.5$ m/s, so
+
+$$t = \frac{8944}{514.5} = 17.38 \text{ s}$$
+
+She sees it overhead in silence and hears it seventeen seconds later.
+
+<Aside label="Where this goes wrong" warn>
+  A sonic boom is not a one-off bang made at the moment the plane "breaks the
+  sound barrier". The cone trails the plane the whole time it is supersonic, and
+  the boom is heard by each observer as the cone edge passes over them. A plane
+  cruising at Mach 1.50 for an hour lays down a continuous boom carpet the
+  entire way.
+</Aside>
+
+## Recognising the technique
+
+Reach for Doppler when a problem gives you a frequency plus a velocity, and asks
+for a different frequency. That pairing is the tell, and it is almost the only
+one you need. Then sort out which case you are in:
+
+- **One speed, one thing moving.** Decide whether the mover is the source or the
+  observer, decide whether the gap is closing, and write the single ratio.
+- **Two speeds.** Both numerator and denominator are in play. Observer speed on
+  top, source speed on the bottom, every time.
+- **The words "echo", "reflect", "radar", "beat frequency", or any wall or
+  panel.** Two shifts, done in order, with the reflector acting first as an
+  observer and then as a source at the frequency it received.
+- **Two frequencies given and a speed asked for.** Divide the two equations to
+  kill the unknown true frequency, as in example 3.
+- **"Wind" or "moving air".** Adjust $v$ only, by the wind component along the
+  source-to-observer line.
+- **A Mach number, a cone, a boom, or a speed above 343 m/s.** Not the frequency
+  formula at all. Use $\sin\theta = 1/M$ and then plain trigonometry.
+- **A wavelength shift in a spectrum.** Light, so use $\Delta\lambda/\lambda = v/c$
+  and no medium.
+
+One habit will save you more marks than any of this: before substituting, say
+out loud whether the answer should be higher or lower than the emitted
+frequency. Then check the number you get against that. A sign slip is the most
+common Doppler mistake by a wide margin, and this catches every one of them.
+
+Sound crossing from one material into another bends and partly bounces back,
+and that is what happens next in
+[reflection and refraction](/guide/reflection-refraction).

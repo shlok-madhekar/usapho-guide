@@ -1,73 +1,325 @@
-## One point that stands in for the whole system
+## One point that moves simply
 
-A wrench spun across a table tumbles in a complicated way, but one particular
-point inside it slides in a perfectly straight line. That point is the center of
-mass, the mass-weighted average position of everything in the system:
+Throw a wrench across a room. It tumbles, end over end, and no part of it
+traces anything you could call a nice curve. The handle loops, the head loops
+the other way, and the whole thing looks hopeless to describe. But paint a dot
+in exactly the right place on that wrench and film it again: the dot flies a
+clean parabola, the same parabola a marble thrown with the same push would
+follow.
 
-$$\vec R_{\text{cm}} = \frac{\sum_i m_i \vec r_i}{\sum_i m_i}$$
+That place is the **center of mass**. It is not a physical part of the object.
+It is a bookkeeping point, an average position, and its whole value is that it
+is the one point of a complicated system that obeys $F = ma$ as if the system
+were a single particle sitting there. In the last lesson on
+[collisions](/guide/collisions) you used conservation of momentum to skip past
+the messy contact forces. The center of mass is the same trick made geometric:
+you skip past the messy internal structure and keep one point.
 
-For a continuous body the sum becomes $\vec R_{\text{cm}} = \frac{1}{M}\int
-\vec r\, dm$. Two practical shortcuts do most of the work in problems. First,
-exploit symmetry: a uniform sphere, rod, or disc has its center of mass at its
-geometric center, so no integral is needed. Second, treat composite objects as
-point masses located at their own centers — a hammer is a rod plus a head, and
-a plate with a hole punched in it is the full plate plus a **negative** mass
-where the hole is.
+## Averaging positions, weighted by mass
 
-The center of mass need not lie inside the object. A doughnut's is in the hole,
-and a high jumper arching over the bar keeps hers below it.
+Start with the simplest possible system: two masses on a line. Put $m_1 = 2.0$
+kg at $x = 0$ and $m_2 = 3.0$ kg at $x = 5.0$ m. Where is the "average"
+position? Not the midpoint at 2.5 m, because the 3.0 kg mass ought to count for
+more. Imagine the two sitting on a weightless plank, and ask where you'd have
+to put a knife-edge so the plank balances. Balance means the turning effects
+match: $m_1 d_1 = m_2 d_2$, where $d_1$ and $d_2$ are the distances from the
+knife-edge to each mass.
 
-## Its velocity obeys Newton's laws
+If the balance point is at $x$, then $d_1 = x$ and $d_2 = 5.0 - x$, so
+$2.0x = 3.0(5.0 - x)$, giving $5.0x = 15$ and $x = 3.0$ m. Closer to the heavy
+one, as it should be.
 
-Differentiate the definition and the total momentum falls out:
+Now write that in a way that scales. Rearranged, $m_1 x + m_2 x = m_1 x_1 +
+m_2 x_2$, so
 
-$$M\vec V_{\text{cm}} = \sum_i m_i \vec v_i = \vec P_{\text{total}}$$
+$$x_{\text{cm}} = \frac{m_1 x_1 + m_2 x_2}{m_1 + m_2}.$$
 
-Differentiate once more:
+Nothing about the derivation cared that there were two masses. For any number
+of them, in any number of dimensions,
 
-$$\vec F_{\text{ext}} = M\vec A_{\text{cm}}$$
+$$\vec R_{\text{cm}} = \frac{\sum_i m_i \vec r_i}{\sum_i m_i} = \frac{1}{M}\sum_i m_i \vec r_i,$$
 
-Internal forces cancel in pairs by Newton's third law, so they cannot move the
-center of mass. Only external forces can. This is the sharpest statement of why
-you cannot lift yourself by your own bootstraps, and why an astronaut adrift
-must throw something to get anywhere.
+where $m_i$ is the mass of the $i$th piece, $\vec r_i$ is its position vector,
+and $M = \sum_i m_i$ is the total mass. In components this is three separate
+one-dimensional averages: $x_{\text{cm}}$ uses only the $x$ values,
+$y_{\text{cm}}$ only the $y$ values. They never mix. That fact alone turns most
+two-dimensional center-of-mass problems into two easy one-dimensional ones.
 
-The corollary is the one problems use: **with no net external force, the center
-of mass moves at constant velocity.** If it started at rest, it stays put no
-matter how violently the parts rearrange. A person walking from one end of a
-floating raft to the other slides the raft backward by exactly the amount that
-keeps $\vec R_{\text{cm}}$ fixed.
+Two things to notice about the formula. Each mass is weighted by its *share*
+of the total, $m_i/M$, and those shares add to one, so $\vec R_{\text{cm}}$
+always lands somewhere between the extremes — never outside the spread of the
+particles. And the origin is yours to choose. Put it wherever makes the
+arithmetic easiest; the physical point you find won't move.
+
+<Figure caption={<><b>Figure 1.</b> The balance point of two masses. Drag the right mass outward and watch the pivot chase it, but slowly — doubling the distance only shifts the pivot by that mass's share of the total. Notice that the two products m times d stay equal no matter what you set.</>}>
+  <Sim id="center-of-mass-balance" />
+</Figure>
+
+**Worked example 1.** Masses of 1.0, 2.0 and 3.0 kg sit at $x = 0$, 2.0 m and
+6.0 m. Find the center of mass.
+
+Total mass first: $M = 1.0 + 2.0 + 3.0 = 6.0$ kg. Then the weighted sum of
+positions:
+
+$$\sum m_i x_i = (1.0)(0) + (2.0)(2.0) + (3.0)(6.0) = 0 + 4.0 + 18 = 22\ \text{kg·m}.$$
+
+So $x_{\text{cm}} = 22/6.0 = 3.67$ m. It sits between 2.0 and 6.0, pulled
+toward the heavy end, which is the sanity check to run every time.
+
+<QuickCheck
+  question="A 4.0 kg mass sits at x = 0 and a 1.0 kg mass at x = 10 m. The light mass is moved to x = 5.0 m. How far does the center of mass move?"
+  options={["1.0 m", "2.5 m", "5.0 m", "It does not move"]}
+  answer={0}
+  explanation="The light mass carries a share 1.0/5.0 = 0.20 of the total, so moving it 5.0 m moves the center of mass by 0.20 times 5.0 m = 1.0 m. Check it directly: before, the center of mass is at 10/5.0 = 2.0 m; after, it is at 5.0/5.0 = 1.0 m."
+/>
+
+## Solid objects: symmetry first, then pieces
+
+A real object has mass spread continuously, so the sum becomes an integral,
+$\vec R_{\text{cm}} = \frac{1}{M}\int \vec r \, dm$. You will need that
+sometimes. Reach for it last, because two shortcuts handle most problems.
+
+**Symmetry.** If an object is uniform and has a plane of symmetry, its center
+of mass lies on that plane — every bit of mass on one side is matched by an
+equal bit mirrored on the other, and the two contributions to the average
+cancel around the plane. A uniform rod of length 2.4 m has its center of mass
+at 1.2 m. A uniform disk, sphere, or rectangular plate has it at the geometric
+center. No integral, no arithmetic.
+
+**Composite bodies.** Cut the object into pieces whose centers you already
+know, then treat each piece as a point mass at its own center. This works
+because the definition is a sum, and you can group the terms of a sum however
+you like. For a uniform sheet, mass is proportional to area, so you can use
+areas in place of masses and let the density cancel.
+
+**Worked example 2.** A uniform L-shaped plate is a $4.0 \times 1.0$ m
+rectangle lying along the $x$-axis with its lower-left corner at the origin,
+plus a $1.0 \times 3.0$ m rectangle stacked on its left end, occupying $x$ from
+0 to 1.0 m and $y$ from 1.0 to 4.0 m. Find the center of mass.
+
+Piece A: area $4.0 \times 1.0 = 4.0$ m². Its center is at the middle of that
+rectangle, $(2.0, 0.5)$ m.
+
+Piece B: area $1.0 \times 3.0 = 3.0$ m². It runs from $x = 0$ to 1.0 and
+$y = 1.0$ to 4.0, so its center is at $(0.5, 2.5)$ m.
+
+Total area 7.0 m². Now the two averages, using area as the weight:
+
+$$x_{\text{cm}} = \frac{(4.0)(2.0) + (3.0)(0.5)}{7.0} = \frac{8.0 + 1.5}{7.0} = \frac{9.5}{7.0} = 1.36\ \text{m}$$
+
+$$y_{\text{cm}} = \frac{(4.0)(0.5) + (3.0)(2.5)}{7.0} = \frac{2.0 + 7.5}{7.0} = \frac{9.5}{7.0} = 1.36\ \text{m}$$
+
+Equal, because this L is symmetric about the line $y = x$. Spotting that in
+advance would have halved the work.
+
+<Aside label="Worth remembering">
+  A hole is a piece of *negative* mass. A disk of radius $R$ with a circular
+  hole of radius $R/2$ punched out of it is the full disk plus a disk of mass
+  $-M/4$ sitting where the hole is. Put the negative number into the same
+  formula and it handles the rest.
+</Aside>
+
+## When you have to integrate
+
+Two cases force an integral: a curved uniform shape, and a rod whose density
+varies.
+
+For the varying rod, slice it. A slice at position $x$ of width $dx$ has mass
+$dm = \lambda(x)\,dx$, where $\lambda$ is the **linear density** in kg per
+metre. The total mass is $M = \int \lambda\,dx$ and the weighted sum is
+$\int x\lambda\,dx$, so
+
+$$x_{\text{cm}} = \frac{\int_0^L x\,\lambda(x)\,dx}{\int_0^L \lambda(x)\,dx}.$$
+
+**Worked example 3.** A rod of length 4.0 m has $\lambda(x) = \lambda_0(1 +
+x/L)$ with $L = 4.0$ m. Find its center of mass.
+
+The constant $\lambda_0$ appears in both integrals, so it will cancel — drop it
+now and carry it in your head. Denominator:
+
+$$\int_0^L \left(1 + \frac{x}{L}\right)dx = \left[x + \frac{x^2}{2L}\right]_0^L = L + \frac{L}{2} = \frac{3L}{2}.$$
+
+Numerator:
+
+$$\int_0^L x\left(1 + \frac{x}{L}\right)dx = \int_0^L \left(x + \frac{x^2}{L}\right)dx = \frac{L^2}{2} + \frac{L^2}{3} = \frac{5L^2}{6}.$$
+
+Divide: $x_{\text{cm}} = \frac{5L^2/6}{3L/2} = \frac{5L^2}{6}\cdot\frac{2}{3L} =
+\frac{5L}{9}$. With $L = 4.0$ m that is $20/9 = 2.22$ m. Past the midpoint,
+because the far end is denser. If instead $\lambda = 2x$ on a rod of length
+3.0 m, the same method gives numerator $\int_0^3 2x^2 dx = 18$ and denominator
+$\int_0^3 2x\,dx = 9$, so $x_{\text{cm}} = 2.0$ m — exactly $2L/3$, which is
+where any $\lambda \propto x$ rod balances.
+
+For curved uniform solids the integrals are standard and worth memorising
+rather than rederiving under time pressure. Measured from the flat face:
+
+- Half disk (semicircular plate) of radius $R$: $4R/3\pi \approx 0.424R$.
+- Solid hemisphere of radius $R$: $3R/8 = 0.375R$.
+- Solid cone of height $h$: $h/4$ above the base.
+- Hemispherical shell (a bowl): $R/2$.
+- Semicircular wire (not a plate): $2R/\pi \approx 0.637R$.
+
+The pattern is that the more mass sits near the wide base, the lower the center
+of mass, and a solid always sits lower than the shell of the same shape.
+
+<Figure caption={<><b>Figure 2.</b> The three you will meet most often, drawn to scale with the center of mass marked. Notice how much lower the cone's is than the hemisphere's: the cone tapers, so most of its volume is in the bottom slab.</>}>
+  <Sim id="center-of-mass-shapes" />
+</Figure>
+
+<QuickCheck
+  question="A uniform solid cone has height 1.2 m. How far above its base is its center of mass?"
+  options={["0.30 m", "0.40 m", "0.60 m", "0.90 m"]}
+  answer={0}
+  explanation="One quarter of the height, so 1.2 divided by 4 is 0.30 m. The tempting answer 0.60 m is the midpoint, which would be right for a cylinder but not for a shape that narrows toward the top."
+/>
+
+## Why this point and not some other
+
+Everything above is geometry. Here is the physics that makes the point worth
+finding. Differentiate the definition with respect to time. The masses are
+constant, so
+
+$$M\vec V_{\text{cm}} = \sum_i m_i \vec v_i = \vec P_{\text{total}}.$$
+
+The total momentum of any system is the total mass times the velocity of its
+center of mass. A 12 kg system whose center of mass moves at 2.5 m/s carries
+$12 \times 2.5 = 30$ kg·m/s of momentum, regardless of how the parts are
+moving individually. Differentiate once more:
+
+$$M\vec A_{\text{cm}} = \sum_i m_i \vec a_i = \sum_i \vec F_i = \vec F_{\text{ext}}.$$
+
+That last step is the important one. The forces on the pieces come in two
+kinds: internal (piece pushing on piece) and external (everything else).
+Internal forces come in third-law pairs, equal and opposite, so they cancel
+exactly in the sum. Only external forces survive:
+
+$$\vec F_{\text{ext}} = M\vec A_{\text{cm}}.$$
+
+So the center of mass accelerates as though the whole mass were concentrated
+there and only outside forces acted. Nothing you do inside a system can
+accelerate its center of mass. That is why you cannot lift yourself by your own
+belt, and why an astronaut drifting free must throw a tool to get anywhere.
+
+The corollary problems actually use: **with no net external force, the center
+of mass moves at constant velocity, and if it started at rest it stays put.**
+Walk from one end of a floating raft to the other and the raft slides backward
+by exactly enough to hold $\vec R_{\text{cm}}$ fixed.
+
+<QuickCheck
+  question="A 70 kg man hangs from a rope over a frictionless pulley, balanced by a 70 kg counterweight. He climbs at 0.50 m/s relative to the rope. How fast does the center of mass of man-plus-counterweight move?"
+  options={["0 m/s", "0.25 m/s", "0.50 m/s", "1.0 m/s"]}
+  answer={0}
+  explanation="Equal masses on a rope over a pulley: whatever speed the man gains upward, the counterweight gains downward. Equal masses with equal and opposite velocities give zero total momentum, so the center of mass stays still. He rises, the weight falls, and their average height never changes."
+/>
 
 ## The exploding projectile
 
-Fire a shell on a parabolic trajectory and let it burst at the top. The
-explosive forces are internal, so they change nothing about the center of mass.
-Gravity is still the only external force, and it acts on the total mass. The
-center of mass therefore continues along the original parabola as though
-nothing happened, until the first fragment hits the ground and the ground
-starts supplying an external force.
+This is the classic application and it appears constantly. Fire a shell on a
+parabola and let it burst at the top. The explosive forces are internal, so by
+the argument above they do nothing to the center of mass. Gravity is still the
+only external force and still acts on the total mass. The center of mass
+therefore carries on along the original parabola as if nothing had happened,
+right up until a fragment hits the ground and the ground starts pushing.
 
-That gives you a free equation. If a shell splits into two equal pieces and one
-lands at a known spot, the other must land where the average of the two
-positions sits on the undisturbed parabola's landing point.
+**Worked example 4.** A 6.0 kg firework at the top of its flight, 100 m
+downrange, splits into a 2.0 kg piece and a 4.0 kg piece. The 2.0 kg piece
+lands at 60 m. The unexploded firework would have landed at 200 m. Where does
+the 4.0 kg piece land?
+
+Write down what you know before anything else: the center of mass lands at
+200 m. It must, because gravity has not changed. Assume both fragments land at
+about the same time, so that at the moment of landing the definition applies to
+the two landing spots:
+
+$$M x_{\text{cm}} = m_1 x_1 + m_2 x_2$$
+$$(6.0)(200) = (2.0)(60) + (4.0)x_2$$
+$$1200 = 120 + 4.0 x_2$$
+$$x_2 = \frac{1080}{4.0} = 270\ \text{m}.$$
+
+The heavy piece overshoots the undisturbed landing point, which is the whole
+point of the problem: the light piece was thrown backward, so the heavy one had
+to be thrown forward.
+
+<Figure caption={<><b>Figure 3.</b> Set the light piece to land short and watch where the heavy one has to go. Drag its landing point back toward zero and the heavy piece runs further out every time, because the weighted average has to stay pinned on the dashed curve.</>}>
+  <Sim id="center-of-mass-explosion" />
+</Figure>
 
 <Aside label="Where this goes wrong" warn>
-  The center of mass follows the parabola only while gravity is the sole
-  external force. Once a fragment lands, or air drag becomes significant, the
-  normal force or drag is external and the argument stops. Always state the
-  moment your reasoning expires.
+  The parabola argument holds only while gravity is the sole external force.
+  The instant one fragment touches the ground, the normal force is external and
+  the center of mass stops following the curve. Air drag breaks it too. So the
+  equation above is really a statement about where the pieces land *if they
+  land together* — say so when you use it.
 </Aside>
 
-<QuickCheck
-  question="A firecracker at rest in deep space explodes into three unequal fragments. What happens to the center of mass?"
-  options={["It stays exactly where it was", "It moves toward the largest fragment", "It moves toward the fastest fragment", "It is undefined once the pieces separate"]}
-  answer={0}
-  explanation="Explosive forces are internal and cancel in pairs, so there is no external force and no acceleration of the center of mass. It began at rest, so it remains at rest even as the fragments fly apart."
-/>
+## Toppling: where the center of mass sits over the support
 
-## Working in the center-of-mass frame
+An object tips when its center of mass passes beyond the edge of whatever
+supports it. Gravity acts at the center of mass, so once that point is past the
+edge, the weight's turning effect swings the object off rather than back onto
+the support.
 
-Shifting to the frame moving with $\vec V_{\text{cm}}$ often collapses the
-algebra, because in that frame the total momentum is zero and momenta come in
-equal and opposite pairs. Solve there, then add $\vec V_{\text{cm}}$ back to
-every velocity to return to the lab.
+**Worked example 5.** Two identical uniform blocks of length $L = 0.30$ m are
+stacked at the edge of a table, each pushed out as far as it can go. What is
+the biggest total overhang?
+
+Work from the top down, because the top block only has to worry about the block
+under it. Its center is at its midpoint, so it can hang out at most $L/2$ past
+the front edge of the lower block.
+
+Now the pair. The lower block's center is at its own midpoint; the top block's
+center is $L/2$ further out. Their combined center, equal masses, is halfway
+between: $L/4$ ahead of the lower block's midpoint. The pair tips when that
+combined center passes the table edge, so the lower block's midpoint can be at
+most $L/4$ back from the edge — meaning the lower block sticks out $L/2 - L/4 =
+L/4$ past the table.
+
+Total overhang $= L/2 + L/4 = 3L/4 = 0.75 \times 0.30 = 0.225$ m.
+
+A related favourite is the chain over a pulley. A 2.0 m, 5.0 kg uniform chain
+hangs with 1.4 m on one side and 0.60 m on the other. Each side is a uniform
+rod, so each has its own center at its own midpoint: 0.70 m and 0.30 m below
+the pulley. Mass is proportional to length, so the sides weigh
+$5.0 \times 1.4/2.0 = 3.5$ kg and $5.0 \times 0.6/2.0 = 1.5$ kg. Then
+
+$$y_{\text{cm}} = \frac{(3.5)(0.70) + (1.5)(0.30)}{5.0} = \frac{2.45 + 0.45}{5.0} = \frac{2.90}{5.0} = 0.58\ \text{m}$$
+
+below the pulley. Composite bodies again — nothing new, just a careful splitting.
+
+<Figure caption={<><b>Figure 4.</b> Two conditions must hold at once: the top block's own center over the block beneath, and the pair's combined center over the table. Push either slider past its limit and the readout calls it unstable. The best you can do is one quarter plus one half.</>}>
+  <Sim id="center-of-mass-blocks" />
+</Figure>
+
+## How to recognise a center-of-mass problem
+
+Four signals, and you will see at least one in nearly every problem of this
+type.
+
+**Something splits, or joins, or rearranges, with no outside push.** An
+exploding shell, a person walking on a raft, a cannon recoiling on ice, two
+skaters pushing off. The phrase "frictionless" or "in space" is the tell. Find
+the center of mass before and after, set them equal, and you have your
+equation.
+
+**The problem asks for a balance point, a pivot, or a tipping condition.**
+Seesaws, overhanging blocks, a ladder about to slip off a ledge. You are being
+asked whether the center of mass is over the support.
+
+**The object is made of standard shapes glued together, or has a hole.** Split
+into pieces, use areas or volumes as weights, and treat the hole as negative.
+
+**The problem hands you a density that depends on position.** $\lambda = 2x$,
+or $\rho = \rho_0(1 + r/R)$. That is an explicit instruction to integrate; set
+up the two integrals and let the constants cancel.
+
+One habit is worth building. Before writing anything, draw the axis and mark
+your origin, then guess where the answer should land. The center of mass is
+always inside the spread of the mass and always closer to the heavy part. A
+guess that the answer is near 3 m will catch an arithmetic slip that produces
+30 m.
+
+From here the course turns to rotation. You have the point a body translates
+about; next you need the angles it turns through, which starts with
+[angular kinematics](/guide/angular-kinematics). The center of mass comes
+straight back when you find that a rolling object's kinetic energy splits
+neatly into the motion of its center of mass plus the spin around it.

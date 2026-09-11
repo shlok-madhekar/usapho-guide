@@ -1,0 +1,82 @@
+[
+ {
+  "id": "ideal-gas-mercury",
+  "title": "Trapped air column",
+  "caption": "Turning a mercury-sealed tube over changes the sign of the mercury term.",
+  "height": 270,
+  "params": [
+   {
+    "key": "patm",
+    "label": "Atmospheric pressure",
+    "unit": "cmHg",
+    "min": 60,
+    "max": 90,
+    "step": 1,
+    "value": 75
+   },
+   {
+    "key": "hg",
+    "label": "Mercury column",
+    "unit": "cm",
+    "min": 0,
+    "max": 40,
+    "step": 1,
+    "value": 10
+   },
+   {
+    "key": "len",
+    "label": "Trapped air, closed end down",
+    "unit": "cm",
+    "min": 5,
+    "max": 40,
+    "step": 1,
+    "value": 20
+   }
+  ],
+  "draw": "var Patm = p.patm, hHg = p.hg, L1 = p.len;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\nvar scale = (H - 70) / (Patm > 100 ? Patm : 100) * 1.1;\nvar tubeW = Math.min(26, W * 0.07);\nvar ok = (Patm - hHg) > 1;\nvar L2 = ok ? L1 * (Patm + hHg) / (Patm - hHg) : 0;\n\nfunction tube(cx, base, airLen, mercLen, closedDown, label) {\n  var aPx = airLen * scale, mPx = mercLen * scale;\n  var total = aPx + mPx + 18;\n  // glass walls\n  ctx.strokeStyle = C.rule;\n  ctx.lineWidth = 1.5;\n  ctx.beginPath();\n  ctx.moveTo(cx - tubeW / 2, base - total);\n  ctx.lineTo(cx - tubeW / 2, base);\n  ctx.lineTo(cx + tubeW / 2, base);\n  ctx.lineTo(cx + tubeW / 2, base - total);\n  ctx.stroke();\n  // seal the closed end\n  ctx.strokeStyle = C.ink;\n  ctx.lineWidth = 3;\n  ctx.beginPath();\n  if (closedDown) { ctx.moveTo(cx - tubeW / 2, base); ctx.lineTo(cx + tubeW / 2, base); }\n  else { ctx.moveTo(cx - tubeW / 2, base - total); ctx.lineTo(cx + tubeW / 2, base - total); }\n  ctx.stroke();\n  var airTop, mercTop;\n  if (closedDown) { airTop = base - aPx; mercTop = airTop - mPx; }\n  else { airTop = base - total; mercTop = airTop + aPx; }\n  // air column\n  ctx.fillStyle = C.paper;\n  ctx.fillRect(cx - tubeW / 2 + 1, closedDown ? airTop : airTop, tubeW - 2, aPx);\n  ctx.strokeStyle = C.accent;\n  ctx.lineWidth = 1;\n  ctx.strokeRect(cx - tubeW / 2 + 1, airTop, tubeW - 2, aPx);\n  // mercury\n  ctx.fillStyle = C.figure;\n  ctx.fillRect(cx - tubeW / 2 + 1, mercTop, tubeW - 2, mPx);\n  // labels\n  ctx.fillStyle = C.ink;\n  ctx.fillText(label, cx, base + 16);\n  ctx.textAlign = \"left\";\n  ctx.fillStyle = C.accent;\n  ctx.fillText(\"air \" + airLen.toFixed(1) + \" cm\", cx + tubeW / 2 + 6, airTop + aPx / 2 + 4);\n  ctx.fillStyle = C.figure;\n  ctx.fillText(\"Hg \" + mercLen.toFixed(1) + \" cm\", cx + tubeW / 2 + 6, mercTop + mPx / 2 + 4);\n  ctx.textAlign = \"center\";\n}\n\nvar base = H - 26;\ntube(W * 0.24, base, L1, hHg, true, \"closed end down\");\nif (ok) {\n  tube(W * 0.66, base, L2, hHg, false, \"closed end up\");\n} else {\n  ctx.fillStyle = C.ink;\n  ctx.fillText(\"mercury would be pushed out\", W * 0.68, H * 0.5);\n}\n// pressure annotations\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"P = \" + (Patm + hHg).toFixed(0) + \" cmHg\", W * 0.24, 16);\nif (ok) ctx.fillText(\"P = \" + (Patm - hHg).toFixed(0) + \" cmHg\", W * 0.66, 16);\n\nout.note = ok\n  ? \"P1 = \" + (Patm + hHg).toFixed(1) + \" cmHg, P2 = \" + (Patm - hHg).toFixed(1) + \" cmHg, so L2 = L1 x P1/P2 = \" + L2.toFixed(2) + \" cm\"\n  : \"Impossible: the mercury column exceeds the atmosphere, so it cannot hang there.\";"
+ },
+ {
+  "id": "ideal-gas-dof",
+  "title": "Counting degrees of freedom",
+  "caption": "Each quadratic energy term carries half of k_B T.",
+  "height": 250,
+  "params": [],
+  "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\nvar cols = 3;\nvar colW = W / cols;\nvar cy = H * 0.38;\nvar titles = [\"Monatomic\", \"Diatomic, cool\", \"Diatomic, hot\"];\nvar fs = [3, 5, 7];\nvar notes = [\"3 translational\", \"3 translational + 2 rotational\", \"3 trans + 2 rot + 2 vibrational\"];\nvar gam = [\"5/3\", \"7/5\", \"9/7\"];\n\nfunction arrow(x1, y1, x2, y2, col) {\n  ctx.strokeStyle = col; ctx.lineWidth = 1.5;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var a = Math.atan2(y2 - y1, x2 - x1);\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - 6 * Math.cos(a - 0.4), y2 - 6 * Math.sin(a - 0.4));\n  ctx.lineTo(x2 - 6 * Math.cos(a + 0.4), y2 - 6 * Math.sin(a + 0.4));\n  ctx.closePath();\n  ctx.fillStyle = col; ctx.fill();\n}\n\nfor (var i = 0; i < cols; i++) {\n  var cx = colW * (i + 0.5);\n  ctx.fillStyle = C.ink;\n  ctx.fillText(titles[i], cx, 18);\n  if (i === 0) {\n    ctx.fillStyle = C.figure;\n    ctx.beginPath(); ctx.arc(cx, cy, 11, 0, 6.2832); ctx.fill();\n  } else {\n    var sep = i === 2 ? 26 : 22;\n    ctx.fillStyle = C.figure;\n    ctx.beginPath(); ctx.arc(cx - sep / 2, cy, 9, 0, 6.2832); ctx.fill();\n    ctx.beginPath(); ctx.arc(cx + sep / 2, cy, 9, 0, 6.2832); ctx.fill();\n    if (i === 1) {\n      ctx.strokeStyle = C.rule; ctx.lineWidth = 3;\n      ctx.beginPath(); ctx.moveTo(cx - sep / 2, cy); ctx.lineTo(cx + sep / 2, cy); ctx.stroke();\n    } else {\n      // spring bond for the vibrating case\n      ctx.strokeStyle = C.rule; ctx.lineWidth = 1.5;\n      ctx.beginPath(); ctx.moveTo(cx - sep / 2, cy);\n      for (var k = 1; k <= 6; k++) {\n        ctx.lineTo(cx - sep / 2 + sep * k / 6, cy + (k % 2 === 0 ? -5 : 5) * (k === 6 ? 0 : 1));\n      }\n      ctx.lineTo(cx + sep / 2, cy);\n      ctx.stroke();\n      arrow(cx - sep / 2 - 4, cy + 20, cx - sep / 2 - 14, cy + 20, C.accent);\n      arrow(cx + sep / 2 + 4, cy + 20, cx + sep / 2 + 14, cy + 20, C.accent);\n      ctx.fillStyle = C.accent;\n      ctx.fillText(\"stretch\", cx, cy + 38);\n    }\n  }\n  // translational arrows, same for every case\n  arrow(cx, cy, cx + 30, cy, C.accent);\n  arrow(cx, cy, cx, cy - 26, C.accent);\n  arrow(cx, cy, cx - 21, cy + 18, C.accent);\n  ctx.fillStyle = C.accent;\n  ctx.textAlign = \"left\";\n  ctx.fillText(\"x\", cx + 33, cy + 4);\n  ctx.textAlign = \"center\";\n  ctx.fillText(\"z\", cx, cy - 31);\n  ctx.fillText(\"y\", cx - 27, cy + 26);\n  if (i > 0) {\n    // rotation arcs\n    ctx.strokeStyle = C.ink; ctx.lineWidth = 1.2;\n    ctx.beginPath(); ctx.arc(cx, cy, 24, -0.6, 0.9); ctx.stroke();\n    ctx.fillStyle = C.ink;\n    ctx.fillText(\"2 rot\", cx + 38, cy - 20);\n  }\n  ctx.fillStyle = C.ink;\n  ctx.fillText(notes[i], cx, H - 42);\n  ctx.fillText(\"f = \" + fs[i] + \",  C_V = \" + (fs[i] / 2).toFixed(1) + \"R\", cx, H - 26);\n  ctx.fillStyle = C.faint;\n  ctx.fillText(\"gamma = \" + gam[i], cx, H - 10);\n  if (i < cols - 1) {\n    ctx.strokeStyle = C.rule; ctx.lineWidth = 1;\n    ctx.beginPath(); ctx.moveTo(colW * (i + 1), 26); ctx.lineTo(colW * (i + 1), H - 54); ctx.stroke();\n  }\n}"
+ },
+ {
+  "id": "ideal-gas-adiabat",
+  "title": "Adiabatic compression lab",
+  "caption": "A gas squeezed with no heat flow heats up, so its pressure rises faster than Boyle's law alone.",
+  "height": 280,
+  "params": [
+   {
+    "key": "ratio",
+    "label": "Compression ratio",
+    "unit": "",
+    "min": 1.5,
+    "max": 20,
+    "step": 0.5,
+    "value": 4
+   },
+   {
+    "key": "gamma",
+    "label": "Gamma",
+    "unit": "",
+    "min": 1.1,
+    "max": 1.67,
+    "step": 0.01,
+    "value": 1.4
+   },
+   {
+    "key": "temp",
+    "label": "Starting temperature",
+    "unit": "K",
+    "min": 200,
+    "max": 500,
+    "step": 10,
+    "value": 300
+   }
+  ],
+  "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar g = p.gamma, r = p.ratio, T1 = p.temp;\n// animate the piston in and back out\nvar phase = 0.5 - 0.5 * Math.cos(t * 0.7);\nvar x = 1 + phase * (r - 1);          // compression so far\nvar V = 1 / x;                        // volume in units of V1\nvar T = T1 * Math.pow(x, g - 1);\nvar P = Math.pow(x, g);               // pressure in units of P1\n\n// ---- cylinder on the left ----\nvar cx0 = 14, cx1 = W * 0.42, cyTop = H * 0.22, cyBot = H * 0.62;\nvar pistonX = cx0 + (cx1 - cx0) * V;\nctx.fillStyle = C.paper;\nctx.fillRect(cx0, cyTop, pistonX - cx0, cyBot - cyTop);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(cx1, cyTop); ctx.lineTo(cx0, cyTop);\nctx.lineTo(cx0, cyBot); ctx.lineTo(cx1, cyBot);\nctx.stroke();\n// gas molecules, deterministic drift inside the shrinking box\nctx.fillStyle = C.accent;\nfor (var i = 0; i < 16; i++) {\n  var sx = ((i * 0.3793 + t * (0.18 + 0.03 * (i % 5))) % 1);\n  var sy = ((i * 0.6271 + t * (0.23 + 0.04 * (i % 3))) % 1);\n  sx = sx < 0.5 ? sx * 2 : 2 - sx * 2;\n  sy = sy < 0.5 ? sy * 2 : 2 - sy * 2;\n  var mx = cx0 + 5 + sx * (pistonX - cx0 - 10);\n  var my = cyTop + 5 + sy * (cyBot - cyTop - 10);\n  ctx.beginPath(); ctx.arc(mx, my, 2.4, 0, 6.2832); ctx.fill();\n}\n// piston\nctx.fillStyle = C.figure;\nctx.fillRect(pistonX, cyTop, 8, cyBot - cyTop);\nctx.fillRect(pistonX + 8, (cyTop + cyBot) / 2 - 3, cx1 - pistonX - 8, 6);\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"insulated cylinder\", (cx0 + cx1) / 2, cyTop - 10);\nctx.fillText(\"T = \" + T.toFixed(0) + \" K\", (cx0 + cx1) / 2, cyBot + 20);\n\n// ---- PV diagram on the right ----\nvar gx0 = W * 0.55, gx1 = W - 52, gy0 = 22, gy1 = H - 30;\nvar Pmax = Math.pow(r, g);\nfunction px(v) { return gx0 + (1 - (v - 1 / r) / (1 - 1 / r)) * 0 + ((v - 1 / r) / (1 - 1 / r)) * (gx1 - gx0); }\nfunction py(pp) { return gy1 - ((pp - 1) / (Pmax - 1)) * (gy1 - gy0); }\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(gx0, gy0); ctx.lineTo(gx0, gy1); ctx.lineTo(gx1, gy1);\nctx.stroke();\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"volume\", (gx0 + gx1) / 2, gy1 + 18);\nctx.save();\nctx.translate(gx0 - 12, (gy0 + gy1) / 2);\nctx.rotate(-Math.PI / 2);\nctx.fillText(\"pressure\", 0, 0);\nctx.restore();\n\nfunction curve(expn, col, dash) {\n  ctx.strokeStyle = col; ctx.lineWidth = 1.8;\n  ctx.setLineDash(dash);\n  ctx.beginPath();\n  for (var i = 0; i <= 60; i++) {\n    var vv = 1 / r + (1 - 1 / r) * i / 60;\n    var pp = Math.pow(1 / vv, expn);\n    if (i === 0) ctx.moveTo(px(vv), py(pp)); else ctx.lineTo(px(vv), py(pp));\n  }\n  ctx.stroke();\n  ctx.setLineDash([]);\n}\ncurve(1, C.faint, [4, 4]);\ncurve(g, C.accent, []);\nctx.textAlign = \"left\";\nctx.fillStyle = C.faint;\nctx.fillText(\"isotherm\", gx1 - 96, py(r) - 6);\nctx.fillStyle = C.accent;\nctx.fillText(\"adiabat\", gx1 - 46, gy0 + 22);\n// moving state point\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px(V), py(P), 4, 0, 6.2832); ctx.fill();\n\nout.note = \"V1/V2 = \" + r.toFixed(1) + \": final T = \" + (T1 * Math.pow(r, g - 1)).toFixed(0)\n  + \" K and P2/P1 = \" + Pmax.toFixed(1) + \" (an isotherm would give only \" + r.toFixed(1) + \")\";"
+ }
+]

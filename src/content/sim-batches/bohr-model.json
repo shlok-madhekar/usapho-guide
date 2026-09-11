@@ -1,0 +1,73 @@
+[
+  {
+    "id": "bohr-model-orbits",
+    "title": "Allowed orbits",
+    "caption": "Radius grows as n squared, speed falls as 1 over n, and the whole atom shrinks as the nuclear charge rises.",
+    "height": 300,
+    "params": [
+      {
+        "key": "n",
+        "label": "Quantum number n",
+        "unit": "",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "value": 1
+      },
+      {
+        "key": "Z",
+        "label": "Nuclear charge Z",
+        "unit": "",
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "value": 1
+      }
+    ],
+    "draw": "var Z = Math.round(p.Z);\nvar nsel = Math.round(p.n);\nvar NMAX = 4;\nvar cx = W * 0.42, cy = H * 0.5;\nvar Rmax = Math.min(W * 0.36, H * 0.42);\nvar scale = Rmax / (NMAX * NMAX);\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\nctx.textBaseline = \"middle\";\n\n// orbits\nvar i;\nfor (i = 1; i <= NMAX; i++) {\n  var R = i * i * scale;\n  ctx.beginPath();\n  ctx.arc(cx, cy, R, 0, Math.PI * 2);\n  if (i === nsel) {\n    ctx.strokeStyle = C.accent;\n    ctx.lineWidth = 2;\n    ctx.setLineDash([]);\n  } else {\n    ctx.strokeStyle = C.faint;\n    ctx.lineWidth = 1;\n    ctx.setLineDash([3, 4]);\n  }\n  ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = (i === nsel) ? C.accent : C.faint;\n  ctx.fillText(\"n=\" + i, cx + 3, cy - R - 8);\n}\nctx.lineWidth = 1;\n\n// nucleus\nctx.fillStyle = C.ink;\nctx.beginPath();\nctx.arc(cx, cy, 5, 0, Math.PI * 2);\nctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"nucleus +\" + Z + \"e\", cx + 9, cy + 12);\n\n// electron: period goes as n^3 / Z^2\nvar period = 1.1 * nsel * nsel * nsel / (Z * Z);\nvar ang = 2 * Math.PI * (t / period);\nvar Rn = nsel * nsel * scale;\nvar ex = cx + Rn * Math.cos(ang);\nvar ey = cy - Rn * Math.sin(ang);\n\n// radius line\nctx.strokeStyle = C.rule;\nctx.setLineDash([2, 3]);\nctx.beginPath();\nctx.moveTo(cx, cy);\nctx.lineTo(ex, ey);\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.rule;\nctx.fillText(\"r\", (cx + ex) / 2 + 5, (cy + ey) / 2 - 5);\n\n// velocity arrow, tangent\nvar vx = -Math.sin(ang), vy = -Math.cos(ang);\nvar alen = 26;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(ex, ey);\nctx.lineTo(ex + vx * alen, ey + vy * alen);\nctx.stroke();\nvar hx = ex + vx * alen, hy = ey + vy * alen;\nctx.beginPath();\nctx.moveTo(hx, hy);\nctx.lineTo(hx - vx * 6 - vy * 4, hy - vy * 6 + vx * 4);\nctx.lineTo(hx - vx * 6 + vy * 4, hy - vy * 6 - vx * 4);\nctx.closePath();\nctx.fillStyle = C.figure;\nctx.fill();\nctx.lineWidth = 1;\nctx.fillStyle = C.figure;\nctx.fillText(\"v\", hx + 6, hy - 2);\n\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.arc(ex, ey, 4.5, 0, Math.PI * 2);\nctx.fill();\n\n// side panel numbers\nvar r_nm = 0.0529 * nsel * nsel / Z;\nvar v_ms = 2.19e6 * Z / nsel;\nvar E_eV = -13.6 * Z * Z / (nsel * nsel);\nvar px = W - 6;\nctx.textAlign = \"right\";\nctx.fillStyle = C.ink;\nctx.fillText(\"r = \" + r_nm.toFixed(4) + \" nm\", px, 18);\nctx.fillStyle = C.figure;\nctx.fillText(\"v = \" + (v_ms / 1e6).toFixed(3) + \"e6 m/s\", px, 36);\nctx.fillStyle = C.ink;\nctx.fillText(\"E = \" + E_eV.toFixed(2) + \" eV\", px, 54);\nctx.fillStyle = C.rule;\nctx.fillText(\"L = \" + nsel + \" hbar\", px, 72);\nctx.textAlign = \"left\";\n\nout.note = \"n = \" + nsel + \", Z = \" + Z + \": r = \" + r_nm.toFixed(4) + \" nm, v = \" + v_ms.toExponential(2) + \" m/s, one orbit every \" + (2 * Math.PI * (0.0529e-9 * nsel * nsel / Z) / v_ms).toExponential(2) + \" s\";"
+  },
+  {
+    "id": "bohr-model-ladder",
+    "title": "Energy ladder and transitions",
+    "caption": "Choose an upper and a lower level and read off the photon that comes out.",
+    "height": 320,
+    "params": [
+      {
+        "key": "ni",
+        "label": "Upper level n_i",
+        "unit": "",
+        "min": 2,
+        "max": 10,
+        "step": 1,
+        "value": 3
+      },
+      {
+        "key": "nf",
+        "label": "Lower level n_f",
+        "unit": "",
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "value": 2
+      },
+      {
+        "key": "Z",
+        "label": "Nuclear charge Z",
+        "unit": "",
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "value": 1
+      }
+    ],
+    "draw": "var Z = Math.round(p.Z);\nvar ni = Math.round(p.ni);\nvar nf = Math.round(p.nf);\nif (nf >= ni) { nf = ni - 1; }\nif (nf < 1) { nf = 1; }\nvar R = 13.6 * Z * Z;\nvar NMAX = 10;\nvar padT = 20, padB = 22;\nvar Emin = -R;\nfunction Y(e) { return H - padB - (e - Emin) / (0 - Emin) * (H - padT - padB); }\nvar xL = 46, xR = W * 0.60;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\n\n// zero line\nctx.textAlign = \"right\";\nctx.strokeStyle = C.rule;\nctx.setLineDash([2, 4]);\nctx.beginPath();\nctx.moveTo(xL, Y(0));\nctx.lineTo(W - 8, Y(0));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.rule;\nctx.fillText(\"E = 0  (ionised)\", W - 10, Y(0) - 10);\n\n// levels\nvar n;\nfor (n = 1; n <= NMAX; n++) {\n  var E = -R / (n * n);\n  var y = Y(E);\n  var hit = (n === ni || n === nf);\n  ctx.strokeStyle = hit ? C.accent : C.faint;\n  ctx.lineWidth = hit ? 2 : 1;\n  ctx.beginPath();\n  ctx.moveTo(xL, y);\n  ctx.lineTo(xR, y);\n  ctx.stroke();\n  if (n <= 5 || hit) {\n    ctx.fillStyle = hit ? C.accent : C.faint;\n    ctx.textAlign = \"right\";\n    ctx.fillText(\"n=\" + n, xL - 5, y);\n    ctx.textAlign = \"left\";\n    ctx.fillStyle = hit ? C.accent : C.faint;\n    ctx.fillText(E.toFixed(2) + \" eV\", xR + 6, y);\n  }\n}\nctx.lineWidth = 1;\n\n// transition arrow\nvar yi = Y(-R / (ni * ni)), yf = Y(-R / (nf * nf));\nvar ax = xL + (xR - xL) * 0.35;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(ax, yi);\nctx.lineTo(ax, yf);\nctx.stroke();\nctx.beginPath();\nctx.moveTo(ax, yf);\nctx.lineTo(ax - 4, yf - 8);\nctx.lineTo(ax + 4, yf - 8);\nctx.closePath();\nctx.fillStyle = C.figure;\nctx.fill();\nctx.lineWidth = 1;\n\nvar dE = R * (1 / (nf * nf) - 1 / (ni * ni));\nvar lam = 1240 / dE;\n\n// emitted photon, a wave travelling right\nvar span = W - (xR + 70);\nif (span < 40) { span = 40; }\nvar x0 = xR + 62;\nvar travel = (t % 2.2) / 2.2;\nvar yph = (yi + yf) / 2;\nctx.strokeStyle = C.figure;\nctx.beginPath();\nvar s;\nvar lead = x0 + travel * span;\nfor (s = 0; s <= 46; s += 1) {\n  var xx = lead - 46 + s;\n  if (xx < x0) { continue; }\n  var yy = yph + 6 * Math.sin(s * 0.7);\n  if (xx === lead - 46 + s && s === 0) { ctx.moveTo(xx, yy); } else { ctx.lineTo(xx, yy); }\n}\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.textAlign = \"left\";\nctx.fillText(\"photon\", x0, yph + 20);\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"n=\" + ni + \" to n=\" + nf, (xL + xR) / 2, padT - 8 + 6);\n\nout.note = \"Z = \" + Z + \", n = \" + ni + \" to \" + nf + \":  dE = \" + dE.toFixed(3) + \" eV,  lambda = 1240/dE = \" + (lam < 10000 ? lam.toFixed(1) + \" nm\" : lam.toExponential(2) + \" nm\");"
+  },
+  {
+    "id": "bohr-model-series",
+    "title": "The hydrogen spectrum",
+    "caption": "The three lowest series laid out on a logarithmic wavelength axis, with each series limit dashed.",
+    "height": 260,
+    "params": [],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\nctx.textAlign = \"center\";\nvar padL = 34, padR = 18, padT = 26, padB = 34;\nvar lmin = 90, lmax = 2400;\nfunction X(lam) {\n  return padL + (Math.log(lam) - Math.log(lmin)) / (Math.log(lmax) - Math.log(lmin)) * (W - padL - padR);\n}\nvar axisY = H - padB;\n\n// axis\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(padL, axisY);\nctx.lineTo(W - padR, axisY);\nctx.stroke();\nvar ticks = [100, 200, 400, 800, 1600];\nvar i;\nfor (i = 0; i < ticks.length; i++) {\n  var xt = X(ticks[i]);\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath();\n  ctx.moveTo(xt, axisY);\n  ctx.lineTo(xt, axisY + 4);\n  ctx.stroke();\n  ctx.fillStyle = C.rule;\n  ctx.fillText(String(ticks[i]), xt, axisY + 14);\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"wavelength (nm, log scale)\", W / 2, H - 6);\n\n// visible band\nctx.fillStyle = C.faint;\nctx.globalAlpha = 0.35;\nctx.fillRect(X(400), padT, X(700) - X(400), axisY - padT);\nctx.globalAlpha = 1;\nctx.fillStyle = C.faint;\nctx.fillText(\"visible\", (X(400) + X(700)) / 2, padT - 12);\n\nvar names = [\"Lyman\", \"Balmer\", \"Paschen\"];\nvar rowH = (axisY - padT) / 3;\nvar f;\nfor (f = 1; f <= 3; f++) {\n  var yTop = padT + (f - 1) * rowH + 6;\n  var yBot = yTop + rowH - 16;\n  var col = (f === 2) ? C.accent : C.figure;\n  var n2;\n  for (n2 = f + 1; n2 <= 14; n2++) {\n    var dE = 13.6 * (1 / (f * f) - 1 / (n2 * n2));\n    var lam = 1240 / dE;\n    var x = X(lam);\n    ctx.strokeStyle = col;\n    ctx.lineWidth = 1.4;\n    ctx.beginPath();\n    ctx.moveTo(x, yTop);\n    ctx.lineTo(x, yBot);\n    ctx.stroke();\n  }\n  // series limit\n  var lamLim = 1240 / (13.6 / (f * f));\n  ctx.strokeStyle = C.ink;\n  ctx.setLineDash([2, 3]);\n  ctx.lineWidth = 1;\n  ctx.beginPath();\n  ctx.moveTo(X(lamLim), yTop - 4);\n  ctx.lineTo(X(lamLim), yBot + 4);\n  ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"left\";\n  ctx.fillText(names[f - 1] + \" (ends on n=\" + f + \")\", padL + 4, yTop - 2);\n  ctx.textAlign = \"center\";\n  ctx.fillStyle = C.rule;\n  ctx.fillText(\"limit \" + lamLim.toFixed(0), X(lamLim) + 30, yBot + 2);\n}\nctx.lineWidth = 1;"
+  }
+]

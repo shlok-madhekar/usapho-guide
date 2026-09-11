@@ -1,61 +1,334 @@
-## The symmetry
+In 1927 two engineers at Bell Labs were bouncing electrons off a lump of nickel
+and measuring how many came back at each angle. A bottle of liquid air broke,
+air got into their vacuum tube, the nickel oxidised, and to clean it they baked
+it hot enough to turn the surface into a few large crystals. When they ran the
+experiment again the smooth curve they had been getting was gone. In its place
+were sharp peaks at particular angles.
 
-Light was known to be a wave, then shown to carry momentum in discrete lumps.
-De Broglie proposed the converse: things known to be particles should carry a
-wavelength. Take the photon relation $p = h/\lambda$ and solve it the other way
-round.
+Sharp peaks at particular angles is what a wave does when it meets a regular
+array of scatterers. It is what X-rays do to a crystal, and what light does to a
+diffraction grating. But electrons are particles. They have a definite mass, you
+can count them one at a time, and Millikan had measured the charge on a single
+one. This lesson is about what has to be true for both of those things to hold
+at once, and about the single equation that makes it quantitative.
+
+## Running the photon relation backwards
+
+You already know one object that is both. Light is a wave — it diffracts, it
+interferes, it has a wavelength you can measure with a ruler and two slits. And
+light is also lumpy: the photoelectric effect only makes sense if light arrives
+in packets of energy $E = hf$, where $h = 6.63 \times 10^{-34}$ J·s is Planck's
+constant and $f$ is the frequency.
+
+A photon carries momentum as well as energy. For anything moving at $c$,
+relativity gives $E = pc$, so the momentum of a photon is $p = E/c = hf/c$. And
+since $f = c/\lambda$ for a wave travelling at $c$, that becomes
+
+$$p = \frac{h}{\lambda}$$
+
+Read this as a sentence about a wave: short wavelength means large momentum.
+Nothing in it mentions light specifically. It is a dictionary entry translating
+between a wave word, $\lambda$, and a particle word, $p$.
+
+De Broglie's proposal in 1924 was that the dictionary works in both directions.
+If a thing you thought was a wave turns out to carry momentum in lumps, then a
+thing you know carries momentum should have a wavelength. Solve the relation the
+other way round and you get the whole content of this lesson:
 
 $$\lambda = \frac{h}{p}$$
 
-For a non-relativistic particle $p = mv$, and if it was accelerated from rest
-through a potential difference $V$, then $p = \sqrt{2mqV}$, giving
+That $\lambda$ is called the **de Broglie wavelength**. The claim is not that an
+electron is "really" a wave or "really" a particle. It is that whenever you set
+up an experiment sensitive to wavelength — a grating, a crystal, a pair of slits
+— the electron will behave with *this* wavelength, the one set by its momentum.
 
-$$\lambda = \frac{h}{\sqrt{2mqV}}$$
+Notice which quantity is on the bottom. It is momentum, not speed and not
+energy. Every mistake people make with this formula comes from reaching for the
+wrong one of those three.
 
-An electron across 54 V comes out at about 1.7 Å. That is the spacing between
-atoms in a crystal, which is not a coincidence in the history — Davisson and
-Germer fired electrons at nickel and got a diffraction pattern with peaks
-exactly where Bragg's law put them for that wavelength.
+## Why a baseball has no visible wavelength
 
-## Why you never see it
+Put in a thrown baseball: $m = 0.145$ kg at $v = 40.0$ m/s. Its momentum is
+$p = mv = 5.80$ kg·m/s, so
 
-Plug in a thrown baseball: $m = 0.15$ kg, $v = 40$ m/s, so $p = 6$ kg·m/s and
+$$\lambda = \frac{6.63 \times 10^{-34}}{5.80} = 1.14 \times 10^{-34}\ \text{m}$$
 
-$$\lambda = \frac{6.6 \times 10^{-34}}{6} \approx 10^{-34}\ \text{m}$$
+A proton is about $10^{-15}$ m across. The baseball's wavelength is nineteen
+orders of magnitude smaller than that. Diffraction only shows up when the wave
+meets an obstacle or an opening comparable to its own wavelength, and there is
+no aperture in the universe that small. The wave nature is not switched off for
+big objects. It is present and permanently unmeasurable, which in practice is
+the same thing.
 
-Twenty orders of magnitude smaller than a proton. Diffraction requires an
-aperture comparable to $\lambda$, and no such aperture exists or could exist,
-so the baseball travels in a straight line. The wave nature is not switched
-off for large objects; it is present and unmeasurable, which is the same thing
-in practice.
+Now the other extreme. An electron, $m_e = 9.11 \times 10^{-31}$ kg, moving at
+$1.00 \times 10^6$ m/s. Then $p = (9.11 \times 10^{-31})(1.00 \times 10^6) =
+9.11 \times 10^{-25}$ kg·m/s and
 
-The rule of thumb: use the wave picture when $\lambda$ is comparable to the
-size of whatever the particle is interacting with. Electrons and crystal
-planes, yes. Neutrons and nuclei, yes. Anything you can hold, no.
+$$\lambda = \frac{6.63 \times 10^{-34}}{9.11 \times 10^{-25}} = 7.28 \times 10^{-10}\ \text{m}$$
+
+Seven ångströms. That is a few atomic diameters — precisely the scale of the
+gaps between atoms in a crystal. Matter waves are hidden from you not because
+they are weak but because $h$ is tiny, so you need a tiny momentum to get a
+usable wavelength, and tiny momentum means a very light particle.
+
+<Figure caption={<><b>Figure 1.</b> Where the de Broglie wavelength falls on a ruler of real sizes. Start at an electron mass, then drag the mass up towards a grain of dust and watch the marker run off the left-hand end of the world.</>}>
+  <Sim id="de-broglie-scale" />
+</Figure>
 
 <Aside label="Where this goes wrong" warn>
-  Use momentum, not energy, and not speed alone. Two particles with the same
+  Do not put kinetic energy where momentum belongs. Two particles with the same
   kinetic energy have different wavelengths if their masses differ, because
-  $p = \sqrt{2mK}$ — a proton at 1 eV has a wavelength about 43 times shorter
-  than an electron at 1 eV.
+  $p = \sqrt{2mK}$ carries a factor of $\sqrt{m}$. A proton and an electron at
+  the same kinetic energy have wavelengths in the ratio
+  $\lambda_e/\lambda_p = \sqrt{m_p/m_e} = \sqrt{1836} = 42.8$. At the same
+  *speed*, the ratio is different again: $\lambda_p/\lambda_e = m_e/m_p =
+  1/1836$. Read the problem to see which is held fixed.
 </Aside>
 
-## What it buys you
+## Getting the wavelength from an accelerating voltage
 
-The de Broglie wavelength turns Bohr's angular momentum rule from a decree into
-a picture. Requiring a whole number of wavelengths around a circular orbit,
-$n\lambda = 2\pi r$, and substituting $\lambda = h/mv$, reproduces
-$mvr = n\hbar$ exactly. Standing waves fit; anything else interferes with
-itself and dies out.
+Most of the time you are not handed a speed. You are told an electron was
+accelerated from rest through a potential difference $V$, or that a particle has
+kinetic energy $K$. Convert to momentum first.
 
-It also sets the resolution limit of an electron microscope. Optical
-microscopes stall at a few hundred nanometres because visible light will not
-resolve finer than its own wavelength. Accelerate electrons to 100 keV and
-$\lambda$ drops below a picometre, which is why atoms are visible at all.
+Non-relativistically, $K = p^2/2m$, so $p = \sqrt{2mK}$ and
+
+$$\lambda = \frac{h}{\sqrt{2mK}}$$
+
+There is a version of this that is much easier to use in your head. Multiply top
+and bottom by $c$:
+
+$$\lambda = \frac{hc}{\sqrt{2(mc^2)K}}$$
+
+Now everything is an energy. With $hc = 1240$ eV·nm and the rest energy
+$m_ec^2 = 511\,000$ eV, an electron pushed through $V$ volts has $K = eV$, i.e.
+$K$ in electron-volts is numerically $V$. So
+
+$$\lambda = \frac{1240}{\sqrt{2(511\,000)V}}\ \text{nm} = \frac{1240}{1011\sqrt{V}}\ \text{nm} = \frac{1.226}{\sqrt{V}}\ \text{nm}$$
+
+That is the formula quoted in half the problems you will meet:
+$\lambda = 1.226/\sqrt{V}$ nm, with $V$ in volts. One volt gives 1.226 nm.
+A hundred volts gives 0.1226 nm, about one atomic spacing. A hundred thousand
+volts — an electron microscope — gives 3.88 pm, which is why electron
+microscopes see atoms and light microscopes never will.
+
+Keep the $hc$ and $mc^2$ version in mind even for other particles. For a neutron
+with $K = 0.0250$ eV (a "thermal" neutron, the kind that comes out of a
+reactor), $m_nc^2 = 939.6$ MeV $= 9.396 \times 10^8$ eV, so
+
+$$\lambda = \frac{1240}{\sqrt{2(9.396 \times 10^8)(0.0250)}} = \frac{1240}{\sqrt{4.698 \times 10^7}} = \frac{1240}{6854} = 0.181\ \text{nm}$$
+
+Again an atomic spacing. That is not luck: it is why neutron scattering is a
+standard tool for finding out where atoms sit in a solid.
 
 <QuickCheck
-  question="An electron and a proton move with the same speed. Compared with the electron's de Broglie wavelength, the proton's is:"
-  options={["Much longer", "The same", "Much shorter", "Longer or shorter depending on the speed"]}
-  answer={2}
-  explanation="At equal speed the proton has about 1836 times the momentum, and wavelength is inversely proportional to momentum."
+  question="An electron accelerated through 100 V has a wavelength of 0.1226 nm. What voltage gives half that wavelength?"
+  options={["200 V", "400 V", "50 V", "10000 V"]}
+  answer={1}
+  explanation="Wavelength goes as 1 over the square root of V, so halving the wavelength needs four times the voltage. 200 V would only shrink it by a factor of 1.41."
 />
+
+## Where the peaks come from
+
+Back to the nickel crystal. A crystal is a stack of parallel planes of atoms,
+separated by a distance $d$ of a couple of ångströms. A wave coming in at a
+glancing angle $\theta$ to those planes reflects a little from each plane. The
+beam reflecting from the second plane travels an extra distance $2d\sin\theta$
+compared with the one from the first. Those two beams reinforce each other only
+when that extra distance is a whole number of wavelengths:
+
+$$2d\sin\theta = n\lambda$$
+
+This is **Bragg's law**, and it was already familiar from X-rays. The startling
+thing Davisson and Germer found was that electrons obey it too, with the
+$\lambda$ that de Broglie's formula predicts from the accelerating voltage.
+Nothing else in the experiment knows about $h$.
+
+**Worked example: an electron Bragg peak.** Electrons accelerated through
+200 V reflect from planes 0.200 nm apart. Where is the first-order peak?
+
+First the wavelength: $\lambda = 1.226/\sqrt{200} = 1.226/14.14 = 0.0867$ nm.
+
+Then Bragg with $n = 1$:
+
+$$\sin\theta = \frac{\lambda}{2d} = \frac{0.0867}{2(0.200)} = 0.2167$$
+
+so $\theta = \arcsin(0.2167) = 12.5^\circ$. If you had used the $n = 2$ peak you
+would need $\sin\theta = 0.433$, giving $25.7^\circ$; if $\lambda$ were ever
+bigger than $2d$, no peak exists at all, because a sine cannot exceed one.
+
+<Figure caption={<><b>Figure 2.</b> An electron beam meeting crystal planes. Raise the voltage and the drawn wave gets shorter, and the reflected beam swings down towards the surface. Lower the voltage far enough and the first-order peak disappears entirely.</>}>
+  <Sim id="de-broglie-bragg" />
+</Figure>
+
+Not every diffraction problem is Bragg. If the electrons go *through* two slits
+a distance $d$ apart onto a screen a distance $L$ away, the fringe spacing is
+the same one you learned for light, $\Delta y = \lambda L / d$. The physics of
+the interference is unchanged; only the source of $\lambda$ is new.
+
+**Worked example: an electron double slit.** 50.0 keV electrons, slits 1.00 µm
+apart, screen 1.00 m away.
+
+$$\lambda = \frac{1.226}{\sqrt{50\,000}}\ \text{nm} = \frac{1.226}{223.6} = 5.48 \times 10^{-3}\ \text{nm} = 5.48 \times 10^{-12}\ \text{m}$$
+
+$$\Delta y = \frac{\lambda L}{d} = \frac{(5.48 \times 10^{-12})(1.00)}{1.00 \times 10^{-6}} = 5.48 \times 10^{-6}\ \text{m}$$
+
+Fringes 5.5 µm apart. Small, but a microscope can resolve that, and the
+experiment has been done with electrons, with neutrons, and with whole
+C$_{60}$ molecules of 720 atoms.
+
+<Aside label="Worth remembering">
+  At high energy the non-relativistic $p = \sqrt{2mK}$ fails, and the
+  $1.226/\sqrt{V}$ formula fails with it. Use the exact relation
+  $(pc)^2 = K^2 + 2K(mc^2)$, which comes straight from $E^2 = (pc)^2 + (mc^2)^2$
+  with $E = K + mc^2$. It reduces to $pc = \sqrt{2(mc^2)K}$ when
+  $K \ll mc^2$, so you can always use it and never think about which regime you
+  are in.
+</Aside>
+
+**Worked example: a 1.00 MeV electron.** Its rest energy is 0.511 MeV, so this
+is firmly relativistic and the shortcut formula would be badly wrong.
+
+Total energy: $E = K + m_ec^2 = 1.00 + 0.511 = 1.511$ MeV.
+
+$$(pc)^2 = E^2 - (m_ec^2)^2 = (1.511)^2 - (0.511)^2 = 2.283 - 0.261 = 2.022\ \text{MeV}^2$$
+
+so $pc = 1.422$ MeV $= 1.422 \times 10^6$ eV. Then
+
+$$\lambda = \frac{hc}{pc} = \frac{1240\ \text{eV·nm}}{1.422 \times 10^6\ \text{eV}} = 8.72 \times 10^{-4}\ \text{nm} = 0.872\ \text{pm}$$
+
+The non-relativistic formula would have given $1.226/\sqrt{10^6} = 1.23$ pm,
+about 40% too long.
+
+## Standing waves, and why energy comes in levels
+
+A wavelength attached to a particle explains something Bohr had only been able
+to assert. In the [Bohr model](/guide/bohr-model) you were told that angular
+momentum comes in units of $\hbar$, with no reason given. De Broglie gave the
+reason. An electron going round a circular orbit of radius $r$ is a wave chasing
+its own tail. If the circumference is not a whole number of wavelengths, the
+wave comes back out of step with itself and cancels. So the surviving orbits are
+the ones with
+
+$$2\pi r = n\lambda = \frac{nh}{p}$$
+
+Rearrange: $pr = nh/2\pi$, that is, $mvr = n\hbar$. Bohr's rule, derived rather
+than decreed.
+
+The same argument in a straight line gives you the single most useful toy model
+in quantum mechanics. Trap a particle between two hard walls a distance $L$
+apart. The wave must vanish at both walls, so exactly a whole number of
+half-wavelengths fits in: $L = n\lambda/2$, giving $\lambda = 2L/n$ for
+$n = 1, 2, 3, \dots$. Feed that back through de Broglie: $p = h/\lambda = nh/2L$,
+and then $K = p^2/2m$ gives
+
+$$E_n = \frac{n^2h^2}{8mL^2} = \frac{n^2(hc)^2}{8(mc^2)L^2}$$
+
+The energy cannot be anything you like. It comes in levels, labelled by how many
+half-waves fit, and the lowest one is not zero. A confined particle always has
+some kinetic energy simply because confinement forces a curve into its wave.
+
+<Figure caption={<><b>Figure 3.</b> Half-waves between two walls. Step n up and count the nodes; then shrink the box and watch the energy readout climb, roughly four times larger each time you halve the width.</>}>
+  <Sim id="de-broglie-box" />
+</Figure>
+
+**Worked example: a proton in a nucleus.** Model a proton as confined to a
+one-dimensional box of length $L = 5.00$ fm $= 5.00 \times 10^{-6}$ nm. Its
+rest energy is $m_pc^2 = 938.3$ MeV $= 9.383 \times 10^8$ eV. The ground state
+is $n = 1$:
+
+$$E_1 = \frac{(1240)^2}{8(9.383 \times 10^8)(5.00 \times 10^{-6})^2}$$
+
+Numerator: $1240^2 = 1.538 \times 10^6$ eV²·nm².
+Denominator: $8 \times 9.383 \times 10^8 \times 2.50 \times 10^{-11} =
+1.877 \times 10^{-1}$ eV·nm².
+Dividing, $E_1 = 8.19 \times 10^6$ eV $= 8.19$ MeV.
+
+Megaelectron-volts, from nothing but a box and a wavelength. That is the right
+order of magnitude for nuclear binding energies, and it is why nuclear physics
+is million-fold more energetic than chemistry: the box is a hundred thousand
+times smaller, and $E \propto 1/L^2$.
+
+<QuickCheck
+  question="An electron in a box of width L has ground-state energy E. You shrink the box to L/3. The new ground-state energy is:"
+  options={["3E", "9E", "E divided by 9", "E divided by 3"]}
+  answer={1}
+  explanation="Energy goes as 1 over L squared, so a third of the width gives nine times the energy. Squeezing a particle always costs energy, never saves it."
+/>
+
+## Uncertainty as a consequence
+
+A wave with one exact wavelength has no location: a pure sine stretches forever.
+To build something localised within a distance $\Delta x$ you have to add up
+waves covering a spread of wavelengths, and through $p = h/\lambda$ that is a
+spread of momenta. The sharper you make the position, the wider the spread of
+momentum you needed. Quantitatively,
+
+$$\Delta x\,\Delta p \ge \frac{\hbar}{2}, \qquad \hbar = \frac{h}{2\pi} = 1.055 \times 10^{-34}\ \text{J·s}$$
+
+For estimates, drop the factor of two and use $\Delta p \approx \hbar/\Delta x$.
+This turns "how big is it" into "how much momentum must it have", and it is
+often enough to get an answer within a factor of two without solving anything.
+
+**Worked example: estimating hydrogen's ground state.** Say the electron is
+confined to within a radius $r$ of the proton. Then its momentum is at least
+about $p \approx \hbar / r$, so its kinetic energy is about $p^2/2m_e =
+\hbar^2/(2m_er^2)$, and its electrical potential energy is $-ke^2/r$. The total:
+
+$$E(r) = \frac{\hbar^2}{2m_er^2} - \frac{ke^2}{r}$$
+
+Squeeze the atom and the first term blows up; let it spread and the second term
+becomes feeble. Something in between is the minimum. Differentiate and set to
+zero:
+
+$$
+\frac{dE}{dr} = -\frac{\hbar^2}{m_er^3} + \frac{ke^2}{r^2} = 0
+\quad\Longrightarrow\quad r = \frac{\hbar^2}{m_eke^2}
+$$
+
+That is exactly the Bohr radius, $0.529 \times 10^{-10}$ m. Put it back in.
+At that radius the kinetic term is $\tfrac{1}{2}m_ek^2e^4/\hbar^2$ and the
+potential term is $-m_ek^2e^4/\hbar^2$, so
+
+$$E_{\min} = -\frac{m_ek^2e^4}{2\hbar^2} = -13.6\ \text{eV}$$
+
+The measured ionisation energy of hydrogen, from a one-line estimate. The atom
+is the size it is because that size is the truce between confinement energy and
+electrical attraction. And the same argument tells you why electrons are not
+inside nuclei: confine one to $10^{-14}$ m and $pc \approx \hbar c/\Delta x =
+197.3\ \text{eV·nm} / 10^{-5}\ \text{nm} = 19.7$ MeV, far more energy than any
+nucleus could hold onto.
+
+## Recognising when this is the tool
+
+The signals are specific.
+
+**A wavelength is asked for, or given, about something with mass.** Electron,
+neutron, proton, atom, molecule, buckyball. That is $\lambda = h/p$ and nothing
+else. Your only real work is getting $p$: from $mv$ if you are given speed, from
+$\sqrt{2mK}$ if you are given energy or a voltage, from
+$\sqrt{K^2 + 2Kmc^2}/c$ if the kinetic energy is comparable to $mc^2$.
+
+**Angles, fringes, slits or crystal planes with particles going in.** Find
+$\lambda$ first, then use whichever optics formula the geometry calls for:
+$2d\sin\theta = n\lambda$ for reflection off planes, $d\sin\theta = n\lambda$
+for a grating or a surface row, $\Delta y = \lambda L/d$ for two slits,
+$a\sin\theta = \lambda$ for the first minimum of a single slit of width $a$.
+The wave part is ordinary optics; the quantum part is one line at the start.
+
+**A particle is described as confined, trapped, in a well, or "inside" something
+of a stated size.** Fit half-waves: $\lambda = 2L/n$ and $E_n = n^2(hc)^2 /
+(8mc^2L^2)$. If the question says "estimate" rather than "find", use
+$\Delta p \approx \hbar/\Delta x$ instead and expect agreement to a factor of a
+few.
+
+**The word "estimate" plus a size.** That is uncertainty-principle work. Write
+$p \approx \hbar/r$, build an energy, and minimise if there is a competing term.
+
+Work in $hc = 1240$ eV·nm and $\hbar c = 197.3$ eV·nm wherever you can. They let
+you stay in electron-volts and nanometres from start to finish and skip the
+powers of ten that generate most wrong answers.
+
+Next you will meet the one place where the energies get larger still, and where
+particles convert into one another rather than merely diffract:
+[radioactivity and nuclear decay](/guide/radioactivity).

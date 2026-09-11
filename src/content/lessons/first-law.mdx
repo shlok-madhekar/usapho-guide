@@ -1,58 +1,205 @@
-## Three quantities, one equation
+## Two ways to heat a cup of water
 
-Mechanics gave you one conserved thing to track. Thermodynamics adds a second
-channel for energy to enter a system — disordered transfer driven by a
-temperature difference — and calls it heat. Work is the ordered channel: a
-piston moving against pressure. Internal energy $U$ is what the system has
-stored once both channels are accounted for.
+Put a cup of water on a stove and it gets hotter. Now take the same cup, seal it, and shake it hard for ten minutes. It also gets hotter. Nothing touched a flame. The energy came out of your arms.
+
+That is the whole starting point of thermodynamics. Energy can cross the boundary of a system in two different ways — as *heat*, which flows because one side is hotter than the other, and as *work*, which is a force pushing something through a distance. Once the energy is inside, the water has no memory of which door it came through. A joule delivered by a paddle wheel and a joule delivered by a Bunsen burner raise the temperature by exactly the same amount.
+
+The last few lessons tracked energy sloshing between a capacitor and an inductor, where none of it was ever lost. Here energy is still conserved, but you now have to count a channel that mechanics ignored. This lesson is the bookkeeping for that count, and most of the difficulty is not the physics. It is signs.
+
+## The first law
+
+Call the energy stored inside the system its **internal energy** $U$. For a gas, this is the total kinetic energy of all the molecules jiggling about, plus whatever energy is stored in their mutual attraction. You almost never need its absolute value, only how much it changes.
+
+Two things change it. Heat $Q$ added to the system raises $U$. Work $W$ done *by* the system on its surroundings lowers $U$, because the system spent that energy pushing on the outside world. Conservation of energy then says the change in $U$ is what went in minus what went out:
 
 $$\Delta U = Q - W$$
 
-The important word is *state*. $U$ is a property of the gas: give its
-temperature, volume and amount, and $U$ is fixed. $Q$ and $W$ are not
-properties of anything. They describe a process, and two different processes
-connecting the same two states will generally split the same $\Delta U$ into
-different amounts of heat and work.
+That is the first law of thermodynamics. It is not a new principle; it is energy conservation with the heat channel written down explicitly.
 
-## The sign convention
+Read the signs off the definitions every time. $Q > 0$ means heat flows *into* the system. $W > 0$ means the system *expands and pushes outward*. A gas that is compressed does negative work, and $-W$ then becomes a positive contribution to $U$: squeeze a gas and it warms up, which is exactly what the equation says.
 
-$W$ here is work done *by* the gas on its surroundings. Gas expands, $W > 0$,
-and the gas loses energy unless heat makes it up. $Q$ is heat added *to* the
-gas. Both conventions point outward from the system's point of view, which is
-why the signs in $\Delta U = Q - W$ are opposite.
-
-Chemistry texts often write $\Delta U = Q + W$ with $W$ meaning work done *on*
-the gas. Both are correct; mixing them mid-problem is not.
+<Figure caption={<><b>Figure 1.</b> The energy ledger. Drag the two sliders and watch which way the arrows point. Try making Q negative while the work stays positive, and see how fast the internal energy drains.</>}>
+  <Sim id="first-law-ledger" />
+</Figure>
 
 <Aside label="Where this goes wrong" warn>
-  A gas is compressed and its temperature rises, and the answer comes out with
-  the wrong sign. Compression means $dV < 0$, so $W = \int P\,dV$ is negative,
-  and $-W$ in the first law is a positive contribution to $U$. Check the sign
-  of $\Delta V$ before you evaluate the integral, not after.
+  Chemistry books usually write the first law as $\Delta U = Q + W$, where their $W$ is the work done *on* the system. Both versions are right, and they describe the same physics with opposite bookkeeping. Pick one convention at the start of a problem and never swap mid-solution. In this course $W$ is always the work done *by* the gas.
 </Aside>
 
-## Why $U$ depends only on $T$
+A gas absorbs $Q = 850$ J of heat and does $W = 320$ J of work on the surroundings. Then
 
-In an ideal gas the molecules do not interact except during collisions, so
-there is no potential energy stored in their separation. All the internal
-energy is kinetic energy of the molecules, and that is set by temperature
-alone. Pull the walls apart and the molecules spread out without changing
-speed: volume drops out.
+$$\Delta U = 850 - 320 = 530 \text{ J}.$$
 
-$$U = U(T) \quad \Longrightarrow \quad \Delta U = nC_V\,\Delta T$$
-
-That second form holds for *any* ideal gas process, not just constant volume.
-$C_V$ earns its subscript from how it is measured, not from where it applies.
-This is what makes the first law tractable: compute $\Delta T$, get $\Delta U$
-immediately, and let the process details decide how $Q$ and $W$ divide it up.
-
-A free expansion into vacuum makes the point sharply. No work is done — there
-is nothing to push against — and no heat enters, so $\Delta U = 0$ and the
-temperature is unchanged, even though the volume doubled.
+If instead the surroundings compress the gas, doing 480 J of work on it, while the gas releases 610 J of heat, you must flip both signs to match the convention: $Q = -610$ J and $W = -480$ J, so $\Delta U = -610 - (-480) = -130$ J. The gas loses energy overall.
 
 <QuickCheck
-  question="An ideal gas is taken from state A to state B along two different paths. Which quantity is the same for both?"
-  options={["The heat absorbed", "The work done", "The change in internal energy", "The ratio of heat to work"]}
-  answer={2}
-  explanation="Internal energy is a state function, so its change depends only on the endpoints. Heat and work each depend on the path taken, and only their difference is fixed."
+  question="A gas is compressed and gives off heat at the same time. What is the sign of its change in internal energy?"
+  options={["Definitely positive", "Definitely negative", "Positive only if the compression is fast", "Cannot be decided without the numbers"]}
+  answer={1}
+  explanation="Compression means work done by the gas is negative, so minus W adds to U. Giving off heat means Q is negative, which subtracts. The two effects fight, so you need the numbers. The compression could easily beat the heat loss, as in the 480 J and 610 J example where the result was negative only because 610 was the larger number."
 />
+
+## Work is the area under the P–V curve
+
+Where does the expression for $W$ come from? A gas sits in a cylinder under a piston of area $A$, pressing outward with pressure $P$. The force on the piston is $F = PA$. Let the piston move out a small distance $dx$. The gas does work
+
+$$dW = F\,dx = PA\,dx = P\,dV,$$
+
+because $A\,dx$ is exactly the extra volume $dV$ swept out. Add up all the little pieces:
+
+$$W = \int_{V_1}^{V_2} P\,dV$$
+
+So the work done by a gas is the **area under its path on a $P$–$V$ diagram**. That single sentence is worth more than the integral sign. If the path is a straight line, you get the area of a trapezoid without doing any calculus.
+
+Two consequences follow at once. If the volume does not change, the gas does no work at all, whatever the pressure. And if two different processes connect the same starting state to the same finishing state, the areas under them are different, so the work is different.
+
+<Figure caption={<><b>Figure 2.</b> Three routes from state A to state B. Move the slider through all three and watch the shaded area change while the endpoints stay put. The number in the readout is the work, and it is different every time.</>}>
+  <Sim id="first-law-pv-paths" />
+</Figure>
+
+Here is the deep point hiding in that figure. $U$ is a **state function**: fix the gas and fix its pressure and volume, and $U$ is determined, no matter how the gas got there. So $\Delta U$ is the same for all three paths. But $W$ is clearly not the same. Since $Q = \Delta U + W$, the heat cannot be the same either. Heat and work are properties of a *process*, not of a state. Only their difference belongs to the gas.
+
+That turns some awkward-looking problems into one line. A gas goes from A to B absorbing 900 J and doing 400 J of work, so $\Delta U = 900 - 400 = 500$ J. Along a completely different route from A to B it does 700 J of work. The internal energy change must still be 500 J, so $Q = \Delta U + W = 500 + 700 = 1200$ J. You never needed to know either path.
+
+The same trick handles a closed cycle. If the gas returns to its starting state, $\Delta U = 0$ exactly, so the net heat absorbed equals the net work done. A cycle that does 2300 J of net work must have absorbed 2300 J of net heat.
+
+### Worked example 1: a straight line on the diagram
+
+A gas follows a straight line from $(V_1 = 0.0100\ \text{m}^3,\ P_1 = 4.00\times10^{5}\ \text{Pa})$ to $(V_2 = 0.0400\ \text{m}^3,\ P_2 = 1.00\times10^{5}\ \text{Pa})$. Find the work done by the gas.
+
+The path is a straight line, so the area under it is a trapezoid: average height times width. The average pressure is
+
+$$P_{\text{avg}} = \frac{4.00\times10^{5} + 1.00\times10^{5}}{2} = 2.50\times10^{5}\ \text{Pa}.$$
+
+The width is $\Delta V = 0.0400 - 0.0100 = 0.0300\ \text{m}^3$. So
+
+$$W = (2.50\times10^{5})(0.0300) = 7.50\times10^{3}\ \text{J} = 7500\ \text{J}.$$
+
+The volume increased, the answer is positive, and the gas did work on the world. That sign check takes two seconds and catches most errors.
+
+## What the ideal gas keeps inside
+
+For an ideal gas the molecules do not attract each other, so there is no energy stored in how far apart they are. All of $U$ is molecular kinetic energy, and that depends only on temperature. Pull the walls apart and the molecules spread out without slowing down.
+
+Measure the heat needed to warm a gas at constant volume. No work is done, so all of it goes into $U$, and you define the **molar heat capacity at constant volume** $C_V$ by $Q = nC_V\Delta T$, where $n$ is the number of moles. Then
+
+$$\Delta U = nC_V\,\Delta T$$
+
+and because $U$ depends on nothing but $T$, this formula holds for **every** ideal gas process, not just the constant-volume one. $C_V$ got its subscript from how it is measured, not from where it may be used. For a monatomic gas $C_V = \tfrac32 R$; for a diatomic gas near room temperature $C_V = \tfrac52 R$, with $R = 8.31$ J/mol·K.
+
+Now heat the same gas at constant pressure instead. It expands, doing work $W = P\Delta V = nR\Delta T$ (from $PV = nRT$), so you must supply the internal energy *and* the work:
+
+$$C_P = C_V + R$$
+
+Monatomic: $C_P = \tfrac52 R$. Diatomic: $C_P = \tfrac72 R$. Their ratio $\gamma = C_P/C_V$ is $5/3$ and $7/5 = 1.40$.
+
+<Aside label="Worth remembering">
+  $\Delta U = nC_V\Delta T$ always. $Q = nC_V\Delta T$ only at constant volume, and $Q = nC_P\Delta T$ only at constant pressure. Confusing the first with the second is the single most common mistake in this topic.
+</Aside>
+
+Two moles of monatomic gas heated from 290 K to 410 K in a rigid tank: $\Delta T = 120$ K, and $Q = \Delta U = 2(1.5)(8.31)(120) = 2992$ J. The same gas heated at constant pressure from 300 K to 500 K instead does work $W = nR\Delta T = 2(8.31)(200) = 3324$ J, and needs $Q = nC_P\Delta T = 2(2.5)(8.31)(200) = 8310$ J to do it.
+
+## The four processes
+
+Almost every problem is one of four special paths, or a chain of them.
+
+**Isochoric**, constant volume. $W = 0$, so $Q = \Delta U = nC_V\Delta T$. Heat 2400 J into a sealed rigid tank and $\Delta U = 2400$ J.
+
+**Isobaric**, constant pressure. $W = P\Delta V = nR\Delta T$ and $Q = nC_P\Delta T$. Gas at $2.00\times10^{5}$ Pa expanding from $3.00\times10^{-3}$ to $8.00\times10^{-3}$ m³ does $W = 2.00\times10^{5} \times 5.00\times10^{-3} = 1000$ J.
+
+**Isothermal**, constant temperature. $\Delta U = 0$ for an ideal gas, so $Q = W$, and every joule of heat that comes in leaves again as work. Here you do need the integral, with $P = nRT/V$:
+
+$$W = \int_{V_1}^{V_2}\frac{nRT}{V}\,dV = nRT\ln\!\frac{V_2}{V_1}$$
+
+Three moles at 350 K going from 0.0200 to 0.0600 m³: $W = 3(8.31)(350)\ln 3 = 8725.5 \times 1.0986 = 9586$ J, and $Q$ is the same 9586 J.
+
+**Adiabatic**, no heat exchanged, $Q = 0$. Either the walls are insulated or the process is too fast for heat to move. Then $\Delta U = -W$: the gas can only do work by cooling itself down. Combining $dU = -P\,dV$ with the ideal gas law gives the two relations you will use constantly,
+
+$$PV^{\gamma} = \text{constant}, \qquad TV^{\gamma-1} = \text{constant}.$$
+
+Compress a monatomic gas ($\gamma = 5/3$) at 300 K from 0.0400 to 0.0100 m³. Then $T_2 = T_1 (V_1/V_2)^{\gamma-1} = 300 \times 4^{2/3} = 300 \times 2.5198 = 756$ K. Nothing was heated. The piston did the work and the gas kept it.
+
+<Figure caption={<><b>Figure 3.</b> One mole of monatomic gas, four processes, live numbers. Set the process to adiabatic and compress to a quarter of the volume: the temperature climbs while the heat stays at zero. Then switch to isothermal at the same volume ratio and watch the work reappear as heat.</>}>
+  <Sim id="first-law-processes" />
+</Figure>
+
+<QuickCheck
+  question="An insulated rigid box is split by a partition, with gas on one side and vacuum on the other. The partition breaks. What happens to the temperature of an ideal gas?"
+  options={["It falls, because the gas expanded", "It rises, because the molecules spread out", "It stays the same", "It falls by a factor set by gamma"]}
+  answer={2}
+  explanation="No heat enters, and the gas pushes against nothing, so no work is done either. With Q and W both zero the internal energy is unchanged, and for an ideal gas that means the temperature is unchanged. This is a free expansion, not an adiabatic expansion: the adiabatic formulas need a slow process with the gas pushing a piston, and they do not apply here."
+/>
+
+### Worked example 2: adiabatic, then isothermal
+
+One mole of monatomic gas ($\gamma = 5/3$, $C_V = \tfrac32 R$) starts at 300 K in 0.0200 m³. It expands adiabatically to 0.0800 m³, then is compressed isothermally back to 0.0200 m³. Find the total work done by the gas.
+
+Two steps, so do them one at a time and add.
+
+*Step 1, adiabatic.* Use $TV^{\gamma-1}$ constant with $\gamma - 1 = 2/3$:
+
+$$T_2 = 300\left(\frac{0.0200}{0.0800}\right)^{2/3} = \frac{300}{4^{2/3}} = \frac{300}{2.5198} = 119.1\ \text{K}.$$
+
+Since $Q = 0$, the work is all paid out of internal energy:
+
+$$W_1 = -\Delta U = nC_V(T_1 - T_2) = (1)(1.5)(8.31)(300 - 119.1) = 12.465 \times 180.9 = 2255\ \text{J}.$$
+
+*Step 2, isothermal at 119.1 K.* The volume goes from 0.0800 back down to 0.0200 m³, a factor of $1/4$:
+
+$$W_2 = nRT\ln\!\frac{V_2}{V_1} = (1)(8.31)(119.1)\ln(0.25) = 989.7 \times (-1.3863) = -1372\ \text{J}.$$
+
+Negative, as it must be: the gas was compressed, so work was done on it.
+
+$$W_{\text{total}} = 2255 - 1372 = 883\ \text{J}.$$
+
+Notice the gas ends at the same volume but a much lower temperature, and still came out ahead on work. The compression was cheap because it happened cold.
+
+## Heat that does not change the temperature
+
+Not every joule of heat raises a temperature. Two more pieces of vocabulary close the gap.
+
+The **specific heat** $c$ is the heat needed per kilogram per kelvin: $Q = mc\,\Delta T$. Water's is 4186 J/kg·K, which is enormous, and is why oceans moderate climate.
+
+The **latent heat** is the heat needed to change phase at constant temperature. Melting takes $Q = mL_f$, boiling takes $Q = mL_v$. For water $L_f = 3.34\times10^{5}$ J/kg and $L_v = 2.26\times10^{6}$ J/kg. Melting 0.250 kg of ice at 0 °C takes $(0.250)(3.34\times10^{5}) = 8.35\times10^{4}$ J and leaves it at 0 °C still. All that energy went into breaking the crystal apart, not into speeding molecules up.
+
+In an insulated container, energy is conserved with no heat leaking out, so the heat lost by the hot things equals the heat gained by the cold things. That is **calorimetry**, and it is the first law with $W = 0$.
+
+Mechanical work counts as an input in exactly the same ledger. A paddle wheel doing 12000 J of work on 0.500 kg of insulated water raises its temperature by $\Delta T = 12000/(0.500 \times 4186) = 5.73$ K. Nothing was heated; work was converted directly.
+
+### Worked example 3: steam into water
+
+Steam at 100 °C is bubbled into 0.400 kg of water at 15.0 °C until the water reaches 50.0 °C. Find the mass of steam condensed. Use $c = 4186$ J/kg·K and $L_v = 2.26\times10^{6}$ J/kg.
+
+First ask what the cold side needs:
+
+$$Q_{\text{gained}} = mc\,\Delta T = (0.400)(4186)(50.0 - 15.0) = (0.400)(4186)(35.0) = 58604\ \text{J}.$$
+
+Now the hot side, and this is the step people drop. A mass $m$ of steam does two things: it condenses at 100 °C, releasing $mL_v$, and *then* the resulting water cools from 100 °C to the final 50 °C, releasing $mc\,\Delta T$. Both count:
+
+$$Q_{\text{released}} = m(2.26\times10^{6}) + m(4186)(100 - 50) = m(2.26\times10^{6} + 2.093\times10^{5}) = m(2.469\times10^{6}).$$
+
+Set them equal:
+
+$$m = \frac{58604}{2.469\times10^{6}} = 0.0237\ \text{kg}.$$
+
+About 24 grams, which is a small amount of steam for a large temperature rise. Latent heat is big.
+
+<Aside label="Where this goes wrong" warn>
+  Forgetting that the condensed steam keeps cooling after it becomes water. If you use only $mL_v$ you get 0.0259 kg, and the answer looks plausible enough to keep. Whenever a substance crosses a phase boundary, write the journey as a list of legs — warm to the boiling point, change phase, warm again — and give every leg its own term.
+</Aside>
+
+## Recognising which tool a problem wants
+
+The topic looks like a pile of formulas. It is really four questions asked in order.
+
+**Is the system a gas in a cylinder, or a lump of stuff being warmed?** Gas in a cylinder means $P$–$V$ work, $C_V$ and $C_P$, and the four processes. A lump of stuff means $mc\Delta T$, latent heats, and calorimetry. The words "insulated container", "final temperature" and "specific heat" point hard at the second.
+
+**Which word describes the path?** "Rigid" or "sealed tank" means isochoric, $W = 0$. "Freely sliding piston" or "open to the atmosphere" means isobaric. "Held at constant temperature" or "slowly, in a bath" means isothermal, $\Delta U = 0$. "Insulated", "sudden" or "$\gamma$ is given" means adiabatic, $Q = 0$. Each one of those kills a term in the first law, and that is why the problem is solvable.
+
+**Is any mechanical energy being dumped in?** A falling mass, a paddle wheel, a stirrer, a drill. Then the work done on the system is the energy source: compute it with mechanics, and feed it into the thermal ledger as heat would be. A block descending at constant speed converts all of $mgh$ this way.
+
+**Does anything change phase, or does the path not matter?** A phase change means an $L$ term with no $\Delta T$. And if the problem gives you two different paths between the same states, it is testing one thing only: $\Delta U$ is the same for both.
+
+One more habit worth building. Before you touch a calculator, write down which of $Q$, $W$ and $\Delta U$ you know, which is zero, and which you want. The first law has three slots. Fill two and the third is free.
+
+Next you will look at what temperature actually *is* at the molecular level, and where $\tfrac32 R$ came from in the first place, in [kinetic theory of gases](/guide/kinetic-theory).

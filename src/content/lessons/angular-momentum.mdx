@@ -1,60 +1,388 @@
-## Momentum that goes around
+## A skater who speeds up without pushing
 
-A rigid body spinning at $\omega$ carries angular momentum
+A figure skater finishes a spin by pulling her arms in against her chest. She
+spins faster. Nobody pushed her. The ice is slippery, so friction is not doing
+it. She did not wind herself up. She just changed her shape, and the spin rate
+went up by a factor of three.
 
-$$L = I\omega$$
+Something about her motion refused to change while everything else did. Her
+angular speed changed. Her kinetic energy changed. The quantity that stayed put
+is called **angular momentum**, and this lesson is about finding it, knowing
+when it is safe to assume it is fixed, and using that assumption to solve
+problems that would otherwise need forces you cannot possibly know.
 
-but that formula is a special case. The general definition works for anything,
-spinning or not: a particle of momentum $\vec{p}$ at position $\vec{r}$ from a
-chosen origin has
+The previous lesson gave you $\tau_{\text{net}} = I\alpha$ — torque makes
+angular acceleration, the rotational copy of $F = ma$. That is the right tool
+when you know the torques. Here you will build the tool for when you don't:
+during a collision, during a collapse, during any process where huge unknown
+forces act for a very short time.
 
-$$\vec{L} = \vec{r} \times \vec{p}, \qquad L = mvr_\perp$$
+## Momentum, but measured about a point
 
-where $r_\perp$ is the perpendicular distance from the origin to the line of
-motion. A car driving in a straight line past you has angular momentum about
-you — constant, nonzero, and often exactly the quantity a problem needs.
+Start with the version you already have. A particle of mass $m$ moving with
+velocity $v$ has linear momentum $p = mv$. That number says nothing about
+where the particle is. Angular momentum fixes that: it measures how much
+"circulation" the particle has **about a chosen point**.
 
-## When it is conserved
+Pick a point $O$. Draw the straight line the particle is travelling along.
+Measure the perpendicular distance from $O$ to that line — call it
+$r_\perp$, the **lever arm**. The angular momentum of the particle about $O$ is
 
-Torque changes angular momentum the way force changes momentum:
+$$L = m v r_\perp$$
 
-$$\vec{\tau}_{\text{net}} = \frac{d\vec{L}}{dt}$$
+with units $\mathrm{kg\,m^2/s}$. It gets a sign: positive if the particle
+circulates counterclockwise around $O$, negative if clockwise. In full vector
+form $\vec{L} = \vec{r} \times \vec{p}$, where $\vec{r}$ points from $O$ to the
+particle, but for everything here the motion lies in a plane and
+$L = mvr_\perp$ with a sign is all you need.
 
-So with no net external torque, $L$ is fixed. Since $L = I\omega$ and $I$ can
-change while $L$ cannot, a skater pulling her arms in must speed up. Her kinetic
-energy $\tfrac12 I\omega^2 = L^2/2I$ *rises* as $I$ falls — she does work
-against the outward pull of her own arms. Angular momentum conservation does not
-imply energy conservation, and in a rotational collision it usually rules it out.
+Two things about that formula surprise people. First, the particle does not
+have to be going in a circle. A ball rolling in a straight line at
+$4.0\ \mathrm{m/s}$ past a point $3.0\ \mathrm{m}$ off to the side has
+$L = (1.0)(4.0)(3.0) = 12\ \mathrm{kg\,m^2/s}$ about that point, and since it
+is not accelerating, that number never changes. Second, $L$ depends entirely
+on which point you picked. About a point on the line of motion, $r_\perp = 0$
+and the same ball has $L = 0$. Angular momentum is not a property of an
+object. It is a property of an object *and* an origin.
 
-The same argument runs a collapsing gas cloud up to a pulsar spinning hundreds
-of times a second.
+<Figure caption={<><b>Figure 1.</b> A particle moving in a straight line still has angular momentum about a point off to the side. Drag the offset and watch the lever arm: the particle moves, but the perpendicular distance to O never changes, so L is constant.</>}>
+  <Sim id="angular-momentum-lever" />
+</Figure>
 
-## Pick the point first
-
-Angular momentum is only defined relative to an origin, and it is conserved
-about some points and not others in the very same problem. Choose deliberately.
-
-The rule: pick the point through which the forces you cannot evaluate pass. A
-bullet embeds in a door hinged at one edge. The hinge exerts a large, unknown
-impulsive force during the impact, so linear momentum is *not* conserved — but
-that force acts at the hinge, contributing zero torque about it. Take $L$ about
-the hinge and the unknown disappears:
-
-$$m v r_\perp = \left(I_{\text{door}} + m r^2\right)\omega$$
-
-One equation, one unknown. Every "object strikes a pivoted rod" problem is this
-problem.
-
-<Aside label="Where this goes wrong" warn>
-  Do not switch origins partway through. Compute $L$ before and after about the
-  *same* point, and include every mass, moving object included. The bullet's
-  contribution to $I$ after impact is $mr^2$; leaving it out is the standard
-  slip.
+<Aside label="Worth remembering">
+  The lever arm $r_\perp$ is the perpendicular distance from your point to the
+  *line the velocity lies along*, extended forwards and backwards as far as you
+  like. If the velocity makes an angle $\theta$ with the position vector
+  $\vec r$, then $r_\perp = r\sin\theta$ and $L = mvr\sin\theta$.
 </Aside>
 
 <QuickCheck
   question="A puck slides in a straight line at constant velocity across frictionless ice. Its angular momentum about a fixed point off to the side is:"
   options={["Zero", "Constant and nonzero", "Increasing with time", "Undefined for straight-line motion"]}
   answer={1}
-  explanation="No net force means no torque about any point, so L is conserved; the perpendicular distance to the line of motion stays fixed, so it is nonzero."
+  explanation="No net force means no torque about any point, so L cannot change. The perpendicular distance from the point to the line of motion stays the same as the puck slides, so L is a fixed nonzero number."
 />
+
+## A rigid body: L = Iω
+
+Now take a solid object spinning about a fixed axis at angular speed $\omega$.
+Chop it into tiny pieces. A piece of mass $m_i$ at distance $r_i$ from the axis
+moves in a circle at speed $v_i = \omega r_i$, and its velocity is
+perpendicular to its radius, so its lever arm is just $r_i$. Its angular
+momentum is $m_i v_i r_i = m_i \omega r_i^2$. Add up every piece:
+
+$$L = \sum m_i \omega r_i^2 = \left(\sum m_i r_i^2\right)\omega = I\omega$$
+
+The sum in brackets is the moment of inertia $I$ from the last lesson. So
+$L = I\omega$ is not a new law; it is $L = mvr_\perp$ summed over a rigid body.
+A wheel with $I = 0.60\ \mathrm{kg\,m^2}$ spinning at $25\ \mathrm{rad/s}$ has
+$L = 15\ \mathrm{kg\,m^2/s}$, and that is the whole calculation.
+
+Keep both forms in your head. In almost every hard problem you will need
+$mvr_\perp$ for the free-flying object and $I\omega$ for the spinning one, in
+the same equation.
+
+## Torque is what changes L
+
+Differentiate $L = I\omega$ for a rigid body with fixed $I$:
+$dL/dt = I\,d\omega/dt = I\alpha = \tau_{\text{net}}$. The general statement,
+which holds even when $I$ changes, is
+
+$$\tau_{\text{net}} = \frac{dL}{dt}, \qquad \text{so}\qquad \Delta L = \int \tau\,dt \approx \bar\tau\,\Delta t$$
+
+That integral is the **angular impulse**. A torque of $5.0\ \mathrm{N\,m}$
+applied for $3.0\ \mathrm{s}$ to a wheel at rest leaves it with
+$L = (5.0)(3.0) = 15\ \mathrm{kg\,m^2/s}$, whatever the wheel's $I$ happens to
+be. Run it backwards and a flywheel whose $L$ climbs from $40$ to
+$70\ \mathrm{kg\,m^2/s}$ in $5.0\ \mathrm{s}$ felt an average torque of
+$30/5.0 = 6.0\ \mathrm{N\,m}$.
+
+The payoff is the contrapositive. **If the net external torque about a point is
+zero, the total angular momentum about that point does not change.** That is
+conservation of angular momentum, and it is the most useful sentence in
+rotational mechanics.
+
+## Pick the point before you write anything down
+
+Here is the move that makes hard problems easy. Angular momentum is conserved
+about *some* points and not others in the very same problem, so you choose the
+point deliberately, before you write a single equation.
+
+The rule: **pick the point that the forces you cannot evaluate pass through.**
+A force pointing straight at your chosen point has zero lever arm, so it exerts
+zero torque about it, so it cannot change $L$ about it — no matter how large it
+is or how it varies in time.
+
+A bullet embeds in a rod hinged at one end. During the impact, the hinge slams
+back with an enormous unknown force, so linear momentum is definitely *not*
+conserved. But that force acts at the hinge. Take angular momentum about the
+hinge and the unknown vanishes:
+
+$$\underbrace{m v r_\perp}_{\text{bullet, before}} = \underbrace{\left(I_{\text{rod}} + m r^2\right)\omega}_{\text{everything, after}}$$
+
+One equation, one unknown. Every "something strikes a pivoted object" problem
+is this problem.
+
+For an object with no pivot at all — a rod floating on frictionless ice — the
+right point is the **centre of mass of the whole system**, because gravity and
+the normal force cancel and there is nothing else. Angular momentum about the
+centre of mass is conserved, and so is linear momentum, and you may need both.
+
+<Aside label="Where this goes wrong" warn>
+  Do not switch origins partway through a problem. Compute $L$ before and after
+  about the *same* fixed point. And count everything: after the bullet embeds,
+  the bullet is still there, contributing $mr^2$ to the moment of inertia.
+  Dropping that term is the single most common error in this topic. A second
+  one: the pivot point is *not* generally the centre of mass, so
+  $I_{\text{rod}}$ about a hinge at the end is $ML^2/3$, not $ML^2/12$.
+</Aside>
+
+## Worked example 1: two disks couple
+
+A disk with $I_1 = 1.2\ \mathrm{kg\,m^2}$ spins at
+$\omega_1 = 10\ \mathrm{rad/s}$. It is dropped onto a stationary coaxial disk
+with $I_2 = 0.80\ \mathrm{kg\,m^2}$. Friction between them brings them to a
+common angular speed. Find $\omega_f$, and the kinetic energy lost.
+
+The friction between the faces is internal to the two-disk system, so it
+exerts equal and opposite torques and cannot change the total $L$ about the
+common axis. Before:
+
+$$L_i = I_1\omega_1 + I_2(0) = (1.2)(10) = 12\ \mathrm{kg\,m^2/s}$$
+
+After, they turn as one object with $I = I_1 + I_2 = 2.0\ \mathrm{kg\,m^2}$:
+
+$$12 = (2.0)\,\omega_f \quad\Rightarrow\quad \omega_f = 6.0\ \mathrm{rad/s}$$
+
+Energies. Before: $K_i = \tfrac12(1.2)(10)^2 = 60\ \mathrm{J}$. After:
+$K_f = \tfrac12(2.0)(6.0)^2 = \tfrac12(2.0)(36) = 36\ \mathrm{J}$. So
+$24\ \mathrm{J}$ went into heating the rubbing faces.
+
+That energy loss is not a mistake. Write $K = \tfrac12 I\omega^2$ and
+substitute $\omega = L/I$:
+
+$$K = \frac{L^2}{2I}$$
+
+With $L$ pinned, increasing $I$ *must* lower $K$, and decreasing $I$ must
+raise it. That is why the skater's energy goes up when she pulls in: her
+muscles do the work of hauling her arms inwards against their tendency to keep
+going straight. With $I$ from $4.0$ to $1.6\ \mathrm{kg\,m^2}$ and $\omega$
+from $2.0$ to $5.0\ \mathrm{rad/s}$, she gains
+$\tfrac12(1.6)(25) - \tfrac12(4.0)(4) = 20 - 8 = 12\ \mathrm{J}$.
+
+<Figure caption={<><b>Figure 2.</b> Angular momentum is held fixed; drag the arm radius in and the spin rate climbs while the kinetic energy readout climbs with it. Push the radius back out and the energy falls again — that energy is work her arms do, not free energy.</>}>
+  <Sim id="angular-momentum-skater" />
+</Figure>
+
+<QuickCheck
+  question="A spinning object's moment of inertia is halved with no external torque. Its rotational kinetic energy:"
+  options={["Halves", "Stays the same", "Doubles", "Quadruples"]}
+  answer={2}
+  explanation="L is fixed, so omega doubles, and K = L squared over 2I doubles when I halves. Conserving angular momentum does not conserve energy — something had to do work to pull the mass inward."
+/>
+
+## Worked example 2: a bullet in a pivoted rod
+
+A $10\ \mathrm{g}$ bullet travelling at $300\ \mathrm{m/s}$ strikes the end of
+a uniform rod ($M = 2.0\ \mathrm{kg}$, $L = 1.0\ \mathrm{m}$) pivoted at its
+centre, perpendicular to the rod, and embeds. Find the angular speed just
+after.
+
+First write down what you would put on blank paper: a sketch, the pivot marked,
+and the choice of origin. Take the pivot, because the pivot's reaction force is
+unknown and passes through it.
+
+The bullet's lever arm about the pivot is the half-length,
+$r = 0.50\ \mathrm{m}$, since its velocity is perpendicular to the rod. Before
+the impact the rod is at rest, so all the angular momentum is the bullet's:
+
+$$L_i = m v r = (0.010)(300)(0.50) = 1.5\ \mathrm{kg\,m^2/s}$$
+
+After, the rod plus the lodged bullet rotate together. The rod is pivoted at
+its centre, so $I_{\text{rod}} = \tfrac{1}{12}ML^2 = \tfrac{1}{12}(2.0)(1.0)^2
+= 0.1667\ \mathrm{kg\,m^2}$. The bullet is a point mass at
+$0.50\ \mathrm{m}$: $I_{\text{bullet}} = mr^2 = (0.010)(0.25) =
+0.0025\ \mathrm{kg\,m^2}$. Total
+$I = 0.1667 + 0.0025 = 0.1692\ \mathrm{kg\,m^2}$.
+
+$$\omega = \frac{L_i}{I} = \frac{1.5}{0.1692} = 8.87\ \mathrm{rad/s}$$
+
+Check the energy if you want to see how violent this is: before,
+$\tfrac12(0.010)(300)^2 = 450\ \mathrm{J}$; after,
+$\tfrac12(0.1692)(8.87)^2 = 6.7\ \mathrm{J}$. Over $98\%$ of the energy went
+into deforming the wood. Good thing you did not try to conserve it.
+
+<Figure caption={<><b>Figure 3.</b> Fire a bullet into a rod and watch the rod take off. Slide the pivot from the centre to the end and the same bullet produces a different spin: the lever arm grows, but so does the rod's moment of inertia. Try to predict which effect wins before you drag it.</>}>
+  <Sim id="angular-momentum-rod" />
+</Figure>
+
+## Worked example 3: the rotational ballistic pendulum
+
+A $20\ \mathrm{g}$ bullet at $100\ \mathrm{m/s}$ embeds in the bottom end of a
+$1.0\ \mathrm{m}$ uniform rod ($M = 1.5\ \mathrm{kg}$) hanging from a pivot at
+its top. Through what angle does the rod swing?
+
+This is a two-stage problem, and recognising that is the whole difficulty.
+Stage one is the impact: fast, violent, energy destroyed, angular momentum
+conserved. Stage two is the swing: slow, smooth, gravity does the work, energy
+conserved. You must not mix them. Solve stage one for $\omega$, then hand
+$\omega$ to stage two as an initial condition.
+
+**Stage one.** About the pivot, the bullet has
+$L_i = mvr = (0.020)(100)(1.0) = 2.0\ \mathrm{kg\,m^2/s}$.
+A rod pivoted at its end has $I_{\text{rod}} = \tfrac13 ML^2 =
+\tfrac13(1.5)(1.0)^2 = 0.500\ \mathrm{kg\,m^2}$, and the bullet adds
+$mr^2 = (0.020)(1.0)^2 = 0.020$. So $I = 0.520\ \mathrm{kg\,m^2}$ and
+
+$$\omega = \frac{2.0}{0.520} = 3.846\ \mathrm{rad/s}$$
+
+**Stage two.** The kinetic energy just after impact is
+
+$$K = \tfrac12 I\omega^2 = \tfrac12(0.520)(3.846)^2 = 3.846\ \mathrm{J}$$
+
+As the rod swings up by angle $\theta$, the rod's centre of mass (at
+$L/2 = 0.50\ \mathrm{m}$ below the pivot) rises by
+$0.50(1-\cos\theta)$, and the bullet at $1.0\ \mathrm{m}$ rises by
+$1.0(1-\cos\theta)$. The gravitational potential energy gained is
+
+$$
+
+\Delta U = \left[Mg\tfrac{L}{2} + mgL\right](1-\cos\theta)
+= \left[(1.5)(9.8)(0.50) + (0.020)(9.8)(1.0)\right](1-\cos\theta)
+
+$$
+
+$$\Delta U = [7.35 + 0.196](1-\cos\theta) = 7.546\,(1-\cos\theta)\ \mathrm{J}$$
+
+Set $\Delta U = K$ at the top of the swing, where the rod is momentarily at
+rest:
+
+$$1-\cos\theta = \frac{3.846}{7.546} = 0.5097 \quad\Rightarrow\quad \cos\theta = 0.4903$$
+
+$$\theta = \arccos(0.4903) = 60.6^\circ$$
+
+The same setup answers a harder question: what bullet speed makes the rod go
+all the way over the top? Over the top means $\theta = 180^\circ$, so
+$1-\cos\theta = 2$ and you need $K = 2(7.546) = 15.09\ \mathrm{J}$. Then
+$\omega = \sqrt{2K/I} = \sqrt{2(15.09)/0.520} = \sqrt{58.05} =
+7.62\ \mathrm{rad/s}$, and running stage one backwards,
+
+$$v = \frac{I\omega}{mr} = \frac{(0.520)(7.62)}{(0.020)(1.0)} = 198\ \mathrm{m/s}$$
+
+A rigid rod is what makes "over the top" mean exactly $180^\circ$. If it hung
+on a string you would need enough speed to keep the string taut, which is a
+different and larger condition.
+
+<QuickCheck
+  question="In the bullet-and-hanging-rod problem, why can you not use energy conservation for the impact stage?"
+  options={["Because gravity acts during the impact", "Because the bullet embeds, so the collision is inelastic and most of the energy becomes heat", "Because the pivot force does work", "Because angular and linear energy cannot be added"]}
+  answer={1}
+  explanation="Sticking collisions are perfectly inelastic and destroy a large fraction of the kinetic energy. Angular momentum about the pivot survives because the unknown pivot force has no lever arm about the pivot."
+/>
+
+## When there is no pivot at all
+
+Put a uniform rod ($M = 2.0\ \mathrm{kg}$, $L = 1.2\ \mathrm{m}$) at rest on
+frictionless ice and hit one end with a perpendicular impulse of
+$J = 3.0\ \mathrm{N\,s}$. Nothing holds the rod. What happens?
+
+Two things at once, and you treat them separately. The linear impulse gives the
+centre of mass a velocity: $v_{\text{cm}} = J/M = 3.0/2.0 = 1.5\ \mathrm{m/s}$.
+The angular impulse about the centre of mass gives it a spin. The blow lands at
+the end, a distance $L/2 = 0.60\ \mathrm{m}$ from the centre, so the angular
+impulse is $J\,(L/2) = (3.0)(0.60) = 1.8\ \mathrm{kg\,m^2/s}$. A free rod
+spins about its own centre of mass, where $I = \tfrac{1}{12}ML^2 =
+\tfrac{1}{12}(2.0)(1.44) = 0.24\ \mathrm{kg\,m^2}$. So
+
+$$\omega = \frac{1.8}{0.24} = 7.5\ \mathrm{rad/s}$$
+
+The rod drifts and spins, both at once, and the spin is about the centre of
+mass no matter where you hit it.
+
+The sticky version needs one more step. A $0.20\ \mathrm{kg}$ lump of putty at
+$6.0\ \mathrm{m/s}$ hits the end of a rod ($M = 1.0\ \mathrm{kg}$,
+$L = 0.80\ \mathrm{m}$) on ice, perpendicular, and sticks. The right origin is
+the centre of mass of the *combined* final object, because that point moves at
+constant velocity throughout and the internal impact forces have no torque
+about it. So find it first. Measuring from the rod's centre, the putty lands at
+$0.40\ \mathrm{m}$, so
+
+$$x_{\text{cm}} = \frac{(0.20)(0.40)}{1.0+0.20} = \frac{0.080}{1.20} = 0.0667\ \mathrm{m}$$
+
+That puts the rod's centre $0.0667\ \mathrm{m}$ from the new pivot point and
+the putty $0.400 - 0.0667 = 0.333\ \mathrm{m}$ from it. Now build $I$ about
+that point, using the parallel axis theorem for the rod:
+
+$$I = \tfrac{1}{12}(1.0)(0.80)^2 + (1.0)(0.0667)^2 + (0.20)(0.333)^2$$
+$$I = 0.05333 + 0.00444 + 0.02222 = 0.0800\ \mathrm{kg\,m^2}$$
+
+Before the hit, only the putty is moving, and its lever arm about that same
+point is $0.333\ \mathrm{m}$:
+
+$$L_i = (0.20)(6.0)(0.333) = 0.400\ \mathrm{kg\,m^2/s}$$
+
+$$\omega = \frac{0.400}{0.0800} = 5.0\ \mathrm{rad/s}$$
+
+This one takes practice. The step people miss is locating the new centre of
+mass before doing anything else.
+
+## Two places this shows up in the sky
+
+A star of radius $7.0\times10^{8}\ \mathrm{m}$ turning once every $25$ days
+collapses to a neutron star of radius $1.2\times10^{4}\ \mathrm{m}$ with no
+mass lost. Both are uniform spheres, $I = \tfrac25 MR^2$, so $L = I\omega$
+constant gives $R_1^2/T_1 = R_2^2/T_2$, and
+
+$$T_2 = T_1\left(\frac{R_2}{R_1}\right)^2 = (25)(86400)\left(\frac{1.2\times10^{4}}{7.0\times10^{8}}\right)^2$$
+
+The radius ratio is $1.714\times10^{-5}$, squared is $2.94\times10^{-10}$, and
+$2.16\times10^{6}\ \mathrm{s}$ times that is about
+$6\times10^{-4}\ \mathrm{s}$. The collapsed star spins over a thousand times a
+second. That is a pulsar, and the mechanism is the skater.
+
+The other place is precession. Support a spinning wheel at one end of its axle
+and gravity applies a torque $\tau = mgd$, where $d$ is the distance from the
+support to the centre of mass. That torque is perpendicular to $\vec L$, so it
+cannot change $L$'s magnitude — only swing its direction. The axle sweeps
+around a cone at rate
+
+$$\Omega = \frac{\tau}{L} = \frac{mgd}{I\omega}$$
+
+For $I = 0.20\ \mathrm{kg\,m^2}$, $\omega = 40\ \mathrm{rad/s}$,
+$m = 2.0\ \mathrm{kg}$, $d = 0.15\ \mathrm{m}$: $\Omega =
+(2.0)(9.8)(0.15)/[(0.20)(40)] = 2.94/8.0 = 0.368\ \mathrm{rad/s}$. Spin the
+wheel faster and it precesses slower, which is why a fast top stands up and a
+slow one falls over.
+
+## How to recognise an angular momentum problem
+
+Reach for $L$ when you see any of these.
+
+**Something sticks, catches, or couples.** Putty, clay, bullets, a child
+jumping onto a merry-go-round, a disk dropped onto another disk. Sticking means
+energy is gone, so momentum-type conservation is your only survivor. If there
+is a pivot, use angular momentum about it.
+
+**A pivot or axle exerts a force you were never told.** That is a deliberate
+signal. The problem is telling you to take moments about the pivot so the
+unknown drops out.
+
+**The object changes shape or radius while spinning.** Arms in, a rope pulled
+through a hole in a table, a collapsing star, a satellite tightening its orbit.
+$I$ changes, $L$ doesn't, so $\omega$ must.
+
+**The problem gives you an object on frictionless ice with no pivot.** Then you
+need both conservation laws: linear momentum for $v_{\text{cm}}$, angular
+momentum about the system's centre of mass for $\omega$.
+
+**Two stages, one violent and one gentle.** Impact then swing, impact then
+climb. Angular momentum across the impact, energy across the swing. Never one
+law for both.
+
+And the counter-signal: if you know all the forces and they act for a known
+stretch of time, you do not need conservation at all — go back to
+$\tau = I\alpha$ from the previous lesson and integrate.
+
+Next you will look at the case where a spinning object also travels, and the
+two motions are locked together by the contact with the ground:
+[rolling without slipping](/guide/rolling).

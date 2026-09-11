@@ -1,0 +1,137 @@
+[
+  {
+    "id": "power-limited-car",
+    "title": "Power-limited acceleration lab",
+    "caption": "Constant engine power, linear drag. Watch how the speed curve bends over long before the force runs out.",
+    "height": 250,
+    "params": [
+      {
+        "key": "power",
+        "label": "Engine power",
+        "unit": "kW",
+        "min": 5,
+        "max": 80,
+        "step": 1,
+        "value": 30
+      },
+      {
+        "key": "mass",
+        "label": "Mass",
+        "unit": "kg",
+        "min": 400,
+        "max": 2500,
+        "step": 50,
+        "value": 1000
+      },
+      {
+        "key": "drag",
+        "label": "Drag constant c in F = cv",
+        "unit": "N s/m",
+        "min": 4,
+        "max": 40,
+        "step": 1,
+        "value": 12
+      }
+    ],
+    "draw": "var P = p.power * 1000, m = p.mass, c = p.drag;\nvar vTop = Math.sqrt(P / c);\nvar tau = m / (2 * c);\nvar Tmax = tau * Math.log(50.0);\nvar padL = 44, padB = 30, padT = 16, padR = 14;\nvar plotW = W - padL - padR, plotH = H - padT - padB;\nvar X = function (s) { return padL + plotW * (s / Tmax); };\nvar Y = function (v) { return padT + plotH * (1 - v / (vTop * 1.12)); };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\n// axes\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(padL, padT); ctx.lineTo(padL, padT + plotH); ctx.lineTo(padL + plotW, padT + plotH);\nctx.stroke();\n\n// top-speed asymptote\nctx.strokeStyle = C.faint;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(padL, Y(vTop)); ctx.lineTo(padL + plotW, Y(vTop)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"top speed \" + vTop.toFixed(1) + \" m/s\", padL + 6, Y(vTop) - 5);\n\n// the drag-free sqrt curve, for comparison\nctx.strokeStyle = C.rule;\nctx.setLineDash([2, 4]);\nctx.beginPath();\nfor (var i = 0; i <= 120; i++) {\n  var s = Tmax * i / 120;\n  var vf = Math.sqrt(2 * P * s / m);\n  if (vf > vTop * 1.12) break;\n  i === 0 ? ctx.moveTo(X(s), Y(vf)) : ctx.lineTo(X(s), Y(vf));\n}\nctx.stroke();\nctx.setLineDash([]);\n\n// real curve with drag\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var j = 0; j <= 160; j++) {\n  var s2 = Tmax * j / 160;\n  var v2 = vTop * Math.sqrt(1 - Math.exp(-s2 / tau));\n  j === 0 ? ctx.moveTo(X(s2), Y(v2)) : ctx.lineTo(X(s2), Y(v2));\n}\nctx.stroke();\nctx.lineWidth = 1;\n\n// moving marker\nvar cyc = Tmax * 1.25;\nvar now = Math.min(t % cyc, Tmax);\nvar vNow = vTop * Math.sqrt(1 - Math.exp(-now / tau));\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(X(now), padT + plotH); ctx.lineTo(X(now), Y(vNow)); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(now), Y(vNow), 5, 0, Math.PI * 2); ctx.fill();\n\n// force arrow: length proportional to net force P/v - c v\nvar Fnet = vNow > 0.2 ? (P / vNow - c * vNow) : 0;\nvar Fmax = P / (vTop * 0.08);\nvar arrow = (plotW * 0.18) * Math.min(1, Fnet / Fmax);\nctx.strokeStyle = C.accent;\nctx.beginPath();\nctx.moveTo(X(now), Y(vNow));\nctx.lineTo(X(now) + arrow, Y(vNow));\nctx.stroke();\n\n// labels\nctx.fillStyle = C.ink;\nctx.fillText(\"v (m/s)\", 4, padT + 10);\nctx.fillText(\"t (s)\", padL + plotW - 26, padT + plotH + 20);\nctx.fillStyle = C.faint;\nctx.fillText(\"0\", padL - 8, padT + plotH + 16);\nctx.fillText(Tmax.toFixed(0), padL + plotW - 10, padT + plotH + 16);\nctx.fillStyle = C.rule;\nctx.fillText(\"no drag: v = sqrt(2Pt/m)\", padL + 6, padT + 12);\n\nout.note = \"t = \" + now.toFixed(1) + \" s, v = \" + vNow.toFixed(1) + \" m/s (\"\n  + (100 * vNow / vTop).toFixed(0) + \"% of top), driving force P/v = \"\n  + (vNow > 0.2 ? (P / vNow).toFixed(0) : \"huge\") + \" N\";"
+  },
+  {
+    "id": "power-hill-diagram",
+    "title": "Power up a hill",
+    "caption": "Steady speed on an incline: the engine pays for gravity and for drag, and nothing else.",
+    "height": 240,
+    "params": [
+      {
+        "key": "angle",
+        "label": "Incline angle",
+        "unit": "deg",
+        "min": 2,
+        "max": 20,
+        "step": 1,
+        "value": 6
+      },
+      {
+        "key": "mass",
+        "label": "Car mass",
+        "unit": "kg",
+        "min": 800,
+        "max": 2500,
+        "step": 50,
+        "value": 1400
+      },
+      {
+        "key": "speed",
+        "label": "Speed",
+        "unit": "m/s",
+        "min": 5,
+        "max": 40,
+        "step": 1,
+        "value": 22
+      },
+      {
+        "key": "drag",
+        "label": "Drag force",
+        "unit": "N",
+        "min": 0,
+        "max": 1500,
+        "step": 50,
+        "value": 700
+      }
+    ],
+    "draw": "var th = p.angle * Math.PI / 180;\nvar v = p.speed, m = p.mass, D = p.drag;\nvar g = 9.8;\nvar Fgrav = m * g * Math.sin(th);\nvar Fdrive = Fgrav + D;\nvar Pw = Fdrive * v;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\nvar baseY = H - 26, baseX = 22;\nvar run = W - 90;\nvar rise = run * Math.tan(th);\nif (rise > H - 70) { run = (H - 70) / Math.tan(th); rise = H - 70; }\n\n// the incline\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(baseX, baseY);\nctx.lineTo(baseX + run, baseY);\nctx.lineTo(baseX + run, baseY - rise);\nctx.closePath();\nctx.stroke();\n\n// angle label\nctx.fillStyle = C.ink;\nctx.fillText(p.angle.toFixed(0) + \" deg\", baseX + 16, baseY - 6);\n\n// car sits partway up the slope\nvar f = 0.55;\nvar cx = baseX + run * f, cy = baseY - rise * f;\nvar ux = Math.cos(th), uy = -Math.sin(th);\nctx.fillStyle = C.figure;\nctx.save();\nctx.translate(cx, cy);\nctx.rotate(-th);\nctx.fillRect(-16, -13, 32, 11);\nctx.restore();\n\nfunction arrow(x0, y0, dx, dy, col, label, lx, ly) {\n  ctx.strokeStyle = col;\n  ctx.fillStyle = col;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0 + dx, y0 + dy); ctx.stroke();\n  var L = Math.sqrt(dx * dx + dy * dy);\n  if (L > 1) {\n    var hx = dx / L, hy = dy / L;\n    ctx.beginPath();\n    ctx.moveTo(x0 + dx, y0 + dy);\n    ctx.lineTo(x0 + dx - 7 * hx + 4 * hy, y0 + dy - 7 * hy - 4 * hx);\n    ctx.lineTo(x0 + dx - 7 * hx - 4 * hy, y0 + dy - 7 * hy + 4 * hx);\n    ctx.closePath(); ctx.fill();\n  }\n  ctx.fillText(label, x0 + dx + lx, y0 + dy + ly);\n}\n\nvar scale = 52 / Math.max(Fdrive, 1);\nvar ax = cx + ux * 16, ay = cy - 14 + uy * 16;\n\narrow(ax, ay, ux * Fdrive * scale, uy * Fdrive * scale, C.accent, \"F drive\", 4, -4);\narrow(cx - ux * 16, cy - 14 - uy * 16, -ux * D * scale, -uy * D * scale, C.figure, \"drag\", -34, 14);\narrow(cx, cy - 8, 0, m * g * Math.sin(th) * scale * 0.6, C.ink, \"\", 0, 0);\nctx.fillStyle = C.ink;\nctx.fillText(\"mg\", cx + 5, cy - 8 + m * g * Math.sin(th) * scale * 0.6);\n\n// velocity arrow above the car\narrow(cx - ux * 10, cy - 30 - uy * 10, ux * 42, uy * 42, C.faint, \"v = \" + v.toFixed(0) + \" m/s\", -20, -8);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"P = F drive x v\", 10, 16);\nctx.fillStyle = C.faint;\nctx.fillText(\"F drive = mg sin(angle) + drag  (steady speed)\", 10, 32);\n\nout.note = \"mg sin = \" + Fgrav.toFixed(0) + \" N, drag = \" + D.toFixed(0)\n  + \" N, so F = \" + Fdrive.toFixed(0) + \" N and P = \" + (Pw / 1000).toFixed(1) + \" kW\";"
+  },
+  {
+    "id": "power-cubic-drag",
+    "title": "Why top speed is so expensive",
+    "caption": "Power against speed when drag grows as v squared. Both dots sit on the same curve.",
+    "height": 240,
+    "params": [
+      {
+        "key": "b",
+        "label": "Drag coefficient b in F = b v^2",
+        "unit": "N s^2/m^2",
+        "min": 0.2,
+        "max": 3,
+        "step": 0.1,
+        "value": 0.8
+      },
+      {
+        "key": "v",
+        "label": "Cruising speed",
+        "unit": "m/s",
+        "min": 2,
+        "max": 15,
+        "step": 0.5,
+        "value": 10
+      }
+    ],
+    "draw": "var b = p.b, vSel = p.v;\nvar vMax = 30;\nvar padL = 46, padB = 30, padT = 16, padR = 14;\nvar plotW = W - padL - padR, plotH = H - padT - padB;\nvar Pmax = b * Math.pow(vMax, 3);\nvar X = function (v) { return padL + plotW * (v / vMax); };\nvar Y = function (P) { return padT + plotH * (1 - P / Pmax); };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(padL, padT); ctx.lineTo(padL, padT + plotH); ctx.lineTo(padL + plotW, padT + plotH);\nctx.stroke();\n\n// cubic curve\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 140; i++) {\n  var v = vMax * i / 140;\n  i === 0 ? ctx.moveTo(X(v), Y(0)) : ctx.lineTo(X(v), Y(b * v * v * v));\n}\nctx.stroke();\nctx.lineWidth = 1;\n\n// selected speed and double it\nvar P1 = b * vSel * vSel * vSel;\nvar v2 = Math.min(2 * vSel, vMax);\nvar P2 = b * v2 * v2 * v2;\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(vSel), padT + plotH); ctx.lineTo(X(vSel), Y(P1)); ctx.lineTo(padL, Y(P1)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X(v2), padT + plotH); ctx.lineTo(X(v2), Y(P2)); ctx.lineTo(padL, Y(P2)); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(vSel), Y(P1), 5, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(X(v2), Y(P2), 5, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"P (kW)\", 4, padT + 10);\nctx.fillText(\"v (m/s)\", padL + plotW - 34, padT + plotH + 20);\nctx.fillText(\"P = b v^3\", padL + plotW - 70, padT + 24);\nctx.fillStyle = C.faint;\nctx.fillText(\"0\", padL - 8, padT + plotH + 16);\nctx.fillText(vMax.toFixed(0), padL + plotW - 6, padT + plotH + 16);\nctx.fillText((Pmax / 1000).toFixed(0), 6, padT + plotH - 2);\nctx.fillStyle = C.accent;\nctx.fillText(\"v\", X(vSel) - 3, padT + plotH + 16);\nctx.fillText(\"2v\", X(v2) - 6, padT + plotH + 16);\n\nout.note = \"at \" + vSel.toFixed(1) + \" m/s need \" + (P1 / 1000).toFixed(2)\n  + \" kW; at \" + v2.toFixed(1) + \" m/s need \" + (P2 / 1000).toFixed(2)\n  + \" kW, a factor of \" + (P1 > 0 ? (P2 / P1).toFixed(2) : \"-\");"
+  },
+  {
+    "id": "power-grain-belt",
+    "title": "Grain onto a moving belt",
+    "caption": "Mass arriving at rest must be dragged up to belt speed. Half the motor's power never becomes kinetic energy.",
+    "height": 230,
+    "params": [
+      {
+        "key": "rate",
+        "label": "Grain rate dm/dt",
+        "unit": "kg/s",
+        "min": 2,
+        "max": 30,
+        "step": 1,
+        "value": 12
+      },
+      {
+        "key": "speed",
+        "label": "Belt speed",
+        "unit": "m/s",
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "value": 2.5
+      }
+    ],
+    "draw": "var rate = p.rate, v = p.speed;\nvar F = rate * v;\nvar Pmotor = rate * v * v;\nvar Pke = 0.5 * rate * v * v;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\nvar beltY = H * 0.62;\nvar x0 = W * 0.12, x1 = W * 0.88;\nvar r = 13;\n\n// belt loop\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(x0, beltY - r); ctx.lineTo(x1, beltY - r); ctx.stroke();\nctx.beginPath(); ctx.moveTo(x0, beltY + r); ctx.lineTo(x1, beltY + r); ctx.stroke();\nctx.beginPath(); ctx.arc(x0, beltY, r, Math.PI / 2, 3 * Math.PI / 2); ctx.stroke();\nctx.beginPath(); ctx.arc(x1, beltY, r, -Math.PI / 2, Math.PI / 2); ctx.stroke();\n\n// grain falling from a hopper, animated\nvar dropX = W * 0.34;\nctx.strokeStyle = C.faint;\nctx.beginPath();\nctx.moveTo(dropX - 22, 8); ctx.lineTo(dropX - 7, 40);\nctx.lineTo(dropX + 7, 40); ctx.lineTo(dropX + 22, 8);\nctx.stroke();\nctx.fillStyle = C.figure;\nfor (var k = 0; k < 6; k++) {\n  var ph = ((t * 1.4 + k / 6) % 1);\n  var gy = 40 + ph * (beltY - r - 40);\n  var gx = dropX + ((k % 3) - 1) * 4;\n  ctx.beginPath(); ctx.arc(gx, gy, 3, 0, Math.PI * 2); ctx.fill();\n}\n\n// grain already on the belt, carried right\nfor (var q = 0; q < 7; q++) {\n  var xg = dropX + ((t * v * 9 + q * 26) % (x1 - dropX - 6));\n  ctx.beginPath(); ctx.arc(xg, beltY - r - 3, 3, 0, Math.PI * 2); ctx.fill();\n}\n\nfunction arr(x0a, y0a, dx, dy, col) {\n  ctx.strokeStyle = col; ctx.fillStyle = col;\n  ctx.beginPath(); ctx.moveTo(x0a, y0a); ctx.lineTo(x0a + dx, y0a + dy); ctx.stroke();\n  var L = Math.sqrt(dx * dx + dy * dy);\n  var hx = dx / L, hy = dy / L;\n  ctx.beginPath();\n  ctx.moveTo(x0a + dx, y0a + dy);\n  ctx.lineTo(x0a + dx - 7 * hx + 4 * hy, y0a + dy - 7 * hy - 4 * hx);\n  ctx.lineTo(x0a + dx - 7 * hx - 4 * hy, y0a + dy - 7 * hy + 4 * hx);\n  ctx.closePath(); ctx.fill();\n}\n\n// belt velocity and motor force\narr(x1 - 90, beltY + r + 22, 60, 0, C.faint);\nctx.fillStyle = C.faint;\nctx.fillText(\"belt v = \" + v.toFixed(1) + \" m/s\", x1 - 150, beltY + r + 26);\n\narr(dropX + 10, beltY - r - 14, 52, 0, C.accent);\nctx.fillStyle = C.accent;\nctx.fillText(\"F = (dm/dt) v = \" + F.toFixed(1) + \" N\", dropX + 16, beltY - r - 22);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"grain in at \" + rate.toFixed(1) + \" kg/s\", dropX - 40, 54);\nctx.fillText(\"motor P = (dm/dt) v^2\", 10, H - 22);\nctx.fillStyle = C.faint;\nctx.fillText(\"half becomes kinetic energy, half is rubbed away as heat\", 10, H - 6);\n\nout.note = \"motor supplies \" + Pmotor.toFixed(1) + \" W; grain gains KE at \"\n  + Pke.toFixed(1) + \" W; friction wastes \" + (Pmotor - Pke).toFixed(1) + \" W\";"
+  }
+]

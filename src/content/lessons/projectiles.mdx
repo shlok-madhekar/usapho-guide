@@ -1,60 +1,322 @@
-## Two problems, one clock
+## The trick that makes it easy
 
-Nothing pushes a projectile sideways, so its horizontal velocity never
-changes. Gravity pulls it down, so its vertical velocity changes at a constant
-rate. Those are two separate one-dimensional problems. The only thing they
-share is the clock.
+Roll a ball off the edge of a table and watch it. It keeps moving forward while
+it falls, and the path it traces is a smooth curve. Now hold a second ball at
+the table edge and drop it at the exact moment the first one leaves. They hit
+the floor together. Not roughly together — together, every time, no matter how
+fast you rolled the first one.
+
+That is the whole subject in one experiment. Moving sideways does nothing to
+how fast you fall. Falling does nothing to how fast you move sideways. So a
+problem that looks two-dimensional and frightening is really two
+one-dimensional problems you already solved in the last lesson, running side by
+side and sharing a single clock.
+
+<Figure caption={<><b>Figure 1.</b> Drop one ball, launch the other sideways at the same instant. The dashed tie line joins them: they are at the same height at every moment. Slide the launch speed all the way to 30 m/s and watch the readout — the height column does not change.</>}>
+  <Sim id="projectiles-independence" />
+</Figure>
+
+## Two equations and one clock
+
+Set up axes with $x$ horizontal and $y$ vertical, positive upward, with the
+origin at the launch point. Call the launch speed $v_0$ and the launch angle
+$\theta$, measured up from the horizontal. The velocity at launch splits into
+
+$$v_{0x} = v_0\cos\theta, \qquad v_{0y} = v_0\sin\theta$$
+
+Horizontally, nothing pushes the projectile once it is in the air, so $a_x = 0$
+and the horizontal motion is the uniform motion you met first: position grows
+in equal steps in equal times. Vertically, gravity pulls down with constant
+$a_y = -g$, where $g = 9.8\ \mathrm{m/s^2}$ near Earth's surface (many contest
+problems say to use $10$, and will tell you). Feed each of those into the
+constant-acceleration equations from the previous lesson and you get the pair
+that runs everything:
 
 $$x(t) = v_0\cos\theta\; t, \qquad y(t) = v_0\sin\theta\; t - \tfrac{1}{2}gt^2$$
 
-Solve the first for $t$ and substitute into the second and the time drops out,
-leaving the path itself:
+$$v_x(t) = v_0\cos\theta, \qquad v_y(t) = v_0\sin\theta - gt$$
 
-$$y = x\tan\theta - \frac{g\,x^2}{2v_0^2\cos^2\theta}$$
+Read those in words. The horizontal position climbs steadily and the horizontal
+velocity never changes — not at the top, not on the way down, not ever. The
+vertical velocity starts positive, shrinks at $9.8\ \mathrm{m/s}$ every second,
+passes through zero at the top of the flight, then goes negative as the
+projectile comes back down. The two lines never refer to each other. The only
+thing they share is $t$.
 
-A parabola, fixed entirely by the launch speed and angle.
+That sharing is the engine of every projectile problem. One direction tells you
+the time; you hand that time to the other direction.
 
-<Figure caption={<><b>Figure 1.</b> Launch speed, angle, and gravity. The dashed curve is the full flight; the teal arrow is the velocity vector, whose horizontal component never changes. Try 30° against 60°, then drop gravity to 1.6 m/s² for the Moon.</>}>
-  <Sim id="projectile" />
+<Figure caption={<><b>Figure 2.</b> The same flight with the velocity broken into parts at launch, at the top, and at landing. Notice that the teal horizontal arrow is identical at all three points, and that the vertical arrow at landing is the launch one flipped over.</>}>
+  <Sim id="projectiles-components" />
 </Figure>
 
-## Results worth memorizing
-
-For launch and landing at the same height:
-
-$$R = \frac{v_0^2 \sin 2\theta}{g}, \qquad H = \frac{v_0^2 \sin^2\theta}{2g}, \qquad T = \frac{2 v_0 \sin\theta}{g}$$
-
-Two consequences are tested constantly. Range peaks at 45°, and because
-$\sin 2\theta$ is symmetric about that peak, any pair of complementary angles
-covers the same ground: 30° and 60° land in the same place, though the steeper
-one takes longer to get there.
-
-On a slope of angle $\phi$, the range is largest at
-$\theta = 45^\circ + \phi/2$, measured from the horizontal. Uphill you aim
-higher; downhill you aim flatter.
-
-<Aside label="Where this goes wrong" warn>
-  Every formula above assumes the projectile lands at its launch height. A
-  cliff, a slope, or a bounce breaks that assumption, and the range formula
-  quietly gives the wrong answer instead of failing loudly. When the ground
-  moves, go back to the two component equations.
+<Aside label="Worth remembering">
+  At the top of the flight $v_y = 0$, but $v_x$ is unchanged, so the projectile
+  is still moving. Its speed there is $v_0\cos\theta$, not zero. The
+  acceleration there is still $g$ downward.
 </Aside>
 
 <QuickCheck
-  question="Two balls are launched at the same speed, one at 30° and one at 60°, over level ground. Which lands first?"
-  options={["The 30° ball", "The 60° ball", "They land together", "It depends on the speed"]}
+  question="A ball is launched at 18 m/s at 60° above the horizontal. What is its horizontal velocity component two seconds into the flight?"
+  options={["9.0 m/s", "0 m/s", "15.6 m/s", "It depends on how high it is"]}
   answer={0}
-  explanation="Time in the air depends only on the vertical velocity, and 30° puts less of the launch speed into the vertical. Both balls travel the same horizontal distance; the flatter one just does it faster."
+  explanation="Nothing acts horizontally, so vx keeps its launch value of 18 cos 60° = 9.0 m/s for the whole flight. The 15.6 m/s is 18 sin 60°, the vertical component at launch, which does change."
 />
 
-## Working with the components
+### Worked example 1: off a cliff
 
-When the geometry stops being symmetric, the reliable move is to write down
-$x(t)$ and $y(t)$, impose whatever condition the problem gives you (lands on a
-slope, clears a wall, hits a moving target), and solve. It is slower than
-recalling a formula and it never fails.
+*A ball is thrown horizontally at $15\ \mathrm{m/s}$ from the edge of a
+$20\ \mathrm{m}$ cliff. How long is it in the air, and how far from the base
+does it land?*
 
-A worked instance: a ball thrown horizontally at 15 m/s from a 45 m cliff. The
-vertical drop sets the clock, $t = \sqrt{2h/g} = 3$ s, and the horizontal
-motion is uniform, so it lands 45 m out. At no point did the two directions
-talk to each other.
+On blank paper, write the two equations with the numbers in. Horizontally the
+launch is level, so $\theta = 0$, giving $v_{0x} = 15\ \mathrm{m/s}$ and
+$v_{0y} = 0$. Put the origin at the launch point, so the ground is at
+$y = -20\ \mathrm{m}$.
+
+The vertical line has one unknown, so start there:
+
+$$-20 = 0\cdot t - \tfrac{1}{2}(9.8)t^2 \;\Rightarrow\; t^2 = \frac{40}{9.8} = 4.082 \;\Rightarrow\; t = 2.02\ \mathrm{s}$$
+
+Now hand that time across:
+
+$$x = 15 \times 2.02 = 30.3\ \mathrm{m}$$
+
+The horizontal speed never entered the time calculation, and gravity never
+entered the distance calculation. If you doubled the throwing speed, the ball
+would still take $2.02\ \mathrm{s}$ and would land twice as far out.
+
+## Level ground: three formulas you can derive in ten seconds
+
+When the projectile lands at the same height it started from, the algebra is
+tidy enough to be worth carrying in your head. Landing means $y = 0$ again:
+
+$$0 = v_0\sin\theta\, t - \tfrac{1}{2}gt^2 = t\left(v_0\sin\theta - \tfrac{1}{2}gt\right)$$
+
+One root is $t = 0$, the launch. The other is the landing, so the total time of
+flight is
+
+$$T = \frac{2v_0\sin\theta}{g}$$
+
+Put half of that into the vertical velocity and you find $v_y = 0$ there: the
+top of the flight sits exactly halfway through in time, and therefore exactly
+halfway along in horizontal distance, because $x$ grows steadily. Feeding $T$
+into $x(t)$ and $T/2$ into $y(t)$ gives the other two:
+
+$$R = \frac{v_0^2\sin 2\theta}{g}, \qquad H = \frac{v_0^2\sin^2\theta}{2g}$$
+
+using $2\sin\theta\cos\theta = \sin 2\theta$. Two consequences get tested
+constantly. First, $\sin 2\theta$ is largest when $2\theta = 90^\circ$, so the
+range peaks at $\theta = 45^\circ$ with $R_{\max} = v_0^2/g$. Second,
+$\sin 2\theta$ is symmetric about that peak: $\sin(2 \times 25^\circ)$ equals
+$\sin(2 \times 65^\circ)$. Any two angles that add to $90^\circ$ give the same
+range at the same speed. The steep one takes longer and climbs higher; it just
+lands in the same place.
+
+One more relation is worth deriving because it turns up disguised. Divide $H$
+by $R$:
+
+$$\frac{H}{R} = \frac{v_0^2\sin^2\theta/2g}{2v_0^2\sin\theta\cos\theta/g} = \frac{\tan\theta}{4} \;\Rightarrow\; \tan\theta = \frac{4H}{R}$$
+
+So if a problem tells you the range and the greatest height, the angle follows
+immediately and the speed follows from either formula. A problem that says "it
+passes $4.0\ \mathrm{m}$ above the ground at the horizontal midpoint of its
+flight" is telling you $H = 4.0\ \mathrm{m}$ in disguise, because the midpoint
+is the top.
+
+<QuickCheck
+  question="A projectile launched at 25° covers a certain range on level ground. What other launch angle gives the same range at the same speed?"
+  options={["65°", "50°", "75°", "There is no other angle"]}
+  answer={0}
+  explanation="Range goes as sin 2θ, and sin 50° = sin 130°, so 25° and 65° pair up. The complementary angle always works, as long as launch and landing heights match."
+/>
+
+<Aside label="Where this goes wrong" warn>
+  $R$, $H$ and $T$ above assume the projectile lands at exactly its launch
+  height. A cliff, a slope, a wall or a raised target breaks that assumption,
+  and the range formula does not fail loudly — it hands you a confident wrong
+  number. The moment the landing height differs from the launch height, throw
+  the formulas away and go back to $x(t)$ and $y(t)$.
+</Aside>
+
+### Worked example 2: launched from a height
+
+*A projectile leaves a $15\ \mathrm{m}$ high platform at $35\ \mathrm{m/s}$ at
+$25^\circ$ above the horizontal. How far from the base of the platform does it
+land?*
+
+The landing is $15\ \mathrm{m}$ below the launch, so the range formula is out.
+Components first:
+
+$$v_{0x} = 35\cos 25^\circ = 31.72\ \mathrm{m/s}, \qquad v_{0y} = 35\sin 25^\circ = 14.79\ \mathrm{m/s}$$
+
+Origin at the launch point, ground at $y = -15\ \mathrm{m}$:
+
+$$-15 = 14.79\,t - 4.9\,t^2 \;\Rightarrow\; 4.9t^2 - 14.79t - 15 = 0$$
+
+That is a quadratic, so use the formula. The discriminant is
+
+$$14.79^2 + 4(4.9)(15) = 218.7 + 294 = 512.7, \qquad \sqrt{512.7} = 22.64$$
+
+$$t = \frac{14.79 + 22.64}{9.8} = \frac{37.43}{9.8} = 3.820\ \mathrm{s}$$
+
+The other root is negative — it is the time the projectile *would* have left the
+ground had it been launched from there — so discard it. Then
+
+$$x = 31.72 \times 3.820 = 121.2\ \mathrm{m}$$
+
+Take the positive root every time the projectile lands below its launch point.
+Take the smaller positive root when a problem asks when the projectile first
+reaches a height it passes twice.
+
+## When the ground is tilted
+
+A slope is where most people lose marks, and there are two clean ways through.
+
+**Method one: use the slope as a condition.** A slope through the launch point
+at angle $\phi$ above the horizontal is the line $y = x\tan\phi$. Landing means
+the projectile's own $x$ and $y$ satisfy that line at the same instant. So set
+
+$$v_0\sin\theta\, t - \tfrac{1}{2}gt^2 = \left(v_0\cos\theta\, t\right)\tan\phi$$
+
+Cancel one factor of $t$ (that discarded root is the launch) and solve:
+
+$$t = \frac{2v_0\left(\sin\theta - \cos\theta\tan\phi\right)}{g}$$
+
+Then $x = v_0\cos\theta\, t$, and the distance measured *along* the slope, which
+is what these problems ask for, is $L = x/\cos\phi$. For a slope that descends,
+put $\phi$ in as a negative angle and everything still works.
+
+**Method two: tilt your axes.** Point one axis along the slope and the other
+perpendicular to it. Gravity then has components $-g\sin\phi$ along the slope
+and $-g\cos\phi$ perpendicular to it. Landing is now "perpendicular displacement
+returns to zero", which is the level-ground problem again with $g\cos\phi$ in
+place of $g$ and the launch angle measured from the slope. Tilted axes are the
+faster route when the launch is described relative to the slope — "fired
+perpendicular to the surface", for instance.
+
+<Figure caption={<><b>Figure 3.</b> Set the slope to 20° and the launch to 50° and the readout gives 46.4 m along the slope. Now drag the slope to −25° and the launch to 0° for a rock thrown horizontally down a hillside. Then hold the speed fixed and hunt for the launch angle that maximises L: it lands at 45° + half the slope angle.</>}>
+  <Sim id="projectiles-slope" />
+</Figure>
+
+### Worked example 3: range up an incline
+
+*A projectile is fired from the bottom of a $20^\circ$ incline at
+$25\ \mathrm{m/s}$, at $50^\circ$ above the horizontal. How far up the slope
+does it land, measured along the slope?*
+
+Here $\phi = 20^\circ$ and $\theta = 50^\circ$, with $\tan 20^\circ = 0.3640$,
+$\sin 50^\circ = 0.7660$ and $\cos 50^\circ = 0.6428$. Time of flight:
+
+$$t = \frac{2(25)\left(0.7660 - 0.6428 \times 0.3640\right)}{9.8} = \frac{50\left(0.7660 - 0.2340\right)}{9.8} = \frac{50 \times 0.5320}{9.8} = 2.714\ \mathrm{s}$$
+
+Horizontal distance:
+
+$$x = 25 \times 0.6428 \times 2.714 = 43.62\ \mathrm{m}$$
+
+And along the slope:
+
+$$L = \frac{43.62}{\cos 20^\circ} = \frac{43.62}{0.9397} = 46.4\ \mathrm{m}$$
+
+If you want the best launch angle for a given slope, maximise that expression.
+It works out to $\theta = 45^\circ + \phi/2$ — split the difference between
+straight up the slope and the horizontal — and the maximum distance along the
+slope is
+
+$$L_{\max} = \frac{v_0^2}{g\left(1 + \sin\phi\right)}$$
+
+For $v_0 = 30\ \mathrm{m/s}$ up a $15^\circ$ slope that is
+$900 / \left[9.8(1.2588)\right] = 73.0\ \mathrm{m}$, achieved by aiming
+$52.5^\circ$ above the horizontal. Downhill, $\phi$ is negative, the
+denominator shrinks and you aim flatter.
+
+## Two optimisation results worth knowing
+
+**Greatest distance when you launch from a height.** Throw from height $h$ with
+speed $v_0$ and the best angle is no longer $45^\circ$ — the extra fall time
+rewards a flatter, faster throw. Maximising the landing $x$ over $\theta$ gives
+
+$$R_{\max} = \frac{v_0}{g}\sqrt{v_0^2 + 2gh}$$
+
+A shot put released $20\ \mathrm{m}$ up at $25\ \mathrm{m/s}$ reaches
+$\frac{25}{9.8}\sqrt{625 + 392} = 2.551 \times 31.89 = 81.4\ \mathrm{m}$. Check
+the limit: with $h = 0$ this collapses to $v_0^2/g$, the level-ground answer.
+
+**Smallest speed that reaches a given target.** For a target at horizontal
+distance $x$ and height $y$, the minimum launch speed is
+
+$$v_{\min}^2 = g\left(y + \sqrt{x^2 + y^2}\right)$$
+
+For a target $30\ \mathrm{m}$ away and $10\ \mathrm{m}$ up,
+$\sqrt{900 + 100} = 31.62$, so $v_{\min}^2 = 9.8(41.62) = 407.9$ and
+$v_{\min} = 20.2\ \mathrm{m/s}$. The aiming angle that achieves it bisects the
+angle between straight up and the line to the target, which is the same
+"split the difference" rule as the slope result — a target on a slope *is* a
+slope problem.
+
+<Aside label="Worth remembering">
+  Both optimisation results have the same shape: the best angle bisects the
+  vertical and the direction you are throwing toward. Straight-up-and-the-slope
+  for maximum range on an incline, straight-up-and-the-target for minimum
+  speed. If you forget the formula, you can still set up the quadratic and
+  grind it out.
+</Aside>
+
+## The traps
+
+**Using $R = v_0^2\sin 2\theta/g$ when the heights differ.** The single most
+common lost mark. Ask "does it land where it started, vertically?" before you
+write that formula.
+
+**Mixing up which component does what.** $\cos$ goes with horizontal only
+because $\theta$ is measured from the horizontal. If a problem measures the
+angle from the vertical, or from a slope, the sine and cosine swap. Draw the
+triangle.
+
+**Forgetting that distance along a slope is not horizontal distance.** The
+answer they want is usually $L = x/\cos\phi$, which is larger than $x$.
+
+**Taking the wrong quadratic root.** The negative root is the projectile's
+imaginary past. Keep the positive one, unless the projectile crosses the
+target height twice and the problem wants the first crossing.
+
+**Forgetting to square.** Range goes as $v_0^2$, not $v_0$. Doubling the launch
+speed quadruples the range.
+
+<QuickCheck
+  question="A ball launched horizontally from a cliff lands 30 m away. If it were launched horizontally at twice the speed from the same cliff, how far would it land?"
+  options={["60 m", "120 m", "42 m", "30 m"]}
+  answer={0}
+  explanation="The fall time is set by the cliff height alone and does not change, so the horizontal distance scales directly with the launch speed. The v squared rule belongs to the level-ground range formula, where the launch speed also changes the time in the air."
+/>
+
+## How to recognise it
+
+You are looking at a projectile problem when something is released or launched
+and then nothing but gravity acts on it — no thrust, no friction, no rope, no
+contact. The giveaways in the wording: "thrown", "kicked", "fired", "launched",
+"neglect air resistance", "leaves the edge".
+
+Once you know it is one, the sentence that tells you *which* method:
+
+- Launch and landing at the same height, asking for range, height or flight
+  time: use $R$, $H$, $T$ directly.
+- A cliff, platform, well or raised target: components and a quadratic in $t$.
+- Thrown horizontally: set $\theta = 0$, so the vertical drop alone gives the
+  time.
+- Any mention of an incline, hillside, ramp or roof: the slope condition
+  $y = x\tan\phi$, or tilted axes if the launch is described relative to the
+  surface.
+- "Greatest", "maximum", "minimum speed", "just barely reaches": an
+  optimisation, and the answer usually bisects an angle.
+- Range and maximum height both given: $\tan\theta = 4H/R$ first, then the
+  speed.
+
+The universal fallback, when nothing above fits, is always available: write
+$x(t)$ and $y(t)$, write down the condition the problem states, and solve. It
+is slower than a remembered formula and it has never once given a wrong answer.
+
+Everything here assumed you were standing still watching the flight. Next you
+will ask what the same parabola looks like to someone on a moving train, which
+turns out to change the shape of the path but not the physics, in
+[Relative Motion](/guide/relative-motion).

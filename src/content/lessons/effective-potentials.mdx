@@ -1,69 +1,338 @@
-## Force is a downhill slope
+## A graph you can roll a ball down
 
-For any one-dimensional conservative system, the force is minus the slope of
-the potential energy:
+In the last lesson you tracked energy sloshing between kinetic and potential in
+a mass on a spring, and the total stayed fixed. That worked because you already
+knew the potential: $U = \tfrac12 kx^2$, a parabola, and a parabola gives simple
+harmonic motion.
+
+Most systems are not springs. An atom bound to another atom, a bead threaded on
+a bent wire, a marble in a bowl, a satellite in an elliptical orbit — none of
+them has an obvious spring in it. And yet all of them oscillate, and all of them
+oscillate at a frequency you can write down in about three lines. The reason is
+that the potential energy curve, whatever its shape, looks like a parabola if
+you get close enough to the bottom of a dip in it.
+
+That is the whole lesson. Draw $U$ against the coordinate, find the dips, and
+measure how sharp each dip is. Sharpness gives you the frequency. Everything
+else here is bookkeeping about what counts as "the coordinate" and what counts
+as "the mass".
+
+## Force is minus the slope
+
+Start with something you already have: for motion along one coordinate $x$ with
+no friction, the work done by the force as the particle moves a small distance
+$dx$ is $F\,dx$, and that work comes out of the potential energy, so
+$F\,dx = -dU$. Divide by $dx$:
 
 $$F(x) = -\frac{dU}{dx}$$
 
-A particle is pushed toward lower $U$, the way a ball rolls downhill on a graph
-of $U$ against $x$. So the shape of the $U$ curve tells you everything about
-where the system will sit and how it will move near there.
+Read this as a picture. Plot $U$ against $x$. Where the curve slopes up to the
+right, $dU/dx$ is positive, so $F$ is negative and the particle is pushed left —
+downhill. Where the curve slopes down to the right, the particle is pushed
+right. Also downhill. A particle on a potential energy graph behaves exactly
+like a ball rolling on that graph under gravity. That analogy is not a
+coincidence, and it is worth trusting.
 
-Equilibrium means zero net force, which means a flat spot:
+Equilibrium means no net force, so it means no slope:
 
 $$\frac{dU}{dx} = 0$$
 
-## Stable or unstable
+Flat spots on the graph. Nothing more.
 
-Flat is not enough. Whether a small nudge brings the particle back or drives it
-away depends on the curvature.
+<Figure caption={<><b>Figure 1.</b> The cubic potential U = 2x³ − 9x² + 12x. Notice the two flat spots, and notice that the force arrows below the axis point downhill on both sides — away from the hump at x = 1 and toward the dip at x = 2.</>}>
+  <Sim id="effective-potentials-curve" />
+</Figure>
 
-If $U''(x_0) > 0$ the point is a minimum, a valley, and the particle is pushed
-back. That is stable equilibrium. If $U''(x_0) < 0$ it is a maximum, a hilltop,
-and any displacement grows. That is unstable. If $U''(x_0) = 0$ the test is
-inconclusive and you have to look at higher derivatives or just sketch the
-curve.
+## Stable, unstable, and why the second derivative decides
 
-The picture is literal. Draw $U$, find the flat places, and ask whether each
-one holds water.
+A flat spot alone does not tell you whether a system will sit there. A marble
+balanced on top of a hill has zero net force too. What separates the hilltop
+from the valley is the curvature — the second derivative.
 
-## Small oscillations
+Suppose $U'(x_0) = 0$ and you push the particle a small distance $\delta$ to the
+right. The slope there is approximately $U'(x_0 + \delta) \approx U''(x_0)\,\delta$,
+since the slope starts at zero and changes at rate $U''$. So the force is
 
-Near a minimum, expand $U$ in a Taylor series about $x_0$. The constant term
-does nothing, the linear term vanishes because $U'(x_0) = 0$, and what is left
-is:
+$$F \approx -U''(x_0)\,\delta$$
 
-$$U(x) \approx U(x_0) + \tfrac{1}{2}U''(x_0)(x - x_0)^2$$
+If $U''(x_0) > 0$, the force is opposite to the displacement: push it right and
+it pushes back left. It returns. That is **stable equilibrium**, and on the
+graph it is a minimum, a valley.
 
-That is a spring potential with $k = U''(x_0)$. So every stable equilibrium in
-physics is a harmonic oscillator when you look closely enough, and its
-frequency is:
+If $U''(x_0) < 0$, the force points the same way as the displacement, the
+displacement grows, and the particle runs away. That is **unstable
+equilibrium**, a maximum. If $U'' = 0$ as well, the test says nothing and you
+have to look at the next non-zero derivative or just sketch the curve.
+
+**Worked example 1.** A particle moves in $U(x) = 2x^3 - 9x^2 + 12x$, with $U$
+in joules and $x$ in metres. Find the equilibrium points and say which is
+stable.
+
+Differentiate:
+
+$$U'(x) = 6x^2 - 18x + 12 = 6(x^2 - 3x + 2) = 6(x-1)(x-2)$$
+
+So $U' = 0$ at $x = 1$ m and $x = 2$ m. Now the second derivative:
+
+$$U''(x) = 12x - 18$$
+
+At $x = 1$: $U'' = 12 - 18 = -6$ J/m², negative, so that is the hilltop —
+unstable. At $x = 2$: $U'' = 24 - 18 = +6$ J/m², positive, so $x = 2$ m is the
+stable one. Figure 1 is this exact potential, so you can check the algebra
+against the picture.
+
+<QuickCheck
+  question="A potential energy curve has a flat spot where the second derivative is negative. A particle placed exactly there is nudged slightly. What happens?"
+  options={["It accelerates away from the point", "It oscillates about the point", "It returns and stops there", "It stays at rest"]}
+  answer={0}
+  explanation="A negative second derivative means the flat spot is a maximum, so the curve falls away on both sides and the force points away from the point. Unstable. The nudge grows."
+/>
+
+## The frequency hiding in the curvature
+
+Now the payoff. Near a stable point, write $U$ as a Taylor expansion about
+$x_0$ — this is the tool that says any smooth curve equals its value, plus its
+slope times the offset, plus half its curvature times the offset squared:
+
+$$U(x) \approx U(x_0) + U'(x_0)(x-x_0) + \tfrac12 U''(x_0)(x-x_0)^2$$
+
+The first term is a constant, and a constant in $U$ changes no force. The second
+term is zero, because $x_0$ is an equilibrium. What survives is
+
+$$U(x) \approx U(x_0) + \tfrac12 U''(x_0)\,(x-x_0)^2$$
+
+Compare that to the spring potential $\tfrac12 k x^2$ from the last lesson. It
+is the same expression with the displacement measured from $x_0$ and with
+
+$$k_{\text{eff}} = U''(x_0)$$
+
+So the particle does not merely return — it does simple harmonic motion, with
+the frequency you already know:
 
 $$\omega = \sqrt{\frac{U''(x_0)}{m}}$$
 
-Take the Lennard-Jones-style potential
-$U(r) = U_0\left[(r_0/r)^{12} - 2(r_0/r)^6\right]$. Setting $U' = 0$ gives
-$r = r_0$, and evaluating the second derivative there gives
-$U''= 72U_0/r_0^2$, so a nearby atom vibrates at
-$\omega = \sqrt{72U_0/mr_0^2}$. No new physics was needed, only two
-derivatives.
+and period $T = 2\pi/\omega$. The units check: $U''$ is joules per metre
+squared, which is newtons per metre, which is a spring constant. Every stable
+equilibrium in physics is a harmonic oscillator if you look closely enough. That
+one sentence is why this technique appears everywhere.
 
-<Aside label="Where this goes wrong" warn>
-  When a rotating system is involved, the centrifugal term belongs *inside* the
-  effective potential, not outside it. For a central force at fixed angular
-  momentum $\ell$, use
-  $U_{\text{eff}}(r) = U(r) + \ell^2/2mr^2$ and take derivatives of that. Using
-  the bare $U(r)$ puts the equilibrium radius in the wrong place, and often
-  reports no equilibrium where a stable circular orbit exists.
+<Aside label="Worth remembering">
+  Three steps, always the same. Differentiate once and set to zero to find $x_0$.
+  Differentiate twice and evaluate at $x_0$ to get $k_{\text{eff}}$. Then
+  $\omega = \sqrt{k_{\text{eff}}/m}$. If a problem hands you a potential energy
+  function and asks for a frequency, you are done in three lines.
 </Aside>
 
-For rotational or generalized coordinates the same machinery applies. Replace
-$m$ with the appropriate inertia and differentiate with respect to the
-coordinate you are using.
+**Worked example 2.** A 0.50 kg particle sits at the stable equilibrium of the
+same $U(x) = 2x^3 - 9x^2 + 12x$ and is nudged. Find $\omega$.
+
+From example 1 the stable point is $x_0 = 2$ m and $U''(2) = 6$ N/m. So
+
+$$\omega = \sqrt{\frac{6}{0.50}} = \sqrt{12} = 3.46\ \text{rad/s}$$
+
+The amplitude never entered. That is the signature of harmonic motion, and it is
+only true while the amplitude is small enough that the parabola is a good fit.
+
+<Figure caption={<><b>Figure 2.</b> A live potential well. The dashed curve is the parabola from the curvature at the minimum; the dot oscillates at the frequency that parabola predicts. Drag the quadratic coefficient below zero and watch the single well split into two, with the minimum sliding outward and the frequency changing.</>}>
+  <Sim id="effective-potentials-lab" />
+</Figure>
 
 <QuickCheck
-  question="A potential energy curve has a flat spot where its second derivative is negative. What happens to a particle placed exactly there and then nudged slightly?"
-  options={["It accelerates away from the point", "It oscillates about the point", "It returns and stops", "It stays at rest"]}
+  question="Two potential wells have minima at the same place and the same depth, but one is narrower. Which gives the faster small oscillations?"
+  options={["The narrower well", "The wider well", "They are the same because the depths match", "It depends on the amplitude"]}
   answer={0}
-  explanation="A negative second derivative means the flat spot is a maximum, so the potential falls off on both sides and the force points away. That is unstable equilibrium."
+  explanation="Frequency comes from curvature, not depth. A narrower well turns upward more sharply, so U'' at the minimum is larger and omega is larger. Depth sets how much energy is needed to escape, which is a different question."
 />
+
+## When the coordinate is not a straight line
+
+Often the moving thing is not a particle on the $x$-axis. A bead slides on a
+bent wire, a ball rolls in a bowl, a pendulum swings through an angle. The fix
+is small: write the kinetic energy in terms of your chosen coordinate $q$, and
+whatever multiplies $\tfrac12\dot q^2$ plays the role of the mass. Call it the
+effective mass $m_{\text{eff}}$. Then
+
+$$\omega = \sqrt{\frac{U''(q_0)}{m_{\text{eff}}}}$$
+
+**Worked example 3.** A bead slides without friction on a wire bent into the
+parabola $y = cx^2$ in a vertical plane, with $c = 0.80$ m⁻¹. Take
+$g = 9.8$ m/s². Find $\omega$ for small oscillations about the bottom.
+
+Potential energy first: $U = mgy = mgcx^2$. Then
+$U' = 2mgcx$, zero at $x = 0$, and $U'' = 2mgc$, a constant.
+
+Kinetic energy: the bead moves along the wire, so its speed has both components,
+$v^2 = \dot x^2 + \dot y^2$. Since $y = cx^2$, $\dot y = 2cx\dot x$, giving
+$v^2 = \dot x^2(1 + 4c^2x^2)$. Near the bottom $x$ is small, so that bracket is
+1 and $m_{\text{eff}} = m$. Then
+
+$$\omega = \sqrt{\frac{2mgc}{m}} = \sqrt{2gc} = \sqrt{2(9.8)(0.80)} = \sqrt{15.68} = 3.96\ \text{rad/s}$$
+
+The mass cancelled, as it must for anything driven purely by gravity.
+
+Now a case where the effective mass does not cancel. A uniform solid ball of
+radius $r = 2.0$ cm **rolls without slipping** near the bottom of a spherical
+bowl of radius $R = 20.0$ cm. Its centre stays on a circle of radius $R - r$, so
+if $\theta$ is the angle of the centre from the bottom,
+$U = mg(R-r)(1-\cos\theta)$. For small $\theta$, $1 - \cos\theta \approx
+\theta^2/2$, so $U \approx \tfrac12 mg(R-r)\theta^2$ and
+$U''(0) = mg(R-r)$.
+
+The kinetic energy has two pieces because the ball spins as it goes. Its centre
+moves at $v = (R-r)\dot\theta$, and rolling without slipping means it spins at
+$\omega_{\text{spin}} = v/r$. With $I = \tfrac25 mr^2$,
+
+$$K = \tfrac12 mv^2 + \tfrac12\left(\tfrac25 mr^2\right)\frac{v^2}{r^2} = \tfrac{7}{10}mv^2 = \tfrac12\left[\tfrac75 m(R-r)^2\right]\dot\theta^2$$
+
+So $m_{\text{eff}} = \tfrac75 m(R-r)^2$, and
+
+$$\omega = \sqrt{\frac{mg(R-r)}{\tfrac75 m(R-r)^2}} = \sqrt{\frac{5g}{7(R-r)}} = \sqrt{\frac{5(9.8)}{7(0.180)}} = \sqrt{38.89} = 6.24\ \text{rad/s}$$
+
+A sliding marble in the same bowl would give $\sqrt{g/R}$, faster. The rolling
+ball carries extra inertia in its spin, so it is lazier.
+
+<Aside label="Where this goes wrong" warn>
+  Do not mix coordinates. If $U$ is written in terms of the angle $\theta$, then
+  $U''$ must be $d^2U/d\theta^2$ and the effective mass must be the thing
+  multiplying $\tfrac12\dot\theta^2$ — a moment of inertia, with units of
+  kg·m². Differentiating $U(\theta)$ but dividing by a plain mass $m$ gives an
+  answer that is wrong by a factor with units of metres, and the error hides
+  because nothing in the final number looks obviously broken. Check units at the
+  end: $\omega^2$ must come out per second squared.
+</Aside>
+
+## Terms that are not really potential energy
+
+The word *effective* in "effective potential" usually means you have folded
+something that is not a potential energy into $U$, because it acts like one.
+
+The common case is rotation. A puck on a frictionless table is tethered by a
+string through a hole, so it orbits with angular momentum $L$ about the hole,
+and $L$ is conserved. Its kinetic energy splits into radial and tangential
+parts:
+
+$$K = \tfrac12 m\dot r^2 + \tfrac12 m(r\dot\theta)^2 = \tfrac12 m\dot r^2 + \frac{L^2}{2mr^2}$$
+
+using $L = mr^2\dot\theta$. The second term depends only on $r$, so as far as
+the radial motion is concerned it behaves exactly like a potential energy. Move
+it across:
+
+$$E = \tfrac12 m\dot r^2 + U_{\text{eff}}(r), \qquad U_{\text{eff}}(r) = U(r) + \frac{L^2}{2mr^2}$$
+
+Now the radial motion is a one-dimensional problem with the machinery you
+already have. That extra term is the **centrifugal barrier**. It blows up as
+$r \to 0$, which is the statement that a body with angular momentum cannot reach
+the centre. A circular orbit is just an equilibrium of $U_{\text{eff}}$, and its
+stability and radial frequency come from $U_{\text{eff}}''$.
+
+Rotating frames work the same way. A bead on a wire spun about a vertical axis
+at rate $\Omega$ feels a centrifugal term $-\tfrac12 m\Omega^2 x^2$ that you add
+to the gravitational $U$ before differentiating. For the parabolic wire
+$y = cx^2$ spun at $\Omega$,
+
+$$U_{\text{eff}} = mgcx^2 - \tfrac12 m\Omega^2 x^2, \qquad \omega = \sqrt{2gc - \Omega^2}$$
+
+Spin it fast enough and $2gc - \Omega^2$ goes negative: the bottom stops being a
+minimum, and the bead runs outward instead of oscillating.
+
+<Figure caption={<><b>Figure 3.</b> The effective potential for gravity, in units where GM and the mass are both 1. The dashed curve is the centrifugal barrier, the dotted curve is −1/r, and the solid curve is their sum. Raise the energy line until it crosses only once and the orbit is unbound; lower it to the bottom of the well and the two turning points merge into a circular orbit.</>}>
+  <Sim id="effective-potentials-orbit" />
+</Figure>
+
+**Worked example 4.** A spacecraft moves in Earth's field with energy per unit
+mass $E = -1.42\times10^{7}$ J/kg and angular momentum per unit mass
+$\ell = 6.47\times10^{10}$ m²/s. At a turning point all the radial speed is
+gone, so $E = U_{\text{eff}}$:
+
+$$E = \frac{\ell^2}{2r^2} - \frac{GM}{r}$$
+
+Find the closest approach, with $GM = 3.986\times10^{14}$ m³/s².
+
+Multiply through by $r^2$ and collect:
+
+$$Er^2 + GM\,r - \frac{\ell^2}{2} = 0$$
+
+Put the numbers in. $\ell^2 = (6.47\times10^{10})^2 = 4.186\times10^{21}$, so
+$\ell^2/2 = 2.093\times10^{21}$. Multiplying by $-1$ to make the leading
+coefficient positive:
+
+$$1.42\times10^{7}\,r^2 - 3.986\times10^{14}\,r + 2.093\times10^{21} = 0$$
+
+Quadratic formula. The discriminant is
+
+$$(3.986\times10^{14})^2 - 4(1.42\times10^{7})(2.093\times10^{21}) = 1.589\times10^{29} - 1.189\times10^{29} = 4.00\times10^{28}$$
+
+whose square root is $2.00\times10^{14}$. So
+
+$$r = \frac{3.986\times10^{14} \pm 2.00\times10^{14}}{2(1.42\times10^{7})}$$
+
+The two roots are $r = 2.10\times10^{7}$ m and $r = 6.99\times10^{6}$ m. Two
+turning points, because the orbit is bound: the far one is apogee, the near one
+is perigee. Closest approach is $6.99\times10^{6}$ m.
+
+There is a useful check built into that answer. Two real roots means bound. One
+root, where the discriminant vanishes, means the energy sits exactly at the
+minimum of $U_{\text{eff}}$ — a circular orbit. No real roots would mean that
+energy is not available at that angular momentum at all.
+
+## How far the parabola can be trusted
+
+The frequency $\sqrt{U''/m}$ is an approximation, good while the displacement is
+small enough that the cubic and quartic parts of the Taylor series stay
+negligible. Push the amplitude up and the period starts to depend on amplitude.
+
+For $U(x) = \tfrac12 kx^2 + \beta x^4$ the standard first correction is
+
+$$\omega \approx \omega_0\left(1 + \frac{3\beta A^2}{2k}\right)$$
+
+with $\omega_0 = \sqrt{k/m}$ and $A$ the amplitude. Take $m = 0.20$ kg,
+$k = 50$ N/m, $\beta = 4.0\times10^{3}$ J/m⁴ and $A = 3.0$ cm. Then
+$\omega_0 = \sqrt{50/0.20} = \sqrt{250} = 15.81$ rad/s, and the correction
+factor is
+
+$$1 + \frac{3(4.0\times10^{3})(0.030)^2}{2(50)} = 1 + \frac{10.8}{100} = 1.108$$
+
+so $\omega = 15.81 \times 1.108 = 17.5$ rad/s. A positive $\beta$ makes the well
+steeper than a parabola, so the oscillation is faster. That sign is worth
+remembering as a sanity check.
+
+One more thing the higher derivatives are good for. The force is $-U'$, so the
+force is largest in magnitude where $U'' = 0$ — the inflection point. For the
+Lennard-Jones potential
+
+$$U(r) = 4\varepsilon\left[\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^{6}\right]$$
+
+the minimum sits where $U' = 0$, which gives $r_0 = 2^{1/6}\sigma$, about
+$1.122\sigma$; with $\sigma = 0.340$ nm that is 0.382 nm. The inflection, where
+the attraction is strongest and beyond which the bond gives way, is at
+$r = (26/7)^{1/6}\sigma \approx 1.244\sigma = 0.423$ nm. Same function, three
+different questions, three different derivatives.
+
+## Recognising the technique
+
+Reach for this whenever a problem hands you an energy rather than a force. The
+tells:
+
+- The problem states $U(x)$, $U(r)$ or $U(\theta)$ explicitly and asks where
+  something sits, or how fast it wiggles. Set $U' = 0$, then use $U''$.
+- The words **small oscillations**, **slightly displaced**, **nudged**, or
+  **near the bottom** appear. That is a request for $\sqrt{U''/m_{\text{eff}}}$
+  and nothing else.
+- Something rotates at fixed angular momentum, or the frame spins at fixed
+  $\Omega$. Build $U_{\text{eff}}$ first, with the $L^2/2mr^2$ or
+  $-\tfrac12 m\Omega^2 x^2$ term inside it, then treat $r$ or $x$ as an
+  ordinary one-dimensional coordinate.
+- You are asked for a **turning point**, a closest approach, or the range of
+  motion at a given energy. Set $E = U_{\text{eff}}$ and solve; the number of
+  real roots tells you whether the motion is bound.
+- The system is not a particle on a line — a rolling ball, a bead on a wire, a
+  rigid body on a pivot. Write $K$ in your coordinate, read off $m_{\text{eff}}$,
+  and carry on.
+
+The one habit to build is drawing the curve. Sketch $U$, mark the flat spots,
+decide which hold water, and only then start differentiating. Half the errors in
+this topic are solving correctly for the wrong root.
+
+Next you take the same idea of a quantity varying with position and apply it to
+something that fills space rather than sitting at a point, in
+[Pressure & Buoyancy](/guide/pressure-buoyancy).

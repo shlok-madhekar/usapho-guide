@@ -1,0 +1,137 @@
+[
+ {
+  "id": "biot-savart-element",
+  "title": "One current element",
+  "caption": "What a single piece of current sends to a point, and how the angle controls it.",
+  "height": 250,
+  "params": [
+   {
+    "key": "theta",
+    "label": "Angle between the element and the line to P",
+    "unit": "deg",
+    "min": 0,
+    "max": 180,
+    "step": 1,
+    "value": 60
+   }
+  ],
+  "draw": "function arrow(x1,y1,x2,y2,col,wid){\n  ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=wid;\n  ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();\n  var a=Math.atan2(y2-y1,x2-x1), s=7;\n  ctx.beginPath();\n  ctx.moveTo(x2,y2);\n  ctx.lineTo(x2-s*Math.cos(a-0.4), y2-s*Math.sin(a-0.4));\n  ctx.lineTo(x2-s*Math.cos(a+0.4), y2-s*Math.sin(a+0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar th = p.theta * Math.PI / 180;\nvar cx = W * 0.22, cy = H * 0.72;\nvar L = Math.min(W, H) * 0.34;\nvar R = Math.min(W * 0.62, H * 0.72);\n\n// the wire the element sits in\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(cx - L * 0.8, cy); ctx.lineTo(cx + L * 1.9, cy); ctx.stroke();\n\n// the current element\narrow(cx, cy, cx + L, cy, C.accent, 3);\nctx.fillStyle = C.accent;\nctx.fillText(\"I dl  (current element)\", cx + 4, cy + 18);\n\n// r-hat from the element to the field point\nvar px = cx + R * Math.cos(th), py = cy - R * Math.sin(th);\narrow(cx, cy, px, py, C.figure, 1.5);\nctx.fillStyle = C.figure;\nctx.fillText(\"r\", cx + R * 0.52 * Math.cos(th) - 10, cy - R * 0.52 * Math.sin(th) - 6);\n\n// the angle\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.arc(cx, cy, 34, -th, 0); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"angle \" + p.theta.toFixed(0) + \" deg\", cx + 40, cy - 14 - 22 * Math.sin(th));\n\n// field point\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px, py, 3.5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"P\", px + 8, py - 6);\n\n// dB at P: out of the page, size proportional to sin(theta)\nvar s = Math.abs(Math.sin(th));\nvar rad = 5 + 16 * s;\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.arc(px, py, rad, 0, Math.PI * 2); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(px, py, 2.5 + 2 * s, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"dB out of the page\", px - 30, py + rad + 16);\n\n// a reminder bar of how big that is\nvar bx = W * 0.06, by = H * 0.16, bw = W * 0.34;\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.strokeRect(bx, by, bw, 10);\nctx.fillStyle = C.accent;\nctx.fillRect(bx, by, bw * s, 10);\nctx.fillStyle = C.ink;\nctx.fillText(\"dB as a fraction of its largest value\", bx, by - 6);\n\nout.note = \"sin of the angle = \" + s.toFixed(3) + \"  -  an element sends nothing straight ahead of itself (0 or 180 deg) and the most out sideways (90 deg)\";\n"
+ },
+ {
+  "id": "biot-savart-segment",
+  "title": "Finite wire lab",
+  "caption": "Stretch the wire and watch its field creep up to the infinite-wire answer.",
+  "height": 260,
+  "params": [
+   {
+    "key": "current",
+    "label": "Current",
+    "unit": "A",
+    "min": 1,
+    "max": 20,
+    "step": 0.5,
+    "value": 10
+   },
+   {
+    "key": "dist",
+    "label": "Distance of P from the wire",
+    "unit": "cm",
+    "min": 2,
+    "max": 40,
+    "step": 1,
+    "value": 10
+   },
+   {
+    "key": "half",
+    "label": "Half length of the wire",
+    "unit": "cm",
+    "min": 2,
+    "max": 200,
+    "step": 2,
+    "value": 50
+   }
+  ],
+  "draw": "function arrow(x1,y1,x2,y2,col,wid){\n  ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=wid;\n  ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();\n  var a=Math.atan2(y2-y1,x2-x1), s=7;\n  ctx.beginPath();\n  ctx.moveTo(x2,y2);\n  ctx.lineTo(x2-s*Math.cos(a-0.4), y2-s*Math.sin(a-0.4));\n  ctx.lineTo(x2-s*Math.cos(a+0.4), y2-s*Math.sin(a+0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar I = p.current, d = p.dist / 100, Lh = p.half / 100;\nvar sinMax = Lh / Math.sqrt(Lh * Lh + d * d);\nvar B = 2e-7 * I / d * sinMax;\nvar Binf = 2e-7 * I / d;\n\nvar pad = 30;\nvar span = Math.max(Lh, d) * 1.25;\nvar sc = Math.min((W - 2 * pad) / (2 * span), (H - 2 * pad) / (1.5 * span));\nvar ox = W / 2, oy = H * 0.78;\nvar X = function (x) { return ox + x * sc; };\nvar Y = function (y) { return oy - y * sc; };\n\n// full line the wire lies on\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(0, Y(0)); ctx.lineTo(W, Y(0)); ctx.stroke();\n\n// the segment itself\nctx.strokeStyle = C.accent; ctx.lineWidth = 3;\nctx.beginPath(); ctx.moveTo(X(-Lh), Y(0)); ctx.lineTo(X(Lh), Y(0)); ctx.stroke();\narrow(X(0), Y(0), X(0) + 22, Y(0), C.accent, 2);\nctx.fillStyle = C.accent;\nctx.fillText(\"I = \" + I.toFixed(1) + \" A\", X(0) + 26, Y(0) + 16);\n\n// field point\nvar Px = X(0), Py = Y(d);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(Px, Py); ctx.lineTo(X(0), Y(0)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(Px, Py, 3.5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"P\", Px + 8, Py - 6);\nctx.fillText(\"d = \" + (d * 100).toFixed(0) + \" cm\", Px + 8, (Py + Y(0)) / 2);\n\n// the two end angles\nctx.strokeStyle = C.figure; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(Px, Py); ctx.lineTo(X(Lh), Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(Px, Py); ctx.lineTo(X(-Lh), Y(0)); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"angle to each end\", Px + 14, Py + 20);\n\n// travelling element and its contribution\nvar per = 4.0;\nvar u = (t % per) / per;\nvar xs = -Lh + 2 * Lh * u;\nvar r2 = xs * xs + d * d;\nvar dB = d / Math.pow(r2, 1.5);\nvar dBmax = 1 / (d * d);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(xs), Y(0), 4, 0, Math.PI * 2); ctx.fill();\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(xs), Y(0)); ctx.lineTo(Px, Py); ctx.stroke();\nvar bar = 4 + 26 * (dB / dBmax);\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.arc(Px, Py, bar, 0, Math.PI * 2); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"size of this element's share\", Px + bar + 8, Py + 4);\n\nout.note = \"B at P = \" + (B * 1e6).toFixed(2) + \" microtesla, which is \" + (100 * B / Binf).toFixed(1) + \" percent of what an endless wire would give (\" + (Binf * 1e6).toFixed(2) + \" microtesla)\";\n"
+ },
+ {
+  "id": "biot-savart-loop",
+  "title": "Loop axis lab",
+  "caption": "Slide the field point off the centre of a coil and watch the field collapse.",
+  "height": 270,
+  "params": [
+   {
+    "key": "radius",
+    "label": "Loop radius",
+    "unit": "cm",
+    "min": 2,
+    "max": 25,
+    "step": 1,
+    "value": 10
+   },
+   {
+    "key": "current",
+    "label": "Current",
+    "unit": "A",
+    "min": 0.5,
+    "max": 10,
+    "step": 0.5,
+    "value": 4
+   },
+   {
+    "key": "turns",
+    "label": "Number of turns",
+    "unit": "",
+    "min": 1,
+    "max": 100,
+    "step": 1,
+    "value": 1
+   },
+   {
+    "key": "z",
+    "label": "Distance along the axis",
+    "unit": "cm",
+    "min": 0,
+    "max": 60,
+    "step": 1,
+    "value": 10
+   }
+  ],
+  "draw": "function arrow(x1,y1,x2,y2,col,wid){\n  ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=wid;\n  ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();\n  var a=Math.atan2(y2-y1,x2-x1), s=7;\n  ctx.beginPath();\n  ctx.moveTo(x2,y2);\n  ctx.lineTo(x2-s*Math.cos(a-0.4), y2-s*Math.sin(a-0.4));\n  ctx.lineTo(x2-s*Math.cos(a+0.4), y2-s*Math.sin(a+0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar R = p.radius / 100, I = p.current, z = p.z / 100, N = p.turns;\nvar mu = 4 * Math.PI * 1e-7;\nvar B = mu * N * I * R * R / (2 * Math.pow(R * R + z * z, 1.5));\nvar B0 = mu * N * I / (2 * R);\n\n// left panel: the loop seen edge on\nvar ox = W * 0.26, oy = H * 0.5;\nvar sc = Math.min(W * 0.20 / Math.max(R, 0.01), H * 0.32 / Math.max(R, 0.01));\nsc = Math.min(sc, H * 0.30 / Math.max(R, 0.01));\nvar rr = R * sc;\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(W * 0.46, oy); ctx.stroke();\nctx.fillStyle = C.faint; ctx.fillText(\"axis\", W * 0.40, oy - 6);\n\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(ox, oy - rr, 5, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(ox, oy + rr, 5, 0, Math.PI * 2); ctx.fill();\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.ellipse(ox, oy, rr * 0.30, rr, 0, 0, Math.PI * 2); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"loop, R = \" + (R * 100).toFixed(0) + \" cm\", ox - 30, oy + rr + 20);\n\n// field point on the axis\nvar zpix = Math.min(z * sc, W * 0.19);\nvar Px = ox + zpix;\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(Px, oy, 3.5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"P\", Px + 6, oy - 8);\narrow(Px, oy, Px + 26, oy, C.figure, 2);\nctx.fillStyle = C.figure; ctx.fillText(\"B\", Px + 30, oy + 4);\n\n// the two elements whose sideways parts cancel\nctx.strokeStyle = C.rule; ctx.setLineDash([3, 4]); ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(ox, oy - rr); ctx.lineTo(Px, oy); ctx.stroke();\nctx.beginPath(); ctx.moveTo(ox, oy + rr); ctx.lineTo(Px, oy); ctx.stroke();\nctx.setLineDash([]);\n\n// right panel: B against z\nvar gx = W * 0.56, gy = H * 0.16, gw = W * 0.38, gh = H * 0.62;\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(gx, gy); ctx.lineTo(gx, gy + gh); ctx.lineTo(gx + gw, gy + gh); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"B on the axis\", gx, gy - 6);\nctx.fillText(\"z\", gx + gw - 6, gy + gh + 16);\n\nvar zmax = 4 * R;\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 120; i++) {\n  var zz = zmax * i / 120;\n  var bb = (R * R * R) / Math.pow(R * R + zz * zz, 1.5);\n  var gxx = gx + gw * (zz / zmax);\n  var gyy = gy + gh - gh * bb;\n  if (i === 0) { ctx.moveTo(gxx, gyy); } else { ctx.lineTo(gxx, gyy); }\n}\nctx.stroke();\n\nvar frac = Math.min(z / zmax, 1);\nvar curB = (R * R * R) / Math.pow(R * R + z * z, 1.5);\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(gx + gw * frac, gy + gh - gh * Math.min(curB, 1), 4, 0, Math.PI * 2); ctx.fill();\nctx.strokeStyle = C.faint; ctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(gx, gy + gh - gh * Math.min(curB, 1)); ctx.lineTo(gx + gw * frac, gy + gh - gh * Math.min(curB, 1)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"centre value\", gx + 4, gy + 12);\n\nout.note = \"B = \" + (B * 1e6).toFixed(2) + \" microtesla at z = \" + (z * 100).toFixed(0) + \" cm, which is \" + (100 * B / B0).toFixed(1) + \" percent of the centre value \" + (B0 * 1e6).toFixed(2) + \" microtesla\";\n"
+ },
+ {
+  "id": "biot-savart-polygon",
+  "title": "Polygon loop lab",
+  "caption": "A polygon is one finite-wire formula used once per side.",
+  "height": 260,
+  "params": [
+   {
+    "key": "sides",
+    "label": "Number of sides",
+    "unit": "",
+    "min": 3,
+    "max": 12,
+    "step": 1,
+    "value": 4
+   },
+   {
+    "key": "side",
+    "label": "Side length",
+    "unit": "cm",
+    "min": 4,
+    "max": 30,
+    "step": 1,
+    "value": 20
+   },
+   {
+    "key": "current",
+    "label": "Current",
+    "unit": "A",
+    "min": 1,
+    "max": 10,
+    "step": 0.5,
+    "value": 5
+   }
+  ],
+  "draw": "function arrow(x1,y1,x2,y2,col,wid){\n  ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=wid;\n  ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();\n  var a=Math.atan2(y2-y1,x2-x1), s=7;\n  ctx.beginPath();\n  ctx.moveTo(x2,y2);\n  ctx.lineTo(x2-s*Math.cos(a-0.4), y2-s*Math.sin(a-0.4));\n  ctx.lineTo(x2-s*Math.cos(a+0.4), y2-s*Math.sin(a+0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar n = Math.round(p.sides);\nvar I = p.current, a = p.side / 100;\nvar mu = 4 * Math.PI * 1e-7;\nvar d = a / (2 * Math.tan(Math.PI / n));\nvar Bside = mu * I / (4 * Math.PI * d) * 2 * Math.sin(Math.PI / n);\nvar B = n * Bside;\nvar Rcirc = a / (2 * Math.sin(Math.PI / n));\nvar Bcirc = mu * I / (2 * Rcirc);\n\nvar cx = W * 0.32, cy = H * 0.52;\nvar rad = Math.min(W * 0.24, H * 0.36);\nctx.strokeStyle = C.accent; ctx.lineWidth = 2.5;\nctx.beginPath();\nfor (var i = 0; i <= n; i++) {\n  var ang = -Math.PI / 2 + 2 * Math.PI * i / n;\n  var x = cx + rad * Math.cos(ang), y = cy + rad * Math.sin(ang);\n  if (i === 0) { ctx.moveTo(x, y); } else { ctx.lineTo(x, y); }\n}\nctx.stroke();\n\n// the circle the corners sit on\nctx.strokeStyle = C.faint; ctx.lineWidth = 1; ctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.arc(cx, cy, rad, 0, Math.PI * 2); ctx.stroke();\nctx.setLineDash([]);\n\n// perpendicular from centre to one side\nvar a0 = -Math.PI / 2 + Math.PI / n;\nvar mx = cx + rad * Math.cos(a0) * Math.cos(Math.PI / n);\nvar my = cy + rad * Math.sin(a0) * Math.cos(Math.PI / n);\nctx.strokeStyle = C.figure; ctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(mx, my); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"d\", (cx + mx) / 2 + 6, (cy + my) / 2);\n\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"centre\", cx - 18, cy + 18);\nctx.fillStyle = C.accent;\nctx.fillText(n + \" sides, \" + (a * 100).toFixed(0) + \" cm each\", cx - rad, cy - rad - 12);\n\n// bar chart: one side, whole polygon, the circle of the same corner radius\nvar bx = W * 0.62, by = H * 0.22, bw = W * 0.30, rowh = 22;\nvar top = Math.max(B, Bcirc);\nfunction row(lab, val, k, col) {\n  ctx.fillStyle = C.ink;\n  ctx.fillText(lab, bx, by + k * (rowh + 16) - 4);\n  ctx.strokeStyle = C.rule; ctx.lineWidth = 1;\n  ctx.strokeRect(bx, by + k * (rowh + 16), bw, 12);\n  ctx.fillStyle = col;\n  ctx.fillRect(bx, by + k * (rowh + 16), bw * (val / top), 12);\n  ctx.fillStyle = C.ink;\n  ctx.fillText((val * 1e6).toFixed(1) + \" uT\", bx, by + k * (rowh + 16) + 24);\n}\nrow(\"one side alone\", Bside, 0, C.figure);\nrow(\"all \" + n + \" sides\", B, 1, C.accent);\nrow(\"circle through the corners\", Bcirc, 2, C.rule);\n\nout.note = \"polygon centre B = \" + (B * 1e6).toFixed(2) + \" microtesla; the circle through its corners gives \" + (Bcirc * 1e6).toFixed(2) + \" microtesla. Raise the number of sides and the two close in on each other.\";\n"
+ }
+]

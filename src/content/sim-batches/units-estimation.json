@@ -1,0 +1,64 @@
+[
+ {
+  "id": "units-estimation-exponents",
+  "title": "Exponent matcher",
+  "caption": "Drag the exponents until all three dimensions match a speed.",
+  "height": 230,
+  "params": [
+   {
+    "key": "a",
+    "label": "Exponent a on tension",
+    "unit": "",
+    "min": -1.5,
+    "max": 1.5,
+    "step": 0.25,
+    "value": 1
+   },
+   {
+    "key": "b",
+    "label": "Exponent b on mass per length",
+    "unit": "",
+    "min": -1.5,
+    "max": 1.5,
+    "step": 0.25,
+    "value": 0
+   }
+  ],
+  "draw": "var a = p.a, b = p.b;\nvar mEx = a + b, lEx = a - b, tEx = -2 * a;\nvar targ = [0, 1, -1];\nvar got = [mEx, lEx, tEx];\nvar names = [\"M  (mass)\", \"L  (length)\", \"T  (time)\"];\nvar pad = 74;\nvar x0 = pad, x1 = W - 16;\nvar mid = (x0 + x1) / 2;\nvar scale = (x1 - x0) / 2 / 2.6;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\nctx.lineWidth = 1;\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"v = T_s^a mu^b   ->   M^(a+b) L^(a-b) T^(-2a)\", 10, 16);\nctx.fillStyle = C.figure;\nctx.fillText(\"target for a speed:  M^0 L^1 T^-1\", 10, 34);\n\nvar ok = true;\nfor (var i = 0; i < 3; i++) {\n  var y = 62 + i * 34;\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke();\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath(); ctx.moveTo(mid, y - 11); ctx.lineTo(mid, y + 11); ctx.stroke();\n\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"right\";\n  ctx.fillText(names[i], x0 - 8, y);\n\n  var gx = mid + got[i] * scale;\n  var tx = mid + targ[i] * scale;\n  var hit = Math.abs(got[i] - targ[i]) < 0.01;\n  if (!hit) ok = false;\n\n  ctx.strokeStyle = C.accent;\n  ctx.lineWidth = hit ? 5 : 3;\n  ctx.beginPath(); ctx.moveTo(mid, y); ctx.lineTo(gx, y); ctx.stroke();\n  ctx.lineWidth = 1;\n\n  ctx.strokeStyle = C.figure;\n  ctx.beginPath();\n  ctx.moveTo(tx, y - 13); ctx.lineTo(tx - 5, y - 21); ctx.lineTo(tx + 5, y - 21);\n  ctx.closePath(); ctx.stroke();\n\n  ctx.fillStyle = C.figure;\n  ctx.textAlign = \"center\";\n  ctx.fillText(targ[i].toFixed(0), tx, y - 28);\n  ctx.fillStyle = C.accent;\n  ctx.fillText(got[i].toFixed(2), gx, y + 14);\n}\n\nif (ok) {\n  var pulse = 0.55 + 0.45 * Math.sin(t * 3);\n  ctx.globalAlpha = pulse;\n  ctx.fillStyle = C.accent;\n  ctx.textAlign = \"center\";\n  ctx.fillText(\"all three match:  v = sqrt(T_s / mu)\", W / 2, H - 12);\n  ctx.globalAlpha = 1;\n} else {\n  ctx.fillStyle = C.figure;\n  ctx.textAlign = \"center\";\n  ctx.fillText(\"orange bar must reach the outlined marker on every row\", W / 2, H - 12);\n}\n\nout.note = \"a = \" + a.toFixed(2) + \", b = \" + b.toFixed(2) +\n  \"   M: \" + mEx.toFixed(2) + \" (need 0), L: \" + lEx.toFixed(2) +\n  \" (need 1), T: \" + tEx.toFixed(2) + \" (need -1)\" + (ok ? \"  SOLVED\" : \"\");\n"
+ },
+ {
+  "id": "units-estimation-pendulum",
+  "title": "Pendulum period lab",
+  "caption": "Length and gravity set the period; mass never appears.",
+  "height": 250,
+  "params": [
+   {
+    "key": "L",
+    "label": "Length",
+    "unit": "m",
+    "min": 0.2,
+    "max": 4,
+    "step": 0.05,
+    "value": 1
+   },
+   {
+    "key": "g",
+    "label": "Gravity",
+    "unit": "m/s^2",
+    "min": 1.6,
+    "max": 24,
+    "step": 0.1,
+    "value": 9.8
+   }
+  ],
+  "draw": "var L = p.L, g = p.g;\nvar T = 2 * Math.PI * Math.sqrt(L / g);\nvar th0 = 0.30;\nvar th = th0 * Math.cos(2 * Math.PI * t / T);\n\nvar pad = 20;\nvar px = W * 0.5;\nvar py = pad + 8;\nvar Lmax = 4.2;\nvar pixPerM = (H - pad * 2 - 26) / Lmax;\nvar len = L * pixPerM;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\nctx.lineWidth = 1;\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(px - 46, py); ctx.lineTo(px + 46, py); ctx.stroke();\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py + len + 16); ctx.stroke();\nctx.setLineDash([]);\n\nvar bx = px + len * Math.sin(th);\nvar by = py + len * Math.cos(th);\n\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(bx, by); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(bx, by, 8, 0, Math.PI * 2); ctx.fill();\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(bx, by + 10); ctx.lineTo(bx, by + 10 + g * 1.6); ctx.stroke();\nctx.beginPath();\nctx.moveTo(bx, by + 14 + g * 1.6);\nctx.lineTo(bx - 4, by + 8 + g * 1.6);\nctx.lineTo(bx + 4, by + 8 + g * 1.6);\nctx.closePath(); ctx.fill();\nctx.fillStyle = C.figure;\nctx.textAlign = \"left\";\nctx.fillText(\"g\", bx + 7, by + 14 + g * 0.8);\n\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(px - 26, py); ctx.lineTo(px - 26, py + len);\nctx.moveTo(px - 30, py); ctx.lineTo(px - 22, py);\nctx.moveTo(px - 30, py + len); ctx.lineTo(px - 22, py + len);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.textAlign = \"right\";\nctx.fillText(\"L = \" + L.toFixed(2) + \" m\", px - 34, py + len / 2);\n\nvar gw = W - 30;\nvar y0 = H - 14;\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(14, y0); ctx.lineTo(14 + gw, y0); ctx.stroke();\nvar frac = (t % T) / T;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 3;\nctx.beginPath(); ctx.moveTo(14, y0); ctx.lineTo(14 + gw * frac, y0); ctx.stroke();\nctx.lineWidth = 1;\nctx.fillStyle = C.figure;\nctx.textAlign = \"left\";\nctx.fillText(\"one period\", 14, y0 - 12);\nctx.textAlign = \"right\";\nctx.fillText(T.toFixed(2) + \" s\", 14 + gw, y0 - 12);\n\nout.note = \"T = 2*pi*sqrt(L/g) = 2*pi*sqrt(\" + L.toFixed(2) + \"/\" + g.toFixed(1) +\n  \") = \" + T.toFixed(2) + \" s   (quadruple L and T only doubles)\";\n"
+ },
+ {
+  "id": "units-estimation-fermi",
+  "title": "Fermi chain for piano tuners",
+  "caption": "Each arrow is a conversion factor; the units cancel down the chain.",
+  "height": 220,
+  "params": [],
+  "draw": "var rows = [\n  [\"people\", \"2.7e6 people\"],\n  [\"divide by 2.5 people per household\", \"1.1e6 households\"],\n  [\"divide by 20 households per piano\", \"5.4e4 pianos\"],\n  [\"times 1 tuning per piano per year\", \"5.4e4 tunings/yr\"],\n  [\"divide by 1000 tunings per tuner per year\", \"54 tuners\"]\n];\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\nctx.lineWidth = 1;\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"Fermi chain: each link cancels one unit and hands on the next\", 12, 16);\n\nvar top = 40;\nvar gap = (H - top - 16) / rows.length;\nvar boxW = Math.min(200, W * 0.42);\nvar bx = W - boxW - 12;\n\nfor (var i = 0; i < rows.length; i++) {\n  var y = top + gap * i;\n  ctx.strokeStyle = i === rows.length - 1 ? C.accent : C.rule;\n  ctx.lineWidth = i === rows.length - 1 ? 2 : 1;\n  ctx.beginPath();\n  ctx.rect(bx, y - 12, boxW, 24);\n  ctx.stroke();\n  ctx.lineWidth = 1;\n  ctx.fillStyle = i === rows.length - 1 ? C.accent : C.ink;\n  ctx.textAlign = \"center\";\n  ctx.fillText(rows[i][1], bx + boxW / 2, y);\n\n  if (i > 0) {\n    ctx.strokeStyle = C.faint;\n    ctx.beginPath();\n    ctx.moveTo(bx + boxW / 2, y - 12 - gap + 24);\n    ctx.lineTo(bx + boxW / 2, y - 16);\n    ctx.stroke();\n    ctx.fillStyle = C.figure;\n    ctx.beginPath();\n    ctx.moveTo(bx + boxW / 2, y - 12);\n    ctx.lineTo(bx + boxW / 2 - 4, y - 19);\n    ctx.lineTo(bx + boxW / 2 + 4, y - 19);\n    ctx.closePath();\n    ctx.fill();\n    ctx.fillStyle = C.figure;\n    ctx.textAlign = \"right\";\n    ctx.fillText(rows[i][0], bx - 12, y - gap / 2);\n  }\n}\nout.note = \"\";\n"
+ }
+]

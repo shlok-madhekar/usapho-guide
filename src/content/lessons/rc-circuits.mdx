@@ -1,63 +1,252 @@
-## Why the response is exponential
+A camera flash takes a couple of seconds to charge and then dumps everything it has in about a millisecond. Same capacitor, same energy, two wildly different timescales. What changed was the resistance the charge had to squeeze through on its way in and on its way out.
 
-Put a resistor and a capacitor in series with a battery. The loop rule gives
+That is the whole subject. In [Kirchhoff's Laws](/guide/kirchhoff) you solved networks where every current was fixed the moment the switch closed and stayed there forever. Put a capacitor in and that stops being true: the circuit has a memory, and the currents drift from one set of values to another over a time you can predict.
+
+## The capacitor's one rule
+
+A capacitor stores charge $Q$ on its plates and, as a result, holds a voltage across itself:
+
+$$V_C = \frac{Q}{C}$$
+
+$C$ is the capacitance in farads, and a farad is a coulomb per volt. A microfarad, $1\ \mu\mathrm{F} = 10^{-6}\ \mathrm{F}$, is the size you will actually meet.
+
+The useful way to read that equation is backwards. Charge is what you can move, and moving charge takes current, and current takes time. So $V_C$ cannot jump. To change the capacitor's voltage by $\Delta V$ you have to deliver $\Delta Q = C\,\Delta V$ of charge, and if the current is finite that takes a finite time. Every other voltage in the circuit can change instantly when you flip a switch. The capacitor's cannot.
+
+That single fact is worth more than the formulas that follow. Hold onto it.
+
+## Why the response is an exponential
+
+Take the simplest loop: a battery of emf $\mathcal{E}$, a resistor $R$, a capacitor $C$, and a switch you close at $t = 0$ with the capacitor empty. Go around the loop the way you learned:
 
 $$\mathcal{E} = IR + \frac{Q}{C}$$
 
-Substituting $I = dQ/dt$ turns this into a differential equation whose rate of
-change is proportional to how far the system still has to go. That is the
-signature of exponential relaxation, and it is why every RC quantity is an
-exponential in $t/RC$.
+The current in the loop is charge arriving at the capacitor, so $I = dQ/dt$. Substitute:
 
-Charging from empty:
+$$\mathcal{E} = R\frac{dQ}{dt} + \frac{Q}{C}$$
 
-$$Q(t) = C\mathcal{E}\left(1 - e^{-t/RC}\right), \qquad I(t) = \frac{\mathcal{E}}{R}e^{-t/RC}$$
+Rearrange to isolate the rate:
 
-Discharging a capacitor through a resistor:
+$$\frac{dQ}{dt} = \frac{1}{RC}\left(C\mathcal{E} - Q\right)$$
 
-$$Q(t) = Q_0 e^{-t/RC}$$
+Look at what that says before you solve it. The final charge, once nothing is changing, is $Q_\infty = C\mathcal{E}$. The bracket is how far the capacitor still has to go. So the rate of change is proportional to the remaining gap: far from done, fast; nearly done, slow. A quantity whose rate of approach is proportional to its remaining distance is an exponential approach, always. Nothing else has that property.
 
-Notice the current decays the same way in both cases. Only the charge differs,
-because charging approaches a nonzero final value and discharging approaches
-zero.
+Solving it — separate and integrate, $\int dQ/(C\mathcal{E}-Q) = \int dt/RC$ — gives
 
-## The time constant
+$$Q(t) = C\mathcal{E}\left(1 - e^{-t/RC}\right), \qquad V_C(t) = \mathcal{E}\left(1 - e^{-t/RC}\right)$$
 
-The product $\tau = RC$ has units of seconds and sets the only timescale in the
-problem. After one $\tau$ the gap to the final value has shrunk to $1/e$, about
-37% of what it was; after three, to 5%; after five, to under 1%.
+and differentiating once returns the current:
 
-Larger $R$ means a smaller current for the same voltage, so charge accumulates
-slowly. Larger $C$ means more charge is needed to reach the same voltage. Both
-push $\tau$ up, which is why they multiply rather than divide.
+$$I(t) = \frac{\mathcal{E}}{R}e^{-t/RC}$$
 
-## The two limits do most of the work
+At $t = 0$ the capacitor has no voltage, so the resistor takes the whole emf and the current is the largest it will ever be, $\mathcal{E}/R$. As charge piles up, the capacitor's voltage eats into the emf, less is left for the resistor, and the current dies.
 
-Almost every transient question at the olympiad level is answered without
-touching an exponential, by sketching two circuits.
+For a capacitor with initial charge $Q_0$ discharging through $R$ with no battery in the loop, the same algebra with $\mathcal{E} = 0$ gives
 
-**At $t = 0^+$**, a capacitor that held no charge holds no voltage, so it acts
-like a plain wire. Replace it with a short and solve the resistive circuit that
-remains.
+$$Q(t) = Q_0 e^{-t/RC}, \qquad V_C(t) = V_0 e^{-t/RC}, \qquad I(t) = \frac{V_0}{R}e^{-t/RC}$$
 
-**As $t \to \infty$**, nothing is changing, so no current flows into the
-capacitor and it acts like a break. Replace it with a gap and solve again.
+The current decays identically in both cases. Only the charge differs, because charging climbs to something and discharging falls to nothing.
 
-Anything in between interpolates exponentially between those two answers with
-the time constant set by the resistance the capacitor *sees*.
+<Figure caption={<><b>Figure 1.</b> Charging in real time. The rising curve is the capacitor voltage, the falling one the current. Drag the resistance and the capacitance and watch the shape stay exactly the same while the clock stretches. Notice the curve always passes through 63 percent of its final value at one time constant, whatever you set.</>}>
+  <Sim id="rc-circuits-charge-lab" />
+</Figure>
 
-<Aside label="Where this goes wrong" warn>
-  In a network with several resistors, $\tau$ is not $RC$ for whichever
-  resistor sits next to the capacitor. Kill the sources — short the batteries,
-  open the current sources — and find the Thevenin resistance looking back into
-  the circuit from the capacitor's two terminals. That is the $R$ in $\tau$. A
-  resistor sitting directly across the capacitor changes the time constant even
-  though it carries no steady-state charging current.
+## The time constant does the thinking
+
+The product
+
+$$\tau = RC$$
+
+has units of seconds — check it: ohms times farads is (volts per amp) times (coulombs per volt), which is coulombs per amp, which is seconds. It is the only timescale in the problem, and it is the number to compute first in any transient question.
+
+Why the product, rather than a ratio? Bigger $R$ means less current for the same voltage, so charge arrives more slowly. Bigger $C$ means more charge is needed to reach a given voltage. Both stretch the process, so both belong upstairs.
+
+Numbers worth memorising. After one $\tau$ the gap to the final value has fallen to $e^{-1} = 0.368$ of what it was, so a charging capacitor is 63 percent of the way there. After three, $e^{-3} = 0.0498$, about 5 percent remains. After five, under 1 percent.
+
+Run the logic backwards to solve for a time. To reach a fraction $f$ of the final value while charging, you need $1 - e^{-t/\tau} = f$, so
+
+$$t = -\tau\ln(1 - f)$$
+
+To fall to a fraction $f$ while discharging, $t = -\tau\ln f = \tau\ln(1/f)$. The half-life of a discharge is $t_{1/2} = \tau\ln 2 \approx 0.693\,\tau$.
+
+<Aside label="Worth remembering">
+  Five time constants is "finished" for every practical purpose, and $\ln 2 \approx 0.693$, $\ln 10 \approx 2.303$ will get you through most of the arithmetic. A decade of decay costs $2.3\tau$.
 </Aside>
 
+**Worked example 1.** A $22\ \mu\mathrm{F}$ capacitor is charged and then discharged through a $10\ \mathrm{k\Omega}$ resistor. How long until its voltage is half the starting value?
+
+First the time constant:
+
+$$\tau = RC = (10 \times 10^{3}\ \Omega)(22 \times 10^{-6}\ \mathrm{F}) = 0.22\ \mathrm{s}$$
+
+Then the half-life:
+
+$$t = \tau\ln 2 = (0.22)(0.6931) = 0.1525\ \mathrm{s}$$
+
+Notice the starting voltage never entered. Every exponential decay halves in the same time no matter where you start it, which is why the question could leave that number out.
+
 <QuickCheck
-  question="A capacitor charges through a resistor. Compared to the charge, the current during charging:"
-  options={["Rises exponentially toward a final value", "Decays exponentially toward zero", "Stays constant until the capacitor fills", "Peaks partway through the charging"]}
-  answer={1}
-  explanation="The current starts at the maximum set by the resistor alone and decays with the same time constant, because the capacitor's growing voltage progressively opposes the source."
+  question="A capacitor discharging through a resistor has fallen to half its initial voltage. How much longer until it reaches one quarter?"
+  options={["The same time again", "Twice as long as the first half", "Half as long, since less charge is left", "It never gets there"]}
+  answer={0}
+  explanation="Decay is exponential, so equal time intervals multiply the voltage by equal factors. One more interval of tau ln 2 halves it again, from one half to one quarter."
 />
+
+## The two limits answer most questions
+
+Before you reach for $e^{-t/\tau}$, check whether the question only asks about $t = 0^+$ or $t \to \infty$. It usually does, and those two cases need no calculus at all — just two resistive circuits you already know how to solve.
+
+**Immediately after the switch closes**, the capacitor's voltage is still whatever it was a moment earlier. If it started empty, that voltage is zero, and a component with zero volts across it is a plain wire. Redraw the circuit with the capacitor replaced by a **short** and solve.
+
+**After a long time**, nothing is changing, so $dQ/dt = 0$, so no current flows in the capacitor's branch. A branch carrying no current is a **break**. Redraw with the capacitor replaced by an **open gap** and solve.
+
+Everything in between slides exponentially from the first answer to the second.
+
+<Figure caption={<><b>Figure 2.</b> The same loop drawn three ways. Left, the real circuit. Middle, what to draw at the instant the switch closes on an empty capacitor: a wire, so the resistor sets the current. Right, what to draw long after: a gap, so no current flows at all. Almost every transient question is one of these two pictures.</>}>
+  <Sim id="rc-circuits-limits" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  The short-circuit replacement is only valid for a capacitor that starts <i>uncharged</i>. A capacitor that already sits at 6 V still sits at 6 V one microsecond after you flip a switch — at $t = 0^+$ you replace it with a 6 V battery, not a wire. Getting this wrong is the single most common error in transient problems.
+</Aside>
+
+**Worked example 2.** A $12\ \mathrm{V}$ battery feeds node $A$ through $R_1 = 6.0\ \mathrm{k\Omega}$. A resistor $R_2 = 3.0\ \mathrm{k\Omega}$ runs from $A$ to ground, and an uncharged $100\ \mu\mathrm{F}$ capacitor also runs from $A$ to ground. Find the battery current just after the switch closes, the capacitor voltage long after, and the time constant.
+
+*Just after.* The capacitor is empty, so node $A$ is pinned to ground through a wire. $R_2$ is shorted out and irrelevant. The battery sees only $R_1$:
+
+$$I(0^+) = \frac{12\ \mathrm{V}}{6.0 \times 10^{3}\ \Omega} = 2.0 \times 10^{-3}\ \mathrm{A}$$
+
+*Long after.* The capacitor is a gap, so the current runs straight through $R_1$ and $R_2$ in series. That is a voltage divider:
+
+$$V_A = 12\,\frac{3.0}{6.0 + 3.0} = 4.0\ \mathrm{V}$$
+
+and the capacitor, sitting from $A$ to ground, holds that same 4.0 V.
+
+*The time constant.* This is where people slip. The resistance in $\tau$ is not $R_1$, and it is not $R_2$. It is the resistance the capacitor **sees** looking back into the circuit from its own two terminals, with the sources killed — batteries replaced by wires, since an ideal battery holds its terminals at a fixed difference and so offers no resistance.
+
+Kill the 12 V source and the top of $R_1$ is connected straight to ground. Now $R_1$ and $R_2$ both run from node $A$ to ground: they are in parallel.
+
+$$R_{\text{th}} = \frac{R_1R_2}{R_1 + R_2} = \frac{(6.0)(3.0)}{9.0} = 2.0\ \mathrm{k\Omega}$$
+
+$$\tau = R_{\text{th}}C = (2.0 \times 10^{3})(100 \times 10^{-6}) = 0.20\ \mathrm{s}$$
+
+So $V_C(t) = 4.0\left(1 - e^{-t/0.20}\right)$ volts, and you got every piece of it from two resistive sketches plus one parallel combination.
+
+## Finding the R the capacitor sees
+
+The recipe generalises, and it is the only technique you need for messy networks.
+
+1. Pull the capacitor out, leaving two terminals.
+2. Kill every source: short the ideal batteries, open the ideal current sources.
+3. Compute the resistance between those two terminals with series and parallel rules.
+4. That resistance times $C$ is $\tau$. Put the capacitor back and find the final voltage from the ordinary steady-state circuit.
+
+A worked case from the problem bank. A 12 V battery drives two parallel branches: $R_1 = 1.0\ \mathrm{k\Omega}$ down to node $A$ then $R_2 = 1.0\ \mathrm{k\Omega}$ to the negative terminal, and $R_3 = 2.0\ \mathrm{k\Omega}$ down to node $B$ then $R_4 = 3.0\ \mathrm{k\Omega}$ to the negative terminal. A capacitor bridges $A$ and $B$.
+
+In the final state the capacitor carries no current, so each branch is just a divider on its own. $V_A = 12(1.0/2.0) = 6.0\ \mathrm{V}$ and $V_B = 12(3.0/5.0) = 7.2\ \mathrm{V}$, so the capacitor settles at $|V_A - V_B| = 1.2\ \mathrm{V}$.
+
+For $\tau$, short the battery. Then $R_1$ and $R_2$ both run from $A$ to the same node, giving $0.5\ \mathrm{k\Omega}$, and $R_3$ and $R_4$ both run from $B$ to that node, giving $(2)(3)/5 = 1.2\ \mathrm{k\Omega}$. Walking from terminal $A$ to terminal $B$ you pass through both in series:
+
+$$R_{\text{th}} = 0.5 + 1.2 = 1.7\ \mathrm{k\Omega}$$
+
+With $C = 47\ \mu\mathrm{F}$, $\tau = (1.7\times10^{3})(47\times10^{-6}) = 0.0799\ \mathrm{s}$.
+
+<Figure caption={<><b>Figure 3.</b> A divider with the capacitor hanging off the middle node. Move the two resistances and watch the final voltage and the time constant move independently. Try making one resistor much smaller than the other, and see the effective resistance follow the smaller one.</>}>
+  <Sim id="rc-circuits-thevenin" />
+</Figure>
+
+<QuickCheck
+  question="A capacitor charges through a 6 kilohm resistor from a battery, with a 3 kilohm resistor sitting directly across the capacitor. Compared with the same circuit without that second resistor, the time constant is:"
+  options={["Larger, because there is more resistance in total", "Unchanged, since no steady current flows in the capacitor", "Smaller, because the two resistors act in parallel across the capacitor", "Zero, since the capacitor is shorted out"]}
+  answer={2}
+  explanation="Kill the battery and both resistors run between the capacitor's terminals, so the capacitor sees 6 times 3 over 9, which is 2 kilohm. A resistor across the capacitor always speeds the transient up, even though it changes nothing about the final voltage being reached exponentially."
+/>
+
+Capacitors in the same loop combine before you do any of this. Two capacitors in series store the same charge and their voltages add, so $1/C_{\text{eq}} = 1/C_1 + 1/C_2$; in parallel they share a voltage and their charges add, so $C_{\text{eq}} = C_1 + C_2$. A $10\ \mu\mathrm{F}$ and a $15\ \mu\mathrm{F}$ in series give $(10)(15)/25 = 6.0\ \mu\mathrm{F}$, and with a $100\ \mathrm{k\Omega}$ resistor that is $\tau = 0.60\ \mathrm{s}$. Note that this is the opposite of the resistor rules, which catches people out constantly.
+
+## Energy, heat, and the factor of one half
+
+A charged capacitor stores
+
+$$U = \tfrac{1}{2}CV^2 = \frac{Q^2}{2C}$$
+
+A camera flash with $120\ \mu\mathrm{F}$ at $350\ \mathrm{V}$ holds $\tfrac12(120\times10^{-6})(350)^2 = 7.35\ \mathrm{J}$.
+
+Now charge that capacitor from a battery through a resistor and count the energy. The battery pushes a total charge $Q = C\mathcal{E}$ around the loop at emf $\mathcal{E}$, so it does work $Q\mathcal{E} = C\mathcal{E}^2$. The capacitor ends up with $\tfrac12 C\mathcal{E}^2$. The missing half went into the resistor:
+
+$$W_R = C\mathcal{E}^2 - \tfrac{1}{2}C\mathcal{E}^2 = \tfrac{1}{2}C\mathcal{E}^2$$
+
+Exactly half the battery's work is wasted as heat, whatever $R$ is. Making the resistor smaller makes the charging faster and the current bigger, and those two effects cancel perfectly. For $470\ \mu\mathrm{F}$ charged by $9.0\ \mathrm{V}$, that heat is $\tfrac12(470\times10^{-6})(81) = 0.0190\ \mathrm{J}$.
+
+If you want the heat over part of the process, integrate the power. With $I = (\mathcal{E}/R)e^{-t/\tau}$,
+
+$$P_R = I^2R = \frac{\mathcal{E}^2}{R}e^{-2t/\tau}$$
+
+The instantaneous power falls twice as fast as the current, because it goes as the square. Integrating from 0 to a time $T$:
+
+$$W_R = \frac{\mathcal{E}^2}{R}\cdot\frac{\tau}{2}\left(1 - e^{-2T/\tau}\right) = \tfrac{1}{2}C\mathcal{E}^2\left(1 - e^{-2T/\tau}\right)$$
+
+using $\tau = RC$ to cancel the $R$. The same expression with $\mathcal{E}$ replaced by $V_0$ gives the energy delivered by a discharge in its first $T$ seconds.
+
+**Worked example 3.** A $200\ \mu\mathrm{F}$ capacitor is charged from zero through a resistor by a $50\ \mathrm{V}$ battery. How much energy is dissipated in the resistor between $t = 0$ and $t = \tau$?
+
+Put $T = \tau$ in the result above, so the exponent is $-2$:
+
+$$W_R = \tfrac{1}{2}(200\times10^{-6})(50)^2\left(1 - e^{-2}\right)$$
+
+$$\tfrac{1}{2}(200\times10^{-6})(2500) = 0.250\ \mathrm{J}, \qquad 1 - e^{-2} = 1 - 0.1353 = 0.8647$$
+
+$$W_R = (0.250)(0.8647) = 0.216\ \mathrm{J}$$
+
+So 86 percent of the waste heat appears in the first time constant. The resistance never appeared, and it could not have: the answer depends only on how far along the process you are, and $\tau$ measures exactly that.
+
+<Aside label="Worth remembering">
+  Energy in a capacitor goes as $V^2$, so the stored energy decays as $e^{-2t/\tau}$ and halves in $\tfrac{\tau}{2}\ln 2$, not $\tau\ln 2$. The same factor of two applies to dissipated power. Whenever a question asks about energy or power rather than voltage or charge, expect $2t/\tau$ in the exponent.
+</Aside>
+
+## When two capacitors share charge
+
+Connect a charged capacitor $C_1$ at $V_0$ through a resistor to an uncharged $C_2$ in a single loop. Current flows until the loop has no net driving voltage left.
+
+For the time constant, treat the two capacitors as being in series around that loop — the same current passes through both, delivering the same charge to each — so
+
+$$\tau = R\,\frac{C_1C_2}{C_1 + C_2}$$
+
+For $C_1 = 12\ \mu\mathrm{F}$, $C_2 = 4.0\ \mu\mathrm{F}$, $R = 2.2\ \mathrm{k\Omega}$: the series combination is $(12)(4)/16 = 3.0\ \mu\mathrm{F}$, so $\tau = (2200)(3.0\times10^{-6}) = 0.0066\ \mathrm{s}$.
+
+For the energy lost, do not chase the integral. Let $q$ be the charge that has moved when the current finally stops. At that moment the loop voltage is zero, so $V_0 - q/C_1 - q/C_2 = 0$, giving $q = C_s V_0$ where $C_s$ is that same series combination. The energy dissipated is the drop in stored energy, and grinding through the algebra leaves a clean result:
+
+$$W_R = \tfrac{1}{2}C_s\,(\Delta V_0)^2$$
+
+where $\Delta V_0$ is the initial voltage mismatch around the loop. Two $10\ \mu\mathrm{F}$ capacitors, one at 100 V and one empty, have $C_s = 5.0\ \mu\mathrm{F}$ and $\Delta V_0 = 100\ \mathrm{V}$, so $W_R = \tfrac12(5.0\times10^{-6})(10^4) = 0.025\ \mathrm{J}$. A quarter of the original 0.05 J is gone, and the resistance does not appear. Replace the wire with a better conductor and you lose exactly the same energy in a shorter, fiercer pulse.
+
+**Worked example 4.** An uncharged $100\ \mu\mathrm{F}$ capacitor charges through a $10\ \mathrm{k\Omega}$ resistor from a $20\ \mathrm{V}$ battery. At $t = 1.0\ \mathrm{s}$ the battery is swapped for a plain wire, so the capacitor now discharges through the same resistor. Find $V_C$ at $t = 2.0\ \mathrm{s}$.
+
+Break it at the switch-over. The time constant is the same in both phases:
+
+$$\tau = (10\times10^{3})(100\times10^{-6}) = 1.0\ \mathrm{s}$$
+
+*Phase one*, charging for one full time constant:
+
+$$V_C(1.0) = 20\left(1 - e^{-1.0/1.0}\right) = 20(1 - 0.3679) = 20(0.6321) = 12.64\ \mathrm{V}$$
+
+*Phase two.* The capacitor's voltage cannot jump, so 12.64 V is the starting value for the discharge. Reset the clock: one more second elapses, which is again one time constant.
+
+$$V_C(2.0) = 12.64\,e^{-1.0/1.0} = (12.64)(0.3679) = 4.65\ \mathrm{V}$$
+
+Two exponentials, each handled on its own, stitched together by the one thing that carries across the switch: the capacitor voltage. That is the pattern for every multi-stage transient. Find the voltage at the moment of the change, then start a fresh problem with that as the initial condition and whatever new $\tau$ and final value the new circuit has.
+
+## Recognising the technique
+
+Reach for this machinery when you see any of these.
+
+**A capacitor plus the words "switch", "at $t=0$", "just after", or "a long time".** That is a transient question, and the two-limit sketches come first. If the question only asks about one of those two moments, you are done without an exponential.
+
+**A number that is a fraction of a final value** — 90 percent charged, down to a tenth, within 1 percent — means you want $t = -\tau\ln(1-f)$ or $t = \tau\ln(1/f)$. Settling to 1 percent of final takes $-\ln(0.01) = 4.6$ time constants.
+
+**More than one resistor around a capacitor.** Do not guess which one sets $\tau$. Kill the sources and find the resistance across the capacitor's terminals. If a question gives you a network and asks for a time constant, that is the whole point of the question.
+
+**The words energy, heat, or power.** Then you are in $e^{-2t/\tau}$ territory, and often you can skip the integral entirely with $\tfrac12 CV^2$ before and after.
+
+**Two capacitors connected to each other.** Conserve charge, find the final common state, and use $\tfrac12C_s\Delta V^2$ for the heat. The resistor's value will not matter, and a question that omits it is telling you so.
+
+A capacitor turns an algebra problem into the same algebra problem plus a clock. Solve the circuit at the start, solve it at the end, and $\tau$ fills in the middle. Next you will meet networks where even the steady-state algebra fights back — bridges, ladders, and symmetry tricks — in [Tricky Networks](/guide/tricky-networks).

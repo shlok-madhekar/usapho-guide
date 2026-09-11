@@ -1,61 +1,299 @@
-## Every equation is a sentence about units
+Physics is the habit of asking how big something is. Before you can ask that,
+you have to agree on what "big" means — and that agreement is the whole content
+of units. It sounds like bookkeeping. It isn't. Units carry real information
+about how the world is put together, and if you learn to listen to them they
+will hand you the shape of an answer before you have written a single line of
+algebra.
 
-An equation says two quantities are the same thing. Two things cannot be the
-same if one is a length and the other is a time. So both sides of any correct
-physics equation carry identical dimensions, and so does every term in a sum.
+Here is the promise, and it is not an exaggeration. You will be able to work
+out how the period of a swinging pendulum depends on its length without knowing
+any mechanics, and estimate the number of piano tuners in Chicago to within a
+factor of two without looking anything up. Both come from the same two habits.
+This is the first lesson of the course because everything after it quietly
+assumes you have these.
 
-Write dimensions in terms of mass $M$, length $L$, and time $T$. Then a force
-is $MLT^{-2}$, energy is $ML^2T^{-2}$, pressure is $ML^{-1}T^{-2}$. Arguments
-of $\sin$, $\exp$, and $\log$ must be dimensionless, always.
+## Dimensions are not units
 
-This is a free error check. After deriving a period of oscillation, put the
-units in: $\sqrt{L/g}$ has units $\sqrt{\text{m}/(\text{m/s}^2)} = \text{s}$,
-which is a time, so the expression survives. If you had written $\sqrt{g/L}$
-you would get $1/\text{s}$ and know instantly that the fraction is upside down.
+A **unit** is a particular agreed-upon amount: the metre, the foot, the second,
+the hour. A **dimension** is the kind of thing being measured: length, time,
+mass. The metre and the foot are different units of the same dimension.
 
-Dimensional analysis also builds answers, not just checks them. A pendulum's
-period can only depend on $m$, $L$, and $g$. The only combination of those
-with units of time is $\sqrt{L/g}$, so $T = C\sqrt{L/g}$ for some pure number
-$C$. Dimensions cannot tell you $C = 2\pi$, but they told you the mass drops
-out and the period goes as the square root of length — most of the physics,
-for none of the work.
+Almost all of mechanics is built from three dimensions. Write them as $M$ for
+mass, $L$ for length, and $T$ for time. Every other mechanical quantity is a
+product of powers of these, and you can read the combination straight off the
+definition. Speed is a distance over a time, so its dimensions are $LT^{-1}$.
+Acceleration is a speed over a time, so $LT^{-2}$. Force is mass times
+acceleration, so $MLT^{-2}$. Energy is a force times a distance, so
+$ML^2T^{-2}$. Pressure is a force over an area, so $MLT^{-2}/L^2 = ML^{-1}T^{-2}$.
+Density is mass over volume: $ML^{-3}$.
 
-<Aside label="Where this goes wrong" warn>
-  Dimensional analysis is blind to dimensionless factors, and that includes
-  ratios built from the problem itself. If a problem has two lengths, $L_1$
-  and $L_2$, then $\sqrt{L_1/g}$ and $\sqrt{L_1/g}\cdot f(L_1/L_2)$ have the
-  same units for any function $f$. Use the method to constrain and to check;
-  do not use it to claim a unique answer when more than one length is in play.
+The notation $[X]$ means "the dimensions of $X$". So $[F] = MLT^{-2}$.
+
+Some quantities have no dimensions at all: a pure ratio like $L_1/L_2$, an
+angle in radians (it's an arc length divided by a radius), $\pi$, or the number
+$2$. These are called **dimensionless**, and they are the one thing this whole
+method is blind to.
+
+Two rules do all the work.
+
+First, **both sides of any correct equation have the same dimensions**, and so
+does every term inside a sum. You cannot add a length to a time, any more than
+you can add three metres to Tuesday. Second, **the argument of $\sin$, $\cos$,
+$\exp$, or $\log$ must be dimensionless**. Think about why: $e^x = 1 + x +
+x^2/2 + \dots$, and that sum adds $x$ to $x^2$. Those can only be added if $x$
+has no dimensions at all.
+
+<Aside label="Worth remembering">
+  Dimensions live in the physics; units live in the notation. When you check an
+  expression you can work in either. $[\,\sqrt{L/g}\,] = \sqrt{L/(LT^{-2})} =
+  \sqrt{T^2} = T$, or equivalently $\sqrt{\text{m}/(\text{m}/\text{s}^2)} =
+  \text{s}$. Same statement.
 </Aside>
 
-## Order of magnitude
+## Using dimensions to check
 
-A Fermi estimate is a chain of factors you can each guess within a factor of a
-few. The errors are independent and partly cancel, so the product is usually
-good to within a factor of ten — enough to decide whether an effect matters.
+The cheapest use of all this is as an error detector. You derive an expression,
+you put dimensions in, and if the two sides disagree you have found a mistake
+without checking a single algebraic step.
 
-Estimate the number of air molecules in a room. A room is roughly
-$5 \times 5 \times 3 \approx 10^2\ \text{m}^3$. A mole of gas occupies about
-$0.022\ \text{m}^3$, so there are about $10^{3.7}$ moles, or roughly
-$10^{27}$ molecules. No step needed a calculator.
+Suppose you produce $T = 2\pi\sqrt{g/L}$ for a pendulum period. Check:
+$g/L$ has dimensions $LT^{-2}/L = T^{-2}$, so the square root is $T^{-1}$ —
+a per-second, not a second. The fraction is upside down. Ten seconds of work,
+and you caught it.
 
-The habit worth building: before solving, guess the answer's magnitude. Then
-when the algebra produces a car accelerating at $10^4\ \text{m/s}^2$ or an
-electron moving at $10^9\ \text{m/s}$, you notice.
+<Figure caption={<><b>Figure 1.</b> The right way up — period equals two pi times the
+square root of length over gravity — running live.
+Notice what the readout does: quadruple the length and the period only doubles, because
+of the square root. Then drag gravity down to lunar values near 1.6 and watch the same
+pendulum take about two and a half times as long. There is no mass slider, because mass
+cannot appear — it is the only quantity carrying the mass dimension, so its exponent has
+to be zero.</>}>
+  <Sim id="units-estimation-pendulum" />
+</Figure>
+
+This check is honest but limited in one way that trips people up. A statement
+like "$T$ is proportional to $\sqrt{r}$" has a hidden constant of
+proportionality, and that constant will absorb whatever dimensions it needs to.
+Proportionalities can never be checked dimensionally. Only full expressions can.
 
 <QuickCheck
   question="A student derives that a satellite's orbital period is proportional to the square root of the orbital radius. What does a dimensional check tell them?"
-  options={["Nothing, since the relation has no units on either side", "That the relation is wrong, because time cannot equal a length", "That the constant of proportionality must carry units, so the check cannot rule it out", "That the relation is confirmed correct"]}
+  options={["Nothing, since the relation has no units on either side", "That the relation is wrong, because a time cannot equal a length", "That the constant of proportionality carries units, so the check cannot rule the relation out", "That the relation is confirmed correct"]}
   answer={2}
-  explanation="A proportionality hides a constant, and that constant absorbs whatever units are needed. Dimensional analysis only bites once you write the full expression in terms of the physical quantities the answer may depend on."
+  explanation="A proportionality hides a constant, and that constant absorbs whatever units are needed. Dimensional analysis only bites once you write a full expression in terms of the quantities the answer may depend on."
 />
 
-## Useful anchors
+## Using dimensions to build an answer
 
-Carry a few numbers in your head so estimates have somewhere to start:
-$g \approx 10\ \text{m/s}^2$, air density $\approx 1.2\ \text{kg/m}^3$, water
-density $10^3\ \text{kg/m}^3$, atmospheric pressure $10^5\ \text{Pa}$, speed
-of sound $340\ \text{m/s}$, Earth's radius $6.4 \times 10^6\ \text{m}$.
+Now the useful part. If you know *which* quantities an answer can depend on,
+dimensions often pin down the answer up to a pure number.
 
-On a graded exam, an answer with the wrong units earns nothing. Check them
-last, every time; it costs ten seconds.
+The recipe: write the unknown as a product of powers of the given quantities
+with unknown exponents, demand that the dimensions match, and solve the
+resulting small linear system — one equation for $M$, one for $L$, one for $T$.
+
+Take a wave on a guitar string. Physically its speed can only be set by the
+tension $T_s$ in the string and the mass per unit length $\mu$. (Calling
+tension $T_s$ here so it doesn't collide with $T$ for the time dimension.)
+Their dimensions are $[T_s] = MLT^{-2}$ and $[\mu] = ML^{-1}$. Write
+
+$$v = C\,T_s^{a}\,\mu^{b}$$
+
+with $C$ a pure number. Matching dimensions:
+
+$$LT^{-1} = (MLT^{-2})^a (ML^{-1})^b = M^{a+b}\,L^{a-b}\,T^{-2a}$$
+
+Now read off one equation per dimension. Mass: $0 = a+b$. Length: $1 = a-b$.
+Time: $-1 = -2a$, so $a = 1/2$ immediately. Then $b = -1/2$ from the mass
+equation, and the length equation $1 = 1/2 - (-1/2) = 1$ checks out — a free
+consistency test that the answer exists at all. So
+
+$$v = C\sqrt{T_s/\mu}$$
+
+<Figure caption={<><b>Figure 2.</b> The three dimension equations, one per row. The orange
+bar is what your exponents give; the outlined marker is what a speed needs. Start from
+a = 1, b = 0 (that is just the tension, which is a force) and watch all three rows
+disagree at once. Then walk a down to 0.5 and b down to -0.5 and see them lock.</>}>
+  <Sim id="units-estimation-exponents" />
+</Figure>
+
+and the true answer has $C=1$. With $T_s = 80.0$ N and $\mu = 5.00\times10^{-3}$
+kg/m:
+
+$$v = \sqrt{\frac{80.0}{5.00\times10^{-3}}} = \sqrt{1.60\times10^{4}} = 126\ \text{m/s}$$
+
+Notice what you got for free even before the numbers: doubling the tension does
+not double the speed, it multiplies it by $\sqrt{2}$. That's physics, extracted
+from nothing but bookkeeping.
+
+<Aside label="Where this goes wrong" warn>
+  The method is blind to dimensionless factors, and that includes ratios built
+  from the problem itself. If two lengths $L_1$ and $L_2$ appear, then
+  $\sqrt{L_1/g}$ and $\sqrt{L_1/g}\cdot f(L_1/L_2)$ have identical dimensions
+  for *any* function $f$, so the answer is not unique. The method also can't
+  produce $2\pi$ or $\sqrt{1.4}$. Problems that want you to use it will tell
+  you the numerical factor, or tell you to take it as $1$. If a problem gives
+  you exactly one quantity per dimension you need, the combination is unique.
+</Aside>
+
+## Worked example: the Planck length
+
+Three constants, three dimensions, one length. Take $\hbar = 1.0546\times
+10^{-34}$ J·s, $G = 6.674\times10^{-11}$ m³kg⁻¹s⁻², and $c = 2.998\times10^{8}$
+m/s.
+
+First, dimensions. A joule is $ML^2T^{-2}$, so $[\hbar] = ML^2T^{-1}$. From the
+units given, $[G] = L^3M^{-1}T^{-2}$. And $[c] = LT^{-1}$. Write
+$\ell = \hbar^{a}G^{b}c^{d}$ and match:
+
+$$L = (ML^2T^{-1})^a (L^3M^{-1}T^{-2})^b (LT^{-1})^d$$
+
+Mass: $0 = a - b$. Length: $1 = 2a + 3b + d$. Time: $0 = -a - 2b - d$.
+
+From the mass equation $b = a$. Put that into the time equation:
+$0 = -a - 2a - d$, so $d = -3a$. Put both into the length equation:
+$1 = 2a + 3a - 3a = 2a$, so $a = 1/2$, hence $b = 1/2$ and $d = -3/2$.
+
+$$\ell_P = \sqrt{\frac{\hbar G}{c^3}}$$
+
+Numbers. The top is $(1.0546\times10^{-34})(6.674\times10^{-11}) =
+7.038\times10^{-45}$. The bottom is $(2.998\times10^{8})^3 = 2.694\times10^{25}$.
+The ratio is $2.612\times10^{-70}$, and its square root is
+$1.62\times10^{-35}$ m.
+
+When taking a square root of a power of ten, make the exponent even first:
+$2.612\times10^{-70} = 26.12\times10^{-71}$ is awkward, but $-70$ is already
+even, so $\sqrt{2.612}\times10^{-35} = 1.616\times10^{-35}$. Do that and you
+will stop losing factors of ten here.
+
+## Converting units without guessing
+
+Never try to remember whether to multiply or divide. Instead multiply by
+fractions that equal one, and cancel.
+
+A car at $65$ miles per hour, with $1\ \text{mile} = 1609.344$ m and
+$1\ \text{h} = 3600$ s:
+
+$$
+
+65\ \frac{\text{mi}}{\text{h}} \times \frac{1609.344\ \text{m}}{1\ \text{mi}}
+\times \frac{1\ \text{h}}{3600\ \text{s}} = \frac{65 \times 1609.344}{3600}
+= \frac{104607}{3600} = 29.1\ \text{m/s}
+
+$$
+
+The "mi" cancels top and bottom, so does the "h", and only m/s survives. If you
+had set a fraction the wrong way up you would have been left with mi²/h², and
+you'd see it.
+
+Powers need care. Water at $1.00\ \text{g/cm}^3$: you need
+$1\ \text{g} = 10^{-3}$ kg and $1\ \text{cm} = 10^{-2}$ m, so
+$1\ \text{cm}^3 = (10^{-2}\ \text{m})^3 = 10^{-6}\ \text{m}^3$. Then
+
+$$
+
+1.00\ \frac{\text{g}}{\text{cm}^3} \times \frac{10^{-3}\ \text{kg}}{1\ \text{g}}
+\times \frac{1\ \text{cm}^3}{10^{-6}\ \text{m}^3} = \frac{10^{-3}}{10^{-6}}
+= 10^{3}\ \text{kg/m}^3
+
+$$
+
+The factor is $10^3$, not $10^2$ — cubing the length conversion is exactly
+where people lose it.
+
+<QuickCheck
+  question="One litre is a thousandth of a cubic metre. A bathtub holds 150 litres. Its volume in cubic metres is:"
+  options={["0.15", "1.5", "15", "150000"]}
+  answer={0}
+  explanation="Multiply by the fraction 0.001 cubic metres per litre: 150 times 0.001 is 0.15. Dividing by 1000 instead of multiplying would give 150000, which is a bathtub the size of a small lake."
+/>
+
+## Scaling arguments
+
+Often you don't want a number — you want a ratio. Then you don't need any
+constants at all, because they cancel.
+
+Two hailstones have the same shape and density, but one is eight times heavier.
+Drag is $F = \tfrac12 C\rho A v^2$. At terminal speed drag balances weight:
+$mg = \tfrac12 C\rho A v^2$, so $v^2 \propto m/A$.
+
+Same density means mass goes as volume, so $m \propto r^3$ where $r$ is any
+length across the stone. Eight times the mass means $r$ is doubled, since
+$2^3 = 8$. Same shape means area goes as $r^2$, so the area is $4$ times
+larger. Then
+
+$$
+
+\frac{v_2^2}{v_1^2} = \frac{m_2/A_2}{m_1/A_1} = \frac{8}{4} = 2
+\quad\Longrightarrow\quad \frac{v_2}{v_1} = \sqrt{2} = 1.41
+
+$$
+
+The bigger stone falls only $41\%$ faster despite being eight times heavier.
+The same move handles orbits: if $T^2 \propto r^3$ and $r$ goes up by $4$, then
+$T^2$ goes up by $4^3 = 64$, so $T$ goes up by $8$.
+
+## Estimation and Fermi chains
+
+Sometimes you have no formula and no data, only a question: how many piano
+tuners work in Chicago? The trick is to break the answer into a chain of
+factors you can each guess within a factor of a few. Errors in the factors are
+independent and partly cancel, so the product usually lands within a factor of
+ten of the truth.
+
+Population $2.7\times10^6$, at $2.5$ people per household, gives
+$2.7\times10^6/2.5 = 1.08\times10^6$ households. One in twenty owns a piano:
+$1.08\times10^6/20 = 5.4\times10^4$ pianos. Each tuned once a year, so
+$5.4\times10^4$ tunings per year. A tuner does $4$ a day for $250$ days, which
+is $1000$ tunings a year. So
+
+$$\frac{5.4\times10^4}{1.0\times10^3} = 54\ \text{tuners}$$
+
+<Figure caption={<><b>Figure 3.</b> The same chain drawn out. Read the labels on the arrows,
+not the boxes: every one of them is a conversion factor with units on top and bottom, and
+the unit of each box is cancelled by the next arrow. If a factor ever leaves you holding
+"pianos per person per year", the arrow is upside down.</>}>
+  <Sim id="units-estimation-fermi" />
+</Figure>
+
+The structure matters more than the arithmetic: each step converts one unit
+into the next (people → households → pianos → tunings per year → tuners), and
+the units cancel down the chain exactly as they did in the speed conversion.
+
+The habit worth building is to guess the magnitude *before* you solve. When the
+algebra later produces a car accelerating at $10^4\ \text{m/s}^2$, you notice.
+
+## Anchor numbers
+
+Estimates need somewhere to start. Carry these:
+$g \approx 10\ \text{m/s}^2$; air density $\approx 1.2\ \text{kg/m}^3$; water
+density $10^3\ \text{kg/m}^3$; atmospheric pressure $\approx 10^5$ Pa; speed of
+sound $\approx 340$ m/s; Earth's radius $6.4\times10^6$ m; a year is about
+$\pi\times10^7$ s (really $3.15\times10^7$); Avogadro's number
+$6.0\times10^{23}$; a mole of gas at room conditions fills about $0.022\ \text{m}^3$.
+
+Two more habits. Report answers with a sensible number of significant figures:
+a product carries as many as its *least* precise input, so $2.50\ \text{m}
+\times 3.1\ \text{m} = 7.75 \to 7.8\ \text{m}^2$, two figures, because $3.1$
+has two. And on a graded exam, an answer with the wrong units earns nothing, so
+check them last, every time.
+
+## How to spot that this is the technique
+
+Reach for dimensional analysis when a problem says an answer "depends only on"
+a short list of quantities, or gives you an expression like $F = C\rho^a A^b
+v^c$ and asks for an exponent, or hands you a dimensionless factor
+($\sqrt{\gamma}$, $1/\sqrt{2\pi}$, "take the constant to be 1"). That gifted
+factor is the tell: the problem is telling you it knows you can only get the
+answer up to a pure number.
+
+Reach for a scaling argument when the problem gives a ratio instead of a value
+— "eight times the mass", "four times the radius" — and asks by what factor
+something changes. Never compute both cases; divide.
+
+Reach for estimation when the problem supplies a pile of everyday facts with no
+governing equation in sight, and asks "how many" or "estimate". Build the chain
+and let the units guide each link.
+
+Next you need the other universal tool: how to handle quantities that have a
+direction as well as a size. That's [vectors](/guide/vectors).

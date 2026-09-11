@@ -1,0 +1,55 @@
+[
+  {
+    "id": "potential-energy-curve",
+    "title": "Potential energy curve lab",
+    "caption": "A 2.0 kg particle in U(x) = 4x^2 - x^4, released at x = 0.",
+    "height": 300,
+    "params": [
+      {
+        "key": "energy",
+        "label": "Total energy E",
+        "unit": "J",
+        "min": 0.5,
+        "max": 6.0,
+        "step": 0.1,
+        "value": 3.0
+      }
+    ],
+    "draw": "var m = 2.0;\nvar E = p.energy;\nfunction Uf(x) { return 4*x*x - x*x*x*x; }\nfunction Ff(x) { return -(8*x - 4*x*x*x); }\n\nvar dt = 0.002;\nvar v0 = Math.sqrt(2*E/m);\nvar xs = 0, vs = v0, crossings = 0, T = 0, i, xp;\nfor (i = 0; i < 8000; i++) {\n  xp = xs;\n  vs = vs + Ff(xs)/m*dt;\n  xs = xs + vs*dt;\n  T = T + dt;\n  if (xp > 0 && xs <= 0) crossings = crossings + 1;\n  if (xp < 0 && xs >= 0) crossings = crossings + 1;\n  if (crossings >= 2) break;\n  if (Math.abs(xs) > 2.35) break;\n}\nvar tm = t - T*Math.floor(t/T);\nvar x = 0, v = v0;\nvar n = Math.floor(tm/dt);\nfor (i = 0; i < n; i++) { v = v + Ff(x)/m*dt; x = x + v*dt; }\n\nvar xmin = -2.35, xmax = 2.35, Umin = -6, Umax = 7;\nvar L = W*0.10, R = W*0.04, Tp = H*0.10, B = H*0.86;\nfunction PX(q) { return L + (q - xmin)/(xmax - xmin)*(W - L - R); }\nfunction PY(q) { return B - (q - Umin)/(Umax - Umin)*(B - Tp); }\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// axes\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(L, PY(0)); ctx.lineTo(W - R, PY(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(PX(0), Tp); ctx.lineTo(PX(0), B); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"x (m)\", W - R - 34, PY(0) + 14);\nctx.fillText(\"U (J)\", PX(0) + 6, Tp + 4);\n\n// U(x)\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (i = 0; i <= 200; i++) {\n  var xq = xmin + (xmax - xmin)*i/200;\n  var yq = Uf(xq);\n  if (yq < Umin) yq = Umin;\n  if (yq > Umax) yq = Umax;\n  if (i === 0) ctx.moveTo(PX(xq), PY(yq)); else ctx.lineTo(PX(xq), PY(yq));\n}\nctx.stroke();\n\n// energy line\nctx.strokeStyle = C.accent;\nctx.setLineDash([5, 4]);\nctx.beginPath(); ctx.moveTo(L, PY(E)); ctx.lineTo(W - R, PY(E)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.accent;\nctx.fillText(\"E = \" + E.toFixed(1) + \" J\", L + 4, PY(E) - 6);\n\n// barrier top\nctx.fillStyle = C.faint;\nctx.fillText(\"barrier top U = 4.0 J\", PX(1.41) + 6, PY(4) - 6);\n\n// turning points\nif (E < 4) {\n  var xt = Math.sqrt(2 - Math.sqrt(4 - E));\n  ctx.strokeStyle = C.rule;\n  ctx.setLineDash([2, 4]);\n  ctx.beginPath(); ctx.moveTo(PX(xt), PY(E)); ctx.lineTo(PX(xt), PY(0)); ctx.stroke();\n  ctx.beginPath(); ctx.moveTo(PX(-xt), PY(E)); ctx.lineTo(PX(-xt), PY(0)); ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.ink;\n  ctx.fillText(\"turning point\", PX(xt) + 5, PY(0) + 26);\n}\n\n// particle riding the curve\nvar px = PX(x), py = PY(Uf(x));\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI*2); ctx.fill();\n\n// kinetic energy bar from curve up to E\nif (Uf(x) < E) {\n  ctx.strokeStyle = C.accent;\n  ctx.lineWidth = 3;\n  ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, PY(E)); ctx.stroke();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(\"K\", px + 7, (py + PY(E))/2 + 4);\n}\n\nvar K = E - Uf(x);\nif (K < 0) K = 0;\nout.note = \"U = \" + Uf(x).toFixed(2) + \" J, K = \" + K.toFixed(2) + \" J, speed = \" + Math.sqrt(2*K/m).toFixed(2) + \" m/s\" + (E >= 4 ? \"  (E is above the 4.0 J barrier: the particle escapes)\" : \"\");"
+  },
+  {
+    "id": "potential-energy-paths",
+    "title": "Two paths to the same shelf",
+    "caption": "Why gravitational potential energy is a function of position alone.",
+    "height": 240,
+    "params": [],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\nvar floorY = H*0.82, shelfY = H*0.22;\nvar ax = W*0.16, bx = W*0.62;\n\n// ground\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(W*0.05, floorY); ctx.lineTo(W*0.95, floorY); ctx.stroke();\n\n// shelf\nctx.fillStyle = C.faint;\nctx.fillRect(W*0.50, shelfY, W*0.30, 5);\nctx.fillStyle = C.ink;\nctx.fillText(\"shelf\", W*0.50, shelfY - 8);\n\n// height marker\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(W*0.90, floorY); ctx.lineTo(W*0.90, shelfY); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"h\", W*0.905, (floorY + shelfY)/2);\n\n// path 1: straight up then across\nctx.strokeStyle = C.accent;\nctx.beginPath();\nctx.moveTo(ax, floorY);\nctx.lineTo(ax, shelfY - 26);\nctx.lineTo(bx, shelfY - 26);\nctx.lineTo(bx, shelfY - 4);\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"path 1\", ax + 6, shelfY - 34);\n\n// path 2: wandering\nctx.strokeStyle = C.figure;\nctx.beginPath();\nctx.moveTo(ax, floorY);\nvar i, s, qx, qy;\nfor (i = 1; i <= 60; i++) {\n  s = i/60;\n  qx = ax + (bx - ax)*s;\n  qy = floorY - (floorY - shelfY + 4)*s + Math.sin(s*3.3*Math.PI)*H*0.11*(1 - s*0.4);\n  ctx.lineTo(qx, qy);\n}\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"path 2\", W*0.30, floorY - 12);\n\n// book\nctx.fillStyle = C.figure;\nctx.fillRect(bx - 13, shelfY - 20, 26, 18);\nctx.fillStyle = C.ink;\nctx.fillText(\"book, mass m\", bx + 18, shelfY - 8);\n\n// start marker\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(ax, floorY, 4, 0, Math.PI*2); ctx.fill();\nctx.fillText(\"start\", ax - 12, floorY + 16);\n\n// verdict\nctx.fillStyle = C.ink;\nctx.fillText(\"gravity does -mgh along either path, so U = mgh is a function of height alone\", W*0.06, H*0.96);\n\nout.note = \"Change of gravitational potential energy depends only on the change in height.\";"
+  },
+  {
+    "id": "potential-energy-spring",
+    "title": "Spring energy lab",
+    "caption": "The stored energy is the triangular area under the force-stretch line.",
+    "height": 300,
+    "params": [
+      {
+        "key": "k",
+        "label": "Spring constant",
+        "unit": "N/m",
+        "min": 50,
+        "max": 600,
+        "step": 10,
+        "value": 250
+      },
+      {
+        "key": "stretch",
+        "label": "Stretch",
+        "unit": "m",
+        "min": 0.0,
+        "max": 0.55,
+        "step": 0.01,
+        "value": 0.2
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar k = p.k, x = p.stretch;\nvar F = k*x, U = 0.5*k*x*x;\n\n// --- spring picture (top third) ---\nvar midY = H*0.20, wallX = W*0.08;\nvar natural = W*0.28;\nvar pixPerM = W*0.36;\nvar endX = wallX + natural + x*pixPerM;\n\nctx.fillStyle = C.faint;\nctx.fillRect(wallX - 7, midY - 26, 7, 52);\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(wallX, midY);\nvar i;\nfor (i = 1; i <= 14; i++) {\n  var sx = wallX + (endX - 14 - wallX)*i/14;\n  var sy = midY + (i % 2 === 0 ? -9 : 9)*(i === 14 ? 0 : 1);\n  ctx.lineTo(sx, sy);\n}\nctx.lineTo(endX - 14, midY);\nctx.stroke();\n\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(wallX + natural, midY - 30); ctx.lineTo(wallX + natural, midY + 30); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"natural length\", wallX + natural - 40, midY - 34);\n\nctx.fillStyle = C.figure;\nctx.fillRect(endX - 14, midY - 14, 28, 28);\nctx.fillStyle = C.ink;\nctx.fillText(\"stretch x = \" + x.toFixed(2) + \" m\", endX + 22, midY + 4);\n\n// --- F against x graph (bottom) ---\nvar L = W*0.12, R = W*0.06, Tp = H*0.42, B = H*0.88;\nvar xmaxG = 0.60, FmaxG = 260;\nfunction GX(q) { return L + q/xmaxG*(W - L - R); }\nfunction GY(q) { return B - q/FmaxG*(B - Tp); }\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(L, B); ctx.lineTo(W - R, B); ctx.stroke();\nctx.beginPath(); ctx.moveTo(L, B); ctx.lineTo(L, Tp); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"x (m)\", W - R - 34, B + 15);\nctx.fillText(\"F = kx  (N)\", L + 6, Tp + 2);\n\n// shaded triangle = stored energy\nvar xg = Math.min(x, xmaxG);\nvar Fg = Math.min(k*xg, FmaxG);\nctx.fillStyle = C.accent;\nctx.globalAlpha = 0.25;\nctx.beginPath();\nctx.moveTo(GX(0), GY(0));\nctx.lineTo(GX(xg), GY(0));\nctx.lineTo(GX(xg), GY(Fg));\nctx.closePath();\nctx.fill();\nctx.globalAlpha = 1;\n\n// the line F = kx\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nvar xEnd = Math.min(xmaxG, FmaxG/k);\nctx.beginPath();\nctx.moveTo(GX(0), GY(0));\nctx.lineTo(GX(xEnd), GY(k*xEnd));\nctx.stroke();\n\nctx.strokeStyle = C.accent;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(GX(xg), GY(0)); ctx.lineTo(GX(xg), GY(Fg)); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"area = stored energy = one half k x squared\", GX(0) + 12, GY(0) - (B - Tp)*0.12);\nctx.fillText(\"F = \" + F.toFixed(0) + \" N\", GX(xg) + 6, GY(Fg) - 6);\n\nout.note = \"k = \" + k.toFixed(0) + \" N/m, x = \" + x.toFixed(2) + \" m: force \" + F.toFixed(1) + \" N, stored energy \" + U.toFixed(2) + \" J\";"
+  }
+]

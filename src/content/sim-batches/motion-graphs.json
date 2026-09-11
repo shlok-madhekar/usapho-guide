@@ -1,0 +1,91 @@
+[
+  {
+    "id": "motion-graphs-signed-area",
+    "title": "Signed area lab",
+    "caption": "Drag the line below the axis and watch displacement and distance come apart.",
+    "height": 250,
+    "params": [
+      {
+        "key": "v0",
+        "label": "Velocity at t = 0",
+        "unit": "m/s",
+        "min": -10,
+        "max": 15,
+        "step": 0.5,
+        "value": 12
+      },
+      {
+        "key": "a",
+        "label": "Slope (acceleration)",
+        "unit": "m/s^2",
+        "min": -4,
+        "max": 4,
+        "step": 0.1,
+        "value": -2
+      },
+      {
+        "key": "T",
+        "label": "End of the interval",
+        "unit": "s",
+        "min": 3,
+        "max": 12,
+        "step": 0.5,
+        "value": 9
+      }
+    ],
+    "draw": "var pad = 34, top = 16, bot = H - 30;\nvar T = p.T;\nvar vfn = function (s) { return p.v0 + p.a * s; };\nvar vLo = Math.min(0, vfn(0), vfn(T)), vHi = Math.max(0, vfn(0), vfn(T));\nif (vHi - vLo < 1) vHi = vLo + 1;\nvar padv = (vHi - vLo) * 0.15;\nvLo = vLo - padv; vHi = vHi + padv;\nvar X = function (s) { return pad + s / T * (W - pad - 18); };\nvar Y = function (v) { return bot - (v - vLo) / (vHi - vLo) * (bot - top); };\nvar zero = Y(0);\nvar now = t % T;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// shaded signed area up to the sweep line\nvar step = T / 240;\nfor (var s = 0; s < now; s += step) {\n  var v = vfn(s + step / 2);\n  ctx.fillStyle = v >= 0 ? C.accent : C.figure;\n  ctx.globalAlpha = 0.25;\n  ctx.fillRect(X(s), Math.min(zero, Y(v)), Math.max(1, X(s + step) - X(s)) + 0.5, Math.abs(Y(v) - zero));\n  ctx.globalAlpha = 1;\n}\n\n// axes\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(pad, top); ctx.lineTo(pad, bot); ctx.stroke();\nctx.beginPath(); ctx.moveTo(pad, zero); ctx.lineTo(X(T), zero); ctx.stroke();\n\n// the v(t) line\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(X(0), Y(vfn(0))); ctx.lineTo(X(T), Y(vfn(T))); ctx.stroke();\n\n// sweep line\nctx.strokeStyle = C.ink; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(now), top); ctx.lineTo(X(now), bot); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(X(now), Y(vfn(now)), 3.5, 0, Math.PI * 2); ctx.fill();\n\n// labels\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"v (m/s)\", pad + 4, top + 10);\nctx.textAlign = \"right\";\nctx.fillText(\"t (s)\", X(T), bot + 18);\nctx.textAlign = \"center\";\nctx.fillText(\"0\", pad - 12, zero + 4);\nctx.fillText(T.toFixed(0), X(T), bot + 18 - 0);\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"area above axis: forward\", pad + 6, zero - 8);\nctx.fillText(\"area below axis: backward\", pad + 6, zero + 18);\n\n// numbers\nvar turn = p.a !== 0 ? -p.v0 / p.a : -1;\nvar disp = p.v0 * now + 0.5 * p.a * now * now;\nvar dist;\nif (turn > 0 && turn < now) {\n  var d1 = p.v0 * turn + 0.5 * p.a * turn * turn;\n  dist = Math.abs(d1) + Math.abs(disp - d1);\n} else {\n  dist = Math.abs(disp);\n}\nout.note = \"t = \" + now.toFixed(1) + \" s   displacement = \" + disp.toFixed(1) +\n  \" m   distance = \" + dist.toFixed(1) + \" m\" +\n  (turn > 0 && turn < T ? \"   (turns round at t = \" + turn.toFixed(2) + \" s)\" : \"\");"
+  },
+  {
+    "id": "motion-graphs-chain",
+    "title": "The three graphs of one cart",
+    "caption": "Push, coast, brake: acceleration, velocity and position for the same 8 seconds.",
+    "height": 330,
+    "params": [],
+    "draw": "var pad = 40, gap = 10;\nvar T = 8;\nvar ph = (H - gap * 2 - 22) / 3;\nvar X = function (s) { return pad + s / T * (W - pad - 20); };\n\nvar afn = function (s) { return s < 2 ? 4 : (s < 5 ? 0 : -4); };\nvar vfn = function (s) { return s < 2 ? 4 * s : (s < 5 ? 8 : 8 - 4 * (s - 5)); };\nvar xfn = function (s) {\n  if (s < 2) return 2 * s * s;\n  if (s < 5) return 8 + 8 * (s - 2);\n  return 32 + 8 * (s - 5) - 2 * (s - 5) * (s - 5);\n};\n\nvar panels = [\n  { f: afn, lo: -5, hi: 5, label: \"a (m/s\u00b2)\", color: C.figure, tick: \"+4\", tick2: \"-4\" },\n  { f: vfn, lo: -1, hi: 9, label: \"v (m/s)\", color: C.accent, tick: \"8\", tick2: \"\" },\n  { f: xfn, lo: -2, hi: 42, label: \"x (m)\", color: C.ink, tick: \"38\", tick2: \"\" }\n];\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nfor (var i = 0; i < 3; i++) {\n  var q = panels[i];\n  var top = 6 + i * (ph + gap);\n  var bot = top + ph;\n  var Y = function (v) { return bot - (v - q.lo) / (q.hi - q.lo) * (bot - top); };\n\n  ctx.strokeStyle = C.rule; ctx.lineWidth = 1;\n  ctx.beginPath(); ctx.moveTo(pad, top); ctx.lineTo(pad, bot); ctx.stroke();\n  var z = Y(0);\n  ctx.beginPath(); ctx.moveTo(pad, z); ctx.lineTo(X(T), z); ctx.stroke();\n\n  // segment boundaries\n  ctx.strokeStyle = C.faint;\n  var marks = [2, 5];\n  for (var m = 0; m < 2; m++) {\n    ctx.beginPath(); ctx.moveTo(X(marks[m]), top); ctx.lineTo(X(marks[m]), bot); ctx.stroke();\n  }\n\n  ctx.strokeStyle = q.color; ctx.lineWidth = 2;\n  ctx.beginPath();\n  var started = false;\n  for (var s = 0; s <= T; s += 0.02) {\n    var cx = X(s), cy = Y(q.f(s));\n    if (!started) { ctx.moveTo(cx, cy); started = true; } else ctx.lineTo(cx, cy);\n  }\n  ctx.stroke();\n\n  ctx.fillStyle = q.color;\n  ctx.textAlign = \"left\";\n  ctx.fillText(q.label, pad + 5, top + 11);\n\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"right\";\n  ctx.fillText(\"0\", pad - 5, z + 4);\n  if (i === 0) { ctx.fillText(\"+4\", pad - 5, Y(4) + 4); ctx.fillText(\"-4\", pad - 5, Y(-4) + 4); }\n  if (i === 1) ctx.fillText(\"8\", pad - 5, Y(8) + 4);\n  if (i === 2) ctx.fillText(\"38\", pad - 5, Y(38) + 4);\n}\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"t = 2 s\", X(2), H - 6);\nctx.fillText(\"t = 5 s\", X(5), H - 6);\nctx.fillText(\"t = 8 s\", X(8), H - 6);\nctx.textAlign = \"left\";\nctx.fillText(\"push\", X(0.3), H - 6);\nctx.fillText(\"coast\", X(2.6), H - 6);\nctx.fillText(\"brake\", X(5.6), H - 6);"
+  },
+  {
+    "id": "motion-graphs-trapezoid",
+    "title": "Trapezoid journey lab",
+    "caption": "Split the area into a triangle, a rectangle and a triangle.",
+    "height": 250,
+    "params": [
+      {
+        "key": "vmax",
+        "label": "Cruise speed",
+        "unit": "m/s",
+        "min": 4,
+        "max": 30,
+        "step": 1,
+        "value": 15
+      },
+      {
+        "key": "tup",
+        "label": "Speeding-up time",
+        "unit": "s",
+        "min": 1,
+        "max": 8,
+        "step": 0.5,
+        "value": 3
+      },
+      {
+        "key": "thold",
+        "label": "Cruise time",
+        "unit": "s",
+        "min": 0,
+        "max": 10,
+        "step": 0.5,
+        "value": 6
+      },
+      {
+        "key": "tdown",
+        "label": "Slowing-down time",
+        "unit": "s",
+        "min": 1,
+        "max": 8,
+        "step": 0.5,
+        "value": 3
+      }
+    ],
+    "draw": "var pad = 36, top = 18, bot = H - 34;\nvar t1 = p.tup, t2 = p.tup + p.thold, t3 = p.tup + p.thold + p.tdown;\nvar T = Math.max(t3, 1);\nvar vmax = p.vmax;\nvar X = function (s) { return pad + s / T * (W - pad - 18); };\nvar Y = function (v) { return bot - v / (vmax * 1.2) * (bot - top); };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nvar now = t % (T + 1.2);\nvar vnow = now < t1 ? vmax * now / Math.max(t1, 0.001)\n  : (now < t2 ? vmax : (now < t3 ? vmax * (t3 - now) / Math.max(p.tdown, 0.001) : 0));\nif (now > t3) now = t3;\n\n// filled area up to the sweep\nctx.fillStyle = C.accent; ctx.globalAlpha = 0.25;\nctx.beginPath();\nctx.moveTo(X(0), Y(0));\nvar stp = T / 240;\nfor (var s = 0; s <= now; s += stp) {\n  var v = s < t1 ? vmax * s / Math.max(t1, 0.001)\n    : (s < t2 ? vmax : vmax * (t3 - s) / Math.max(p.tdown, 0.001));\n  ctx.lineTo(X(s), Y(v));\n}\nctx.lineTo(X(now), Y(0));\nctx.closePath(); ctx.fill();\nctx.globalAlpha = 1;\n\n// axes\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(pad, top); ctx.lineTo(pad, bot); ctx.stroke();\nctx.beginPath(); ctx.moveTo(pad, bot); ctx.lineTo(X(T), bot); ctx.stroke();\n\n// trapezoid outline\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(X(0), Y(0)); ctx.lineTo(X(t1), Y(vmax));\nctx.lineTo(X(t2), Y(vmax)); ctx.lineTo(X(t3), Y(0));\nctx.stroke();\n\n// dashed guides for the three pieces\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(t1), Y(0)); ctx.lineTo(X(t1), Y(vmax)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X(t2), Y(0)); ctx.lineTo(X(t2), Y(vmax)); ctx.stroke();\n\n// sweep\nctx.strokeStyle = C.ink; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(now), top); ctx.lineTo(X(now), bot); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(X(now), Y(vnow), 3.5, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"v (m/s)\", pad + 4, top + 10);\nctx.textAlign = \"right\";\nctx.fillText(\"t (s)\", X(T), bot + 20);\nctx.fillText(vmax.toFixed(0), pad - 5, Y(vmax) + 4);\nctx.fillText(\"0\", pad - 5, bot + 4);\nctx.textAlign = \"center\";\nctx.fillStyle = C.faint;\nctx.fillText(\"triangle\", (X(0) + X(t1)) / 2, Y(0) - 6);\nctx.fillText(\"rectangle\", (X(t1) + X(t2)) / 2, Y(0) - 6);\nctx.fillText(\"triangle\", (X(t2) + X(t3)) / 2, Y(0) - 6);\nctx.fillStyle = C.ink;\nctx.fillText(t1.toFixed(1), X(t1), bot + 20);\nctx.fillText(t2.toFixed(1), X(t2), bot + 20);\n\nvar A1 = 0.5 * p.tup * vmax, A2 = p.thold * vmax, A3 = 0.5 * p.tdown * vmax;\nvar tot = A1 + A2 + A3;\nout.note = \"areas \" + A1.toFixed(1) + \" + \" + A2.toFixed(1) + \" + \" + A3.toFixed(1) +\n  \" = \" + tot.toFixed(1) + \" m   average speed = \" + (tot / t3).toFixed(2) + \" m/s\";"
+  }
+]

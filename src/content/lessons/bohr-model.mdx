@@ -1,62 +1,381 @@
-## One extra rule
+## A fingerprint made of light
 
-Classically, an electron orbiting a proton obeys Coulomb's law with the force
-supplying the centripetal acceleration, and any radius is allowed. Bohr added a
-single restriction: angular momentum comes in whole multiples of $\hbar$.
+Heat a tube of hydrogen gas until it glows, send the light through a prism, and
+you do not get a rainbow. You get four sharp coloured lines on a black
+background — red, blue-green, violet, deep violet — and nothing in between.
+Heat sodium instead and you get a different set of lines. Mercury, a third set.
+Every element has its own pattern, always the same, whether the gas is in a lab
+in Zurich or in a star ten thousand light years away.
 
-$$L = mvr = n\hbar, \qquad n = 1, 2, 3, \ldots$$
+That is a very strange fact. A hot filament gives off a smooth continuous
+spectrum. A hot gas of single atoms gives off a barcode. Something inside the
+atom can only give up energy in certain exact amounts, and those amounts are
+fixed properties of the element. The previous lesson on the [photoelectric
+effect](/guide/photoelectric) left you with a photon of energy $E = hf$ as the
+unit in which light is emitted and absorbed. If the atom can only emit photons
+of particular energies, the atom itself must only have particular energies.
+This lesson works out what those energies are.
 
-Combine that with $\dfrac{ke^2}{r^2} = \dfrac{mv^2}{r}$ and both $r$ and $v$
-are forced to discrete values. The radii grow as $n^2$:
+## Why the classical atom cannot work
 
-$$r_n = n^2 a_0, \qquad a_0 = 0.529\ \text{Å}$$
+Start with the picture you would draw without knowing any of this. A proton of
+charge $+e$ sits at the centre. An electron of mass $m$ and charge $-e$ circles
+it at radius $r$ and speed $v$. The only force is Coulomb attraction, and it
+points inward, so it is the centripetal force:
 
-The total energy is kinetic plus potential, and for any inverse-square orbit
-$K = -U/2$, so $E = U/2 = -ke^2/2r$. Substituting $r_n$ gives the ladder:
+$$
+\frac{ke^2}{r^2} = \frac{mv^2}{r}
+$$
 
-$$E_n = -\frac{13.6\ \text{eV}}{n^2}$$
+Here $k = 8.99 \times 10^9$ N·m²/C² is the Coulomb constant. Multiply both
+sides by $r$ and you get $ke^2/r = mv^2$, so the kinetic energy is
 
-Negative means bound. The ground state at $n = 1$ sits 13.6 eV below the free
-electron, which is exactly the ionisation energy of hydrogen — the model's
-first real prediction.
+$$
+K = \tfrac12 mv^2 = \frac{ke^2}{2r}
+$$
+
+The potential energy of two opposite charges a distance $r$ apart is
+$U = -ke^2/r$, negative because you would have to do work to pull them apart.
+So the total energy is
+
+$$
+E = K + U = \frac{ke^2}{2r} - \frac{ke^2}{r} = -\frac{ke^2}{2r}
+$$
+
+Notice what fell out: $K = -U/2$, and $E = U/2 = -K$. That relation holds for
+any inverse-square orbit — it is the same one you met for satellites in
+[gravitation](/guide/gravitation), and it is called the *virial theorem*. It
+will save you arithmetic later. If a problem hands you the total energy of a
+bound orbit, the potential energy is twice it and the kinetic energy is minus
+it.
+
+So far nothing forbids any value of $r$. Shrink the orbit and $E$ drops; every
+energy from $0$ down to $-\infty$ is available, so the atom should emit a
+continuous spectrum. Worse, an accelerating charge radiates. A classical
+electron would spiral into the proton in about $10^{-11}$ seconds. Classical
+physics does not predict the wrong spectrum for hydrogen. It predicts that
+hydrogen cannot exist.
+
+## Bohr's one extra rule
+
+In 1913 Bohr added a single restriction and changed nothing else. The
+electron's orbital angular momentum, $L = mvr$, cannot take any value. It comes
+in whole multiples of $\hbar = h/2\pi = 1.055 \times 10^{-34}$ J·s:
+
+$$
+L = mvr = n\hbar, \qquad n = 1, 2, 3, \ldots
+$$
+
+The integer $n$ is the *principal quantum number*. Bohr had no justification
+for this in 1913; the reason arrives in the [next lesson](/guide/de-broglie).
+Take it as a rule and follow the consequences.
+
+You now have two equations, $ke^2/r = mv^2$ and $mvr = n\hbar$, and two
+unknowns, $r$ and $v$. Solve the second for $v = n\hbar/(mr)$ and substitute
+into the first:
+
+$$
+\frac{ke^2}{r} = m \cdot \frac{n^2\hbar^2}{m^2r^2} = \frac{n^2\hbar^2}{mr^2}
+$$
+
+Multiply through by $r^2$ and divide by $ke^2$:
+
+$$
+r_n = \frac{n^2\hbar^2}{mke^2} = n^2 a_0, \qquad a_0 = 0.0529\ \text{nm}
+$$
+
+The constant $a_0$ is the *Bohr radius*, the size of the smallest allowed
+orbit. The radii go as $n^2$: 0.0529 nm, 0.212 nm, 0.476 nm, 0.847 nm. The
+atom has a definite size, and that size comes out right — hydrogen really is
+about a tenth of a nanometre across.
+
+Put $r_n$ back into $v = n\hbar/(mr)$ and the $n^2$ beats the $n$:
+
+$$
+v_n = \frac{ke^2}{n\hbar} = \frac{\alpha c}{n}, \qquad \alpha = \frac{1}{137}
+$$
+
+The dimensionless number $\alpha = ke^2/(\hbar c)$ is the *fine-structure
+constant*. In the ground state the electron moves at $c/137 = 2.19 \times 10^6$
+m/s, fast but only 0.7% of light speed, which is why ignoring relativity works
+as well as it does.
+
+<Figure caption={<><b>Figure 1.</b> The allowed orbits, drawn to scale with each other. Drag the quantum number and watch the radius grow as n squared while the electron slows down and the orbit period stretches. Try raising Z to 2 and notice the whole atom shrinks by half.</>}>
+  <Sim id="bohr-model-orbits" />
+</Figure>
+
+<Aside label="Worth remembering">
+  Three scalings carry most of the arithmetic in this topic: radius goes as
+  $n^2$, speed goes as $1/n$, and energy goes as $1/n^2$. The orbital period,
+  being $2\pi r/v$, therefore goes as $n^3$.
+</Aside>
+
+## The energy ladder
+
+Substitute $r_n = n^2a_0$ into $E = -ke^2/(2r)$:
+
+$$
+E_n = -\frac{ke^2}{2a_0}\cdot\frac{1}{n^2} = -\frac{13.6\ \text{eV}}{n^2}
+$$
+
+The 13.6 eV is the *Rydberg energy*. The minus sign means bound: you must
+supply energy to get the electron out to $r = \infty$, where $E = 0$. So the
+ladder reads $-13.6$ eV, $-3.40$ eV, $-1.51$ eV, $-0.850$ eV, $-0.544$ eV, and
+so on, crowding up towards zero. The gaps shrink fast; above $n \approx 10$ the
+levels are almost a continuum.
+
+The first prediction is free. To ionise a ground-state hydrogen atom you must
+lift it from $-13.6$ eV to $0$, so the ionisation energy is 13.6 eV. That was a
+measured number in 1913 and the model reproduced it exactly.
+
+For a *hydrogen-like* ion — one electron, nuclear charge $+Ze$ — replace $e^2$
+by $Ze^2$ everywhere in the derivation. The radius picks up a $1/Z$ and the
+energy picks up a $Z^2$:
+
+$$
+r_n = \frac{n^2 a_0}{Z}, \qquad E_n = -\frac{13.6\,Z^2}{n^2}\ \text{eV}
+$$
+
+So He⁺ ($Z = 2$) has a ground state at $-54.4$ eV, and Li²⁺ ($Z = 3$) sits at
+$-122.4$ eV in the ground state and $-13.6 \times 9/4 = -30.6$ eV at $n = 2$.
+Neutral helium, with two electrons, is not covered: the electrons repel each
+other and the derivation collapses.
+
+<QuickCheck
+  question="A ground-state hydrogen atom absorbs a photon of exactly 12.75 eV. Which level does it reach?"
+  options={["n = 2", "n = 3", "n = 4", "n = 5"]}
+  answer={2}
+  explanation="The atom starts at -13.6 eV and ends at -13.6 + 12.75 = -0.85 eV. Setting -13.6/n squared equal to -0.85 gives n squared = 16, so n = 4. The tempting error is to look for a level at -12.75 eV instead of adding the photon energy to the starting level."
+/>
 
 ## Lines are differences
 
-Levels are not what a spectrometer sees. It sees photons, and a photon is
-emitted when the electron drops from one level to another, carrying the gap:
+A spectrometer never sees a level. It sees a photon, and a photon appears when
+the electron drops from an upper level $n_i$ to a lower level $n_f$, carrying
+away exactly the gap:
 
-$$hf = E_{n_i} - E_{n_f} = 13.6\ \text{eV}\left(\frac{1}{n_f^2} - \frac{1}{n_i^2}\right)$$
+$$
+hf = \frac{hc}{\lambda} = E_{n_i} - E_{n_f} = 13.6\,Z^2\left(\frac{1}{n_f^2} - \frac{1}{n_i^2}\right)\ \text{eV}
+$$
 
-Every transition ending at $n_f = 2$ lands in the visible — that is the Balmer
-series, the four coloured lines in a hydrogen tube. Transitions to $n_f = 1$
-are ultraviolet, to $n_f = 3$ infrared.
+Work in electronvolts and nanometres and you never need $h$ or $c$ separately,
+because $hc = 1240$ eV·nm. Then $\lambda = 1240/\Delta E$ with $\Delta E$ in eV
+and $\lambda$ in nm. Memorise that one number and most of these problems become
+two lines of arithmetic.
 
-Absorption is the same arithmetic run backwards. A photon is swallowed only if
-its energy matches a gap exactly, so white light passed through cold hydrogen
-comes out with dark lines in precisely the positions where hot hydrogen glows.
-The pattern identifies the element regardless of which direction you look.
+Group the transitions by where they land. All the drops to $n_f = 1$ form the
+*Lyman series*, in the ultraviolet. Drops to $n_f = 2$ form the *Balmer
+series*, which is the one in the visible — those four coloured lines. Drops to
+$n_f = 3$ are the *Paschen series*, in the infrared. Within a series, the
+longest wavelength comes from the smallest gap ($n_i = n_f + 1$) and the
+shortest, called the *series limit*, comes from $n_i = \infty$.
 
-<Aside label="Where this goes wrong" warn>
-  The energy of an emitted photon is a *difference* between levels, never the
-  level itself. A drop from $n = 3$ to $n = 2$ gives 1.89 eV, not 1.51 eV.
-  Compute both energies, subtract, then convert.
-</Aside>
+Absorption is the same arithmetic backwards. Cold hydrogen sitting in front of
+a white-light source swallows a photon only if its energy matches a gap
+exactly, so the transmitted light has dark lines in precisely the places where
+hot hydrogen glows. That is how you read the composition of a star.
 
-## What it cannot do
+<Figure caption={<><b>Figure 2.</b> The energy ladder with one transition marked. Pick the upper and lower levels and read the photon energy and wavelength off the note above the figure. Try holding the lower level at 2 and walking the upper level up to 10 to watch the Balmer lines pile up against the series limit.</>}>
+  <Sim id="bohr-model-ladder" />
+</Figure>
 
-The model works for hydrogen and for any one-electron ion, where replacing
-$e^2$ with $Ze^2$ scales the ladder by $Z^2$. It fails for helium onward,
-because electrons repel each other and the neat orbit picture dissolves.
+### Worked example 1: the red line
 
-It also says nothing about line intensities, and it offers no reason why the
-orbits should be stable — an accelerating charge ought to radiate. Quantum
-mechanics later supplies both, and reproduces $E_n$ exactly while discarding
-the orbits entirely. Keep the energy ladder; treat the circular paths as
-scaffolding.
+Hydrogen drops from $n = 3$ to $n = 2$. Find the wavelength.
+
+Write both levels first. $E_3 = -13.6/9 = -1.511$ eV. $E_2 = -13.6/4 = -3.400$
+eV. The photon carries the difference:
+
+$$
+\Delta E = -1.511 - (-3.400) = 1.889\ \text{eV}
+$$
+
+Then $\lambda = 1240/1.889 = 656$ nm. That is deep red, and it is the brightest
+line in a hydrogen tube. It has a name, H-alpha, and you will meet it again.
+
+### Worked example 2: do Balmer and Paschen overlap?
+
+The Balmer series runs from its limit at 365 nm up to H-alpha at 656 nm. Does
+the Paschen series reach down into it?
+
+The shortest Paschen wavelength is the largest Paschen gap, which is $n_i =
+\infty$ down to $n_f = 3$:
+
+$$
+\Delta E = 13.6\left(\frac{1}{9} - 0\right) = 1.511\ \text{eV}
+$$
+
+$$
+\lambda = \frac{1240}{1.511} = 820\ \text{nm}
+$$
+
+820 nm is longer than 656 nm, so the two series do not overlap — there is a
+clean gap between them. This is general: because the series limit of one series
+always sits at longer wavelength than the longest line of the series below it,
+the hydrogen spectrum sorts itself into separated blocks. That is what makes a
+barcode identifiable.
+
+<Figure caption={<><b>Figure 3.</b> Where the three lowest series actually sit on the wavelength axis, drawn on a logarithmic scale. Notice that each series crowds up against its own short-wavelength limit, and that the blocks never touch.</>}>
+  <Sim id="bohr-model-series" />
+</Figure>
 
 <QuickCheck
-  question="A hydrogen atom in the n = 4 state can emit photons of how many distinct energies?"
+  question="A sample of hydrogen is excited to n = 4. How many distinct spectral lines can the sample produce as the atoms cascade down?"
   options={["Three", "Four", "Six", "Twelve"]}
   answer={2}
-  explanation="Any downward transition between the four levels is allowed, directly or in steps: 4 to 3, 4 to 2, 4 to 1, 3 to 2, 3 to 1, and 2 to 1 — six distinct gaps."
+  explanation="Any downward step between the four levels can happen in some atom, directly or in stages: 4 to 3, 4 to 2, 4 to 1, 3 to 2, 3 to 1, 2 to 1 — six distinct gaps. In general it is n times n minus 1, all over 2."
 />
+
+## When the ladder is not quite 13.6
+
+Three corrections turn up often enough that you should recognise them.
+
+**Nuclear charge.** Already covered: multiply the whole ladder by $Z^2$ and
+divide the radii by $Z$.
+
+**Reduced mass.** The derivation assumed the nucleus stays put. It does not
+quite; both particles orbit their common centre of mass. The fix is to replace
+the electron mass $m$ by the *reduced mass*
+
+$$
+\mu = \frac{m M}{m + M} = \frac{m}{1 + m/M}
+$$
+
+where $M$ is the nuclear mass. Since the energy is proportional to the orbiting
+mass, every level scales by $\mu/m$. For hydrogen $m/M = 1/1836$, a 0.05%
+correction — small, but it is exactly what separates hydrogen's spectrum from
+deuterium's, and that difference is how deuterium was discovered.
+
+**A different orbiting particle.** If a muon, 207 times heavier than an
+electron, replaces the electron, the ladder scales by 207: the ground state
+drops to $207 \times 13.6 = 2815$ eV, about 2.82 keV, and the orbit shrinks by
+the same factor of 207. Positronium, an electron bound to a positron, has
+$M = m$, so $\mu = m/2$ and the ground state is $13.6/2 = 6.8$ eV.
+
+<Aside label="Where this goes wrong" warn>
+  The photon energy is a *difference* between two levels, never a level itself.
+  A drop from $n = 3$ to $n = 2$ gives 1.89 eV, not 1.51 eV. Compute both
+  energies, subtract, then convert with $\lambda = 1240/\Delta E$. The same
+  trap runs backwards: an atom that absorbs a 12.09 eV photon from the ground
+  state is not going to the "12.09 eV level", it is going to $-13.6 + 12.09 =
+  -1.51$ eV, which is $n = 3$.
+</Aside>
+
+### Worked example 3: a helium line disguised as hydrogen
+
+A He⁺ ion emits a photon of exactly the same wavelength as hydrogen's H-alpha
+line, and the transition ends on $n_f = 4$. What is the upper level?
+
+From example 1, the photon energy is 1.889 eV. For He⁺, $Z = 2$, so the prefactor
+is $13.6 \times 4 = 54.4$ eV:
+
+$$
+1.889 = 54.4\left(\frac{1}{16} - \frac{1}{n_i^2}\right)
+$$
+
+Divide: $1.889/54.4 = 0.03472$. Then
+
+$$
+\frac{1}{n_i^2} = 0.0625 - 0.03472 = 0.02778
+$$
+
+so $n_i^2 = 1/0.02778 = 36$ and $n_i = 6$. The coincidence is not an accident.
+Because the He⁺ ladder is exactly four times hydrogen's, the He⁺ transition
+$2n_i \to 2n_f$ always lands on hydrogen's $n_i \to n_f$ line. Doubling 3 and 2
+gives 6 and 4, which is what you found. Astronomers had to untangle exactly
+this confusion in early stellar spectra.
+
+### Worked example 4: how hard must you hit an atom?
+
+A ground-state hydrogen atom flies at a second ground-state hydrogen atom at
+rest. What is the *minimum* kinetic energy the incoming atom needs to excite
+one of them to $n = 2$?
+
+The naive answer is 10.2 eV, the $1 \to 2$ gap. It is wrong, and the reason is
+momentum. The incoming atom carries momentum, and momentum is conserved, so the
+pair cannot end up at rest. Whatever kinetic energy they keep is unavailable
+for exciting anything.
+
+The cheapest outcome is the one where they keep as little as possible, which is
+when both atoms end up moving together with the same velocity — a perfectly
+inelastic collision, the same idea you used in
+[collisions](/guide/collisions). Let each atom have mass $M$ and let the
+incoming one have speed $v$. Momentum gives the common final speed:
+
+$$
+Mv = 2Mv_f \quad \Rightarrow \quad v_f = \tfrac12 v
+$$
+
+Initial kinetic energy is $\tfrac12 Mv^2$. Final kinetic energy is
+
+$$
+\tfrac12 (2M) v_f^2 = M\left(\tfrac{v}{2}\right)^2 = \tfrac14 Mv^2
+$$
+
+which is exactly half of what you started with. So only half the incoming
+kinetic energy is ever available to be turned into internal energy. Setting
+that half equal to the 10.2 eV you need:
+
+$$
+\tfrac12 K_{\min} = 10.2\ \text{eV} \quad \Rightarrow \quad K_{\min} = 20.4\ \text{eV}
+$$
+
+You have to hit it twice as hard as the gap suggests. The same bookkeeping runs
+in reverse when an atom *emits*: the atom recoils, so the photon gets slightly
+less than the full gap. The recoil energy is $E_\gamma^2/(2Mc^2)$, and for a
+10.2 eV photon off a hydrogen atom whose rest energy is 938 MeV that is
+$10.2^2/(2 \times 938 \times 10^6) = 5.5 \times 10^{-8}$ eV. Utterly
+negligible here — but the same term is the whole story in nuclear gamma
+emission.
+
+<Aside label="Worth remembering">
+  For very large $n$ the gap between neighbours is tiny and you can get it by
+  differentiating. Since $E_n = -R/n^2$, a step of one level changes the energy
+  by roughly $dE/dn = 2R/n^3$. For $n = 100$ that is $2 \times 13.6/10^6 =
+  2.7 \times 10^{-5}$ eV, giving $\lambda \approx 1240/2.7\times10^{-5}
+  \approx 4.6 \times 10^7$ nm, about 4.5 cm — radio waves from a single atom.
+  These giant Rydberg atoms are real and radio astronomers detect them.
+</Aside>
+
+## What the model gets wrong
+
+Keep the ladder, distrust the orbits. The energies $E_n = -13.6\,Z^2/n^2$ are
+exactly what full quantum mechanics gives, and they are right. Everything else
+in the picture is scaffolding.
+
+The model says nothing about how *bright* a line is, so it cannot tell you
+which transitions dominate. It gives no reason the orbits are stable despite
+the electron accelerating. It fails completely for any atom with more than one
+electron. And the crisp circular path itself is fiction — the electron has no
+trajectory, and in the true ground state its angular momentum is zero, not
+$\hbar$. Bohr's rule gets the right answer for the wrong reason, which happens
+more often in physics than anyone likes to admit.
+
+## Recognising a Bohr problem
+
+Reach for this machinery when you see any of these:
+
+- **Integers attached to an atom.** "$n = 3$ to $n = 2$", "the $n = 4$ level",
+  "the upper state". Quantum numbers in the problem statement mean the ladder.
+- **A wavelength or a photon energy together with an element.** Emission lines,
+  absorption lines, series names (Lyman, Balmer, Paschen), "series limit",
+  "ionisation energy". Convert with $\lambda = 1240/\Delta E$ nm and hunt for
+  the pair of integers that fits.
+- **One electron and a nucleus of charge $Ze$.** He⁺, Li²⁺, Be³⁺, or
+  "hydrogen-like". Scale by $Z^2$.
+- **A substituted particle.** Muonic hydrogen, positronium, deuterium versus
+  hydrogen, "the nucleus is not infinitely heavy". Reduced mass.
+- **A collision or a recoil around an excitation.** Franck-Hertz tubes, atoms
+  striking atoms, an atom emitting while free. Conserve momentum first, then
+  spend what energy is left on the level gap.
+
+The standard opening move is the same every time: write down $E_{n_i}$ and
+$E_{n_f}$ as numbers, subtract, and only then decide whether you need a
+wavelength, a speed, or a radius. Almost every mistake in this topic comes from
+skipping straight to a formula for $\lambda$ without first writing the two
+levels.
+
+Bohr's rule was a guess with nothing behind it. Ten years later de Broglie
+supplied the reason, and it turned out that $L = n\hbar$ is just the statement
+that a wave has to fit around the circle a whole number of times. That is
+[next](/guide/de-broglie).

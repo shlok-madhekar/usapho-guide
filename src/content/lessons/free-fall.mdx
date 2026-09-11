@@ -1,55 +1,359 @@
-## Constant gravity
+Drop a stone down a well and count. Three seconds later you hear the splash.
+How deep is the water? The counting is easy; turning it into a number is not
+obvious, because part of those three seconds was stone falling and part was
+sound coming back up, and nothing in the problem tells you where the split is.
 
-Near the surface of the Earth, gravity pulls every object down with the same
-acceleration $g \approx 9.8$ m/s², regardless of mass. Take up as positive and
-the whole problem is one equation and its integrals:
+That question, and most of the ones in this unit, come down to a single fact
+about the world: near the ground, with air resistance out of the picture, every
+object falls with the same downward acceleration. Not the same speed — the same
+acceleration. A hammer and a feather dropped together on the Moon land together,
+and the astronauts of Apollo 15 filmed it to prove the point. Once you accept
+that the acceleration is a known constant, the graphs from the
+[previous lesson](/guide/motion-graphs) do the rest of the work.
 
-$$a = -g, \qquad v = v_0 - gt, \qquad y = y_0 + v_0 t - \tfrac{1}{2}gt^2$$
+## The one number and the three equations
 
-Two facts save time. The velocity is zero at the top, which fixes the rise time
-at $t = v_0/g$. And the motion is symmetric about that instant, so an object
-returns to any height with the same speed it had going up, just reversed.
+Call the downward acceleration $g$. Near the Earth's surface $g = 9.8$ m/s²,
+which means a falling object gains 9.8 m/s of downward speed every second. After
+one second of falling from rest it is moving at 9.8 m/s, after two seconds
+19.6 m/s, after three seconds 29.4 m/s. That is the whole answer to "a wrench is
+dropped and falls for 3.0 s, how fast is it going".
 
-For a drop from rest through height $h$, energy or kinematics both give
-$v = \sqrt{2gh}$ and $t = \sqrt{2h/g}$. Doubling the height does not double the
-landing speed; it multiplies it by $\sqrt{2}$.
+$g$ is a positive number, always. Whether gravity speeds an object up or slows
+it down is decided by the sign you attach to it, not by $g$ itself. Choose a
+positive direction first and write it on your paper. From here on,
+**up is positive**, so the acceleration is
 
-## The moving platform
+$$a = -g = -9.8\ \mathrm{m/s^2}$$
 
-The single most common error in free-fall problems is assuming a released
-object starts at rest. It starts with whatever velocity the platform had.
+and it is $-9.8$ on the way up, at the very top, and on the way down. Gravity
+does not know or care which way the object happens to be moving.
 
-A ball dropped from a balloon rising at 5 m/s leaves with $v_0 = +5$ m/s. It
-keeps climbing for half a second before it starts falling, and it lands later
-and faster than a ball dropped from a stationary balloon at the same height.
-The word "dropped" describes the hand, not the physics.
+Now recall the three constant-acceleration results from the previous lesson.
+Velocity changes at a steady rate, so it is linear in time. Position is the area
+under the velocity graph, which is a trapezium, so it is quadratic in time. And
+eliminating $t$ between those two gives a relation with no time in it at all.
+Written with $y$ for height, $y_0$ for the starting height and $v_0$ for the
+starting velocity:
 
-<Aside label="Where this goes wrong" warn>
-  Read the release condition, not the verb. Ask what the object's velocity was
-  the instant before it was let go, and use that as $v_0$ with its sign. A
-  descending elevator gives a negative $v_0$, a rising one gives a positive
-  $v_0$, and only a genuinely stationary support gives zero.
+$$v = v_0 - gt$$
+
+$$y = y_0 + v_0 t - \tfrac{1}{2} g t^2$$
+
+$$v^2 = v_0^2 - 2g(y - y_0)$$
+
+Read them in words. The first says the velocity falls steadily from whatever it
+started at. The second says the height is where you started, plus how far you
+would have drifted at the old velocity, minus the sag that gravity adds. The
+third is the one to reach for whenever a problem mentions two heights and two
+speeds but never mentions time.
+
+<Aside label="Worth remembering">
+  $v_0$ is a velocity, not a speed: it carries a sign. Thrown up at 20 m/s means
+  $v_0 = +20$; thrown down at 20 m/s means $v_0 = -20$. Getting that one sign
+  wrong is the most common way these problems go bad.
 </Aside>
 
-## When drag matters
+<Figure caption={<><b>Figure 1.</b> Set the launch velocity negative and you have a throw downwards; set it to zero and you have a drop. Watch the strobe dots: equal time steps, but the spacing grows, and that growth is the acceleration. Drag <i>g</i> down to 1.62 to fall on the Moon.</>}>
+  <Sim id="free-fall-throw" />
+</Figure>
 
-Real falls are not constant-acceleration for long. Air resistance grows with
-speed, and at low speeds it is roughly linear:
+## Three graphs that never change shape
+
+Every vertical-motion problem here has the same three graphs behind it. The acceleration graph is a flat line at $-9.8$. The velocity graph is a
+straight line sloping down at that rate, crossing zero at the top of the flight.
+The height graph is a parabola whose peak sits directly above that crossing.
+
+Two facts fall straight out of the velocity line. First, the object reaches its
+highest point when $v = 0$, which by $v = v_0 - gt$ happens at
+
+$$t_{\text{top}} = \frac{v_0}{g}$$
+
+A ball thrown up at 14.7 m/s takes $14.7/9.8 = 1.5$ s to reach the top. Second,
+the velocity line is symmetric about that instant: 1.5 s before the top the
+velocity was $+14.7$, and 1.5 s after the top it is $-14.7$. So an object passes
+every height twice, with the same speed both times, opposite in direction. A
+ball thrown up from the ground at 25 m/s takes $25/9.8 = 2.55$ s to rise, and
+the same again to come back, giving 5.1 s in the air.
+
+Put $v = 0$ into the third equation and the maximum rise above the launch point
+is $v_0^2/2g$. For $v_0 = 20$ m/s that is $400/19.6 = 20.4$ m. Notice it goes as
+the square of the launch speed: throw twice as fast and you go four times as
+high.
+
+<Figure caption={<><b>Figure 2.</b> The same motion, three ways. The dotted cursor marks one instant in all three panels at once. Notice the acceleration panel never moves as you drag the launch speed, and that the velocity line crosses zero exactly under the peak of the height curve.</>}>
+  <Sim id="free-fall-graphs" />
+</Figure>
+
+<QuickCheck
+  question="At the highest point of a ball's flight, what are its velocity and acceleration?"
+  options={["v = 0 and a = 0", "v = 0 and a = 9.8 m/s squared downward", "v = 9.8 m/s and a = 0", "Both are momentarily undefined"]}
+  answer={1}
+  explanation="The velocity passes through zero, but only for an instant. If the acceleration were also zero the ball would hang there forever. Gravity is unchanged the whole flight, which is exactly why the velocity keeps dropping through zero and turns negative."
+/>
+
+### Worked example 1: speed partway down
+
+A ball is thrown straight up at 15 m/s from the top of a 50 m tower. How fast is
+it moving when it is 20 m above the ground?
+
+The problem gives two heights and one speed and asks for another speed. No time
+is mentioned anywhere, so use the third equation. Put the origin at the ground,
+so $y_0 = 50$ m and $y = 20$ m, with $v_0 = +15$ m/s.
+
+$$v^2 = (15)^2 - 2(9.8)(20 - 50)$$
+
+$$v^2 = 225 - 2(9.8)(-30) = 225 + 588 = 813$$
+
+$$v = \sqrt{813} = 28.5\ \mathrm{m/s}$$
+
+The square root is what makes this work: $v^2$ does not care about the sign of
+$v$, so the answer covers both the upward and the downward pass, and here only
+the downward one is below the tower top. The question asked for a speed, so
+28.5 m/s is the answer. Had it asked for velocity, the answer would be
+$-28.5$ m/s.
+
+Also notice that the launch direction dropped out. Thrown *down* at 15 m/s from
+the same tower, the ball passes 20 m at exactly the same speed, because $v_0$
+appears only as $v_0^2$.
+
+## When you cannot avoid the quadratic
+
+Sometimes a problem insists on a time, and then you have to solve
+$y = y_0 + v_0 t - \tfrac12 g t^2$ for $t$, which is a quadratic. That is not a
+sign you have gone wrong. It is the normal state of affairs whenever the object
+starts and ends at different heights, because the flight is no longer symmetric.
+
+### Worked example 2: thrown up from a roof
+
+A ball leaves a 25 m roof at 18 m/s straight up. When does it hit the ground?
+
+Ground level is $y = 0$, and the release point is $y_0 = 25$ m with
+$v_0 = +18$ m/s. Set $y = 0$:
+
+$$0 = 25 + 18t - 4.9t^2$$
+
+Rearrange so the $t^2$ term is positive:
+
+$$4.9t^2 - 18t - 25 = 0$$
+
+$$t = \frac{18 \pm \sqrt{(-18)^2 - 4(4.9)(-25)}}{2(4.9)} = \frac{18 \pm \sqrt{324 + 490}}{9.8}$$
+
+$$t = \frac{18 \pm 28.53}{9.8}$$
+
+The two roots are $t = 4.75$ s and $t = -1.07$ s. The negative root is real
+mathematics, not a mistake: it is when the ball *would have* left the ground if
+the whole parabola were extended backwards. It is not the answer here, so
+discard it and keep $t = 4.75$ s.
+
+The landing speed comes free: $v = 18 - 9.8(4.75) = -28.5$ m/s, so the ball
+lands at 28.5 m/s. Compare that with the 28.53 hiding inside the square root a
+moment ago. That is not a coincidence — the discriminant contains
+$v_0^2 + 2gh$, which is precisely $v^2$ at the ground.
+
+<Aside label="Where this goes wrong" warn>
+  Sign errors, almost always, and they come from mixing conventions halfway
+  through. If up is positive then $g$ enters every equation as $-9.8$, a
+  downward throw has a negative $v_0$, and a point below the origin has a
+  negative $y$. Write "up +" at the top of your page and check each substitution
+  against it. The other frequent slip is using a distance fallen where the
+  equations want a change in height: falling 30 m means $y - y_0 = -30$ m, not
+  $+30$.
+</Aside>
+
+## Two objects, one clock
+
+A problem with two moving objects looks twice as hard and usually is not,
+provided you write a position equation for each with the *same* $t$ and the
+*same* origin, then say in algebra what the question says in words.
+
+Take two balls released at the same instant: one dropped from 60 m, one thrown
+up from the ground at 30 m/s. Where do they meet?
+
+$$y_1 = 60 - 4.9t^2, \qquad y_2 = 30t - 4.9t^2$$
+
+Meeting means $y_1 = y_2$. Subtract:
+
+$$60 - 4.9t^2 = 30t - 4.9t^2 \;\Longrightarrow\; 60 = 30t \;\Longrightarrow\; t = 2.0\ \mathrm{s}$$
+
+The $4.9t^2$ terms cancelled, and that cancellation is the real content of the
+problem. Both balls are pulled down identically, so relative to each other
+gravity does nothing at all: the gap between them closes at the constant
+30 m/s the thrown ball started with. Sixty metres at 30 m/s is two seconds.
+Then put $t = 2.0$ into either equation:
+
+$$y = 60 - 4.9(2.0)^2 = 60 - 19.6 = 40.4\ \mathrm{m}$$
+
+The same cancellation solves problems that look unrelated. Two stones dropped
+from the same bridge one second apart: the moment the second is released, the
+first is already moving at 9.8 m/s and is 4.9 m below. After that the gap grows
+at a steady 9.8 m/s because both accelerate alike. Two seconds later — three
+seconds after the first release — the separation is
+$4.9 + 9.8(2.0) = 24.5$ m.
+
+<Figure caption={<><b>Figure 3.</b> Drag the throw speed and watch the readout: the gap always shrinks in a straight line, never a curve, because gravity affects both balls identically. Turn the throw speed down until they meet at ground level and see the meeting point leave the picture.</>}>
+  <Sim id="free-fall-meet" />
+</Figure>
+
+<QuickCheck
+  question="Two balls are dropped from rest from the same window, half a second apart. As they fall, the distance between them"
+  options={["stays the same", "grows at an increasing rate", "grows at a steady rate", "shrinks, since the lower one has more air resistance"]}
+  answer={2}
+  explanation="Both have the same acceleration, so their velocity difference is fixed forever at g times 0.5 s, about 4.9 m/s. A constant relative velocity means the gap grows in a straight line, not a curve."
+/>
+
+## Motion in stages
+
+Many of the harder problems are not one motion but two glued together. The rule
+is the same every time: solve the first stage completely, then use its final
+position and final velocity as the starting conditions of the second. Do not try
+to write one equation across the join, because the acceleration is different on
+each side of it.
+
+A model rocket climbing at 4.0 m/s² for 20 s is a clean case. At burnout it has
+reached $v = 4.0 \times 20 = 80$ m/s and a height of
+$\tfrac12 (4.0)(20)^2 = 800$ m. Only now does free fall begin, from 800 m with
+$v_0 = +80$ m/s, adding $80^2/(2 \times 9.8) = 326.5$ m. Maximum height:
+1126.5 m. A reader who forgets the 800 m, or who uses $g$ during the burn, will
+be out by hundreds of metres.
+
+A bouncing ball is the same idea. Dropped from 5.0 m it hits at
+$\sqrt{2(9.8)(5.0)} = 9.90$ m/s after $\sqrt{2(5.0)/9.8} = 1.01$ s. If it
+rebounds with 80% of that, it leaves the floor at 7.92 m/s, and a throw up at
+7.92 m/s returns to the floor after $2(7.92)/9.8 = 1.62$ s. Second impact at
+$1.01 + 1.62 = 2.63$ s.
+
+### Worked example 3: the depth of the well
+
+Back to the stone and the splash, 3.00 s after release, with sound at 340 m/s.
+
+Two stages again, but this one has a twist: you are told the total time and
+neither piece of it. Name the unknown depth $d$ and write each stage in terms of
+it. The fall takes $t_1$ with $d = \tfrac12 g t_1^2$, so
+$t_1 = \sqrt{2d/g}$. The sound comes back up at constant speed, taking
+$t_2 = d/340$. Their sum is what you heard:
+
+$$\sqrt{\frac{2d}{9.8}} + \frac{d}{340} = 3.00$$
+
+That is awkward in $d$, so use $t_1$ as the unknown instead, since
+$d = 4.9t_1^2$:
+
+$$t_1 + \frac{4.9t_1^2}{340} = 3.00$$
+
+$$0.014412\,t_1^2 + t_1 - 3.00 = 0$$
+
+$$t_1 = \frac{-1 + \sqrt{1 + 4(0.014412)(3.00)}}{2(0.014412)} = \frac{-1 + \sqrt{1.17294}}{0.028824}$$
+
+$$t_1 = \frac{0.08302}{0.028824} = 2.880\ \mathrm{s}$$
+
+$$d = 4.9(2.880)^2 = 40.7\ \mathrm{m}$$
+
+Check it against the crude answer. Ignoring the sound entirely gives
+$4.9(3.00)^2 = 44.1$ m, and the true depth is a little less than that, as it
+must be, since some of the three seconds was spent on the return trip. The sound
+leg took $40.7/340 = 0.12$ s, which is small but not nothing.
+
+<Aside label="Worth remembering">
+  Whenever a problem hands you a *total* time or a *total* distance covering two
+  different motions, name the shared unknown, write both legs in terms of it, and
+  add. The same move solves the ball that passes a 1.50 m window in 0.120 s: the
+  window crossing fixes the speed at the top of the window, and from that speed
+  you run $v^2 = 2gh$ backwards to find how far above it was released.
+</Aside>
+
+## When the acceleration refuses to stay constant
+
+Everything so far assumed no air. Real falls do not keep accelerating forever;
+a skydiver levels off near 55 m/s and a raindrop near 9 m/s. Drag pushes back
+against the motion and grows with speed, so the net downward force shrinks as
+the object speeds up. Write the slow-speed case, where drag is proportional to
+speed with some constant $b$:
 
 $$m\frac{dv}{dt} = mg - bv$$
 
-The acceleration starts at $g$ and shrinks as $v$ grows. It reaches zero when
-the drag balances the weight, at the terminal speed $v_t = mg/b$. The object
-does not overshoot and come back; it approaches $v_t$ from below, exponentially,
-with time constant $m/b$.
+At $v = 0$ the acceleration is the full $g$. As $v$ climbs, the right-hand side
+shrinks. It reaches zero at the **terminal speed**, where the object stops
+accelerating and falls forever at a fixed rate:
 
-For fast objects the drag goes as $v^2$ instead, giving $v_t = \sqrt{mg/c}$.
-The exponential shape changes, but the logic does not: set the net force to
-zero and solve for the speed at which nothing further changes.
+$$v_t = \frac{mg}{b}$$
+
+You do not need calculus to find $v_t$ — set the net force to zero and solve.
+Getting the whole history $v(t)$ does need calculus, and the result you will be
+given is
+
+$$v(t) = v_t\left(1 - e^{-gt/v_t}\right)$$
+
+Check the two ends. At $t = 0$ the bracket is $1 - 1 = 0$, as it should be. For
+small $t$, $e^{-x} \approx 1 - x$, so $v \approx v_t (gt/v_t) = gt$, the
+no-drag answer — drag barely matters at the start. For large $t$ the exponential
+dies and $v \to v_t$ from below. The object never overshoots.
+
+With $v_t = 6.0$ m/s, the speed at $t = 1.20$ s is
+
+$$v = 6.0\left(1 - e^{-(9.8)(1.20)/6.0}\right) = 6.0\left(1 - e^{-1.96}\right)$$
+
+$$e^{-1.96} = 0.1409, \qquad v = 6.0(0.8591) = 5.15\ \mathrm{m/s}$$
+
+<Figure caption={<><b>Figure 4.</b> The straight line is what constant acceleration predicts; the curve is the real thing. Drag the terminal speed up towards 60 m/s and watch the two agree for longer and longer at the start. The marked time <i>v</i><sub>t</sub>/<i>g</i> is where the fall is 63% of the way to terminal.</>}>
+  <Sim id="free-fall-drag" />
+</Figure>
+
+Constant acceleration would have predicted $9.8 \times 1.20 = 11.8$ m/s, nearly
+twice as much. For fast, blunt objects the drag goes as $v^2$ instead, terminal
+speed becomes $v_t = \sqrt{mg/c}$, and the useful form is in terms of distance
+fallen $y$ rather than time:
+
+$$v^2 = v_t^2\left(1 - e^{-2gy/v_t^2}\right)$$
+
+Reaching 40 m/s with $v_t = 50$ m/s needs
+$1600 = 2500(1 - e^{-2gy/2500})$, so $e^{-2gy/2500} = 0.36$, giving
+$2(9.8)y/2500 = \ln(1/0.36) = 1.0217$ and $y = 130$ m. Both formulas have the
+same skeleton: a terminal value, and an exponential that measures how much of
+the way there you are.
 
 <QuickCheck
-  question="A ball is thrown straight down at 4 m/s from a bridge, and an identical ball is thrown straight up at 4 m/s from the same spot. Ignoring air resistance, how do their landing speeds in the water compare?"
-  options={["They are equal", "The downward one is faster", "The upward one is faster", "It depends on the bridge height"]}
-  answer={0}
-  explanation="The upward ball returns to the launch point moving downward at 4 m/s, identical to the other ball's start. From there the two motions are the same."
+  question="An object falls from rest with linear drag. Compared with the no-drag prediction, its speed after a long time is"
+  options={["larger, because drag stores energy", "the same, since g is unchanged", "smaller, and it stops growing entirely", "smaller at first, then larger"]}
+  answer={2}
+  explanation="Drag grows until it cancels the weight. From then on the net force is zero, so the speed is stuck at the terminal value while the no-drag prediction gt keeps rising without limit."
 />
+
+<Aside label="Where this goes wrong" warn>
+  Terminal speed is not a property of the material, it is a balance of two
+  forces, so it depends on mass. A heavy ball and a light ball of the same shape
+  have the same $b$ but different $mg$, and the heavy one falls faster. That is
+  why a hammer beats a feather in air and ties with it in vacuum.
+</Aside>
+
+## Recognising a free-fall problem
+
+The tell is that gravity is the only thing acting and the motion is along one
+vertical line. Words like dropped, released, thrown straight up, falls freely,
+neglect air resistance all point here. Once you are sure, three questions pick
+the equation for you.
+
+Does the problem mention time, or ask for it? If yes, you need
+$v = v_0 - gt$ or the quadratic $y = y_0 + v_0 t - \tfrac12 gt^2$. If time is
+never mentioned in either the given data or the question, use
+$v^2 = v_0^2 - 2g(y-y_0)$ and save yourself a step.
+
+Is there more than one moving object, or more than one phase of motion? Two
+objects means two position equations sharing one clock, then set them equal or
+subtract them — and expect the $t^2$ terms to cancel. Two phases, like a rocket
+burn then a coast, or a fall then a bounce, means solving the first stage fully
+and feeding its end into the start of the second.
+
+Does the problem mention air resistance, terminal speed, or give you an
+exponential? Then constant acceleration is dead and you are plugging into the
+drag formulas above. The giveaway is any phrase about a speed that stops
+increasing.
+
+One last habit worth building: before solving, estimate. A drop of a few metres
+takes about a second and ends near 10 m/s; a ten-storey fall takes about two and
+a half seconds. If your algebra returns 300 m/s for a stone off a bridge, the
+sign of $g$ is probably wrong somewhere.
+
+Every motion so far has been along a single vertical line. Next you keep
+the same $-g$ but give the object a sideways velocity too, and find that the
+horizontal and vertical halves of the motion never talk to each other. That is
+[two-dimensional and projectile motion](/guide/projectiles).

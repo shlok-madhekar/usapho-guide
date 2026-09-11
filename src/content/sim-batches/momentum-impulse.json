@@ -1,0 +1,101 @@
+[
+ {
+  "id": "momentum-impulse-catch",
+  "title": "Catching lab",
+  "caption": "The same momentum removed over different stopping times.",
+  "height": 220,
+  "params": [
+   {
+    "key": "m",
+    "label": "Ball mass",
+    "unit": "kg",
+    "min": 0.05,
+    "max": 1.0,
+    "step": 0.05,
+    "value": 0.25
+   },
+   {
+    "key": "v",
+    "label": "Incoming speed",
+    "unit": "m/s",
+    "min": 2,
+    "max": 30,
+    "step": 1,
+    "value": 20
+   },
+   {
+    "key": "dt",
+    "label": "Stopping time",
+    "unit": "s",
+    "min": 0.01,
+    "max": 0.5,
+    "step": 0.01,
+    "value": 0.08
+   }
+  ],
+  "draw": "var m = p.m, v = p.v, dt = p.dt;\nvar dp = m * v;\nvar F = dp / dt;\n\nvar floor = H * 0.74;\nvar padX = W * 0.72;\nctx.lineWidth = 1;\n\n// timeline: approach, then stop over dt (shown slowed), then reset\nvar approach = 1.6;\nvar stopShown = 1.2;\nvar hold = 0.9;\nvar cycle = approach + stopShown + hold;\nvar now = t % cycle;\n\nvar startX = W * 0.12;\nvar x, squash;\nif (now < approach) {\n  x = startX + (padX - startX) * (now / approach);\n  squash = 0;\n} else if (now < approach + stopShown) {\n  var f = (now - approach) / stopShown;\n  squash = 1 - (1 - f) * (1 - f);\n  x = padX + 18 * squash;\n} else {\n  squash = 1;\n  x = padX + 18;\n}\n\n// ground line\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(0, floor + 26); ctx.lineTo(W, floor + 26); ctx.stroke();\n\n// the hand / pad, drawn as a spring-like cushion\nvar padDepth = 14 + 26 * (dt / 0.5);\nvar padLeft = padX + 18 - padDepth * (1 - squash) * 0 + 14;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 2;\nctx.beginPath();\nvar segs = 8;\nfor (var i = 0; i <= segs; i++) {\n  var yy = floor - 22 + (44 * i) / segs;\n  var xx = padLeft + ((i % 2 === 0) ? 0 : padDepth * (1 - 0.55 * squash));\n  if (i === 0) ctx.moveTo(xx, yy); else ctx.lineTo(xx, yy);\n}\nctx.stroke();\nctx.beginPath();\nctx.moveTo(padLeft + padDepth + 10, floor - 30);\nctx.lineTo(padLeft + padDepth + 10, floor + 26);\nctx.stroke();\nctx.lineWidth = 1;\n\n// the ball\nvar r = 8 + m * 12;\nif (r > 22) r = 22;\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(x, floor, r, 0, Math.PI * 2); ctx.fill();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\nctx.fillStyle = C.ink;\nctx.fillText(\"m = \" + m.toFixed(2) + \" kg\", x, floor - r - 8);\n\n// velocity arrow while approaching\nfunction arrow(x0, y0, x1, y1, col) {\n  ctx.strokeStyle = col;\n  ctx.beginPath();\n  ctx.moveTo(x0, y0); ctx.lineTo(x1, y1);\n  var a = Math.atan2(y1 - y0, x1 - x0);\n  ctx.lineTo(x1 - 7 * Math.cos(a - 0.4), y1 - 7 * Math.sin(a - 0.4));\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 7 * Math.cos(a + 0.4), y1 - 7 * Math.sin(a + 0.4));\n  ctx.stroke();\n}\n\nif (now < approach) {\n  var alen = 6 + v * 3;\n  if (alen > 70) alen = 70;\n  arrow(x + r + 4, floor, x + r + 4 + alen, floor, C.accent);\n  ctx.fillStyle = C.accent;\n  ctx.textAlign = \"left\";\n  ctx.fillText(\"v = \" + v.toFixed(1) + \" m/s\", x + r + 8, floor - 10);\n} else {\n  // force arrow back on the ball, length proportional to F\n  var flen = F * 0.06;\n  if (flen > 90) flen = 90;\n  if (flen < 8) flen = 8;\n  arrow(x - r - 4, floor, x - r - 4 - flen, floor, C.accent);\n  ctx.fillStyle = C.accent;\n  ctx.textAlign = \"right\";\n  ctx.fillText(\"average force \" + F.toFixed(0) + \" N\", x - r - 8, floor - 10);\n}\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillText(\"stopping time \" + dt.toFixed(2) + \" s\", 10, 18);\nctx.fillText(\"change in momentum \" + dp.toFixed(2) + \" kg m/s (fixed by m and v)\", 10, 34);\n\nout.note = \"Dp = mv = \" + dp.toFixed(2) + \" kg m/s,  F = Dp/Dt = \" + F.toFixed(1) + \" N\";"
+ },
+ {
+  "id": "momentum-impulse-ftgraph",
+  "title": "Force-time area lab",
+  "caption": "Impulse is the area under the force-time curve.",
+  "height": 260,
+  "params": [
+   {
+    "key": "F0",
+    "label": "Peak force F0",
+    "unit": "N",
+    "min": 100,
+    "max": 1000,
+    "step": 50,
+    "value": 900
+   },
+   {
+    "key": "T",
+    "label": "Contact time T",
+    "unit": "s",
+    "min": 0.005,
+    "max": 0.06,
+    "step": 0.005,
+    "value": 0.04
+   }
+  ],
+  "draw": "var F0 = p.F0, T = p.T;\nvar J = 2 * F0 * T / Math.PI;\nvar Fbar = 2 * F0 / Math.PI;\n\nvar L = 54, R = W - 18, B = H - 34, Top = 22;\nvar pw = R - L, ph = B - Top;\n\n// axes\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(L, Top); ctx.lineTo(L, B); ctx.lineTo(R, B);\nctx.stroke();\n\nvar Fmax = 1000;\nfunction px(tt) { return L + (tt / 0.06) * pw; }\nfunction py(FF) { return B - (FF / Fmax) * ph; }\n\n// sweep of the shaded area with t\nvar frac = (t % 4) / 2.6;\nif (frac > 1) frac = 1;\nvar tEnd = T * frac;\n\n// filled impulse area\nctx.fillStyle = C.faint;\nctx.beginPath();\nctx.moveTo(px(0), py(0));\nfor (var i = 0; i <= 120; i++) {\n  var tt = tEnd * i / 120;\n  ctx.lineTo(px(tt), py(F0 * Math.sin(Math.PI * tt / T)));\n}\nctx.lineTo(px(tEnd), py(0));\nctx.closePath();\nctx.fill();\n\n// the curve itself\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var k = 0; k <= 160; k++) {\n  var s = T * k / 160;\n  var yv = F0 * Math.sin(Math.PI * s / T);\n  if (k === 0) ctx.moveTo(px(s), py(yv)); else ctx.lineTo(px(s), py(yv));\n}\nctx.stroke();\nctx.lineWidth = 1;\n\n// equal-area rectangle at the average force\nctx.strokeStyle = C.accent;\nctx.setLineDash([4, 3]);\nctx.beginPath();\nctx.moveTo(px(0), py(Fbar)); ctx.lineTo(px(T), py(Fbar));\nctx.lineTo(px(T), py(0));\nctx.stroke();\nctx.setLineDash([]);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"average force \" + Fbar.toFixed(0) + \" N\", px(0) + 6, py(Fbar) - 6);\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"time t (s)\", (L + R) / 2, H - 8);\nctx.save();\nctx.translate(14, (Top + B) / 2);\nctx.rotate(-Math.PI / 2);\nctx.fillText(\"force F (N)\", 0, 0);\nctx.restore();\n\nctx.textAlign = \"right\";\nctx.fillText(\"1000\", L - 6, py(1000) + 4);\nctx.fillText(\"0\", L - 6, py(0) + 4);\nctx.textAlign = \"center\";\nctx.fillText(\"0\", L, B + 16);\nctx.fillText(T.toFixed(3), px(T), B + 16);\n\nctx.fillStyle = C.figure;\nctx.textAlign = \"left\";\nctx.fillText(\"area swept = impulse so far\", L + 8, Top + 4);\n\nout.note = \"peak \" + F0.toFixed(0) + \" N, contact \" + T.toFixed(3) + \" s -> J = 2 F0 T / pi = \" + J.toFixed(2) + \" N s\";"
+ },
+ {
+  "id": "momentum-impulse-jet",
+  "title": "Steady jet diagram",
+  "caption": "A continuous stream delivering momentum to a surface.",
+  "height": 220,
+  "params": [
+   {
+    "key": "mdot",
+    "label": "Mass flow rate",
+    "unit": "kg/s",
+    "min": 1,
+    "max": 10,
+    "step": 0.5,
+    "value": 6
+   },
+   {
+    "key": "v",
+    "label": "Jet speed",
+    "unit": "m/s",
+    "min": 2,
+    "max": 20,
+    "step": 1,
+    "value": 10
+   },
+   {
+    "key": "rev",
+    "label": "Rebound: 0 flat wall, 1 curved vane",
+    "unit": "",
+    "min": 0,
+    "max": 1,
+    "step": 1,
+    "value": 0
+   }
+  ],
+  "draw": "var mdot = p.mdot, v = p.v, rev = p.rev;\nvar F = mdot * v * (1 + rev);\n\nvar wallX = W * 0.62;\nvar mid = H * 0.5;\n\n// wall or vane\nctx.strokeStyle = C.rule;\nctx.lineWidth = 3;\nctx.beginPath();\nif (rev < 0.5) {\n  ctx.moveTo(wallX, mid - 52); ctx.lineTo(wallX, mid + 52);\n} else {\n  ctx.arc(wallX - 26, mid, 26, -Math.PI / 2, Math.PI / 2);\n}\nctx.stroke();\nctx.lineWidth = 1;\n\n// droplets, evenly spaced, moving at v\nvar n = 9;\nvar speed = v * 8;\nfor (var i = 0; i < n; i++) {\n  var phase = ((t * speed + i * 26) % (wallX - 20));\n  var x = 16 + phase;\n  ctx.fillStyle = C.figure;\n  ctx.beginPath(); ctx.arc(x, mid - 9, 4, 0, Math.PI * 2); ctx.fill();\n}\n// outgoing water\nfor (var j = 0; j < n; j++) {\n  var ph2 = ((t * speed + j * 26) % (wallX - 20));\n  if (rev < 0.5) {\n    ctx.fillStyle = C.faint;\n    ctx.beginPath(); ctx.arc(wallX - 7, mid + ph2 * 0.5, 4, 0, Math.PI * 2); ctx.fill();\n  } else {\n    ctx.fillStyle = C.faint;\n    ctx.beginPath(); ctx.arc(wallX - 20 - ph2, mid + 9, 4, 0, Math.PI * 2); ctx.fill();\n  }\n}\n\nfunction arrow(x0, y0, x1, y1, col) {\n  ctx.strokeStyle = col;\n  ctx.beginPath();\n  ctx.moveTo(x0, y0); ctx.lineTo(x1, y1);\n  var a = Math.atan2(y1 - y0, x1 - x0);\n  ctx.lineTo(x1 - 8 * Math.cos(a - 0.4), y1 - 8 * Math.sin(a - 0.4));\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 8 * Math.cos(a + 0.4), y1 - 8 * Math.sin(a + 0.4));\n  ctx.stroke();\n}\n\nvar flen = F * 0.35;\nif (flen > 110) flen = 110;\narrow(wallX + 8, mid, wallX + 8 + flen, mid, C.accent);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"force on the surface \" + F.toFixed(0) + \" N\", wallX + 10, mid - 12);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"water in: \" + mdot.toFixed(1) + \" kg/s at \" + v.toFixed(0) + \" m/s\", 12, 18);\nctx.fillText(rev < 0.5 ? \"flat wall: water leaves sideways, no rebound\" : \"curved vane: water leaves backwards at the same speed\", 12, H - 10);\n\nout.note = \"F = (dm/dt) x change in speed = \" + mdot.toFixed(1) + \" x \" + (v * (1 + rev)).toFixed(1) + \" = \" + F.toFixed(1) + \" N\";"
+ }
+]

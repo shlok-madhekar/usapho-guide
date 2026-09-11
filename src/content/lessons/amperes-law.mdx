@@ -1,70 +1,368 @@
-## The magnetic counterpart of Gauss's law
+## The integral you would rather not do
 
-Gauss's law converts a hard integral into an easy one whenever symmetry makes
-the field constant over a closed surface. Ampere's law does the same trick with
-a closed loop instead of a surface:
+In the last lesson you built the field of a current from scratch. Biot-Savart
+chops the wire into pieces $d\vec{\ell}$, works out the tiny field each piece
+makes at your point, and adds them up. It always works. It is also brutal: for
+anything but a straight wire or a loop on its own axis, the integral is a
+three-line mess of square roots.
+
+Now picture a copper wire two millimetres across carrying ten amps, and ask for
+the field halfway between the axis and the surface. With Biot-Savart you would
+have to add up the contributions of every filament of current in that
+cross-section, at a point that is off-axis for almost all of them. It takes
+hours. The answer, once you have it, is embarrassingly simple.
+
+That mismatch — vicious integral, simple answer — is a signal. It means the
+symmetry of the problem is doing most of the work, and there should be a way of
+using the symmetry directly. That way is Ampere's law. It is to magnetism what
+Gauss's law is to electrostatics: a statement that is always true, and that
+becomes a one-line calculation whenever the geometry is symmetric enough.
+
+## Circulation, and what the law says
+
+Take any closed path in space — any loop at all, it does not have to be a wire
+or follow a field line. Walk around it, and at each step multiply the component
+of $\vec{B}$ along your direction of travel by the length of the step. Add up
+all those products as you go round once. That sum is written
+
+$$\oint \vec{B}\cdot d\vec{\ell}$$
+
+and it is called the **circulation** of $\vec{B}$ around the loop. The circle on
+the integral sign means the path closes. If the field pushes you forward
+everywhere, the circulation is large and positive. If the field is always
+sideways to your path, every term is zero and so is the total.
+
+Ampere's law says the circulation only depends on the current threading the
+loop:
 
 $$\oint \vec{B}\cdot d\vec{\ell} = \mu_0 I_{enc}$$
 
-The circulation of $\vec{B}$ around any closed path equals $\mu_0$ times the
-current threading that path. Only current passing through the loop counts.
-Current outside contributes to $\vec{B}$ at every individual point, but its
-contributions to the circulation cancel exactly.
+Here $\mu_0 = 4\pi\times10^{-7}$ T·m/A is the permeability of free space, the
+same constant that appeared in Biot-Savart, and $I_{enc}$ is the net current
+passing through any surface bounded by the loop. That is all. The shape of the
+loop does not matter, the distance to the wires does not matter, and — this is
+the surprising part — currents *outside* the loop do not matter.
 
-Sign convention: curl the right hand along the direction you traverse the loop,
-and the thumb gives the positive direction for enclosed current. Two equal
-currents threading in opposite senses enclose zero net current.
+A current outside your loop certainly makes a field at every point on the loop.
+But as you walk round, it helps you along one part of the path by exactly as
+much as it fights you on another, and its net contribution to the circulation is
+zero. Only threading current survives.
 
-## Choosing a loop
+The sign comes from your right hand. Point your fingers the way you walk around
+the loop; your thumb then points in the positive direction for current. Current
+threading the other way counts as negative. So if a loop encircles $8.0$ A and
+$5.0$ A coming out of the page and $3.0$ A going in, traversed counterclockwise,
+then $I_{enc} = 8.0 + 5.0 - 3.0 = 10.0$ A, and
 
-The law is always true and rarely useful. It becomes useful when you can pick a
-path on which $\vec{B}$ is either constant and parallel to $d\vec{\ell}$, or
-perpendicular to it, or zero. Then the integral collapses to $B \times
-(\text{length})$ and you can solve for $B$.
+$$\oint \vec{B}\cdot d\vec{\ell} = (4\pi\times10^{-7})(10.0) = 1.26\times10^{-5}\ \text{T·m}$$
 
-Argue the direction of $\vec{B}$ from symmetry *before* choosing the path. For
-a straight wire, rotational symmetry plus the cross-product structure of
-Biot-Savart forces the field to be circumferential and to depend only on $r$.
-A concentric circle then gives
+You never had to know where the wires were inside the loop, or how far apart.
 
-$$B(2\pi r) = \mu_0 I \quad\Longrightarrow\quad B = \frac{\mu_0 I}{2\pi r}$$
-
-For a thick wire of radius $a$ with uniform current density, a loop inside
-encloses only the fraction $r^2/a^2$ of the current, so $B = \mu_0 I r /
-2\pi a^2$ — linear inside, falling as $1/r$ outside, continuous at the surface.
-
-## Solenoid and toroid
-
-For a long solenoid with $n$ turns per unit length, take a rectangular loop
-with one side inside along the axis, one side outside far away where the field
-is negligible, and two sides perpendicular to the field contributing nothing.
-Only one side survives:
-
-$$B = \mu_0 n I$$
-
-Uniform, independent of position within the interior, and independent of the
-solenoid's radius.
-
-A toroid has closed field lines, so a concentric circle of radius $r$ inside
-the windings is the natural path. With $N$ total turns:
-
-$$B = \frac{\mu_0 N I}{2\pi r}$$
-
-This one is not uniform — it falls off across the cross-section — and it is
-strictly zero outside the toroid, both inside the hole and beyond the outer
-edge.
-
-<Aside label="Where this goes wrong" warn>
-  $I_{enc} = 0$ does not mean $B = 0$. It means the *circulation* vanishes.
-  Directly outside a toroid, or on a loop enclosing two opposite currents, the
-  integral is zero while the field at individual points need not be. You may
-  conclude $B = 0$ only when a symmetry argument has already established that
-  $B$ is constant in magnitude and everywhere tangent to your chosen path.
+<Aside label="Worth remembering">
+  Ampere's law in this form is exactly true only for steady currents — currents
+  that are not changing in time. Maxwell later added a second term to handle
+  changing electric fields, which is what makes a capacitor work as part of a
+  circuit. Everything here is the steady case.
 </Aside>
 
 <QuickCheck
-  question="A long solenoid is stretched so its length doubles while the total number of turns and the current stay the same. The interior field:"
-  options={["Doubles", "Halves", "Is unchanged", "Falls by a factor of four"]}
-  answer={1}
-  explanation="The field depends on turns per unit length, not total turns. Doubling the length halves n and therefore halves B."
+  question="A circular loop of radius 1 cm sits 5 cm away from a long wire, so the wire passes outside it. What is the circulation of B around that loop?"
+  options={["Zero", "mu0 I", "mu0 I divided by 2 pi times 5 cm", "It depends on the loop's orientation"]}
+  answer={0}
+  explanation="No current threads the loop, so the circulation is zero. The field at points on the loop is not zero — the wire makes a perfectly good field there — but the positive and negative contributions cancel as you go round."
 />
+
+## Getting a number out: the straight wire
+
+The law is always true and usually useless. It becomes a tool only when you can
+find a path on which you already know the *shape* of $\vec{B}$, so that the
+integral collapses.
+
+For a long straight wire, argue the shape from symmetry before drawing
+anything. Rotate the whole setup about the wire's axis and nothing changes, so
+$B$ can only depend on the distance $r$ from the axis. Slide everything along
+the axis and nothing changes, so $B$ cannot depend on position along the wire.
+And Biot-Savart's cross product puts $d\vec{B}$ perpendicular to the current, so
+the field wraps around the wire in circles.
+
+Now choose your path to match: a circle of radius $r$, centred on the wire, in
+the plane perpendicular to it. On that circle $\vec{B}$ is everywhere parallel
+to $d\vec{\ell}$ and everywhere the same size, so the circulation is just $B$
+times the length of the path:
+
+$$B\,(2\pi r) = \mu_0 I \quad\Longrightarrow\quad B = \frac{\mu_0 I}{2\pi r}$$
+
+That took three lines instead of a page. For $I = 5.0$ A at $r = 2.0$ cm:
+
+$$B = \frac{(4\pi\times10^{-7})(5.0)}{2\pi(0.020)} = \frac{2\times10^{-7}\times 5.0}{0.020} = 5.0\times10^{-5}\ \text{T}$$
+
+The combination $\mu_0/2\pi = 2\times10^{-7}$ is worth memorising; it turns
+these into mental arithmetic.
+
+Now the wire with thickness. Let the wire have radius $a$ and carry $I$ spread
+uniformly over its cross-section, and put your circle *inside* the metal at
+radius $r < a$. The symmetry argument is unchanged, so the left side is still
+$B(2\pi r)$. What changes is the right side: your loop no longer catches all the
+current, only the fraction of the cross-section it encloses,
+
+$$I_{enc} = I\,\frac{\pi r^2}{\pi a^2} = I\,\frac{r^2}{a^2}$$
+
+so that
+
+$$B = \frac{\mu_0 I r}{2\pi a^2} \qquad (r \le a)$$
+
+Inside, the field grows straight from zero at the axis. Outside it falls as
+$1/r$. At $r = a$ the two expressions agree, both giving $\mu_0 I/2\pi a$, which
+is the largest field anywhere — right at the surface.
+
+That halfway-into-the-copper question from the opening is now one substitution.
+With $a = 2.0$ mm, $I = 10$ A and $r = 1.0$ mm:
+
+$$B = \frac{(4\pi\times10^{-7})(10)(0.0010)}{2\pi(0.0020)^2} = \frac{2\times10^{-7}\times 10 \times 0.0010}{4.0\times10^{-6}} = 5.0\times10^{-4}\ \text{T}$$
+
+<Figure caption={<><b>Figure 1.</b> The dashed circle is the Amperian loop, and the marker runs round it faster where the field is stronger. Drag the loop radius out from the axis: the field climbs in a straight line until you cross the surface, then turns over and decays. Try shrinking the wire radius with the loop parked outside — nothing outside changes, because the enclosed current has not changed.</>}>
+  <Sim id="amperes-law-thick-wire" />
+</Figure>
+
+<QuickCheck
+  question="Inside a uniform wire of radius 5.0 mm, at what distance from the axis is the field half its value at the surface?"
+  options={["1.25 mm", "2.5 mm", "3.5 mm", "10 mm"]}
+  answer={1}
+  explanation="Inside, B is proportional to r, so half the surface field happens at half the radius: 2.5 mm. The square-root answer 3.5 mm comes from wrongly assuming B goes as r squared, which is how the enclosed current grows, not the field."
+/>
+
+## When the current is not spread evenly
+
+Nothing above required uniform current. The only step that used it was
+$I_{enc} = I r^2/a^2$. If the current density $J$ varies with radius, replace
+that step with an integral — and it is a one-dimensional integral over thin
+rings, not the three-dimensional monster Biot-Savart would have handed you.
+
+A ring of radius $s$ and thickness $ds$ has area $2\pi s\,ds$, so
+
+$$I_{enc}(r) = \int_0^r J(s)\, 2\pi s\, ds$$
+
+**Worked example.** A wire of radius $R = 6.0$ mm carries a total of $9.0$ A
+with density $J(s) = J_0(1 - s/R)$, strongest on the axis and falling to zero at
+the surface. Find $B$ at $s = R/2 = 3.0$ mm.
+
+First find $J_0$ from the total current, because the problem gave you amps, not
+a density:
+
+$$I = \int_0^R J_0\left(1 - \frac{s}{R}\right)2\pi s\, ds = 2\pi J_0\left(\frac{R^2}{2} - \frac{R^2}{3}\right) = \frac{\pi J_0 R^2}{3}$$
+
+So $J_0 = 3I/\pi R^2 = 3(9.0)/[\pi(0.0060)^2] = 27/(1.131\times10^{-4}) =
+2.39\times10^{5}$ A/m².
+
+Now the same integral, stopped at $r = R/2$:
+
+$$I_{enc} = 2\pi J_0\left(\frac{r^2}{2} - \frac{r^3}{3R}\right) = 2\pi J_0\left(\frac{R^2}{8} - \frac{R^2}{24}\right) = 2\pi J_0 \frac{R^2}{12}$$
+
+Compare that with the total, $2\pi J_0 R^2/6$: the inner half of the wire
+carries exactly half the current, $4.5$ A. Then
+
+$$B = \frac{\mu_0 I_{enc}}{2\pi r} = \frac{2\times10^{-7} \times 4.5}{0.0030} = 3.0\times10^{-4}\ \text{T}$$
+
+The pattern to take away: find the density, integrate it out to your radius, and
+only then divide by $2\pi r$. Two-thirds of the errors on problems like this
+come from skipping the first step and using the total current.
+
+<Aside label="Where this goes wrong" warn>
+  $I_{enc} = 0$ does not mean $B = 0$. It means the circulation vanishes. A loop
+  drawn around two equal and opposite wires encloses zero net current, but the
+  field at points on that loop is certainly not zero — it points one way on one
+  side and the other way elsewhere, and cancels only when summed. You may
+  conclude $B = 0$ from $I_{enc} = 0$ only after a symmetry argument has already
+  told you that $B$ is constant in magnitude and everywhere tangent to your
+  path. Outside a hollow pipe's cavity and outside a perfect toroid, it is; for
+  a random loop, it is not.
+</Aside>
+
+## Straight paths: solenoid, sheet, toroid
+
+Circles are not the only useful loops. When the field is straight and uniform, a
+rectangle is better.
+
+A **solenoid** is a wire wound in a tight helix, $n$ turns per metre, carrying
+$I$. Far from the ends, the field inside points along the axis and is uniform;
+outside a long solenoid it is very nearly zero, because the return field spreads
+over the whole of space. Draw a rectangle with one side of length $L$ inside
+along the axis, the opposite side outside, and the two short sides crossing the
+winding perpendicular to the field.
+
+Go round it. The inside side gives $BL$, since $\vec{B}$ is parallel to the path
+and constant. The outside side gives zero, since $B \approx 0$ out there. The
+two short sides give zero, since $\vec{B}$ is perpendicular to $d\vec{\ell}$
+along them. So the circulation is $BL$. The rectangle links $nL$ turns, each
+carrying $I$, so $I_{enc} = nLI$, and
+
+$$BL = \mu_0 n L I \quad\Longrightarrow\quad B = \mu_0 n I$$
+
+The $L$ cancels, which it had to: the answer cannot depend on how long you chose
+to draw your rectangle. Note what $B$ does *not* depend on — the solenoid's
+radius, and your position inside it. Only turns per metre. A solenoid $0.50$ m
+long with $800$ turns has $n = 1600$ m⁻¹, so at $1.5$ A,
+$B = (4\pi\times10^{-7})(1600)(1.5) = 3.0\times10^{-3}$ T.
+
+<Figure caption={<><b>Figure 2.</b> The dashed rectangle is the Amperian loop. Side 1 runs along the field and contributes B times L. Sides 2 and 4 cross the field at right angles and contribute nothing. Side 3 sits outside, where the field of a long solenoid is negligible. Notice that the loop catches n L turns no matter how far out you push side 3.</>}>
+  <Sim id="amperes-law-solenoid-loop" />
+</Figure>
+
+The same rectangle trick handles an **infinite sheet** carrying surface current
+density $K$, measured in amps per metre of width. By symmetry the field is
+parallel to the sheet, perpendicular to the current, and reverses sign as you
+cross. Take a rectangle straddling the sheet with two sides of length $L$
+parallel to it. Both those sides contribute $BL$, the short sides contribute
+nothing, and the loop catches $KL$ of current:
+
+$$2BL = \mu_0 K L \quad\Longrightarrow\quad B = \frac{\mu_0 K}{2}$$
+
+Independent of distance, exactly like the field of an infinite charged plane.
+For $K = 50$ A/m, $B = (4\pi\times10^{-7})(50)/2 = 3.14\times10^{-5}$ T. A thick
+slab of thickness $2d$ carrying density $J$ is the same calculation with
+$K$ replaced by whatever lies inside your loop: at height $y$ within the slab
+the loop catches $J(2y)L$ per length $L$, giving $B = \mu_0 J y$, and outside it
+catches everything, giving $B = \mu_0 J d$.
+
+A **toroid** is a solenoid bent into a doughnut, $N$ turns in total. Its field
+lines close on themselves inside the windings, so the natural path is a circle
+of radius $r$ round the doughnut's hole. That circle threads all $N$ turns once
+each:
+
+$$B(2\pi r) = \mu_0 N I \quad\Longrightarrow\quad B = \frac{\mu_0 N I}{2\pi r}$$
+
+Unlike the solenoid, this field is *not* uniform: it is strongest at the inner
+edge of the cross-section and weakest at the outer edge. Outside the windings,
+in the hole or beyond the rim, a similar circle encloses zero net current (each
+turn crosses it twice, in opposite directions, or not at all), and there the
+field really is zero.
+
+**Worked example.** A toroid of square cross-section runs from inner radius
+$a = 0.10$ m to outer radius $b = 0.14$ m, stands $h = 0.040$ m tall, has
+$N = 800$ turns and carries $I = 5.0$ A. Find the flux through one cross-section.
+
+You cannot write flux as $B \times \text{area}$, because $B$ changes across the
+face. Strip the square into vertical slivers of height $h$ and width $dr$, over
+each of which $B$ is effectively constant:
+
+$$\Phi = \int_a^b \frac{\mu_0 N I}{2\pi r} h\, dr = \frac{\mu_0 N I h}{2\pi}\ln\!\frac{b}{a}$$
+
+Put the numbers in. $\mu_0 N I h/2\pi = (2\times10^{-7})(800)(5.0)(0.040) =
+3.2\times10^{-5}$, and $\ln(0.14/0.10) = \ln 1.4 = 0.3365$, so
+
+$$\Phi = (3.2\times10^{-5})(0.3365) = 1.08\times10^{-5}\ \text{Wb}$$
+
+That logarithm is the fingerprint of a $1/r$ field integrated across a gap, and
+it will come back when you compute inductance.
+
+## Superposing fields: coax and the drilled hole
+
+Ampere's law needs symmetry. Real problems often break it slightly — a hole
+bored off-centre, two nested conductors with mismatched currents. The fix is
+almost always the same: write the awkward object as a **sum** of symmetric
+objects, solve each with Ampere's law, and add the fields as vectors.
+
+The gentle case is a coaxial cable: a core carrying $I_1$ out and a shield
+carrying $I_2$ back. A circle at radius $r$ still has the full rotational
+symmetry, so $B = \mu_0 I_{enc}/2\pi r$ everywhere; all you have to do is count
+correctly. Between the conductors, $I_{enc} = I_1$. Outside both,
+$I_{enc} = I_1 - I_2$, which is zero for a properly matched cable and is why
+coax does not radiate into the room. If only $5.0$ A returns for $7.0$ A sent,
+then at $r = 8.0$ mm you enclose $2.0$ A and
+$B = (2\times10^{-7})(2.0)/0.0080 = 5.0\times10^{-5}$ T. If a miswired cable
+sends $10$ A and $4.0$ A the *same* way, you enclose $14$ A, and at
+$r = 5.0$ mm, $B = (2\times10^{-7})(14)/0.0050 = 5.6\times10^{-4}$ T.
+
+Inside the thickness of the shield, from $b$ to $c$, only part of the return
+current is caught, in proportion to the area:
+
+$$I_{enc}(r) = I_1 - I_2\,\frac{r^2 - b^2}{c^2 - b^2}$$
+
+<Figure caption={<><b>Figure 3.</b> Set both currents equal and the field outside the shield collapses to nothing while the field in the gap is untouched. Then drag the shield current down and watch a tail appear outside. The readout gives the enclosed current at your loop radius, which is the only quantity Ampere's law ever asks for.</>}>
+  <Sim id="amperes-law-coax" />
+</Figure>
+
+**Worked example, the hard kind.** A long conductor of radius $R$ carries
+uniform current density $J$ out of the page. A cylindrical hole of any radius is
+bored parallel to the axis, its centre offset by $\vec{d}$ from the conductor's
+axis. Find the field inside the hole.
+
+A drilled cylinder has no symmetry, so Ampere's law cannot touch it directly.
+But a solid cylinder of density $J$ *plus* a smaller cylinder of density $-J$
+filling the hole is exactly the same current distribution: inside the hole the
+two densities cancel to zero, and everywhere else the full $J$ survives. Each
+piece is a perfectly symmetric solid cylinder, and each you already know.
+
+For a solid cylinder of density $J$, the field at an interior point a distance
+$s$ from its own axis is $B = \mu_0 J s/2$, pointing circumferentially. Written
+as a vector it is $\vec{B} = \tfrac{1}{2}\mu_0 \vec{J}\times\vec{s}$, where
+$\vec{s}$ runs from that cylinder's axis to the point.
+
+Take a point $P$ inside the hole. Let $\vec{s}_1$ go from the big axis to $P$
+and $\vec{s}_2$ from the hole's axis to $P$. Adding:
+
+$$\vec{B} = \tfrac{1}{2}\mu_0\vec{J}\times\vec{s}_1 - \tfrac{1}{2}\mu_0\vec{J}\times\vec{s}_2 = \tfrac{1}{2}\mu_0\vec{J}\times(\vec{s}_1 - \vec{s}_2)$$
+
+and $\vec{s}_1 - \vec{s}_2$ is just $\vec{d}$, the offset between the two axes.
+It does not contain $P$ at all. The field everywhere inside the hole is the same
+vector:
+
+$$B = \frac{\mu_0 J d}{2}$$
+
+perpendicular to $\vec{d}$. A uniform field inside a bored cavity — a genuinely
+surprising result, and one that falls out of two lines of superposition. With
+$J = 2.0\times10^{6}$ A/m² and $d = 1.0$ cm:
+
+$$B = \frac{(4\pi\times10^{-7})(2.0\times10^{6})(0.010)}{2} = 1.26\times10^{-2}\ \text{T}$$
+
+The same picture answers a harder question. Suppose $R = 1.0$ cm, the hole has
+radius $R/2$ with its axis $R/2$ from the conductor's axis, and the remaining
+metal carries $15$ A. What is the field at the *original* axis? First get $J$,
+remembering the metal is what is left after drilling:
+
+$$J = \frac{I}{\pi R^2 - \pi (R/2)^2} = \frac{4I}{3\pi R^2} = \frac{4(15)}{3\pi(0.010)^2} = 6.37\times10^{4}\ \text{A/m}^2$$
+
+At the original axis, $\vec{s}_1 = 0$, so the full cylinder contributes nothing.
+The negative cylinder contributes $\mu_0 J s_2/2$ with $s_2 = R/2 = 0.0050$ m:
+
+$$B = \frac{(4\pi\times10^{-7})(6.37\times10^{4})(0.0050)}{2} = 2.0\times10^{-4}\ \text{T}$$
+
+<Aside label="Worth remembering">
+  Superposition works because Ampere's law is linear in the current. Any current
+  distribution you can write as a sum of symmetric ones — cylinder minus
+  cylinder, two sheets, wire plus sheet — is solvable, even though no single
+  Amperian loop would ever crack it.
+</Aside>
+
+## Knowing when to reach for it
+
+Ampere's law is the right tool when the problem hands you one of a very short
+list of shapes, in a form that hints the answer should be clean.
+
+Look for these words in the statement: *long* or *infinite* straight wire,
+*cylindrical*, *coaxial*, *solenoid*, *toroid*, *wide sheet* or *slab*. Each of
+those is a claim about symmetry, and it is there to tell you that one
+well-chosen loop will do the job.
+
+Look for a question asked at a radius or a depth rather than at a named point —
+"at $r = 3.0$ mm", "1.0 cm from the central plane". That phrasing means the
+author expects $B$ to depend on one coordinate only, which is exactly the
+condition that makes the circulation collapse to $B$ times a length.
+
+Look for a current density given as a function, $J(r)$, or a total current on a
+thick conductor. That is an invitation to integrate $J$ over the enclosed area
+and nothing more.
+
+And when the geometry is nearly but not quite symmetric — a hole off the axis,
+an unbalanced shield — do not abandon the law. Split the object into symmetric
+pieces and add.
+
+If instead you are given a finite segment of wire, a single circular loop, a
+point off the axis of a coil, or any shape with no repeating symmetry, Ampere's
+law is still true but it will not give you $B$. Go back to
+[Biot-Savart](/guide/biot-savart) and integrate.
+
+Everything above quietly assumed the currents were steady. Next that assumption
+goes, and you will find that a
+magnetic field which changes in time drives a current all by itself, with no
+battery anywhere — that is [Faraday's law and Lenz's law](/guide/faraday-lenz).

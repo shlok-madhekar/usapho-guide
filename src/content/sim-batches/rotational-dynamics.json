@@ -1,0 +1,100 @@
+[
+ {
+  "id": "rotational-dynamics-torque",
+  "title": "Torque and the lever arm",
+  "caption": "Only the perpendicular part of a force twists anything.",
+  "height": 260,
+  "params": [
+   {
+    "key": "radius",
+    "label": "Distance from pivot",
+    "unit": "m",
+    "min": 0.05,
+    "max": 0.5,
+    "step": 0.01,
+    "value": 0.3
+   },
+   {
+    "key": "angle",
+    "label": "Angle between r and F",
+    "unit": "deg",
+    "min": 0,
+    "max": 180,
+    "step": 1,
+    "value": 90
+   },
+   {
+    "key": "force",
+    "label": "Force",
+    "unit": "N",
+    "min": 5,
+    "max": 40,
+    "step": 1,
+    "value": 20
+   }
+  ],
+  "draw": "var F = p.force, r = p.radius, th = p.angle * Math.PI / 180;\nvar px = W * 0.30, py = H * 0.62;\nvar scale = (W * 0.42) / 0.5;\nvar ax = px + r * scale, ay = py;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\n// pivot\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(px, py + 34); ctx.lineTo(px, py - 34); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px, py, 4, 0, 6.2832); ctx.fill();\nctx.fillText(\"pivot\", px - 16, py + 50);\n\n// the rigid bar\nctx.strokeStyle = C.figure;\nctx.lineWidth = 5;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + 0.5 * scale, py); ctx.stroke();\n\n// r marker\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(px, py + 22); ctx.lineTo(ax, py + 22); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"r = \" + r.toFixed(2) + \" m\", (px + ax) / 2 - 26, py + 36);\n\n// force arrow from application point\nvar L = 58 + F * 1.1;\nvar fx = ax + L * Math.cos(-th), fy = ay + L * Math.sin(-th);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2.5;\nctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(fx, fy); ctx.stroke();\nvar hw = 6;\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.moveTo(fx, fy);\nctx.lineTo(fx - 12 * Math.cos(-th) + hw * Math.sin(-th), fy - 12 * Math.sin(-th) - hw * Math.cos(-th));\nctx.lineTo(fx - 12 * Math.cos(-th) - hw * Math.sin(-th), fy - 12 * Math.sin(-th) + hw * Math.cos(-th));\nctx.closePath(); ctx.fill();\nctx.fillText(\"F = \" + F.toFixed(0) + \" N\", fx + 6, fy - 4);\n\n// line of action, extended both ways\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.setLineDash([2, 5]);\nctx.beginPath();\nctx.moveTo(ax - 240 * Math.cos(-th), ay - 240 * Math.sin(-th));\nctx.lineTo(ax + 240 * Math.cos(-th), ay + 240 * Math.sin(-th));\nctx.stroke();\nctx.setLineDash([]);\n\n// perpendicular from pivot to line of action = lever arm\nvar vx = Math.cos(-th), vy = Math.sin(-th);\nvar wx = px - ax, wy = py - ay;\nvar proj = wx * vx + wy * vy;\nvar footx = ax + proj * vx, footy = ay + proj * vy;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.setLineDash([5, 4]);\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(footx, footy); ctx.stroke();\nctx.setLineDash([]);\nvar lever = Math.abs(r * Math.sin(th));\nctx.fillStyle = C.figure;\nctx.fillText(\"lever arm r sin\" + \"\u03b8 = \" + lever.toFixed(3) + \" m\", 10, 20);\n\n// angle label\nctx.fillStyle = C.ink;\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.arc(ax, ay, 24, -th, 0, th < 0); ctx.stroke();\nctx.fillText(\"\u03b8 = \" + p.angle.toFixed(0) + \"\u00b0\", ax + 28, ay - 10);\n\nvar tau = r * F * Math.sin(th);\nout.note = \"torque = r F sin(theta) = \" + r.toFixed(2) + \" x \" + F.toFixed(0) + \" x \" + Math.sin(th).toFixed(3) + \" = \" + tau.toFixed(2) + \" N m\";"
+ },
+ {
+  "id": "rotational-dynamics-pulley",
+  "title": "Massive pulley lab",
+  "caption": "A block on a cord over a pulley that has real mass.",
+  "height": 280,
+  "params": [
+   {
+    "key": "block",
+    "label": "Hanging mass",
+    "unit": "kg",
+    "min": 0.5,
+    "max": 8,
+    "step": 0.1,
+    "value": 3.0
+   },
+   {
+    "key": "pulley",
+    "label": "Pulley mass (solid disk)",
+    "unit": "kg",
+    "min": 0,
+    "max": 10,
+    "step": 0.1,
+    "value": 2.0
+   }
+  ],
+  "draw": "var g = 9.8;\nvar m = p.block, M = p.pulley, R = 0.20;\nvar I = 0.5 * M * R * R;\nvar a = m * g / (m + 0.5 * M);\nvar T = m * (g - a);\nvar alpha = a / R;\n\nvar cx = W * 0.36, cy = H * 0.30, rad = Math.min(W, H) * 0.14;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// support\nctx.strokeStyle = C.rule; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(cx, cy - rad); ctx.lineTo(cx, cy - rad - 24); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cx - 30, cy - rad - 24); ctx.lineTo(cx + 30, cy - rad - 24); ctx.stroke();\n\n// fall distance, looping\nvar cycle = 1.6;\nvar tt = t % cycle;\nvar drop = 0.5 * a * tt * tt;\nvar dpix = drop * (H * 0.30);\nif (dpix > H * 0.34) dpix = H * 0.34;\nvar theta = 0.5 * alpha * tt * tt;\n\n// pulley\nctx.strokeStyle = C.figure; ctx.lineWidth = 3;\nctx.beginPath(); ctx.arc(cx, cy, rad, 0, 6.2832); ctx.stroke();\nctx.strokeStyle = C.faint; ctx.lineWidth = 2;\nfor (var k = 0; k < 4; k++) {\n  var an = theta + k * Math.PI / 4;\n  ctx.beginPath();\n  ctx.moveTo(cx - rad * Math.cos(an), cy - rad * Math.sin(an));\n  ctx.lineTo(cx + rad * Math.cos(an), cy + rad * Math.sin(an));\n  ctx.stroke();\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"pulley M = \" + M.toFixed(1) + \" kg\", cx - rad - 4, cy - rad - 32);\n\n// cord and block\nvar bx = cx + rad, by = cy + 40 + dpix;\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(bx, cy); ctx.lineTo(bx, by); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillRect(bx - 20, by, 40, 30);\nctx.fillStyle = C.paper;\nctx.fillText(m.toFixed(1) + \" kg\", bx - 15, by + 19);\n\n// force labels on block\nctx.fillStyle = C.accent;\nctx.fillText(\"T = \" + T.toFixed(2) + \" N\", bx + 26, by + 2);\nctx.fillStyle = C.ink;\nctx.fillText(\"mg = \" + (m * g).toFixed(2) + \" N\", bx + 26, by + 44);\nctx.strokeStyle = C.ink; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(bx, by + 30); ctx.lineTo(bx, by + 52); ctx.stroke();\nctx.beginPath(); ctx.moveTo(bx, by + 56); ctx.lineTo(bx - 4, by + 48); ctx.lineTo(bx + 4, by + 48); ctx.closePath(); ctx.fill();\n\n// bar chart comparison with free fall\nvar gx = W * 0.72, gy0 = H * 0.80, hmax = H * 0.5;\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(gx - 30, gy0); ctx.lineTo(gx + 90, gy0); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillRect(gx - 20, gy0 - hmax, 28, hmax);\nctx.fillStyle = C.accent;\nctx.fillRect(gx + 30, gy0 - hmax * a / g, 28, hmax * a / g);\nctx.fillStyle = C.ink;\nctx.fillText(\"g\", gx - 12, gy0 + 14);\nctx.fillText(\"a\", gx + 40, gy0 + 14);\n\nout.note = \"a = \" + a.toFixed(2) + \" m/s^2, T = \" + T.toFixed(2) + \" N, alpha = \" + alpha.toFixed(1) + \" rad/s^2 (I = \" + I.toFixed(3) + \" kg m^2)\";"
+ },
+ {
+  "id": "rotational-dynamics-rod",
+  "title": "Falling hinged rod",
+  "caption": "A uniform rod hinged at one end, released from rest.",
+  "height": 280,
+  "params": [
+   {
+    "key": "length",
+    "label": "Rod length",
+    "unit": "m",
+    "min": 0.4,
+    "max": 1.6,
+    "step": 0.05,
+    "value": 1.2
+   },
+   {
+    "key": "start",
+    "label": "Release angle above horizontal",
+    "unit": "deg",
+    "min": 5,
+    "max": 89,
+    "step": 1,
+    "value": 89
+   }
+  ],
+  "draw": "var g = 9.8;\nvar L = p.length;\nvar th0 = p.start * Math.PI / 180;\n\n// integrate: alpha = (3g / 2L) cos(theta), theta measured up from the ground\nvar th = th0, om = 0, dt = 0.0008, tt = t % 3.0, n = Math.floor(tt / dt);\nif (n > 4000) n = 4000;\nfor (var i = 0; i < n; i++) {\n  if (th <= 0) { th = 0; break; }\n  om = om + (3 * g / (2 * L)) * Math.cos(th) * dt;\n  th = th - om * dt;\n}\nif (th < 0) th = 0;\n\nvar px = W * 0.22, py = H * 0.82;\nvar scale = (W * 0.6) / 1.6;\nvar tipx = px + L * scale * Math.cos(th);\nvar tipy = py - L * scale * Math.sin(th);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// ground\nctx.strokeStyle = C.rule; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(16, py); ctx.lineTo(W - 16, py); ctx.stroke();\n\n// start position, faint\nctx.strokeStyle = C.faint; ctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(px, py);\nctx.lineTo(px + L * scale * Math.cos(th0), py - L * scale * Math.sin(th0));\nctx.stroke();\n\n// rod\nctx.strokeStyle = C.figure; ctx.lineWidth = 6;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(tipx, tipy); ctx.stroke();\n\n// centre of mass and its weight\nvar cmx = px + 0.5 * L * scale * Math.cos(th);\nvar cmy = py - 0.5 * L * scale * Math.sin(th);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(cmx, cmy, 4, 0, 6.2832); ctx.fill();\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(cmx, cmy); ctx.lineTo(cmx, cmy + 32); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cmx, cmy + 38); ctx.lineTo(cmx - 4, cmy + 29); ctx.lineTo(cmx + 4, cmy + 29); ctx.closePath(); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"Mg acts at L/2\", cmx + 8, cmy + 26);\n\n// pivot\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px, py, 5, 0, 6.2832); ctx.fill();\nctx.fillText(\"hinge\", px - 34, py + 16);\nctx.fillText(\"lever arm = (L/2) cos\" + \"\u03b8 = \" + (0.5 * L * Math.cos(th)).toFixed(3) + \" m\", 14, 20);\n\nvar alpha = (3 * g / (2 * L)) * Math.cos(th);\nvar vtip = om * L;\nout.note = \"theta = \" + (th * 180 / Math.PI).toFixed(1) + \" deg, alpha = \" + alpha.toFixed(2) + \" rad/s^2, omega = \" + om.toFixed(2) + \" rad/s, tip speed = \" + vtip.toFixed(2) + \" m/s\";"
+ },
+ {
+  "id": "rotational-dynamics-fbd",
+  "title": "Two tensions, one cord",
+  "caption": "Free body diagram for a block, a massive pulley and a hanging mass.",
+  "height": 300,
+  "params": [],
+  "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar tableY = H * 0.34, tableX0 = W * 0.06, tableX1 = W * 0.52;\nctx.strokeStyle = C.rule; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(tableX0, tableY); ctx.lineTo(tableX1, tableY); ctx.stroke();\n\n// block on table\nvar bx = W * 0.20, bw = 54, bh = 34;\nctx.fillStyle = C.figure;\nctx.fillRect(bx, tableY - bh, bw, bh);\nctx.fillStyle = C.paper;\nctx.fillText(\"m1\", bx + 18, tableY - 13);\n\nfunction arrow(x0, y0, x1, y1, col, label, lx, ly) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();\n  var dx = x1 - x0, dy = y1 - y0, len = Math.sqrt(dx * dx + dy * dy);\n  var ux = dx / len, uy = dy / len;\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 9 * ux + 5 * uy, y1 - 9 * uy - 5 * ux);\n  ctx.lineTo(x1 - 9 * ux - 5 * uy, y1 - 9 * uy + 5 * ux);\n  ctx.closePath(); ctx.fill();\n  ctx.fillText(label, lx, ly);\n}\n\nvar cyb = tableY - bh / 2;\narrow(bx + bw, cyb, bx + bw + 52, cyb, C.accent, \"T1\", bx + bw + 20, cyb - 8);\narrow(bx, cyb, bx - 46, cyb, C.ink, \"friction\", bx - 74, cyb - 8);\narrow(bx + bw / 2, tableY - bh, bx + bw / 2, tableY - bh - 40, C.ink, \"N\", bx + bw / 2 + 6, tableY - bh - 24);\narrow(bx + bw / 2, tableY - bh / 2, bx + bw / 2, tableY + 30, C.ink, \"m1 g\", bx + bw / 2 + 6, tableY + 22);\n\n// pulley\nvar cx = W * 0.60, cy = tableY - bh / 2, rad = Math.min(W, H) * 0.10;\nctx.strokeStyle = C.figure; ctx.lineWidth = 3;\nctx.beginPath(); ctx.arc(cx, cy, rad, 0, 6.2832); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(cx, cy, 3, 0, 6.2832); ctx.fill();\nctx.fillText(\"pulley: I, radius R\", cx - rad, cy - rad - 12);\n\n// cords\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(bx + bw + 6, cy - rad); ctx.lineTo(cx, cy - rad); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cx + rad, cy); ctx.lineTo(cx + rad, cy + H * 0.30); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"T1 pulls back here\", cx - rad - 10, cy - rad - 30);\nctx.fillText(\"T2\", cx + rad + 8, cy + 30);\n\n// hanging block\nvar hy = cy + H * 0.30;\nctx.fillStyle = C.figure;\nctx.fillRect(cx + rad - 24, hy, 48, 34);\nctx.fillStyle = C.paper;\nctx.fillText(\"m2\", cx + rad - 10, hy + 22);\narrow(cx + rad, hy + 34, cx + rad, hy + 70, C.ink, \"m2 g\", cx + rad + 8, hy + 60);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"T2 > T1: the difference is what spins the pulley\", 12, H - 10);"
+ }
+]

@@ -1,58 +1,179 @@
-## An insulator that fights back
+## A slab that gets sucked in
 
-A dielectric has no free charges, but its molecules polarize: each stretches
-or rotates slightly, and the aligned dipoles leave a layer of bound charge on
-each face. That bound charge produces a field opposing the applied one, so the
-net field inside is weaker by a factor $\kappa$, the dielectric constant:
+Hold a charged capacitor with an air gap, bring a sheet of plastic to the edge of the gap, and let go. The plastic is not charged. It does not conduct. Nothing about it looks like something a capacitor should care about. Yet it gets pulled in, and if the gap is frictionless it arrives with real kinetic energy.
+
+That pull is the whole topic. To explain it you need to know what an insulator does when you put it in a field, what that does to the capacitance, and where the stored energy sits. In the [previous lesson](/guide/conductors-capacitance) you found $C = \varepsilon_0 A / d$ for two parallel plates by putting $\pm Q$ on them, getting the field $E = \sigma/\varepsilon_0$ between them, and dividing $V = Ed$ into $Q$. Everything here is that same calculation with one extra ingredient in the gap.
+
+## What an insulator does in a field
+
+A conductor in a field moves charge until the interior field is zero. An insulator cannot do that — its electrons are bound to their molecules. But they can shift *a little*. Each molecule stretches, positive charge leaning one way and negative the other, or, if the molecule is already lopsided like water, it rotates to line up. Either way, every molecule becomes a tiny dipole pointing along the applied field. This lining-up is called **polarization**, and a material that does it is a **dielectric**.
+
+Now look at a slab of them stacked head to tail. Inside the slab, the positive end of one molecule sits right next to the negative end of the next, and they cancel. Only the two faces are left uncancelled: a sheet of negative charge on the face nearest the positive plate, and a sheet of positive charge on the far face. That leftover is called **bound charge** — bound because you cannot scrape it off and carry it away, unlike the **free charge** you put on the plates with a battery.
+
+Those two sheets are a parallel-plate pair of their own, and they point the wrong way: their field opposes the applied field. So the net field inside the slab is smaller than it would be in vacuum. How much smaller is a property of the material, and it gets a name. Define the **dielectric constant** $\kappa$ (kappa, sometimes written $\varepsilon_r$) by
 
 $$E = \frac{E_0}{\kappa}$$
 
-Nothing conducts, so the cancellation is only partial — $\kappa$ is finite,
-typically 2 to 10, and $\kappa \to \infty$ is the conductor limit.
+where $E_0$ is the field the same free charge would make with vacuum in the gap. Read that as: the material knocks the field down by a factor $\kappa$. Air is $\kappa \approx 1.0006$, so you treat air as vacuum. Plastics run 2 to 4, ceramics reach the hundreds, water is about 80 because its molecules are strongly lopsided and turn easily. A conductor is the $\kappa \to \infty$ limit: the field inside goes to zero.
 
-## What it does to a capacitor
+The bound charge follows from that. The free plates make $E_0 = \sigma_f/\varepsilon_0$ and the bound sheets push back with $\sigma_b/\varepsilon_0$, so the net field is $(\sigma_f - \sigma_b)/\varepsilon_0 = \sigma_f/(\kappa\varepsilon_0)$. Cancel $\varepsilon_0$ and solve:
 
-Weaker field at the same charge means a smaller voltage across the gap, so
+$$\sigma_b = \sigma_f\left(1 - \frac{1}{\kappa}\right)$$
 
-$$C = \kappa C_0 = \frac{\kappa\varepsilon_0 A}{d}$$
+The bound charge never exceeds the free charge. It can only approach it, which is the conductor limit again.
 
-Which quantity is held fixed decides everything else, so name it first. With
-the battery still connected, $V$ is fixed and $Q$ rises to $\kappa Q_0$. With
-the battery removed, $Q$ is fixed and $V$ falls to $V_0/\kappa$. The two cases
-have opposite energy answers, which is the classic place to lose a problem.
+<Figure caption={<><b>Figure 1.</b> Drag kappa up and watch two things at once: the minus and plus signs on the slab faces darken as the bound charge grows, and field lines drop out inside the slab. At kappa near 1 the slab is invisible to the field; at kappa = 10 only one line in ten survives.</>}>
+  <Sim id="dielectrics-polarization" />
+</Figure>
 
-Dielectrics also let a capacitor survive higher voltages before the material
-ionizes and conducts, which is why real capacitors are built with them rather
-than air.
-
-## Energy lives in the field
-
-Charging a capacitor means moving charge against a growing potential
-difference. Integrating $dW = (q/C)\,dq$ gives
-
-$$U = \frac{Q^2}{2C} = \frac{1}{2}CV^2$$
-
-Substitute the parallel-plate values and something more general appears. The
-energy divided by the volume $Ad$ is
-
-$$u = \frac{1}{2}\varepsilon_0 E^2$$
-
-with $\varepsilon_0 \to \kappa\varepsilon_0$ in a dielectric. This holds for
-any electrostatic field, not just the one between plates — the energy is
-stored in the field itself, at a density set by the local $E$. That is the
-picture that survives into radiation, where the field carries energy away with
-no charges anywhere near.
-
-<Aside label="Where this goes wrong" warn>
-  A slab pulled partway out of a charged capacitor is a favorite problem.
-  Compute the force from $F = -dU/dx$ at fixed $Q$, or from $F = +dU/dx$ at
-  fixed $V$ — the battery does work in the second case, and the sign flip is
-  entirely that. The slab is pulled *in* either way.
+<Aside label="Worth remembering">
+  Free charge is what you control with a battery. Bound charge is what the material does in response. Only free charge counts as "the charge on the capacitor" $Q$.
 </Aside>
 
+## What it does to the capacitance
+
+Fill the whole gap. The free charge $Q$ on the plates is whatever it was, so $E_0 = Q/(\varepsilon_0 A)$ is unchanged, but the actual field is $E_0/\kappa$. Voltage is field times gap, so $V = E_0 d/\kappa = V_0/\kappa$. Same charge, less voltage, so
+
+$$C = \frac{Q}{V} = \frac{\kappa Q}{V_0} = \kappa C_0 = \frac{\kappa \varepsilon_0 A}{d}$$
+
+A dielectric multiplies capacitance by $\kappa$. That is one reason real capacitors are not built with air gaps. The other reason is **dielectric strength**: the field at which the material gives up, ionizes, and conducts. Air breaks down around $3\,\mathrm{MV/m}$; a good polymer film holds ten or twenty times that, so it survives a much larger voltage in a much thinner gap.
+
+**Example 1 — a film capacitor.** Plates of area $A = 0.012\,\mathrm{m^2}$ separated by $d = 0.20\,\mathrm{mm}$ of Mylar, $\kappa = 3.4$.
+
+$$C = \frac{(3.4)(8.85\times10^{-12}\,\mathrm{F/m})(0.012\,\mathrm{m^2})}{2.0\times10^{-4}\,\mathrm{m}}$$
+
+Do it in pieces. $8.85\times10^{-12} \times 0.012 = 1.062\times10^{-13}$. Times $3.4$ gives $3.611\times10^{-13}$. Divide by $2.0\times10^{-4}$: $C = 1.81\times10^{-9}\,\mathrm{F} = 1.81\,\mathrm{nF}$.
+
+If the free surface charge density on those plates were $4.0\,\mu\mathrm{C/m^2}$ and the slab had $\kappa = 5.0$ instead, the bound density on each face would be $\sigma_b = 4.0(1 - 1/5.0) = 4.0 \times 0.80 = 3.2\,\mu\mathrm{C/m^2}$.
+
 <QuickCheck
-  question="An isolated charged capacitor has a dielectric slab inserted. The stored energy:"
-  options={["Increases by a factor kappa", "Stays the same", "Decreases by a factor kappa", "Doubles"]}
-  answer={2}
-  explanation="Charge is fixed, so U equals Q squared over 2C, and C has grown by kappa. The missing energy is the work the capacitor did pulling the slab in."
+  question="A cell reads 22.0 pF empty and 88.0 pF when filled with oil. The dielectric constant of the oil is:"
+  options={["4.0", "2.0", "66", "0.25"]}
+  answer={0}
+  explanation="C equals kappa times C0, so kappa is the ratio 88.0 over 22.0, which is 4.0. Dividing the wrong way gives 0.25, which would mean the oil weakened the capacitor."
 />
+
+## When the slab fills only part of the gap
+
+Most problems do not hand you a gap that is uniformly filled, and there are exactly two ways to slice it.
+
+**Slabs stacked across the gap** (one layer on top of another, each spanning the full area). The same field lines pass through both layers, so the same free charge $Q$ sits on both sides of every layer. Same charge, and the voltages add up to the total — that is the definition of capacitors in **series**. Treat each layer as its own capacitor of gap $d_i$:
+
+$$\frac{1}{C} = \frac{d_1}{\kappa_1\varepsilon_0 A} + \frac{d_2}{\kappa_2\varepsilon_0 A} + \cdots$$
+
+**Slabs side by side** (each covering part of the area, both spanning the full gap). Both see the same plates, so both see the same voltage, and the charges add: **parallel**.
+
+$$C = \frac{\varepsilon_0}{d}\left(\kappa_1 A_1 + \kappa_2 A_2 + \cdots\right)$$
+
+The test is geometric, not verbal. Cut the gap with a plane perpendicular to $E$ and you get series pieces; cut it with a plane parallel to $E$ and you get parallel pieces. The spherical capacitor whose bottom half is full of oil is a parallel problem: each hemisphere is half of an ordinary spherical capacitor sharing the same two voltages, so $C = \tfrac{1}{2}C_0 + \tfrac{1}{2}\kappa C_0$.
+
+<Figure caption={<><b>Figure 2.</b> The only two ways to split a gap. Note which quantity is shared in each: charge on the left, voltage on the right. Decide which picture you are in before writing any formula.</>}>
+  <Sim id="dielectrics-geometry" />
+</Figure>
+
+If $\kappa$ varies smoothly instead of in steps, the series rule becomes an integral. Slice the gap into sheets of thickness $dx$, each contributing $dx/(\kappa(x)\varepsilon_0 A)$ to $1/C$, and add them:
+
+$$\frac{1}{C} = \int_0^d \frac{dx}{\kappa(x)\,\varepsilon_0 A}$$
+
+**Example 2 — which layer breaks down first.** A cable has $0.20\,\mathrm{mm}$ of material A ($\kappa = 3.0$, strength $20\,\mathrm{MV/m}$) on $0.30\,\mathrm{mm}$ of material B ($\kappa = 6.0$, strength $10\,\mathrm{MV/m}$). Find the largest voltage across the stack.
+
+Start from what is shared. These layers are in series, so the free charge density $\sigma_f$ is the same through both. The field in a layer is $\sigma_f/(\kappa\varepsilon_0)$, so
+
+$$\kappa_A E_A = \kappa_B E_B = \frac{\sigma_f}{\varepsilon_0}$$
+
+The field is *larger* in the layer with the smaller $\kappa$. That is the key fact, and it is backwards from most people's guess. Push A to its limit, $E_A = 20\,\mathrm{MV/m}$, and see what B is doing:
+
+$$E_B = \frac{\kappa_A E_A}{\kappa_B} = \frac{(3.0)(20)}{6.0} = 10\,\mathrm{MV/m}$$
+
+That is exactly B's limit too, so both fail together and neither constrains you further. Add the voltages:
+
+$$V = E_A d_A + E_B d_B = (20\times10^{6})(2.0\times10^{-4}) + (10\times10^{6})(3.0\times10^{-4})$$
+
+which is $4000\,\mathrm{V} + 3000\,\mathrm{V} = 7000\,\mathrm{V}$. Had B's limit come out above $10\,\mathrm{MV/m}$ in that check, you would have had to redo the calculation starting from B at its limit instead, and take the smaller of the two answers.
+
+<Aside label="Where this goes wrong" warn>
+  In a series stack the weak-$\kappa$ layer carries the strong field. A tiny air bubble inside a high-$\kappa$ insulator is where a cable actually fails: $\kappa \approx 1$ in the bubble means the field there is several times the field in the surrounding material, and air is the weakest material in the stack.
+</Aside>
+
+## Where the energy is
+
+Charging a capacitor means carrying charge across the gap against a voltage that grows as you go. When $q$ has already been moved the voltage is $q/C$, so the next $dq$ costs $dW = (q/C)\,dq$. Integrate from $0$ to $Q$:
+
+$$U = \int_0^Q \frac{q}{C}\,dq = \frac{Q^2}{2C} = \frac{1}{2}CV^2 = \frac{1}{2}QV$$
+
+Use whichever form is written in terms of the quantity that is *held fixed* in your problem. Now put the parallel-plate values in. With $C = \kappa\varepsilon_0 A/d$ and $V = Ed$,
+
+$$U = \frac{1}{2}\frac{\kappa\varepsilon_0 A}{d}(Ed)^2 = \frac{1}{2}\kappa\varepsilon_0 E^2 (Ad)$$
+
+and $Ad$ is exactly the volume of the gap. So the energy per unit volume is
+
+$$u = \frac{1}{2}\kappa\varepsilon_0 E^2$$
+
+The plates dropped out of the answer. That is the hint that this is not a fact about capacitors: energy is stored in the electric field itself, everywhere there is one, at a density set by the local $E$ and the local $\kappa$. It is the picture that lets light carry energy across empty space with no charges anywhere near.
+
+A field of $1.5\times10^{6}\,\mathrm{V/m}$ in vacuum holds $u = \tfrac12 (8.85\times10^{-12})(1.5\times10^{6})^2 = \tfrac12(8.85\times10^{-12})(2.25\times10^{12}) = 9.96\,\mathrm{J/m^3}$.
+
+<QuickCheck
+  question="At fixed charge, a gap is half filled by thickness with a slab of kappa = 4 and half left empty. What fraction of the stored energy sits inside the slab?"
+  options={["0.2", "0.5", "0.8", "0.25"]}
+  answer={0}
+  explanation="Same free charge means the same E0, so the field in the slab is E0 over 4 and its energy density is one quarter of one quarter times four, that is one quarter of the vacuum value. Equal volumes, so the split is 1 to 0.25 and the slab holds 0.25 over 1.25, which is 0.2."
+/>
+
+## The force on the slab
+
+Back to the plastic sheet. Let the plates have length $L$ along the direction of insertion and width $w$, and let the slab be in a distance $x$. Inserted and empty parts are side by side, so they are parallel:
+
+$$C(x) = \frac{\varepsilon_0 w}{d}\big[(L - x) + \kappa x\big]$$
+
+Capacitance grows linearly with $x$, at the rate $dC/dx = \varepsilon_0 w(\kappa - 1)/d$.
+
+Now the energy bookkeeping, and this is where the problem is won or lost. **Name what is held fixed first.**
+
+*Battery still connected, $V$ fixed.* Pulling the slab in by $dx$ raises $C$, so the battery must supply extra charge $dQ = V\,dC$, doing work $dW_{\text{batt}} = V\,dQ = V^2 dC$. The stored energy only rises by $dU = \tfrac12 V^2 dC$. Half the battery's work went into the field; the other half is left over, and it is the work done on the slab. So
+
+$$F = \frac{1}{2}V^2\frac{dC}{dx} = \frac{\varepsilon_0 w (\kappa - 1)V^2}{2d}$$
+
+positive, meaning inward, and independent of $x$.
+
+*Battery disconnected, $Q$ fixed.* Nothing supplies energy, so $F = -dU/dx$ with $U = Q^2/2C$. Since $C$ grows with $x$, $U$ falls, and $F = (Q^2/2C^2)(dC/dx)$ is again positive and inward. The slab is pulled in either way. Only the size differs, and it differs because at fixed $Q$ the voltage sags as the slab enters.
+
+**Example 3 — the force at fixed voltage.** $V = 500\,\mathrm{V}$, $w = 8.0\,\mathrm{cm}$, $d = 0.50\,\mathrm{mm}$, $\kappa = 4.0$.
+
+$$F = \frac{(8.85\times10^{-12})(0.080)(4.0 - 1)(500)^2}{2(5.0\times10^{-4})}$$
+
+Numerator: $8.85\times10^{-12} \times 0.080 = 7.08\times10^{-13}$; times $3.0$ is $2.124\times10^{-12}$; times $2.5\times10^{5}$ is $5.31\times10^{-7}$. Denominator is $1.0\times10^{-3}$. So $F = 5.31\times10^{-4}\,\mathrm{N} = 0.53\,\mathrm{mN}$. Small, but it is the whole force on a gram-scale sheet.
+
+<Figure caption={<><b>Figure 3.</b> Drag the insertion depth and watch the readout: the capacitance climbs but the force never changes. Then raise kappa or the voltage and see the force move. Doubling the voltage quadruples it.</>}>
+  <Sim id="dielectrics-slab-force" />
+</Figure>
+
+**Example 4 — water climbing between plates.** Two vertical plates $0.50\,\mathrm{mm}$ apart dip into water ($\kappa = 80$, $\rho = 1000\,\mathrm{kg/m^3}$) and are held at $300\,\mathrm{V}$. How high does the water rise?
+
+The water is the slab, and the same inward force acts on it — here that means upward. It stops rising when the electrical force balances the weight of the raised column. With the column a height $h$ up, its weight is $\rho g (w d h)$, where $wdh$ is the volume between the plates. Set that equal to the force, with $w$ cancelling from both sides:
+
+$$\frac{\varepsilon_0(\kappa - 1)V^2}{2d} = \rho g d h \quad\Longrightarrow\quad h = \frac{\varepsilon_0(\kappa - 1)V^2}{2\rho g d^2}$$
+
+Numerator: $(8.85\times10^{-12})(79)(9.0\times10^{4}) = 6.29\times10^{-5}$. Denominator: $2(1000)(9.81)(5.0\times10^{-4})^2 = 2(1000)(9.81)(2.5\times10^{-7}) = 4.91\times10^{-3}$. So $h = 1.28\times10^{-2}\,\mathrm{m} = 12.8\,\mathrm{mm}$. Note the $1/d^2$: halving the gap raises the water four times as far.
+
+<Aside label="Where this goes wrong" warn>
+  At fixed $V$ the stored energy goes *up* when the slab enters, and a slab pulled in by a force also gains energy. Both come from the battery, which supplies twice what the field keeps. If you write $F = -dU/dx$ at fixed voltage you get the force pointing outward, which is wrong. At fixed $Q$ that formula is right, because then nothing else is doing work.
+</Aside>
+
+A last consequence of the same bookkeeping: release a frictionless slab into a live $250\,\mathrm{pF}$ capacitor at $120\,\mathrm{V}$ with $\kappa = 2.8$, and it arrives with kinetic energy equal to the battery's work minus the energy the field kept. The battery does $\Delta C \, V^2 = (1.8)(250\times10^{-12})(14400) = 6.48\,\mu\mathrm{J}$, the field keeps half of that, and the slab gets the other $3.24\,\mu\mathrm{J}$.
+
+## Recognising the technique
+
+Reach for this lesson when a problem does any of the following.
+
+It names a material in a gap — plastic, oil, oxide, water — or gives you a number called $\kappa$ or $\varepsilon_r$. Then the first move is $C = \kappa \varepsilon_0 A/d$, or the series or parallel rule if the filling is partial.
+
+It gives more than one material, or a $\kappa$ that varies. Then draw the field lines and ask whether your slices are cut across them (series, add $1/C$, shared $Q$) or along them (parallel, add $C$, shared $V$). A varying $\kappa$ means the series integral.
+
+It mentions breakdown, dielectric strength, or a maximum voltage. Then work in fields, not voltages: find the field in each layer from the shared $\sigma_f$ using $\kappa E = \text{constant}$, check every layer against its own limit, and take the tightest.
+
+It asks for a force, a work, or a kinetic energy involving something moving in or out of a capacitor. Then write $C(x)$ first, and before anything else write down whether the battery is connected. At fixed $V$ use $F = \tfrac12 V^2 dC/dx$; at fixed $Q$ use $F = -dU/dx$ with $U = Q^2/2C$. Everything after that is differentiating a formula you already have.
+
+And when the question is about *where* the energy is rather than how much, use $u = \tfrac12\kappa\varepsilon_0 E^2$ region by region and add the pieces.
+
+Charge has stayed put for this entire unit. Next you let it move, and ask what sets the rate: [current, resistance and Ohm's law](/guide/current-resistance).

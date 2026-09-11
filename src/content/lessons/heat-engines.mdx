@@ -1,51 +1,245 @@
-## The first law is bookkeeping
+Burn a kilogram of petrol in a car and you get about 44 million joules of heat. The car delivers maybe a quarter of that to the wheels. The rest leaves as hot exhaust and hot radiator water. That looks like bad engineering, and for a century people tried to fix it. Nobody has. Not because the metallurgy is hard, but because nature refuses.
 
-Energy added to a gas either raises its internal energy or is spent doing work:
+This lesson is about that refusal: how much work you can extract from heat, where the limit comes from, and how to test any claim against it in about thirty seconds.
 
-$$\Delta U = Q - W, \qquad W = \int P\,dV$$
+## What an engine is, in bookkeeping terms
 
-Sign conventions cause more lost points than the physics does. Here $W$ is
-work done *by* the gas, so expansion is positive. Internal energy depends only
-on temperature for an ideal gas, which makes $\Delta U = 0$ the defining
-feature of an isothermal process.
+In the [previous lesson](/guide/ideal-gas) you tracked a gas through single processes with the first law, $\Delta U = Q - W$, where $Q$ is heat added to the gas and $W$ is work done *by* the gas. An engine is just that, run in a loop.
 
-The four standard processes follow directly:
+A heat engine takes in heat $Q_H$ from something hot, does net work $W$, and dumps heat $Q_C$ into something cold. The hot thing is the *hot reservoir* — a burner, burning fuel, a nuclear core — and "reservoir" means it is big enough that taking heat out doesn't change its temperature. The cold thing is the *cold reservoir*: the river, the outside air, the sea.
 
-- Isothermal: $\Delta U = 0$, so $Q = W = nRT\ln(V_f/V_i)$.
-- Adiabatic: $Q = 0$, so $W = -\Delta U$, along $PV^\gamma$ constant.
-- Isobaric: $W = P\Delta V$.
-- Isochoric: $W = 0$, so all heat goes to internal energy.
+The key structural fact is that an engine runs in a **cycle**. After one full loop, the working gas is back where it started: same pressure, same volume, same temperature. Internal energy depends only on the state, so over a complete cycle $\Delta U = 0$. The first law then collapses to something you can use without thinking:
 
-## Cycles
+$$
+W = Q_H - Q_C
+$$
 
-On a PV diagram, the work done in a cycle is the enclosed area, positive for a
-clockwise loop. Since the gas returns to its starting state, $\Delta U = 0$
-around any full cycle and therefore $Q_{net} = W_{net}$.
+Whatever heat goes in and doesn't come out the bottom, comes out the side as work. That single line solves a surprising number of problems. An engine absorbing 2000 J and exhausting 1500 J does 500 J of net work per cycle, and that is the whole calculation.
 
-Efficiency compares what you want to what you paid for:
+<Figure caption={<><b>Figure 1.</b> The pipes are drawn with widths in proportion to the energy flowing through them. Drag the hot reservoir up and watch the work pipe fatten while the waste pipe thins. Notice it never closes.</>}>
+  <Sim id="heat-engines-flow" />
+</Figure>
 
-$$\eta = \frac{W_{net}}{Q_{in}} \le 1 - \frac{T_C}{T_H}$$
+## Efficiency: what you want over what you paid for
 
-The bound on the right is Carnot's, and it depends only on the reservoir
-temperatures. Any claimed efficiency above it is a sign of an arithmetic
-error, not a discovery.
+You paid for $Q_H$ — that's the fuel. You wanted $W$. So the **thermal efficiency** is
 
-## Entropy
+$$
+e = \frac{W}{Q_H} = \frac{Q_H - Q_C}{Q_H} = 1 - \frac{Q_C}{Q_H}
+$$
 
-For a reversible process, $dS = dQ/T$. The second law says the entropy of an
-isolated system never decreases, which is what makes heat flow spontaneously
-from hot to cold and forbids the perfect engine.
+It is a pure number between 0 and 1, usually quoted as a percentage. An engine taking in 1000 J and delivering 300 J of work is 30% efficient. Two-thirds of the fuel went out the exhaust pipe.
+
+Read the last form again: $e = 1 - Q_C/Q_H$. To get $e = 1$ you would need $Q_C = 0$, an engine that dumps nothing. Every real engine dumps. The question the rest of this lesson answers is *how much it must dump*.
 
 <Aside label="Worth remembering">
-  Entropy is a state function, so its change between two states does not depend
-  on the path. To get the entropy change of an irreversible process, invent
-  any convenient reversible path between the same endpoints and compute along
-  that instead.
+  Three quantities, one equation between them. Given any two of $Q_H$, $Q_C$, $W$ you have the third, and then $e$ for free. Before reaching for anything clever, write down $W = Q_H - Q_C$ and see whether the problem is already finished.
 </Aside>
 
 <QuickCheck
-  question="An inventor claims an engine that is 70 percent efficient running between 500 K and 300 K. Is that possible?"
-  options={["Yes, with good enough engineering", "No, the Carnot limit here is 40 percent", "Only if the engine runs in reverse", "Only with an ideal gas"]}
+  question="An engine absorbs 800 J per cycle and does 250 J of work. How much heat does it reject?"
+  options={["250 J", "550 J", "800 J", "1050 J"]}
   answer={1}
-  explanation="The Carnot limit is one minus the ratio of the cold to hot temperature, which is 1 minus 300 over 500, or 40 percent. Any claim above that is an arithmetic error rather than a discovery."
+  explanation="Over a full cycle the internal energy returns to its starting value, so the heat in must equal the work out plus the heat rejected: 800 minus 250 is 550 J. Rejecting 1050 J would mean the engine was destroying energy."
 />
+
+## The ceiling nobody gets over
+
+Here is the argument Sadi Carnot made in 1824, before anyone knew what heat was.
+
+Suppose you had an engine that beat every other engine running between the same two reservoirs. Run your super-engine forwards to produce work, and use that work to drive an ordinary engine backwards — running an engine backwards is legitimate, it just pushes heat from cold to hot and consumes work, which is what a fridge does. Line the two up so that all the work from the first goes into the second.
+
+Now look at the pair from outside. The work cancels. The two machines together take in no work and produce none. But because the first engine is more efficient, it needed *less* heat from the hot reservoir than the second one puts back. The net effect of the combination is heat moving from cold to hot, by itself, with nothing else changing.
+
+That never happens. Put a cold spoon in hot soup and the spoon warms; it does not chill further while the soup boils. This observation — heat does not flow from cold to hot on its own — is the **second law of thermodynamics**, and the argument above shows it forbids the super-engine. No engine between two reservoirs can beat a reversible one, and every reversible engine between the same two reservoirs must have the same efficiency, since otherwise you could run this trick between two of them.
+
+A *reversible* engine is one you could run backwards through exactly the same states. That needs no friction, no turbulence, and heat transferred only across vanishingly small temperature differences, which means running infinitely slowly. It's an idealisation. It is also a hard ceiling. For such an engine the heats turn out to be in the same ratio as the absolute temperatures:
+
+$$
+\frac{Q_C}{Q_H} = \frac{T_C}{T_H}
+$$
+
+Feed that into $e = 1 - Q_C/Q_H$ and you get the **Carnot efficiency**:
+
+$$
+e_{\text{max}} = 1 - \frac{T_C}{T_H}
+$$
+
+Temperatures in kelvin, always. This is the most useful single equation in thermodynamics, because it needs nothing about the engine — not the fuel, not the gas, not the mechanism. Only the two temperatures.
+
+It also says something bleak. A power plant with a 900 K boiler dumping into 300 K cooling water can never exceed $1 - 300/900 = 66.7\%$, and in practice reaches about 40%. To do better you have to raise $T_H$ or lower $T_C$, and $T_C$ is set by the river.
+
+<Aside label="Where this goes wrong" warn>
+  Celsius in the Carnot formula is the most common wrong answer in this topic. An engine between 500 °C and 20 °C is not $1 - 20/500 = 96\%$ efficient. Convert first: 773 K and 293 K, giving $1 - 293/773 = 62\%$. If an efficiency you compute comes out suspiciously close to 1, check the units before you check anything else.
+</Aside>
+
+### Worked example 1: testing a claim
+
+*An inventor advertises an engine that is 45.0% efficient between reservoirs at 400 K and 250 K. By how many percentage points does the claim exceed the legal maximum?*
+
+The maximum is Carnot's:
+
+$$
+e_{\text{max}} = 1 - \frac{250}{400} = 1 - 0.625 = 0.375
+$$
+
+That is 37.5%. The claim exceeds it by $45.0 - 37.5 = 7.5$ percentage points. Note the phrasing: percentage *points*, a subtraction of two percentages, not a ratio. If instead you were asked what fraction of the ideal the engine reaches, that would be $45.0/37.5$, a different number entirely.
+
+<QuickCheck
+  question="A Carnot engine rejects heat at 300 K and is 25 percent efficient. What is its hot reservoir temperature?"
+  options={["375 K", "400 K", "425 K", "1200 K"]}
+  answer={1}
+  explanation="Rearranging, the ratio of cold to hot temperature is 1 minus 0.25, which is 0.75. So the hot temperature is 300 divided by 0.75, giving 400 K."
+/>
+
+## Real cycles, and the area on a PV diagram
+
+Carnot's cycle is two isotherms and two adiabats, and no real engine uses it — it would run too slowly to produce useful power. Real engines use cycles that fit into metal.
+
+Whatever the cycle, the net work per cycle is the **area enclosed by the loop on a PV diagram**, positive if the loop runs clockwise. This follows from $W = \int P\,dV$: on the upper branch the gas expands at high pressure and does a lot of work; on the lower branch you compress it back at low pressure, which costs less. The difference is the area between them. A rectangular loop between $1.00\times10^5$ Pa and $3.00\times10^5$ Pa and between $1.00\times10^{-3}$ m³ and $4.00\times10^{-3}$ m³ encloses $(2.00\times10^5)(3.00\times10^{-3}) = 600$ J, and that is the net work, no further physics needed.
+
+The **Otto cycle** is the petrol engine. Compress the fuel–air mixture adiabatically by a factor $r$ (the compression ratio), burn it at constant volume, let it push the piston back adiabatically, then exhaust at constant volume. Because the two adiabats change the temperature by the same factor $r^{\gamma-1}$, the heats work out to give
+
+$$
+e_{\text{Otto}} = 1 - \frac{1}{r^{\gamma - 1}}
+$$
+
+where $\gamma$ is the ratio of heat capacities from the previous lesson: 1.40 for air, 5/3 for a monatomic gas like argon. Higher compression means higher efficiency, which is why compression ratios keep creeping up, and why engines knock when they creep too far.
+
+<Figure caption={<><b>Figure 2.</b> Raise the compression ratio and the loop stretches left, gaining area. Then switch gamma from 1.40 to 1.67 and watch the efficiency jump without changing the geometry at all.</>}>
+  <Sim id="heat-engines-otto" />
+</Figure>
+
+Two cousins come up often and are worth recognising by name rather than deriving. The **Diesel cycle** burns at constant pressure instead of constant volume, and its efficiency involves a cutoff ratio as well as a compression ratio. The **Brayton cycle** is the gas turbine, with $e = 1 - r_p^{(1-\gamma)/\gamma}$ for pressure ratio $r_p$. If a problem hands you one of these formulas, it wants careful substitution and nothing more.
+
+### Worked example 2: Otto against Carnot
+
+*An Otto cycle with $r = 10.0$ and $\gamma = 1.40$ runs between a lowest temperature of 300 K and a highest of 2000 K. What percentage of the Carnot efficiency does it achieve?*
+
+Two efficiencies, then a ratio. Start with the Otto cycle:
+
+$$
+e_{\text{Otto}} = 1 - \frac{1}{10.0^{0.40}}
+$$
+
+Now $10^{0.40} = 10^{2/5}$, which is 2.5119. So $1/2.5119 = 0.3981$, and $e_{\text{Otto}} = 0.6019$.
+
+The Carnot engine between the same extreme temperatures gets
+
+$$
+e_{\text{Carnot}} = 1 - \frac{300}{2000} = 1 - 0.15 = 0.85
+$$
+
+The ratio is $0.6019/0.85 = 0.7081$, so the Otto cycle reaches **70.81%** of the Carnot efficiency. The lesson buried in that number: the Otto cycle loses a third of what is theoretically available, not because of friction — this is the ideal Otto cycle — but because it takes in heat over a wide range of temperatures instead of all at $T_H$.
+
+The **Stirling cycle** does better. It expands isothermally at $T_H$, cools at constant volume, compresses isothermally at $T_C$, and reheats at constant volume. The two isothermal legs each give work $nRT\ln(V_f/V_i)$, straight from the previous lesson, and the constant-volume legs do no work at all. So for an expansion from $V_0$ to $2V_0$,
+
+$$
+W_{\text{net}} = nRT_H\ln 2 - nRT_C\ln 2 = nR(T_H - T_C)\ln 2
+$$
+
+With 1.00 mol, 600 K and 300 K: $(1.00)(8.31)(300)(0.6931) = 1728$ J per cycle. If a *regenerator* stores the heat released during the cooling leg and gives it back during the reheat, none of that heat has to be paid for, and the Stirling cycle hits the Carnot efficiency exactly.
+
+<Figure caption={<><b>Figure 3.</b> Two isotherms closed off by two vertical constant-volume legs. Drag the hot isotherm and watch the net work in the readout grow in proportion to the temperature difference, not to the temperature itself.</>}>
+  <Sim id="heat-engines-stirling" />
+</Figure>
+
+## Running the engine backwards
+
+Reverse every arrow. Put work in, and heat moves from cold to hot. That is a refrigerator or a heat pump — the same machine, judged by different outputs.
+
+For a **refrigerator** you want the heat pulled out of the cold box, so the *coefficient of performance* is
+
+$$
+\text{COP}_{\text{fridge}} = \frac{Q_C}{W}
+$$
+
+For a **heat pump** you want the heat delivered into the house, so $\text{COP}_{\text{pump}} = Q_H/W$. Both are ratios of what you want to what you paid, like efficiency, but both are routinely bigger than 1 — a fridge removing 400 J for 100 J of work has COP 4. Nothing is violated; you're moving heat, not creating it.
+
+Since $Q_H = Q_C + W$, dividing by $W$ gives a relation worth memorising: $\text{COP}_{\text{pump}} = \text{COP}_{\text{fridge}} + 1$. A machine rated at 4.50 as a fridge is 5.50 as a heat pump.
+
+The Carnot ceiling turns into a floor on the work required. Using $Q_C/Q_H = T_C/T_H$ again,
+
+$$
+\text{COP}_{\text{fridge, max}} = \frac{T_C}{T_H - T_C}
+$$
+
+A fridge holding 270 K in a 300 K kitchen can at best have COP $270/30 = 9.0$. Notice what happens as the gap shrinks: the COP blows up, which is why heat pumps are cheap to run in mild weather and expensive in a hard frost.
+
+<Aside label="Where this goes wrong" warn>
+  In the fridge COP the denominator is the temperature *difference*, not the hot temperature. Writing $T_C/T_H$ gives 0.9 instead of 9.0 in the example above — an answer ten times too small, and less than 1, which should immediately look wrong for a fridge.
+</Aside>
+
+### Worked example 3: an engine driving a fridge
+
+*A Carnot engine absorbs 1000 J from an 800 K reservoir and rejects at 300 K. All its work drives a Carnot refrigerator pumping heat from a 250 K cold box into the same 300 K surroundings. How much heat leaves the cold box?*
+
+Nothing here is new; it is two machines chained, and the link between them is the work. Do them one at a time.
+
+The engine first. Its efficiency is
+
+$$
+e = 1 - \frac{300}{800} = 1 - 0.375 = 0.625
+$$
+
+so the work it produces is $W = (0.625)(1000\ \text{J}) = 625$ J.
+
+Now the fridge, which gets that 625 J. Its best possible COP between 250 K and 300 K is
+
+$$
+\text{COP} = \frac{250}{300 - 250} = \frac{250}{50} = 5.00
+$$
+
+and COP is $Q_C/W$, so
+
+$$
+Q_C = (5.00)(625\ \text{J}) = 3125\ \text{J}
+$$
+
+Over 3000 J out of the cold box for 1000 J of fuel. That is not magic: the 3125 J plus the 625 J of work all end up in the 300 K surroundings, which also received 375 J from the engine's exhaust.
+
+The same chaining logic handles two engines in series. A Carnot engine from 900 K to 600 K, feeding everything it rejects into a second from 600 K to 300 K, is exactly equivalent to one Carnot engine from 900 K to 300 K, efficiency $1 - 300/900 = 66.7\%$. The intermediate temperature cancels, which is worth remembering — it is the reason the Carnot efficiency can only depend on the two end temperatures.
+
+### Worked example 4: when the reservoirs are finite
+
+*Two identical blocks of heat capacity $C = 5000$ J/K sit at 400 K and 300 K. A reversible engine runs between them until they reach a common temperature. How much work comes out?*
+
+This one takes a real idea. The blocks are not reservoirs: as the engine runs, the hot one cools and the cold one warms, so the efficiency falls to zero by the time they meet. You cannot use a single Carnot efficiency.
+
+What you can use is the property that makes an engine reversible. For a reversible engine the heats satisfy $Q_C/Q_H = T_C/T_H$, which rearranged is $Q_H/T_H = Q_C/T_C$. The quantity $Q/T$ taken from the hot side equals the quantity $Q/T$ given to the cold side. That quantity is called entropy, and reversible operation means the total entropy doesn't change. Taking heat $C\,dT$ out of a block at temperature $T$ changes its entropy by $C\,dT/T$, so summing over the whole run from start to the final temperature $T_f$:
+
+$$
+C\ln\frac{T_f}{400} + C\ln\frac{T_f}{300} = 0
+$$
+
+The $C$ divides out, and a sum of logs is the log of a product, so $T_f^2/(400 \times 300) = 1$. The final temperature is the *geometric* mean, not the average:
+
+$$
+T_f = \sqrt{(400)(300)} = \sqrt{120000} = 346.41\ \text{K}
+$$
+
+Now energy. The hot block gives up $C(400 - T_f)$ and the cold block absorbs $C(T_f - 300)$; the difference is the work:
+
+$$
+W = C(400 - T_f) - C(T_f - 300) = C(700 - 2T_f)
+$$
+
+$$
+W = 5000(700 - 692.82) = 5000(7.18) = 35900\ \text{J}
+$$
+
+Sanity check: the arithmetic mean would have been 350 K, and the geometric mean is lower. The engine has pulled energy out of the pair, so their total must be less than if you had simply let them touch. It is, by exactly 35.9 kJ.
+
+## Recognising which tool a problem wants
+
+The problems in this topic sort into four kinds, and the first line of the question usually tells you which.
+
+**Only joules mentioned, no temperatures.** Use $W = Q_H - Q_C$ and $e = W/Q_H$. That is the whole toolkit. Power questions live here too: multiply work per cycle by cycles per second, or work backwards from a fuel burn rate times an energy content.
+
+**Two temperatures mentioned.** Something is being compared to Carnot. Compute $1 - T_C/T_H$ immediately, in kelvin. If the problem also gives a real efficiency, it wants either the gap ("by how many percentage points") or the ratio ("what fraction of the ideal"). Read which.
+
+**A compression ratio, a pressure ratio, or a cycle by name.** Otto, Diesel, Brayton, Stirling. Use the cycle's own efficiency formula, and expect the problem to then compare it to Carnot between the extreme temperatures.
+
+**The words fridge, heat pump, cold box, or a COP.** Decide what the machine's user wants — heat removed or heat delivered — before writing anything. Then $\text{COP} = Q/W$ with the right $Q$ on top, and the ceiling $T_C/(T_H - T_C)$ for a fridge.
+
+And one signal that overrides all of these: if the hot or cold object is described with a **heat capacity** rather than a fixed temperature, it is not a reservoir. Its temperature will drift, and you will have to track $Q/T$ through the whole process as in the last example. That is the bridge to the [next lesson](/guide/entropy), where $Q/T$ gets a name of its own and the second law stops being a rule about engines and becomes a statement about everything.

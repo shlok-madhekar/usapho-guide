@@ -1,0 +1,100 @@
+[
+  {
+    "id": "wave-basics-anatomy",
+    "title": "Anatomy of a snapshot",
+    "caption": "A frozen picture of a rope at one instant. Wavelength is read along x; amplitude is read along y.",
+    "height": 220,
+    "params": [],
+    "draw": "var padL = 36, padR = 16, padT = 26, padB = 34;\nvar yMid = (H - padB + padT) / 2;\nvar A = (H - padT - padB) * 0.32;\nvar Lx = W - padL - padR;\nvar lam = Lx / 2.2;            // two-ish wavelengths across the picture\nvar k = 2 * Math.PI / lam;\n\nctx.lineWidth = 1;\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(padL, yMid); ctx.lineTo(W - padR, yMid); ctx.stroke();\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 300; i++) {\n  var x = padL + Lx * i / 300;\n  var y = yMid - A * Math.sin(k * (x - padL));\n  if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);\n}\nctx.stroke();\n\nvar crest1 = padL + lam * 0.25;\nvar crest2 = padL + lam * 1.25;\nvar trough = padL + lam * 0.75;\n\n// wavelength bar between the two crests\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.2;\nvar bar = padT - 8;\nctx.beginPath(); ctx.moveTo(crest1, bar); ctx.lineTo(crest2, bar); ctx.stroke();\nctx.beginPath(); ctx.moveTo(crest1, bar); ctx.lineTo(crest1 + 6, bar - 4); ctx.lineTo(crest1 + 6, bar + 4); ctx.closePath();\nctx.fillStyle = C.figure; ctx.fill();\nctx.beginPath(); ctx.moveTo(crest2, bar); ctx.lineTo(crest2 - 6, bar - 4); ctx.lineTo(crest2 - 6, bar + 4); ctx.closePath();\nctx.fill();\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(crest1, bar); ctx.lineTo(crest1, yMid - A); ctx.stroke();\nctx.beginPath(); ctx.moveTo(crest2, bar); ctx.lineTo(crest2, yMid - A); ctx.stroke();\nctx.setLineDash([]);\n\n// amplitude bar at the trough\nctx.strokeStyle = C.figure;\nctx.beginPath(); ctx.moveTo(trough, yMid); ctx.lineTo(trough, yMid + A); ctx.stroke();\nctx.beginPath(); ctx.moveTo(trough, yMid + A); ctx.lineTo(trough - 4, yMid + A - 6); ctx.lineTo(trough + 4, yMid + A - 6); ctx.closePath();\nctx.fillStyle = C.figure; ctx.fill();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nctx.fillStyle = C.ink;\nctx.fillText(\"one wavelength, lambda\", (crest1 + crest2) / 2 - 52, bar - 8);\nctx.fillText(\"amplitude A\", trough + 8, yMid + A * 0.6);\nctx.fillText(\"crest\", crest1 - 14, yMid - A - 8);\nctx.fillText(\"trough\", trough + 8, yMid + A + 14);\nctx.fillText(\"y = 0 line (rope at rest)\", padL + 4, yMid - 6);\nctx.fillText(\"distance x along the rope\", W / 2 - 68, H - 8);\nctx.fillText(\"y\", 10, yMid - A - 6);\n\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(padL, yMid - A - 16); ctx.lineTo(padL + 30, yMid - A - 16); ctx.stroke();\nctx.beginPath(); ctx.moveTo(padL + 30, yMid - A - 16); ctx.lineTo(padL + 24, yMid - A - 20); ctx.lineTo(padL + 24, yMid - A - 12);\nctx.closePath(); ctx.fillStyle = C.ink; ctx.fill();\nctx.fillText(\"v\", padL + 34, yMid - A - 12);"
+  },
+  {
+    "id": "wave-basics-travelling",
+    "title": "Travelling wave lab",
+    "caption": "The shape moves sideways; each bit of rope only moves up and down.",
+    "height": 240,
+    "params": [
+      {
+        "key": "amp",
+        "label": "Amplitude",
+        "unit": "cm",
+        "min": 1,
+        "max": 5,
+        "step": 0.5,
+        "value": 3
+      },
+      {
+        "key": "lam",
+        "label": "Wavelength",
+        "unit": "m",
+        "min": 0.3,
+        "max": 2.0,
+        "step": 0.05,
+        "value": 0.8
+      },
+      {
+        "key": "freq",
+        "label": "Frequency",
+        "unit": "Hz",
+        "min": 0.3,
+        "max": 4,
+        "step": 0.1,
+        "value": 1.2
+      }
+    ],
+    "draw": "var A = p.amp / 100.0;          // metres\nvar lam = p.lam;                // metres\nvar f = p.freq;                 // Hz\nvar k = 2 * Math.PI / lam;\nvar w = 2 * Math.PI * f;\nvar v = f * lam;\n\nvar padL = 34, padR = 14, padT = 18, padB = 26;\nvar Lx = 2.0;                                  // metres of rope shown\nvar sx = (W - padL - padR) / Lx;\nvar yMid = (H - padB + padT) / 2;\nvar sy = (H - padT - padB) / 2 / 0.055;        // metres -> px, fixed scale\nvar X = function (x) { return padL + x * sx; };\nvar Y = function (y) { return yMid - y * sy; };\n\nctx.lineWidth = 1;\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(padL, Y(0)); ctx.lineTo(W - padR, Y(0)); ctx.stroke();\n\n// the rope\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 240; i++) {\n  var x = Lx * i / 240;\n  var y = A * Math.sin(k * x - w * t);\n  if (i === 0) ctx.moveTo(X(x), Y(y)); else ctx.lineTo(X(x), Y(y));\n}\nctx.stroke();\n\n// one marked element, moving only up and down\nvar xm = 0.45 * Lx;\nvar ym = A * Math.sin(k * xm - w * t);\nvar vy = -w * A * Math.cos(k * xm - w * t);\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(xm), Y(A * 1.25)); ctx.lineTo(X(xm), Y(-A * 1.25)); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(X(xm), Y(ym), 5, 0, Math.PI * 2); ctx.fill();\n\n// velocity arrow on that element\nvar arrow = vy * sy * 0.25;\nif (Math.abs(arrow) > 3) {\n  ctx.strokeStyle = C.figure;\n  ctx.lineWidth = 1.5;\n  ctx.beginPath();\n  ctx.moveTo(X(xm), Y(ym));\n  ctx.lineTo(X(xm), Y(ym) - arrow);\n  ctx.stroke();\n  var s = arrow > 0 ? 1 : -1;\n  ctx.beginPath();\n  ctx.moveTo(X(xm), Y(ym) - arrow);\n  ctx.lineTo(X(xm) - 4, Y(ym) - arrow + 6 * s);\n  ctx.lineTo(X(xm) + 4, Y(ym) - arrow + 6 * s);\n  ctx.closePath(); ctx.fillStyle = C.figure; ctx.fill();\n}\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nctx.fillStyle = C.ink;\nctx.fillText(\"rope element\", X(xm) + 8, padT + 10);\nctx.fillText(\"wave travels this way\", padL + 4, H - 8);\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1.2;\nvar ax = padL + 150, ay = H - 12;\nctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ax + 26, ay); ctx.stroke();\nctx.beginPath(); ctx.moveTo(ax + 26, ay); ctx.lineTo(ax + 20, ay - 4); ctx.lineTo(ax + 20, ay + 4);\nctx.closePath(); ctx.fillStyle = C.ink; ctx.fill();\nctx.fillText(\"y\", 8, Y(0) - 6);\nctx.fillText(\"x\", W - padR - 8, Y(0) + 16);\n\nout.note = \"v = f x lambda = \" + v.toFixed(2) + \" m/s, period T = \" + (1 / f).toFixed(3)\n  + \" s, max transverse speed \" + (w * A).toFixed(2) + \" m/s\";"
+  },
+  {
+    "id": "wave-basics-rope-speed",
+    "title": "Pulse speed on a string",
+    "caption": "Tension and thickness set the speed. The source cannot change it.",
+    "height": 230,
+    "params": [
+      {
+        "key": "tension",
+        "label": "Tension",
+        "unit": "N",
+        "min": 5,
+        "max": 200,
+        "step": 1,
+        "value": 40
+      },
+      {
+        "key": "mu",
+        "label": "Linear density",
+        "unit": "g/m",
+        "min": 1,
+        "max": 50,
+        "step": 1,
+        "value": 10
+      }
+    ],
+    "draw": "var T = p.tension, mu = p.mu / 1000.0;   // slider in g/m\nvar v = Math.sqrt(T / mu);\nvar L = 6.0;                              // metres of rope\nvar tt = L / v;                           // transit time\n\nvar padL = 30, padR = 20;\nvar yMid = H * 0.52;\nvar sx = (W - padL - padR) / L;\n\n// rope at rest\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(padL, yMid); ctx.lineTo(W - padR, yMid); ctx.stroke();\n\n// a gaussian pulse marching right, restarting after it leaves\nvar cycle = tt + 0.5;\nvar now = t % cycle;\nvar xc = v * now;\nvar width = 0.45;\nvar amp = H * 0.24;\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 300; i++) {\n  var x = L * i / 300;\n  var u = (x - xc) / width;\n  var y = yMid - amp * Math.exp(-u * u);\n  if (i === 0) ctx.moveTo(padL + x * sx, y); else ctx.lineTo(padL + x * sx, y);\n}\nctx.stroke();\n\n// walls\nctx.strokeStyle = C.rule;\nctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(padL, yMid - amp * 1.5); ctx.lineTo(padL, yMid + amp * 0.8); ctx.stroke();\nctx.beginPath(); ctx.moveTo(W - padR, yMid - amp * 1.5); ctx.lineTo(W - padR, yMid + amp * 0.8); ctx.stroke();\n\n// clock bar\nvar frac = Math.min(now / tt, 1);\nctx.strokeStyle = C.figure;\nctx.lineWidth = 4;\nctx.beginPath();\nctx.moveTo(padL, H - 14);\nctx.lineTo(padL + frac * (W - padL - padR), H - 14);\nctx.stroke();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nctx.fillStyle = C.ink;\nctx.fillText(\"6.0 m of rope, tension T pulling both ends\", padL + 6, 16);\nctx.fillText(\"elapsed \" + Math.min(now, tt).toFixed(3) + \" s of \" + tt.toFixed(3) + \" s\", padL + 6, H - 20);\n\nout.note = \"v = sqrt(T/mu) = sqrt(\" + T.toFixed(0) + \" / \" + mu.toFixed(4) + \") = \"\n  + v.toFixed(1) + \" m/s, so the pulse crosses 6.0 m in \" + tt.toFixed(3) + \" s\";"
+  },
+  {
+    "id": "wave-basics-decibels",
+    "title": "Intensity and decibels",
+    "caption": "Spread the same power over a bigger sphere and the level falls.",
+    "height": 250,
+    "params": [
+      {
+        "key": "power",
+        "label": "Acoustic power",
+        "unit": "W",
+        "min": 0.01,
+        "max": 5,
+        "step": 0.01,
+        "value": 0.8
+      },
+      {
+        "key": "dist",
+        "label": "Distance",
+        "unit": "m",
+        "min": 1,
+        "max": 400,
+        "step": 1,
+        "value": 30
+      }
+    ],
+    "draw": "var P = p.power, r0 = p.dist;\nvar I0 = 1e-12;\nvar I = P / (4 * Math.PI * r0 * r0);\nvar db = 10 * Math.log10(I / I0);\n\nvar padL = 44, padR = 16, padT = 18, padB = 30;\nvar rMin = 1, rMax = 400;\nvar lx = function (r) {\n  return padL + (W - padL - padR) * (Math.log10(r) - Math.log10(rMin)) / (Math.log10(rMax) - Math.log10(rMin));\n};\nvar dbMin = 20, dbMax = 130;\nvar ly = function (d) {\n  return H - padB - (H - padT - padB) * (d - dbMin) / (dbMax - dbMin);\n};\n\n// axes\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB); ctx.stroke();\n\n// gridline every 20 dB\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nctx.fillStyle = C.ink;\nfor (var d = dbMin; d <= dbMax; d += 20) {\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath(); ctx.moveTo(padL, ly(d)); ctx.lineTo(W - padR, ly(d)); ctx.stroke();\n  ctx.fillText(d + \" dB\", 4, ly(d) + 4);\n}\nvar marks = [1, 10, 100];\nfor (var j = 0; j < marks.length; j++) {\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath(); ctx.moveTo(lx(marks[j]), padT); ctx.lineTo(lx(marks[j]), H - padB); ctx.stroke();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(marks[j] + \" m\", lx(marks[j]) - 10, H - padB + 14);\n}\n\n// the curve\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 200; i++) {\n  var r = Math.pow(10, Math.log10(rMin) + (Math.log10(rMax) - Math.log10(rMin)) * i / 200);\n  var y = 10 * Math.log10(P / (4 * Math.PI * r * r) / I0);\n  var yy = Math.max(Math.min(y, dbMax), dbMin);\n  if (i === 0) ctx.moveTo(lx(r), ly(yy)); else ctx.lineTo(lx(r), ly(yy));\n}\nctx.stroke();\n\n// marker\nvar dbc = Math.max(Math.min(db, dbMax), dbMin);\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(lx(r0), H - padB); ctx.lineTo(lx(r0), ly(dbc)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(padL, ly(dbc)); ctx.lineTo(lx(r0), ly(dbc)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(lx(r0), ly(dbc), 5, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"sound level against distance, log scale\", padL + 8, padT + 12);\nctx.fillText(\"every doubling of distance costs 6 dB\", padL + 8, padT + 28);\n\nout.note = \"at \" + r0.toFixed(1) + \" m: I = \" + I.toExponential(2) + \" W/m^2, level = \" + db.toFixed(1) + \" dB\";"
+  }
+]

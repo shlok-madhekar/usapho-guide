@@ -1,57 +1,408 @@
-## Two slits
+Shine a laser through a single human hair and put a screen behind it. You do not
+get a shadow of the hair. You get a row of bright dots spread over half a metre,
+with dark gaps between them. Something that should block light has painted a
+pattern across the wall instead.
 
-Two narrow slits a distance $d$ apart, lit coherently, act as two sources. For
-a screen far away the rays to a given point are effectively parallel, and the
-path difference is the leg of a small right triangle, $d\sin\theta$. Bright
-fringes appear where that is a whole number of wavelengths:
+In the last lesson you traced light as rays, and the image was where the rays
+crossed. That worked because the lens was enormous compared with a wavelength.
+Once the obstacle gets small — a hair, a slit, a telescope aperture — rays stop
+being the right description and you have to use the fact that light is a wave.
+What follows is one idea used over and over: light arriving at a point by two
+routes adds or cancels, depending on how far out of step the routes are.
 
-$$d\sin\theta = m\lambda$$
+## Two routes to the same point
 
-For small angles $\sin\theta \approx y/L$, so fringes are evenly spaced by
-$\lambda L / d$. Narrower slit spacing spreads the pattern out. Notice that
-this measures $\lambda$ with a ruler — the fringe spacing is a macroscopic
-stand-in for a wavelength you cannot see.
+Take a wall with two narrow slits in it, a distance $d$ apart, and a screen a
+distance $L$ behind. One wave arrives from the left, so both slits start their
+journeys in step. Two sources holding a fixed phase relationship like this are
+called *coherent*; without coherence there is no pattern, just a smear.
 
-## Many slits
+Pick a point $P$ on the screen at angle $\theta$ off the centre line. The far
+slit's journey to $P$ is longer. If $L$ is much bigger than $d$ — in any real
+setup $L$ is metres and $d$ is microns — the two rays to $P$ are essentially
+parallel, both tilted at $\theta$. Drop a perpendicular from the near slit onto
+the far slit's ray and you cut off a right triangle with hypotenuse $d$ and
+angle $\theta$. The extra distance is its short leg:
 
-A grating with thousands of slits obeys the same condition $d\sin\theta =
-m\lambda$, because a maximum still requires adjacent slits to agree. What
-changes is sharpness. With two slits, going slightly off a maximum costs only a
-small phase error. With $N$ slits, that same small error accumulates across the
-array, and the contributions curl around and cancel completely once the total
-spread reaches $2\pi$. The maxima narrow as $1/N$ while staying in place.
+$$\Delta = d\sin\theta$$
 
-Sharp maxima are what makes a grating a measuring instrument: resolving power
-grows with $N$, so a grating separates two nearby wavelengths that a double
-slit smears together.
+That $\Delta$ is the *path difference*, and it controls everything. A wave that
+travels one extra wavelength arrives back exactly in step with itself. So if
+$\Delta$ is any whole number of wavelengths, the two waves arrive crest on
+crest and add. Bright fringe:
 
-## A formula that means the opposite
+$$d\sin\theta = m\lambda, \qquad m = 0, \pm 1, \pm 2, \ldots$$
 
-A single slit of width $a$ gives
+The integer $m$ is the *order*: $m=0$ is the fringe straight ahead, where the
+two routes are the same length, $m=1$ is the first one out on either side. If
+instead $\Delta$ is half a wavelength, or one and a half, the crest of one wave
+lands on the trough of the other and they cancel exactly. Dark fringe:
+$d\sin\theta = (m + \tfrac12)\lambda$.
 
-$$a\sin\theta = m\lambda, \qquad m = 1, 2, 3, \ldots$$
+<Figure caption={<><b>Figure 1.</b> Where the path difference comes from. The two rays to a distant point are nearly parallel, and the extra distance the lower ray travels is the short leg of the shaded triangle. Drag the angle and watch that leg pass through one whole wavelength.</>}>
+  <Sim id="diffraction-geometry" />
+</Figure>
 
-Identical in form, but these are the dark fringes. The reasoning differs. Treat
-the slit as a continuum of sources and pair each point in the top half with the
-point a distance $a/2$ below it. When $a\sin\theta = \lambda$, every such pair
-is exactly out of phase, so the whole slit cancels. That argument produces
-zeros, never maxima, and $m = 0$ is excluded because it would pair every point
-with itself.
+Angles in these problems are usually tiny. With $d = 0.1$ mm and
+$\lambda = 550$ nm, $\sin\theta_1 = 0.0055$, so $\theta_1$ is about a third of
+a degree. That lets you use $\sin\theta \approx \tan\theta \approx y/L$, where
+$y$ is the distance up the screen from the centre. Substituting,
+$dy/L = m\lambda$, so the $m$th fringe sits at $y_m = m\lambda L/d$ and
+consecutive fringes are separated by
 
-The real double-slit pattern is the interference fringes multiplied by this
-single-slit envelope. When an envelope zero lands on an interference maximum,
-that fringe is missing.
+$$\Delta y = \frac{\lambda L}{d}$$
 
-<Aside label="Where this goes wrong" warn>
-  Writing $d\sin\theta = m\lambda$ for a single slit and calling the result a
-  bright fringe is the most common error in this topic. Check which length you
-  are using: $d$ is a separation between slits and gives maxima; $a$ is the
-  width of one slit and gives minima.
+Read that formula. Longer wavelength, wider fringes. Bigger screen distance,
+wider fringes. Bigger slit separation, *narrower* fringes — pattern and object
+are inverse to each other, which comes back with gratings and telescopes.
+
+**Example 1.** Two slits $0.100$ mm apart, $550$ nm light, screen $2.00$ m
+away. Fringe spacing?
+
+Put everything in metres: $d = 1.00\times10^{-4}$ m,
+$\lambda = 5.50\times10^{-7}$ m, $L = 2.00$ m.
+
+$$
+\Delta y = \frac{(5.50\times10^{-7})(2.00)}{1.00\times10^{-4}}
+ = \frac{1.10\times10^{-6}}{1.00\times10^{-4}} = 1.10\times10^{-2}\ \text{m}
+$$
+
+That is $11.0$ mm. The pattern magnifies the wavelength by the ratio $L/d$,
+which is 20 000 here.
+
+<Aside label="Worth remembering">
+  Only use $\Delta y = \lambda L/d$ when the angles are small. If a problem
+  gives you $d$ only a few wavelengths wide, $\sin\theta$ is not small and you
+  must go back to $d\sin\theta = m\lambda$ and take a real inverse sine.
 </Aside>
 
 <QuickCheck
-  question="Widening a single slit does what to the central bright region?"
-  options={["Narrows it", "Widens it", "Leaves it unchanged", "Splits it in two"]}
-  answer={0}
-  explanation="The first minimum sits at sin θ = λ/a, so a larger a pushes it to a smaller angle and the pattern contracts."
+  question="A double-slit pattern is observed, then the whole apparatus is moved into water of index 1.33. What happens to the fringe spacing?"
+  options={["It grows by a factor 1.33", "It shrinks by a factor 1.33", "It is unchanged", "The fringes disappear"]}
+  answer={1}
+  explanation="The wavelength inside a medium is lambda/n, and the fringe spacing is proportional to wavelength, so it shrinks by n. The frequency, not the wavelength, is what stays fixed when light enters a medium."
 />
+
+## How bright is the space between fringes
+
+Problems also ask for the intensity partway between fringes. Each slit sends a
+wave of amplitude $E_0$, and at angle $\theta$ the second arrives with a phase
+lag $\phi$. One wavelength of path difference is one full cycle of $2\pi$, so
+
+$$\phi = \frac{2\pi}{\lambda}\,d\sin\theta$$
+
+Add two equal waves that are $\phi$ apart. Drawn as arrows tip to tail, they
+form an isosceles triangle, and the resultant has length
+$2E_0\cos(\phi/2)$. Intensity goes as amplitude squared, so
+
+$$I = I_{\max}\cos^2\!\left(\frac{\phi}{2}\right)$$
+
+where $I_{\max} = 4E_0^2$ is the value at the centre. Note $4$, not $2$: two
+coherent beams at a maximum give four times one beam's intensity, not twice.
+Energy is not being created, it has been moved out of the dark fringes.
+
+**Example 2.** At a point on the screen the two paths differ by $\lambda/3$.
+What fraction of the central intensity is there?
+
+A path difference of $\lambda/3$ is a phase of
+$\phi = 2\pi/3$. Then $\phi/2 = \pi/3$, and $\cos(\pi/3) = 0.500$. So
+
+$$\frac{I}{I_{\max}} = (0.500)^2 = 0.250$$
+
+A quarter. Two thirds of the way to a dark fringe in path already costs three
+quarters of the brightness, because $\cos^2$ falls fastest in the middle.
+
+The same picture handles unequal slits. If
+one transmits amplitude $E_0$ and the other $\tfrac12 E_0$, the arrows no
+longer cancel when they oppose. At a maximum the amplitudes add to $1.5E_0$; at
+a minimum they subtract to $0.5E_0$. The intensity ratio is
+
+$$\frac{I_{\max}}{I_{\min}} = \left(\frac{1.5}{0.5}\right)^2 = 9.0$$
+
+Unequal slits never give true darkness. The fringes lose contrast but stay in
+the same places.
+
+<Aside label="Where this goes wrong" warn>
+  Adding intensities instead of amplitudes. Coherent beams add as arrows first
+  and get squared at the end; only incoherent beams (two separate lamps) add
+  as intensities. If you ever find the minimum of a two-source pattern by doing
+  $I_1 - I_2$ you will get the wrong answer whenever the slits are unequal.
+</Aside>
+
+## One slit is also two slits, infinitely many times
+
+Now close one slit and widen the other to a width $a$. You still get a pattern:
+the surprise the hair demonstrated. A slit of finite width is not one source but
+a continuous strip of them, every point across the opening sending light onward.
+That is *Huygens' principle*, and it is why light spreads into the shadow at all.
+
+There is a trick that gets the dark fringes without calculus. Split the slit
+down the middle into a top half
+and a bottom half, each of width $a/2$. Pair the very top point with the point
+$a/2$ below it, the next point down with the point $a/2$ below *that*, and so
+on: every point in the top half has a partner in the bottom half, exactly
+$a/2$ away. Each pair has a path difference of $(a/2)\sin\theta$. If that
+equals $\lambda/2$, every single pair cancels, so the whole slit cancels. That
+condition is $a\sin\theta = \lambda$. Splitting into four strips instead of two
+gives $a\sin\theta = 2\lambda$, and so on:
+
+$$a\sin\theta = m\lambda, \qquad m = \pm1, \pm2, \ldots$$
+
+That equation is a trap. It has the same shape as the double-slit formula but
+locates the *dark* fringes, and $m=0$ is excluded: at $\theta = 0$ every route
+is the same length and everything adds, giving a broad central bright band
+running from $-\lambda/a$ to $+\lambda/a$ in $\sin\theta$, flanked by much
+fainter side lobes. Its half-width $\lambda/a$ again has the obstacle
+downstairs: narrow the slit and the light fans out further.
+
+<QuickCheck
+  question="Which quantity appears in the formula for the dark fringes of a single slit?"
+  options={["The separation between two slits", "The width of the one slit", "The distance to the screen", "The wavelength only"]}
+  answer={1}
+  explanation="Single-slit minima are set by the slit width a: a sin θ = m λ. Slit separation d belongs to the interference formula, which gives maxima instead. Mixing the two is the most common error in this topic."
+/>
+
+**Example 3.** A $633$ nm laser lights a single slit; on a screen $2.50$ m
+away the central band is $8.00$ mm wide, edge to edge. Find the slit width.
+
+Edge to edge means from the first minimum on one side to the first on the
+other, so the half-width is $y_1 = 4.00$ mm $= 4.00\times10^{-3}$ m. For the
+first minimum, $m = 1$ and $\sin\theta \approx y_1/L$:
+
+$$
+a\,\frac{y_1}{L} = \lambda
+\quad\Longrightarrow\quad
+a = \frac{\lambda L}{y_1}
+= \frac{(6.33\times10^{-7})(2.50)}{4.00\times10^{-3}}
+$$
+
+$$
+a = \frac{1.5825\times10^{-6}}{4.00\times10^{-3}} = 3.96\times10^{-4}\ \text{m}
+= 0.396\ \text{mm}
+$$
+
+Notice $a = \lambda L / y_1$ is the same algebra as $d = \lambda L/\Delta y$.
+Always check which distance the problem handed you, full width or half width,
+before dividing: that factor of two is where most of the lost marks go.
+
+## Fringes inside an envelope
+
+Real double slits have width. Both effects happen at once, and they simply
+multiply: the fine interference fringes from the separation $d$, modulated by
+the broad diffraction envelope from the width $a$.
+
+$$
+I = I_0\cos^2\!\left(\frac{\pi d\sin\theta}{\lambda}\right)
+\left[\frac{\sin\alpha}{\alpha}\right]^2,
+\qquad \alpha = \frac{\pi a\sin\theta}{\lambda}
+$$
+
+The first factor you derived above. The second is what the full sum over the
+slit gives, and its zeros are exactly the $a\sin\theta = m\lambda$ you found by
+pairing. You rarely need it in full, but you do need what it does to the count.
+
+Since $d > a$ always, fringes are packed closer than envelope zeros. Fringe $m$
+sits at $\sin\theta = m\lambda/d$ and envelope zero $m'$ at
+$\sin\theta = m'\lambda/a$, so they coincide when $m = m'(d/a)$. If $d/a$ is a
+whole number those fringes land on a zero and are erased: the *missing orders*.
+With $d = 4a$, orders $4, 8, 12, \ldots$ vanish.
+
+<Figure caption={<><b>Figure 2.</b> The full double-slit pattern. The dashed curve is the single-slit envelope set by the slit width; the solid curve is the interference fringes living inside it. Widen the slit and watch the envelope shrink, swallowing fringes. Set the separation to four times the width and watch order four disappear.</>}>
+  <Sim id="diffraction-envelope" />
+</Figure>
+
+**Example 4.** Two slits, each $0.0500$ mm wide, separated by $0.250$ mm,
+lit at $550$ nm. How many interference maxima lie strictly inside the central
+diffraction envelope?
+
+Ratio first: $d/a = 0.250/0.0500 = 5.00$. The central envelope runs out to the
+first zero at $\sin\theta = \lambda/a$, and the interference order there is
+$m = d/a = 5$. So order $5$ is exactly on the envelope zero and is missing;
+the orders strictly inside are $m = 0, \pm1, \pm2, \pm3, \pm4$.
+
+Count them: one central, four on each side, so $1 + 8 = 9$ maxima.
+
+The general rule: the number of fringes inside the central envelope is
+$2\lceil d/a\rceil - 1$, and when $d/a$ is an exact integer the fringes at
+$\pm d/a$ are missing rather than merely at the edge.
+
+## Many slits, and why gratings are instruments
+
+Go from two slits to $N$ equally spaced ones. The maximum condition does not
+change: if adjacent slits are in step, all $N$ are, so the bright directions are
+still $d\sin\theta = m\lambda$. What changes is sharpness.
+
+With two slits, stepping off a maximum puts the pair a little out of phase and
+the brightness drops slowly. With $N$ slits the same small mismatch $\delta$
+between neighbours accumulates: slit $N$ is $(N-1)\delta$ behind slit 1. Draw
+the $N$ arrows tip to tail, each turned by $\delta$ from the last, and they curl
+into an arc. When the total turn $N\delta$ reaches $2\pi$ the arc closes into a
+circle and the resultant is zero. The first dark point beside a maximum is only
+$\delta = 2\pi/N$ away in phase instead of $\pi$, so peaks narrow as $1/N$ while
+staying put.
+
+Narrow peaks let you tell two close wavelengths apart. The *chromatic resolving
+power* of a grating with $N$ illuminated lines used in order $m$ is
+
+$$\frac{\lambda}{\Delta\lambda} = mN$$
+
+where $\Delta\lambda$ is the smallest wavelength difference you can separate.
+
+The other grating number is the *angular dispersion*, how far apart in angle two
+wavelengths emerge. Differentiate $d\sin\theta = m\lambda$ with $m$ and $d$
+fixed: $d\cos\theta\,d\theta = m\,d\lambda$, so
+
+$$\frac{d\theta}{d\lambda} = \frac{m}{d\cos\theta}$$
+
+Higher order spreads the spectrum more, and so does a finer grating.
+
+<Figure caption={<><b>Figure 3.</b> Grating lab. Slide the number of illuminated slits and watch the principal maxima sharpen without moving. The readout gives the first-order angle and the resolving power. Try two slits, then twenty, then two hundred.</>}>
+  <Sim id="diffraction-grating" />
+</Figure>
+
+**Example 5.** A grating with $600$ lines/mm is used in second order near
+$500$ nm. Find the angular dispersion in rad/nm.
+
+The spacing is one over the line density:
+$d = 1/(600\ \text{mm}^{-1}) = 1.667\times10^{-3}$ mm
+$= 1.667\times10^{-6}$ m.
+
+Find the angle first, since $\cos\theta$ is in the answer. With $m = 2$:
+
+$$
+\sin\theta = \frac{m\lambda}{d} = \frac{2(5.00\times10^{-7})}{1.667\times10^{-6}}
+= 0.600 \quad\Longrightarrow\quad \theta = 36.9^\circ,\ \cos\theta = 0.800
+$$
+
+Now substitute:
+
+$$
+\frac{d\theta}{d\lambda} = \frac{2}{(1.667\times10^{-6})(0.800)}
+= \frac{2}{1.333\times10^{-6}} = 1.50\times10^{6}\ \text{rad/m}
+$$
+
+Convert to per nanometre by multiplying by $10^{-9}$ m/nm:
+$1.50\times10^{-3}$ rad/nm. So the sodium doublet, $0.59$ nm apart, comes out
+about $0.9$ mrad apart here.
+
+Two more things gratings do that show up constantly. The **highest visible
+order** is set by $\sin\theta \le 1$: from $d\sin\theta = m\lambda$ you need
+$m \le d/\lambda$, then round down. And **orders overlap**, because
+$m\lambda$ is what fixes the angle, not $\lambda$: third order of $400$ nm and
+second order of $600$ nm both give $m\lambda = 1200$ nm and land on top of each
+other.
+
+<Aside label="Worth remembering">
+  Whenever a problem tells you the grating is tilted, or lit at an angle
+  $\theta_i$, the path difference between neighbouring slits picks up a second
+  term from the incoming side. The condition becomes
+  $d(\sin\theta_m - \sin\theta_i) = m\lambda$ with both angles measured from
+  the normal on the same side. Every other grating result follows from this one
+  by setting $\theta_i = 0$.
+</Aside>
+
+## Apertures, telescopes and the Rayleigh criterion
+
+A circular hole diffracts too. The pairing trick does not work cleanly on a
+disc, so the maths is messier, but the result has the same shape as a slit's
+with an extra numerical factor. The first dark ring sits at
+
+$$\sin\theta \approx \theta = 1.22\,\frac{\lambda}{D}$$
+
+for an aperture of diameter $D$. That central blob is called the Airy disc, and
+it is the smallest image a perfect lens can make of a point.
+
+Two stars closer together than this merge into one blur. The *Rayleigh
+criterion* says they are just resolved when the centre of one Airy disc falls on
+the first dark ring of the other, i.e. when their angular separation equals
+$1.22\lambda/D$. Bigger telescopes see finer detail for this reason alone,
+nothing to do with collecting more light.
+
+**Example 6.** A binary star has an angular separation of $0.400$ arcsec. What
+aperture resolves it at $550$ nm? Use $1$ rad $= 206265$ arcsec.
+
+Convert the angle:
+
+$$\theta = \frac{0.400}{206265} = 1.939\times10^{-6}\ \text{rad}$$
+
+Set that equal to the criterion and solve for $D$:
+
+$$
+D = \frac{1.22\lambda}{\theta} = \frac{1.22(5.50\times10^{-7})}{1.939\times10^{-6}}
+= \frac{6.71\times10^{-7}}{1.939\times10^{-6}} = 0.346\ \text{m}
+$$
+
+A 35 cm telescope. The same formula on a $3.00$ mm eye pupil at $25$ cm gives
+the finest detail your eye can pick out; on Hubble's $2.40$ m mirror it gives
+$2.8\times10^{-7}$ rad.
+
+## Two setups that are secretly a double slit
+
+Several classic problems are double slits in disguise, and spotting the
+disguise is the whole solution.
+
+**Lloyd's mirror.** A point source sits a height $h$ above a flat mirror. Light
+reaches the screen directly, and also by bouncing off the mirror. The reflected
+light appears to come from an image source a distance $h$ *below* the mirror,
+so you have two sources separated by $d = 2h$ and every double-slit formula
+applies with that $d$. One catch: reflection off a denser medium flips the
+phase by $\pi$, so the bright and dark fringes swap, and the fringe *spacing*
+$\lambda L/(2h)$ is unaffected. With $h = 1.00$ mm, $\lambda = 600$ nm and
+$L = 2.00$ m, the spacing is
+$(6.00\times10^{-7})(2.00)/(2.00\times10^{-3}) = 6.0\times10^{-4}$ m, i.e.
+$0.6$ mm.
+
+**A slab over one slit.** Put a transparent sheet of thickness $t$ and index
+$n$ over one slit. Inside it the wavelength is $\lambda/n$, so the sheet fits
+$n$ times as many cycles as the same thickness of vacuum. The extra path, in
+vacuum terms, is $(n-1)t$; divide by $\lambda$ for the fringe shift:
+
+$$\text{shift} = \frac{(n-1)t}{\lambda}$$
+
+With $t = 10.0\ \mu$m, $n = 1.58$ and $\lambda = 550$ nm:
+$(0.58)(1.00\times10^{-5})/(5.50\times10^{-7}) = 10.5$ fringes.
+
+The same counting logic drives the Michelson interferometer. Moving one mirror
+by $x$ changes that arm's path by $2x$, because the light goes there and back,
+so the number of fringes that sweep past is $N = 2x/\lambda$. Replacing gas of
+index $n$ in a cell of length $\ell$ with vacuum changes the path by
+$2(n-1)\ell$, giving $N = 2(n-1)\ell/\lambda$. Every one of these is the same
+sentence: count how many extra wavelengths one route gained.
+
+## Recognising which tool a problem wants
+
+The formulas are few; picking the right one is the skill. Work down this list.
+
+**What length is the problem handing you?** A separation between two openings
+means interference and maxima at $d\sin\theta = m\lambda$. A width of one
+opening means diffraction and minima at $a\sin\theta = m\lambda$. A diameter of
+a round aperture means $1.22\lambda/D$. If both a width and a separation
+appear, you need the envelope picture and probably a missing-order or
+fringe-count question.
+
+**Is it asking where, or how bright?** Where means the $m\lambda$ conditions.
+How bright means going back to the phase, $\phi = 2\pi\Delta/\lambda$, and
+squaring an amplitude sum.
+
+**Does the word "resolve" or "just distinguish" appear?** That is Rayleigh for
+apertures, $\lambda/\Delta\lambda = mN$ for gratings. Both are about telling
+two nearby things apart, and both get better as the instrument gets bigger.
+
+**Is there a reflection, a mirror image, or a second path that is not a slit?**
+Then it is a disguised double slit: find the effective separation between the
+real source and its image, and use $d\sin\theta = m\lambda$ with that.
+
+**Does anything sit in the beam, or is the whole setup in a medium?** Then
+count optical path, $n$ times the geometric length, and convert the difference
+into fringes by dividing by $\lambda$.
+
+Finally, sanity-check every angle. Visible wavelengths are half a micron. If a
+problem gives you slits tens of microns apart, the first order is a couple of
+degrees and the small-angle form is safe. If it gives you a grating with
+$d$ only two or three wavelengths wide, expect angles of tens of degrees, keep
+the inverse sine, and check whether the order you were asked for even exists.
+
+The next lesson takes the same path-difference bookkeeping and applies it to
+light bouncing off the two surfaces of a thin layer, where the reflection phase
+flip you met in Lloyd's mirror stops being a footnote and starts deciding the
+answer: [thin-film interference](/guide/thin-film).

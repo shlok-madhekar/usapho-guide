@@ -1,53 +1,421 @@
-## Energy per unit charge
+## The question this answers
 
-The electrostatic force is conservative, so moving a charge between two points
-costs work that does not depend on the path. Divide that work out by the
-charge and what remains is a property of the field alone:
+An electron sits at rest inside a television tube. You switch on 120 volts
+across the tube, and a fraction of a nanosecond later the electron is moving at
+six and a half million metres per second. Nobody told you the shape of the
+field inside the tube, how the wires are bent, or what path the electron took.
+Yet the speed is fixed, and you can get it in one line.
 
-$$\Delta V = \frac{\Delta U}{q} = -\int_a^b \vec E \cdot d\vec\ell$$
+That is what this lesson buys you. In [Gauss's law](/guide/gauss-law) you found
+$\vec E$, a vector at every point, and adding two fields meant adding two sets
+of components. Now you will trade that vector for a single number at each point
+in space. The number carries almost all the same information, adds like ordinary
+arithmetic, and plugs straight into energy conservation. Most electrostatics
+problems that look brutal in terms of field are short in terms of potential.
 
-Only differences are physical. The zero is a convention, usually infinity for
-bounded distributions, but never for an infinite line or sheet — there the
-integral diverges and you must choose a finite reference point.
+## Work, energy, and the quantity that does not depend on the charge
 
-## Why this is the easier quantity
+Start with what you already know about the electric force. Push a charge $q$
+from point $A$ to point $B$ through a field $\vec E$. The force on it is
+$q\vec E$, so the work the field does is
 
-$V$ is a scalar. Superposition for potential means adding numbers:
+$$
+W_{A\to B} = \int_A^B q\vec E \cdot d\vec \ell
+$$
 
-$$V = \frac{kQ}{r}, \qquad V = \sum_i \frac{kq_i}{r_i}, \qquad V = \int\frac{k\,dq}{r}$$
+The electric force of a point charge is central and falls off as $1/r^2$, just
+like gravity, and that makes it *conservative*: the work depends only on the
+endpoints, not on the wiggly path you take between them. So you can define a
+potential energy $U$ with $W_{A\to B} = U_A - U_B$, exactly as you did for
+gravity.
 
-No components, no angles, no symmetry argument needed to cancel anything.
-The ring on axis, which took real work as a field integral, is immediate:
-every element sits at the same distance $\sqrt{z^2+R^2}$, so
-$V = kQ/\sqrt{z^2+R^2}$.
+Here is the useful observation. Double the charge you are pushing and the force
+doubles, so the work doubles, so $U$ doubles. The energy is proportional to $q$.
+Divide it out and what is left belongs to the field alone. That quantity is the
+**electric potential** $V$:
 
-That suggests a strategy. When the field is wanted and the integral is ugly,
-compute $V$ first and differentiate.
+$$
+V = \frac{U}{q}
+$$
 
-## Getting the field back
+Written as the two statements you will actually use:
 
-Potential loses no information, because the field is its gradient:
+$$
+\Delta V = V_B - V_A = -\int_A^B \vec E \cdot d\vec\ell, \qquad \Delta U = q\,\Delta V
+$$
 
-$$\vec E = -\nabla V, \qquad E_x = -\frac{\partial V}{\partial x}$$
+The unit of potential is the **volt**, one joule per coulomb. A 9 V battery
+means each coulomb of charge that crosses from one terminal to the other gains
+or loses 9 joules. That is the whole definition.
 
-The minus sign says $\vec E$ points downhill in $V$, which is why positive
-charges accelerate toward low potential. Differentiating the ring's $V$
-reproduces $kQz/(z^2+R^2)^{3/2}$ in one step.
+Two consequences fall straight out. First, only *differences* of $V$ are
+physical, because only differences of energy are. You are free to call any one
+point zero, and for a charge distribution of finite size the convenient choice
+is $V = 0$ infinitely far away. Second, if nothing but the electric force acts,
 
-Equipotential surfaces are the level sets of $V$, and $\vec E$ is
-perpendicular to them everywhere. Where they crowd together the field is
-strong. Field lines and equipotentials together are a complete picture.
+$$
+\tfrac12 m v_B^2 - \tfrac12 m v_A^2 = -q(V_B - V_A)
+$$
 
-<Aside label="Where this goes wrong" warn>
-  $V = 0$ and $\vec E = 0$ are independent. Midway between $+q$ and $-q$ the
-  potential vanishes but the field is large; at the center of three equal
-  charges the field vanishes but the potential does not. Only the *derivative*
-  of $V$ controls the field, so a single value of $V$ tells you nothing.
+energy conservation with $q\Delta V$ in place of $mgh$.
+
+<Aside label="Worth remembering">
+  Signs are the only hard part here. A positive charge loses potential energy
+  moving to lower $V$, so it accelerates downhill in $V$. A negative charge does
+  the opposite: it speeds up going *uphill*, toward higher $V$. That is why an
+  electron is fired at a positive plate.
 </Aside>
 
+**Example 1.** An electron starts from rest and is accelerated through 120 V.
+How fast is it going?
+
+The electron has charge $q = -e = -1.6\times10^{-19}\ \text{C}$, and it speeds
+up, so it must move toward higher potential: $\Delta V = +120\ \text{V}$. Then
+
+$$
+\Delta U = q\,\Delta V = (-1.6\times10^{-19})(120) = -1.92\times10^{-17}\ \text{J}
+$$
+
+It loses that much potential energy, so it gains $1.92\times10^{-17}\ \text{J}$
+of kinetic energy:
+
+$$
+\tfrac12 m v^2 = 1.92\times10^{-17}, \qquad v = \sqrt{\frac{2(1.92\times10^{-17})}{9.11\times10^{-31}}}
+$$
+
+The fraction is $3.84\times10^{-17}/9.11\times10^{-31} = 4.215\times10^{13}$,
+and its square root is $6.49\times10^{6}\ \text{m/s}$. If the particle starts
+with speed already, add the initial kinetic energy first rather than using the
+formula for $v$ directly: $\tfrac12 m v_f^2 = \tfrac12 m v_i^2 + |q\Delta V|$.
+
 <QuickCheck
-  question="Along a path where the potential is constant, the work done on a moving charge is:"
-  options={["Equal to qV", "Zero", "Negative", "Impossible to determine"]}
+  question="A charge of -4.0 nC is carried slowly from a terminal at 0 V to one at 250 V. The work done by the external agent is:"
+  options={["+1.0 microjoule", "-1.0 microjoule", "Zero", "+2.0 microjoules"]}
   answer={1}
-  explanation="Work equals minus q times the change in V, and the change is zero. Equivalently, the field is perpendicular to an equipotential, so the force does no work along it."
+  explanation="Carried slowly means no change in kinetic energy, so the agent's work equals the change in potential energy, q times delta V. That is (-4.0e-9)(250) = -1.0e-6 J. The sign is negative because a negative charge is attracted toward high potential and you have to hold it back."
 />
+
+## Potential of a point charge, and why adding is easy
+
+Put a single charge $Q$ at the origin. Its field is radial with magnitude
+$kQ/r^2$. Walk in from infinity along a radial line to a distance $r$. Then
+$\vec E\cdot d\vec\ell = E_r\,dr$ and
+
+$$
+V(r) - V(\infty) = -\int_\infty^r \frac{kQ}{r'^2}\,dr' = -\left[-\frac{kQ}{r'}\right]_\infty^r = \frac{kQ}{r}
+$$
+
+With the usual choice $V(\infty) = 0$,
+
+$$
+V = \frac{kQ}{r}
+$$
+
+Read it carefully. It falls as $1/r$, not $1/r^2$ — one power slower than the
+field, because integrating a field over distance adds a power of $r$. It has a
+sign: a negative charge produces negative potential everywhere. And $r$ is a
+plain distance, never a component, so **there are no angles in this formula**.
+
+That last point is what makes potential the easier tool. Potential energy is a
+scalar, so potentials from several charges simply add:
+
+$$
+V = \sum_i \frac{k q_i}{r_i}
+$$
+
+Four numbers added, with their signs. Compare that with adding four field
+vectors and resolving each into components.
+
+<Figure caption={<><b>Figure 1.</b> Potential along the line through two charges. Drag the probe: the readout shows both V and the slope of the curve. Set the right charge to the same sign as the left and watch the curve stop crossing zero; set them opposite and notice the point where V is zero but the curve is still steep, so the field there is not zero.</>}>
+  <Sim id="electric-potential-two-charge" />
+</Figure>
+
+**Example 2.** Four charges of $6.0\ \text{nC}$ each sit at the corners of a
+square of side $20\ \text{cm}$. Find $V$ at the centre.
+
+First, the geometry. The centre is half a diagonal from each corner. The
+diagonal is $0.20\sqrt2 = 0.2828\ \text{m}$, so each distance is
+$r = 0.1414\ \text{m}$. All four are equal, so
+
+$$
+V = 4\cdot\frac{kq}{r} = \frac{4(8.99\times10^{9})(6.0\times10^{-9})}{0.1414}
+$$
+
+The numerator is $4\times53.94 = 215.8$, and dividing by $0.1414$ gives
+$V = 1526\ \text{V}$. Note what did *not* happen: you never asked which way
+any of the four fields pointed. By symmetry $\vec E$ at the centre is zero,
+while $V$ is emphatically not. Those two facts live independently.
+
+<Aside label="Where this goes wrong" warn>
+  $V = 0$ and $\vec E = 0$ have nothing to do with each other. Halfway between
+  $+q$ and $-q$ the potential is zero and the field is at its strongest. At the
+  centre of that square the field is zero and the potential is 1526 V. A single
+  value of $V$ at a point cannot tell you the field, because the field depends
+  on how $V$ is *changing*, which needs neighbouring points too.
+</Aside>
+
+## Continuous charge: cut it into pieces and add the numbers
+
+For a spread-out charge, chop it into pieces $dq$ small enough to count as
+points, and add:
+
+$$
+V = \int \frac{k\,dq}{r}
+$$
+
+where $r$ is the distance from the piece to your field point. Two shapes cover
+most problems.
+
+**A ring, on its axis.** A ring of radius $R$ carries total charge $Q$. Take a
+point on the axis a distance $z$ from the centre. Every piece of the ring, no
+matter where it sits around the circle, lies at the same distance
+$\sqrt{z^2+R^2}$ from that point. So $r$ comes out of the integral and what is
+left is just $\int dq = Q$:
+
+$$
+V = \frac{kQ}{\sqrt{z^2+R^2}}
+$$
+
+No integration at all. For a ring of radius $10\ \text{cm}$ with $12\ \text{nC}$
+at $z = 20\ \text{cm}$: $\sqrt{0.04+0.01} = 0.2236\ \text{m}$, and
+$V = (8.99\times10^{9})(12\times10^{-9})/0.2236 = 107.9/0.2236 = 482\ \text{V}$.
+
+**A rod, along its own axis.** A rod of length $L$ carries charge per unit
+length $\lambda$. You stand on the line of the rod, a distance $d$ beyond its
+near end. A slice of length $dx$ at distance $x$ from you holds
+$dq = \lambda\,dx$, and it sits at distance $x$. So
+
+$$
+V = \int_d^{d+L}\frac{k\lambda}{x}\,dx = k\lambda\ln\frac{d+L}{d}
+$$
+
+With $\lambda = 3.0\ \text{nC/m}$, $L = 0.50\ \text{m}$, $d = 0.20\ \text{m}$:
+$k\lambda = 26.97$, and $\ln(0.70/0.20) = \ln 3.5 = 1.2528$, giving
+$V = 33.8\ \text{V}$. Doing this as a field integral would mean the same work
+plus a component argument on top.
+
+## Getting the field back out
+
+Potential throws away nothing, because you can differentiate your way back.
+Move a small step $dx$ along $x$. The definition says
+$dV = -\vec E\cdot d\vec\ell = -E_x\,dx$, so
+
+$$
+E_x = -\frac{dV}{dx}
+$$
+
+and likewise for $y$ and $z$ (written together, $\vec E = -\nabla V$). The
+field is the downhill slope of the potential. Steep $V$ means strong field;
+flat $V$ means no field.
+
+Two quick applications. If $V(x) = 400 - 2500x$ volts inside a parallel-plate
+gap, then $E_x = -(-2500) = +2500\ \text{V/m}$ — uniform, as the straight-line
+$V$ promised. If $V(x) = 60x^2 - 15x$, then $E_x = -(120x - 15)$, which at
+$x = 0.25\ \text{m}$ is $-(30-15) = -15\ \text{V/m}$. Volts per metre and
+newtons per coulomb are the same unit.
+
+Running it the other way, a uniform field $E$ along $x$ gives
+$V_A - V_B = E(x_B - x_A)$. For $E = 1800\ \text{N/C}$ with $A$ at $0.10$ m and
+$B$ at $0.55$ m: $V_A - V_B = 1800(0.45) = 810\ \text{V}$. Potential drops as
+you move along a field line, so the upstream point is at higher potential.
+
+Surfaces on which $V$ is constant are called **equipotentials**. Since moving
+along one costs no energy, $\vec E$ must be perpendicular to them everywhere.
+Around a point charge they are spheres; near a metal surface they hug the metal.
+
+<Figure caption={<><b>Figure 2.</b> One positive charge. Each ring is the same step in potential, so the spacing of the rings measures the field strength. Notice the rings crowd near the charge, where E is large, and spread out far away. Every field line meets every ring at a right angle.</>}>
+  <Sim id="electric-potential-equipotentials" />
+</Figure>
+
+<QuickCheck
+  question="Inside a region the potential is constant at 40 V everywhere. The electric field in that region is:"
+  options={["40 V/m", "Zero", "Undetermined without more information", "Pointing toward lower potential"]}
+  answer={1}
+  explanation="The field is minus the rate of change of V, and a constant V changes at zero rate in every direction. The value 40 V itself plays no part; shifting your zero would change it without changing any physics."
+/>
+
+## Spheres and balls
+
+A uniformly charged ball of radius $R$ and total charge $Q$ has, from Gauss's
+law, $E = kQ/r^2$ outside and $E = kQr/R^3$ inside. Outside, the potential is
+therefore identical to a point charge's: $V = kQ/r$. A sphere with
+$8.0\ \text{nC}$ and $R = 6.0\ \text{cm}$, measured at $r = 24\ \text{cm}$,
+gives $V = (8.99\times10^{9})(8\times10^{-9})/0.24 = 71.92/0.24 = 300\ \text{V}$
+— the radius never enters. A Van de Graaff dome of radius $25\ \text{cm}$
+holding $1.5\ \mu\text{C}$ sits at $(8.99\times10^{9})(1.5\times10^{-6})/0.25 =
+53\,940\ \text{V}$.
+
+To go inside, integrate the interior field from the surface inwards:
+
+$$
+V(0) - V(R) = -\int_R^0 \frac{kQ r}{R^3}\,dr = \frac{kQ}{R^3}\int_0^R r\,dr = \frac{kQ}{2R}
+$$
+
+The centre of a uniformly charged ball sits $kQ/2R$ above its surface. For
+$R = 20\ \text{cm}$ and $Q = 50\ \text{nC}$:
+$(8.99\times10^{9})(50\times10^{-9})/(2\times0.20) = 449.5/0.4 = 1124\ \text{V}$.
+
+A **conductor** is different: charge lives on its surface, the field inside
+vanishes, and so the whole conductor is one equipotential at $V = kQ/R$.
+
+**Example 3 (why sharp points spark).** Two metal spheres, radii
+$2.0\ \text{cm}$ and $9.0\ \text{cm}$, sit far apart and are joined by a thin
+wire. What is the ratio of the surface fields?
+
+The wire forces them to the same potential — that is the whole content of the
+problem. So $kQ_1/r_1 = kQ_2/r_2$, which gives $Q_1/Q_2 = r_1/r_2$: the big
+sphere hoards most of the charge. But the surface field is $E = kQ/r^2$, so
+
+$$
+\frac{E_1}{E_2} = \frac{Q_1/r_1^2}{Q_2/r_2^2} = \frac{r_1}{r_2}\cdot\frac{r_2^2}{r_1^2} = \frac{r_2}{r_1} = \frac{9.0}{2.0} = 4.5
+$$
+
+The *smaller* sphere has the stronger field at its surface, by the ratio of the
+radii. That is why air breaks down first at a sharp point on a charged object,
+and why lightning rods are pointed.
+
+## Energy of an assembly
+
+Bring charges in one at a time from infinity. The first one is free: there is
+no field yet. The second arrives in the first one's potential, costing
+$q_2 V_1 = kq_1q_2/r_{12}$. The third pays for both charges already placed. Add
+it up and every *pair* has been counted once:
+
+$$
+U = \sum_{\text{pairs}} \frac{kq_iq_j}{r_{ij}}
+$$
+
+For two charges $2.0\ \text{nC}$ and $5.0\ \text{nC}$ at $15\ \text{cm}$:
+$U = (8.99\times10^{9})(2\times10^{-9})(5\times10^{-9})/0.15 =
+8.99\times10^{-8}/0.15 = 5.99\times10^{-7}\ \text{J}$. For three
+$4.0\ \text{nC}$ charges on an equilateral triangle of side $0.30\ \text{m}$
+there are three identical pairs:
+$U = 3(8.99\times10^{9})(16\times10^{-18})/0.30 = 3(4.79\times10^{-7}) =
+1.44\times10^{-6}\ \text{J}$, and that is exactly the work you must do to
+assemble them.
+
+Counting pairs is the whole skill. On a cube of edge $a$ with eight identical
+charges there are $\binom82 = 28$ pairs: 12 along edges at distance $a$, 12 face
+diagonals at $a\sqrt2$, and 4 body diagonals at $a\sqrt3$. So
+
+$$
+U = \frac{kq^2}{a}\left(12 + \frac{12}{\sqrt2} + \frac{4}{\sqrt3}\right) = \frac{kq^2}{a}(22.79)
+$$
+
+**Example 4 (a continuous body).** Build up a nonconducting ball of radius
+$R = 10\ \text{cm}$ to a final charge $Q = 2.0\ \mu\text{C}$, uniformly through
+its volume. How much work does it take?
+
+You cannot count pairs here, so build the ball in shells. Suppose you have got
+as far as radius $r$, carrying $q = Q r^3/R^3$. Its surface is at potential
+$kq/r$. The next shell of thickness $dr$ carries
+$dq = \rho\,4\pi r^2\,dr = 3Q r^2 dr/R^3$, and bringing it in from infinity
+costs $dW = (kq/r)\,dq$:
+
+$$
+dW = \frac{k}{r}\cdot\frac{Qr^3}{R^3}\cdot\frac{3Qr^2}{R^3}\,dr = \frac{3kQ^2}{R^6}r^4\,dr
+$$
+
+Integrate from $0$ to $R$, where $\int_0^R r^4 dr = R^5/5$:
+
+$$
+W = \frac{3kQ^2}{R^6}\cdot\frac{R^5}{5} = \frac{3kQ^2}{5R}
+$$
+
+Now the numbers. $Q^2 = 4.0\times10^{-12}\ \text{C}^2$, so
+$3kQ^2 = 3(8.99\times10^{9})(4.0\times10^{-12}) = 0.10788$. Divide by
+$5R = 0.50\ \text{m}$: $W = 0.216\ \text{J}$. That is a lot of energy for two
+microcoulombs, which is why charged objects in the real world hold so little
+charge.
+
+## Putting it together: energy conservation problems
+
+The best problems combine the two halves. Find $V$ where the particle starts
+and where it ends, turn the difference into energy, and let kinetic energy take
+up the slack.
+
+**Example 5.** A ring of radius $12\ \text{cm}$ carries $+40\ \text{nC}$. An
+electron is released from rest very far away on the axis. How fast is it going
+at the centre?
+
+Far away, $V = 0$ and $U = 0$ and $K = 0$. At the centre, $z = 0$ so
+$V = kQ/R$, and the electron's energy there is
+$U = (-e)(kQ/R)$ — negative, since the electron is attracted. Energy
+conservation, $K_f + U_f = 0$, gives
+
+$$
+\tfrac12 m v^2 = \frac{ekQ}{R}, \qquad v = \sqrt{\frac{2ekQ}{mR}}
+$$
+
+Numerically: $2ek = 2(1.6\times10^{-19})(8.99\times10^{9}) =
+2.877\times10^{-9}$; times $Q = 40\times10^{-9}$ gives
+$1.151\times10^{-16}$. The denominator is
+$mR = (9.11\times10^{-31})(0.12) = 1.093\times10^{-31}$. The quotient is
+$1.053\times10^{15}$, whose square root is $3.24\times10^{7}\ \text{m/s}$.
+
+The same ring answers a harder question. Displace the electron a small distance
+$z \ll R$ from the centre and let go. Its energy is
+$U(z) = -ekQ/\sqrt{z^2+R^2}$, and for small $z$,
+$(z^2+R^2)^{-1/2} \approx R^{-1}(1 - z^2/2R^2)$, so
+
+$$
+U(z) \approx -\frac{ekQ}{R} + \frac{ekQ}{2R^3}z^2
+$$
+
+A $U$ quadratic in $z$ is a spring with $\tfrac12 k_{\text{eff}} z^2$, so
+$k_{\text{eff}} = ekQ/R^3$ and
+$\omega = \sqrt{ekQ/mR^3}$. For $R = 8.0\ \text{cm}$ and $Q = 25\ \text{nC}$:
+$ekQ = (1.6\times10^{-19})(8.99\times10^{9})(25\times10^{-9}) =
+3.596\times10^{-17}$, and $mR^3 = (9.11\times10^{-31})(5.12\times10^{-4}) =
+4.664\times10^{-34}$. The ratio is $7.71\times10^{16}$,
+$\omega = 2.78\times10^{8}\ \text{rad/s}$, and
+$f = \omega/2\pi = 4.4\times10^{7}\ \text{Hz}$.
+
+<Figure caption={<><b>Figure 3.</b> An electron dropped onto the axis of a positive ring, with the axial potential drawn underneath. The readout gives its speed at the centre and the frequency of small oscillations. Try dragging the release point down toward 0.2R: the motion becomes a clean sine wave, because near the top the potential hill is a parabola. Drag it out to 4R and the motion becomes visibly non-sinusoidal, with the electron loitering at the turning points.</>}>
+  <Sim id="electric-potential-ring-lab" />
+</Figure>
+
+One more pattern worth naming: **minimum launch speed**. Fire a proton from
+far away at a pair of fixed positive charges. It slows down as it climbs. To
+just reach a target point, all its kinetic energy must be spent there, so
+
+$$
+\tfrac12 m v_{\min}^2 = q V_{\text{target}}
+$$
+
+For two $+5.0\ \text{nC}$ charges $20\ \text{cm}$ apart and the target at the
+midpoint, each charge is $0.10\ \text{m}$ away, so
+$V = 2(8.99\times10^{9})(5\times10^{-9})/0.10 = 899\ \text{V}$. Then
+$\tfrac12 m v^2 = (1.6\times10^{-19})(899) = 1.438\times10^{-16}\ \text{J}$,
+and $v = \sqrt{2(1.438\times10^{-16})/1.67\times10^{-27}} =
+\sqrt{1.72\times10^{11}} = 4.2\times10^{5}\ \text{m/s}$. The perpendicular
+bisector in the problem statement is a red herring for the energy — the path
+does not matter, only the endpoint potentials do.
+
+## How to know this is the tool
+
+Reach for potential when you see any of these.
+
+- **The question asks for a speed, a work, or an energy** and gives you charges
+  and distances. Energy methods skip the trajectory entirely. If a problem
+  describes a complicated path and then asks only about the endpoints, it is
+  telling you the path is irrelevant.
+- **"Released from rest", "fired from far away", "just barely reaches"**. These
+  are energy-conservation signals. "Just barely reaches" means $v = 0$ there.
+- **You need a field but the geometry has no symmetry Gauss's law can use.**
+  Compute $V$ by adding scalars, then differentiate. The ring's axial field
+  falls out of $V = kQ/\sqrt{z^2+R^2}$ in one derivative.
+- **Several charges and a single point.** Adding $kq_i/r_i$ with signs is far
+  faster than adding vectors, and a question that asks for $V$ at the centre of
+  something symmetric is usually trivial.
+- **Conductors joined by a wire.** Same potential is the equation you need.
+- **A formula for $V(x)$ is handed to you.** Differentiate and negate; nothing
+  else is being asked.
+
+And the reverse: if the question asks for a force, a direction, or a
+torque, potential alone is not enough. You need $\vec E$, which means either
+Gauss's law or a derivative of $V$.
+
+Next you will take this to metal: what happens when charge is free to move,
+why every conductor is one equipotential, and how the ratio of charge to
+potential defines [capacitance](/guide/conductors-capacitance).

@@ -1,53 +1,224 @@
-## One pair at a time
+Rub a balloon on your sleeve and hold it near a thin stream of water from a tap. The stream bends toward the balloon. Nothing touches it, nothing blows on it, and the balloon is not a magnet. Something is reaching across the gap.
 
-Two point charges push or pull along the line joining them, with a strength
-that falls off as the square of the separation:
+That reach is the subject of this unit. In the last lesson you were working in rotating and accelerating frames, inventing pseudo-forces to keep $\vec F = m\vec a$ looking right. Here the frame is boring — everything is at rest, or nearly — and the whole difficulty moves into the force itself. You need two things: a rule for the force between one pair of charges, and a rule for what happens when there are more than two. The second rule is short, and it is the one that does all the work.
 
-$$F = k\frac{|q_1 q_2|}{r^2}, \qquad k = \frac{1}{4\pi\varepsilon_0} \approx 8.99\times10^9\ \text{N}\,\text{m}^2/\text{C}^2$$
+## The force between one pair of charges
 
-The form is Newton's gravitation with one new feature: charge comes in two
-signs, so the force can reverse. Get the magnitude from the formula and the
-direction from the signs by inspection. Do not try to make a single vector
-expression carry both jobs; that is how sign errors get in.
+Charge comes in two kinds. Call one positive and the other negative; the names are arbitrary labels Franklin picked, and nothing physical depends on which is which. The unit is the coulomb, C. A single electron carries $-1.6\times10^{-19}$ C, which tells you a coulomb is an enormous amount of charge: one coulomb is about $6\times10^{18}$ electrons' worth.
 
-## The field is the force, divided out
+Experiment says the force between two small charged objects does three things. It lies along the line joining them. It is proportional to each charge. And it weakens as the square of the distance — double the separation and the force drops to a quarter. Put those together and the only formula that fits is
 
-Fixing a source charge $Q$ and asking what it would do to any test charge
-placed at $\vec r$ gives a property of the space itself:
+$$F = k\frac{|q_1 q_2|}{r^2}, \qquad k = 8.99\times10^{9}\ \mathrm{N\,m^2/C^2}$$
 
-$$\vec E = \frac{\vec F}{q}, \qquad E = \frac{kQ}{r^2}$$
+$q_1$ and $q_2$ are the two charges in coulombs, $r$ is the distance between their centres in metres, and $F$ is the magnitude of the force each one feels. The absolute value bars are deliberate: the formula gives you a size, and you read the direction off the signs. Like signs repel, unlike signs attract. Always. The two forces are equal in size and opposite in direction, as Newton's third law demands, even when one charge is a thousand times the other.
 
-Nothing new is being claimed here. The point is bookkeeping: the field does
-not depend on what you put in it, so you can compute it once and reuse it.
-Later, when fields carry energy and travel on their own, that reinterpretation
-turns out to be the physical one.
+$k$ is often written $1/(4\pi\varepsilon_0)$, where $\varepsilon_0 = 8.85\times10^{-12}$ C$^2$/(N·m$^2$) is called the permittivity of free space. The two forms are the same number. Use whichever the problem hands you.
 
-## Adding fields
+This is Newton's law of gravitation with the masses swapped for charges — same inverse square, same along-the-line direction. The one new feature is the sign, and it changes everything, because charges can cancel. Gravity only ever adds up.
 
-Superposition is the entire toolkit. The field of several charges is the
-vector sum of the individual fields, each computed as if the others were
-absent.
+<Figure caption={<><b>Figure 1.</b> Two point charges. Drag one charge through zero and watch the arrows flip from apart to together, and notice the two arrows always stay the same length. Then halve the separation and watch the force quadruple.</>}>
+  <Sim id="coulomb-superposition-pair" />
+</Figure>
 
-In practice: pick axes, find each $E_i$ and the angle it points along,
-resolve into components, sum the components separately, recombine at the end.
+**Worked example 1.** Two pith balls hang with their centres $4.0$ cm apart. One carries $q_1 = +3.0\times10^{-8}$ C, the other $q_2 = -5.0\times10^{-8}$ C. Find the force.
 
-Take charges $+q$ and $-q$ separated by $d$, and evaluate on the
-perpendicular bisector at distance $y \gg d$. Each contributes
-$kq/(y^2 + d^2/4)$. The vertical parts cancel; the horizontal parts add,
-each picking up a factor $\cos\theta = (d/2)/\sqrt{y^2+d^2/4}$. The result is
-$E = kqd/y^3$ — a dipole, falling off faster than a point charge because the
-two charges nearly hide each other at a distance.
+Convert first: $r = 0.040$ m, so $r^2 = 1.6\times10^{-3}$ m$^2$. The product of the magnitudes is $(3.0\times10^{-8})(5.0\times10^{-8}) = 1.5\times10^{-15}$ C$^2$. Then
+
+$$F = \frac{(8.99\times10^{9})(1.5\times10^{-15})}{1.6\times10^{-3}} = \frac{1.349\times10^{-5}}{1.6\times10^{-3}} = 8.4\times10^{-3}\ \mathrm{N}$$
+
+The signs are opposite, so it is an attraction of $8.4$ mN, each ball pulled toward the other. That is small, but the balls weigh a fraction of a gram, so it is enough to swing them visibly.
 
 <Aside label="Where this goes wrong" warn>
-  Superposition adds the *fields*, not the magnitudes. Two equal charges at
-  right angles from a point give $\sqrt2\,E_1$, not $2E_1$. And whenever a
-  symmetry argument kills a component, say so explicitly before dropping it —
-  the habit is what makes the harder integrals tractable.
+  Centimetres and micro-coulombs will eat you alive. $r$ in the formula must be
+  in metres and $q$ in coulombs, and both get squared or multiplied, so an
+  unconverted centimetre is a factor of $10^4$ in the answer. Convert on the
+  line where you write the numbers down, not in your head.
+</Aside>
+
+## Superposition: the rule for three or more
+
+Now put a third charge in. Does the presence of $q_3$ change the force that $q_1$ exerts on $q_2$?
+
+It does not. This is an experimental fact, not a theorem, and it is called **superposition**: the force on any charge is the vector sum of the separate forces from every other charge, each computed from Coulomb's law as if the others were not there. No screening, no interference, no correction terms.
+
+That makes every problem here mechanical. Pick axes. For each source charge, find the magnitude $kq_iq/r_i^2$ and the direction (toward it if the pair attracts, away if it repels). Break each force into $x$ and $y$ components. Add the $x$ components, add the $y$ components, and only at the very end combine them with $F = \sqrt{F_x^2 + F_y^2}$.
+
+**Worked example 2.** Three beads, each $+3.0\ \mu$C, are glued at the corners of an equilateral triangle of side $0.12$ m. What net force does one bead feel?
+
+Take the bottom-left bead. Each of the other two pushes it away. Both are the same distance away, so both pushes have the same size:
+
+$$F_1 = \frac{(8.99\times10^{9})(3.0\times10^{-6})^2}{(0.12)^2} = \frac{(8.99\times10^{9})(9.0\times10^{-12})}{0.0144} = \frac{0.08091}{0.0144} = 5.62\ \mathrm{N}$$
+
+Now the directions. The bead at the far bottom corner pushes horizontally, along $-x$ if you put it to the right. The bead at the top pushes down and to the left, at $60^\circ$ below the horizontal, because that is the angle of the triangle's side. Resolve:
+
+$$F_x = -5.62 - 5.62\cos 60^\circ = -5.62 - 2.81 = -8.43\ \mathrm{N}$$
+
+$$F_y = 0 - 5.62\sin 60^\circ = -4.87\ \mathrm{N}$$
+
+$$F = \sqrt{8.43^2 + 4.87^2} = \sqrt{71.1 + 23.7} = \sqrt{94.8} = 9.73\ \mathrm{N}$$
+
+Notice the shortcut hiding in there. The two forces are equal in size with $60^\circ$ between them, so their resultant bisects that angle and has magnitude $2F_1\cos 30^\circ = \sqrt3\,F_1 = 1.732 \times 5.62 = 9.73$ N. Whenever two equal contributions meet at an angle $2\alpha$, the sum is $2F_1\cos\alpha$ along the bisector. That saves you the component work in symmetric layouts — squares, triangles, hexagons — which is most of them.
+
+<Aside label="Where this goes wrong" warn>
+  Superposition adds the vectors, not the numbers. Two equal forces at right
+  angles give $\sqrt2 F_1$, not $2F_1$. And on a square, the charge across the
+  diagonal is $\sqrt2$ times as far away, so it contributes only half as much
+  as a neighbour, not the same.
 </Aside>
 
 <QuickCheck
-  question="Three equal positive charges sit at the corners of an equilateral triangle. The field at the center is:"
-  options={["Three times one charge's field", "Zero", "Directed toward the nearest corner", "Undefined"]}
-  answer={1}
-  explanation="The three contributions have equal magnitude and point 120 degrees apart, so they sum to zero. The potential at the center is not zero, which is the usual point of confusion."
+  question="Four equal positive charges sit at the corners of a square. The net force on one of them points:"
+  options={["Toward the centre of the square", "Along one side", "Outward along the diagonal, away from the centre", "Zero"]}
+  answer={2}
+  explanation="All three neighbours repel. The two side-neighbours give a resultant along the diagonal pointing outward, and the diagonal neighbour pushes outward along the same line, so everything piles up along the outward diagonal."
 />
+
+## The field: force with the test charge divided out
+
+Say you want to know what a fixed arrangement of charges would do to anything you place at a point. Rather than redoing the sum for every new visitor, compute the force per unit charge once:
+
+$$\vec E = \frac{\vec F}{q}, \qquad\text{so}\qquad \vec F = q\vec E$$
+
+$\vec E$ is the **electric field**, measured in newtons per coulomb. For a single point charge $Q$, dividing Coulomb's law by $q$ leaves
+
+$$E = \frac{k|Q|}{r^2}$$
+
+pointing away from $Q$ if $Q$ is positive and toward it if $Q$ is negative. Fields superpose exactly as forces do, for the same reason — you just divided every term of the sum by the same $q$.
+
+Two consequences are worth stating plainly. First, a positive charge is pushed along $\vec E$ and a negative charge is pushed against it. Second, if you are handed a uniform field of $2.0\times10^4$ N/C and a grain carrying $3.0$ nC, the force is $qE = (3.0\times10^{-9})(2.0\times10^{4}) = 6.0\times10^{-5}$ N — no distances needed at all.
+
+<Figure caption={<><b>Figure 2.</b> Two equal positive charges, and the field at a point P on their bisector. Slide P inward and outward. The two slanted arrows are the separate fields, the bold one is their sum. The vertical parts always cancel, which is why the answer is smaller than twice one arrow.</>}>
+  <Sim id="coulomb-superposition-bisector" />
+</Figure>
+
+The cancellation in Figure 2 is the workhorse. For two charges $+q$ at $(0,\pm d)$ and a point at $(x,0)$, each field has magnitude $kq/(x^2+d^2)$, and each contributes a fraction $x/\sqrt{x^2+d^2}$ of itself along $x$, so
+
+$$E = \frac{2kqx}{(x^2+d^2)^{3/2}}$$
+
+Say why a component dies before you drop it. That habit is what makes the integrals in the [next lesson](/guide/charge-distributions) manageable.
+
+## Null points
+
+Between two like charges there is a place where the two fields are equal and opposite and the total is zero. Finding it is a one-line calculation and it appears constantly.
+
+Put $+Q_1$ at $x=0$ and $+Q_2$ at $x=L$. At a point a distance $x$ from the first, the fields point in opposite directions, so setting magnitudes equal gives
+
+$$\frac{kQ_1}{x^2} = \frac{kQ_2}{(L-x)^2} \quad\Longrightarrow\quad \frac{L-x}{x} = \sqrt{\frac{Q_2}{Q_1}}$$
+
+so $x = L/(1+\sqrt{Q_2/Q_1})$. The null point sits closer to the smaller charge, and it depends on the square root of the ratio, never the ratio itself. With $Q_2 = 4Q_1$ and $L = 0.60$ m you get $x = 0.60/(1+2) = 0.20$ m.
+
+For unlike charges the same equation has no solution between them — the fields there point the same way and cannot cancel — so the null point moves outside, beyond the weaker charge.
+
+<Figure caption={<><b>Figure 3.</b> The net field along the line between two positive charges, with the zero crossing marked. Drag the second charge up and down and watch the null point slide, but far more slowly than the charge ratio changes, because only the square root of the ratio matters.</>}>
+  <Sim id="coulomb-superposition-null" />
+</Figure>
+
+<QuickCheck
+  question="A charge of plus 9 microcoulombs sits at x equals 0 and plus 4 microcoulombs at x equals 0.50 m. The field vanishes at:"
+  options={["x = 0.20 m", "x = 0.25 m", "x = 0.30 m", "x = 0.35 m"]}
+  answer={2}
+  explanation="The distances are in the ratio of the square roots, 3 to 2, so the point divides the 0.50 m gap into 0.30 m and 0.20 m, sitting nearer the weaker charge."
+/>
+
+## Charged balls on threads
+
+Half the hard problems in this unit are the same picture: two small balls on threads from a common point, repelling each other and hanging apart. Nothing new is needed, only care.
+
+Look at one ball. Three forces act: gravity $mg$ down, tension $T$ along the thread, and the Coulomb push $F$ horizontally away from the other ball. The ball is in equilibrium, so the components balance:
+
+$$T\cos\theta = mg, \qquad T\sin\theta = F$$
+
+Divide the second by the first and the tension — the quantity you care least about — disappears:
+
+$$\tan\theta = \frac{F}{mg} = \frac{kq^2}{mgr^2}$$
+
+That is the whole trick, and it is worth remembering as a sentence: the tangent of the hang angle is the sideways force divided by the weight. Geometry supplies the second equation, $r = 2L\sin\theta$, since each thread of length $L$ leans out by $L\sin\theta$.
+
+Those two together are messy in general. But if the angle is small, $\sin\theta \approx \tan\theta$, and then $\tan\theta \approx (r/2)/L$, giving
+
+$$\frac{r}{2L} = \frac{kq^2}{mgr^2} \quad\Longrightarrow\quad r^3 = \frac{2kq^2L}{mg}$$
+
+The separation grows as the two-thirds power of the charge. That cube root is what makes the "one ball is grounded" problems work: touching two identical balls shares their total charge equally, so if one is drained and then they touch, each ends with $q/2$, and the new separation is $(1/4)^{1/3} = 0.63$ times the old one.
+
+**Worked example 3.** Two balls of mass $2.0$ g hang from the same point on $0.75$ m threads. Each carries $60$ nC. Find their separation, assuming a small angle.
+
+Put the numbers in one at a time. $kq^2 = (8.99\times10^{9})(6.0\times10^{-8})^2 = (8.99\times10^{9})(3.6\times10^{-15}) = 3.236\times10^{-5}$ N·m$^2$. The weight is $mg = (2.0\times10^{-3})(9.8) = 1.96\times10^{-2}$ N. So
+
+$$r^3 = \frac{2(3.236\times10^{-5})(0.75)}{1.96\times10^{-2}} = \frac{4.855\times10^{-5}}{1.96\times10^{-2}} = 2.477\times10^{-3}\ \mathrm{m^3}$$
+
+$$r = (2.477\times10^{-3})^{1/3} = 0.135\ \mathrm{m}$$
+
+Check the assumption: $\sin\theta = (r/2)/L = 0.0675/0.75 = 0.090$, so $\theta \approx 5.2^\circ$, and $\tan 5.2^\circ = 0.091$ against $\sin 5.2^\circ = 0.090$. The approximation is good to one per cent. If the balls had unequal masses, the angles would differ, and you would need $\tan\theta_1 = F/m_1g$ and $\tan\theta_2 = F/m_2g$ separately with $r = L\sin\theta_1 + L\sin\theta_2$ — the same $F$ in both, because the third law does not care about mass.
+
+<Figure caption={<><b>Figure 4.</b> The thread lab. Raise the charge and the balls swing apart, but slowly, because separation goes as charge to the two-thirds power. Quadruple the charge and check that the separation only goes up by a factor near 2.5.</>}>
+  <Sim id="coulomb-superposition-threads" />
+</Figure>
+
+<Aside label="Worth remembering">
+  Two identical conductors that touch end up sharing their total charge
+  equally. Start with $+8\ \mu$C and $-2\ \mu$C, touch them, and each leaves
+  with $(+8-2)/2 = +3\ \mu$C. Grounding one instead sets its charge to zero.
+</Aside>
+
+## Dipoles
+
+A pair of equal and opposite charges $\pm q$ a small distance $d$ apart is a **dipole**, and it is how neutral matter — a water molecule, a stretched atom — shows up electrically. Its strength is the **dipole moment** $p = qd$, a vector pointing from the negative charge to the positive one, measured in C·m.
+
+Far away, the two charges nearly hide each other, so the field falls off faster than $1/r^2$. On the axis, a distance $r$ from the centre, the near charge is at $r - d/2$ and the far one at $r + d/2$, and the difference of the two inverse squares works out to
+
+$$E_{\text{axis}} = \frac{2kp}{r^3}$$
+
+On the perpendicular bisector the along-axis components survive while the others cancel, and the same expansion gives exactly half of that, $E_\perp = kp/r^3$, pointing antiparallel to $\vec p$. Both need $r \gg d$.
+
+In a uniform field the two charges feel $qE$ in opposite directions, so there is no net force, but there is a couple. With $\vec p$ at angle $\theta$ to $\vec E$ the torque is
+
+$$\tau = pE\sin\theta$$
+
+which is zero when the dipole lines up with the field. And a dipole in a *non-uniform* field does feel a net force, $F = p\,|dE/dx|$, which is why a charged balloon attracts an uncharged stream of water: the field polarises the molecules, then pulls harder on the near end than it pushes on the far one.
+
+## Small oscillations near an equilibrium
+
+The hardest problems here hide a spring. A charged bead sits somewhere the net force is zero, gets nudged, and you are asked for the frequency.
+
+The recipe is always the same. Write the net force on the bead as a function of its displacement $x$ from equilibrium. Expand for small $x$ until it looks like $F = -k_{\text{eff}}x$. Then it *is* a spring, with
+
+$$f = \frac{1}{2\pi}\sqrt{\frac{k_{\text{eff}}}{m}}$$
+
+**Worked example 4.** A bead of mass $2.0$ g carrying $-1.0\ \mu$C slides on a frictionless straight rod. A charge of $+5.0\ \mu$C is fixed at a perpendicular distance $d = 0.12$ m from the point $O$ on the rod nearest to it. The rod holds the bead up against gravity. Find the frequency of small oscillations about $O$.
+
+At $O$ the attraction is perpendicular to the rod, so the rod cancels it and the bead is in equilibrium. Displace the bead a distance $x$ along the rod. Its distance from the fixed charge becomes $r = \sqrt{x^2+d^2}$, and the attraction $kQq/r^2$ points back toward the fixed charge. Only the along-rod component matters; that is the full force times $x/r$:
+
+$$F_x = -\frac{kQq}{r^2}\cdot\frac{x}{r} = -\frac{kQq\,x}{(x^2+d^2)^{3/2}}$$
+
+For $x \ll d$ the bracket is just $d^3$, so $k_{\text{eff}} = kQq/d^3$. Numbers: $kQq = (8.99\times10^{9})(5.0\times10^{-6})(1.0\times10^{-6}) = 4.495\times10^{-2}$ N·m$^2$, and $d^3 = (0.12)^3 = 1.728\times10^{-3}$ m$^3$, so
+
+$$k_{\text{eff}} = \frac{4.495\times10^{-2}}{1.728\times10^{-3}} = 26.0\ \mathrm{N/m}$$
+
+$$f = \frac{1}{2\pi}\sqrt{\frac{26.0}{2.0\times10^{-3}}} = \frac{1}{2\pi}\sqrt{1.30\times10^{4}} = \frac{114.0}{6.283} = 18.2\ \mathrm{Hz}$$
+
+The same recipe covers a bead between two fixed charges. With $+Q$ at $\pm a$ and the bead displaced by $x$ along the line, the two inverse squares differ by $4x/a^3$ to first order, giving $k_{\text{eff}} = 4kQq/a^3$. And a pendulum in a vertical field is even easier: the field just adds $qE$ to the weight, so use $T = 2\pi\sqrt{L/g_{\text{eff}}}$ with $g_{\text{eff}} = g + qE/m$.
+
+<QuickCheck
+  question="A bead oscillating near a charged equilibrium has its frequency measured. The fixed charge is then doubled. The new frequency is:"
+  options={["Unchanged", "Larger by a factor of the square root of 2", "Twice as large", "Four times as large"]}
+  answer={1}
+  explanation="The effective stiffness is proportional to the product of the charges, and frequency goes as the square root of stiffness, so doubling one charge multiplies the frequency by root 2."
+/>
+
+## Recognising the technique
+
+The giveaways are reliable.
+
+**Two or three named charges, fixed positions, "find the force or the field."** Straight superposition. Draw the picture, mark each separate force with its direction, resolve, add components. If the layout is symmetric, look for the $2F_1\cos\alpha$ shortcut before you touch components.
+
+**"All three charges are in equilibrium", or "where does the field vanish."** A null-point problem. Write one balance equation, take the square root of a charge ratio. When *every* charge has to be in equilibrium, do it in two stages: the position of the third charge comes from balancing the other two on it, and its size comes from demanding balance on one of the outer charges.
+
+**A hanging ball, a thread, an angle.** The tangent trick. $\tan\theta = F_{\text{horizontal}}/mg$, and if the problem says "small" or gives you a separation much less than the thread length, use $\sin\theta \approx \tan\theta$ and expect a cube root.
+
+**Balls that touch, or one that is grounded.** Charge sharing first, physics afterwards. Identical spheres split the total evenly.
+
+**"Small oscillations", "frequency", "period".** Expand the net force in the displacement, read off $k_{\text{eff}}$, use $f = (1/2\pi)\sqrt{k_{\text{eff}}/m}$.
+
+**A small separation $d$ with $\pm q$, observed from far away.** A dipole. Use $p = qd$ and reach for $2kp/r^3$ on the axis, $kp/r^3$ on the bisector, $pE\sin\theta$ for the torque.
+
+What none of this handles is a charged rod, ring, or sheet, where there is no "the distance" to put in $r^2$ because different parts of the object are at different distances. The fix is to chop the object into pieces small enough to be points and add the pieces up — superposition again, now with an integral. That is [continuous charge distributions](/guide/charge-distributions), and everything you did by hand here is about to become the thing inside the integral sign.

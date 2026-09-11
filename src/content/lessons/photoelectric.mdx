@@ -1,63 +1,298 @@
-## One photon, one electron
+## A dim lamp that works instantly
 
-Shine light on a clean metal surface and electrons come off. The wave picture
-predicts that a dim beam should eventually accumulate enough energy to free an
-electron, given time, and that a brighter beam should free faster electrons.
-Neither happens.
+Put a clean metal plate in a vacuum tube and shine light on it. Electrons come
+off. That much is not surprising: light carries energy, the electrons are
+loosely held, energy goes in and an electron comes out.
 
-What actually happens is that light arrives as discrete quanta of energy
+Everything else about the experiment is surprising. Turn the lamp down until
+it is barely visible and electrons still come off within a nanosecond of the
+light arriving — there is no waiting while the energy piles up. Turn the lamp
+up bright and you get more electrons, but not faster ones. Then switch to red
+light and nothing comes off at all, no matter how bright you make it, no
+matter how long you wait.
+
+A wave carries energy spread smoothly over the whole wavefront, and a brighter
+wave carries more of it, so a wave picture predicts the opposite of all three
+results. The last lesson pushed classical mechanics until it broke at high
+speed and you replaced it with [relativistic energy and
+momentum](/guide/relativistic-energy). This is the other place classical
+physics breaks, and the repair is stranger.
+
+## Light comes in lumps
+
+Suppose the beam is not a smooth wave of energy but a stream of particles, each
+carrying a fixed amount of energy set by the frequency $f$ of the light:
 
 $$E = hf$$
 
-and each ejected electron is freed by exactly one of them. That single
-assumption explains everything the wave picture got wrong.
+The constant $h$ is Planck's constant, $6.63 \times 10^{-34}$ J·s, or
+$4.14 \times 10^{-15}$ eV·s if you want the answer in electronvolts. One lump
+is called a **photon**. Brightness is how many photons per second; frequency is
+how much each one carries. Those are two separate knobs, and that separation is
+the whole explanation.
 
-An electron near the surface is bound. The minimum energy needed to pull it out
-is the **work function** $\phi$, a property of the metal — about 2.3 eV for
-sodium, 4.7 eV for copper. Whatever the photon carries beyond that becomes
-kinetic energy:
+Since $f = c/\lambda$, you can also write $E = hc/\lambda$, and for this topic
+you should memorise one number:
 
-$$K_{max} = hf - \phi$$
+$$hc = 1240\ \text{eV}\cdot\text{nm}$$
 
-The subscript matters. Electrons deeper in the metal lose energy on the way out
-and emerge with less, so $K_{max}$ describes the luckiest ones.
+With it, photon energy in electronvolts is 1240 divided by the wavelength in
+nanometres, in one step. Green light at 500 nm carries
+$1240/500 = 2.48$ eV per photon. That is the arithmetic behind half the
+problems in this unit.
 
-## Why brightness is the wrong knob
+Now the three puzzles dissolve. Emission is instant because an electron never
+had to accumulate anything — it absorbed one photon, all at once, or it did not.
+Brightness gives more electrons but not faster ones because each electron still
+only ever meets one photon. And red light does nothing at any brightness
+because every photon in the beam is individually too weak, and a million weak
+photons do not add up inside one electron.
 
-Set $K_{max} = 0$ to get the **threshold frequency** $f_0 = \phi/h$. Below it,
-no photon in the beam has enough energy to free anything, and no amount of
-intensity helps — you are delivering more photons, each still too weak. The
-emission stops abruptly at $f_0$, not gradually.
-
-Above threshold, intensity controls how many photons arrive per second, so it
-controls the current. Frequency controls what each photon carries, so it
-controls the energy. The two knobs are independent, which is exactly what a
-wave theory cannot produce.
-
-<Aside label="Where this goes wrong" warn>
-  Doubling intensity does not double $K_{max}$, and halving intensity does not
-  introduce a delay before emission. Emission begins within nanoseconds even at
-  the faintest intensity, because the electron only ever needed one photon.
+<Aside label="Worth remembering">
+  Photon energy in eV is $1240$ divided by the wavelength in nm. Visible light
+  runs from about 1.8 eV (deep red, 700 nm) to about 3.1 eV (violet, 400 nm).
+  Knowing that range lets you sanity-check almost any answer here.
 </Aside>
 
-## Reading the graph
+## The work function, and what is left over
 
-Measure $K_{max}$ by applying a reverse voltage until the current just stops.
-At that stopping potential $V_s$,
+An electron inside a metal sits in a well. It takes energy to lift it out
+through the surface, and the minimum energy required is called the **work
+function** $\phi$ of that metal. Sodium is 2.30 eV, tungsten 4.50 eV, cesium
+2.14 eV — the lowest of the common metals, which is why cesium photocells
+respond to visible light while most metals need ultraviolet.
 
-$$eV_s = hf - \phi$$
+An electron absorbs one photon of energy $hf$. It spends $\phi$ getting out.
+Whatever survives is kinetic energy. An electron sitting right at the surface
+that loses nothing else on the way keeps the most, so
 
-Plot $V_s$ against $f$ and you get a straight line. The slope is $h/e$ — the
-same for every metal, which is the striking part. The horizontal intercept is
-$f_0$, and the vertical intercept is $-\phi/e$. Changing the metal shifts the
-line sideways without tilting it.
+$$K_{max} = hf - \phi = \frac{hc}{\lambda} - \phi$$
 
-This is a real measurement of Planck's constant with a voltmeter, which is why
-the experiment settled the argument.
+The subscript is doing real work. Electrons from deeper in the metal bump into
+things on the way out and emerge with less, so the emitted electrons come out
+with a spread of energies from zero up to $K_{max}$. Problems almost always ask
+about the maximum.
+
+Set $K_{max} = 0$ and you get the cutoff. Below the **threshold frequency**
+$f_0 = \phi/h$, or equivalently above the **threshold wavelength**
+$\lambda_0 = hc/\phi$, nothing is emitted. For tungsten,
+$\lambda_0 = 1240/4.50 = 276$ nm — solidly ultraviolet.
 
 <QuickCheck
-  question="Two metals are tested and their stopping-potential-versus-frequency lines are plotted. The lines must have:"
-  options={["The same slope but different intercepts", "Different slopes but the same intercept", "Different slopes and different intercepts", "Identical slopes and intercepts"]}
-  answer={0}
-  explanation="Slope is Planck's constant over the electron charge, independent of the metal. Only the work function differs, which shifts the intercepts."
+  question="A metal is illuminated with light above its threshold frequency, and then the intensity of the light is tripled at the same wavelength. What happens to the maximum kinetic energy of the photoelectrons?"
+  options={["It triples", "It is unchanged", "It falls to a third", "It triples only if the metal is a good conductor"]}
+  answer={1}
+  explanation="Intensity sets how many photons arrive per second, not what each one carries. Maximum kinetic energy is set by photon energy minus work function, so it depends on wavelength and on the metal, never on brightness. Tripling the intensity triples the current instead."
 />
+
+## Measuring $K_{max}$ with a voltmeter
+
+You cannot weigh an electron's kinetic energy directly, so you make it climb a
+hill. Face the cathode with a collecting anode and put a voltage across the gap
+that pushes the electrons *back*. An electron with kinetic energy $K$ can climb
+a potential difference $V$ only if $K > eV$. Raise $V$ until even the fastest
+electron turns around and the current reads zero. That value is the **stopping
+potential** $V_s$, and at it
+
+$$eV_s = K_{max} = hf - \phi$$
+
+Measured in electronvolts and volts this is friendly: an electron with 1.20 eV
+of kinetic energy is stopped by exactly 1.20 V. The numbers are the same, the
+units differ.
+
+<Figure caption={<><b>Figure 1.</b> The phototube. Drag the wavelength past the
+threshold and watch emission stop dead, then raise the retarding voltage and
+watch the electrons turn back before they reach the anode. Notice that changing
+the wavelength moves the stopping potential, and that the stopping potential
+never depends on how many photons arrive.</>}>
+  <Sim id="photoelectric-tube" />
+</Figure>
+
+Rearranging gives the equation of a straight line:
+
+$$V_s = \frac{h}{e} f - \frac{\phi}{e}$$
+
+Plot the stopping potential against frequency and you get a line whose slope is
+$h/e = 4.14 \times 10^{-15}$ V·s. The striking part is that the slope is the
+same for every metal. Change the cathode and the line slides sideways without
+tilting: the horizontal intercept moves to the new $f_0$, and the vertical
+intercept sits at $-\phi/e$. Millikan measured that slope carefully, got
+Planck's constant out of a voltmeter and a prism, and ended the argument.
+
+<Figure caption={<><b>Figure 2.</b> Stopping potential against frequency. Drag
+the work function and watch the line slide right without ever changing its
+tilt. The dashed part below the axis is an extrapolation, not data — no
+electrons come off at all to the left of the threshold dot.</>}>
+  <Sim id="photoelectric-millikan" />
+</Figure>
+
+### Example 1: plug in
+
+Sodium, work function 2.30 eV, lit with 400 nm light. Find $K_{max}$ and the
+speed of the fastest electron.
+
+Photon energy first: $E = 1240/400 = 3.10$ eV. Then
+$K_{max} = 3.10 - 2.30 = 0.80$ eV.
+
+For the speed you have to leave electronvolts. Convert:
+$K = 0.80 \times 1.602 \times 10^{-19} = 1.28 \times 10^{-19}$ J. Then
+$v = \sqrt{2K/m_e} = \sqrt{2(1.28\times10^{-19})/(9.11\times10^{-31})}
+= \sqrt{2.81 \times 10^{11}} = 5.3 \times 10^{5}$ m/s. That is under 0.2% of
+$c$, so the non-relativistic formula was safe. Always check that.
+
+### Example 2: set up before you plug in
+
+A cathode gives a stopping potential of 1.40 V at 400 nm and 2.43 V at 300 nm.
+Find the work function.
+
+You have two unknowns hiding in one equation, so write it twice and subtract.
+The photon energies are $1240/400 = 3.10$ eV and $1240/300 = 4.133$ eV. Then
+
+$$1.40 = 3.10 - \phi \quad\text{and}\quad 2.43 = 4.133 - \phi$$
+
+The first gives $\phi = 1.70$ eV, the second gives $\phi = 1.703$ eV. They
+agree, which is the check that the data is consistent with one photon per
+electron. If a problem gives you two data points and asks for $h$ instead,
+subtract the two equations to kill $\phi$: the difference in stopping
+potentials divided by the difference in frequencies is $h/e$.
+
+<Aside label="Where this goes wrong" warn>
+  Two traps, both common. First, $\phi$ is not the energy the electron *has*;
+  it is the energy the electron must *pay*. If $hf < \phi$ there is no negative
+  kinetic energy, there is no electron. Second, $1240$ eV·nm only works with
+  nanometres. Feed it metres and you will be off by nine orders of magnitude
+  without noticing, because the answer still looks like a number.
+</Aside>
+
+<QuickCheck
+  question="Two photocathodes are lit by the same lamp. Their stopping potentials are 1.10 V and a value 1.30 V lower. What is the wavelength of the lamp, if the first cathode has work function 2.20 eV?"
+  options={["376 nm", "564 nm", "1130 nm", "It cannot be found without the second work function"]}
+  answer={0}
+  explanation="For the first cathode the photon energy is 2.20 + 1.10 = 3.30 eV, so the wavelength is 1240 divided by 3.30, which is 376 nm. The second cathode is extra information that checks the answer: a work function 1.30 eV higher gives a stopping potential 1.30 V lower."
+/>
+
+### Example 3: the one that needs an idea
+
+An isolated metal sphere of radius 2.00 cm and work function 3.00 eV sits in
+vacuum and is lit with 250 nm light. It charges up positively as electrons
+leave, until no more can escape. How many electrons left?
+
+Nothing in the photoelectric equation mentions charge, so the idea has to come
+from elsewhere: a positively charged sphere pulls the departing electrons back.
+An electron leaving a sphere at potential $V$ must pay an extra $eV$ on the way
+out. Emission stops when that extra toll eats all of $K_{max}$.
+
+Start with the toll-free case. $E = 1240/250 = 4.96$ eV, so
+$K_{max} = 4.96 - 3.00 = 1.96$ eV. Emission therefore stops once the sphere
+reaches $V = 1.96$ V.
+
+Now use electrostatics, from much earlier in the course: an isolated sphere of
+radius $R$ carrying charge $Q$ sits at potential $V = kQ/R$. So
+
+$$
+Q = \frac{VR}{k} = \frac{(1.96)(0.0200)}{8.99 \times 10^{9}} = 4.36 \times 10^{-12}\ \text{C}
+$$
+
+and the number of electrons is that charge divided by $e$:
+
+$$N = \frac{4.36 \times 10^{-12}}{1.602 \times 10^{-19}} = 2.72 \times 10^{7}$$
+
+Twenty-seven million electrons, and the sphere has charged up to about two
+volts. Both numbers feel small, which is the point: it takes very little charge
+to make a potential that matters on the scale of a single electron.
+
+## A photon also carries momentum
+
+A photon has no mass, but relativity gives $E^2 = (pc)^2 + (mc^2)^2$, and with
+$m = 0$ that collapses to $E = pc$. So
+
+$$p = \frac{E}{c} = \frac{h}{\lambda}$$
+
+A 2.48 eV photon carries
+$p = (2.48)(1.602\times10^{-19})/(3.00\times10^{8}) = 1.32 \times 10^{-27}$
+kg·m/s. Tiny, but momentum is conserved whether or not you find it convenient.
+An atom that emits a photon recoils; a mirror that reflects a beam feels a
+push.
+
+For a beam of intensity $I$ (watts per square metre) striking a surface
+head-on, energy $I$ arrives per second per square metre, so momentum $I/c$
+arrives per second per square metre. Force per area is pressure, so a perfectly
+absorbing surface feels $P = I/c$ and a perfectly reflecting one feels
+$P = 2I/c$, because reflecting reverses the photon's momentum instead of
+merely removing it. Sunlight at 1000 W/m² on a mirror gives
+$2(1000)/(3.00\times10^{8}) = 6.67 \times 10^{-6}$ Pa. That is a ten-billionth
+of atmospheric pressure, and it is enough to sail a spacecraft on if you make
+the sail big enough and wait.
+
+## Compton scattering: the photon proved
+
+The photoelectric effect shows photons deliver energy in lumps. Compton showed
+they collide like billiard balls. Fire an X-ray at a nearly free electron and
+some of the scattered radiation comes back at a *longer* wavelength, with the
+shift depending only on the scattering angle $\theta$:
+
+$$\Delta\lambda = \lambda' - \lambda = \frac{h}{m_e c}(1 - \cos\theta)$$
+
+The constant $h/m_ec = 0.002426$ nm is the Compton wavelength of the electron.
+Conserve relativistic energy and momentum in two dimensions and this drops out;
+the derivation is worth doing once, but for solving problems the formula plus
+one observation is enough. The observation: $1 - \cos\theta$ runs from 0 at
+$\theta = 0$ to 2 at $\theta = 180°$, so the shift is largest for a photon that
+comes straight back, and the electron gets the most energy in that
+backscattered case.
+
+Notice the shift is an absolute shift in wavelength, not a fractional one. For
+visible light at 500 nm a shift of 0.0024 nm is nothing. For an X-ray at
+0.05 nm it is a 5% change, plainly visible. That is why the effect belongs to
+X-rays and gammas.
+
+<Figure caption={<><b>Figure 3.</b> One photon, one free electron. Drag the
+scattering angle from a graze to a full backscatter and watch the wavelength
+shift grow while the electron takes the difference. Try a hard X-ray and a soft
+one at the same angle: the shift in nanometres is identical, but the energy
+handed to the electron is not.</>}>
+  <Sim id="photoelectric-compton" />
+</Figure>
+
+To find the electron's energy, do not look for a separate formula. Energy is
+conserved, so the electron gets whatever the photon lost:
+
+$$K = \frac{hc}{\lambda} - \frac{hc}{\lambda'}$$
+
+Try a 0.0500 nm X-ray scattering at 60.0°. The shift is
+$\Delta\lambda = 0.002426(1 - \cos 60°) = 0.002426(0.500) = 0.001213$ nm, so
+$\lambda' = 0.051213$ nm. The photon energies are $1240/0.0500 = 24800$ eV and
+$1240/0.051213 = 24213$ eV, and the difference is 587 eV to the electron. Less
+than 3% of what the photon carried, which matches the small fractional change
+in wavelength.
+
+## Recognising which tool a problem wants
+
+Four techniques live on this page, and problems signal which one they want
+quite openly.
+
+If you see a **metal surface, a work function, or a stopping potential**, it is
+$K_{max} = hc/\lambda - \phi$. Convert wavelength to photon energy with 1240
+first, always. If the problem gives two wavelengths or two metals, write the
+equation twice and subtract to eliminate whichever unknown you do not want.
+
+If the problem gives a **power, an intensity, or a current** and asks "how
+many", you are counting photons. Divide a total energy by the energy of one
+photon, or a total charge by $e$. Take a 1.00 mW laser at 632.8 nm. One photon
+carries $1240/632.8 = 1.96$ eV, which is $3.14 \times 10^{-19}$ J. Divide
+$1.00 \times 10^{-3}$ J per second by that and you get
+$3.19 \times 10^{15}$ photons per second.
+
+If something is **pushed, recoils, or is held up by light**, use $p = h/\lambda$
+for a single photon or $P = I/c$ (doubled for a mirror) for a beam. A laser
+levitating a 1.00 mg mirror needs $mgc/2 = 1470$ W, which tells you how weak
+radiation pressure is.
+
+If the problem says **free electron and a scattering angle**, it is Compton,
+and the answer runs through $\Delta\lambda$ even when the question asks for an
+energy.
+
+One thing this lesson deliberately did not explain: why a given metal has the
+work function it does, or why atoms emit only certain wavelengths in the first
+place. For that you need to know what the electron is doing inside the atom,
+which is where [the Bohr model](/guide/bohr-model) starts.

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "charge-distributions-ring",
+    "title": "Ring on its axis",
+    "caption": "Field on the axis of a uniformly charged ring.",
+    "height": 300,
+    "params": [
+      {
+        "key": "R",
+        "label": "Ring radius",
+        "unit": "m",
+        "min": 0.04,
+        "max": 0.3,
+        "step": 0.01,
+        "value": 0.15
+      },
+      {
+        "key": "Q",
+        "label": "Ring charge",
+        "unit": "nC",
+        "min": 1,
+        "max": 40,
+        "step": 1,
+        "value": 10
+      },
+      {
+        "key": "z",
+        "label": "Distance along axis",
+        "unit": "m",
+        "min": 0.0,
+        "max": 0.45,
+        "step": 0.005,
+        "value": 0.1
+      }
+    ],
+    "draw": "var k = 8.99e9;\nvar R = p.R, Q = p.Q * 1e-9, z = p.z;\nvar f = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = f;\nctx.lineWidth = 2;\n\n// layout\nvar axY = H * 0.34;\nvar x0 = W * 0.12;              // ring centre on screen\nvar mPerPx = 0.45 / (W * 0.72); // metres per pixel along the axis\nvar ringPx = R / mPerPx * 0.55; // vertical half-height of the ring ellipse\n\n// axis line\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x0 - W * 0.06, axY); ctx.lineTo(W - 14, axY); ctx.stroke();\n\n// the ring, seen edge-on-ish as an ellipse\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2.5;\nctx.beginPath();\nctx.ellipse(x0, axY, Math.max(4, ringPx * 0.34), Math.max(6, ringPx), 0, 0, Math.PI * 2);\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"ring, charge Q, radius R\", x0 - 10, axY - Math.max(6, ringPx) - 10);\n\n// probe point P at distance z\nvar px = x0 + z / mPerPx;\nif (px > W - 24) px = W - 24;\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(px, axY, 4, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"P\", px - 4, axY + 20);\n\n// z measurement\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x0, axY + 34); ctx.lineTo(px, axY + 34); ctx.stroke();\nctx.beginPath(); ctx.moveTo(x0, axY + 30); ctx.lineTo(x0, axY + 38); ctx.stroke();\nctx.beginPath(); ctx.moveTo(px, axY + 30); ctx.lineTo(px, axY + 38); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"z = \" + z.toFixed(2) + \" m\", (x0 + px) / 2 - 24, axY + 52);\n\n// two sample elements and their dE vectors, to show the cancelling\nvar top = axY - Math.max(6, ringPx), bot = axY + Math.max(6, ringPx);\nvar pairs = [top, bot];\nfor (var i = 0; i < 2; i++) {\n  var ey = pairs[i];\n  ctx.strokeStyle = C.faint;\n  ctx.lineWidth = 1;\n  ctx.beginPath(); ctx.moveTo(x0, ey); ctx.lineTo(px, axY); ctx.stroke();\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(x0, ey, 3, 0, Math.PI * 2); ctx.fill();\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"dq\", x0 - 24, top + 4);\nctx.fillText(\"dq\", x0 - 24, bot + 4);\n\n// field value and arrow\nfunction Efield(zz) { return k * Q * zz / Math.pow(zz * zz + R * R, 1.5); }\nvar E = Efield(z);\nvar zpk = R / Math.SQRT2;\nvar Emax = Efield(zpk);\nvar arrow = 18 + 46 * (Emax > 0 ? E / Emax : 0);\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2.5;\nctx.beginPath(); ctx.moveTo(px, axY); ctx.lineTo(px + arrow, axY); ctx.stroke();\nctx.beginPath();\nctx.moveTo(px + arrow, axY); ctx.lineTo(px + arrow - 8, axY - 5); ctx.lineTo(px + arrow - 8, axY + 5);\nctx.closePath(); ctx.fillStyle = C.figure; ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"E on axis\", px + 6, axY - 12);\n\n// graph of E against z\nvar gy = H * 0.92, gx0 = 34, gx1 = W - 14, gtop = H * 0.58;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(gx0, gy); ctx.lineTo(gx1, gy); ctx.stroke();\nctx.beginPath(); ctx.moveTo(gx0, gy); ctx.lineTo(gx0, gtop); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"E\", gx0 - 16, gtop + 10);\nctx.fillText(\"z\", gx1 - 10, gy + 16);\n\nvar zmax = 0.45;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var j = 0; j <= 160; j++) {\n  var zz = zmax * j / 160;\n  var gxp = gx0 + (gx1 - gx0) * zz / zmax;\n  var gyp = gy - (gy - gtop) * (Emax > 0 ? Efield(zz) / Emax : 0) * 0.92;\n  if (j === 0) ctx.moveTo(gxp, gyp); else ctx.lineTo(gxp, gyp);\n}\nctx.stroke();\n\n// peak marker\nvar pkx = gx0 + (gx1 - gx0) * Math.min(zpk, zmax) / zmax;\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(pkx, gy); ctx.lineTo(pkx, gtop + 4); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"z = R/sqrt(2)\", Math.min(pkx + 4, gx1 - 78), gtop + 14);\n\n// current z marker on the graph\nvar curx = gx0 + (gx1 - gx0) * Math.min(z, zmax) / zmax;\nvar cury = gy - (gy - gtop) * (Emax > 0 ? E / Emax : 0) * 0.92;\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(curx, cury, 4, 0, Math.PI * 2); ctx.fill();\n\nout.note = \"E = \" + E.toFixed(1) + \" N/C   |   peak at z = \" + zpk.toFixed(3) +\n  \" m, where E = \" + Emax.toFixed(1) + \" N/C\";"
+  },
+  {
+    "id": "charge-distributions-rod-setup",
+    "title": "Setting up the rod integral",
+    "caption": "Why only one component survives on the perpendicular bisector.",
+    "height": 280,
+    "params": [],
+    "draw": "var f = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = f;\n\nvar cx = W * 0.30;          // rod sits on this vertical line\nvar cy = H * 0.50;          // midpoint of the rod\nvar half = H * 0.36;        // half-length of the rod on screen\nvar px = W * 0.72, py = cy; // field point P\n\n// the rod\nctx.strokeStyle = C.accent;\nctx.lineWidth = 4;\nctx.beginPath(); ctx.moveTo(cx, cy - half); ctx.lineTo(cx, cy + half); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"rod, length L, charge per length lambda\", 10, cy - half - 12);\n\n// perpendicular bisector\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(px + 30, cy); ctx.stroke();\nctx.setLineDash([]);\n\n// the element at +x and its mirror at -x\nvar ey = cy - half * 0.55, my = cy + half * 0.55;\nctx.fillStyle = C.figure;\nctx.fillRect(cx - 4, ey - 5, 8, 10);\nctx.fillRect(cx - 4, my - 5, 8, 10);\nctx.fillStyle = C.ink;\nctx.fillText(\"dq = lambda dx\", cx - 108, ey + 4);\nctx.fillText(\"mirror element\", cx - 100, my + 4);\n\n// the point P\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"P\", px + 6, py + 18);\n\n// r lines\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(cx, ey); ctx.lineTo(px, py); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cx, my); ctx.lineTo(px, py); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"r = sqrt(x^2 + y^2)\", (cx + px) / 2 - 46, ey + (py - ey) / 2 - 6);\n\n// dE vectors at P, pointing away from each element\nfunction arrow(x1, y1, x2, y2, col) {\n  ctx.strokeStyle = col; ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var a = Math.atan2(y2 - y1, x2 - x1);\n  ctx.fillStyle = col;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - 9 * Math.cos(a - 0.4), y2 - 9 * Math.sin(a - 0.4));\n  ctx.lineTo(x2 - 9 * Math.cos(a + 0.4), y2 - 9 * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\nvar len = 62;\nvar a1 = Math.atan2(py - ey, px - cx);\nvar a2 = Math.atan2(py - my, px - cx);\narrow(px, py, px + len * Math.cos(a1), py + len * Math.sin(a1), C.accent);\narrow(px, py, px + len * Math.cos(a2), py + len * Math.sin(a2), C.accent);\nctx.fillStyle = C.ink;\nctx.fillText(\"dE from the top element\", px + 16, py + len * Math.sin(a1) - 6);\nctx.fillText(\"dE from its mirror\", px + 16, py + len * Math.sin(a2) + 16);\n\n// the surviving horizontal sum\narrow(px, py, px + 2 * len * Math.cos(a1), py, C.figure);\nctx.fillStyle = C.ink;\nctx.fillText(\"y-parts cancel; only this survives\", px - 60, py - 86);\n\n// angle theta between r and the bisector\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.arc(px, py, 30, Math.PI + a1, Math.PI, false); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"theta\", px - 52, py - 14);\n\n// distance y\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(cx, cy + half + 18); ctx.lineTo(px, cy + half + 18); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"y\", (cx + px) / 2 - 3, cy + half + 34);\n\n// x measurement\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(cx - 16, cy); ctx.lineTo(cx - 16, ey); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"x\", cx - 28, (cy + ey) / 2);"
+  },
+  {
+    "id": "charge-distributions-disk",
+    "title": "Disk to infinite sheet",
+    "caption": "Stacking rings into a disk, and watching the sheet limit appear.",
+    "height": 300,
+    "params": [
+      {
+        "key": "R",
+        "label": "Disk radius",
+        "unit": "m",
+        "min": 0.02,
+        "max": 0.4,
+        "step": 0.01,
+        "value": 0.1
+      },
+      {
+        "key": "z",
+        "label": "Distance along axis",
+        "unit": "m",
+        "min": 0.005,
+        "max": 0.4,
+        "step": 0.005,
+        "value": 0.05
+      },
+      {
+        "key": "sigma",
+        "label": "Surface density (times 1e-7)",
+        "unit": "C/m^2",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "value": 4
+      }
+    ],
+    "draw": "var eps0 = 8.85e-12;\nvar f = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = f;\n\nvar R = p.R, z = p.z, sig = p.sigma * 1e-7;\nvar Esheet = sig / (2 * eps0);\nvar E = Esheet * (1 - z / Math.sqrt(z * z + R * R));\n\n// layout: disk edge-on at the left, probe on the axis\nvar axY = H * 0.36;\nvar x0 = W * 0.16;\nvar mPerPx = 0.40 / (W * 0.70);\nvar diskPx = R / mPerPx;\nif (diskPx > H * 0.30) diskPx = H * 0.30;\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x0 - W * 0.08, axY); ctx.lineTo(W - 14, axY); ctx.stroke();\n\n// stack of rings drawn as nested segments on the edge-on disk\nvar nRing = 7;\nfor (var i = 1; i <= nRing; i++) {\n  var frac = i / nRing;\n  ctx.strokeStyle = C.accent;\n  ctx.lineWidth = 2;\n  ctx.beginPath();\n  ctx.moveTo(x0, axY - diskPx * frac); ctx.lineTo(x0, axY - diskPx * (frac - 0.55 / nRing));\n  ctx.moveTo(x0, axY + diskPx * frac); ctx.lineTo(x0, axY + diskPx * (frac - 0.55 / nRing));\n  ctx.stroke();\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"disk as a stack of rings, radius s, width ds\", 8, axY - diskPx - 12);\nctx.fillText(\"R\", x0 - 18, axY - diskPx + 4);\n\n// probe\nvar px = x0 + z / mPerPx;\nif (px > W - 30) px = W - 30;\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(px, axY, 4, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"z = \" + z.toFixed(2) + \" m\", px - 20, axY + 34);\n\nvar arrowLen = 14 + 62 * (Esheet > 0 ? E / Esheet : 0);\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2.5;\nctx.beginPath(); ctx.moveTo(px, axY); ctx.lineTo(px + arrowLen, axY); ctx.stroke();\nctx.beginPath();\nctx.moveTo(px + arrowLen, axY); ctx.lineTo(px + arrowLen - 8, axY - 5); ctx.lineTo(px + arrowLen - 8, axY + 5);\nctx.closePath(); ctx.fillStyle = C.figure; ctx.fill();\n\n// graph: E against z with the sheet value as the ceiling\nvar gy = H * 0.94, gx0 = 40, gx1 = W - 14, gtop = H * 0.60;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(gx0, gy); ctx.lineTo(gx1, gy); ctx.stroke();\nctx.beginPath(); ctx.moveTo(gx0, gy); ctx.lineTo(gx0, gtop); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"E\", gx0 - 18, gtop + 10);\nctx.fillText(\"z\", gx1 - 10, gy + 16);\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(gx0, gtop + 6); ctx.lineTo(gx1, gtop + 6); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"sigma / 2 eps0\", gx0 + 6, gtop + 18);\n\nvar zmax = 0.40;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var j = 0; j <= 160; j++) {\n  var zz = zmax * j / 160;\n  var val = 1 - zz / Math.sqrt(zz * zz + R * R);\n  var gxp = gx0 + (gx1 - gx0) * zz / zmax;\n  var gyp = (gy) - (gy - gtop - 6) * val;\n  if (j === 0) ctx.moveTo(gxp, gyp); else ctx.lineTo(gxp, gyp);\n}\nctx.stroke();\n\nvar curx = gx0 + (gx1 - gx0) * Math.min(z, zmax) / zmax;\nvar cury = gy - (gy - gtop - 6) * (1 - z / Math.sqrt(z * z + R * R));\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(curx, cury, 4, 0, Math.PI * 2); ctx.fill();\n\nout.note = \"E = \" + E.toFixed(0) + \" N/C   |   sigma/2eps0 = \" + Esheet.toFixed(0) +\n  \" N/C   |   ratio = \" + (E / Esheet).toFixed(3);"
+  }
+]

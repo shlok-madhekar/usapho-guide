@@ -1,55 +1,291 @@
-## Two reflections, one film
+## Where a bubble gets its colour
 
-Light striking a soap film or an oil slick reflects twice: once off the top
-surface, once off the bottom. Those two beams recombine and interfere, and
-since white light contains every wavelength, some colors cancel and others
-survive. That is where the color comes from.
+A soap bubble is colourless stuff. Water, a little detergent, a wall maybe two
+hundred nanometres thick. Nothing in it is red or green. Yet hold one up in
+white light and it is banded with colour, and the bands move as the film drains
+and thins. An oil slick on a wet road does the same thing, and so does the
+purple sheen on a camera lens.
 
-At normal incidence the second beam travels an extra $2t$ through the film. But
-the wavelength inside the film is shortened to $\lambda/n$, so the phase cost
-of that path is
+The [double slit](/guide/diffraction) gave you interference between two beams
+that left the same source and travelled different distances. A thin film does
+exactly that, with one difference worth the whole lesson: here the two beams
+are made by the film itself. Light hits the top surface, and part of it bounces
+straight back. The rest goes in, crosses the film, bounces off the bottom
+surface, and comes back out travelling alongside the first beam. Two waves,
+same source, slightly different paths. They interfere. Which colours survive
+depends on the thickness, and that is why the colour changes as the film drains.
 
-$$\Delta\phi_{\text{path}} = \frac{2\pi}{\lambda}\,2nt$$
+## The extra path, measured in wavelengths
 
-The quantity $2nt$ is the optical path difference. Using the vacuum wavelength
-with the geometric thickness and forgetting $n$ is the standard slip.
+Take the light coming in straight down, at normal incidence, on a film of
+thickness $t$ and refractive index $n$. Call the wavelength in vacuum $\lambda$.
 
-## Counting the flips
+The second beam crosses the film twice, down and back, so it travels an extra
+distance $2t$. What matters for interference is not the distance but how many
+wavelengths fit into it, and inside the film the wavelength is not $\lambda$.
+The frequency of light cannot change when it enters glass — the atoms at the
+surface are driven at the frequency they are hit with — but the speed drops to
+$v = c/n$. Since $\lambda_n = v/f$ and $\lambda = c/f$,
 
-Reflection off a medium of higher index inverts the wave — a half-wavelength
-phase shift, exactly like a pulse on a string reflecting off a fixed end.
-Reflection off a lower index does not.
+$$\lambda_n = \frac{\lambda}{n}$$
 
-So the procedure is mechanical. Write down the three indices in order. Check
-each of the two reflections and count how many flips occur.
+Light of 600 nm in vacuum is 400 nm long inside a film of index 1.50. So the
+number of wavelengths crammed into that extra $2t$ is
 
-Two flips, or zero, cancel each other and the film brightens when
-$2nt = m\lambda$. Exactly one flip adds a net half cycle and the condition
-inverts: brightness at $2nt = (m + \tfrac{1}{2})\lambda$.
+$$N = \frac{2t}{\lambda_n} = \frac{2nt}{\lambda}$$
 
-Soap in air is air-soap-air: the top reflection flips, the bottom does not.
-One flip. An anti-reflective coating on glass is air-coating-glass with
-$1 < n_c < n_g$, so both reflections flip — two flips, and a quarter-wave
-thickness kills the reflection.
+The product $2nt$ is called the **optical path difference**: the geometric path
+multiplied by the index, which converts it into "distance measured in vacuum
+wavelengths". Almost every mistake in this topic is dropping the $n$ from that
+product, or putting it in twice.
 
-## The black film
-
-Let a vertical soap film drain until the top is far thinner than a wavelength.
-Then $2nt \to 0$, the path contributes no phase, and the single flip is all
-that remains. The two beams are a half cycle apart for every wavelength at
-once, so the whole visible spectrum cancels and the top of the film looks
-black — just before it bursts.
-
-<Aside label="Where this goes wrong" warn>
-  The flip count depends on the medium on both sides, not just the film. An oil
-  film on water and the same film on glass have opposite conditions, because
-  water has a lower index than the oil and glass a higher one. Never carry a
-  memorized half-integer rule between problems; recount the flips each time.
+<Aside label="Worth remembering">
+  Path difference is $2t$. Optical path difference is $2nt$. You always compare
+  $2nt$ against the vacuum wavelength $\lambda$, never against $\lambda/n$.
 </Aside>
 
+## The flip
+
+If that were the whole story, a film would be bright whenever $2nt$ was a whole
+number of wavelengths. It is not the whole story, and the reason is something
+you have already met on a rope.
+
+Send a pulse down a rope tied to a wall. The pulse comes back upside down. Send
+it down a rope that is tied to a much lighter string, and it comes back the
+right way up. The reflection inverts when the wave is meeting something harder
+to move than what it came from.
+
+Light does the same at a boundary, and "harder to move" means higher refractive
+index. **A reflection off a medium of higher index inverts the wave. A
+reflection off a medium of lower index does not.** An inversion is a phase shift
+of half a cycle, so it is worth exactly $\lambda/2$ of extra path. People call
+it the half-wave loss; this lesson will call it a flip.
+
+Now there are two reflections to check, and each one either flips or it does
+not. Write the three indices down in order — above the film, the film, below
+the film — and compare across each boundary.
+
+<Figure caption={<><b>Figure 1.</b> The two rays and the two boundaries. Raise the substrate index above the film index and watch the lower reflection switch to a flip. Set the film to 1.33 and the substrate to 1.00 for soap in air, then set the substrate to 1.52 for a coating on glass.</>}>
+  <Sim id="thin-film-flips" />
+</Figure>
+
+If the two reflections both flip, or neither does, the flips cancel and the
+only thing left is the path. Constructive reflection then needs a whole number
+of wavelengths:
+
+$$2nt = m\lambda \qquad (\text{bright, even number of flips})$$
+
+with $m = 0, 1, 2, \dots$. If exactly one of them flips, half a cycle is added
+on top of the path, and the two conditions trade places:
+
+$$2nt = \left(m + \tfrac{1}{2}\right)\lambda \qquad (\text{bright, one flip})$$
+
+Dark is whichever one is left over. There is no formula to memorise beyond
+these two lines, and memorising which is which for soap will hurt you the first
+time a problem puts the film on glass instead of air. Count the flips every
+time.
+
+Soap in air is air-soap-air: $1.00 \to 1.33$ flips, $1.33 \to 1.00$ does not.
+One flip. Oil on water is $1.00 \to 1.46 \to 1.33$: still one flip. A magnesium
+fluoride coating on glass is $1.00 \to 1.38 \to 1.52$, rising all the way: two
+flips.
+
 <QuickCheck
-  question="Why does the thinnest part of a draining soap film in air appear black?"
-  options={["The film absorbs all the light", "The single phase flip cancels every wavelength when the path difference goes to zero", "The film is too thin to reflect", "Total internal reflection removes the light"]}
+  question="An oil film of index 1.20 lies on glass of index 1.60, with air above. How many reflections invert, and what is the bright condition?"
+  options={["One flip, bright when 2nt equals (m + 1/2) lambda", "Two flips, bright when 2nt equals m lambda", "Two flips, bright when 2nt equals (m + 1/2) lambda", "No flips, bright when 2nt equals m lambda"]}
   answer={1}
-  explanation="With negligible thickness the only phase difference is the half cycle from the one flip, so both reflections cancel across the whole spectrum."
+  explanation="The index rises at both boundaries, 1.00 to 1.20 and 1.20 to 1.60, so both reflections invert. Two flips cancel and the plain path condition applies."
 />
+
+## Two films you can do in your head
+
+**Example 1. The thinnest bright soap film.** A soap film of index 1.33 hangs
+in air. Green light of 550 nm hits it head on. What is the smallest nonzero
+thickness that reflects it most strongly?
+
+Air-soap-air is one flip, so bright means $2nt = (m + \frac12)\lambda$. The
+smallest nonzero thickness comes from the smallest order, $m = 0$:
+
+$$2(1.33)t = \tfrac{1}{2}(550\text{ nm}) = 275\text{ nm}$$
+
+so $t = 275/2.66 = 103.4$ nm. Round to 103 nm. Notice the shape of the answer:
+$t = \lambda/(4n)$. A quarter of the in-film wavelength, because the light
+crosses it twice and a half-wave round trip is what the single flip needs.
+
+**Example 2. The coating on a camera lens.** Glass of index 1.52 is coated with
+magnesium fluoride, index 1.38, to kill the reflection at 550 nm. Find the
+minimum coating thickness.
+
+Here the indices rise at both surfaces, so two flips, and the plain condition
+$2nt = m\lambda$ is the *bright* one. Dark is therefore
+$2nt = (m + \frac12)\lambda$, and the minimum thickness is again the quarter
+wave:
+
+$$t = \frac{\lambda}{4n} = \frac{550\text{ nm}}{4(1.38)} = 99.6\text{ nm}$$
+
+Same arithmetic, opposite meaning. That is the whole reason to count flips
+rather than memorise.
+
+A quarter-wave coating always sets the two reflected waves half a cycle apart,
+but they only cancel *completely* if they have the same amplitude. At normal
+incidence the reflected amplitude ratio at a boundary is
+$r = (n_1 - n_2)/(n_1 + n_2)$. Setting the size of $r$ equal at both surfaces,
+$(1 - n_c)/(1 + n_c) = (n_c - n_g)/(n_c + n_g)$, and multiplying out gives
+$n_c = \sqrt{n_g}$. For $n_g = 1.52$ the ideal coating index is 1.23. No cheap
+durable solid has that index, which is why real coatings use 1.38 and leave a
+faint purple reflection behind.
+
+<Aside label="Where this goes wrong" warn>
+  The flip count depends on what is on *both* sides of the film, not just the
+  film. An oil film on water and the same oil film on glass obey opposite
+  conditions. A rule like "soap films are bright at odd quarter waves" is true
+  and will still cost you the problem the moment the film is sitting on
+  something. Recount the flips from the three indices every single time.
+</Aside>
+
+## White light: several colours at once
+
+Shine white light on a film of fixed thickness and every wavelength gets the
+same $2nt$ but a different number of wavelengths out of it. Some colours land
+on the bright condition, some on the dark one, most in between. The reflected
+light is what is left.
+
+<Figure caption={<><b>Figure 2.</b> Reflected intensity across the visible band. Drag the thickness up from 20 nm: at the thin end the whole band is dark, then one broad peak sweeps across from blue to red, then a second peak appears behind it. This is the colour sequence you see in a draining film, running backwards.</>}>
+  <Sim id="thin-film-colour-lab" />
+</Figure>
+
+At the very thin end something clean happens. Let $t \to 0$ for a soap film in
+air. Then $2nt \to 0$, the path contributes nothing, and the single flip is all
+that is left. The two beams are half a cycle apart for *every* wavelength at
+once, so the whole spectrum cancels and the film looks black. That black band at
+the top of a draining film is the last thing you see before it bursts.
+
+The most common hard problem gives you two wavelengths that are both missing,
+or both enhanced, with none in between, and asks for the thickness. Two
+conditions, two unknowns: the thickness and the order.
+
+**Example 3. Oil on water, two colours missing.** An oil film of index 1.50
+floats on water, air above. In reflection, 500 nm and 600 nm are missing and
+nothing between them is. Find $t$.
+
+Air-oil-water is $1.00 \to 1.50 \to 1.33$: one flip. So dark is
+$2nt = m\lambda$. The longer wavelength needs fewer wavelengths to fill the same
+path, so it takes the smaller order. "No missing wavelength between them" means
+the orders are consecutive. Call them $m$ for 600 nm and $m+1$ for 500 nm:
+
+$$2nt = m(600) = (m+1)(500)$$
+
+Expand: $600m = 500m + 500$, so $100m = 500$ and $m = 5$. Then
+$2nt = 5(600) = 3000$ nm, and
+
+$$t = \frac{3000\text{ nm}}{2(1.50)} = 1000\text{ nm}$$
+
+Check it: $2nt/\lambda$ is 5 at 600 nm and 6 at 500 nm, both whole numbers, and
+between them $3000/5.5 = 545$ nm is not a dark wavelength. Good.
+
+The same setup with a wavelength allowed in between just changes the counting.
+If 500 nm and 700 nm are missing with exactly one other dark wavelength between
+them, the orders differ by 2: $m(700) = (m+2)(500)$ gives $m = 5$, so
+$2nt = 3500$ nm. For oil of index 1.46 that is $t = 3500/2.92 = 1199$ nm.
+
+<QuickCheck
+  question="A soap film in air is bright at 450 nm and at 630 nm with nothing bright between. Which pair of orders fits?"
+  options={["m = 0 for 630 nm and m = 1 for 450 nm", "m = 1 for 630 nm and m = 2 for 450 nm", "m = 2 for 630 nm and m = 3 for 450 nm", "m = 3 for 630 nm and m = 4 for 450 nm"]}
+  answer={2}
+  explanation="One flip, so bright means 2nt = (m + 1/2) lambda. Consecutive orders give (m + 1/2)(630) = (m + 3/2)(450), so 630m + 315 = 450m + 675, m = 2. Careful: m = 2 belongs to 630 nm, and the half-integers are 2.5 and 3.5, giving 2nt = 1575 nm and t = 592 nm."
+/>
+
+## Wedges and rings
+
+Nothing above assumed the thickness was the same everywhere. If $t$ varies
+slowly across the film, apply the condition point by point: each place where
+$2nt$ hits the right value is a fringe, and the fringes map out the shape of the
+gap.
+
+Two flat plates touching at one edge and held apart at the other make an air
+wedge, $n = 1$. Air between glass is one flip (no flip on the way in at
+glass-air, a flip at air-glass below), so dark means $2t = m\lambda$. Adjacent
+dark fringes differ by one order, so the gap changes by $\lambda/2$ between
+them. If the plates are separated by a wire of diameter $50.0\ \mu$m, the number
+of dark fringes from the contact line to the wire is
+
+$$\frac{2t_{\max}}{\lambda} = \frac{2(50.0\times10^{-6})}{589\times10^{-9}} = 170$$
+
+And if you know the fringe *spacing* along the plate, you know the wedge angle:
+the gap climbs by $\lambda/2$ over one spacing, so
+$\theta \approx \lambda/(2 \Delta x)$ for a small angle in air, or
+$\lambda/(2n\Delta x)$ if the wedge is filled.
+
+Curve one surface instead and the fringes become circles. A plano-convex lens
+resting on a flat plate leaves a gap that, for $r \ll R$, has thickness
+$t = r^2/(2R)$, where $R$ is the radius of curvature. These are Newton's rings.
+
+**Example 4. The tenth dark ring.** A lens of $R = 2.00$ m sits on a flat plate,
+air in the gap, lit by 589 nm light. Find the radius of the tenth dark ring,
+with the dark centre counted as $m = 0$.
+
+One flip, so dark is $2t = m\lambda$. Substituting $t = r^2/(2R)$ gives
+$r^2/R = m\lambda$, so $r = \sqrt{m\lambda R}$:
+
+$$r = \sqrt{10 \times (589\times10^{-9}\text{ m}) \times 2.00\text{ m}} = \sqrt{1.178\times10^{-5}} = 3.43\times10^{-3}\text{ m}$$
+
+That is 3.43 mm. Two things fall out of $r = \sqrt{m\lambda R}$ for free. The
+rings crowd together as you go out, because $r$ grows like $\sqrt{m}$. And if a
+liquid of index $n$ fills the gap, replace $\lambda$ by $\lambda/n$, so every
+ring shrinks by $\sqrt{n}$ — a 3.00 mm ring in air becomes
+$3.00/\sqrt{1.33} = 2.60$ mm under water.
+
+<Figure caption={<><b>Figure 3.</b> Newton's rings from above, with the moving marker stepping through the orders. Notice how the rings bunch up outward, and how filling the gap with liquid pulls them all inward.</>}>
+  <Sim id="thin-film-newton" />
+</Figure>
+
+The centre is only dark if exactly one of the two reflections flips there. A
+lens of index 1.52 on a plate of index 1.75 with liquid of index 1.62 between
+them goes $1.52 \to 1.62 \to 1.75$: two flips, and the centre is bright instead.
+Then bright is $2nt = m\lambda$, the centre is $m = 0$, and the first bright
+ring away from it is $m = 1$, at $r = \sqrt{\lambda R/n}$.
+
+## Angles, and looking through instead of at
+
+At an angle the geometry changes slightly. The beam inside the film travels
+along a slant, and the reflected beam that never entered gets a head start. Work
+the geometry through and the optical path difference becomes
+
+$$\Delta = 2nt\cos\theta_t$$
+
+where $\theta_t$ is the refracted angle *inside* the film, from
+$\sin\theta_i = n\sin\theta_t$. The cosine, not the sine, and the angle inside,
+not the angle you aimed at. At normal incidence $\cos\theta_t = 1$ and you
+recover $2nt$. Tilting always shrinks $\Delta$, so the colour of a film shifts
+toward the blue as you tip it — which is why a bubble's bands crawl when you
+move your head.
+
+Finally, whatever is not reflected is transmitted. The transmitted beams pick up
+flips at different places, and the upshot is simple: **the transmitted condition
+is always the opposite of the reflected one.** A film that looks dark in
+reflection is at peak brightness looking through it. For a soap film in air,
+reflection is dark at $2nt = m\lambda$, so transmission is maximal there:
+$t = \lambda/(2n)$ at the smallest nonzero thickness, 188 nm for 500 nm light.
+
+## How to spot one of these
+
+Reach for thin-film interference when a problem mentions a film, coating,
+slick, bubble, gap, or wedge whose thickness is comparable to a wavelength —
+tens to a couple of thousand nanometres — and then asks about colour, missing
+wavelengths, brightness, or darkness in reflected or transmitted light. Three
+indices in a stack is the giveaway.
+
+Then run the same four steps every time. One: write the three indices in order
+and count the flips, which fixes whether $m\lambda$ or $(m+\frac12)\lambda$ is
+the bright side. Two: write the optical path as $2nt$, or $2nt\cos\theta_t$ off
+normal, with $n$ the index of the *film*. Three: if the geometry varies, put in
+the thickness law — $t = r^2/(2R)$ for rings, $t = x\theta$ for a wedge. Four:
+if two wavelengths are given, set the two conditions equal and solve for the
+order first, then the thickness. The order is always an integer, and if your
+algebra gives a non-integer you have the flip count or the ordering of the
+wavelengths backwards.
+
+Waves have taken you as far as they go for now. Next you leave optics for the
+other thing light forced physicists to rewrite: how space and time themselves
+behave when something moves near the speed of light, in
+[Special Relativity: Kinematics](/guide/sr-kinematics).

@@ -1,71 +1,431 @@
-## The rate at which work gets done
+## Two cranes, one girder
 
-Two cranes lift the same girder to the same height. They do identical work. The
-one that finishes in ten seconds instead of a hundred is the one that costs
-more to build. Power is the quantity that separates them:
+Two cranes lift the same girder to the same rooftop. One takes ten seconds, the
+other takes a hundred. The work done on the girder is identical: same weight,
+same height, same $mgh$. Energy conservation, which you spent the
+[last lesson](/guide/energy-conservation) learning to trust, cannot tell the two
+cranes apart at all.
 
-$$P_{\text{avg}} = \frac{W}{\Delta t}, \qquad P = \frac{dW}{dt}$$
+Yet one of those cranes costs ten times as much. Something real separates them,
+and energy alone does not capture it. What separates them is *how fast* the
+energy gets delivered. That rate is called **power**, and a surprising number of
+hard problems are really about it: a car that cannot go faster no matter how
+long you wait, a cyclist whose speed barely improves when she trains harder, a
+conveyor belt whose motor wastes exactly half of what it supplies.
 
-The unit is the watt, one joule per second. The horsepower still used for
-engines is about $746\text{ W}$.
+## Power is energy per second
 
-Average power is a whole trip divided by a whole time. Instantaneous power is
-what the machine is delivering right now, and the two can be wildly different:
-a sprinter's peak output is several times the average over a race.
+Start with the definition, because here it really is just a definition. If a
+machine does work $W$ over a time interval $\Delta t$, its **average power** is
 
-## P equals F dot v
+$$P_{\text{avg}} = \frac{W}{\Delta t}$$
 
-Substitute $dW = \vec F \cdot d\vec r$ and divide by $dt$:
+and the **instantaneous power**, the rate right now, is the derivative
+
+$$P = \frac{dW}{dt}$$
+
+The unit is the **watt**: one joule per second. A watt is small. A person
+climbing stairs steadily puts out a few hundred watts; a car engine puts out
+tens of kilowatts. Engines are still often rated in **horsepower**, where
+$1\ \text{hp} = 746\ \text{W}$, so a 150 hp engine is $150 \times 746 =
+111{,}900\ \text{W}$, about 112 kW.
+
+Read the definition backwards and it becomes an energy formula:
+$W = P\,\Delta t$. A 60 W bulb left on for 5.0 hours uses
+
+$$W = 60 \times (5.0 \times 3600) = 60 \times 18000 = 1{,}080{,}000\ \text{J}$$
+
+That is a million joules from one small bulb, which tells you something about
+how stingy a joule is.
+
+Here is a first worked example, the plug-in kind.
+
+**Example 1.** A worker lifts a 15 kg box 1.4 m onto a shelf in 2.0 s. What is
+her average power output?
+
+The work she does is against gravity, so $W = mgh$:
+
+$$W = 15 \times 9.8 \times 1.4 = 205.8\ \text{J}$$
+
+Divide by the time:
+
+$$P_{\text{avg}} = \frac{205.8}{2.0} = 102.9\ \text{W}$$
+
+About a hundred watts, sustained. That is roughly a human's comfortable
+long-term output, which is why stacking shelves all day is tiring but possible.
+
+<Aside label="Worth remembering">
+  Average power is always total energy divided by total time. It does not care
+  what happened in the middle — whether the box went up smoothly or in jerks,
+  whether the car accelerated evenly or not. If a problem gives you a start
+  state, an end state, and a duration, you can get average power without
+  knowing a single force.
+</Aside>
+
+## Power equals force times velocity
+
+The definition above needs a work value, and often you do not have one — you
+have a force and a speed. So convert.
+
+Over a tiny time $dt$, an object moving with velocity $\vec v$ shifts by
+$d\vec r = \vec v\,dt$. The work done by a force $\vec F$ during that shift is
+$dW = \vec F \cdot d\vec r = \vec F \cdot \vec v\,dt$. Divide both sides by
+$dt$ and the time interval disappears:
 
 $$P = \vec F \cdot \vec v = Fv\cos\theta$$
 
-This is the form to reach for in almost every problem. It says a force delivers
-power in proportion to how fast its point of application is moving, and that a
-force perpendicular to the velocity delivers none — the same reason such forces
-do no work.
+where $\theta$ is the angle between the force and the velocity. This is the
+form you will use in most problems, so take a moment on what it says.
 
-A useful consequence: at constant speed on a level road, the engine's output
-exactly balances the losses. If drag goes as $F_d = bv^2$, then
+A force delivers power in proportion to how fast its point of application is
+moving. Push on a wall with 500 N and you deliver zero power, because $v = 0$;
+you get tired, but you do no work on the wall. Push a cart with 500 N while it
+rolls at 3 m/s and you deliver 1500 W. And a force perpendicular to the motion
+delivers no power at all, since $\cos 90^\circ = 0$ — the same reason the normal
+force and the tension in a circular-motion problem never change the speed.
 
-$$P = bv^3$$
+Two instant applications. A locomotive delivering 1.2 MW at 30 m/s is pushing
+with $F = P/v = 1.2\times 10^6/30 = 40{,}000\ \text{N}$. A cyclist holding a
+steady 8.0 m/s against 25 N of resistance must supply $P = 25 \times 8.0 =
+200\ \text{W}$ — steady, because at steady speed her driving force exactly
+matches the resistance.
 
-so doubling a car's top speed demands eight times the power. That cubic is why
-top speeds creep up so slowly with engine size.
+<QuickCheck
+  question="A satellite moves in a perfectly circular orbit. What power does gravity deliver to it?"
+  options={["Zero, because gravity is perpendicular to the velocity", "mgv, pointing inward", "It depends on the orbital radius", "Half its kinetic energy per orbit"]}
+  answer={0}
+  explanation="Power is F v cos of the angle between them. In a circular orbit gravity points at the centre and the velocity is tangent, so the angle is 90 degrees and the cosine is zero. That is exactly why the orbital speed never changes."
+/>
+
+## Steady speed: the engine pays for the losses
+
+At constant speed the kinetic energy is not changing, so every joule the engine
+puts in must be leaving somewhere else — into gravitational potential energy if
+you are climbing, into heat and churned air if you are fighting drag. That makes
+constant-speed problems short: find the total force the engine must supply to
+hold equilibrium, then multiply by $v$.
+
+An elevator lifting 1000 kg at a constant 2.5 m/s needs a cable tension equal to
+the weight, $1000 \times 9.8 = 9800\ \text{N}$, so the motor delivers
+$9800 \times 2.5 = 24{,}500\ \text{W}$.
+
+Adding a slope changes only the force bookkeeping.
+
+<Figure caption={<><b>Figure 1.</b> At steady speed the driving force is exactly the sum of the gravity component along the slope and the drag. Drag the angle from 2 to 20 degrees and watch the power climb far faster than the height gained — most of a hill's cost is the gravity term.</>}>
+  <Sim id="power-hill-diagram" />
+</Figure>
+
+**Example 2.** A 1400 kg car climbs a $6.0^\circ$ incline at a steady 22 m/s,
+with 700 N of drag. What power must the engine deliver?
+
+On blank paper, the first thing to write is the force balance along the slope,
+because "steady speed" means the forces cancel. Along the slope the car feels
+gravity's component $mg\sin\theta$ pulling it back, plus drag pulling it back,
+and the driving force pushing it forward. So
+
+$$F_{\text{drive}} = mg\sin\theta + F_{\text{drag}}$$
+
+Put in numbers. First the gravity term:
+
+$$mg = 1400 \times 9.8 = 13{,}720\ \text{N}$$
+$$\sin 6.0^\circ = 0.10453$$
+$$mg\sin\theta = 13{,}720 \times 0.10453 = 1434.1\ \text{N}$$
+
+Add the drag:
+
+$$F_{\text{drive}} = 1434.1 + 700 = 2134.1\ \text{N}$$
+
+Now multiply by the speed:
+
+$$P = 2134.1 \times 22 = 46{,}951\ \text{W} \approx 47\ \text{kW}$$
+
+Notice how little of the setup involved power. The whole problem was a force
+balance you could have done in the first unit; power was one multiplication at
+the end. That is typical.
+
+<Aside label="Where this goes wrong" warn>
+  Do not use $mgh/t$ and $Fv$ at the same time and add them. They are two ways
+  of counting the same energy. In Example 2, the rate of gain of potential
+  energy is $mgv\sin\theta = 1434.1 \times 22 = 31.6\ \text{kW}$, and the drag
+  eats $700 \times 22 = 15.4\ \text{kW}$. Those two add to 47 kW — they are the
+  breakdown of the answer, not extras to be tacked on.
+</Aside>
+
+## Why the last few km/h cost so much
+
+Air drag at everyday speeds grows roughly as the square of speed,
+$F_{\text{drag}} = bv^2$. Feed that into $P = Fv$ and something unpleasant
+happens:
+
+$$P = (bv^2)v = bv^3$$
+
+The power needed goes as the **cube** of the cruising speed. Double your speed
+and you need eight times the power. That single fact explains why a car twice as
+powerful is nowhere near twice as fast, and why cyclists obsess over drag rather
+than over leg strength.
+
+<Figure caption={<><b>Figure 2.</b> The two dots always sit at v and 2v on the same cubic curve. Drag the cruising speed slider and watch the readout: the ratio stays pinned at 8.00 no matter where you put it.</>}>
+  <Sim id="power-cubic-drag" />
+</Figure>
+
+Run it forwards to find a top speed. A car delivering 60 kW to the wheels
+against $F = 0.80v^2$ tops out when the driving force equals the drag, so
+$P = 0.80v^3$:
+
+$$
+
+v^3 = \frac{60{,}000}{0.80} = 75{,}000 \qquad
+v = 75{,}000^{1/3} = 42.2\ \text{m/s}
+
+$$
+
+Run it sideways to compare two situations. A boat needing 20 kW at 10 m/s needs,
+at 15 m/s,
+
+$$
+
+P_2 = P_1\left(\frac{v_2}{v_1}\right)^3 = 20{,}000 \times 1.5^3
+= 20{,}000 \times 3.375 = 67{,}500\ \text{W}
+
+$$
+
+And run it backwards to find a speed from a power. If $P = bv^3$ and you double
+the power by adding a second identical rower, the speed goes up by $2^{1/3} =
+1.2599$, so a 3.0 m/s boat reaches $3.0 \times 1.2599 = 3.78\ \text{m/s}$. Twice
+the effort buys 26% more speed. Scaling arguments like that — same $b$, so take
+the ratio and the constant cancels — save you from ever finding $b$.
+
+<QuickCheck
+  question="A boat needs P proportional to v cubed. To go 10 percent faster, roughly how much more power does it need?"
+  options={["About 33 percent more", "About 10 percent more", "About 21 percent more", "Exactly double"]}
+  answer={0}
+  explanation="The ratio of powers is 1.1 cubed, which is 1.331. So you need about a third more power for a tenth more speed. Small speed gains are expensive whenever the drag law is quadratic."
+/>
 
 ## When power, not force, is the limit
 
-Beginning problems assume constant acceleration. Real engines and motors
-instead have a ceiling on power, and this changes the shape of the motion.
+Everything so far assumed a steady speed. Now let the machine accelerate, with
+its power pinned at a maximum $P$. This is where power problems stop being
+one-liners.
 
-A car of mass $m$ pulling away at maximum power $P$ satisfies $Fv = P$, so
-$F = P/v$. At low speed the force is enormous — in practice tire grip caps it —
-and as the car speeds up the available force falls. Setting $ma = P/v$ and
-integrating gives
+An engine at full power satisfies $Fv = P$, so the force it can apply is
 
-$$v(t) = \sqrt{\frac{2Pt}{m}}$$
+$$F = \frac{P}{v}$$
 
-Speed grows as $\sqrt{t}$, not linearly, and the acceleration decays. The same
-reasoning answers "how long to reach $30\text{ m/s}$" without ever naming a
-force, and it explains why the last few miles per hour take so long.
+which *falls* as the car speeds up. At 5 m/s a 50 kW engine pushes with 10,000 N;
+at 40 m/s the same engine manages only 1250 N. So a constant-power car does not
+have constant acceleration, and every kinematic equation you know is now
+useless. You have to integrate.
 
 <Aside label="Where this goes wrong" warn>
-  A constant-power problem is not a constant-acceleration problem. The
-  kinematic equations $v = v_0 + at$ and $v^2 = v_0^2 + 2ad$ do not apply.
-  Start from $Fv = P$, write $mv\,dv/dx = P/v$ or $m\,dv/dt = P/v$, and
-  integrate.
+  A constant-power problem is not a constant-acceleration problem. $v = v_0 +
+  at$ and $v^2 = v_0^2 + 2ad$ are derived assuming $a$ is fixed, and here it is
+  not. Using them is the single most common way to get these wrong. Start from
+  $P = Fv$ and integrate.
 </Aside>
 
-<QuickCheck
-  question="A car accelerating from rest at constant maximum engine power has a speed that grows in what way with time?"
-  options={["As the square root of t", "Linearly in t", "As t squared", "Exponentially"]}
-  answer={0}
-  explanation="Constant power means constant rate of kinetic energy gain, so one half m v squared is proportional to t, and v is proportional to the square root of t. The acceleration therefore falls off as the car speeds up."
-/>
+The fastest route is energy, not force. Constant power means the kinetic energy
+rises at a constant rate, so after time $t$ from rest the car has received
+exactly $Pt$ of energy:
 
-## Checking an answer
+$$\tfrac12 mv^2 = Pt \quad\Longrightarrow\quad v(t) = \sqrt{\frac{2Pt}{m}}$$
 
-Power is a good sanity check on energy problems. Compute the energy a process
-requires and divide by a plausible time; if a household appliance comes out
-needing a megawatt, something is wrong. Working backward from a stated power
-rating to the force or the time is one of the most common ways olympiad
-problems disguise an energy question.
+Speed grows like $\sqrt{t}$. To get distance, integrate that once more:
+
+$$
+
+x = \int_0^t \sqrt{\frac{2Ps}{m}}\,ds
+= \sqrt{\frac{2P}{m}} \cdot \frac{2}{3}t^{3/2}
+= \sqrt{\frac{8P}{9m}}\;t^{3/2}
+
+$$
+
+**Example 3.** A 1000 kg car with constant power 50 kW starts from rest on a
+frictionless road. How far does it go in the first 8.0 s?
+
+Use the distance result. First the coefficient:
+
+$$
+
+\frac{8P}{9m} = \frac{8 \times 50{,}000}{9 \times 1000}
+= \frac{400{,}000}{9000} = 44.444
+
+$$
+
+$$\sqrt{44.444} = 6.6667$$
+
+Then the time factor, $t^{3/2} = 8.0^{3/2} = 8.0 \times \sqrt{8.0}
+= 8.0 \times 2.8284 = 22.627$. Multiply:
+
+$$x = 6.6667 \times 22.627 = 150.8\ \text{m}$$
+
+As a check, the final speed is $v = \sqrt{2 \times 50{,}000 \times 8/1000}
+= \sqrt{800} = 28.3\ \text{m/s}$, and the average speed over the trip is
+$150.8/8.0 = 18.9\ \text{m/s}$, which is $\tfrac23$ of the final speed. That
+$\tfrac23$ is the signature of a $\sqrt{t}$ speed curve, just as $\tfrac12$ is
+the signature of constant acceleration. If you get $\tfrac12$, you used the
+wrong equations.
+
+## Top speed, and the crawl towards it
+
+Put drag back in and the car stops speeding up forever. With linear drag
+$F_{\text{drag}} = cv$, Newton's second law at full power reads
+
+$$m\frac{dv}{dt} = \frac{P}{v} - cv$$
+
+Top speed is where the right side hits zero, which needs no calculus at all:
+$P/v = cv$, so
+
+$$v_{\text{top}} = \sqrt{\frac{P}{c}}$$
+
+For $P = 30\ \text{kW}$ and $c = 12\ \text{N·s/m}$, that is
+$\sqrt{30{,}000/12} = \sqrt{2500} = 50\ \text{m/s}$.
+
+Getting the *time* to approach that speed takes the integral. Multiply through
+by $v$ and notice that the left side is the rate of change of kinetic energy:
+
+$$mv\frac{dv}{dt} = P - cv^2$$
+
+Substitute $u = v^2$, so $du = 2v\,dv$, and the equation becomes linear in $u$:
+
+$$\frac{m}{2}\frac{du}{dt} = P - cu$$
+
+Separate and integrate from rest:
+
+$$
+
+t = \frac{m}{2}\int_0^{v^2}\frac{du}{P - cu}
+= \frac{m}{2c}\ln\!\left(\frac{P}{P - cv^2}\right)
+
+$$
+
+<Figure caption={<><b>Figure 3.</b> The solid curve is the real speed, the faint dotted one is the drag-free square-root law, and the short arrow is the leftover accelerating force. Push the drag slider up and watch the two curves part company early — and note in the readout how enormous the driving force P/v is in the first instant.</>}>
+  <Sim id="power-limited-car" />
+</Figure>
+
+**Example 4.** That same car — 1000 kg, 30 kW, $F = 12v$, top speed 50 m/s —
+starts from rest. How long to reach 45 m/s, which is 90% of top speed?
+
+Prefactor first:
+
+$$\frac{m}{2c} = \frac{1000}{24} = 41.667\ \text{s}$$
+
+Now the log. $cv^2 = 12 \times 45^2 = 12 \times 2025 = 24{,}300$, so
+$P - cv^2 = 30{,}000 - 24{,}300 = 5700$, and
+
+$$
+
+\frac{P}{P-cv^2} = \frac{30{,}000}{5700} = 5.2632, \qquad
+\ln 5.2632 = 1.6607
+
+$$
+
+So
+
+$$t = 41.667 \times 1.6607 = 69.2\ \text{s}$$
+
+Over a minute to reach nine tenths of top speed — and the formula says the last
+tenth takes forever, since $v \to v_{\text{top}}$ sends the logarithm to
+infinity. Top speed is an asymptote, never an arrival.
+
+## Mass that arrives: belts, chains, and jumps
+
+One family of power problems has no obvious "force" at all. Something is
+being fed into the system, and you have to work out the force from the rate at
+which momentum has to be supplied.
+
+Grain falls vertically onto a horizontal belt at $dm/dt$ kg per second. It lands
+with zero horizontal speed and the belt must drag it up to speed $v$. Each
+second, mass $dm/dt$ has its horizontal momentum raised from 0 to
+$(dm/dt)v$, and force is rate of change of momentum, so the belt must push with
+
+$$F = \frac{dm}{dt}\,v$$
+
+and therefore the motor supplies
+
+$$P = Fv = \frac{dm}{dt}\,v^2$$
+
+For $dm/dt = 12\ \text{kg/s}$ and $v = 2.5\ \text{m/s}$: $F = 12 \times 2.5 =
+30\ \text{N}$ and $P = 30 \times 2.5 = 75\ \text{W}$.
+
+Now the twist. How fast is the grain gaining kinetic energy? Each second,
+$12\ \text{kg}$ goes from rest to 2.5 m/s, gaining
+
+$$
+
+\tfrac12 \left(\frac{dm}{dt}\right)v^2 = \tfrac12 \times 12 \times 2.5^2
+= \tfrac12 \times 12 \times 6.25 = 37.5\ \text{W}
+
+$$
+
+The motor supplies 75 W and only 37.5 W lands in kinetic energy. The missing
+37.5 W is rubbed away as heat while the grain skids on the belt. Exactly half,
+always, whatever the numbers — because the belt moves at $v$ while the grain's
+average speed during the skid is only $v/2$.
+
+<Figure caption={<><b>Figure 4.</b> Try any combination of rate and belt speed and compare the two numbers in the readout: the kinetic energy rate is always exactly half the motor power. The other half is friction heat, and no amount of engineering removes it.</>}>
+  <Sim id="power-grain-belt" />
+</Figure>
+
+The same "what is being added" thinking handles a chain hauled off the floor.
+A coiled chain of linear density $\lambda = 2.0\ \text{kg/m}$ has one end raised
+at a steady 1.5 m/s. When 3.0 m hangs in the air, the lifted mass is
+$\lambda \times 3.0 = 6.0\ \text{kg}$, weighing $6.0 \times 9.8 = 58.8\
+\text{N}$. Counting only that weight, the power needed at that instant is
+
+$$P = 58.8 \times 1.5 = 88.2\ \text{W}$$
+
+It grows as more chain leaves the floor, which is the point: power here is
+instantaneous, not average.
+
+Finally, a jump, where "peak power" means the instant of takeoff. A 70 kg
+athlete pushes with a constant force and leaves the ground at 3.2 m/s after her
+centre of mass rises 0.45 m during the push. Constant force means constant
+acceleration during the push, so $v^2 = 2ad$ gives
+
+$$a = \frac{3.2^2}{2 \times 0.45} = \frac{10.24}{0.90} = 11.378\ \text{m/s}^2$$
+
+The ground must both accelerate her and hold up her weight, so the push force is
+
+$$F = m(a + g) = 70 \times (11.378 + 9.8) = 70 \times 21.178 = 1482.4\ \text{N}$$
+
+Peak power is that force at the fastest moment, which is takeoff:
+
+$$P = 1482.4 \times 3.2 = 4744\ \text{W}$$
+
+Nearly 5 kW from a body that can only sustain a couple of hundred watts. Peak
+and average power are different animals, and a problem that says "peak" or "at
+that instant" is asking for $Fv$ at one moment, never for total energy over
+total time.
+
+## How to spot a power problem
+
+A few signals, in rough order of usefulness.
+
+**A rate is given or asked for.** Watts, horsepower, kilowatts, "per second",
+"per minute", "how long does it take". Any of these means you will divide an
+energy by a time or multiply a force by a speed somewhere.
+
+**"Constant speed" plus a force.** This is the easiest kind. Balance the forces,
+then multiply by $v$. The hill, the elevator, the cyclist, and the locomotive
+were all this problem.
+
+**"Maximum power" or "the engine delivers P" while something accelerates.** Now
+you are in integration territory. Do not reach for the kinematic equations.
+Reach for $\tfrac12 mv^2 = Pt$ if there is no drag, or write
+$mv\,dv/dt = P - F_{\text{drag}}(v)$ and separate variables if there is.
+
+**"Top speed" with a drag law.** Set the driving force equal to the drag and
+solve. No calculus needed — top speed is an equilibrium, not a limit process.
+
+**A drag law plus two speeds, or two powers.** Take the ratio. With
+$P \propto v^3$ the unknown constant cancels and you avoid a whole calculation.
+
+**Mass arriving per second.** Belt, chain, rocket, hose, falling sand. Find the
+force from $F = (dm/dt)\,v$, then power from $Fv$. Expect the energy bookkeeping
+not to balance, and expect the missing half to be friction heat.
+
+That last family is really a momentum argument wearing an energy costume, which
+is a good place to stop: the next lesson,
+[Momentum & Impulse](/guide/momentum-impulse), gives you the tool properly and
+makes belts, chains and rockets much less mysterious than they look here.

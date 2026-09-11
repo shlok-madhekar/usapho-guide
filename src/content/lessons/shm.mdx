@@ -1,41 +1,328 @@
-## The equation that defines it
+Pull a block sideways on a spring and let go. It comes back, overshoots, goes
+out the other side by the same distance, and comes back again. Do it on a
+frictionless bench and it never stops. Pull it twice as far and it still takes
+exactly the same time to complete a round trip — it just moves faster the whole
+way. That last fact is strange enough to be worth the rest of this page.
 
-Any restoring force proportional to displacement produces the same motion:
+In [rolling without slipping](/guide/rolling) you found the motion by writing a
+force law and a torque law and grinding out an acceleration. You can do the same
+here, but something new happens. The acceleration turns out to depend on where
+the block is, which means it changes from instant to instant, which means the
+constant-acceleration kinematics you have been leaning on is useless. You need a
+different tool. The good news is that one tool covers a whole family of problems:
+springs, pendulums, floating blocks, rocking cylinders, atoms in a crystal. The
+shape of the motion is always the same.
 
-$$\ddot x = -\omega^2 x \quad \Longrightarrow \quad x(t) = A\cos(\omega t + \phi)$$
+## Where the equation comes from
 
-For a spring $\omega = \sqrt{k/m}$; for a simple pendulum
-$\omega = \sqrt{g/\ell}$. The amplitude $A$ appears nowhere in $\omega$, which
-is the whole reason pendulum clocks work: the period does not care how far the
-bob swings.
+A spring stretched or compressed by an amount $x$ from its natural length pushes
+back with force
 
-<Figure caption={<><b>Figure 1.</b> Mass on a spring, with position plotted against time below. Change the amplitude and the trace gets taller but keeps its period; quadruple the mass and the period doubles.</>}>
-  <Sim id="spring" />
+$$F = -kx$$
+
+This is Hooke's law. $k$ is the **spring constant** or **stiffness**, measured in
+newtons per metre: it says how many newtons of pull you get per metre of stretch.
+The minus sign is the whole story. It says the force always points back toward
+$x = 0$. Stretch the spring right and it pulls left; compress it left and it
+pushes right. A force like that is called a **restoring force**.
+
+Now attach a block of mass $m$ and apply Newton's second law. The only horizontal
+force is the spring, so $ma = -kx$, or
+
+$$a = -\frac{k}{m}\,x$$
+
+Read that as a sentence: the acceleration is proportional to the displacement and
+points the opposite way. At the far end of the swing the block is momentarily
+still but accelerating hardest. At the middle it is moving fastest but not
+accelerating at all. Nothing in constant-acceleration kinematics behaves like
+that.
+
+The quantity $k/m$ has units of $1/\text{s}^2$, so its square root is a rate.
+Give it a name:
+
+$$\omega = \sqrt{\frac{k}{m}}, \qquad a = -\omega^2 x$$
+
+Any motion obeying $a = -\omega^2 x$ is called **simple harmonic motion**, SHM for
+short. You can check by substitution that
+
+$$x(t) = A\cos(\omega t + \phi)$$
+
+solves it: differentiate twice and each derivative pulls down a factor of
+$-\omega$, giving $a = -\omega^2 A\cos(\omega t + \phi) = -\omega^2 x$. Here $A$ is
+the **amplitude**, the largest distance from the middle, and $\phi$ is the **phase
+constant**, which only sets where in the cycle the clock starts. Choose $\phi = 0$
+if you release the block from rest at full stretch; choose $\phi = -\pi/2$ if it
+passes through the middle at $t = 0$.
+
+The cosine repeats when $\omega t$ advances by $2\pi$, so the **period** is
+
+$$T = \frac{2\pi}{\omega} = 2\pi\sqrt{\frac{m}{k}}, \qquad f = \frac{1}{T}$$
+
+with $T$ in seconds and the frequency $f$ in hertz. Look at what is missing: $A$
+does not appear. Doubling the amplitude doubles the distance travelled and
+doubles the average speed, and those cancel exactly. That is the fact you noticed
+at the top, and it is special to forces that are strictly proportional to
+displacement.
+
+<Figure caption={<><b>Figure 1.</b> A block on a spring, with position and velocity traced below. Drag the amplitude slider and watch the trace get taller while the spacing of the peaks does not change. Then quadruple the mass and watch the period double.</>}>
+  <Sim id="shm-lab" />
 </Figure>
 
-## Finding the frequency of anything
+Differentiating $x(t)$ once gives $v = -A\omega\sin(\omega t + \phi)$ and again
+gives $a = -A\omega^2\cos(\omega t + \phi)$. Since sine and cosine reach 1,
 
-Most olympiad oscillation problems are not about springs. They give you a
-physical system, disturb it slightly, and ask for the frequency. The recipe is
-always the same: find the equilibrium, expand the net force to first order in
-the displacement from it, and read off $\omega^2$. Equivalently, from the
-potential:
+$$v_{\max} = A\omega, \qquad a_{\max} = A\omega^2$$
 
-$$\omega^2 = \frac{1}{m}\left.\frac{d^2U}{dx^2}\right|_{x_0}$$
+Those two lines solve a surprising number of problems on their own.
 
-This is why the small-angle approximation matters so much. The pendulum is not
-a harmonic oscillator; it is a system whose restoring torque happens to be
-proportional to displacement once $\sin\theta \approx \theta$.
-
-<Aside label="Combining springs">
-  Springs in parallel share the displacement, so their constants add. In
-  series they share the force, so the reciprocals add, and the pair is always
-  softer than either spring alone.
+<Aside label="Worth remembering">
+  Three numbers describe an oscillation completely: $\omega$ from the physics of
+  the system, $A$ and $\phi$ from how you started it. The system sets the
+  rhythm; you only choose how hard and when.
 </Aside>
 
+**Example 1.** A 0.25 kg glider on a frictionless track is attached to a spring
+of stiffness 100 N/m, pulled 4.0 cm aside and released. Find the period, the
+maximum speed and the maximum acceleration.
+
+Start with $\omega$, always:
+
+$$\omega = \sqrt{\frac{100}{0.25}} = \sqrt{400} = 20.0\ \text{rad/s}$$
+
+Then $T = 2\pi/20.0 = 0.314$ s, so $f = 1/0.314 = 3.18$ Hz. The amplitude is
+$A = 0.040$ m because the glider was released from rest there, so
+
+$$v_{\max} = (0.040)(20.0) = 0.80\ \text{m/s}$$
+$$a_{\max} = (0.040)(20.0)^2 = (0.040)(400) = 16\ \text{m/s}^2$$
+
+That acceleration is larger than $g$, which should make you slightly suspicious of
+anything resting loosely on top of an oscillator. Hold that thought.
+
 <QuickCheck
-  question="A pendulum clock keeps perfect time at sea level. Carried up a mountain, it will:"
-  options={["Run slow", "Run fast", "Keep perfect time", "Stop"]}
+  question="A block on a spring has period 2.0 s. You replace it with a block of four times the mass on the same spring. The new period is:"
+  options={["4.0 s", "2.0 s", "1.0 s", "8.0 s"]}
   answer={0}
-  explanation="Gravity is weaker at altitude, and the period goes as the inverse square root of g, so each swing takes slightly longer and the clock falls behind."
+  explanation="The period goes as the square root of the mass, so four times the mass gives twice the period. It is 4.0 s. The tempting wrong answer is 8.0 s, from treating the dependence as linear."
 />
+
+## The energy shortcut
+
+Timing is often not what a problem wants. It wants a speed at a particular place,
+and it does not care when the block gets there. For that, use energy.
+
+The work you do stretching a spring from 0 to $x$ is the area under the force
+graph, a triangle of base $x$ and height $kx$, so the stored **elastic potential
+energy** is $U = \frac{1}{2}kx^2$. On a frictionless surface the total mechanical
+energy never changes:
+
+$$E = \tfrac{1}{2}mv^2 + \tfrac{1}{2}kx^2$$
+
+At the turning point $v = 0$ and $x = \pm A$, so $E = \frac{1}{2}kA^2$. Setting the
+two expressions equal and solving for $v$:
+
+$$\tfrac{1}{2}mv^2 = \tfrac{1}{2}kA^2 - \tfrac{1}{2}kx^2 \;\Longrightarrow\; v = \omega\sqrt{A^2 - x^2}$$
+
+using $k/m = \omega^2$ in the last step. At $x = 0$ this gives $v = A\omega$, which
+matches what you got from calculus. At $x = A$ it gives zero. In between it gives
+everything.
+
+<Figure caption={<><b>Figure 2.</b> The potential energy parabola with the total energy drawn as a flat line. The gap between them is kinetic energy. Notice the block spends most of its time near the turning points, where the gap is small, and races through the middle.</>}>
+  <Sim id="shm-energy" />
+</Figure>
+
+**Example 2.** A 2.0 kg block on a spring of stiffness 800 N/m oscillates with
+amplitude 5.0 cm. How fast is it moving 3.0 cm from equilibrium?
+
+$$\omega = \sqrt{\frac{800}{2.0}} = \sqrt{400} = 20.0\ \text{rad/s}$$
+$$v = 20.0\sqrt{(0.050)^2 - (0.030)^2} = 20.0\sqrt{0.0025 - 0.0009} = 20.0\sqrt{0.0016}$$
+$$v = 20.0 \times 0.040 = 0.80\ \text{m/s}$$
+
+The 3-4-5 triangle hiding in there is not an accident; problem setters like it.
+And notice the total energy, if you want it, is
+$\frac{1}{2}(800)(0.050)^2 = 1.0$ J.
+
+<Aside label="Where this goes wrong" warn>
+  Energy is quadratic, so it is never safe to scale it linearly. Doubling the
+  amplitude does not double the energy, it quadruples it. And $v$ at half the
+  amplitude is not half of $v_{\max}$ — it is
+  $\omega\sqrt{A^2 - (A/2)^2} = 0.866\,A\omega$. Always go back through
+  $v = \omega\sqrt{A^2 - x^2}$ rather than guessing a fraction.
+</Aside>
+
+## Hanging springs: gravity shifts the middle, not the rhythm
+
+Hang the same block from the same spring vertically and a new force appears. Let
+$y$ measure downward from the spring's natural length. The net downward force is
+
+$$F = mg - ky$$
+
+This is zero at $y_0 = mg/k$. That is the **static sag**: where the block hangs at
+rest. Now measure displacement from *there* instead, writing $u = y - y_0$:
+
+$$F = mg - k(u + y_0) = mg - ku - mg = -ku$$
+
+The $mg$ cancelled exactly. The block obeys the identical SHM equation about the
+hanging position, with the identical $\omega = \sqrt{k/m}$. Gravity moved the
+centre of the oscillation and changed nothing else.
+
+This gives you a free measurement. Since $y_0 = mg/k$, you have $k/m = g/y_0$, so
+
+$$\omega = \sqrt{\frac{g}{y_0}}$$
+
+Measure how far a spring sags under a load and you know the period without ever
+knowing $m$ or $k$ separately. A spring that sags 4.5 cm oscillates at
+$\omega = \sqrt{9.8/0.045} = \sqrt{217.8} = 14.76$ rad/s, giving $T = 0.426$ s.
+
+<Figure caption={<><b>Figure 3.</b> The same spring unloaded, loaded at rest, and mid-oscillation. Change the mass and watch the equilibrium slide down while the oscillation about it keeps its own rhythm. The readout compares the sag with the amplitude.</>}>
+  <Sim id="shm-vertical" />
+</Figure>
+
+<QuickCheck
+  question="A block hangs at rest on a spring, stretching it 10 cm. It is then pulled down 2 cm and released. Compared with the same block oscillating horizontally on the same spring, the vertical period is:"
+  options={["The same", "Longer, because gravity pulls it down", "Shorter, because gravity speeds it up", "It depends on the amplitude"]}
+  answer={0}
+  explanation="Gravity is a constant force, so it shifts the equilibrium point by mg over k and cancels out of the restoring force measured from that new point. Omega is the square root of k over m either way."
+/>
+
+**Example 3.** A 2.0 kg package is dropped from rest 20 cm above the massless pan
+of a spring scale of stiffness 500 N/m, and stays on the pan. Find the amplitude
+of the oscillation that follows. Take $g = 9.8$ m/s².
+
+Blank paper, first line: the motion after contact is SHM about the *loaded*
+equilibrium, not about the pan's starting position. So find that point first.
+
+$$y_0 = \frac{mg}{k} = \frac{(2.0)(9.8)}{500} = 0.0392\ \text{m}$$
+
+At the moment of contact the package is $0.0392$ m *above* the new equilibrium, so
+its displacement is $u = -0.0392$ m. Its speed there comes from the free fall:
+
+$$v = \sqrt{2gh} = \sqrt{2(9.8)(0.20)} = \sqrt{3.92} = 1.980\ \text{m/s}$$
+
+Now use $v = \omega\sqrt{A^2 - u^2}$, rearranged for the amplitude:
+
+$$A = \sqrt{u^2 + \frac{v^2}{\omega^2}}, \qquad \omega^2 = \frac{500}{2.0} = 250\ \text{s}^{-2}$$
+$$A = \sqrt{(0.0392)^2 + \frac{3.92}{250}} = \sqrt{0.001537 + 0.015680} = \sqrt{0.017217}$$
+$$A = 0.1312\ \text{m}$$
+
+The two contributions matter comparably, so you cannot drop either. Skipping the
+sag term is the standard way to get this one wrong.
+
+## Building the right $k$ and the right $m$
+
+Most problems are not a bare block on a bare spring. They are something that
+*behaves* like one, and your job is to find the effective stiffness $k_{\text{eff}}$
+and the effective mass $m_{\text{eff}}$ so that
+$\omega = \sqrt{k_{\text{eff}}/m_{\text{eff}}}$.
+
+**Springs side by side (parallel).** Both stretch by the same $x$, and their forces
+add: $F = k_1x + k_2x$. So $k_{\text{eff}} = k_1 + k_2$. Two springs pulling
+together are stiffer than either alone.
+
+**Springs end to end (series).** They carry the same force $F$, and their stretches
+add: $x = F/k_1 + F/k_2$. Since $k_{\text{eff}} = F/x$,
+
+$$\frac{1}{k_{\text{eff}}} = \frac{1}{k_1} + \frac{1}{k_2}$$
+
+A series pair is always softer than either spring alone. Two identical 400 N/m
+springs joined end to end give 200 N/m.
+
+<Figure caption={<><b>Figure 4.</b> Parallel and series springs side by side, with both effective stiffnesses computed live. Drag one stiffness to zero-ish and watch which combination collapses with it.</>}>
+  <Sim id="shm-springs" />
+</Figure>
+
+**Two free masses joined by a spring.** Neither end is nailed down, so both move.
+The separation obeys SHM with the **reduced mass**
+$\mu = m_1m_2/(m_1 + m_2)$, giving $\omega = \sqrt{k/\mu}$. The quick way to see
+it: each mass accelerates as $a_1 = F/m_1$ and $a_2 = -F/m_2$, so the stretch
+accelerates as $a_1 - a_2 = F(1/m_1 + 1/m_2) = F/\mu$.
+
+**A spring with its own mass.** Not every coil moves at the block's speed — the
+fixed end does not move at all, and the speed grows linearly along the spring.
+Adding up $\frac{1}{2}(dm)v^2$ along the length gives an extra kinetic energy of
+$\frac{1}{2}(m_s/3)v^2$, so use $m_{\text{eff}} = m + m_s/3$.
+
+**Something rolling or rotating.** Write the total energy and read off the
+coefficients. For a solid cylinder rolling without slipping, $v = \omega_{\text{roll}}R$
+and $I = \frac{1}{2}mR^2$, so the kinetic energy is
+$\frac{1}{2}mv^2 + \frac{1}{2}\left(\frac{1}{2}mR^2\right)(v/R)^2 = \frac{3}{4}mv^2$,
+which is $\frac{1}{2}\left(\frac{3}{2}m\right)v^2$. Effective mass $\frac{3}{2}m$,
+and the period lengthens by $\sqrt{3/2}$.
+
+That last move generalises. If you can write
+
+$$E = \tfrac{1}{2}m_{\text{eff}}\dot q^2 + \tfrac{1}{2}k_{\text{eff}}q^2$$
+
+for some coordinate $q$ measured from equilibrium, the system is a harmonic
+oscillator with $\omega^2 = k_{\text{eff}}/m_{\text{eff}}$, whatever $q$ physically is.
+
+**Example 4.** Two carts of mass 0.50 kg and 1.50 kg sit on a frictionless track
+joined by a spring of stiffness 200 N/m. Pull them apart and release. Find the
+frequency.
+
+Neither cart is fixed, so use the reduced mass:
+
+$$\mu = \frac{(0.50)(1.50)}{0.50 + 1.50} = \frac{0.75}{2.00} = 0.375\ \text{kg}$$
+$$\omega = \sqrt{\frac{200}{0.375}} = \sqrt{533.3} = 23.09\ \text{rad/s}$$
+$$f = \frac{23.09}{2\pi} = 3.67\ \text{Hz}$$
+
+Check it for sanity: $\mu$ is smaller than either mass, so the pair oscillates
+faster than 1.50 kg alone on that spring would. It should, because both ends are
+free to respond.
+
+<Aside label="Levers and pulleys" warn>
+  When a spring is attached through a lever or a pulley, its stretch is not the
+  same as the mass's displacement. If the spring stretches $n$ times as far as
+  the mass moves, the energy $\frac{1}{2}k(nq)^2$ tells you
+  $k_{\text{eff}} = n^2k$ — the factor is squared, not linear. Getting $n$ upside
+  down turns a factor of 4 into a factor of $1/4$, so draw the geometry and check
+  which end moves further before you trust the number.
+</Aside>
+
+## When the motion is only partly harmonic
+
+Two more patterns show up often enough to name.
+
+**Half-cycles glued together.** A puck sliding between two springs it touches but
+is not attached to spends half a period on each. Each half is a genuine
+half-oscillation of that spring's system, taking $\pi\sqrt{m/k}$. So the total
+period is
+
+$$T = \pi\sqrt{\frac{m}{k_1}} + \pi\sqrt{\frac{m}{k_2}}$$
+
+Do not average the stiffnesses. Add the times.
+
+**Losing contact.** Anything merely resting on an oscillator is held down only by
+gravity, and the surface can only push, never pull. The book stays on the platform
+as long as the required downward acceleration at the top of the motion does not
+exceed $g$. Since $a_{\max} = A\omega^2$, contact survives while
+
+$$A\omega^2 \le g \quad\Longrightarrow\quad A_{\max} = \frac{g}{\omega^2} = \frac{mg}{k}$$
+
+which is the static sag again. Push the oscillation past the sag and the book
+leaves the platform at the top.
+
+## Recognising it
+
+Reach for SHM when a problem contains any of these:
+
+- The words *period*, *frequency*, *oscillates*, *vibrates*, *bounces*, or
+  *small oscillations*. "Small" is the tell that a curved potential is about to be
+  approximated by a parabola.
+- A restoring force or torque proportional to displacement, or one you can show is
+  proportional after expanding for small displacements.
+- A system displaced from equilibrium and released, with no friction mentioned.
+
+Then the routine is fixed. Find the equilibrium. Displace by a small $q$ from it.
+Get either the net force, in the form $F = -k_{\text{eff}}q$, or the total energy,
+in the form $\frac{1}{2}m_{\text{eff}}\dot q^2 + \frac{1}{2}k_{\text{eff}}q^2$. Read off
+$\omega = \sqrt{k_{\text{eff}}/m_{\text{eff}}}$. Everything else — period, maximum speed,
+maximum acceleration, speed at a given place — follows from $\omega$, $A$ and the
+two formulas $v_{\max} = A\omega$ and $v = \omega\sqrt{A^2 - x^2}$.
+
+If instead the question gives you a place and asks for a speed, go straight to
+energy and skip $t$ entirely. If it gives you a time, use the cosine.
+
+The next system worth this treatment has no spring in it at all: a mass on a
+string, restored by gravity, harmonic only because
+$\sin\theta \approx \theta$ when $\theta$ is small. That is
+[pendulums](/guide/pendulums).

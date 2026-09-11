@@ -1,79 +1,181 @@
-## Package energy and momentum together
+A proton in the LHC carries 7 TeV of energy. Fire it at a bottle of liquid hydrogen sitting on a bench and the collision has about 115 GeV to spend on making new particles — less than two percent of what you paid for. Turn the machine around so two 7 TeV beams meet head-on and suddenly you have 14 TeV to spend. Same protons, same energy per proton, a hundred-fold difference in what the collision can create.
 
-Relativistic collision problems get ugly when you write conservation of energy
-and conservation of momentum as separate equations and then chase gamma
-factors through both. The fix is to notice that energy and momentum transform
-into each other the same way time and space do, and to carry them as one
-object:
+That factor is not a detail of accelerator engineering. It falls out of one number you can compute in a line, once you stop treating energy and momentum as two separate bookkeeping problems and start treating them as one object. This lesson is about that object, about the single invariant it carries, and about what the same idea says when the particle you are tracking is a photon and the thing you measure is its colour.
+
+## Energy and momentum are one thing
+
+The [boundary-value methods](/guide/boundary-value-em) you just finished worked because you chose coordinates that matched the symmetry of the problem. Relativity rewards the same instinct, except the symmetry is between frames.
+
+You already know that time and space mix when you change frame. A clock reading $t$ and a position $x$ in one frame become a different pair in another, tangled by the Lorentz transformation. Energy and momentum do exactly the same thing, with exactly the same coefficients. That is not a coincidence; it is forced on you by the fact that momentum is mass times a rate of change of position, and the position and the time both transform.
+
+So stack them. Write
 
 $$P = (E/c,\; p_x,\; p_y,\; p_z)$$
 
-This is the energy-momentum four-vector. Under a change of frame its
-components mix by the Lorentz transformation, exactly as $(ct, x, y, z)$ does.
-Conservation of energy and momentum becomes a single statement: the total
-four-vector of a system is conserved, $\sum P_{\text{in}} = \sum P_{\text{out}}$.
+and call it the **energy-momentum four-vector**. $E$ is total energy including rest energy, and $p_x, p_y, p_z$ are the ordinary relativistic momentum components, $\vec{p} = \gamma m \vec{v}$, where $\gamma = 1/\sqrt{1-\beta^2}$ and $\beta = v/c$. Dividing $E$ by $c$ just puts all four entries in the same units so they can mix.
+
+The payoff is immediate. Conservation of energy and conservation of momentum stop being four equations you have to track separately. They become one statement:
+
+$$\sum P_{\text{in}} = \sum P_{\text{out}}$$
+
+and because both sides are four-vectors, that equation holds component by component in every frame at once.
 
 ## The invariant is the whole trick
 
-Four-vectors have a length that every observer agrees on. For $P$ it is
+An ordinary vector has a length that does not care how you rotate your axes. A four-vector has an analogue, but with a minus sign in front of the space part:
 
-$$P \cdot P = \frac{E^2}{c^2} - p^2 = m^2c^2$$
+$$P \cdot P = \frac{E^2}{c^2} - |\vec{p}\,|^2$$
 
-which rearranges to the relation worth memorizing:
+Work that out for a single particle of mass $m$. Its energy is $E = \gamma mc^2$ and its momentum is $p = \gamma m v$, so
+
+$$\frac{E^2}{c^2} - p^2 = \gamma^2 m^2 c^2 - \gamma^2 m^2 v^2 = \gamma^2 m^2 c^2 \left(1 - \frac{v^2}{c^2}\right) = m^2c^2$$
+
+since $\gamma^2(1-\beta^2) = 1$ exactly. Every $\gamma$ cancelled. What is left contains nothing but the rest mass, which is a property of the particle and not of your motion — so every observer computes the same number. Rearranged, that is the relation you will use more than any other:
 
 $$E^2 = (pc)^2 + (mc^2)^2$$
 
-The right side contains only the rest mass, so it is the same number in every
-frame. A photon has $m = 0$ and therefore $E = pc$.
+Read it as a right triangle. The hypotenuse is the total energy, one leg is $pc$, the other is the rest energy $mc^2$. Grow the momentum and the energy grows, but never below $mc^2$, which is the floor a massive particle can never get under. Set $m = 0$ and the triangle collapses: a photon has $E = pc$ and no floor at all.
 
-The method: write the conservation statement as four-vectors, then square both
-sides. Squaring produces an invariant, and an invariant can be evaluated in
-whichever frame makes it easiest. That freedom is what kills the algebra.
+<Figure caption={<><b>Figure 1.</b> Every particle of mass m lives on this curve. Drag the speed and watch the point slide out along it, never crossing the dashed photon line. Drag the mass down and the curve flattens onto that line.</>}>
+  <Sim id="four-vectors-mass-shell" />
+</Figure>
 
-Threshold problems show this best. A proton strikes a stationary proton and
-you want the minimum beam energy to produce two protons plus a
-proton-antiproton pair. In the lab the final state is four particles with
-unknown momenta, which is a mess. Square the total four-vector instead and
-evaluate it in the center-of-momentum frame, where at threshold all four
-products sit at rest and the invariant is simply $(4m_pc^2)^2/c^2$. Set that
-equal to the lab-frame expression and one line of algebra gives the answer.
+Working in MeV saves you from carrying factors of $c$. Quote masses as $mc^2$ in MeV, momenta as $pc$ in MeV, and the triangle becomes a statement about three numbers in the same unit.
+
+**Example 1.** A proton has total energy $10.00$ GeV. Find $pc$. Take $m_pc^2 = 938.3$ MeV $= 0.9383$ GeV.
+
+$$(pc)^2 = E^2 - (mc^2)^2 = (10.00)^2 - (0.9383)^2 = 100.00 - 0.8804 = 99.120\ \text{GeV}^2$$
+
+So $pc = \sqrt{99.120} = 9.956$ GeV. The proton's momentum is within half a percent of its energy: at ten times the rest energy, it is already almost a photon as far as the triangle is concerned.
 
 <Aside label="Worth remembering">
-  The invariant mass of a *system* is not the sum of the masses of its parts.
-  Two photons flying apart have zero mass each but a nonzero system invariant
-  mass, which is exactly the energy available to create new particles. Ask
-  what invariant the problem wants before you pick a frame.
+  Kinetic energy is $K = E - mc^2$, not $\tfrac12 mv^2$ and not $\gamma mc^2$. Problems quote sometimes one, sometimes the other, and mixing them up is the single most common way to lose a threshold calculation. Read the problem statement twice for the word "total".
 </Aside>
 
-## The relativistic Doppler shift
+## The mass of a system
 
-The same frame-mixing applies to light. A source emitting frequency $f_0$ in
-its own rest frame, moving directly away from you at speed $v$, is observed at
+Now do the same squaring for a collection of particles. Add up all their four-vectors into a total $P_{\text{tot}}$, and square:
 
-$$f = f_0 \sqrt{\frac{1 - \beta}{1 + \beta}}, \qquad \beta = v/c$$
+$$s \equiv P_{\text{tot}} \cdot P_{\text{tot}} \, c^2 = \left(\sum E\right)^2 - \left(\sum \vec{p}c\right)^2$$
 
-Flip the sign of $\beta$ for approach, which raises the frequency. Two effects
-combine here: the classical change in arrival spacing as the source moves, and
-time dilation of the source's own emission rate. Only the second is
-relativistic, and it is why there is a shift even for **transverse** motion,
-where the source is momentarily neither approaching nor receding:
+This is called the **Mandelstam $s$**, and $\sqrt{s}$ has units of energy. Because it came from squaring a four-vector, it is the same in every frame. And because the total four-vector is conserved, it is also the same before and after the collision.
 
-$$f_{\perp} = \frac{f_0}{\gamma}$$
+$\sqrt{s}$ has a physical meaning worth holding onto. Go to the frame where the total momentum is zero — the **centre-of-momentum frame**, the natural one for any collision. There $\sum \vec{p} = 0$, so $\sqrt{s}$ is nothing but the total energy in that frame. That is the energy genuinely available to make new things.
 
-A purely classical treatment predicts no transverse shift at all, so observing
-one is direct evidence of time dilation.
+**Example 2.** A 7.00 TeV proton hits a proton at rest. Find $\sqrt{s}$.
 
-<Aside label="Where this goes wrong" warn>
-  Do not mix frames inside a single equation. The commonest error is writing
-  momentum with a velocity measured in the lab and an energy measured in the
-  center-of-momentum frame. Pick one frame, write every component in it, and
-  only then transform. If you find yourself needing a velocity-addition
-  formula, that is usually a sign an invariant would have avoided the step.
-</Aside>
+Before the collision the beam has $E_1 = 7000$ GeV and $p_1c = \sqrt{E_1^2 - m^2c^4}$. The target has $E_2 = mc^2$ and $p_2 = 0$. So
+
+$$s = (E_1 + mc^2)^2 - (p_1c)^2 = E_1^2 + 2E_1 mc^2 + (mc^2)^2 - E_1^2 + (mc^2)^2$$
+
+$$s = 2(mc^2)^2 + 2E_1mc^2 = 2mc^2\left(E_1 + mc^2\right)$$
+
+That two-line result is worth memorising for fixed-target problems. Numerically, $s = 2(0.9383)(7000 + 0.9383) = 13135\ \text{GeV}^2$, so $\sqrt{s} = 114.6$ GeV.
+
+Compare the collider: two 7 TeV beams head-on have $\sum \vec{p} = 0$ already, so $\sqrt{s} = 14000$ GeV. The fixed target wastes almost everything because most of the beam energy goes into carrying the debris forward, and momentum conservation will not let it stop. The $\sqrt{s}$ of a fixed target grows only as $\sqrt{E_1}$, which is why every high-energy machine built since the 1970s is a collider.
+
+<Figure caption={<><b>Figure 2.</b> Drag the beam energy and compare the two bars. The dashed markers are the energies needed to make a neutral pion and to make a proton-antiproton pair. Notice how much further you have to push the fixed-target beam to reach the same mark.</>}>
+  <Sim id="four-vectors-threshold" />
+</Figure>
 
 <QuickCheck
-  question="Why does squaring the total energy-momentum four-vector simplify a collision problem?"
-  options={["It removes the rest mass terms", "It gives a quantity with the same value in every frame, so you may evaluate it in the easiest one", "It converts the problem to a classical one", "It guarantees momentum is conserved"]}
+  question="A fixed-target beam energy is doubled from 200 GeV to 400 GeV. Roughly what happens to the energy available to create new particles?"
+  options={["It doubles", "It grows by about a factor of 1.4", "It stays the same", "It quadruples"]}
   answer={1}
-  explanation="The square of a four-vector is a Lorentz invariant. Setting the invariant computed in the lab frame equal to the invariant computed in the center-of-momentum frame, where the final particles are at rest at threshold, replaces several unknown momenta with a single equation."
+  explanation="For a fixed target and a beam energy far above the rest energy, s is about 2 m E, so the square root of s grows like the square root of the beam energy. Doubling E multiplies the available energy by about 1.41, not by 2."
 />
+
+## Thresholds
+
+Here is where the invariant earns its keep. A threshold problem asks for the minimum beam energy to produce some set of products. In the lab that final state is several particles with unknown momenta, which looks hopeless. But you never have to touch the lab-frame final state.
+
+At threshold, the products have just barely enough energy to exist and none left over for motion — in the centre-of-momentum frame they all come out **at rest**, moving together. So in that frame $\sqrt{s}$ after the collision is exactly the sum of the product rest energies. Set that equal to $\sqrt{s}$ computed before the collision in the lab, where you know everything.
+
+**Example 3.** Protons strike protons at rest to make an antiproton: $p + p \to p + p + p + \bar{p}$. Find the minimum beam kinetic energy.
+
+Four particles come out, each of rest energy $938.3$ MeV, so at threshold $\sqrt{s} = 4m_pc^2$. From Example 2, the lab side gives $s = 2m_pc^2(E_1 + m_pc^2)$. Equate:
+
+$$2m_pc^2\left(E_1 + m_pc^2\right) = 16(m_pc^2)^2$$
+
+$$E_1 + m_pc^2 = 8m_pc^2 \quad\Longrightarrow\quad E_1 = 7m_pc^2$$
+
+That is total energy, so the kinetic energy is $K = E_1 - m_pc^2 = 6m_pc^2 = 6(938.3) = 5630$ MeV, or $5.63$ GeV. You need six proton masses of kinetic energy to make one antiproton, and five of those six are wasted on forward motion.
+
+The same three lines handle every threshold. Only two things change: what $\sqrt{s}$ is before, and what the products weigh. If the incoming particle is a photon, put $E_\gamma$ and $p_\gamma c = E_\gamma$ into the sum. If the two incoming particles collide head-on rather than one being at rest, the momenta subtract instead of vanishing, and for a head-on collision of a high-energy proton with a low-energy photon you get $s \approx (m_pc^2)^2 + 4E_pE_\gamma$ — which is the whole of the GZK cutoff problem.
+
+<Aside label="Where this goes wrong" warn>
+  "At rest at threshold" is true in the centre-of-momentum frame and false in the lab. If you write the products as stationary in the lab you will violate momentum conservation and get an answer that is too small. The safe habit: compute $s$ on the left in the lab, compute $s$ on the right in the centre-of-momentum frame, never mix a lab momentum with a centre-of-momentum energy inside one equation.
+</Aside>
+
+## Decays, which are thresholds run backwards
+
+A particle of mass $M$ at rest decays into two particles of masses $m_1$ and $m_2$. The parent has $E = Mc^2$ and $\vec{p} = 0$, so the products carry equal and opposite momenta of size $p$. Write energy conservation and use the triangle on each product:
+
+$$Mc^2 = \sqrt{(pc)^2 + (m_1c^2)^2} + \sqrt{(pc)^2 + (m_2c^2)^2}$$
+
+Solving that for $p$ is messy directly. The clean route is to isolate one particle. Move particle 2's four-vector to the left, $P_2 = P_M - P_1$, and square:
+
+$$(m_2c^2)^2 = (Mc^2)^2 + (m_1c^2)^2 - 2Mc^2E_1$$
+
+because the cross term is $2 P_M \cdot P_1 c^2 = 2Mc^2E_1$ when the parent is at rest. Rearranged,
+
+$$E_1 = \frac{(Mc^2)^2 + (m_1c^2)^2 - (m_2c^2)^2}{2Mc^2}$$
+
+**Example 4.** A pion at rest decays, $\pi^+ \to \mu^+ + \nu_\mu$, with $m_\pi c^2 = 139.6$ MeV, $m_\mu c^2 = 105.7$ MeV, and a massless neutrino. The muon's energy is
+
+$$E_\mu = \frac{(139.6)^2 + (105.7)^2 - 0}{2(139.6)} = \frac{19488 + 11172}{279.2} = \frac{30660}{279.2} = 109.8\ \text{MeV}$$
+
+The neutrino takes the rest: $139.6 - 109.8 = 29.8$ MeV. Since it is massless, its momentum is $p_\nu c = 29.8$ MeV, and the muon must carry the same $29.8$ MeV of momentum in the opposite direction. Check the triangle: $\sqrt{29.8^2 + 105.7^2} = \sqrt{888 + 11173} = 109.8$ MeV. It closes.
+
+<QuickCheck
+  question="A particle of mass M at rest decays to two particles. What fixes the energy each one carries away?"
+  options={["Nothing, it varies from decay to decay", "The three masses alone", "The lifetime of the parent", "Only the mass difference M minus m1 minus m2"]}
+  answer={1}
+  explanation="Two-body decay from rest has no free parameters. Energy conservation plus equal and opposite momenta give one equation with one unknown, so each product's energy is fully determined by M, m1 and m2."
+/>
+
+## Photons: Compton and Doppler
+
+A photon's four-vector is $(E/c,\, \vec{p}\,)$ with $|\vec{p}\,|c = E$. Feed that into the same machinery and two famous results drop out.
+
+For **Compton scattering**, a photon of energy $E$ hits an electron at rest and leaves at angle $\theta$ with energy $E'$. Conservation says $P_\gamma + P_e = P'_\gamma + P'_e$. You do not care about the recoiling electron, so isolate it and square, which kills its unknown direction:
+
+$$\frac{1}{E'} - \frac{1}{E} = \frac{1 - \cos\theta}{m_ec^2}$$
+
+In wavelength this is the familiar $\Delta\lambda = (h/m_ec)(1-\cos\theta)$, with $h/m_ec = 2.43$ pm. A $1.000$ MeV photon at $60.0^\circ$: $1/E' = 1/1.000 + (1-0.500)/0.511 = 1 + 0.9785 = 1.9785$, so $E' = 0.5054$ MeV. The largest possible loss is at $\theta = 180^\circ$, which is the Compton edge.
+
+For the **Doppler shift**, transform the photon's four-vector instead. A source at rest emits frequency $f_0$, so its photon has $E_0 = hf_0$. Boost to the frame where the source moves at $\beta$ and the energy transforms like any time-component: $E = \gamma(E_0 + \beta p'_x c)$. For a photon emitted at angle $\theta$ from the motion in the observer's frame the result is
+
+$$\frac{f}{f_0} = \frac{1}{\gamma\left(1 - \beta\cos\theta\right)}$$
+
+Three cases matter. Straight toward you, $\theta = 0$, and this simplifies to $f = f_0\sqrt{(1+\beta)/(1-\beta)}$ — a blueshift. Straight away, flip the sign of $\beta$: a redshift. And sideways, $\theta = 90^\circ$, where the classical prediction is no shift at all but you get $f = f_0/\gamma$. That transverse shift is pure time dilation, and measuring it is direct evidence that moving clocks run slow.
+
+<Figure caption={<><b>Figure 3.</b> Wavefronts pile up ahead of the source and spread out behind. Set the detector angle to 90 degrees and watch the readout: the shift does not go to one, it goes to one over gamma.</>}>
+  <Sim id="four-vectors-doppler" />
+</Figure>
+
+Redshift is usually quoted as $z = \Delta\lambda/\lambda_0$, so $1 + z = \lambda/\lambda_0 = f_0/f$. For a receding source, $1+z = \sqrt{(1+\beta)/(1-\beta)}$. A quasar at $z = 2.00$ gives $3 = \sqrt{(1+\beta)/(1-\beta)}$, so $9(1-\beta) = 1+\beta$ and $\beta = 0.800$.
+
+The same $\gamma(1-\beta\cos\theta)$ factor bends directions as well as frequencies. Light emitted at $90^\circ$ in the source frame arrives at $\cos\theta = \beta$ in the lab, so a fast source beams half its light into a narrow forward cone of half-angle $\arccos\beta \approx 1/\gamma$. That is the **headlight effect**, and running it with $\beta$ tiny gives stellar aberration, $\Delta\theta \approx \beta$ radians.
+
+<Aside label="Worth remembering">
+  Rapidity $\eta = \tanh^{-1}\beta$ turns velocity addition into ordinary addition: boosts along a line just add their rapidities. Two successive boosts at $\beta = 0.800$ give $\eta_{\text{tot}} = 2\tanh^{-1}(0.800) = 2(1.0986) = 2.197$, so $\beta = \tanh(2.197) = 0.9756$. It is also why $\beta$ can never reach 1 — you would need infinite rapidity.
+</Aside>
+
+## Recognising the method
+
+Reach for four-vectors and invariants when you see any of these:
+
+**"Find the minimum energy to produce..."** — a threshold. Compute $s$ in the lab before, set $\sqrt{s}$ equal to the sum of product masses after, solve.
+
+**"A particle at rest decays into..."** — isolate one product, square, use the two-body energy formula. The answer depends only on the three masses.
+
+**A final state with more than two unknown momenta.** Component equations will drown you. Squaring a four-vector deletes exactly the unknowns you do not care about, which is why you always isolate the particle you were not asked about before squaring.
+
+**Any question about a photon's measured colour, frequency, wavelength or redshift when something is moving** — Doppler, with $\theta$ measured in the observer's frame. Check whether the problem means approach, recession or transverse before you pick a sign.
+
+**"As measured in the rest frame of..."** with two velocities given — either a Lorentz transformation of a four-velocity, or the invariant $P_1 \cdot P_2 = \gamma_{\text{rel}} m_1m_2c^2$, which hands you the relative $\gamma$ in one step.
+
+The habit that makes all of this fast: before writing a single number, write the conservation statement as four-vectors, decide which particle you want to eliminate, move it to one side alone, and square. The frame you evaluate in is then yours to choose, and you should always choose the lazy one.
+
+That closes the course. Everything here rests on the same instinct you have been building since [conservation of energy](/guide/energy-conservation): find the quantity that does not change, and let it do the work.

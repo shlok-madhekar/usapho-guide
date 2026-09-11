@@ -1,0 +1,82 @@
+[
+  {
+    "id": "rc-circuits-charge-lab",
+    "title": "Charging lab",
+    "caption": "Voltage climbs and current falls, both with the same time constant.",
+    "height": 250,
+    "params": [
+      {
+        "key": "res",
+        "label": "Resistance",
+        "unit": "kohm",
+        "min": 1,
+        "max": 50,
+        "step": 0.5,
+        "value": 10
+      },
+      {
+        "key": "cap",
+        "label": "Capacitance",
+        "unit": "uF",
+        "min": 10,
+        "max": 500,
+        "step": 10,
+        "value": 100
+      },
+      {
+        "key": "emf",
+        "label": "Battery emf",
+        "unit": "V",
+        "min": 1,
+        "max": 50,
+        "step": 1,
+        "value": 20
+      }
+    ],
+    "draw": "var Rr = p.res * 1000, Cc = p.cap * 1e-6, E = p.emf;\nvar tau = Rr * Cc;\nvar padL = 44, padR = 58, padT = 18, padB = 28;\nvar T = 5 * tau;\nvar PW = W - padL - padR, PH = H - padT - padB;\nvar X = function (s) { return padL + (s / T) * PW; };\nvar Y = function (f) { return padT + PH - f * PH; };\n\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(padL, padT); ctx.lineTo(padL, padT + PH); ctx.lineTo(padL + PW, padT + PH);\nctx.stroke();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// tau gridlines\nctx.strokeStyle = C.faint;\nctx.setLineDash([2, 4]);\nfor (var k = 1; k <= 5; k++) {\n  ctx.beginPath(); ctx.moveTo(X(k * tau), padT); ctx.lineTo(X(k * tau), padT + PH); ctx.stroke();\n}\nctx.beginPath(); ctx.moveTo(padL, Y(0.632)); ctx.lineTo(padL + PW, Y(0.632)); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nfor (var k2 = 1; k2 <= 5; k2++) {\n  ctx.fillText(k2 + \"T\", X(k2 * tau), padT + PH + 15);\n}\nctx.textAlign = \"right\";\nctx.fillText(\"63%\", padL - 5, Y(0.632) + 4);\nctx.fillText(\"0\", padL - 5, padT + PH + 4);\nctx.fillText(\"100%\", padL - 5, padT + 10);\nctx.textAlign = \"left\";\nctx.fillText(\"time, in units of one time constant T\", padL, padT + 10);\n\n// voltage curve\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 200; i++) {\n  var s = T * i / 200;\n  var v = 1 - Math.exp(-s / tau);\n  if (i === 0) { ctx.moveTo(X(s), Y(v)); } else { ctx.lineTo(X(s), Y(v)); }\n}\nctx.stroke();\n\n// current curve\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.5;\nctx.setLineDash([5, 4]);\nctx.beginPath();\nfor (var j = 0; j <= 200; j++) {\n  var s2 = T * j / 200;\n  var cu = Math.exp(-s2 / tau);\n  if (j === 0) { ctx.moveTo(X(s2), Y(cu)); } else { ctx.lineTo(X(s2), Y(cu)); }\n}\nctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.accent;\nctx.fillText(\"capacitor voltage\", padL + PW + 6, Y(0.9));\nctx.fillStyle = C.figure;\nctx.fillText(\"current\", padL + PW + 6, Y(0.12));\n\n// moving marker\nvar cur = ((t % 6) / 6) * T;\nvar vf = 1 - Math.exp(-cur / tau);\nvar cf = Math.exp(-cur / tau);\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(cur), padT); ctx.lineTo(X(cur), padT + PH); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(cur), Y(vf), 4.5, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(X(cur), Y(cf), 4.5, 0, Math.PI * 2); ctx.fill();\n\nvar volts = E * vf;\nvar milli = (E / Rr) * cf * 1000;\nout.note = \"T = RC = \" + tau.toFixed(3) + \" s; at t = \" + cur.toFixed(2) + \" s the capacitor is at \" +\n  volts.toFixed(2) + \" V of \" + E.toFixed(0) + \" V and the current is \" + milli.toFixed(3) + \" mA\";"
+  },
+  {
+    "id": "rc-circuits-limits",
+    "title": "The two limiting circuits",
+    "caption": "An uncharged capacitor is a wire at t = 0 and a gap long after.",
+    "height": 210,
+    "params": [],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.6;\nvar pw = W / 3;\n\nvar panel = function (x0, mode, title, sub) {\n  var L = x0 + 0.16 * pw, Rt = x0 + 0.84 * pw;\n  var Tp = 44, Bt = H - 34;\n  ctx.strokeStyle = C.ink;\n\n  // top wire with resistor gap\n  var ra = (L + Rt) / 2 - 16, rb = (L + Rt) / 2 + 16;\n  ctx.beginPath();\n  ctx.moveTo(L, Tp); ctx.lineTo(ra, Tp);\n  ctx.moveTo(rb, Tp); ctx.lineTo(Rt, Tp);\n  ctx.stroke();\n  ctx.strokeRect(ra, Tp - 7, rb - ra, 14);\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"center\";\n  ctx.fillText(\"R\", (ra + rb) / 2, Tp - 13);\n\n  // bottom wire\n  ctx.beginPath(); ctx.moveTo(L, Bt); ctx.lineTo(Rt, Bt); ctx.stroke();\n\n  // left side: battery\n  var by = (Tp + Bt) / 2;\n  ctx.beginPath();\n  ctx.moveTo(L, Tp); ctx.lineTo(L, by - 9);\n  ctx.moveTo(L, by + 9); ctx.lineTo(L, Bt);\n  ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(L - 13, by - 9); ctx.lineTo(L + 13, by - 9);\n  ctx.moveTo(L - 7, by + 9); ctx.lineTo(L + 7, by + 9);\n  ctx.stroke();\n  ctx.textAlign = \"right\";\n  ctx.fillText(\"E\", L - 17, by + 4);\n\n  // right side: the capacitor or its replacement\n  ctx.textAlign = \"left\";\n  if (mode === 0) {\n    ctx.beginPath();\n    ctx.moveTo(Rt, Tp); ctx.lineTo(Rt, by - 7);\n    ctx.moveTo(Rt, by + 7); ctx.lineTo(Rt, Bt);\n    ctx.stroke();\n    ctx.strokeStyle = C.accent;\n    ctx.beginPath();\n    ctx.moveTo(Rt - 13, by - 7); ctx.lineTo(Rt + 13, by - 7);\n    ctx.moveTo(Rt - 13, by + 7); ctx.lineTo(Rt + 13, by + 7);\n    ctx.stroke();\n    ctx.fillStyle = C.accent;\n    ctx.fillText(\"C\", Rt + 17, by + 4);\n  } else if (mode === 1) {\n    ctx.strokeStyle = C.accent;\n    ctx.beginPath(); ctx.moveTo(Rt, Tp); ctx.lineTo(Rt, Bt); ctx.stroke();\n    ctx.fillStyle = C.accent;\n    ctx.fillText(\"wire\", Rt + 8, by + 4);\n  } else {\n    ctx.strokeStyle = C.ink;\n    ctx.beginPath();\n    ctx.moveTo(Rt, Tp); ctx.lineTo(Rt, by - 12);\n    ctx.moveTo(Rt, by + 12); ctx.lineTo(Rt, Bt);\n    ctx.stroke();\n    ctx.fillStyle = C.accent;\n    ctx.fillText(\"gap\", Rt + 8, by + 4);\n  }\n\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"center\";\n  ctx.fillText(title, x0 + pw / 2, 20);\n  ctx.fillStyle = C.faint;\n  ctx.fillText(sub, x0 + pw / 2, H - 12);\n  ctx.strokeStyle = C.ink;\n};\n\npanel(0, 0, \"the circuit\", \"switch closes at t = 0\");\npanel(pw, 1, \"just after, t = 0+\", \"current is E over R\");\npanel(2 * pw, 2, \"long after\", \"current is zero\");\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath();\nctx.moveTo(pw, 8); ctx.lineTo(pw, H - 22);\nctx.moveTo(2 * pw, 8); ctx.lineTo(2 * pw, H - 22);\nctx.stroke();\nctx.setLineDash([]);\n\nout.note = \"an uncharged capacitor starts as a wire and ends as a gap\";"
+  },
+  {
+    "id": "rc-circuits-thevenin",
+    "title": "Divider with a capacitor",
+    "caption": "The capacitor sees R1 in parallel with R2, not either one alone.",
+    "height": 250,
+    "params": [
+      {
+        "key": "r1",
+        "label": "R1",
+        "unit": "kohm",
+        "min": 1,
+        "max": 12,
+        "step": 0.5,
+        "value": 6
+      },
+      {
+        "key": "r2",
+        "label": "R2",
+        "unit": "kohm",
+        "min": 1,
+        "max": 12,
+        "step": 0.5,
+        "value": 3
+      },
+      {
+        "key": "cap",
+        "label": "Capacitance",
+        "unit": "uF",
+        "min": 10,
+        "max": 300,
+        "step": 10,
+        "value": 100
+      }
+    ],
+    "draw": "var R1 = p.r1 * 1000, R2 = p.r2 * 1000, Cc = p.cap * 1e-6, E = 12;\nvar Vf = E * R2 / (R1 + R2);\nvar Rth = R1 * R2 / (R1 + R2);\nvar tau = Rth * Cc;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.6;\nctx.strokeStyle = C.ink;\nctx.fillStyle = C.ink;\n\nvar L = 0.16 * W, M = 0.52 * W, Rt = 0.82 * W;\nvar Tp = 34, Bt = H - 34, Ay = (Tp + Bt) / 2;\n\n// top rail from battery to node A branch\nctx.beginPath();\nctx.moveTo(L, Tp); ctx.lineTo(M, Tp);\nctx.moveTo(L, Bt); ctx.lineTo(Rt, Bt);\nctx.stroke();\n\n// battery on the left\nvar by = (Tp + Bt) / 2;\nctx.beginPath();\nctx.moveTo(L, Tp); ctx.lineTo(L, by - 9);\nctx.moveTo(L, by + 9); ctx.lineTo(L, Bt);\nctx.stroke();\nctx.beginPath();\nctx.moveTo(L - 13, by - 9); ctx.lineTo(L + 13, by - 9);\nctx.moveTo(L - 7, by + 9); ctx.lineTo(L + 7, by + 9);\nctx.stroke();\nctx.textAlign = \"right\";\nctx.fillText(\"12 V\", L - 17, by + 4);\n\n// R1 from top rail down to node A\nvar r1a = Tp + 14, r1b = Ay - 14;\nctx.beginPath();\nctx.moveTo(M, Tp); ctx.lineTo(M, r1a);\nctx.moveTo(M, r1b); ctx.lineTo(M, Ay);\nctx.stroke();\nctx.strokeRect(M - 7, r1a, 14, r1b - r1a);\nctx.textAlign = \"left\";\nctx.fillText(\"R1 = \" + p.r1.toFixed(1) + \" k\", M + 12, (r1a + r1b) / 2 + 4);\n\n// R2 from node A down to the bottom rail\nvar r2a = Ay + 14, r2b = Bt - 14;\nctx.beginPath();\nctx.moveTo(M, Ay); ctx.lineTo(M, r2a);\nctx.moveTo(M, r2b); ctx.lineTo(M, Bt);\nctx.stroke();\nctx.strokeRect(M - 7, r2a, 14, r2b - r2a);\nctx.fillText(\"R2 = \" + p.r2.toFixed(1) + \" k\", M + 12, (r2a + r2b) / 2 + 4);\n\n// node A and the wire across to the capacitor branch\nctx.beginPath(); ctx.arc(M, Ay, 3.5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"A\", M - 18, Ay - 6);\nctx.beginPath(); ctx.moveTo(M, Ay); ctx.lineTo(Rt, Ay); ctx.stroke();\n\n// capacitor from that wire down to the bottom rail\nctx.beginPath();\nctx.moveTo(Rt, Ay); ctx.lineTo(Rt, Ay + 22);\nctx.moveTo(Rt, Ay + 36); ctx.lineTo(Rt, Bt);\nctx.stroke();\nctx.strokeStyle = C.accent;\nctx.beginPath();\nctx.moveTo(Rt - 13, Ay + 22); ctx.lineTo(Rt + 13, Ay + 22);\nctx.moveTo(Rt - 13, Ay + 36); ctx.lineTo(Rt + 13, Ay + 36);\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"C = \" + p.cap.toFixed(0) + \" uF\", Rt - 10, Ay + 56);\n\n// fill bar showing how charged it is\nvar frac = 1 - Math.exp(-((t % 6) / 6) * 5);\nctx.fillStyle = C.figure;\nctx.fillRect(Rt - 13, Ay + 24, 26 * frac, 10);\nctx.strokeStyle = C.rule;\nctx.strokeRect(Rt - 13, Ay + 24, 26, 10);\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"kill the battery and R1 sits in parallel with R2 across C\", 8, H - 10);\n\nout.note = \"final voltage \" + Vf.toFixed(2) + \" V, R seen by C = \" + (Rth / 1000).toFixed(3) +\n  \" k, T = \" + tau.toFixed(4) + \" s, now at \" + (Vf * frac).toFixed(2) + \" V\";"
+  }
+]

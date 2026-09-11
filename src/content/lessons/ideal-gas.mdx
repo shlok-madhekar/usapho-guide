@@ -1,62 +1,462 @@
-## An equation of state
+## One equation, three variables
 
-$PV = nRT$ is not a law of physics in the way that $F = ma$ is. It is a
-constraint linking the three variables that describe a gas, so that only two
-of them are ever free. Fix any two and the third follows.
+Put some gas in a container and you can measure three things about it: how much
+space it fills, how hard it pushes on the walls, and how hot it is. You might
+expect those three to be independent. They are not. Squeeze the gas without
+letting heat out and it gets hotter. Warm a sealed can and the pressure climbs.
+Two of the three are free; the third is then fixed for you.
 
-$$PV = nRT = Nk_BT$$
+The relation that fixes it is the ideal gas law — not a law of nature in the
+sense that $F = ma$ is, but an *equation of state*, a statement about how one
+particular kind of stuff behaves. Real gases obey it well when they are dilute
+and far from condensing, which covers nearly every gas in a problem. This
+lesson builds it from the molecular picture in
+[kinetic theory](/guide/kinetic-theory), then uses it to invert a mercury tube,
+compress a diesel cylinder, and predict the temperature three kilometres up.
 
-Use $n$ and $R = 8.31$ J/(mol·K) when you are counting moles, $N$ and
-$k_B = 1.38\times10^{-23}$ J/K when you are counting molecules. They are the
-same statement divided by Avogadro's number.
+## Where $PV = nRT$ comes from
 
-The practical consequence for problem solving is that any two states of a
-fixed amount of gas satisfy $P_1V_1/T_1 = P_2V_2/T_2$. Most numerical
-thermodynamics questions never need $R$ at all — they need this ratio.
+The last lesson ended with a result about molecules bouncing off walls. For $N$
+molecules of mass $m$ rattling around in a box of volume $V$, the pressure on
+the walls is
 
-## Temperature is energy per degree of freedom
+$$
+PV = \tfrac{1}{3} N m \overline{v^2},
+$$
 
-The microscopic reading is that $k_BT$ is an energy scale. Specifically, every
-independent quadratic term in a molecule's energy — each $\tfrac12 mv_x^2$,
-each $\tfrac12 I\omega^2$, each $\tfrac12 kx^2$ in a vibrational mode —
-carries $\tfrac12 k_BT$ on average once the system is in equilibrium. That is
-equipartition, and it is what "degree of freedom" means: not a way the
-molecule can move, but a quadratic energy term.
+where $\overline{v^2}$ is the average of the squared speed. Rewrite the right
+side to make the kinetic energy show up. Since the average translational
+kinetic energy of one molecule is $\overline{K} = \tfrac12 m \overline{v^2}$,
 
-Counting for common cases:
+$$
+PV = \tfrac{2}{3} N \overline{K}.
+$$
 
-- Monatomic: 3 translational. $f = 3$.
-- Diatomic at room temperature: 3 translational, 2 rotational. $f = 5$.
-- Diatomic, hot: add 2 more for the vibrational mode, since a spring
-  contributes both kinetic and potential terms. $f = 7$.
+That is pure mechanics: no temperature anywhere. Temperature enters as a
+*definition*. Two gases in thermal contact stop exchanging energy when their
+molecules have the same average kinetic energy, so that average is the natural
+thing to call temperature. The Kelvin scale was already fixed by then, so the
+definition carries a conversion constant $k_B$:
 
-Rotation about the bond axis of a diatomic does not count. Its moment of
-inertia is tiny, and the energy needed to excite it is far above $k_BT$.
+$$
+\overline{K} = \tfrac{3}{2} k_B T, \qquad k_B = 1.38\times10^{-23}\ \text{J/K}.
+$$
+
+Substitute and the $\tfrac23$ and $\tfrac32$ cancel:
+
+$$
+PV = N k_B T.
+$$
+
+Counting molecules one at a time is awkward, so chemists count in moles. One
+mole is $N_A = 6.02\times10^{23}$ of them, so $N = n N_A$, and grouping
+$R = N_A k_B = 8.31$ J/(mol·K) gives the form you will use most:
+
+$$
+PV = nRT.
+$$
+
+The two versions are the same statement divided by Avogadro's number. Use $n$
+and $R$ when the problem talks about moles or grams, $N$ and $k_B$ when it
+talks about individual molecules.
+
+Read it in words. At fixed temperature, pressure and volume trade off inversely
+— halve the volume and the pressure doubles. At fixed volume, pressure rises in
+direct proportion to *absolute* temperature. And $T$ is always in kelvin, never
+celsius, because the derivation ran through $\overline{K} = \tfrac32 k_B T$ and
+kinetic energy cannot be negative.
 
 <Aside label="Where this goes wrong" warn>
-  Equipartition is a classical result and modes freeze out when their spacing
-  exceeds $k_BT$. Hydrogen behaves with $f = 3$ below about 100 K, $f = 5$ near
-  room temperature, and $f = 7$ only above a few thousand kelvin. If a problem
-  gives you a temperature, it is usually telling you which count to use.
+  Putting celsius into $PV = nRT$ is the single most common error in this
+  topic, and it does not announce itself — you get a plausible-looking number
+  that is wrong by a factor of a few. Convert first, every time: $T(\text{K}) =
+  T(^\circ\text{C}) + 273$. The same goes for gauge pressure. A tyre gauge
+  reading $2.00\times10^5$ Pa means the gas is at $2.00\times10^5 +
+  1.013\times10^5 = 3.01\times10^5$ Pa absolute, and only the absolute value
+  belongs in the equation.
 </Aside>
 
-## From counting to $\gamma$
+## The ratio form, which is what you actually use
 
-Once you have $f$, everything else is arithmetic:
+Most problems never need $R$. They give you a gas in one state and ask about
+another, with the amount of gas unchanged. Then $nR$ is a constant you never
+have to evaluate, and dividing the two states gives
 
-$$U = \tfrac{f}{2}nRT, \qquad C_V = \tfrac{f}{2}R, \qquad C_P = C_V + R$$
+$$
+\frac{P_1 V_1}{T_1} = \frac{P_2 V_2}{T_2}.
+$$
 
-$$\gamma = \frac{C_P}{C_V} = \frac{f+2}{f}$$
+Cross out whatever is held fixed. Rigid container: $V$ cancels, so $P \propto
+T$. Fixed temperature: $PV$ is constant, which is Boyle's law. Fixed pressure:
+$V \propto T$.
 
-So $\gamma = 5/3$ for monatomic, $7/5$ for diatomic, $4/3$ for a molecule with
-six active degrees of freedom. That single number then governs every adiabatic
-process, the speed of sound in the gas, and the shape of the steep curves on a
-PV diagram — all of it traceable back to how many ways one molecule can hold
-energy.
+**Example 1 — a tyre after a highway run.** A tyre of essentially fixed volume
+reads a gauge pressure of $2.00\times10^5$ Pa at $280$ K. Driving warms the air
+to $310$ K. Atmospheric pressure is $1.013\times10^5$ Pa. Find the new gauge
+pressure.
+
+Convert to absolute first: $P_1 = 2.00\times10^5 + 1.013\times10^5 =
+3.013\times10^5$ Pa. The volume is fixed, so
+
+$$
+P_2 = P_1 \frac{T_2}{T_1} = 3.013\times10^5 \times \frac{310}{280}
+= 3.013\times10^5 \times 1.1071 = 3.336\times10^5\ \text{Pa}.
+$$
+
+The question asks for gauge, so subtract the atmosphere back off:
+$3.336\times10^5 - 1.013\times10^5 = 2.32\times10^5$ Pa. Had you used gauge
+pressure throughout you would have got $2.21\times10^5$ Pa — close enough to
+look right, and wrong.
+
+<QuickCheck
+  question="A sealed rigid can of gas is heated from 27 C to 327 K. By what factor does the pressure change?"
+  options={["It is unchanged", "It rises by a factor of about 1.09", "It rises by a factor of about 12", "There is not enough information"]}
+  answer={1}
+  explanation="27 C is 300 K, so the ratio is 327/300 = 1.09. Subtracting 27 from 327 and calling the answer a factor of 300 is the trap: the ratio must be taken between two kelvin temperatures."
+/>
+
+## Pressure bookkeeping: pistons and mercury
+
+Half the difficulty in gas problems is not the gas law at all. It is working
+out what $P$ is before you use it. Two setups cover almost everything.
+
+A **piston** in equilibrium is a free body. The gas below pushes up with
+$P_{\text{gas}} A$, the atmosphere pushes down with $P_0 A$, and gravity pulls
+down with $Mg$. So $P_{\text{gas}} = P_0 + Mg/A$ for a piston sitting on top of
+the gas, and $P_0 - Mg/A$ if the piston hangs below it. With $M = 20.0$ kg and
+$A = 0.0100$ m², the piston contributes $20.0 \times 9.8 / 0.0100 =
+1.96\times10^4$ Pa, giving $1.209\times10^5$ Pa.
+
+A **column of liquid** of height $h$ contributes $\rho g h$ to the pressure at
+its bottom. Mercury problems quote lengths in cmHg and never need converting,
+because the conversion cancels. What matters is only whether the mercury adds
+to or subtracts from the atmospheric pressure holding the gas in.
+
+<Figure caption={<><b>Figure 1.</b> A trapped air column, closed end down and then closed end up. Drag the mercury height and watch the trapped column stretch as the mercury stops pushing down on it and starts hanging off it. Push the mercury height above the atmospheric reading and the setup becomes impossible.</>}>
+  <Sim id="ideal-gas-mercury" />
+</Figure>
+
+**Example 2 — inverting a mercury-sealed tube.** A tube closed at the bottom
+stands upright. It traps a $20.0$ cm air column, capped by $10.0$ cm of
+mercury, open to an atmosphere of $75.0$ cmHg. Turn the tube over, closed end
+now up, and find the new air column length at unchanged temperature.
+
+In the first configuration the trapped air holds up $10.0$ cm of mercury and
+the atmosphere above that:
+
+$$
+P_1 = 75.0 + 10.0 = 85.0\ \text{cmHg}.
+$$
+
+Now invert. The gas sits at the closed top with the mercury hanging below it,
+and below that the open end feels the atmosphere. Work up from the open end:
+start at $75.0$, then climbing $10.0$ cm of mercury *drops* the pressure by
+$10.0$:
+
+$$
+P_2 = 75.0 - 10.0 = 65.0\ \text{cmHg}.
+$$
+
+The gas is at lower pressure, so it expands. The tube has uniform area, so
+volume is proportional to length, and Boyle's law gives
+
+$$
+L_2 = L_1 \frac{P_1}{P_2} = 20.0 \times \frac{85.0}{65.0}
+= 20.0 \times 1.3077 = 26.2\ \text{cm}.
+$$
+
+The sign of the $10.0$ is the whole problem. Ask each time: is the mercury
+sitting on the gas, or hanging off it?
+
+<Aside label="Worth remembering">
+  When a gas is sealed off by a valve and then released into a second tank, the
+  quantity that is conserved is $n$, not $P$. Add up the moles:
+  $P_1V_1/RT + P_2V_2/RT = P_fV_f/RT$, and since $T$ is common it cancels,
+  leaving $P_f = (P_1V_1 + P_2V_2)/(V_1+V_2)$. For 2.00 L at
+  $3.00\times10^5$ Pa joined to 3.00 L at $1.00\times10^5$ Pa, that is
+  $(6.00 + 3.00)\times10^{5}\!\cdot\!\text{L} / 5.00\ \text{L} =
+  1.80\times10^5$ Pa.
+</Aside>
+
+## Density, and why hot air rises
+
+The mass of the gas is $Mn$, where $M$ is the molar mass in kg/mol, so
+
+$$
+\rho = \frac{Mn}{V} = \frac{MP}{RT}.
+$$
+
+At fixed pressure, density is inversely proportional to absolute temperature.
+That line explains hot-air balloons. Heat the air in an open-bottomed envelope
+and it stays at atmospheric pressure — the bottom is open, so it must — but its
+density falls by the factor $T_{\text{out}}/T_{\text{in}}$.
+
+**Example 3 — how hot must the balloon air be?** An envelope encloses
+$V = 1500$ m³. Fabric, basket and passengers come to $300$ kg, not counting the
+air inside. Outside air is $1.25$ kg/m³ at $288$ K. Find the lowest inside
+temperature that lifts the balloon.
+
+Buoyancy is the weight of displaced outside air, $\rho_{\text{out}} V g$. It
+must support the payload plus the enclosed hot air, $(m_{\text{load}} +
+\rho_{\text{in}} V) g$. The $g$ cancels:
+
+$$
+\rho_{\text{out}} V = m_{\text{load}} + \rho_{\text{in}} V
+\quad\Longrightarrow\quad
+\rho_{\text{in}} = \rho_{\text{out}} - \frac{m_{\text{load}}}{V}.
+$$
+
+Numerically $\rho_{\text{in}} = 1.25 - 300/1500 = 1.25 - 0.200 = 1.05$ kg/m³.
+Same pressure and same gas inside and out means $\rho T$ is the same constant,
+so
+
+$$
+T_{\text{in}} = T_{\text{out}} \frac{\rho_{\text{out}}}{\rho_{\text{in}}}
+= 288 \times \frac{1.25}{1.05} = 288 \times 1.1905 = 343\ \text{K}.
+$$
+
+About 70 °C. That is why balloon burners are large.
+
+## Equipartition: how a gas stores energy
+
+The gas law says nothing about energy. For that you need to know how many
+independent ways a molecule can hold it.
+
+The rule is remarkable. In thermal equilibrium, every independent term in a
+molecule's energy that is *quadratic* in some coordinate or velocity carries an
+average of $\tfrac12 k_B T$: each $\tfrac12 m v_x^2$, each
+$\tfrac12 I\omega^2$, each $\tfrac12 k x^2$ of a vibrating bond. Call the
+number of such terms $f$, the degrees of freedom. Note what a degree of freedom
+is — not a way of moving, but a quadratic energy term.
+
+A single atom has three, one for motion along each of $x$, $y$, $z$. So $f = 3$
+and $\overline{K} = \tfrac32 k_B T$, which is the definition of temperature you
+started from. That is a consistency check, not a coincidence.
+
+A diatomic molecule adds tumbling about the two axes perpendicular to the bond,
+so $f = 5$ at room temperature. Rotation about the bond axis does not count:
+the moment of inertia is minuscule and the energy to excite it is far above
+$k_BT$. Heat the gas to a few thousand kelvin and the bond vibrates, adding a
+kinetic and a potential term, so $f = 7$.
+
+<Figure caption={<><b>Figure 2.</b> Counting the quadratic energy terms for the three standard cases. Notice that the vibrational mode counts twice, once for the kinetic term and once for the potential term of the bond spring.</>}>
+  <Sim id="ideal-gas-dof" />
+</Figure>
+
+Multiply through by the number of molecules. The internal energy of $n$ moles
+is
+
+$$
+U = \tfrac{f}{2} n R T.
+$$
+
+Two things follow. First, $U$ depends on temperature alone, not on volume or
+pressure. Second, heating at constant volume does no work, so all the heat goes
+into $U$, and the molar heat capacity at constant volume is
+
+$$
+C_V = \frac{1}{n}\frac{dU}{dT} = \tfrac{f}{2} R.
+$$
+
+Heat at constant pressure instead and the gas expands, doing work
+$P\,\Delta V = nR\,\Delta T$. You supply that as well as the internal energy, so
+
+$$
+C_P = C_V + R.
+$$
+
+The ratio of the two gets its own symbol and controls everything that follows:
+
+$$
+\gamma = \frac{C_P}{C_V} = \frac{f+2}{f}.
+$$
+
+Monatomic gases have $\gamma = 5/3$, diatomics at room temperature $7/5 = 1.40$,
+and a molecule with six active degrees of freedom $4/3$.
+
+<Aside label="Where this goes wrong" warn>
+  Equipartition is classical, and modes freeze out when their energy spacing
+  exceeds $k_BT$. Hydrogen behaves with $f = 3$ below about 100 K, $f = 5$ near
+  room temperature, and $f = 7$ only above a few thousand. When a problem
+  bothers to tell you the temperature or says "at room temperature", it is
+  telling you which count to use.
+</Aside>
+
+For a **mixture**, add extensively. Two moles of different gases in one vessel
+each contribute their own $n C_V$, so the mixture's molar $C_V$ is the
+mole-weighted average. One mole of argon ($\tfrac32 R$) with one mole of
+nitrogen ($\tfrac52 R$) gives $C_V = 2R$, then $C_P = 3R$, so $\gamma = 1.5$.
+Pressures add the same way: each gas fills the whole volume and contributes a
+**partial pressure** $p_i = n_i RT/V$, and the total is their sum. Two moles of
+oxygen with three of nitrogen at $2.00\times10^5$ Pa total puts the oxygen at
+$\frac{2}{5}\times 2.00\times10^5 = 8.0\times10^4$ Pa.
 
 <QuickCheck
   question="A gas has molar heat capacity at constant volume equal to 3R. How many active degrees of freedom does each molecule have, and what is gamma?"
   options={["3 degrees of freedom, gamma = 5/3", "6 degrees of freedom, gamma = 4/3", "6 degrees of freedom, gamma = 5/3", "5 degrees of freedom, gamma = 7/5"]}
   answer={1}
-  explanation="C_V equals f/2 times R, so f = 6. Then gamma = (f+2)/f = 8/6 = 4/3."
+  explanation="C_V equals f/2 times R, so f = 6. Then gamma = (f+2)/f = 8/6 = 4/3. Reading f straight off the 3 in 3R is the trap."
 />
+
+## Adiabatic processes
+
+An **adiabatic** change has no heat crossing the boundary: insulated walls, or
+a change too fast for heat to flow. The gas still does work, so its internal
+energy pays for it.
+
+Take a small step. With no heat term the first law reads $dU = -P\,dV$, and
+$dU = nC_V\,dT$, so $nC_V\,dT = -P\,dV$. Replace $P$ with $nRT/V$ and divide
+through by $nT$:
+
+$$
+C_V \frac{dT}{T} = -R\frac{dV}{V}.
+$$
+
+Both sides integrate to logarithms. Dividing by $C_V$ and using
+$R/C_V = \gamma - 1$,
+
+$$
+\ln T + (\gamma-1)\ln V = \text{constant}
+\quad\Longrightarrow\quad
+T V^{\gamma-1} = \text{constant}.
+$$
+
+Substituting $T = PV/nR$ turns the same statement into $P V^{\gamma} =
+\text{constant}$. Because $\gamma > 1$, an adiabat is steeper on a $PV$ diagram
+than an isotherm: compressing adiabatically raises the pressure more than
+compressing isothermally, because you are heating the gas as well as crowding
+it.
+
+<Figure caption={<><b>Figure 3.</b> A piston compressing a gas, with the path traced on a pressure-volume diagram. Drag the compression ratio up to 18 to see what a diesel cylinder does. Turn gamma down towards 1 and the adiabat flattens onto the isotherm, because a gas with many degrees of freedom barely warms when you squeeze it.</>}>
+  <Sim id="ideal-gas-adiabat" />
+</Figure>
+
+**Example 4 — work done in an adiabatic expansion.** Two moles of a monatomic
+gas expand adiabatically, cooling from $500$ K to $300$ K. How much work does
+the gas do?
+
+No heat flows, so the work comes entirely out of internal energy:
+$W = -\Delta U$. For a monatomic gas $C_V = \tfrac32 R$, so
+
+$$
+W = -n C_V \Delta T = -2.00 \times \tfrac32 (8.31) \times (300 - 500).
+$$
+
+Work through it: $\tfrac32 \times 8.31 = 12.465$ J/(mol·K), times $2.00$ mol is
+$24.93$ J/K, times $200$ K is $4986$ J. The gas does about $4.99$ kJ of work.
+Notice you never needed the volumes, the pressures, or $\gamma$ — just the
+temperature drop.
+
+For a temperature question instead, use $TV^{\gamma-1}$. Air at $300$ K
+compressed 18-fold with $\gamma = 1.40$ reaches $T_2 = 300 \times
+18^{0.40}$. Since $\ln 18 = 2.890$, $0.40 \times 2.890 = 1.156$, and
+$e^{1.156} = 3.178$, giving $T_2 = 953$ K. That is hot enough to ignite diesel
+without a spark plug, which is the entire point of a diesel engine.
+
+## The atmosphere: two different questions
+
+Air gets thinner with altitude for one reason and colder for a completely
+different one. Keeping them apart is worth a section.
+
+**Pressure** falls because each layer holds up the weight of everything above
+it. A slab of thickness $dz$ and density $\rho$ weighs $\rho g\,dz$ per unit
+area, so $dP = -\rho g\,dz$. Substituting $\rho = MP/RT$ at uniform
+temperature,
+
+$$
+\frac{dP}{P} = -\frac{Mg}{RT}\,dz
+\quad\Longrightarrow\quad
+P(z) = P_0 e^{-Mgz/RT}.
+$$
+
+At $T = 280$ K, $M = 0.0290$ kg/mol, the exponent at $z = 3000$ m is
+$-(0.0290)(9.8)(3000)/[(8.31)(280)] = -852.6/2326.8 = -0.3664$. Then
+$e^{-0.3664} = 0.6932$, so $P = 1.013\times10^5 \times 0.6932 = 7.02\times10^4$
+Pa. Roughly 70 percent of sea level.
+
+**Temperature** falls for an adiabatic reason. Take a parcel of air rising
+slowly enough to match the surrounding pressure but too fast to exchange heat.
+It expands as the pressure drops, does work, and cools. Per mole, with no heat
+in, $C_P\,dT = V\,dP$; the constant-pressure capacity appears because you are
+tracking the parcel at ambient pressure. Insert $V = RT/P$ and the hydrostatic
+$dP = -\rho g\,dz$ with $\rho = MP/RT$:
+
+$$
+C_P\,dT = \frac{RT}{P}\left(-\frac{MPg}{RT}\right)dz = -Mg\,dz,
+$$
+
+so the **dry adiabatic lapse rate** is
+
+$$
+-\frac{dT}{dz} = \frac{Mg}{C_P}.
+$$
+
+Everything cancelled — no temperature, no pressure, just a constant. With
+$C_P = \tfrac72 R = 3.5 \times 8.31 = 29.085$ J/(mol·K),
+
+$$
+\frac{Mg}{C_P} = \frac{0.0290 \times 9.8}{29.085} = \frac{0.2842}{29.085}
+= 9.771\times10^{-3}\ \text{K/m} = 9.77\ \text{K/km}.
+$$
+
+Climb a kilometre of mountain and expect about ten degrees colder. That number
+comes out of a gas law and a force balance, with no meteorology at all.
+
+**Example 5 — the heated half of an insulated cylinder.** This one is harder.
+An insulated cylinder of total volume $2V_0$ is split into equal halves by a
+frictionless insulating piston. Each half holds $1.00$ mol of monatomic gas at
+$300$ K. A heater in the left half runs slowly until the left gas fills
+$1.50V_0$. Find the final temperature on the right.
+
+Look at the right-hand gas only. It is insulated from the walls and from the
+left gas by the piston, and it is compressed slowly. So its process is
+adiabatic, and $TV^{\gamma-1}$ is constant, whatever the heater is doing. Its
+volume goes from $V_0$ to $2V_0 - 1.50V_0 = 0.500V_0$, a compression by a
+factor of 2. With $\gamma = 5/3$, so $\gamma - 1 = 2/3$,
+
+$$
+T_R = 300 \times 2^{2/3}.
+$$
+
+Since $2^{2/3} = e^{0.6667 \times 0.6931} = e^{0.4621} = 1.5874$, the answer is
+$T_R = 300 \times 1.5874 = 476$ K. The left gas is hotter still, but the
+question did not ask, and you did not need it.
+
+<QuickCheck
+  question="A gas is compressed to half its volume, once slowly in a water bath at fixed temperature and once quickly in an insulated cylinder. Which ends at the higher pressure?"
+  options={["The isothermal one", "The adiabatic one", "They are equal, since the volume change is the same", "It depends on the number of moles"]}
+  answer={1}
+  explanation="Pressure scales as one over V for the isotherm and one over V to the gamma for the adiabat, and gamma is greater than 1. The adiabatic compression also heats the gas, and that extra temperature adds extra pressure."
+/>
+
+## Recognising which tool a problem wants
+
+Almost every problem in this unit announces itself in one line.
+
+If the problem gives you a gas in one state and asks about another state of the
+*same* gas, reach for $P_1V_1/T_1 = P_2V_2/T_2$ and cross out whatever is held
+fixed. You will not need $R$.
+
+If it asks for moles, molecules, mass, density or molar mass, you need the full
+$PV = nRT$ or $PV = Nk_BT$, and probably $\rho = MP/RT$. Anything mentioning
+buoyancy or a balloon is a density problem wearing a costume.
+
+If the words *insulated*, *adiabatic*, *no heat exchanged*, or *compressed
+rapidly* appear, use $TV^{\gamma-1}$ or $PV^{\gamma}$, and get $\gamma$ by
+counting degrees of freedom. If instead the problem says *rigid vessel* or
+*constant pressure* and asks for heat, use $nC_V\Delta T$ or $nC_P\Delta T$ and
+nothing else.
+
+If a piston, mercury column or manometer appears, stop and do a force balance
+or a liquid-column tally *before* touching the gas law. That step is where the
+marks are lost.
+
+And if the problem is about the atmosphere, decide first which question it is
+asking. Pressure against height is the exponential barometric formula at fixed
+temperature. Temperature against height is the lapse rate $Mg/C_P$. They use
+the same hydrostatic equation and are otherwise unrelated.
+
+The next lesson takes $\gamma$, the adiabat and the first law and strings them
+into closed loops on a $PV$ diagram, which is how you get work out of heat —
+and how much you are forbidden from getting. That is
+[heat engines and the second law](/guide/heat-engines).

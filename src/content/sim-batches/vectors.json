@@ -1,0 +1,137 @@
+[
+  {
+    "id": "vectors-components",
+    "title": "Components lab",
+    "caption": "One vector, two numbers.",
+    "height": 260,
+    "params": [
+      {
+        "key": "mag",
+        "label": "Magnitude A",
+        "unit": "",
+        "min": 2,
+        "max": 25,
+        "step": 0.5,
+        "value": 20
+      },
+      {
+        "key": "angle",
+        "label": "Angle from +x axis",
+        "unit": "deg",
+        "min": -180,
+        "max": 180,
+        "step": 1,
+        "value": 35
+      }
+    ],
+    "draw": "var th = p.angle * Math.PI / 180;\nvar A = p.mag;\nvar Ax = A * Math.cos(th), Ay = A * Math.sin(th);\nvar pad = 40;\nvar span = 26;\nvar s = Math.min((W - 2 * pad) / (2 * span), (H - 2 * pad) / (2 * span));\nvar ox = W / 2, oy = H / 2;\nvar X = function (x) { return ox + x * s; };\nvar Y = function (y) { return oy - y * s; };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\n// grid\nctx.strokeStyle = C.faint;\nfor (var g = -span; g <= span; g += 5) {\n  ctx.beginPath(); ctx.moveTo(X(g), Y(-span)); ctx.lineTo(X(g), Y(span)); ctx.stroke();\n  ctx.beginPath(); ctx.moveTo(X(-span), Y(g)); ctx.lineTo(X(span), Y(g)); ctx.stroke();\n}\n\n// axes\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(X(-span), Y(0)); ctx.lineTo(X(span), Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X(0), Y(-span)); ctx.lineTo(X(0), Y(span)); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"x\", X(span) - 12, Y(0) + 16);\nctx.fillText(\"y\", X(0) + 8, Y(span) + 14);\n\n// component legs\nctx.strokeStyle = C.figure;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(Ax), Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X(Ax), Y(0)); ctx.lineTo(X(Ax), Y(Ay)); ctx.stroke();\nctx.setLineDash([]);\n\n// right-angle tick at the corner\nvar d = 7 * (Ax >= 0 ? -1 : 1), e = 7 * (Ay >= 0 ? -1 : 1);\nctx.beginPath();\nctx.moveTo(X(Ax) + d, Y(0));\nctx.lineTo(X(Ax) + d, Y(0) + e);\nctx.lineTo(X(Ax), Y(0) + e);\nctx.stroke();\n\n// the vector itself\nvar ax = X(Ax), ay = Y(Ay);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2.5;\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(ax, ay); ctx.stroke();\nvar hl = 10, ang = Math.atan2(ay - Y(0), ax - X(0));\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.moveTo(ax, ay);\nctx.lineTo(ax - hl * Math.cos(ang - 0.4), ay - hl * Math.sin(ang - 0.4));\nctx.lineTo(ax - hl * Math.cos(ang + 0.4), ay - hl * Math.sin(ang + 0.4));\nctx.closePath(); ctx.fill();\n\n// angle arc\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.2;\nctx.beginPath();\nctx.arc(X(0), Y(0), 26, 0, -th, th > 0);\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"A\", (X(0) + ax) / 2 - 14, (Y(0) + ay) / 2 - 6);\nctx.fillText(\"Ax = \" + Ax.toFixed(2), X(Ax / 2) - 22, Y(0) + (Ay >= 0 ? 18 : -8));\nctx.fillText(\"Ay = \" + Ay.toFixed(2), X(Ax) + (Ax >= 0 ? 8 : -60), Y(Ay / 2));\nctx.fillStyle = C.figure;\nctx.fillText(p.angle.toFixed(0) + \" deg\", X(0) + 30, Y(0) - (th > 0 ? 10 : -20));\n\nout.note = \"A = \" + A.toFixed(1) + \" at \" + p.angle.toFixed(0) + \" deg   ->   Ax = A cos = \" + Ax.toFixed(2) + \",  Ay = A sin = \" + Ay.toFixed(2) + \"   (check: sqrt(Ax^2+Ay^2) = \" + Math.sqrt(Ax * Ax + Ay * Ay).toFixed(2) + \")\";"
+  },
+  {
+    "id": "vectors-dot",
+    "title": "Dot product lab",
+    "caption": "The dot product as a shadow.",
+    "height": 250,
+    "params": [
+      {
+        "key": "magA",
+        "label": "Length of A",
+        "unit": "",
+        "min": 1,
+        "max": 10,
+        "step": 0.5,
+        "value": 8
+      },
+      {
+        "key": "magB",
+        "label": "Length of B",
+        "unit": "",
+        "min": 1,
+        "max": 10,
+        "step": 0.5,
+        "value": 6
+      },
+      {
+        "key": "angle",
+        "label": "Angle between them",
+        "unit": "deg",
+        "min": 0,
+        "max": 180,
+        "step": 1,
+        "value": 40
+      }
+    ],
+    "draw": "var th = p.angle * Math.PI / 180;\nvar A = p.magA, B = p.magB;\nvar pad = 34;\nvar span = 12;\nvar s = Math.min((W - 2 * pad) / (2 * span), (H - 2 * pad) / (1.6 * span));\nvar ox = W * 0.28, oy = H * 0.72;\nvar X = function (x) { return ox + x * s; };\nvar Y = function (y) { return oy - y * s; };\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nfunction arrow(x1, y1, x2, y2, col, wid) {\n  ctx.strokeStyle = col; ctx.lineWidth = wid;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var a = Math.atan2(y2 - y1, x2 - x1), hl = 9;\n  ctx.fillStyle = col;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - hl * Math.cos(a - 0.4), y2 - hl * Math.sin(a - 0.4));\n  ctx.lineTo(x2 - hl * Math.cos(a + 0.4), y2 - hl * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\n// B lies along +x, A is tilted up by th\nvar bx = B, by = 0;\nvar axv = A * Math.cos(th), ayv = A * Math.sin(th);\nvar proj = A * Math.cos(th);\n\n// baseline through B, extended\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(-2), Y(0)); ctx.lineTo(X(span), Y(0)); ctx.stroke();\n\n// projection bar sitting on B's line\nctx.strokeStyle = C.figure; ctx.lineWidth = 6;\nctx.beginPath(); ctx.moveTo(X(0), Y(0) + 0); ctx.lineTo(X(proj), Y(0)); ctx.stroke();\n\n// dropped perpendicular\nctx.strokeStyle = C.figure; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(X(axv), Y(ayv)); ctx.lineTo(X(proj), Y(0)); ctx.stroke();\nctx.setLineDash([]);\n\narrow(X(0), Y(0), X(bx), Y(by), C.rule, 2.5);\narrow(X(0), Y(0), X(axv), Y(ayv), C.accent, 2.5);\n\n// angle arc\nctx.strokeStyle = C.figure; ctx.lineWidth = 1.2;\nctx.beginPath(); ctx.arc(X(0), Y(0), 24, 0, -th, true); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"B\", X(bx) + 6, Y(0) + 16);\nctx.fillText(\"A\", X(axv) + 6, Y(ayv) - 4);\nctx.fillText(\"A cos(theta) = \" + proj.toFixed(2), X(proj / 2) - 34, Y(0) + 26);\nctx.fillStyle = C.figure;\nctx.fillText(p.angle.toFixed(0) + \" deg\", X(0) + 28, Y(0) - 8);\n\nvar dp = A * B * Math.cos(th);\nctx.fillStyle = C.ink;\nctx.fillText(\"shadow of A on B, times the length of B\", W * 0.06, 20);\n\nout.note = \"A.B = |A||B|cos(theta) = \" + A.toFixed(1) + \" x \" + B.toFixed(1) + \" x \" + Math.cos(th).toFixed(3) + \" = \" + dp.toFixed(2) + \"   |   projection of A onto B = \" + proj.toFixed(2) + (Math.abs(dp) < 0.05 ? \"   (perpendicular)\" : \"\");"
+  },
+  {
+    "id": "vectors-cross",
+    "title": "Cross product diagram",
+    "caption": "The cross product as an area.",
+    "height": 260,
+    "params": [
+      {
+        "key": "magA",
+        "label": "Length of A",
+        "unit": "",
+        "min": 1,
+        "max": 11,
+        "step": 0.5,
+        "value": 9
+      },
+      {
+        "key": "magB",
+        "label": "Length of B",
+        "unit": "",
+        "min": 1,
+        "max": 11,
+        "step": 0.5,
+        "value": 6
+      },
+      {
+        "key": "angle",
+        "label": "Angle from A to B",
+        "unit": "deg",
+        "min": -180,
+        "max": 180,
+        "step": 1,
+        "value": 55
+      }
+    ],
+    "draw": "var th = p.angle * Math.PI / 180;\nvar A = p.magA, B = p.magB;\nvar pad = 30;\nvar span = 13;\nvar s = Math.min((W - 2 * pad) / (1.9 * span), (H - 2 * pad) / (1.5 * span));\nvar ox = W * 0.24, oy = H * 0.80;\nvar X = function (x) { return ox + x * s; };\nvar Y = function (y) { return oy - y * s; };\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nfunction arrow(x1, y1, x2, y2, col, wid) {\n  ctx.strokeStyle = col; ctx.lineWidth = wid;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var a = Math.atan2(y2 - y1, x2 - x1), hl = 9;\n  ctx.fillStyle = col;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - hl * Math.cos(a - 0.4), y2 - hl * Math.sin(a - 0.4));\n  ctx.lineTo(x2 - hl * Math.cos(a + 0.4), y2 - hl * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nvar ax = A, ay = 0;\nvar bx = B * Math.cos(th), by = B * Math.sin(th);\n\n// parallelogram\nctx.fillStyle = C.faint;\nctx.beginPath();\nctx.moveTo(X(0), Y(0));\nctx.lineTo(X(ax), Y(ay));\nctx.lineTo(X(ax + bx), Y(ay + by));\nctx.lineTo(X(bx), Y(by));\nctx.closePath(); ctx.fill();\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath();\nctx.moveTo(X(ax), Y(ay)); ctx.lineTo(X(ax + bx), Y(ay + by)); ctx.lineTo(X(bx), Y(by));\nctx.stroke();\nctx.setLineDash([]);\n\n// height = B sin(th)\nctx.strokeStyle = C.figure; ctx.lineWidth = 1.4;\nctx.setLineDash([5, 4]);\nctx.beginPath(); ctx.moveTo(X(bx), Y(by)); ctx.lineTo(X(bx), Y(0)); ctx.stroke();\nctx.setLineDash([]);\n\narrow(X(0), Y(0), X(ax), Y(ay), C.rule, 2.5);\narrow(X(0), Y(0), X(bx), Y(by), C.accent, 2.5);\n\nctx.strokeStyle = C.figure; ctx.lineWidth = 1.2;\nctx.beginPath(); ctx.arc(X(0), Y(0), 26, 0, -th, true); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"A\", X(ax) + 6, Y(0) + 16);\nctx.fillText(\"B\", X(bx) + 6, Y(by) - 6);\nctx.fillText(\"h = B sin(theta) = \" + (B * Math.sin(th)).toFixed(2), X(bx) + 8, Y(by / 2));\nctx.fillStyle = C.figure;\nctx.fillText(p.angle.toFixed(0) + \" deg\", X(0) + 30, Y(0) - 8);\n\n// the out-of-page vector, drawn as a circled dot or cross to the right\nvar cx = W * 0.86, cy = H * 0.30, r = 13;\nvar area = A * B * Math.sin(th);\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();\nctx.fillStyle = C.accent;\nif (area >= 0) {\n  ctx.beginPath(); ctx.arc(cx, cy, 3.5, 0, Math.PI * 2); ctx.fill();\n} else {\n  ctx.beginPath();\n  ctx.moveTo(cx - 7, cy - 7); ctx.lineTo(cx + 7, cy + 7);\n  ctx.moveTo(cx + 7, cy - 7); ctx.lineTo(cx - 7, cy + 7);\n  ctx.stroke();\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"A x B\", cx - 18, cy + r + 16);\nctx.fillText(area >= 0 ? \"out of page\" : \"into page\", cx - 30, cy + r + 32);\n\nout.note = \"|A x B| = |A||B|sin(theta) = \" + A.toFixed(1) + \" x \" + B.toFixed(1) + \" x \" + Math.abs(Math.sin(th)).toFixed(3) + \" = \" + Math.abs(area).toFixed(2) + \" = shaded area\" + (Math.abs(area) < 0.05 ? \"   (parallel: zero)\" : \"\");"
+  },
+  {
+    "id": "vectors-river",
+    "title": "River crossing lab",
+    "caption": "Heading is not the same as course.",
+    "height": 280,
+    "params": [
+      {
+        "key": "boat",
+        "label": "Speed relative to water",
+        "unit": "m/s",
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "value": 2.0
+      },
+      {
+        "key": "current",
+        "label": "Current",
+        "unit": "m/s",
+        "min": 0,
+        "max": 6,
+        "step": 0.1,
+        "value": 3.0
+      },
+      {
+        "key": "heading",
+        "label": "Heading upstream of straight across",
+        "unit": "deg",
+        "min": -60,
+        "max": 85,
+        "step": 1,
+        "value": 0
+      }
+    ],
+    "draw": "var wRiver = 150;           // metres across\nvar vCur = p.current;\nvar vBoat = p.boat;\nvar head = p.heading * Math.PI / 180;   // measured from straight-across, positive = upstream\n\n// boat velocity relative to ground: x downstream, y across\nvar vx = vCur - vBoat * Math.sin(head);\nvar vy = vBoat * Math.cos(head);\n\nvar tCross = vy > 0.001 ? wRiver / vy : 0;\nvar drift = vx * tCross;\n\nvar pad = 34;\nvar xSpanRaw = Math.max(Math.abs(drift) * 1.25, 60);\nvar sx = (W - 2 * pad) / (2 * xSpanRaw);\nvar sy = (H - 2 * pad) / wRiver;\nvar ox = W / 2, oyB = H - pad;\nvar X = function (x) { return ox + x * sx; };\nvar Y = function (y) { return oyB - y * sy; };\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// banks\nctx.strokeStyle = C.rule; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(0, Y(0)); ctx.lineTo(W, Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(0, Y(wRiver)); ctx.lineTo(W, Y(wRiver)); ctx.stroke();\n\n// current arrows\nctx.strokeStyle = C.faint; ctx.lineWidth = 1.5;\nfor (var k = 1; k <= 5; k++) {\n  var yy = Y(wRiver * k / 6);\n  ctx.beginPath(); ctx.moveTo(W * 0.08, yy); ctx.lineTo(W * 0.08 + 26, yy); ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(W * 0.08 + 26, yy); ctx.lineTo(W * 0.08 + 20, yy - 4);\n  ctx.moveTo(W * 0.08 + 26, yy); ctx.lineTo(W * 0.08 + 20, yy + 4);\n  ctx.stroke();\n}\n\n// straight-across reference\nctx.strokeStyle = C.faint; ctx.lineWidth = 1; ctx.setLineDash([3, 5]);\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(0), Y(wRiver)); ctx.stroke();\nctx.setLineDash([]);\n\nif (tCross > 0) {\n  // whole path\n  ctx.strokeStyle = C.rule; ctx.lineWidth = 1; ctx.setLineDash([4, 5]);\n  ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(drift), Y(wRiver)); ctx.stroke();\n  ctx.setLineDash([]);\n\n  var now = (t % (tCross + 1.2));\n  var cur = Math.min(now, tCross);\n  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.5;\n  ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(vx * cur), Y(vy * cur)); ctx.stroke();\n\n  var px = X(vx * cur), py = Y(vy * cur);\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2); ctx.fill();\n\n  // heading arrow (velocity relative to water)\n  ctx.strokeStyle = C.figure; ctx.lineWidth = 1.6;\n  var hx = px - vBoat * Math.sin(head) * 9, hy = py - vBoat * Math.cos(head) * 9;\n  ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(hx, hy); ctx.stroke();\n  ctx.fillStyle = C.figure;\n  ctx.fillText(\"heading\", hx + 6, hy);\n\n  ctx.fillStyle = C.ink;\n  ctx.fillText(\"landing\", X(drift) + 6, Y(wRiver) + 16);\n} else {\n  ctx.fillStyle = C.ink;\n  ctx.fillText(\"heading too far upstream: she never reaches the far bank\", W * 0.12, H / 2);\n}\n\nctx.fillStyle = C.ink;\nctx.fillText(\"far bank\", 8, Y(wRiver) - 8);\nctx.fillText(\"start\", X(0) + 8, Y(0) - 8);\nctx.fillStyle = C.figure;\nctx.fillText(\"current \" + vCur.toFixed(1) + \" m/s\", W * 0.08, Y(wRiver * 0.5) - 12);\n\nout.note = tCross > 0\n  ? \"crossing takes \" + tCross.toFixed(1) + \" s,  downstream drift \" + drift.toFixed(1) + \" m   (drift = (\" + vCur.toFixed(1) + \" - \" + (vBoat * Math.sin(head)).toFixed(2) + \") x \" + tCross.toFixed(1) + \")\"\n  : \"across-stream speed is zero: she never lands\";"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "inductance-solenoid",
+    "title": "Where L comes from",
+    "caption": "Flux linkage of a solenoid.",
+    "height": 240,
+    "params": [],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\nvar cy = H * 0.48;\nvar lx = W * 0.18, rx = W * 0.72;\nvar rad = H * 0.20;\n\n// solenoid body\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(lx, cy - rad); ctx.lineTo(rx, cy - rad); ctx.stroke();\nctx.beginPath(); ctx.moveTo(lx, cy + rad); ctx.lineTo(rx, cy + rad); ctx.stroke();\n\n// turns\nvar N = 12;\nctx.strokeStyle = C.figure;\nfor (var k = 0; k < N; k++) {\n  var x = lx + (rx - lx) * (k + 0.5) / N;\n  ctx.beginPath();\n  ctx.ellipse(x, cy, (rx - lx) / (N * 3.2), rad, 0, 0, Math.PI * 2);\n  ctx.stroke();\n}\n\n// field lines inside\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.5;\nfor (var j = -1; j <= 1; j++) {\n  var y = cy + j * rad * 0.45;\n  ctx.beginPath(); ctx.moveTo(lx + 6, y); ctx.lineTo(rx - 6, y); ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(rx - 6, y); ctx.lineTo(rx - 15, y - 4); ctx.lineTo(rx - 15, y + 4);\n  ctx.closePath(); ctx.fillStyle = C.accent; ctx.fill();\n}\nctx.lineWidth = 1;\n\n// length marker\nctx.strokeStyle = C.faint;\nvar ly = cy + rad + 22;\nctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(rx, ly); ctx.stroke();\nctx.beginPath(); ctx.moveTo(lx, cy + rad); ctx.lineTo(lx, ly + 4); ctx.stroke();\nctx.beginPath(); ctx.moveTo(rx, cy + rad); ctx.lineTo(rx, ly + 4); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"length l, with N turns (n = N/l per metre)\", lx, ly + 16);\nctx.fillStyle = C.accent;\nctx.fillText(\"B = mu0 n I inside, nearly zero outside\", lx + 4, cy - rad - 10);\nctx.fillStyle = C.ink;\nctx.fillText(\"area A\", rx + 8, cy - 4);\nctx.fillText(\"flux per turn = B A\", rx + 8, cy + 14);\n\n// the chain of reasoning\nctx.fillStyle = C.figure;\nctx.fillText(\"N (B A) = L I   so   L = mu0 n^2 A l\", lx, H - 8);\n\nout.note = \"Inductance is pure geometry: turns, area and length only. No current appears in L.\";"
+  },
+  {
+    "id": "inductance-lr-lab",
+    "title": "LR rise lab",
+    "caption": "Drag L and R and watch the time constant move.",
+    "height": 260,
+    "params": [
+      {
+        "key": "L",
+        "label": "Inductance",
+        "unit": "H",
+        "min": 0.05,
+        "max": 1.5,
+        "step": 0.05,
+        "value": 0.5
+      },
+      {
+        "key": "R",
+        "label": "Resistance",
+        "unit": "ohm",
+        "min": 1,
+        "max": 25,
+        "step": 0.5,
+        "value": 5
+      },
+      {
+        "key": "V",
+        "label": "Battery emf",
+        "unit": "V",
+        "min": 2,
+        "max": 24,
+        "step": 1,
+        "value": 10
+      }
+    ],
+    "draw": "var Lh = p.L, R = p.R, V = p.V;\nvar tau = Lh / R, Ifin = V / R;\nvar pad = 42, padR = 16, padT = 18, padB = 30;\nvar x0 = pad, x1 = W - padR, y0 = padT, y1 = H - padB;\nvar tMax = 5 * tau;\nvar X = function (s) { return x0 + (s / tMax) * (x1 - x0); };\nvar Y = function (i) { return y1 - (i / (Ifin * 1.15)) * (y1 - y0); };\n\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y1); ctx.lineTo(x1, y1); ctx.stroke();\n\nctx.setLineDash([4, 4]);\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(x0, Y(Ifin)); ctx.lineTo(x1, Y(Ifin)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X(tau), y1); ctx.lineTo(X(tau), Y(Ifin)); ctx.stroke();\nctx.setLineDash([]);\n\n// initial slope V/L, the tangent at the origin\nctx.strokeStyle = C.figure;\nctx.beginPath();\nctx.moveTo(X(0), Y(0));\nctx.lineTo(X(tau), Y(Ifin));\nctx.stroke();\n\n// the exponential rise\nctx.strokeStyle = C.rule;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var k = 0; k <= 160; k++) {\n  var s = tMax * k / 160;\n  var i = Ifin * (1 - Math.exp(-s / tau));\n  if (k === 0) { ctx.moveTo(X(s), Y(i)); } else { ctx.lineTo(X(s), Y(i)); }\n}\nctx.stroke();\n\n// sweeping marker\nvar cyc = t % (tMax * 1.25);\nvar now = Math.min(cyc, tMax);\nvar inow = Ifin * (1 - Math.exp(-now / tau));\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2.5;\nctx.beginPath();\nfor (var m = 0; m <= 160; m++) {\n  var s2 = now * m / 160;\n  var i2 = Ifin * (1 - Math.exp(-s2 / tau));\n  if (m === 0) { ctx.moveTo(X(s2), Y(i2)); } else { ctx.lineTo(X(s2), Y(i2)); }\n}\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(now), Y(inow), 4.5, 0, Math.PI * 2); ctx.fill();\n\nctx.lineWidth = 1;\nctx.fillStyle = C.ink;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillText(\"current I (A)\", x0 - 34, y0 - 5);\nctx.fillText(\"time t (s)\", x1 - 54, y1 + 20);\nctx.fillText(Ifin.toFixed(2) + \" A = V/R\", x1 - 96, Y(Ifin) - 6);\nctx.fillText(\"t = tau\", X(tau) + 4, y1 + 14);\nctx.fillStyle = C.figure;\nctx.fillText(\"slope V/L\", X(tau * 0.45) + 6, Y(Ifin * 0.62));\nctx.fillStyle = C.ink;\nctx.fillText(\"0\", x0 - 10, y1 + 14);\n\nout.note = \"tau = L/R = \" + tau.toFixed(4) + \" s, final current \" + Ifin.toFixed(3)\n  + \" A, stored energy at the end \" + (0.5 * Lh * Ifin * Ifin).toFixed(3) + \" J. Now I = \"\n  + inow.toFixed(3) + \" A (\" + (100 * inow / Ifin).toFixed(1) + \"% of final).\";"
+  },
+  {
+    "id": "inductance-lc-lab",
+    "title": "LC oscillation lab",
+    "caption": "Energy sloshing between capacitor and inductor.",
+    "height": 250,
+    "params": [
+      {
+        "key": "L",
+        "label": "Inductance",
+        "unit": "mH",
+        "min": 1,
+        "max": 20,
+        "step": 0.5,
+        "value": 4
+      },
+      {
+        "key": "C",
+        "label": "Capacitance",
+        "unit": "uF",
+        "min": 0.5,
+        "max": 10,
+        "step": 0.5,
+        "value": 1
+      },
+      {
+        "key": "Q",
+        "label": "Starting charge",
+        "unit": "uC",
+        "min": 1,
+        "max": 20,
+        "step": 0.5,
+        "value": 3
+      }
+    ],
+    "draw": "var Lh = p.L * 1e-3, Cf = p.C * 1e-6, Q0 = p.Q * 1e-6;\nvar w = 1 / Math.sqrt(Lh * Cf);\nvar T = 2 * Math.PI / w;\nvar Imax = w * Q0;\nvar U = Q0 * Q0 / (2 * Cf);\n\nvar ang = 2 * Math.PI * t / 4;   // one cycle every 4 s on screen, slowed right down\nvar q = Q0 * Math.cos(ang);\nvar i = -Imax * Math.sin(ang);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\n// circuit: capacitor left, inductor right\nvar bx = W * 0.10, bw = W * 0.42, by = H * 0.18, bh = H * 0.44;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(bx, by + bh * 0.5 - 10); ctx.lineTo(bx, by); ctx.lineTo(bx + bw, by);\nctx.lineTo(bx + bw, by + bh); ctx.lineTo(bx, by + bh); ctx.lineTo(bx, by + bh * 0.5 + 10);\nctx.stroke();\n\n// capacitor plates\nctx.strokeStyle = C.accent;\nctx.lineWidth = 3;\nctx.beginPath(); ctx.moveTo(bx - 14, by + bh * 0.5 - 10); ctx.lineTo(bx + 14, by + bh * 0.5 - 10); ctx.stroke();\nctx.beginPath(); ctx.moveTo(bx - 14, by + bh * 0.5 + 10); ctx.lineTo(bx + 14, by + bh * 0.5 + 10); ctx.stroke();\nctx.lineWidth = 1.5;\n\n// inductor coil on the right side\nctx.strokeStyle = C.figure;\nvar iy = by + bh * 0.5;\nfor (var k = 0; k < 4; k++) {\n  ctx.beginPath();\n  ctx.arc(bx + bw, iy - 24 + k * 16, 8, -Math.PI / 2, Math.PI / 2);\n  ctx.stroke();\n}\n\nctx.fillStyle = C.ink;\nctx.fillText(\"C\", bx - 30, by + bh * 0.5 + 4);\nctx.fillText(\"L\", bx + bw + 14, iy + 4);\n\n// charge sign and current arrow\nctx.fillStyle = C.accent;\nctx.fillText(q >= 0 ? \"+q\" : \"-q\", bx - 32, by + bh * 0.5 - 16);\nctx.fillStyle = C.figure;\nctx.fillText(i >= 0 ? \"current ->\" : \"current <-\", bx + bw * 0.25, by - 8);\n\n// energy bars\nvar gx = W * 0.62, gw = W * 0.30, gy = by, gh = bh;\nvar uE = q * q / (2 * Cf), uB = 0.5 * Lh * i * i;\nctx.fillStyle = C.accent;\nctx.fillRect(gx, gy + gh * (1 - uE / U), gw * 0.38, gh * (uE / U));\nctx.fillStyle = C.figure;\nctx.fillRect(gx + gw * 0.52, gy + gh * (1 - uB / U), gw * 0.38, gh * (uB / U));\nctx.strokeStyle = C.rule;\nctx.strokeRect(gx, gy, gw * 0.38, gh);\nctx.strokeRect(gx + gw * 0.52, gy, gw * 0.38, gh);\nctx.fillStyle = C.ink;\nctx.fillText(\"electric\", gx - 2, gy + gh + 14);\nctx.fillText(\"magnetic\", gx + gw * 0.50, gy + gh + 14);\nctx.fillText(\"energy shuttles, total fixed\", gx - 2, gy - 6);\n\nout.note = \"f = \" + (1 / T).toFixed(1) + \" Hz, T = \" + (T * 1000).toFixed(3)\n  + \" ms, peak current = omega Q0 = \" + Imax.toFixed(4) + \" A. Right now q = \"\n  + (q * 1e6).toFixed(2) + \" uC and I = \" + i.toFixed(4) + \" A.\";"
+  }
+]

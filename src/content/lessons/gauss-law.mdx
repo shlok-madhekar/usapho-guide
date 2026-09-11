@@ -1,42 +1,361 @@
-## Gauss's law is a statement about symmetry
+In the last lesson you found the field of a charged rod, a ring and a disc by
+chopping the charge into pieces, writing $d\vec E$ for each piece, and adding
+the pieces up. It works. It is also slow, and for a solid ball of charge the
+integral is genuinely unpleasant.
 
-The flux of the electric field through a closed surface counts the charge
-inside it:
+Now picture a ball of plastic, 5 cm across, with charge spread evenly through
+it. You want the field 15 cm from the centre. The honest way is a triple
+integral over the volume. The answer, when it finally comes out, is
+$kQ/r^2$ — exactly what you would get if all the charge sat at a single point
+in the middle. That is too clean to be a coincidence. Something is making the
+details of the distribution irrelevant, and if you can find out what, you can
+skip the integral entirely.
+
+## Flux: counting how much field crosses a surface
+
+Start with something simpler than a ball. Take a uniform field $\vec E$ — every
+arrow the same length, all pointing the same way — and hold a flat panel of
+area $A$ in it. Define the **electric flux** through the panel as
+
+$$\Phi_E = E A \cos\theta$$
+
+where $\theta$ is the angle between the field and the **normal** to the panel,
+the direction sticking straight out of its face. If you hold the panel square-on
+to the field, $\theta = 0$, $\cos\theta = 1$, and the flux is $EA$: the maximum.
+Turn it edge-on and $\theta = 90^\circ$, so the flux is zero — the field slides
+past without crossing. The units are $\mathrm{N\cdot m^2/C}$.
+
+The picture to keep is field lines threading a hoop. Flux counts lines through
+the surface. Tilting the hoop shrinks the opening the lines see, and $\cos\theta$
+is exactly that shrinking factor.
+
+<Figure caption={<><b>Figure 1.</b> A flat panel in a uniform field. Drag the tilt
+angle and watch the flux fall as the panel turns edge-on. Notice the flux hits
+zero at ninety degrees even though the field is as strong as ever.</>}>
+  <Sim id="gauss-law-flux" />
+</Figure>
+
+Real surfaces are curved and real fields are not uniform, so you cut the surface
+into patches small enough that each is flat and the field across it is constant,
+then add:
+
+$$\Phi_E = \oint \vec E \cdot d\vec A$$
+
+The circle on the integral means the surface is **closed** — it seals off a
+volume, like a balloon, with no edges. For a closed surface everyone agrees to
+point the normal outward, so flux going out counts positive and flux coming in
+counts negative.
+
+<Aside label="Worth remembering">
+  Flux is a number, not a vector. It can be positive, negative or zero, and its
+  sign on a closed surface tells you whether field is net leaving or net
+  entering.
+</Aside>
+
+## Where the law comes from
+
+Put a single point charge $q$ at the origin and wrap it in a sphere of radius
+$r$ centred on it. Two things are true on that sphere and both matter. The field
+has magnitude $E = kq/r^2$ everywhere on it, the same number at every point,
+because every point is the same distance from the charge. And the field points
+radially outward, which is exactly the direction of the outward normal, so
+$\cos\theta = 1$ everywhere.
+
+That makes the integral trivial. $E$ is constant, so it comes out front, and
+what is left is just the total area of a sphere, $4\pi r^2$:
+
+$$\Phi_E = \frac{kq}{r^2}\cdot 4\pi r^2 = 4\pi k q$$
+
+The $r^2$ cancelled. The flux does not care how big you made the sphere: push it
+out twice as far and the field is four times weaker but the area is four times
+larger. Writing Coulomb's constant as $k = 1/(4\pi\varepsilon_0)$, the $4\pi$
+cancels too and you are left with
 
 $$\oint \vec E \cdot d\vec A = \frac{Q_{\text{enc}}}{\varepsilon_0}$$
 
-This is always true and only occasionally useful. It becomes a calculation
-tool when the geometry has enough symmetry that $E$ is constant over a
-surface you can choose, so it comes out of the integral. Three cases cover
-almost everything:
+This is **Gauss's law**. $\varepsilon_0 = 8.85\times10^{-12}\ \mathrm{F/m}$ is
+the permittivity of free space. $Q_{\text{enc}}$ is the total charge sealed
+inside the surface — inside, nothing else.
 
-- Spherical symmetry: use a concentric sphere. Outside, $E = kQ/r^2$; inside a uniformly charged ball, $E \propto r$.
-- Cylindrical symmetry: use a coaxial can. $E = \lambda/2\pi\varepsilon_0 r$.
-- Planar symmetry: use a pillbox. $E = \sigma/2\varepsilon_0$, independent of distance.
+Two extensions turn this from a statement about spheres into a general law.
+First, the sphere was not special: distort it into any shape you like and the
+field lines that left through the sphere still have to leave through the new
+surface, since lines from a point charge do not stop or turn around in empty
+space. Second, fields add, so flux adds. A collection of charges gives the sum
+of their individual fluxes, and any charge sitting *outside* the surface
+contributes zero — its lines go in one side and out the other, cancelling.
 
-## Conductors
-
-In equilibrium the field inside conducting material is zero, all excess charge
-sits on surfaces, and every point of the conductor is at the same potential.
-Those three facts are really one fact: if any field remained inside, charges
-would still be moving and it would not be equilibrium yet.
-
-The consequence worth internalizing is what a hollow conductor does. Put a
-charge in the cavity and induced charge appears on the inner surface to cancel
-its field within the metal, with the balance pushed to the outer surface. The
-outside world learns the total enclosed charge and nothing else about its
-position.
-
-<Aside label="Where this goes wrong" warn>
-  Gauss's law relates the flux of the field produced by *all* charges to the
-  charge *enclosed*. Those are different sets. When symmetry breaks, as with an
-  off-center cavity, the law still holds but no longer determines $E$ by
-  itself, and superposition has to finish the job.
-</Aside>
+That last point is the one to hold on to. The flux depends only on the enclosed
+charge. The field $\vec E$ in the integral is the field of *everything*, near
+and far. Those two facts live together comfortably and confuse almost everyone
+at first.
 
 <QuickCheck
-  question="A point charge sits at the center of an uncharged conducting shell. The field outside the shell is:"
-  options={["Zero, since the conductor shields it", "The same as the bare point charge", "Half as strong", "Twice as strong"]}
-  answer={1}
-  explanation="Induction puts an equal and opposite charge on the inner surface and pushes the same amount to the outer surface. A Gaussian sphere drawn outside encloses the original charge in total, so the exterior field is unchanged. Conductors shield their interiors, not their exteriors."
+  question="A point charge sits just outside a closed surface, and no charge is inside. What is the net flux through the surface?"
+  options={["Zero", "Positive, since the field is strong there", "Negative", "It depends on the shape of the surface"]}
+  answer={0}
+  explanation="Every field line that enters the surface leaves again, so the incoming and outgoing contributions cancel exactly. The field on the surface is certainly not zero, but the net flux is. Flux counts enclosed charge and nothing else."
 />
+
+## Worked example 1: flux with no integral in sight
+
+A uniform field of $250\ \mathrm{N/C}$ points horizontally. A flat panel
+$0.40\ \mathrm{m}$ by $0.30\ \mathrm{m}$ is tilted so its normal makes $60^\circ$
+with the field. Find the flux.
+
+Area first: $A = 0.40 \times 0.30 = 0.12\ \mathrm{m^2}$. Then
+
+$$\Phi_E = EA\cos\theta = 250 \times 0.12 \times \cos 60^\circ = 250 \times 0.12 \times 0.5 = 15\ \mathrm{N\cdot m^2/C}$$
+
+Now a closed-surface version. A sealed instrument housing is probed and the net
+outward flux through it is $-6.20\times10^{5}\ \mathrm{N\cdot m^2/C}$. What is
+the charge inside? Rearranging Gauss's law, $Q_{\text{enc}} = \varepsilon_0 \Phi_E$:
+
+$$Q_{\text{enc}} = (8.85\times10^{-12})(-6.20\times10^{5}) = -5.49\times10^{-6}\ \mathrm{C}$$
+
+Negative flux, negative charge. You never had to know where in the housing the
+charge sat, or how it was shaped.
+
+Symmetry can hand you flux fractions for free. A point charge $q$ at the centre
+of a cube sends total flux $q/\varepsilon_0$ out, and the six faces are
+identical, so each takes one sixth. For $q = 4.50\ \mu\mathrm{C}$:
+
+$$\Phi_{\text{face}} = \frac{4.50\times10^{-6}}{6 \times 8.85\times10^{-12}} = \frac{4.50\times10^{-6}}{5.31\times10^{-11}} = 8.47\times10^{4}\ \mathrm{N\cdot m^2/C}$$
+
+Put the charge at a *corner* instead and only an eighth of its field enters the
+box at all, so the box catches $q/(8\varepsilon_0)$. The three faces touching
+that corner are edge-on to the charge and take nothing; the other three split the
+eighth equally, giving $q/(24\varepsilon_0)$ each. For $3.0\ \mu\mathrm{C}$ that
+is $1.41\times10^{4}\ \mathrm{N\cdot m^2/C}$. Half a sphere catches half:
+a hemispherical dome over a charge on a table passes $q/(2\varepsilon_0)$.
+
+<Aside label="Where this goes wrong" warn>
+  Gauss's law gives you flux from enclosed charge, not the other way round.
+  Knowing the flux through one face of a lopsided box tells you nothing about
+  the charge unless symmetry lets you say what fraction of the total that face
+  caught. Symmetry is what makes the fraction knowable.
+</Aside>
+
+## The three symmetries that make it a calculation tool
+
+Gauss's law is always true and usually useless for finding $E$, because $E$ sits
+inside an integral you cannot undo. It becomes a tool only when you can choose a
+closed surface — a **Gaussian surface**, imaginary, drawn wherever you please —
+on which two conditions hold: $E$ has the same magnitude everywhere on it, and
+$\vec E$ is either perpendicular to it (so $\cos\theta = 1$) or parallel to it
+(so the flux through that part is zero). Then $\oint \vec E \cdot d\vec A = EA$
+and you can divide.
+
+Exactly three charge arrangements give you that, and between them they cover
+almost every problem you will meet.
+
+<Figure caption={<><b>Figure 2.</b> The three Gaussian surfaces. Note the flat ends
+of the cylinder and the curved side of the pillbox carry no flux at all, which is
+why only one area ever appears in the algebra.</>}>
+  <Sim id="gauss-law-surfaces" />
+</Figure>
+
+**Spherical symmetry** — a ball, a shell, or any charge density that depends
+only on distance from a centre. Use a concentric sphere of radius $r$, area
+$4\pi r^2$:
+
+$$E \cdot 4\pi r^2 = \frac{Q_{\text{enc}}}{\varepsilon_0} \quad\Longrightarrow\quad E = \frac{Q_{\text{enc}}}{4\pi\varepsilon_0 r^2} = \frac{k Q_{\text{enc}}}{r^2}$$
+
+Outside everything, $Q_{\text{enc}}$ is the whole charge and the field is that of
+a point charge at the centre — the coincidence from the opening, explained.
+
+**Cylindrical symmetry** — a long straight line, rod, or beam. Use a coaxial can
+of radius $r$ and length $L$. The flat ends are parallel to the field so they
+contribute nothing, and the curved side has area $2\pi r L$:
+
+$$E \cdot 2\pi r L = \frac{\lambda L}{\varepsilon_0} \quad\Longrightarrow\quad E = \frac{\lambda}{2\pi\varepsilon_0 r} = \frac{2k\lambda}{r}$$
+
+where $\lambda$ is charge per unit length. The $L$ cancels, as it must, since an
+infinite wire has no special place along it. Note the $1/r$, not $1/r^2$.
+
+**Planar symmetry** — a large flat sheet. Use a **pillbox**: a short cylinder
+poking through the sheet with one flat face on each side. The curved side is
+parallel to the field and carries nothing; each flat face of area $A$ carries
+$EA$, so the total is $2EA$, and the enclosed charge is $\sigma A$ where $\sigma$
+is charge per unit area:
+
+$$2EA = \frac{\sigma A}{\varepsilon_0} \quad\Longrightarrow\quad E = \frac{\sigma}{2\varepsilon_0}$$
+
+No $r$ at all. The field of a big sheet is the same one millimetre away and one
+metre away. That is what a thundercloud base is: for air to break down at
+$3.0\times10^{6}\ \mathrm{N/C}$ you need
+$\sigma = 2\varepsilon_0 E = 2(8.85\times10^{-12})(3.0\times10^{6}) = 5.3\times10^{-5}\ \mathrm{C/m^2}$.
+
+<QuickCheck
+  question="Two large parallel plates carry equal and opposite surface charge densities of magnitude sigma. What is the field in the gap?"
+  options={["sigma over epsilon-nought", "sigma over two epsilon-nought", "Zero", "Twice sigma over epsilon-nought"]}
+  answer={0}
+  explanation="Each plate alone makes sigma over two epsilon-nought. In the gap the two fields point the same way and add to sigma over epsilon-nought; outside the plates they point opposite ways and cancel. The factor of two is the single most common slip in this topic."
+/>
+
+## Worked example 2: inside and outside a ball of charge
+
+A plastic ball of radius $R = 5.0\ \mathrm{cm}$ carries $Q = 8.0\ \mathrm{nC}$
+spread uniformly through its volume. Find the field at $r = 15\ \mathrm{cm}$ and
+at $r = 2.0\ \mathrm{cm}$.
+
+Outside is quick. The Gaussian sphere at $r = 0.15\ \mathrm{m}$ encloses all
+$8.0\ \mathrm{nC}$:
+
+$$E = \frac{kQ}{r^2} = \frac{(8.99\times10^{9})(8.0\times10^{-9})}{(0.15)^2} = \frac{71.9}{0.0225} = 3.2\times10^{3}\ \mathrm{N/C}$$
+
+Inside is where the thinking is. A Gaussian sphere at $r = 0.020\ \mathrm{m}$ does
+not enclose all the charge — only the part within $0.020\ \mathrm{m}$ of the
+centre. Because the density is uniform, the enclosed charge is the total times
+the fraction of the volume you have grabbed:
+
+$$Q_{\text{enc}} = Q\,\frac{\tfrac{4}{3}\pi r^3}{\tfrac{4}{3}\pi R^3} = Q\frac{r^3}{R^3}$$
+
+Feed that back in:
+
+$$E = \frac{k Q r^3 / R^3}{r^2} = \frac{kQ}{R^3}\,r$$
+
+The field inside grows *linearly* with $r$: zero at the centre, maximum at the
+surface. Numerically, $r^3/R^3 = (0.020/0.050)^3 = 0.4^3 = 0.064$, so
+$Q_{\text{enc}} = 8.0 \times 0.064 = 0.512\ \mathrm{nC}$, and
+
+$$E = \frac{(8.99\times10^{9})(0.512\times10^{-9})}{(0.020)^2} = \frac{4.60}{4.0\times10^{-4}} = 1.15\times10^{4}\ \mathrm{N/C}$$
+
+Stronger inside than at 15 cm, even though less charge is doing the work — you
+are much closer. The two formulas agree at $r = R$, as they must.
+
+<Figure caption={<><b>Figure 3.</b> A uniformly charged ball. Drag the radius of the
+Gaussian sphere and read the enclosed charge and field. Watch the graph: a straight
+line up to the surface, then an inverse-square fall. The kink at the surface is the
+whole lesson in one picture.</>}>
+  <Sim id="gauss-law-sphere" />
+</Figure>
+
+This linear inside-field has a famous consequence. Bore a tunnel through a
+diameter and drop a charge $-e$ into it. The force is
+$F = -eE = -(keQ/R^3)\,r$ — proportional to displacement and pointing back to
+the centre. That is Hooke's law, so the charge oscillates with
+$\omega = \sqrt{keQ/(m R^3)}$ and frequency $f = \omega/2\pi$. The rule from
+springs transfers unchanged; only the meaning of the stiffness has changed.
+
+## Worked example 3: conductors, cavities and shells
+
+A conductor in equilibrium has $\vec E = 0$ inside the metal. It has to: if any
+field survived, the free charges would still be moving, and you would not have
+equilibrium. Draw a Gaussian surface anywhere inside the metal and the flux is
+zero, so the enclosed charge is zero. Excess charge can only live on surfaces.
+
+Now the cavity. A neutral metal block has a hole in it, and you drop
+$+7.5\ \mathrm{nC}$ inside the hole. Draw your Gaussian surface in the metal,
+wrapping the cavity. Flux zero, so enclosed charge zero, so the cavity wall must
+carry exactly $-7.5\ \mathrm{nC}$. The block was neutral, so $+7.5\ \mathrm{nC}$
+is pushed to the outer surface. It does not matter that the charge sits
+off-centre in the cavity; the argument never used its position.
+
+Here is a fuller version. A $4.0\ \mathrm{nC}$ ball of radius $3.0\ \mathrm{cm}$
+sits inside a metal shell carrying net $6.0\ \mathrm{nC}$, inner radius
+$8.0\ \mathrm{cm}$, outer radius $10\ \mathrm{cm}$. Find $E$ at
+$r = 25\ \mathrm{cm}$. A sphere at $0.25\ \mathrm{m}$ encloses everything:
+$4.0 + 6.0 = 10.0\ \mathrm{nC}$. So
+
+$$E = \frac{(8.99\times10^{9})(10.0\times10^{-9})}{(0.25)^2} = \frac{89.9}{0.0625} = 1.44\times10^{3}\ \mathrm{N/C}$$
+
+The shell's inner surface carries $-4.0\ \mathrm{nC}$ and its outer surface
+$+10.0\ \mathrm{nC}$, but for a point outside, only the total mattered.
+
+<Figure caption={<><b>Figure 4.</b> A charge inside a hollow conductor. Trace the
+dashed Gaussian surface drawn inside the metal: it must enclose zero net charge,
+which is what forces the induced charges to be what they are.</>}>
+  <Sim id="gauss-law-shell" />
+</Figure>
+
+The same reasoning runs coaxially. A rod of radius $1.0\ \mathrm{mm}$ carrying
+$\lambda = 10\ \mathrm{nC/m}$ inside a grounded tube of inner radius
+$5.0\ \mathrm{mm}$: in the gap the field is $2k\lambda/r$, largest where $r$ is
+smallest, which is right at the rod's surface. So
+$E_{\max} = 2(8.99\times10^{9})(10\times10^{-9})/(1.0\times10^{-3}) = 1.80\times10^{5}\ \mathrm{N/C}$.
+Breakdown always starts at the thin conductor.
+
+## Worked example 4: when the density is not uniform
+
+A sphere of radius $R = 15\ \mathrm{cm}$ has $\rho(r) = \rho_0(1 - r/R)$: dense
+at the centre, fading to nothing at the rim. The field rises from zero, peaks
+somewhere, then falls off as $1/r^2$ outside. Where is the peak?
+
+Uniform-density shortcuts are gone, so build $Q_{\text{enc}}$ honestly. Slice the
+interior into thin shells of radius $s$ and thickness $ds$, each of volume
+$4\pi s^2\,ds$:
+
+$$Q_{\text{enc}}(r) = \int_0^r \rho_0\left(1 - \frac{s}{R}\right) 4\pi s^2\,ds = 4\pi\rho_0\left(\frac{r^3}{3} - \frac{r^4}{4R}\right)$$
+
+Now Gauss's law, dividing by $4\pi\varepsilon_0 r^2$:
+
+$$E(r) = \frac{\rho_0}{\varepsilon_0}\left(\frac{r}{3} - \frac{r^2}{4R}\right)$$
+
+To maximise, differentiate and set to zero:
+
+$$\frac{dE}{dr} = \frac{\rho_0}{\varepsilon_0}\left(\frac{1}{3} - \frac{r}{2R}\right) = 0 \quad\Longrightarrow\quad r = \frac{2R}{3}$$
+
+With $R = 0.15\ \mathrm{m}$ that is $r = 0.10\ \mathrm{m}$ — inside the sphere,
+not at its surface. Whenever the density falls off fast enough, the outer shells
+add less charge than the growing $r^2$ costs you, and the field turns over early.
+
+The same integral handles any radial $\rho(r)$. Try $\rho = C/r$: then
+$Q_{\text{enc}} = \int_0^r (C/s)4\pi s^2 ds = 2\pi C r^2$, and
+$E = 2\pi C r^2/(4\pi\varepsilon_0 r^2) = C/(2\varepsilon_0)$, independent of
+$r$. A constant field everywhere inside. To get
+$1.00\times10^{5}\ \mathrm{N/C}$ you need
+$C = 2\varepsilon_0 E = 1.77\times10^{-6}\ \mathrm{C/m^2}$.
+
+## When symmetry breaks: superposition rescues you
+
+An off-centre hole in a charged ball has no symmetry at all, so no Gaussian
+surface helps. Superposition does. A ball with a spherical cavity is the same
+thing as a full ball of density $+\rho$ plus a smaller ball of density $-\rho$
+filling the hole. Each piece is spherically symmetric about its own centre, and
+inside a uniform ball the field at displacement $\vec r$ from its centre is
+$\vec E = \rho\vec r/(3\varepsilon_0)$ — just rewrite $kQ r/R^3$ using
+$Q = \tfrac{4}{3}\pi R^3\rho$ and watch $R$ cancel.
+
+Add the two at a point in the cavity, with $\vec d$ the vector from the big
+centre to the small one:
+
+$$\vec E = \frac{\rho \vec r_1}{3\varepsilon_0} - \frac{\rho \vec r_2}{3\varepsilon_0} = \frac{\rho(\vec r_1 - \vec r_2)}{3\varepsilon_0} = \frac{\rho \vec d}{3\varepsilon_0}$$
+
+The point you chose dropped out. The field inside the cavity is uniform. For
+$\rho = 2.5\ \mu\mathrm{C/m^3}$ and $d = 3.0\ \mathrm{cm}$,
+$E = (2.5\times10^{-6})(0.030)/(3 \times 8.85\times10^{-12}) = 2.8\times10^{3}\ \mathrm{N/C}$.
+Two overlapping spheres of opposite density work the identical way, giving a
+uniform field $\rho d/(3\varepsilon_0)$ throughout the lens of overlap.
+
+## How to recognise a Gauss's law problem
+
+Reach for Gauss's law when you see one of these:
+
+The problem says **flux**, or gives you a closed surface and asks what is inside.
+That is Gauss's law used as a bookkeeping statement, and no field calculation is
+needed at all.
+
+The charge has one of the **three symmetries** and the question asks for a field.
+Words like *sphere*, *ball*, *shell*, *long straight wire*, *beam*, *coaxial*,
+*large sheet*, *wide slab*, *parallel plates* are the tell. Draw the matching
+surface, ask what charge is inside it, and divide by the area.
+
+The question asks for the field **inside** a charged object. Direct integration
+inside a volume is brutal; Gauss's law is one line. The phrase "at a radius
+smaller than $R$" should make you reach for it immediately.
+
+There is a **conductor** anywhere in the problem. $E = 0$ inside metal plus
+Gauss's law determines every induced charge in the setup.
+
+And reach for superposition instead when the symmetry is broken but the pieces
+are symmetric: cavities, overlapping spheres, two sheets, a wire beside a plane.
+
+The one thing Gauss's law will not give you is the field of a finite rod or a
+ring off-axis. No surface has constant $E$ on it there, so you go back to the
+integration of the previous lesson. Knowing which tool a problem wants is most
+of the skill.
+
+Next you will stop tracking the field vector and start tracking a single number
+per point in space, which turns most of these vector problems into arithmetic:
+[electric potential](/guide/electric-potential).

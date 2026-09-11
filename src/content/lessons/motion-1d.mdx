@@ -1,48 +1,296 @@
-## Definitions, then everything else
+A car is doing 25 m/s and the driver stands on the brakes. Before the car
+stops it travels a certain distance. Double the speed to 50 m/s, brake just as
+hard, and the car does not travel twice as far. It travels four times as far.
+Nothing in that sentence is about forces or engines or tyres. It follows from
+the bookkeeping of position, velocity and time alone.
 
-Velocity is how position changes, acceleration is how velocity changes:
+That bookkeeping is what this lesson is. In the [previous lesson](/guide/data-graphs)
+you were reading slopes and areas off graphs and worrying about how much you
+could trust a number. Now you get the small set of relations that govern any
+object moving along a line, and the habits that turn a wordy problem into two
+equations you can actually solve.
 
-$$v = \frac{dx}{dt}, \qquad a = \frac{dv}{dt}$$
+## Position, velocity, acceleration
 
-Hold $a$ constant and integrate twice and you get the three equations you will
-use for the rest of the year:
+Pick a line to move along and an origin on it. The **position** $x$ is how far
+the object is from the origin, with a sign: negative means the other side. It
+is measured in metres.
 
-$$v = v_0 + at, \qquad x = v_0 t + \tfrac{1}{2}at^2, \qquad v^2 = v_0^2 + 2a\,\Delta x$$
+**Velocity** is the rate at which position changes. If the object moves from
+$x_1$ at time $t_1$ to $x_2$ at time $t_2$, the average velocity over that
+stretch is
 
-The third is the useful one, because it contains no time. Whenever a problem
-gives you speeds and a distance but never mentions seconds, that is the
-equation it wants.
+$$\bar v = \frac{x_2 - x_1}{t_2 - t_1} = \frac{\Delta x}{\Delta t}.$$
 
-## Reading graphs
+Shrink the interval until it is vanishingly small and you get the velocity at
+one instant, which is written $v = dx/dt$. That is the derivative of $x$ with
+respect to $t$, and if you have not met derivatives, here is all you need for
+now: the derivative of $t^n$ is $nt^{n-1}$, and the derivative of a sum is the
+sum of the derivatives. So if $x(t) = 3 + 4t - t^2$ in metres, then
+$v(t) = 4 - 2t$ in m/s, and at $t = 3.0$ s that is $4 - 6 = -2.0$ m/s. Negative:
+the cart is heading back toward the origin.
 
-Most exam questions on this topic are graph questions in disguise.
+**Acceleration** is the same operation applied once more. It is the rate at
+which velocity changes, $a = dv/dt$, in metres per second per second, m/s².
+Note what it is not. Acceleration is not "how fast you are going" and it is not
+"speeding up". A car braking from 30 m/s has a negative acceleration while its
+velocity is still large and positive. A car reversing and speeding up has
+negative velocity and negative acceleration. The two signs are independent, and
+the only rule connecting them is this: when $v$ and $a$ have the same sign the
+speed grows, and when they have opposite signs the speed shrinks.
 
-- The slope of a position graph is velocity; the slope of a velocity graph is acceleration.
-- The area under a velocity graph is displacement. It is signed area, so time spent moving backwards subtracts.
-- The area under an acceleration graph is the change in velocity, not the velocity itself.
+<Aside label="Speed is not velocity">
+  Velocity is signed; speed is its magnitude, $|v|$. Displacement $\Delta x$ is
+  signed; distance travelled is the total path length, which never decreases.
+  A ball thrown up and caught again has zero displacement and a very nonzero
+  distance. Problems say "distance" or "displacement" deliberately.
+</Aside>
 
-<Figure caption={<><b>Figure 1.</b> Position and velocity for constant acceleration. Where the velocity crosses zero, the position curve turns around. Set the initial velocity and acceleration to the same sign and the turnaround disappears entirely.</>}>
-  <Sim id="motion-graphs" />
+<Figure caption={<><b>Figure 1.</b> A cart with whatever starting velocity and acceleration you choose, beside its velocity-time graph. Set the two sliders to opposite signs and watch the cart stop, turn around, and come back while the shaded area on the graph starts eating itself.</>}>
+  <Sim id="motion-1d-lab" />
 </Figure>
 
+## The constant-acceleration equations, derived
+
+Most problems hold $a$ fixed. That single assumption gives you everything.
+
+Constant $a$ means velocity changes by the same amount every second, so after a
+time $t$ it has changed by $at$:
+
+$$v = v_0 + at.$$
+
+Here $v_0$ is the velocity at the moment you start your clock. On a
+velocity-time graph this is a straight line with slope $a$ and intercept $v_0$.
+
+Now for position. The area under a velocity-time graph is the displacement,
+because a thin strip of width $dt$ and height $v$ has area $v\,dt$, which is the
+small distance covered in that sliver of time. Add up the strips and you have
+$\Delta x$. Under a straight line the region is a trapezoid: two parallel sides
+of length $v_0$ and $v$, separated by a base of length $t$. Its area is the
+average of the parallel sides times the base, so
+
+$$\Delta x = \frac{v_0 + v}{2}\,t.$$
+
+That is worth a name. The bracket is the **average velocity**, and for constant
+acceleration — and only for constant acceleration — it equals the plain average
+of the starting and ending velocities.
+
+Substitute $v = v_0 + at$ into it and the trapezoid splits into a rectangle plus
+a triangle:
+
+$$\Delta x = \frac{v_0 + v_0 + at}{2}\,t = v_0 t + \tfrac{1}{2}a t^2.$$
+
+Finally, take $t = (v - v_0)/a$ from the first equation and put it into the
+trapezoid form:
+
+$$\Delta x = \frac{v_0 + v}{2}\cdot\frac{v - v_0}{a} = \frac{v^2 - v_0^2}{2a},$$
+
+which rearranges to
+
+$$v^2 = v_0^2 + 2a\,\Delta x.$$
+
+That last one has no $t$ in it. Whenever a problem hands you two speeds and a
+distance and never mentions seconds, it is asking for that equation. It is also
+the answer to the puzzle at the top: stopping from $v_0$ to rest takes
+$\Delta x = v_0^2/(2|a|)$, which goes as the square of the speed.
+
+<Figure caption={<><b>Figure 2.</b> The trapezoid the three equations come from. The sloped top has rise a t over base t. Drag the acceleration negative and watch part of the area drop below the axis — that is the displacement going backwards, which is exactly why signed area is the right idea.</>}>
+  <Sim id="motion-1d-trapezoid" />
+</Figure>
+
+<QuickCheck
+  question="A car brakes uniformly from 25 m/s to rest in 62.5 m. If it had started at 50 m/s with the same braking, the stopping distance would be:"
+  options={["125 m", "250 m", "187.5 m", "Not enough information"]}
+  answer={1}
+  explanation="Stopping distance is v0 squared over 2 times the deceleration. Doubling v0 multiplies the distance by four, giving 250 m. The tempting answer, 125 m, treats the relation as linear."
+/>
+
+**Worked example 1.** A cyclist is moving at 4.0 m/s and accelerates uniformly
+at 1.2 m/s² over the next 60 m. What is her final speed?
+
+Write down what you have: $v_0 = 4.0$ m/s, $a = 1.2$ m/s², $\Delta x = 60$ m,
+and $v$ is wanted. No time appears anywhere, so reach for the timeless
+equation.
+
+$$v^2 = v_0^2 + 2a\Delta x = (4.0)^2 + 2(1.2)(60) = 16 + 144 = 160\ \mathrm{m^2/s^2}.$$
+
+So $v = \sqrt{160} = 12.6$ m/s. Taking the positive root is a choice: she was
+moving forward and speeding up, so the negative root is not physical here.
+
+## Averages, and the trap in them
+
+Average velocity is always $\Delta x/\Delta t$ — total displacement over total
+time. Average speed is total distance over total time. Neither is the average
+of the speeds you held, unless you held each one for the same *time*.
+
+Say you drive the first half of a trip's distance at 40 mph and the second half
+at 60 mph. Call the total distance $2d$. The first leg takes $d/40$ hours, the
+second $d/60$. The total time is
+
+$$\frac{d}{40} + \frac{d}{60} = d\left(\frac{3}{120} + \frac{2}{120}\right) = \frac{5d}{120} = \frac{d}{24}.$$
+
+Average speed is total distance over total time: $2d \div (d/24) = 48$ mph. Not
+50. You spend longer on the slow half, so the slow half gets more weight. Same
+arithmetic, different numbers: 40 km at 80 km/h then 40 km at 40 km/h takes
+$0.5 + 1.0 = 1.5$ h for 80 km, giving 53.3 km/h.
+
 <Aside label="Where this goes wrong" warn>
-  Average velocity is $\Delta x/\Delta t$. It equals the average of the initial
-  and final speeds only when the acceleration is constant, and problems about
-  round trips or two-leg journeys are built specifically to punish anyone who
-  forgets that.
+  Averaging the speeds is the single most common error in this topic. Equal
+  distances at different speeds never give the plain average — the answer is
+  always lower. Equal *times* at different speeds do give the plain average.
+  Read which one the problem specifies before you write anything down.
 </Aside>
 
 <QuickCheck
-  question="You drive half the distance of a trip at 30 mph and the other half at 60 mph. Your average speed is:"
-  options={["45 mph", "40 mph", "50 mph", "Not enough information"]}
+  question="You run 1 km at 10 km/h, then walk 1 km at 5 km/h. Your average speed for the 2 km is:"
+  options={["7.5 km/h", "6.67 km/h", "5 km/h", "8 km/h"]}
   answer={1}
-  explanation="Equal distances, unequal times: you spend twice as long on the slow half, so it dominates. The result is the harmonic mean, 40 mph, always below the arithmetic average of 45."
+  explanation="The times are 0.1 h and 0.2 h, so 2 km in 0.3 h, which is 6.67 km/h. 7.5 km/h is the plain average of the two speeds and is wrong because you spend twice as long walking."
 />
 
-## Free fall
+## Free fall and the moving platform
 
-Near the ground, and ignoring air, everything accelerates downward at the same
-$g$ regardless of mass. The subtlety is almost never the acceleration; it is
-the initial condition. An object released from a moving platform leaves with
-the platform's velocity, which is why a sandbag dropped from a rising balloon
-first goes up.
+Near the ground, ignoring air resistance, everything falls with the same
+downward acceleration $g$. Use $g = 9.8$ m/s², or $10$ m/s² when a problem says
+so. Mass does not appear. A bowling ball and a marble released together land
+together.
+
+The acceleration is almost never the hard part. The initial condition is. An
+object released from a moving platform leaves with the platform's velocity — it
+does not start at rest just because you let go of it.
+
+**Worked example 2.** A balloon rises at a steady 5 m/s. At a height of 60 m a
+sandbag is released. With $g = 10$ m/s², how long until it hits the ground?
+
+Set up axes first, before touching a number: let $y$ be measured upward from
+the ground, so $y_0 = +60$ m, the bag's initial velocity is $v_0 = +5$ m/s (it
+was moving up with the balloon), and $a = -10$ m/s².
+
+$$y(t) = 60 + 5t - 5t^2.$$
+
+The bag lands when $y = 0$:
+
+$$5t^2 - 5t - 60 = 0 \quad\Longrightarrow\quad t^2 - t - 12 = 0 \quad\Longrightarrow\quad (t-4)(t+3) = 0.$$
+
+So $t = 4.0$ s, discarding the negative root, which describes a time before the
+bag existed. Notice that the bag first goes *up*: its velocity is zero at
+$t = v_0/g = 0.5$ s, at a height of $60 + 5(0.5) - 5(0.25) = 61.25$ m. If you
+had set $v_0 = 0$ you would have got $t = \sqrt{12} = 3.46$ s, too small.
+
+<Figure caption={<><b>Figure 3.</b> The bag and the balloon separate at release, but the bag leaves with the balloon's velocity and keeps climbing for half a second. Drag the rise speed to zero and the apex collapses onto the release height; raise it and the fall takes longer even though the drop is from the same place.</>}>
+  <Sim id="motion-1d-balloon" />
+</Figure>
+
+## Motion in stages
+
+Real problems rarely hold one acceleration for the whole trip. The method is
+always the same: break the motion at every instant where $a$ changes, solve each
+stage separately, and pass the final velocity and position of one stage in as
+the initial conditions of the next. Draw the velocity-time graph while you do
+it; the shape usually tells you the answer.
+
+A rocket sled starting from rest at 8.0 m/s² for 10 s reaches
+$v = 80$ m/s having covered $\tfrac12(8)(10)^2 = 400$ m. Stage two starts at
+80 m/s and brakes at 4.0 m/s², needing $80/4 = 20$ s and covering
+$80^2/(2\cdot 4) = 800$ m. Total: 1200 m. Each stage is a fresh set of initial
+conditions.
+
+Sometimes the graph shape alone is enough. A tram accelerates uniformly from
+rest, then decelerates uniformly to rest, 200 m in 20 s. Its velocity-time graph
+is a triangle of base 20 s and peak $v_{\max}$, so the area is
+$\tfrac12(20)v_{\max} = 200$, giving $v_{\max} = 20$ m/s. You never need to know
+where the switch happened.
+
+**Worked example 3.** A shuttle must cover 1000 m, starting and ending at rest.
+It can accelerate at most 2.0 m/s² and brake at most 4.0 m/s², with no speed
+limit. What is the minimum travel time?
+
+Think about what the fastest possible trip looks like. Any moment spent not
+accelerating as hard as allowed is a moment you could have been going faster, so
+the optimal run is: full acceleration up to some peak speed $v$, then
+immediately full braking down to rest. The velocity-time graph is a triangle
+with peak $v$.
+
+The accelerating leg covers $v^2/(2\cdot 2.0) = v^2/4$ and takes $v/2.0$. The
+braking leg covers $v^2/(2\cdot 4.0) = v^2/8$ and takes $v/4.0$. The distances
+must add to 1000 m:
+
+$$\frac{v^2}{4} + \frac{v^2}{8} = \frac{3v^2}{8} = 1000 \quad\Longrightarrow\quad v^2 = \frac{8000}{3} = 2666.7,$$
+
+so $v = 51.64$ m/s. The total time is
+
+$$t = \frac{v}{2.0} + \frac{v}{4.0} = 0.75v = 0.75(51.64) = 38.7\ \mathrm{s}.$$
+
+If the problem adds a speed limit, the triangle gets its top sliced off into a
+trapezoid: accelerate to the limit, cruise, then brake, and the cruise distance
+is whatever is left over after the two ramps.
+
+<Aside label="Two objects, one clock" warn>
+  When two objects are involved — a police car chasing a speeder, one ball
+  thrown after another — write a position function for each using the *same*
+  origin and the *same* $t = 0$, then set them equal. Absorb any head start into
+  the formula rather than into your head. A speeder at 30 m/s with a 5.0 s lead
+  is at $x_1 = 30(t+5)$ when the cruiser, starting from rest at 4.0 m/s², is at
+  $x_2 = 2t^2$; setting them equal gives $t^2 - 15t - 75 = 0$ and $t = 19.0$ s
+  after the cruiser starts. Mixing up the two clocks is the usual failure.
+</Aside>
+
+## When the acceleration is not constant
+
+The four boxed equations are worthless the moment $a$ changes with time. The
+definitions still hold, though, and they are all you need.
+
+If you are given $v(t)$ directly, displacement is the integral — the signed area
+under the curve — and distance is the area with every piece counted positive.
+Take a cart with $v(t) = 12 - 3t$ m/s over the first 8.0 s. It reverses at
+$t = 4.0$ s. Forward leg: a triangle of base 4 and height 12, area
+$\tfrac12(4)(12) = 24$ m. Backward leg: from 4 s to 8 s the velocity runs from 0
+to $-12$ m/s, another triangle of area 24 m, but travelled backwards. The
+displacement is $24 - 24 = 0$. The distance is $24 + 24 = 48$ m. Whenever $v$
+changes sign inside the interval, split the integral there or you will report
+displacement when the problem asked for distance.
+
+A harder case is acceleration given as a function of velocity. A boat's engine
+cuts out at 20 m/s and afterwards $a = -kv$ with $k = 0.50$ s⁻¹. How far does it
+coast? Solving $dv/dt = -kv$ needs an exponential, but there is a change of
+variable that avoids it. Write acceleration using the chain rule:
+
+$$a = \frac{dv}{dt} = \frac{dv}{dx}\cdot\frac{dx}{dt} = v\frac{dv}{dx}.$$
+
+That identity is worth memorising; it converts any velocity-dependent
+acceleration into a relation between $v$ and $x$. Here it gives
+$v\,dv/dx = -kv$, and cancelling the $v$ leaves $dv/dx = -k$: velocity falls off
+*linearly with distance*, even though it decays exponentially with time. So
+$\Delta v = -k\,\Delta x$, and going from 20 m/s to 0:
+
+$$\Delta x = \frac{20}{0.50} = 40\ \mathrm{m}.$$
+
+The boat takes forever to stop but only ever travels 40 m.
+
+## Recognising what a problem wants
+
+Before you write any equation, list the five constant-acceleration symbols and
+mark which you know: $v_0$, $v$, $a$, $t$, $\Delta x$. Three knowns pick the
+equation for you.
+
+- **No time mentioned, and none wanted** — use $v^2 = v_0^2 + 2a\Delta x$.
+  "Stopping distance", "final speed over this stretch", "how high does it go".
+- **Time is given or asked for, and one velocity is missing** — use
+  $\Delta x = v_0t + \tfrac12 at^2$ or, more cheaply, the trapezoid form.
+- **Total distance with no way to find the individual stages** — look for the
+  area of the velocity-time graph as a whole shape. Triangle and trapezoid areas
+  solve a surprising number of problems in one line.
+- **The word "maximum" or "minimum" with two acceleration limits** — the answer
+  is the bang-bang trip: full acceleration, then full braking, possibly with a
+  cruise if there is a speed limit.
+- **Two moving objects, or a head start, or a delay** — one origin, one clock,
+  two position functions, set equal.
+- **Acceleration given as a formula in $t$ or $v$** — the equations do not
+  apply. Integrate, or use $a = v\,dv/dx$ if $a$ depends on $v$.
+- **"Distance" rather than "displacement", or anything that turns around** —
+  find where $v = 0$ and split the calculation there.
+
+Almost every one of these is easier if you sketch the velocity-time graph first.
+That is the subject of the next lesson, [Motion Graphs](/guide/motion-graphs),
+where slopes and areas stop being a computational trick and become the fastest
+way to read a problem.

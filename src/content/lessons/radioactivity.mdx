@@ -1,70 +1,459 @@
-## Three ways to shed instability
+A lump of uranium sitting in a drawer has been there, as far as it is concerned,
+for four and a half billion years. Nothing in the room tells it what time it is.
+It has no clock, no memory, no stored-up fatigue. And yet if you had a tonne of
+it and waited, you could predict to several digits how many atoms would break
+apart this afternoon.
 
-A nucleus is protons and neutrons held by the strong force against electrical
-repulsion. When the balance is wrong the nucleus rearranges itself, and there
-are three standard routes. Write the nucleus as $^A_Z X$, with $A$ nucleons and
-$Z$ protons.
+That is the strange thing worth getting straight before any formula. A single
+nucleus is completely unpredictable: you cannot say when this one will go. A
+mountain of them is completely predictable. The whole of radioactivity comes
+from taking that one fact seriously.
 
-**Alpha decay** ejects a helium nucleus. Heavy nuclei do this because the
-Coulomb repulsion across a large nucleus outgrows the short-range strong force.
+The last lesson gave every particle a wavelength and left the nucleus as a small
+hard thing at the centre of the atom. Now look inside it.
 
-$$^A_Z X \to\ ^{A-4}_{Z-2} Y + ^4_2\alpha$$
+## One rule, and the law that follows from it
 
-**Beta-minus decay** converts a neutron into a proton, emitting an electron and
-an antineutrino. Nothing is knocked out of the nucleus — the electron is
-created at the moment of decay.
+Here is the entire physical input. **Each nucleus has a fixed probability per
+second of decaying, and that probability never changes.** It does not depend on
+how long the nucleus has already survived, on temperature, on pressure, or on
+what chemical the atom is bound into. Call that probability per second
+$\lambda$, the *decay constant*, with units of one over time.
 
-$$n \to p + e^- + \bar{\nu}_e, \qquad ^A_Z X \to\ ^{\ \ A}_{Z+1} Y + e^- + \bar{\nu}_e$$
+Now count. If you have $N$ nuclei and each has chance $\lambda$ per second of
+going, the expected number of decays in a short time $dt$ is $\lambda N\,dt$.
+Every one of those is a nucleus removed from the pile, so
 
-Beta-plus decay runs the other way, a proton becoming a neutron plus a positron
-and a neutrino, lowering $Z$ by one.
+$$
+\frac{dN}{dt} = -\lambda N.
+$$
 
-**Gamma decay** emits a photon from an excited nucleus and changes neither $A$
-nor $Z$. It usually follows an alpha or beta decay that left the daughter
-excited.
+Read that in words: the rate at which the pile shrinks is proportional to how
+much pile is left. Twice the sample, twice the decays per second. The minus sign
+is just bookkeeping — $N$ is falling.
 
-In every case the sums of $A$ and of $Z$ must balance across the arrow. That
-bookkeeping alone identifies most daughter nuclei.
+That equation says the rate of change of something is proportional to the thing
+itself, and the only function that does that is the exponential. Separate and
+integrate:
 
-<Aside label="Where this goes wrong" warn>
-  A beta particle is not an orbital electron, and beta decay does not ionise
-  the atom in the ordinary sense. Also, the antineutrino is not optional
-  padding — without it, energy and angular momentum both fail to balance, and
-  the observed beta energy spectrum would be a single line rather than a
-  continuum.
+$$
+\int_{N_0}^{N}\frac{dN}{N} = -\lambda\int_0^t dt
+\quad\Longrightarrow\quad
+\ln\frac{N}{N_0} = -\lambda t,
+$$
+
+so
+
+$$
+N(t) = N_0 e^{-\lambda t}.
+$$
+
+$N_0$ is the number you started with at $t = 0$. Nothing here is special to
+nuclei; the same equation governs a draining capacitor. What is special is that
+$\lambda$ is a fixed property of the isotope, the same in a star and in a
+freezer.
+
+## Half-life and mean life
+
+$\lambda$ is the honest quantity but nobody quotes it. What gets quoted is the
+**half-life** $T_{1/2}$: the time for half the sample to go. Put $N = N_0/2$
+into the law:
+
+$$
+\tfrac12 = e^{-\lambda T_{1/2}}
+\quad\Longrightarrow\quad
+\lambda T_{1/2} = \ln 2,
+$$
+
+$$
+T_{1/2} = \frac{\ln 2}{\lambda} = \frac{0.693}{\lambda}.
+$$
+
+Because the rule has no memory, the half-life applies from *any* starting
+moment, not just from $t=0$. A sample that has already lost 90% of its nuclei
+still loses half of what remains in the next $T_{1/2}$. That is why powers of
+one half are so useful:
+
+$$
+N(t) = N_0\left(\tfrac12\right)^{t/T_{1/2}}.
+$$
+
+Three half-lives leave $(1/2)^3 = 1/8$. Ten leave about a thousandth. If a
+problem gives you a tidy multiple of the half-life, use this form and skip the
+logarithms entirely.
+
+There is a third timescale in circulation. The **mean lifetime** $\tau = 1/\lambda$
+is the average survival time of a nucleus, and
+
+$$
+\tau = \frac{T_{1/2}}{\ln 2} = 1.44\,T_{1/2}.
+$$
+
+A muon with a mean lifetime of 2.20 μs has a half-life of
+$0.693 \times 2.20 = 1.52$ μs, which is shorter. Check which one a problem has
+handed you; the two differ by 44% and that is enough to wreck an answer.
+
+<Figure caption={<><b>Figure 1.</b> The decay curve. Drag the half-life slider and notice that the shape never changes, only the horizontal stretch. Watch the readout: the curve crosses one half, one quarter and one eighth at evenly spaced times, no matter where you set the slider.</>}>
+  <Sim id="radioactivity-decay-lab" />
+</Figure>
+
+<Aside label="Worth remembering">
+  Three numbers describe the same thing: $\lambda$, $T_{1/2} = \ln 2/\lambda$,
+  and $\tau = 1/\lambda$. Convert to $\lambda$ the moment a problem starts, and
+  keep the time units consistent with whatever the half-life was quoted in.
 </Aside>
 
-## The decay law
+## Activity: what a detector actually measures
 
-Each nucleus decays independently, with a fixed probability per unit time. It
-does not age and it does not remember. That gives
+You never count nuclei in a sample. You count the decays coming out of it. That
+rate is the **activity**,
 
-$$\frac{dN}{dt} = -\lambda N \quad \Longrightarrow \quad N(t) = N_0 e^{-\lambda t}$$
+$$
+A = \left|\frac{dN}{dt}\right| = \lambda N,
+$$
 
-where $\lambda$ is the decay constant. Setting $N = N_0/2$ gives the half-life:
+measured in **becquerels** (Bq), one decay per second. The older unit is the
+**curie**: $1\ \text{Ci} = 3.70\times10^{10}$ Bq, originally the activity of a
+gram of radium.
 
-$$T_{1/2} = \frac{\ln 2}{\lambda} \approx \frac{0.693}{\lambda}$$
+Since $A$ is just $\lambda$ times $N$, and $\lambda$ is constant, activity obeys
+exactly the same exponential:
 
-The mean lifetime is $\tau = 1/\lambda$, longer than the half-life by a factor
-of 1.44. Both appear in problems; check which one a stated number is.
+$$
+A(t) = A_0 e^{-\lambda t} = A_0\left(\tfrac12\right)^{t/T_{1/2}}.
+$$
 
-## Activity
+That is the most useful sentence on this page. You can do every dating and
+counting problem with measured activities and never find out how many nuclei
+were there.
 
-Activity is the count of decays per second, $A = \lambda N$, measured in
-becquerels. It obeys the same exponential, since it is proportional to $N$:
-
-$$A(t) = A_0 e^{-\lambda t} = A_0 \left(\tfrac{1}{2}\right)^{t/T_{1/2}}$$
-
-The second form is faster by hand when the elapsed time is a tidy multiple of
-the half-life. Three half-lives leave one eighth; ten leave about a thousandth.
-
-Note that a long half-life means a low activity for a given sample. Uranium-238
-is barely radioactive per gram precisely because it lasts billions of years.
-Short-lived isotopes are the dangerous ones while they last.
+Notice what $A = \lambda N$ implies about long-lived isotopes. Uranium-238 has
+an enormous $N$ in any ore sample but a tiny $\lambda$, so a lump of it is
+barely radioactive. A medical tracer with a six-hour half-life has a
+$\lambda$ about $10^{13}$ times larger, so a speck of it lights up a detector.
+Long-lived means feeble; short-lived means fierce but brief.
 
 <QuickCheck
-  question="After emitting one alpha particle and then two beta-minus particles, a nucleus has mass number and atomic number changed by:"
-  options={["A down 4, Z unchanged", "A down 4, Z down 2", "A down 4, Z up 2", "A unchanged, Z down 2"]}
+  question="A sample of 1.00e12 nuclei has a half-life of 1.00 hour. How many nuclei decay during the first hour?"
+  options={["5.00e11", "1.00e12", "6.93e11", "2.50e11"]}
   answer={0}
-  explanation="Alpha takes A down 4 and Z down 2; each beta-minus raises Z by one and leaves A alone. The two beta decays cancel the alpha's change in Z."
+  explanation="Half of them go, so 5.00e11 decay and 5.00e11 remain. The tempting wrong move is to use the initial rate lambda times N times one hour, which would give 6.93e11 — but that assumes the rate stays at its initial value for the whole hour, and it does not."
 />
+
+### Worked example 1: half-life from two readings
+
+A Geiger counter reads 800 Bq from a fresh sample and 100 Bq exactly 30.0
+minutes later. Find the half-life.
+
+Write down the ratio first, because the ratio is what the exponential controls:
+
+$$
+\frac{A}{A_0} = \frac{100}{800} = \frac18.
+$$
+
+One eighth is $(1/2)^3$, so exactly three half-lives have passed. Then
+
+$$
+3\,T_{1/2} = 30.0\ \text{min}
+\quad\Longrightarrow\quad
+T_{1/2} = 10.0\ \text{min}.
+$$
+
+No logarithms needed. When the ratio is not a power of two, take logs of
+$A/A_0 = e^{-\lambda t}$:
+
+$$
+\lambda = \frac{1}{t}\ln\frac{A_0}{A},
+\qquad
+T_{1/2} = \frac{t\ln 2}{\ln(A_0/A)}.
+$$
+
+Check it against the numbers above: $\ln 8 = 2.079$, so
+$T_{1/2} = 30.0 \times 0.693/2.079 = 10.0$ min. Same answer, and this version
+works for any ratio.
+
+## Three ways a nucleus sheds instability
+
+A nucleus is protons and neutrons held together by the strong force against the
+electrical repulsion of the protons. Write it as $^A_Z X$: $A$ nucleons in
+total, $Z$ of them protons, so $A - Z$ neutrons. When the mix is wrong, the
+nucleus rearranges along one of three routes.
+
+**Alpha decay** throws out a helium nucleus, two protons and two neutrons bound
+together:
+
+$$
+^A_Z X \to\ ^{A-4}_{Z-2} Y + {}^4_2\alpha.
+$$
+
+Heavy nuclei do this because the strong force only reaches its nearest
+neighbours while the Coulomb repulsion reaches across the whole nucleus. Past
+about $Z = 83$ the repulsion wins.
+
+**Beta-minus decay** turns a neutron into a proton inside the nucleus, spitting
+out an electron and an antineutrino:
+
+$$
+n \to p + e^- + \bar\nu_e,
+\qquad
+^A_Z X \to\ ^{\ \ A}_{Z+1} Y + e^- + \bar\nu_e.
+$$
+
+$A$ is unchanged, $Z$ goes up by one. Neutron-rich nuclei do this. **Beta-plus
+decay** runs the other way — a proton becomes a neutron plus a positron and a
+neutrino, so $Z$ drops by one — and **electron capture** achieves the same
+thing by swallowing an inner atomic electron instead of emitting a positron.
+
+**Gamma decay** emits a photon from a nucleus left in an excited state. Neither
+$A$ nor $Z$ changes; only the energy does. It nearly always follows an alpha or
+beta decay that dropped the daughter into an excited level.
+
+The bookkeeping rule covers most identification questions: **$A$ and $Z$ must
+each balance across the arrow.** Uranium-238 emitting an alpha leaves
+$A = 238 - 4 = 234$. Carbon-14 with $Z = 6$ beta-minus decaying leaves $Z = 7$,
+nitrogen. And a nucleus that emits one alpha and then two beta-minus particles
+has $Z$ changed by $-2 + 1 + 1 = 0$, back where it started, with $A$ down 4.
+
+<Figure caption={<><b>Figure 2.</b> The same information as a map. Every square is one nuclide, with neutrons across and protons up. Alpha decay steps two squares left and two down; beta-minus trades a neutron for a proton, moving up and to the left; beta-plus does the reverse. Gamma decay does not move at all.</>}>
+  <Sim id="radioactivity-modes" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  A beta particle is not an orbital electron that escaped. It is created at the
+  instant of decay, out of the energy released. And the antineutrino is not
+  decoration: without it the emitted electron would always carry the same
+  energy, whereas what you actually see is a continuous spread of beta energies
+  from zero up to a maximum. The missing energy leaves with the neutrino.
+</Aside>
+
+## Reading the clock backwards: dating
+
+If you know $\lambda$ and you can measure how far along the decay a sample is,
+you can solve for $t$. That is all dating is. The work is in figuring out what
+plays the role of $A_0$.
+
+### Worked example 2: radiocarbon
+
+Charcoal from an old campfire gives 0.150 Bq per gram of carbon. Living wood
+gives 0.250 Bq per gram. Carbon-14 has $T_{1/2} = 5730$ yr. How old is the
+charcoal?
+
+Living wood keeps exchanging carbon with the atmosphere, so its carbon-14 stays
+topped up at the atmospheric level. The moment the tree died the topping-up
+stopped. So living wood today is the $A_0$ for a sample that died at any time
+in the past.
+
+First the decay constant:
+
+$$
+\lambda = \frac{\ln 2}{5730\ \text{yr}} = \frac{0.6931}{5730} = 1.210\times10^{-4}\ \text{yr}^{-1}.
+$$
+
+Then
+
+$$
+t = \frac{1}{\lambda}\ln\frac{A_0}{A} = \frac{1}{1.210\times10^{-4}}\ln\frac{0.250}{0.150}.
+$$
+
+The ratio is $1.667$ and $\ln 1.667 = 0.5108$, so
+
+$$
+t = \frac{0.5108}{1.210\times10^{-4}} = 4.22\times10^{3}\ \text{yr}.
+$$
+
+About 4220 years old.
+
+### Worked example 3: uranium-lead
+
+A zircon crystal contains 0.300 atoms of lead-206 for every atom of
+uranium-238, and all of that lead came from uranium decay. Uranium-238 has
+$T_{1/2} = 4.468\times10^9$ yr. How old is the crystal?
+
+Here nobody tells you $N_0$. You have to build it. Every lead atom present is a
+uranium atom that decayed, so
+
+$$
+N_0 = N_{\text{U}} + N_{\text{Pb}}.
+$$
+
+That single line is the whole idea; the rest is algebra. Divide through by
+$N_{\text{U}}$:
+
+$$
+\frac{N_0}{N_{\text{U}}} = 1 + \frac{N_{\text{Pb}}}{N_{\text{U}}} = 1 + 0.300 = 1.300.
+$$
+
+And $N_0/N = e^{\lambda t}$, so $\lambda t = \ln 1.300 = 0.2624$. With
+$\lambda = 0.6931/(4.468\times10^9) = 1.5513\times10^{-10}\ \text{yr}^{-1}$,
+
+$$
+t = \frac{0.2624}{1.5513\times10^{-10}} = 1.69\times10^{9}\ \text{yr}.
+$$
+
+Roughly 1.7 billion years. The same trick — reconstruct $N_0$ from what is left
+plus what it turned into — handles any parent-daughter dating problem, and it
+handles the two-isotope version too. If two isotopes were made in equal numbers
+and you know their ratio now, write
+$N_1/N_2 = e^{(\lambda_2 - \lambda_1)t}$ and solve for $t$.
+
+<QuickCheck
+  question="A rock contains equal numbers of parent and daughter atoms, with all daughter produced by decay. In half-lives, how old is it?"
+  options={["Exactly one half-life", "Two half-lives", "Half a half-life", "You cannot tell without the decay constant"]}
+  answer={0}
+  explanation="Equal numbers means half the original parent is left, which is one half-life by definition. The decay constant converts that into years but is not needed to answer in half-lives."
+/>
+
+## Parents, daughters and equilibrium
+
+Real decays rarely stop at one step. A parent decays to a daughter which is
+itself unstable. Now two things happen to the daughter at once: it is being
+created at the rate the parent decays, and destroyed at its own rate. So
+
+$$
+\frac{dN_d}{dt} = \lambda_p N_p - \lambda_d N_d.
+$$
+
+Solving that gives the Bateman result, which problems will usually hand you:
+
+$$
+A_d(t) = A_0\,\frac{\lambda_d}{\lambda_d - \lambda_p}\left(e^{-\lambda_p t} - e^{-\lambda_d t}\right),
+$$
+
+for a daughter that starts at zero. Two limits matter more than the formula.
+
+**Long after a short-lived daughter settles**, the $e^{-\lambda_d t}$ term has
+died away and the daughter simply tracks the parent, decaying with the
+*parent's* half-life at a fixed activity ratio:
+
+$$
+\frac{A_d}{A_p} = \frac{\lambda_d}{\lambda_d - \lambda_p}.
+$$
+
+This is **transient equilibrium**. For molybdenum-99 ($T_{1/2} = 66.0$ h)
+feeding technetium-99m ($T_{1/2} = 6.01$ h), $\lambda_d/\lambda_p = 66.0/6.01 = 10.98$,
+so the ratio is $10.98/(10.98 - 1) = 1.10$.
+
+**If the parent is enormously longer-lived** ($\lambda_p \ll \lambda_d$) the
+ratio goes to 1: the daughter's activity equals the parent's. This is
+**secular equilibrium**, and it is why radium-226 sits in old uranium ore at a
+tiny but fixed abundance. Setting $\lambda_{\text{Ra}}N_{\text{Ra}} =
+\lambda_{\text{U}}N_{\text{U}}$ gives
+$N_{\text{Ra}}/N_{\text{U}} = T_{\text{Ra}}/T_{\text{U}} = 1600/(4.468\times10^9)
+= 3.58\times10^{-7}$.
+
+<Figure caption={<><b>Figure 3.</b> A daughter that starts at zero climbs, peaks, then falls in step with its parent. Set the parent to 66 hours and the daughter to 6 hours for a technetium generator, and read the peak time off the marker. Then make the daughter longer-lived than the parent and watch the equilibrium disappear.</>}>
+  <Sim id="radioactivity-chain" />
+</Figure>
+
+### Worked example 4: when is the daughter strongest?
+
+A freshly purified sample of molybdenum-99 ($T_{1/2} = 66.0$ h) decays to
+technetium-99m ($T_{1/2} = 6.01$ h), initially absent. The daughter activity
+peaks at $t = \ln(\lambda_d/\lambda_p)/(\lambda_d - \lambda_p)$. When?
+
+Get both decay constants in the same units, hours:
+
+$$
+\lambda_p = \frac{0.6931}{66.0} = 1.0502\times10^{-2}\ \text{h}^{-1},
+\qquad
+\lambda_d = \frac{0.6931}{6.01} = 0.11533\ \text{h}^{-1}.
+$$
+
+Their ratio is $0.11533/1.0502\times10^{-2} = 10.981$, and
+$\ln 10.981 = 2.3962$. Their difference is
+$0.11533 - 0.01050 = 0.10483\ \text{h}^{-1}$. So
+
+$$
+t = \frac{2.3962}{0.10483} = 22.9\ \text{h}.
+$$
+
+Just under a day — which is why hospitals milk these generators daily. The
+result makes sense as a rough check: it is a few daughter half-lives, long
+enough for the daughter to build up, short enough that the parent has hardly
+faded.
+
+<Aside label="Worth remembering">
+  Whenever two exponentials appear in one problem, put both decay constants in
+  the same time unit before you do anything else. Mixing hours and seconds
+  inside a single logarithm is the single most common way these problems go
+  wrong.
+</Aside>
+
+## Rates that add, and rates that are fed in
+
+Three more situations show up constantly, and each is one line.
+
+**Two competing ways to lose the same nuclei.** Probabilities per second add, so
+decay constants add. If a tracer decays physically with $\lambda_p$ and is also
+flushed out of the body biologically with $\lambda_b$, the effective constant is
+$\lambda_{\text{eff}} = \lambda_p + \lambda_b$, which in half-lives is
+
+$$
+\frac{1}{T_{\text{eff}}} = \frac{1}{T_p} + \frac{1}{T_b}.
+$$
+
+Iodine-131 with $T_p = 8.02$ d and $T_b = 10.0$ d has
+$1/T_{\text{eff}} = 0.1247 + 0.1000 = 0.2247\ \text{d}^{-1}$, so
+$T_{\text{eff}} = 4.45$ days. Branching ratios are the same idea split the other
+way: potassium-40 at 1000 Bq with 10.7% electron capture gives 107 captures per
+second.
+
+**Two isotopes mixed in one vial.** Activities add, but each falls with its own
+$\lambda$. Decay them separately and sum at the end — never average the
+half-lives.
+
+**Steady production.** A cyclotron making nuclei at a constant rate $R$ while
+they decay gives $dN/dt = R - \lambda N$, and starting from nothing,
+
+$$
+A(t) = R\left(1 - e^{-\lambda t}\right).
+$$
+
+The activity climbs towards $R$ and saturates there, because at saturation you
+are destroying them exactly as fast as you make them. Fluorine-18
+($T_{1/2} = 110$ min) made at $5.00\times10^{10}$ per second for 120 min has
+$\lambda t = 0.693 \times 120/110 = 0.756$, $e^{-0.756} = 0.4695$, so
+$A = 5.00\times10^{10}\times 0.5305 = 2.65\times10^{10}$ Bq. Waiting forever
+would only get you to $5.00\times10^{10}$ Bq, so there is no point irradiating
+for more than about three half-lives.
+
+Finally, two conversions that turn counts into physics. A detector that records
+a fraction $\varepsilon$ of decays reads $A_{\text{measured}} = \varepsilon A$,
+so divide by $\varepsilon$ to get the source activity. And **absorbed dose** is
+energy deposited per kilogram, in grays: $1\ \text{Gy} = 1\ \text{J/kg}$.
+Multiply the number of particles by the energy each, convert eV to joules with
+$1\ \text{eV} = 1.602\times10^{-19}$ J, and divide by the mass.
+
+## How to recognise these problems
+
+Almost everything in this topic announces itself.
+
+**A half-life, a mean life, or a decay constant appears.** Convert whichever you
+are given to $\lambda$ immediately. If the elapsed time is a whole number of
+half-lives, use $(1/2)^n$; otherwise use $e^{-\lambda t}$ and take logs.
+
+**Two measurements of the same sample at different times.** You are being asked
+for $T_{1/2}$ or for the elapsed time. Form the ratio $A/A_0$ first — the
+absolute numbers almost never matter.
+
+**A daughter product is mentioned and you are asked for an age.** This is a
+dating problem. Write $N_0 = N_{\text{now}} + N_{\text{daughter}}$ and carry on.
+
+**The words equilibrium, generator, or ore.** Parent-daughter. If the parent is
+vastly longer-lived, use $\lambda_p N_p = \lambda_d N_d$, meaning equal
+activities. Otherwise use the transient ratio $\lambda_d/(\lambda_d - \lambda_p)$.
+
+**Something is being produced while it decays.** Use $A = R(1 - e^{-\lambda t})$
+and check whether the question is really asking about saturation.
+
+**Two loss mechanisms, or two isotopes.** Add the $\lambda$s if both act on the
+same nuclei; add the activities if they are separate populations.
+
+**Only $A$ and $Z$ appear, with no times.** Pure bookkeeping. Balance the mass
+number and the charge across the arrow and you are done.
+
+What none of this touches is *why* a particular decay releases the energy it
+does, or how much. That comes from the masses — the daughter plus the emitted
+particle weigh slightly less than the parent, and the difference is the energy
+budget $Q$. Next up:
+[nuclear binding energy and reactions](/guide/binding-energy).

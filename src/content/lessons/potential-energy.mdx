@@ -1,63 +1,335 @@
-## A force is conservative when the path does not matter
+## A force that gives the energy back
 
-Carry a book from the floor to a shelf. Lift it straight up, or walk it around
-the room first and then up: gravity does exactly $-mgh$ either way. Drag the
-same book across the floor and back to where it started, and friction has taken
-energy every centimeter of the trip. That is the whole distinction.
+In the last lesson you added up work along a path and got the change in kinetic
+energy. That works, but it can be miserable. Drop a ball from a window and the
+force of gravity is easy. Slide the same ball down a curved chute and the force
+still points straight down while the path wanders, so the integral $\int \vec F
+\cdot d\vec r$ looks like a mess.
 
-A force is **conservative** if the work it does between two points depends only
-on the endpoints, equivalently if the work around any closed loop is zero:
+It turns out not to be a mess, and the reason is worth a whole lesson. Carry a
+book from the floor up to a shelf a height $h$ above it. Lift it straight up:
+gravity pulls down $mg$ through a rise $h$, so gravity does $-mgh$. Now carry
+the book twice around the room, up a ladder, along the top of a bookcase and
+back down onto the same shelf. Every horizontal step has gravity perpendicular
+to the motion and contributes nothing. Every bit of rise contributes $-mg$ times
+that rise, every bit of fall contributes $+mg$ times the fall, and the rises
+minus the falls add up to $h$ no matter how you wander. Gravity does $-mgh$
+again.
+
+Now drag the book across the carpet from one corner to another and back. Sliding
+friction opposes the motion the whole way, so it takes energy on the outbound
+trip and takes energy again on the return. Bring the book back to where it
+started and friction has taken a lot; gravity has taken nothing.
+
+<Figure caption={<><b>Figure 1.</b> Both routes start on the floor and end on the shelf. Gravity does the same total work along each, because only the net rise matters. Any force with this property can be replaced by a stored-energy function.</>}>
+  <Sim id="potential-energy-paths" />
+</Figure>
+
+A force is **conservative** when the work it does between two points depends
+only on the endpoints and not on the route. Equivalently, the work it does
+around any closed loop is zero:
 
 $$\oint \vec F \cdot d\vec r = 0$$
 
-Gravity, spring forces, and the electrostatic force pass. Friction, air drag,
-and the push of your hand do not. Only for a conservative force can you define
-a potential energy at all, because otherwise "the energy stored at this point"
-would depend on how you got there and would not be a function of position.
+Gravity, the spring force and the electric force of fixed charges are
+conservative. Sliding friction, air drag and the push of your hand are not. The
+distinction is not a technicality. It is exactly the condition that lets you
+invent potential energy at all.
 
-## Potential energy is stored negative work
+## Potential energy is work you can get back
 
-Define $U$ so that the work done by the conservative force is the drop in $U$:
+Here is the trick. If the work a force does depends only on where you start and
+where you finish, then you can bottle it. Pick a reference point and define a
+function $U$ of position such that the work done by the conservative force going
+from point 1 to point 2 is the drop in $U$:
 
-$$W_{\text{cons}} = -\Delta U$$
+$$W_{\text{cons}} = U_1 - U_2 = -\Delta U$$
 
-Near Earth's surface, gravity does $-mgh$ as you rise, so $U_g = mgh$. Far from
-a planet the force falls off and the integral gives $U_g = -GMm/r$, negative
-because the zero is placed at infinity. For a spring obeying $F = -kx$:
+$U$ is the **potential energy**: the work the force is still willing to do for
+you, stored in the arrangement of things. This definition is only legal for a
+conservative force. For friction the "work still available" would depend on
+which road you take next, so there is no function of position to write down.
+
+Apply it to gravity near the ground. Lifting through a height $h$ costs gravity
+$-mgh$ of work, so $\Delta U = +mgh$, and the gravitational potential energy is
+
+$$U_g = mgh$$
+
+with $m$ in kilograms, $g = 9.8\ \mathrm{m/s^2}$ and $h$ the height above
+whatever level you called zero. Go *below* the reference level and $h$ is
+negative and so is $U$. There is nothing wrong with negative potential energy.
+
+Now a spring. The spring force is $F = -kx$, where $x$ is the stretch away from
+the natural length and $k$ is the stiffness in newtons per metre. The minus sign
+says the spring pulls back toward $x = 0$. To find $U$ you need the work done by
+the spring as you pull it out to $x$, and that force is not constant — it grows
+as you pull. Use the graph. The force you must apply is $+kx$, a straight line
+through the origin, and the work you do is the area under it: a triangle of base
+$x$ and height $kx$. So the work you put in, which is the energy the spring
+stores, is $\tfrac{1}{2} \cdot x \cdot kx$:
 
 $$U_s = \tfrac{1}{2}kx^2$$
 
-Every one of these has an arbitrary additive constant. Only differences in $U$
-appear in physics, so put the zero wherever it makes the algebra shortest —
-usually the lowest point of the motion, or the spring's natural length.
+The square is the whole story of springs. Double the stretch and the force
+doubles, but the energy goes up by four.
 
-## Read the force off the graph
+<Figure caption={<><b>Figure 2.</b> Drag the stretch slider and watch the shaded triangle. Set k = 250 N/m and x = 0.20 m and read 5.0 J. Then double the stretch to 0.40 m and notice the energy quadruples to 20 J while the force only doubles.</>}>
+  <Sim id="potential-energy-spring" />
+</Figure>
 
-Turn the definition around and the force is the negative slope of the potential
-curve:
+<QuickCheck
+  question="A spring stores 3.0 J when stretched by x. How much does it store when stretched by 2x?"
+  options={["12 J", "6 J", "3 J", "9 J"]}
+  answer={0}
+  explanation="Energy goes as the square of the stretch, so doubling x multiplies the energy by four. The tempting answer 6 J comes from remembering that the force doubles and forgetting that the distance doubles too."
+/>
+
+## Where you put the zero is your choice
+
+Only *differences* in $U$ ever appear in a physical answer, because the
+definition only ever fixed $\Delta U$. You may add any constant to $U$ you like.
+In practice that means you choose the zero to make the algebra shortest: the
+floor, the lowest point of a swing, the spring's natural length.
+
+For the book on the shelf $2.2\ \mathrm{m}$ above the floor with $m = 1.5\
+\mathrm{kg}$, taking the floor as zero,
+
+$$U = mgh = 1.5 \times 9.8 \times 2.2 = 32.34\ \mathrm{J}.$$
+
+Take the shelf as zero instead and $U = 0$ there and $-32.34\ \mathrm{J}$ on the
+floor. Every question you could ask about the book — how fast it lands, how much
+work you did lifting it — comes out identical, because all of them involve a
+difference.
+
+<Aside label="Worth remembering">
+  For $U_g = mgh$, $h$ means the vertical height, not the distance travelled. A
+  $25\ \mathrm{kg}$ box carried up a $6.0\ \mathrm{m}$ ramp to a dock $1.2\
+  \mathrm{m}$ high gains $25 \times 9.8 \times 1.2 = 294\ \mathrm{J}$, exactly
+  the same as if you had hauled it straight up. The ramp buys you a smaller
+  force, never less energy.
+</Aside>
+
+## Worked example 1: a pendulum pulled aside
+
+A $0.30\ \mathrm{kg}$ bob hangs on a $1.2\ \mathrm{m}$ string. Pull it aside
+until the string is $40^\circ$ from vertical. How much gravitational potential
+energy has it gained relative to the lowest point?
+
+You cannot plug into $mgh$ until you know $h$, and the problem never tells you
+$h$; it tells you an angle. This is the setup step. With the string at angle
+$\theta$, the bob is a vertical distance $L\cos\theta$ below the pivot. At the
+bottom it is $L$ below the pivot. So the rise is
+
+$$h = L - L\cos\theta = L(1 - \cos\theta).$$
+
+Now the numbers. $\cos 40^\circ = 0.766$, so $1 - 0.766 = 0.234$, and
+$h = 1.2 \times 0.234 = 0.2807\ \mathrm{m}$. Then
+
+$$U = mgh = 0.30 \times 9.8 \times 0.2807 = 0.825\ \mathrm{J}.$$
+
+Write down $h = L(1-\cos\theta)$ once and you own every pendulum problem in the
+bank.
+
+## Force is the negative slope of the potential
+
+So far you have gone from force to potential energy. The arrow runs the other
+way too, and that direction is where most of the hard problems live.
+
+Move a small distance $dx$ along the $x$ axis. The work done by the force is
+$F_x\,dx$, and by definition that equals $-dU$. Divide by $dx$:
 
 $$F_x = -\frac{dU}{dx}$$
 
-This makes a $U(x)$ graph enormously informative. Where the curve slopes upward,
-the force pushes back toward $-x$. At a minimum the slope is zero, so the force
-vanishes and the point is a **stable** equilibrium — nudge the particle and it
-gets pushed home. At a maximum the equilibrium is unstable. Draw a horizontal
-line at the total energy $E$; the particle is confined to the regions where
-$U(x) \le E$, and it turns around exactly where the line meets the curve.
+In words: the force points downhill on the potential energy curve, and its
+magnitude is the steepness. If $U(x) = 5x$ joules then $F = -5\ \mathrm{N}$,
+pointing toward $-x$ everywhere, because the hill slopes up to the right. If
+$U(x) = 40x^2$ then $F = -80x$, which at $x = 0.30\ \mathrm{m}$ has magnitude
+$80 \times 0.30 = 24\ \mathrm{N}$, pulling back toward the origin.
 
-Near a smooth minimum, every potential looks like a parabola, which is why so
-much of physics reduces to a spring.
+Running it backwards, if you are handed a force you integrate to get the
+potential:
 
-<Aside label="Where this goes wrong" warn>
-  Never count the same interaction twice. If you write a gravitational
-  potential energy $mgh$, do not also include the work done by gravity as a
-  separate term. Potential energy is a bookkeeping device that *replaces* that
-  work, and adding both makes gravity twice as strong as it is.
-</Aside>
+$$U(x) = -\int F(x)\,dx$$
+
+with the arbitrary constant set by wherever you declared $U = 0$. Take
+$F(x) = -kx + \beta x^2$ with $k = 20\ \mathrm{N/m}$ and
+$\beta = 30\ \mathrm{N/m^2}$, and $U(0) = 0$. Then
+
+$$U(x) = -\int_0^x (-kx' + \beta x'^2)\,dx' = \tfrac{1}{2}kx^2 - \tfrac{1}{3}\beta x^3.$$
+
+At $x = 0.50\ \mathrm{m}$: the first term is $\tfrac{1}{2}(20)(0.25) = 2.5\
+\mathrm{J}$, the second is $\tfrac{1}{3}(30)(0.125) = 1.25\ \mathrm{J}$, and
+$U = 2.5 - 1.25 = 1.25\ \mathrm{J}$.
+
+Three things follow from $F = -dU/dx$ immediately, and they are the reason a
+$U(x)$ graph is worth more than a page of algebra.
+
+**Equilibrium is a flat spot.** $F = 0$ exactly where $dU/dx = 0$. So finding
+equilibria means differentiating and setting to zero, nothing more. For
+$U(x) = 2x^3 - 12x$, $dU/dx = 6x^2 - 12 = 0$ gives $x^2 = 2$, so the positive
+equilibrium sits at $x = \sqrt{2} = 1.414\ \mathrm{m}$.
+
+**A minimum is stable, a maximum is unstable.** At a minimum, push the particle
+right and the curve rises, so the force points back left. It gets shoved home. At
+a maximum, any nudge puts the particle on a downslope and the force drives it
+further away. A ball in a bowl against a ball on a dome.
+
+**Near any smooth minimum, everything is a spring.** Zoom in on the bottom of a
+well and the curve looks like a parabola $U \approx U_0 + \tfrac{1}{2}U''(x_0)
+(x-x_0)^2$. Compare with $\tfrac{1}{2}kx^2$ and the effective stiffness is
+$k_{\text{eff}} = U''(x_0)$, the second derivative at the minimum. Small
+oscillations therefore have
+
+$$\omega = \sqrt{\frac{U''(x_0)}{m}}.$$
+
+For a $0.50\ \mathrm{kg}$ particle in $U(x) = 6x^2 + 2x^4$: $U' = 12x + 8x^3$ and
+$U'' = 12 + 24x^2$, which at the minimum $x = 0$ is $12\ \mathrm{N/m}$. Then
+$\omega = \sqrt{12/0.5} = \sqrt{24} = 4.899\ \mathrm{rad/s}$. The $x^4$ term
+does nothing at all for small swings.
 
 <QuickCheck
-  question="A potential energy curve U(x) has a local maximum at x = 3. What is true of a particle placed exactly there?"
+  question="A potential energy curve U(x) has a local maximum at x = 3 m. What is true of a particle placed exactly there?"
   options={["It is in unstable equilibrium", "It is in stable equilibrium", "It feels a force toward larger x", "It cannot be at rest there"]}
   answer={0}
   explanation="The slope is zero, so the net force is zero and the particle can sit there. But any small displacement puts it on a downward slope, and the force then pushes it further away."
 />
+
+## Reading a curve: turning points and barriers
+
+Draw a horizontal line at the total energy $E$. Since $K = E - U$ and kinetic
+energy can never be negative, the particle lives only where $U(x) \le E$. Where
+the line meets the curve, $K = 0$: the particle stops and turns around. That
+point is a **turning point**, and the gap between the curve and the line at any
+$x$ is the kinetic energy there.
+
+<Figure caption={<><b>Figure 3.</b> A 2.0 kg particle released at the origin in U(x) = 4x squared minus x to the fourth. The vertical bar is its kinetic energy. Raise E toward 4.0 J and watch the turning point creep out toward the top of the barrier; push past 4.0 J and the particle never comes back.</>}>
+  <Sim id="potential-energy-curve" />
+</Figure>
+
+## Worked example 2: turning point and barrier height
+
+A $2.0\ \mathrm{kg}$ particle moves in $U(x) = 4x^2 - x^4$ joules, with $x$ in
+metres, and has total energy $E = 3.0\ \mathrm{J}$, starting near $x = 0$. Find
+the positive turning point, and the height of the barrier it is trapped behind.
+
+Turning point first. Set $U = E$:
+
+$$4x^2 - x^4 = 3.$$
+
+Let $u = x^2$. Then $u^2 - 4u + 3 = 0$, which factors as $(u-1)(u-3) = 0$, so
+$u = 1$ or $u = 3$. Both are mathematical solutions, so you have to think about
+which one the particle actually reaches. Starting at $x = 0$ and moving out, it
+hits $x = \sqrt{1} = 1.0\ \mathrm{m}$ first and stops there. It never gets to
+$\sqrt{3}$. The answer is $x = 1.0\ \mathrm{m}$.
+
+Barrier height next. The particle escapes only if $E$ clears the top of the
+hump, so find the maximum of $U$ for $x > 0$:
+
+$$\frac{dU}{dx} = 8x - 4x^3 = 4x(2 - x^2) = 0.$$
+
+The roots are $x = 0$ (the minimum) and $x = \sqrt{2}$. At $x = \sqrt{2}$,
+$x^2 = 2$ and $x^4 = 4$, so
+
+$$U = 4(2) - 4 = 4.0\ \mathrm{J}.$$
+
+The barrier is $4.0\ \mathrm{J}$ tall. With $E = 3.0\ \mathrm{J}$ the particle
+rattles between $\pm 1.0\ \mathrm{m}$ forever. Give it more than $4.0\
+\mathrm{J}$ and it clears the hump, and then $U$ drops without limit and it flies
+off. Drag the slider in Figure 3 past 4.0 and you will see exactly that.
+
+The same recipe handles any named potential. The Lennard-Jones potential between
+two atoms is $U(r) = A/r^{12} - B/r^6$. Its minimum is where
+$dU/dr = -12A/r^{13} + 6B/r^7 = 0$, so $12A/r^{13} = 6B/r^7$, giving
+$r^6 = 2A/B$. With $A = 2.0$ and $B = 4.0$, $r^6 = 1$ and $r = 1.0\ \mathrm{m}$.
+
+## Worked example 3: the bungee jumper
+
+A $70\ \mathrm{kg}$ jumper steps off a bridge on a cord of unstretched length
+$20\ \mathrm{m}$ and stiffness $60\ \mathrm{N/m}$. How far below the bridge is
+the lowest point?
+
+Call the total drop $d$. At the bottom the jumper is momentarily at rest, and
+they started at rest, so the kinetic energy is zero at both ends of the trip.
+That means all the gravitational energy given up has gone into the cord.
+
+Gravity gives up $mgd$. The cord only stretches for the part of the fall past its
+natural length, so its stretch is $d - 20$, and it stores $\tfrac{1}{2}k(d-20)^2$.
+Setting them equal:
+
+$$mgd = \tfrac{1}{2}k(d-20)^2.$$
+
+Numbers: $mg = 70 \times 9.8 = 686\ \mathrm{N}$ and $\tfrac{1}{2}k = 30$. So
+
+$$686\,d = 30(d-20)^2 = 30d^2 - 1200d + 12000.$$
+
+Bring everything to one side: $30d^2 - 1886d + 12000 = 0$. The quadratic formula
+gives
+
+$$d = \frac{1886 \pm \sqrt{1886^2 - 4(30)(12000)}}{60} = \frac{1886 \pm \sqrt{3\,556\,996 - 1\,440\,000}}{60}.$$
+
+The square root is $\sqrt{2\,116\,996} = 1455.0$. The minus sign gives
+$d = 431/60 = 7.2\ \mathrm{m}$, which is less than the $20\ \mathrm{m}$ of slack
+and so is not a real solution — the cord was not stretched at all there, and the
+equation you solved does not apply. Keep the plus sign:
+
+$$d = \frac{1886 + 1455.0}{60} = \frac{3341.0}{60} = 55.68\ \mathrm{m}.$$
+
+<Aside label="Where this goes wrong" warn>
+  Never count the same interaction twice. If you write a gravitational potential
+  energy $mgh$, do not also add the work done by gravity as a separate term.
+  Potential energy *replaces* that work, and including both makes gravity twice
+  as strong. The same rule kills the other classic error here: do not write the
+  cord's stretch as $d$ when the first $20\ \mathrm{m}$ of the fall is free.
+</Aside>
+
+## Two springs at once
+
+Problems love combining springs, and both cases fall straight out of what you
+already have.
+
+**Side by side (parallel).** Both springs stretch the same $x$, so the total
+stored energy is $\tfrac{1}{2}k_1x^2 + \tfrac{1}{2}k_2x^2 = \tfrac{1}{2}(k_1 +
+k_2)x^2$. The stiffnesses add. With $k_1 = 250$, $k_2 = 150\ \mathrm{N/m}$ and
+$x = 0.10\ \mathrm{m}$: $\tfrac{1}{2}(400)(0.01) = 2.0\ \mathrm{J}$.
+
+**End to end (series).** Now the same force $F$ runs through both, and each
+stretches by its own amount $x_i = F/k_i$. It is easier to write each spring's
+energy in terms of force: $U = \tfrac{1}{2}kx^2 = F^2/(2k)$. So the total is
+$F^2/(2k_1) + F^2/(2k_2)$. With $k_1 = 300$, $k_2 = 600\ \mathrm{N/m}$ and
+$F = 90\ \mathrm{N}$: $F^2 = 8100$, so the energy is $8100/600 + 8100/1200 =
+13.5 + 6.75 = 20.25\ \mathrm{J}$. Equivalently the pair behaves like one spring
+with $1/k = 1/300 + 1/600$, so $k = 200\ \mathrm{N/m}$, and $8100/400 = 20.25\
+\mathrm{J}$.
+
+Note that $U = F^2/(2k)$ is the fastest route whenever a problem hands you a
+force rather than a stretch: a spring with $k = 800\ \mathrm{N/m}$ pushing back
+with $60\ \mathrm{N}$ stores $3600/1600 = 2.25\ \mathrm{J}$.
+
+## How to tell this is the technique
+
+Reach for potential energy when you see any of these.
+
+**The problem gives you a height or a stretch and asks for energy, or the
+reverse.** That is $mgh$ or $\tfrac{1}{2}kx^2$ directly.
+
+**A curved or complicated path, with only endpoints mentioned.** Ramps, chutes,
+loops, pendulums. The path is there to scare you; only the height difference
+matters.
+
+**A $U(x)$ or $U(r)$ is written down explicitly.** Then everything is calculus on
+one function. Force: $-dU/dx$. Equilibrium: $dU/dx = 0$. Stable or unstable:
+sign of $U''$. Small oscillations: $\omega = \sqrt{U''/m}$. Turning points: solve
+$U(x) = E$. Barrier height: the value of $U$ at the maximum. Six questions, one
+derivative.
+
+**A force law given as a function of position, and the word "conservative".** You
+are being asked to integrate to get $U$.
+
+**Something momentarily at rest at both ends.** Bungee cords, blocks launched by
+springs, pendulums released and caught. Both kinetic energies vanish, so the
+whole problem is one potential energy equals another.
+
+If instead the problem features friction, drag, or a person pushing, potential
+energy alone will not close the books — you need the full energy accounting,
+which is exactly where [Conservation of Energy](/guide/energy-conservation) picks
+up next.

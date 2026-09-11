@@ -1,54 +1,346 @@
-## Beats
+A piano tuner sits down with one tuning fork and no electronics. She strikes the
+fork, plays the string, and listens. What she hears is not two notes. It is one
+note that throbs — loud, soft, loud, soft, a couple of times a second. She turns
+the pin a little. The throbbing slows. She turns it further until the throbbing
+stops, and the string is in tune to better than a tenth of a hertz.
 
-Add two waves of nearly equal frequency at one point and use the sum-to-product
-identity:
+She is using the same physics you met in the last lesson. Two waves arrive at
+one place, and their displacements add. In
+[standing waves](/guide/standing-waves) the two waves had the same frequency and
+travelled opposite ways, and the result was fixed in space: nodes that never
+move. Here the two waves have slightly *different* frequencies, or they come
+from two places instead of one. Loosen either of those conditions and the
+pattern starts to move, or spreads out across a room. That is all beats and
+two-source interference are.
 
-$$\cos(\omega_1 t) + \cos(\omega_2 t) = 2\cos\!\left(\frac{\Delta\omega}{2}t\right)\cos(\bar{\omega}t)$$
+## Two frequencies at one point
 
-The second factor is a fast oscillation at the average frequency. The first is
-a slow envelope. Loudness peaks whenever that envelope reaches an extreme, and
-it does so twice per envelope cycle, so the beat rate is $|f_1 - f_2|$, not
-half of it.
+Put a microphone at one spot and let two tones reach it. Take them equal in
+amplitude and in step at $t = 0$, so the pressure at the microphone is
 
-Tune a string against a 440 Hz fork and hear 3 beats per second and the string
-is at 437 or 443. Tighten it: if the beats slow down you were flat.
+$$y(t) = A\cos(2\pi f_1 t) + A\cos(2\pi f_2 t)$$
 
-## Two sources in space
+Here $A$ is the amplitude each wave would have alone, $f_1$ and $f_2$ are the
+two frequencies in hertz, and $t$ is time in seconds.
 
-Now hold the frequency fixed and move in space. Two sources driven in phase
-send waves to a point along paths differing by $\Delta r$. Each extra
-wavelength of path costs a full cycle of phase:
+Nothing about that sum looks like throbbing yet. To see the throb, rewrite it.
+The identity you need is the sum-to-product rule,
+$\cos X + \cos Y = 2\cos\!\left(\frac{X-Y}{2}\right)\cos\!\left(\frac{X+Y}{2}\right)$.
+Put $X = 2\pi f_1 t$ and $Y = 2\pi f_2 t$:
+
+$$
+y(t) = 2A\cos\!\left(2\pi \frac{f_1 - f_2}{2}\,t\right)\cos\!\left(2\pi \frac{f_1 + f_2}{2}\,t\right)
+$$
+
+Read the two factors separately, because they do completely different jobs. The
+right-hand factor oscillates at the *average* frequency $(f_1+f_2)/2$. If the
+tones are 440 Hz and 443 Hz, that is 441.5 Hz — a fast wiggle, and it is the
+pitch you actually hear. The left-hand factor oscillates at
+$(f_1-f_2)/2$, which for those numbers is 1.5 Hz. That is far too slow to be a
+pitch. Instead it acts as a slowly changing amplitude for the fast wiggle: an
+**envelope**.
+
+Now the step where nearly everyone loses a factor of two. The envelope has
+frequency $|f_1-f_2|/2$. But the ear does not hear the sign of the envelope; it
+hears loudness, which tracks $|{\cos}|$. A cosine reaches an extreme twice per
+cycle, once at $+1$ and once at $-1$, and both give maximum loudness. So the
+loudness cycles happen twice as often as the envelope does, and the **beat
+frequency** is
+
+$$f_{\text{beat}} = |f_1 - f_2|$$
+
+Not half of it. The absolute value matters too: a beat rate tells you the size
+of the gap between the frequencies, never which one is higher.
+
+<Figure caption={<><b>Figure 1.</b> The two tones on top, their sum below, with the dashed envelope. The frequencies are dragged down into the single digits so the individual wiggles are visible, but the arithmetic is identical at 440 Hz. Set the two sliders 2 Hz apart and count the fat bulges in two seconds: four, not two.</>}>
+  <Sim id="beats-interference-beats" />
+</Figure>
+
+<QuickCheck
+  question="Tuning forks at 440 Hz and 446 Hz are struck together. How many loud moments does a listener hear per second?"
+  options={["3", "6", "443", "886"]}
+  answer={1}
+  explanation="The beat rate is the difference of the frequencies, 6 Hz. Half that, 3 Hz, is the envelope frequency, and it is the standard wrong answer: each envelope cycle contains two loud moments."
+/>
+
+## Using beats to tune
+
+Beats are the most sensitive measurement in acoustics. Your ear cannot tell
+440 Hz from 441 Hz played one after the other. Played together, they beat once a
+second, and you can count that in your sleep.
+
+The catch is the absolute value. Three beats per second against a 440 Hz fork
+means the string is at 437 Hz or 443 Hz, and the sound alone will not say which.
+You need a second experiment. Tighten the string a little: tightening raises
+pitch, because a stretched string carries waves at $v=\sqrt{T/\mu}$ and its
+fundamental is $f = v/2L$, so $f \propto \sqrt{T}$. If the beats speed up, you
+were already sharp. If they slow down, you were flat.
+
+That square root is worth working with numerically, because problems lean on it.
+
+**Example 1 — two percent more tension.** A string sounds exactly 440 Hz. Its
+tension is raised by 2.00%, then it is sounded against a 440 Hz fork. What beat
+rate do you hear?
+
+Frequency goes as $\sqrt{T}$, so multiplying $T$ by 1.0200 multiplies $f$ by
+$\sqrt{1.0200} = 1.009950$. The new frequency is
+
+$$f' = 440 \times 1.009950 = 444.378\ \text{Hz}$$
+
+and the beat rate is $|444.378 - 440| = 4.378$ Hz. A 2% change in tension gave
+roughly a 1% change in frequency — the square root halves it — and 1% of 440 is
+about 4.4.
+
+Run that backwards and you get the tuner's question. Suppose the string beats at
+3.0 Hz against the fork and you know it is flat, so it sits at 437.0 Hz. To
+reach 440 you need the frequency to grow by a factor $440/437$, which means the
+tension must grow by the *square* of that:
+
+$$\frac{T'}{T} = \left(\frac{440}{437}\right)^{2} = (1.006865)^2 = 1.013777$$
+
+so tighten by 1.378%.
+
+<Aside label="Worth remembering">
+  A beat rate is a magnitude. One measurement gives you $|f_1 - f_2|$ and
+  nothing else. Any problem that asks which string is flat has to hand you a
+  second fact: a second beat rate after a deliberate change, or a statement that
+  the string is flat, or a known direction of drift.
+</Aside>
+
+Beats do not care where the frequency difference comes from. Two organ pipes of
+slightly different length, two identical pipes in air at different temperatures,
+a string against a fork — the recipe is always the same. Work out each
+frequency on its own, to four or five figures, then subtract.
+
+**Example 2 — two organ pipes.** Open pipes of length 0.500 m and 0.510 m each
+sound their fundamental, $f = v/2L$, with $v = 343$ m/s. What beat frequency do
+you hear?
+
+$$f_1 = \frac{343}{2(0.500)} = \frac{343}{1.000} = 343.000\ \text{Hz}$$
+
+$$f_2 = \frac{343}{2(0.510)} = \frac{343}{1.020} = 336.275\ \text{Hz}$$
+
+The beat frequency is $343.000 - 336.275 = 6.725$ Hz. Notice that rounding $f_2$
+to 336 Hz would have given 7 Hz, a 4% error in the answer from a 0.08% error in
+an intermediate. Beat problems subtract two nearly equal numbers, so carry
+digits you would normally throw away.
+
+## The same idea in space
+
+Now hold the frequency fixed and move yourself instead. Two speakers wired to
+the same amplifier emit exactly the same tone, in step with each other. They
+sit at different places, so the sound from one has further to travel to your ear
+than the sound from the other.
+
+Call the two path lengths $r_1$ and $r_2$, and their difference
+$\Delta r = r_1 - r_2$. Travelling one extra wavelength puts a wave one full
+cycle behind, which is $2\pi$ radians of phase. Travelling half a wavelength
+puts it $\pi$ behind. Phase lag is proportional to extra distance, one full
+$2\pi$ per $\lambda$, so
 
 $$\Delta\phi = \frac{2\pi}{\lambda}\,\Delta r$$
 
-Constructive interference needs $\Delta\phi$ to be a multiple of $2\pi$, so
-$\Delta r = m\lambda$. Destructive needs the crest of one to meet the trough of
-the other: $\Delta r = (m + \tfrac{1}{2})\lambda$.
+That single line is the whole of two-source interference, and it is worth saying
+in words: *phase difference is path difference measured in wavelengths, times
+$2\pi$*.
 
-That is the entire rule, and it carries over unchanged to light. Beats are the
-same physics in time; two-source interference is the same physics in space.
+Two waves reinforce when they are a whole number of cycles apart and cancel when
+they are a half-odd number of cycles apart. Written in path difference, with
+$m = 0, 1, 2, \dots$:
 
-## Adding the source phase
+$$\Delta r = m\lambda \quad \text{(loud)}, \qquad \Delta r = \left(m + \tfrac{1}{2}\right)\lambda \quad \text{(quiet)}$$
 
-If the sources themselves are out of step by $\phi_0$, the total phase
-difference is $\phi_0 + 2\pi\Delta r/\lambda$, and the conditions swap when
-$\phi_0 = \pi$. Two speakers wired with reversed polarity are silent on the
-perpendicular bisector, where the path difference is zero — the point that
-would otherwise be the loudest.
+And $\lambda = v/f$, with $v = 343$ m/s for sound in ordinary air, converts
+between the two languages whenever a problem gives you a frequency and wants a
+distance.
 
-Write down the total phase difference first, from all causes. Then ask what
-makes it a multiple of $2\pi$. Never start from a memorized $m\lambda$.
-
-<Aside label="Where this goes wrong" warn>
-  Perfectly destructive interference requires equal amplitudes as well as
-  opposite phase. Two sources at different distances deliver different
-  amplitudes, so a real minimum is quiet, not silent. Problems that ask for
-  intensity, not just position, punish this.
-</Aside>
+<Figure caption={<><b>Figure 2.</b> Two in-phase speakers on a wall and a listener on a line four metres out. Drag her position and watch the path difference, counted in wavelengths, run through whole and half-odd values. Set the frequency to 500 Hz and the separation to 3 metres, then find the first quiet spot: it is where the readout reads half a wavelength.</>}>
+  <Sim id="beats-interference-paths" />
+</Figure>
 
 <QuickCheck
-  question="Two in-phase speakers reach a point via paths differing by 1.5 wavelengths. What happens there?"
-  options={["Constructive interference", "Destructive interference", "No interference", "Beats"]}
+  question="Two in-phase speakers reach a point by paths that differ by 1.5 wavelengths. What happens there?"
+  options={["A maximum", "A minimum", "Nothing, the waves do not interact", "Beats at 1.5 Hz"]}
   answer={1}
-  explanation="A half-integer number of wavelengths of path difference puts the waves a half cycle apart, so they cancel."
+  explanation="One and a half wavelengths of extra path is three pi radians of phase, which is equivalent to pi: crest meets trough and the waves cancel. Whole numbers of wavelengths give maxima."
 />
+
+**Example 3 — walking to the first quiet spot.** Two speakers 3.00 m apart on a
+wall are driven in phase at 500 Hz. You start on the perpendicular bisector, on
+a line 4.00 m from the wall and parallel to it, and walk. How far until the
+first place where the sound drops out?
+
+Start with the wavelength, because every condition is written in wavelengths:
+
+$$\lambda = \frac{v}{f} = \frac{343}{500} = 0.6860\ \text{m}$$
+
+The first minimum is the smallest path difference that cancels, $\Delta r =
+\lambda/2 = 0.3430$ m.
+
+Now set up the geometry. Put the speakers at $y = +1.50$ m and $y = -1.50$ m on
+the wall, and let $y$ be how far you have walked from the bisector. Your
+distances to the two speakers are
+
+$$r_1 = \sqrt{4.00^2 + (y+1.50)^2}, \qquad r_2 = \sqrt{4.00^2 + (y-1.50)^2}$$
+
+and you want $r_1 - r_2 = 0.3430$ m. There is no tidy way to unpick those square
+roots, so close in on $y$ numerically. At $y = 0$ the paths are equal and the
+difference is zero, so walk outward and watch it grow.
+
+At $y = 0.400$ m: $r_1 = \sqrt{16.00 + 1.90^2} = \sqrt{19.610} = 4.42832$ m and
+$r_2 = \sqrt{16.00 + 1.10^2} = \sqrt{17.210} = 4.14849$ m, so
+$\Delta r = 0.27983$ m. Too small.
+
+At $y = 0.500$ m: $r_1 = \sqrt{16.00 + 4.00} = 4.47214$ m and
+$r_2 = \sqrt{16.00 + 1.00} = 4.12311$ m, so $\Delta r = 0.34903$ m. Slightly too
+big.
+
+The target 0.34303 sits between them, so interpolate straight across:
+
+$$y \approx 0.400 + 0.100 \times \frac{0.34303 - 0.27983}{0.34903 - 0.27983} = 0.400 + 0.100(0.9133) = 0.4913\ \text{m}$$
+
+Check it: $r_1 = \sqrt{16 + 1.9913^2} = 4.46825$, $r_2 = \sqrt{16 + 1.0087^2} =
+4.12522$, difference 0.34303 m. That is the half wavelength you wanted, so the
+first quiet spot is 0.491 m from the centre line.
+
+Two habits from that problem carry everywhere. First, convert to a wavelength
+before you touch the geometry. Second, if the algebra fights you, bracket the
+answer with two guesses and interpolate — that is a legitimate method, not a
+retreat.
+
+<Aside label="Where this goes wrong" warn>
+  A minimum is quiet, not silent. Perfect cancellation needs equal amplitudes as
+  well as opposite phase, and the speaker that is further away always delivers a
+  smaller amplitude, because intensity falls off with distance. Problems that
+  ask *where* the minima are can ignore this. Problems that ask for the
+  intensity at a minimum cannot.
+</Aside>
+
+## When the sources are not in step
+
+Everything above assumed the two sources start together. They need not. Wire one
+speaker with its terminals reversed and it pushes when the other pulls: the
+sources carry a built-in phase difference of $\phi_0 = \pi$.
+
+Do not memorise a new pair of conditions for that case. Write down the *total*
+phase difference from every cause and then ask what makes it a multiple of
+$2\pi$:
+
+$$\Delta\phi_{\text{total}} = \phi_0 + \frac{2\pi}{\lambda}\,\Delta r$$
+
+With $\phi_0 = \pi$, the loud and quiet conditions simply trade places.
+$\Delta r = 0$ on the perpendicular bisector now gives
+$\Delta\phi_{\text{total}} = \pi$, so the point that would have been loudest is
+the quietest one in the room. The first constructive point needs the path
+difference to supply another $\pi$, that is $\Delta r = \lambda/2$.
+
+<QuickCheck
+  question="Two speakers are driven exactly out of phase. What does a listener on the perpendicular bisector hear?"
+  options={["A maximum", "A minimum", "The same as if they were in phase", "Beats"]}
+  answer={1}
+  explanation="On the bisector the path difference is zero, so the only phase difference left is the pi built into the wiring. The waves arrive inverted relative to each other and cancel."
+/>
+
+## How loud is a point in between
+
+Maxima and minima are the easy points. Sometimes a problem drops you between
+them and asks for the amplitude there. Two waves of equal amplitude $A$ and
+phase difference $\Delta\phi$ add like two arrows of equal length set apart by
+that angle. Lay them nose to tail and the closing arrow is the resultant. The
+triangle is isosceles, so the resultant has length
+
+$$A_{\text{res}} = 2A\left|\cos\!\left(\frac{\Delta\phi}{2}\right)\right|$$
+
+Check it at the ends. At $\Delta\phi = 0$ you get $2A$, full reinforcement. At
+$\Delta\phi = \pi$ you get zero, full cancellation. Both are what the path rules
+already said, which is a sign the formula is the general version of them.
+
+<Figure caption={<><b>Figure 3.</b> The same two waves as arrows. Drag the phase difference from zero to 360 degrees and watch the bar on the right: it does not fall off linearly, it follows a cosine, so the sound stays fairly loud over a surprisingly wide band around a maximum and collapses fast near 180 degrees.</>}>
+  <Sim id="beats-interference-phasor" />
+</Figure>
+
+**Example 4 — an odd point with reversed wiring.** Two speakers emit 343 Hz but
+are driven exactly out of phase. Each alone would give displacement amplitude
+1.00 mm at your ear, and your two path lengths differ by 0.750 m. What is the
+resultant amplitude?
+
+The wavelength is $\lambda = 343/343 = 1.000$ m, so the path difference is
+0.750 wavelengths. That contributes
+
+$$\frac{2\pi}{1.000}(0.750) = 1.5\pi\ \text{rad}$$
+
+and the wiring contributes another $\pi$. The total is
+$\Delta\phi = 1.5\pi + \pi = 2.5\pi$, which is the same as $0.5\pi$ once you
+drop a whole $2\pi$. Then
+
+$$A_{\text{res}} = 2(1.00)\left|\cos\!\left(\frac{0.5\pi}{2}\right)\right| = 2.00\cos(45^\circ) = 2.00(0.7071) = 1.414\ \text{mm}$$
+
+Halfway between full reinforcement and silence, which is where a quarter-cycle
+offset should land you.
+
+## A harder one: beats from a single source
+
+Beats need two frequencies, but not two instruments. Any process that shifts one
+copy of a sound will do, and motion is the usual one. That is the
+[Doppler effect](/guide/doppler), the subject of the next lesson; take two of
+its results on loan here. A source moving away from a listener at speed $v_s$ is
+heard at $f\,v/(v+v_s)$, and moving toward at $f\,v/(v-v_s)$.
+
+**Example 5 — a buzzer approaching a wall.** A 500 Hz buzzer moves toward a flat
+wall at 3.00 m/s. You stand well behind the buzzer, in line with its motion, and
+hear both the direct sound and the echo. Take $v = 343$ m/s. What beat frequency
+do you hear?
+
+Two paths, so two frequencies. Handle them one at a time.
+
+The direct sound comes from a source moving *away* from you, since the buzzer is
+heading for the wall on the far side:
+
+$$f_{\text{direct}} = 500 \times \frac{343}{343 + 3.00} = 500 \times \frac{343}{346} = 495.665\ \text{Hz}$$
+
+The echo takes two steps. First the wall receives sound from a source moving
+toward it:
+
+$$f_{\text{wall}} = 500 \times \frac{343}{343 - 3.00} = 500 \times \frac{343}{340} = 504.412\ \text{Hz}$$
+
+Then the wall re-radiates whatever it received. The wall is not moving, and you
+are not moving, so no further shift happens: the echo reaches you at 504.412 Hz.
+
+Two tones at your ear, so subtract:
+
+$$f_{\text{beat}} = 504.412 - 495.665 = 8.747\ \text{Hz}$$
+
+The structure is what to take from this. A beat problem never has a trick in the
+subtraction. The work is always in getting the two frequencies right, and a
+reflector is best treated as two events — a listener, then a fresh source.
+
+## Recognising the technique
+
+Reach for **beats** when a problem names two sources of nearly the same
+frequency and asks for a rate, a throb, a count of loud moments, or a time
+between them. The signatures: "beats per second", "sounded together", "how many
+beats in 10 seconds", a fork plus anything, two pipes of almost equal length,
+two sources with one of them moving. Method: compute each frequency separately
+to five figures, subtract, take the absolute value. If the problem asks *which*
+is higher, look for the second piece of information that breaks the tie.
+
+Reach for **path difference** when there is one frequency and two places, and
+the question is about *where* rather than *when*. The signatures: two speakers,
+a listener who walks or stands at a named spot, a Quincke tube whose slider
+moves, "the lowest frequency for which she hears nothing", "how many frequencies
+below 1000 Hz". Method: find $\Delta r$ from the geometry, find $\lambda = v/f$,
+and compare. If the unknown is a frequency, invert it: a minimum needs
+$\Delta r = (m+\frac{1}{2})\lambda$, so $f = (m+\frac{1}{2})v/\Delta r$, and
+running $m = 0, 1, 2, \dots$ lists every frequency that works and lets you count
+the ones under a cutoff.
+
+Two more habits close the gap on the harder problems. When a problem specifies
+how the sources are wired, write $\Delta\phi_{\text{total}} = \phi_0 + 2\pi\Delta
+r/\lambda$ before anything else, and never start from a memorised $m\lambda$.
+And when it asks for an amplitude rather than a position, you want
+$2A|\cos(\Delta\phi/2)|$, which means you need the phase difference itself, not
+only whether it is loud or quiet.
+
+Both halves of this lesson are one idea. Beats are interference in time; two
+speakers are interference in space. The next lesson takes the remaining piece —
+what motion does to a frequency — and makes it exact.

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "work-energy-theorem-angle",
+    "title": "Only the component along the motion",
+    "caption": "A 6.0 m drag with the rope at an angle. The work follows the horizontal component, not the full pull.",
+    "height": 250,
+    "params": [
+      {
+        "key": "angle",
+        "label": "Rope angle above horizontal",
+        "unit": "deg",
+        "min": 0,
+        "max": 90,
+        "step": 1,
+        "value": 30
+      },
+      {
+        "key": "force",
+        "label": "Tension",
+        "unit": "N",
+        "min": 10,
+        "max": 80,
+        "step": 1,
+        "value": 40
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar th = p.angle * Math.PI / 180;\nvar F = p.force, d = 6.0;\nvar Wk = F * d * Math.cos(th);\n\nfunction arw(x1, y1, x2, y2, col, lw) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var a = Math.atan2(y2 - y1, x2 - x1), hl = 8;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - hl * Math.cos(a - 0.4), y2 - hl * Math.sin(a - 0.4));\n  ctx.lineTo(x2 - hl * Math.cos(a + 0.4), y2 - hl * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nvar gy = H * 0.70;\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(W * 0.04, gy); ctx.lineTo(W * 0.96, gy); ctx.stroke();\n\nvar bw = W * 0.11, bh = H * 0.15;\nvar bx = W * 0.20;\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.5;\nctx.strokeRect(bx, gy - bh, bw, bh);\nctx.fillStyle = C.ink;\nctx.fillText(\"sled\", bx + bw * 0.18, gy - bh * 0.35);\n\nvar ox = bx + bw, oy = gy - bh;\nvar scale = W * 0.0042;\nvar ex = ox + F * scale * Math.cos(th);\nvar ey = oy - F * scale * Math.sin(th);\narw(ox, oy, ex, ey, C.accent, 2);\nctx.fillStyle = C.accent;\nctx.fillText(\"F = \" + F.toFixed(0) + \" N\", ex + 6, ey - 2);\n\nvar cx = ox + F * scale * Math.cos(th);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(cx, oy); ctx.stroke();\nctx.setLineDash([]);\narw(ox, oy, cx, oy, C.figure, 2);\nctx.fillStyle = C.figure;\nctx.fillText(\"F cos\" + \"\u03b8 = \" + (F * Math.cos(th)).toFixed(1) + \" N\", ox + 4, oy - 8);\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.arc(ox, oy, 26, -th, 0); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"\u03b8 = \" + p.angle.toFixed(0) + \"\u00b0\", ox + 30, oy - 26 * Math.sin(th / 2) - 4);\n\nvar ay = gy + H * 0.14;\narw(bx, ay, bx + W * 0.45, ay, C.rule, 1.5);\nctx.fillStyle = C.ink;\nctx.fillText(\"d = 6.0 m\", bx + W * 0.16, ay + 15);\n\nctx.fillStyle = C.faint;\nctx.fillText(\"only the shaded-out horizontal part travels with the sled\", W * 0.04, H * 0.13);\n\nout.note = \"W = F d cos\u03b8 = \" + F.toFixed(0) + \" \u00d7 6.0 \u00d7 \" + Math.cos(th).toFixed(3) + \" = \" + Wk.toFixed(1) + \" J\";"
+  },
+  {
+    "id": "work-energy-theorem-area",
+    "title": "Work as the area under F against x",
+    "caption": "Build a force law, move the finish line, and read off the signed area.",
+    "height": 260,
+    "params": [
+      {
+        "key": "f0",
+        "label": "Force at x = 0",
+        "unit": "N",
+        "min": -6,
+        "max": 14,
+        "step": 0.5,
+        "value": 12
+      },
+      {
+        "key": "slope",
+        "label": "Slope of the force law",
+        "unit": "N/m",
+        "min": -4,
+        "max": 4,
+        "step": 0.25,
+        "value": -2
+      },
+      {
+        "key": "xend",
+        "label": "Finish position",
+        "unit": "m",
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "value": 5
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar F0 = p.f0, k = p.slope, xe = p.xend;\n\nvar xMax = 6.0;\nvar fvals = [];\nvar i, x, f;\nvar fHi = 1, fLo = -1;\nfor (i = 0; i <= 120; i++) {\n  x = xMax * i / 120;\n  f = F0 + k * x;\n  if (f > fHi) fHi = f;\n  if (f < fLo) fLo = f;\n}\nfHi = fHi * 1.2; fLo = fLo * 1.2;\n\nvar padL = W * 0.11, padR = W * 0.05, padT = H * 0.12, padB = H * 0.22;\nvar sx = (W - padL - padR) / xMax;\nvar sy = (H - padT - padB) / (fHi - fLo);\nfunction X(v) { return padL + v * sx; }\nfunction Y(v) { return H - padB - (v - fLo) * sy; }\n\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(xMax), Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X(0), Y(fLo)); ctx.lineTo(X(0), Y(fHi)); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"F (N)\", X(0) - 4, Y(fHi) + 10);\nctx.fillText(\"x (m)\", X(xMax) - 34, Y(0) + 16);\nfor (i = 1; i <= 6; i++) {\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath(); ctx.moveTo(X(i), Y(0) - 3); ctx.lineTo(X(i), Y(0) + 3); ctx.stroke();\n  ctx.fillStyle = C.faint;\n  ctx.fillText(\"\" + i, X(i) - 3, Y(0) + 16);\n}\n\nvar steps = 160;\nvar dx = xe / steps;\nvar Wpos = 0, Wneg = 0;\nfor (i = 0; i < steps; i++) {\n  x = dx * (i + 0.5);\n  f = F0 + k * x;\n  if (f >= 0) { Wpos += f * dx; } else { Wneg += f * dx; }\n}\nvar Wtot = Wpos + Wneg;\n\nfor (i = 0; i < steps; i++) {\n  x = dx * i;\n  f = F0 + k * (x + dx / 2);\n  ctx.fillStyle = f >= 0 ? C.accent : C.figure;\n  ctx.globalAlpha = 0.25;\n  var yTop = Y(Math.max(f, 0)), yBot = Y(Math.min(f, 0));\n  ctx.fillRect(X(x), yTop, Math.max(sx * dx + 0.6, 0.6), Math.max(yBot - yTop, 0));\n  ctx.globalAlpha = 1;\n}\n\nctx.strokeStyle = C.ink; ctx.lineWidth = 2;\nctx.beginPath();\nfor (i = 0; i <= 120; i++) {\n  x = xMax * i / 120;\n  f = F0 + k * x;\n  if (i === 0) { ctx.moveTo(X(x), Y(f)); } else { ctx.lineTo(X(x), Y(f)); }\n}\nctx.stroke();\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1.5;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(X(xe), Y(fLo)); ctx.lineTo(X(xe), Y(fHi)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.rule;\nctx.fillText(\"finish x = \" + xe.toFixed(1) + \" m\", X(xe) + 5, Y(fHi) + 12);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"F = \" + F0.toFixed(1) + (k >= 0 ? \" + \" : \" \u2212 \") + Math.abs(k).toFixed(1) + \" x\", padL, H * 0.09);\n\nctx.fillStyle = C.faint;\nctx.fillText(\"shaded area = work done\", padL, H - 4);\n\nout.note = \"positive area \" + Wpos.toFixed(2) + \" J, negative area \" + Wneg.toFixed(2) + \" J, total work \" + Wtot.toFixed(2) + \" J\";"
+  },
+  {
+    "id": "work-energy-theorem-ramp",
+    "title": "Block up a rough incline",
+    "caption": "Kinetic energy drains into gravity and friction until the block stops.",
+    "height": 260,
+    "params": [
+      {
+        "key": "v0",
+        "label": "Launch speed",
+        "unit": "m/s",
+        "min": 2,
+        "max": 12,
+        "step": 0.5,
+        "value": 8
+      },
+      {
+        "key": "angle",
+        "label": "Incline angle",
+        "unit": "deg",
+        "min": 10,
+        "max": 60,
+        "step": 1,
+        "value": 30
+      },
+      {
+        "key": "mu",
+        "label": "Kinetic friction coefficient",
+        "unit": "",
+        "min": 0,
+        "max": 1,
+        "step": 0.05,
+        "value": 0.25
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar g = 9.8;\nvar th = p.angle * Math.PI / 180;\nvar v0 = p.v0, mu = p.mu, m = 2.0;\nvar aUp = g * (Math.sin(th) + mu * Math.cos(th));\nvar dStop = v0 * v0 / (2 * aUp);\nvar tUp = v0 / aUp;\nvar slides = Math.tan(th) > mu;\nvar aDown = g * (Math.sin(th) - mu * Math.cos(th));\nvar tDown = slides ? Math.sqrt(2 * dStop / aDown) : 1.2;\nvar period = tUp + tDown + 0.8;\nvar tc = t % period;\n\nvar s, v;\nif (tc < tUp) {\n  s = v0 * tc - 0.5 * aUp * tc * tc;\n  v = v0 - aUp * tc;\n} else if (tc < tUp + tDown && slides) {\n  var td = tc - tUp;\n  s = dStop - 0.5 * aDown * td * td;\n  v = -aDown * td;\n} else if (tc < tUp + tDown) {\n  s = dStop; v = 0;\n} else {\n  s = slides ? 0 : dStop; v = 0;\n}\nif (s < 0) { s = 0; }\n\nvar padL = W * 0.09, padB = H * 0.16;\nvar avail = Math.min((W - padL - W * 0.12) / Math.cos(th), (H - padB - H * 0.22) / Math.sin(th));\nvar mScale = avail / Math.max(dStop * 1.15, 0.6);\nvar Lpx = Math.max(dStop, 0.4) * 1.15 * mScale;\n\nvar bx0 = padL, by0 = H - padB;\nvar tx = bx0 + Lpx * Math.cos(th), ty = by0 - Lpx * Math.sin(th);\n\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(bx0 + Lpx * Math.cos(th), by0); ctx.stroke();\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(bx0, by0, 24, -th, 0); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(p.angle.toFixed(0) + \"\u00b0\", bx0 + 28, by0 - 6);\n\nvar stx = bx0 + dStop * mScale * Math.cos(th), sty = by0 - dStop * mScale * Math.sin(th);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath();\nctx.moveTo(stx - 12 * Math.sin(th), sty - 12 * Math.cos(th));\nctx.lineTo(stx + 16 * Math.sin(th), sty + 16 * Math.cos(th));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.rule;\nctx.fillText(\"stops at \" + dStop.toFixed(2) + \" m\", stx + 6, sty - 10);\n\nvar px = bx0 + s * mScale * Math.cos(th), py = by0 - s * mScale * Math.sin(th);\nvar bs = Math.max(H * 0.09, 12);\nctx.save();\nctx.translate(px, py);\nctx.rotate(-th);\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.strokeRect(-bs / 2, -bs, bs, bs);\nctx.restore();\n\nvar K = 0.5 * m * v * v;\nctx.fillStyle = C.figure;\nctx.fillText(\"v = \" + Math.abs(v).toFixed(2) + \" m/s\", W * 0.55, H * 0.20);\nctx.fillText(\"K = \" + K.toFixed(1) + \" J\", W * 0.55, H * 0.20 + 16);\nctx.fillStyle = C.faint;\nctx.fillText(\"m = 2.0 kg\", W * 0.55, H * 0.20 + 32);\n\nout.note = \"gravity takes \" + (m * g * Math.sin(th) * dStop).toFixed(1) + \" J, friction takes \" + (mu * m * g * Math.cos(th) * dStop).toFixed(1) + \" J, start K = \" + (0.5 * m * v0 * v0).toFixed(1) + \" J, stopping distance \" + dStop.toFixed(2) + \" m\";"
+  }
+]

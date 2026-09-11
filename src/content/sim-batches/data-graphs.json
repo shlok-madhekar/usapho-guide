@@ -1,0 +1,64 @@
+[
+  {
+    "id": "data-graphs-linearize",
+    "title": "Straightening a curve",
+    "caption": "Pendulum periods at five lengths, plotted as T to a power you choose against L.",
+    "height": 250,
+    "params": [
+      {
+        "key": "power",
+        "label": "Power of T on the vertical axis",
+        "unit": "",
+        "min": 0.5,
+        "max": 3,
+        "step": 0.5,
+        "value": 1
+      },
+      {
+        "key": "g",
+        "label": "Gravity",
+        "unit": "m/s^2",
+        "min": 3,
+        "max": 16,
+        "step": 0.1,
+        "value": 9.8
+      }
+    ],
+    "draw": "var pad = 34;\nvar Ls = [0.40, 0.60, 0.80, 1.00, 1.20];\nvar g = p.g, n = p.power;\nvar ys = [], i;\nfor (i = 0; i < Ls.length; i++) {\n  var T = 2 * Math.PI * Math.sqrt(Ls[i] / g);\n  ys.push(Math.pow(T, n));\n}\nvar maxX = 1.35;\nvar maxY = ys[ys.length - 1] * 1.2;\nvar X = function (x) { return pad + x / maxX * (W - pad - 14); };\nvar Y = function (y) { return H - pad - y / maxY * (H - pad - 16); };\n\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(X(0), Y(maxY)); ctx.lineTo(X(0), Y(0)); ctx.lineTo(X(maxX), Y(0));\nctx.stroke();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.ink;\nctx.fillText(\"L (m)\", W - 52, H - 12);\nvar ylab = n === 1 ? \"T (s)\" : \"T^\" + n + \" (s^\" + n + \")\";\nctx.save();\nctx.translate(12, 26);\nctx.fillText(ylab, 0, 0);\nctx.restore();\n\n// straight reference line from the origin through the last point\nvar slope = ys[ys.length - 1] / Ls[Ls.length - 1];\nctx.strokeStyle = C.faint;\nctx.setLineDash([4, 4]);\nctx.beginPath();\nctx.moveTo(X(0), Y(0));\nctx.lineTo(X(maxX), Y(slope * maxX));\nctx.stroke();\nctx.setLineDash([]);\n\n// worst fractional departure from that straight line\nvar worst = 0;\nfor (i = 0; i < Ls.length; i++) {\n  var lineY = slope * Ls[i];\n  var d = Math.abs(ys[i] - lineY) / lineY;\n  if (d > worst) worst = d;\n}\n\nvar lit = Math.floor(t * 1.2) % Ls.length;\nfor (i = 0; i < Ls.length; i++) {\n  ctx.fillStyle = i === lit ? C.accent : C.figure;\n  ctx.beginPath();\n  ctx.arc(X(Ls[i]), Y(ys[i]), i === lit ? 6 : 4, 0, Math.PI * 2);\n  ctx.fill();\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"L = \" + Ls[lit].toFixed(2) + \" m,  y = \" + ys[lit].toFixed(3),\n             X(0) + 12, Y(maxY) + 14);\n\nout.note = \"plotting T^\" + n + \" against L: worst departure from a straight line through the origin is \"\n  + (worst * 100).toFixed(1) + \"%  (slope \" + slope.toFixed(3) + \")\";"
+  },
+  {
+    "id": "data-graphs-vt",
+    "title": "What a velocity-time graph gives you",
+    "caption": "Slope is acceleration; shaded area is displacement.",
+    "height": 240,
+    "params": [],
+    "draw": "var pad = 38;\nvar tmax = 9, vmax = 5;\nvar X = function (x) { return pad + x / tmax * (W - pad - 18); };\nvar Y = function (y) { return H - pad - y / vmax * (H - pad - 24); };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(X(0), Y(vmax)); ctx.lineTo(X(0), Y(0)); ctx.lineTo(X(tmax), Y(0));\nctx.stroke();\n\n// the area under the graph\nctx.fillStyle = C.faint;\nctx.globalAlpha = 0.45;\nctx.beginPath();\nctx.moveTo(X(0), Y(0));\nctx.lineTo(X(2), Y(4));\nctx.lineTo(X(6), Y(4));\nctx.lineTo(X(8), Y(0));\nctx.closePath();\nctx.fill();\nctx.globalAlpha = 1;\n\n// the graph itself\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(X(0), Y(0));\nctx.lineTo(X(2), Y(4));\nctx.lineTo(X(6), Y(4));\nctx.lineTo(X(8), Y(0));\nctx.stroke();\n\n// slope triangle on the rising segment\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.2;\nctx.setLineDash([3, 3]);\nctx.beginPath();\nctx.moveTo(X(0), Y(0)); ctx.lineTo(X(2), Y(0)); ctx.lineTo(X(2), Y(4));\nctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"run 2.0 s\", X(0) + 6, Y(0) + 14);\nctx.fillText(\"rise 4.0 m/s\", X(2) + 6, Y(2));\nctx.fillText(\"slope = a = 2.0 m/s^2\", X(0) + 6, Y(vmax) + 14);\nctx.fillStyle = C.figure;\nctx.fillText(\"area = displacement = 24 m\", X(2.4), Y(1.6));\nctx.fillStyle = C.ink;\nctx.fillText(\"t (s)\", W - 40, H - 12);\nctx.fillText(\"v (m/s)\", X(0) + 6, Y(vmax) - 6);\n\n// axis ticks\nvar i;\nfor (i = 0; i <= 8; i += 2) {\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath(); ctx.moveTo(X(i), Y(0)); ctx.lineTo(X(i), Y(0) + 4); ctx.stroke();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(String(i), X(i) - 3, Y(0) + 17);\n}\nfor (i = 2; i <= 4; i += 2) {\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath(); ctx.moveTo(X(0), Y(i)); ctx.lineTo(X(0) - 4, Y(i)); ctx.stroke();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(String(i), X(0) - 16, Y(i) + 4);\n}"
+  },
+  {
+    "id": "data-graphs-spread",
+    "title": "Standard error lab",
+    "caption": "Repeat a timing N times. The scatter stays; the uncertainty in the mean shrinks.",
+    "height": 250,
+    "params": [
+      {
+        "key": "N",
+        "label": "Number of trials",
+        "unit": "",
+        "min": 3,
+        "max": 60,
+        "step": 1,
+        "value": 8
+      },
+      {
+        "key": "sigma",
+        "label": "Spread of a single timing",
+        "unit": "s",
+        "min": 0.05,
+        "max": 0.6,
+        "step": 0.05,
+        "value": 0.25
+      }
+    ],
+    "draw": "var N = Math.round(p.N), sigma = p.sigma, i;\nvar pad = 36;\nvar truth = 2.30;\n\n// deterministic pseudo-noise: no Math.random anywhere\nfunction wob(k) {\n  var s = Math.sin(k * 12.9898) * 43758.5453;\n  var u = s - Math.floor(s);\n  var s2 = Math.sin(k * 78.233 + 1.7) * 12345.6789;\n  var u2 = s2 - Math.floor(s2);\n  var s3 = Math.sin(k * 39.425 + 4.1) * 9876.54321;\n  var u3 = s3 - Math.floor(s3);\n  return (u + u2 + u3 - 1.5) * 2;\n}\n\nvar vals = [];\nfor (i = 0; i < N; i++) vals.push(truth + sigma * wob(i + 1));\n\nvar shown = Math.min(N, 3 + Math.floor(t * 6));\nvar sum = 0;\nfor (i = 0; i < N; i++) sum += vals[i];\nvar mean = sum / N;\nvar ss = 0;\nfor (i = 0; i < N; i++) ss += (vals[i] - mean) * (vals[i] - mean);\nvar sd = N > 1 ? Math.sqrt(ss / (N - 1)) : 0;\nvar se = sd / Math.sqrt(N);\n\nvar lo = truth - 3.2 * 0.6, hi = truth + 3.2 * 0.6;\nvar X = function (k) { return pad + (k + 0.5) / Math.max(N, 6) * (W - pad - 16); };\nvar Y = function (v) { return H - pad - (v - lo) / (hi - lo) * (H - pad - 18); };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(X(-0.5), Y(hi)); ctx.lineTo(X(-0.5), Y(lo)); ctx.lineTo(W - 10, Y(lo));\nctx.stroke();\n\n// the band one standard error wide either side of the mean\nctx.fillStyle = C.accent;\nctx.globalAlpha = 0.25;\nctx.fillRect(X(-0.5), Y(mean + se), W - 10 - X(-0.5), Y(mean - se) - Y(mean + se));\nctx.globalAlpha = 1;\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(X(-0.5), Y(mean)); ctx.lineTo(W - 10, Y(mean)); ctx.stroke();\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(-0.5), Y(truth)); ctx.lineTo(W - 10, Y(truth)); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.figure;\nfor (i = 0; i < shown; i++) {\n  ctx.beginPath(); ctx.arc(X(i), Y(vals[i]), 3, 0, Math.PI * 2); ctx.fill();\n}\n\nctx.fillStyle = C.ink;\nctx.fillText(\"period (s)\", X(-0.5) + 6, Y(hi) - 4);\nctx.fillText(\"trial number\", W - 92, H - 12);\nctx.fillText(\"mean \" + mean.toFixed(3) + \" s\", X(-0.5) + 6, Y(mean) - 6);\nctx.fillStyle = C.figure;\nctx.fillText(\"true value\", W - 78, Y(truth) + 14);\n\nout.note = \"N = \" + N + \",  s = \" + sd.toFixed(3) + \" s,  standard error = s/sqrt(N) = \" + se.toFixed(4) + \" s\";"
+  }
+]

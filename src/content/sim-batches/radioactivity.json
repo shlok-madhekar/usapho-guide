@@ -1,0 +1,73 @@
+[
+  {
+    "id": "radioactivity-decay-lab",
+    "title": "Exponential decay lab",
+    "caption": "Drag the half-life and watch the same curve stretch.",
+    "height": 260,
+    "params": [
+      {
+        "key": "halfLife",
+        "label": "Half-life",
+        "unit": "h",
+        "min": 1,
+        "max": 24,
+        "step": 0.5,
+        "value": 6
+      },
+      {
+        "key": "n0",
+        "label": "Starting nuclei (times 10^12)",
+        "unit": "",
+        "min": 1,
+        "max": 50,
+        "step": 1,
+        "value": 10
+      }
+    ],
+    "draw": "var T = p.halfLife;\nvar N0 = p.n0;\nvar lam = Math.LN2 / T;\nvar span = 5 * T;\nvar padL = 40, padB = 30, padT = 14, padR = 12;\nvar X = function (x) { return padL + (W - padL - padR) * (x / span); };\nvar Y = function (f) { return padT + (H - padT - padB) * (1 - f); };\n\nctx.lineWidth = 1;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// axes\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB);\nctx.stroke();\n\n// half-life gridlines\nctx.setLineDash([3, 4]);\nctx.strokeStyle = C.faint;\nctx.fillStyle = C.faint;\nvar k;\nfor (k = 1; k <= 4; k++) {\n  var f = Math.pow(0.5, k);\n  ctx.beginPath(); ctx.moveTo(padL, Y(f)); ctx.lineTo(X(k * T), Y(f)); ctx.stroke();\n  ctx.beginPath(); ctx.moveTo(X(k * T), Y(f)); ctx.lineTo(X(k * T), H - padB); ctx.stroke();\n  ctx.textAlign = \"center\";\n  ctx.fillText(k + \"T\", X(k * T), H - padB + 14);\n}\nctx.setLineDash([]);\n\nctx.textAlign = \"right\";\nctx.fillStyle = C.faint;\nctx.fillText(\"N0\", padL - 6, Y(1) + 4);\nctx.fillText(\"N0/2\", padL - 6, Y(0.5) + 4);\nctx.fillText(\"N0/4\", padL - 6, Y(0.25) + 4);\nctx.textAlign = \"left\";\nctx.fillStyle = C.ink;\nctx.fillText(\"nuclei left\", padL + 6, padT + 2);\nctx.textAlign = \"center\";\nctx.fillText(\"time (hours)\", (padL + W - padR) / 2, H - 4);\n\n// the exponential\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath();\nvar i;\nfor (i = 0; i <= 200; i++) {\n  var x = span * i / 200;\n  var y = Math.exp(-lam * x);\n  if (i === 0) ctx.moveTo(X(x), Y(y)); else ctx.lineTo(X(x), Y(y));\n}\nctx.stroke();\n\n// swept portion\nvar period = span * 1.25;\nvar tc = Math.min(t % period, span);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2.5;\nctx.beginPath();\nfor (i = 0; i <= 200; i++) {\n  var x2 = tc * i / 200;\n  var y2 = Math.exp(-lam * x2);\n  if (i === 0) ctx.moveTo(X(x2), Y(y2)); else ctx.lineTo(X(x2), Y(y2));\n}\nctx.stroke();\n\nvar frac = Math.exp(-lam * tc);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(tc), Y(frac), 4.5, 0, Math.PI * 2); ctx.fill();\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(tc), Y(frac)); ctx.lineTo(X(tc), H - padB); ctx.stroke();\n\nvar lamS = Math.LN2 / (T * 3600);\nvar N = N0 * 1e12 * frac;\nvar act = lamS * N;\nout.note = \"t = \" + tc.toFixed(2) + \" h = \" + (tc / T).toFixed(2) + \" half-lives   N = \" +\n  (N / 1e12).toFixed(3) + \"e12   activity = \" + (act / 1e6).toFixed(3) + \" MBq\";"
+  },
+  {
+    "id": "radioactivity-modes",
+    "title": "Decay modes on the nuclide chart",
+    "caption": "Where each decay mode moves a nucleus.",
+    "height": 280,
+    "params": [],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\nvar padL = 44, padB = 34, padT = 16, padR = 16;\nvar cols = 9, rows = 7;\nvar cw = (W - padL - padR) / cols;\nvar ch = (H - padT - padB) / rows;\nvar X = function (c) { return padL + cw * (c + 0.5); };\nvar Y = function (r) { return H - padB - ch * (r + 0.5); };\n\n// grid\nctx.strokeStyle = C.faint;\nvar i;\nfor (i = 0; i <= cols; i++) {\n  ctx.beginPath(); ctx.moveTo(padL + cw * i, padT); ctx.lineTo(padL + cw * i, H - padB); ctx.stroke();\n}\nfor (i = 0; i <= rows; i++) {\n  ctx.beginPath(); ctx.moveTo(padL, H - padB - ch * i); ctx.lineTo(W - padR, H - padB - ch * i); ctx.stroke();\n}\n\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB);\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"neutron number N\", (padL + W - padR) / 2, H - 6);\nctx.save();\nctx.translate(12, (padT + H - padB) / 2);\nctx.rotate(-Math.PI / 2);\nctx.fillText(\"proton number Z\", 0, 0);\nctx.restore();\n\nvar arrow = function (c0, r0, c1, r1, label, lx, ly) {\n  var x0 = X(c0), y0 = Y(r0), x1 = X(c1), y1 = Y(r1);\n  ctx.strokeStyle = C.accent;\n  ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();\n  var a = Math.atan2(y1 - y0, x1 - x0);\n  ctx.fillStyle = C.accent;\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 8 * Math.cos(a - 0.4), y1 - 8 * Math.sin(a - 0.4));\n  ctx.lineTo(x1 - 8 * Math.cos(a + 0.4), y1 - 8 * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"left\";\n  ctx.fillText(label, x1 + lx, y1 + ly);\n};\n\n// the parent nucleus, centre\nvar pc = 4, pr = 3;\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(X(pc), Y(pr), 6, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"parent\", X(pc), Y(pr) - 12);\n\narrow(pc, pr, pc - 2, pr - 2, \"alpha: A-4, Z-2\", 6, 4);\narrow(pc, pr, pc - 1, pr + 1, \"beta minus: Z+1\", 6, -4);\narrow(pc, pr, pc + 1, pr - 1, \"beta plus / EC: Z-1\", -110, 16);\n\n// gamma: same square, small loop\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.arc(X(pc) + 14, Y(pr) + 14, 10, Math.PI * 0.9, Math.PI * 2.6);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"gamma: A, Z unchanged\", X(pc) + 26, Y(pr) + 22);\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"each square is one nuclide; one step right adds a neutron\", padL + 4, padT + 12);\n\nout.note = \"alpha moves two squares down-left; beta-minus trades a neutron for a proton\";"
+  },
+  {
+    "id": "radioactivity-chain",
+    "title": "Parent and daughter lab",
+    "caption": "Build-up and decay of a daughter isotope.",
+    "height": 270,
+    "params": [
+      {
+        "key": "parentHL",
+        "label": "Parent half-life",
+        "unit": "h",
+        "min": 2,
+        "max": 120,
+        "step": 1,
+        "value": 66
+      },
+      {
+        "key": "daughterHL",
+        "label": "Daughter half-life",
+        "unit": "h",
+        "min": 0.5,
+        "max": 60,
+        "step": 0.5,
+        "value": 6
+      },
+      {
+        "key": "window",
+        "label": "Time window",
+        "unit": "h",
+        "min": 10,
+        "max": 300,
+        "step": 5,
+        "value": 120
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar Tp = p.parentHL, Td = p.daughterHL;\nvar lp = Math.LN2 / Tp, ld = Math.LN2 / Td;\nvar span = p.window;\nvar padL = 40, padB = 30, padT = 16, padR = 12;\nvar X = function (x) { return padL + (W - padL - padR) * (x / span); };\nvar Y = function (f) { return padT + (H - padT - padB) * (1 - f); };\n\nvar daughter = function (x) {\n  if (Math.abs(ld - lp) < 1e-9) return lp * x * Math.exp(-lp * x);\n  return ld / (ld - lp) * (Math.exp(-lp * x) - Math.exp(-ld * x));\n};\n\n// peak of the daughter\nvar tpk = 0;\nif (Math.abs(ld - lp) > 1e-9) tpk = Math.log(ld / lp) / (ld - lp);\nif (tpk < 0) tpk = 0;\n\n// vertical scale: 1 covers parent, daughter may exceed it\nvar top = 1;\nvar i;\nfor (i = 0; i <= 200; i++) {\n  var xx = span * i / 200;\n  if (daughter(xx) > top) top = daughter(xx);\n}\ntop = top * 1.12;\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB);\nctx.stroke();\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"time (hours)\", (padL + W - padR) / 2, H - 4);\nctx.textAlign = \"right\";\nctx.fillText(\"A0\", padL - 6, Y(1 / top) + 4);\n\n// parent activity\nctx.strokeStyle = C.rule;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (i = 0; i <= 200; i++) {\n  var x1 = span * i / 200;\n  var y1 = Math.exp(-lp * x1) / top;\n  if (i === 0) ctx.moveTo(X(x1), Y(y1)); else ctx.lineTo(X(x1), Y(y1));\n}\nctx.stroke();\n\n// daughter activity\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2.5;\nctx.beginPath();\nfor (i = 0; i <= 200; i++) {\n  var x2 = span * i / 200;\n  var y2 = daughter(x2) / top;\n  if (i === 0) ctx.moveTo(X(x2), Y(y2)); else ctx.lineTo(X(x2), Y(y2));\n}\nctx.stroke();\n\n// peak marker\nif (tpk > 0 && tpk < span) {\n  ctx.strokeStyle = C.figure;\n  ctx.lineWidth = 1;\n  ctx.setLineDash([3, 4]);\n  ctx.beginPath(); ctx.moveTo(X(tpk), H - padB); ctx.lineTo(X(tpk), Y(daughter(tpk) / top)); ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.figure;\n  ctx.beginPath(); ctx.arc(X(tpk), Y(daughter(tpk) / top), 4, 0, Math.PI * 2); ctx.fill();\n  ctx.textAlign = \"center\";\n  ctx.fillText(\"peak\", X(tpk), Y(daughter(tpk) / top) - 9);\n}\n\n// moving time cursor\nvar tc = t % span;\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(tc), padT); ctx.lineTo(X(tc), H - padB); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"parent\", X(span * 0.62), Y(Math.exp(-lp * span * 0.62) / top) - 8);\nctx.fillStyle = C.accent;\nctx.fillText(\"daughter\", X(span * 0.30), Y(daughter(span * 0.30) / top) - 8);\n\nvar ratio = ld / (ld - lp);\nout.note = \"peak at t = \" + tpk.toFixed(1) + \" h; at the cursor (\" + tc.toFixed(1) +\n  \" h) daughter/parent activity = \" + (daughter(tc) / Math.exp(-lp * tc)).toFixed(3) +\n  \"; long-run ratio = \" + (lp < ld ? ratio.toFixed(3) : \"none, parent dies first\");"
+  }
+]

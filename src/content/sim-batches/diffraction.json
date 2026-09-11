@@ -1,0 +1,110 @@
+[
+ {
+  "id": "diffraction-geometry",
+  "title": "Path difference between two slits",
+  "caption": "The extra distance the lower ray travels is d sin(theta).",
+  "height": 240,
+  "params": [
+   {
+    "key": "theta",
+    "label": "Viewing angle",
+    "unit": "deg",
+    "min": 0,
+    "max": 40,
+    "step": 0.5,
+    "value": 12
+   },
+   {
+    "key": "d",
+    "label": "Slit separation",
+    "unit": "um",
+    "min": 1,
+    "max": 10,
+    "step": 0.1,
+    "value": 3
+   },
+   {
+    "key": "lam",
+    "label": "Wavelength",
+    "unit": "nm",
+    "min": 400,
+    "max": 700,
+    "step": 10,
+    "value": 550
+   }
+  ],
+  "draw": "var F = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = F;\nctx.lineWidth = 1;\n\nvar th = p.theta * Math.PI / 180;\nvar wallX = W * 0.22;\nvar midY = H * 0.5;\nvar gap = Math.min(H * 0.30, 90);\nvar yA = midY - gap / 2;\nvar yB = midY + gap / 2;\n\n// wall\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(wallX, 6); ctx.lineTo(wallX, yA - 7);\nctx.moveTo(wallX, yA + 7); ctx.lineTo(wallX, yB - 7);\nctx.moveTo(wallX, yB + 7); ctx.lineTo(wallX, H - 6);\nctx.stroke();\n\n// incoming plane wave fronts, animated\nctx.strokeStyle = C.faint;\nfor (var k = 0; k < 5; k++) {\n  var xw = 8 + ((k * 14 + (t * 18) % 14) % (wallX - 12));\n  ctx.beginPath(); ctx.moveTo(xw, 10); ctx.lineTo(xw, H - 10); ctx.stroke();\n}\n\n// two outgoing parallel rays at angle th\nvar len = W - wallX - 30;\nvar dx = Math.cos(th) * len, dy = -Math.sin(th) * len;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.6;\nctx.beginPath(); ctx.moveTo(wallX, yA); ctx.lineTo(wallX + dx, yA + dy); ctx.stroke();\nctx.beginPath(); ctx.moveTo(wallX, yB); ctx.lineTo(wallX + dx, yB + dy); ctx.stroke();\nctx.lineWidth = 1;\n\n// perpendicular dropped from upper slit onto lower ray\nvar d = gap;\nvar extra = d * Math.sin(th);            // path difference in pixels\nvar fx = wallX + extra * Math.cos(th);\nvar fy = yB - extra * Math.sin(th);\nctx.strokeStyle = C.figure;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(wallX, yA); ctx.lineTo(fx, fy); ctx.stroke();\nctx.setLineDash([]);\n\n// shade the little triangle\nctx.fillStyle = C.figure;\nctx.globalAlpha = 0.18;\nctx.beginPath();\nctx.moveTo(wallX, yA); ctx.lineTo(wallX, yB); ctx.lineTo(fx, fy); ctx.closePath();\nctx.fill();\nctx.globalAlpha = 1;\n\n// the path-difference leg, bold\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2.5;\nctx.beginPath(); ctx.moveTo(wallX, yB); ctx.lineTo(fx, fy); ctx.stroke();\nctx.lineWidth = 1;\n\n// slit dots\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(wallX, yA, 3, 0, 6.2832); ctx.fill();\nctx.beginPath(); ctx.arc(wallX, yB, 3, 0, 6.2832); ctx.fill();\n\n// separation bracket\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(wallX - 16, yA); ctx.lineTo(wallX - 16, yB);\nctx.moveTo(wallX - 20, yA); ctx.lineTo(wallX - 12, yA);\nctx.moveTo(wallX - 20, yB); ctx.lineTo(wallX - 12, yB);\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"right\";\nctx.fillText(\"d\", wallX - 24, midY + 4);\nctx.textAlign = \"left\";\nctx.fillText(\"to screen, angle \" + p.theta.toFixed(0) + \" deg\", wallX + dx * 0.55 + 6, yA + dy * 0.55 - 8);\nctx.fillStyle = C.accent;\nctx.fillText(\"path difference d sin(theta)\", fx + 6, fy + 16);\nctx.fillStyle = C.faint;\nctx.fillText(\"incoming wave\", 8, H - 14);\n\n// readout: how many wavelengths\nvar dNM = p.d * 1000;                     // slit separation in nm (p.d in microns)\nvar pd = dNM * Math.sin(th);              // nm\nout.note = \"d = \" + p.d.toFixed(2) + \" um, theta = \" + p.theta.toFixed(1)\n  + \" deg, path difference = \" + pd.toFixed(0) + \" nm = \"\n  + (pd / p.lam).toFixed(2) + \" wavelengths\"\n  + (Math.abs(pd / p.lam - Math.round(pd / p.lam)) < 0.02 && pd > 1\n     ? \"  (bright, m = \" + Math.round(pd / p.lam) + \")\" : \"\");"
+ },
+ {
+  "id": "diffraction-envelope",
+  "title": "Double-slit pattern with its envelope",
+  "caption": "Interference fringes inside the single-slit envelope.",
+  "height": 250,
+  "params": [
+   {
+    "key": "a",
+    "label": "Slit width a",
+    "unit": "um",
+    "min": 1,
+    "max": 12,
+    "step": 0.25,
+    "value": 4
+   },
+   {
+    "key": "d",
+    "label": "Slit separation d",
+    "unit": "um",
+    "min": 2,
+    "max": 40,
+    "step": 0.5,
+    "value": 16
+   },
+   {
+    "key": "lam",
+    "label": "Wavelength",
+    "unit": "nm",
+    "min": 400,
+    "max": 700,
+    "step": 10,
+    "value": 550
+   }
+  ],
+  "draw": "var F = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = F;\nvar lam = p.lam * 1e-9;\nvar a = p.a * 1e-6;\nvar d = p.d * 1e-6;\nif (d < a) d = a;\n\nvar pad = 30;\nvar x0 = pad, x1 = W - pad;\nvar yBase = H - 26, yTop = 18;\nvar sMax = 0.35;                     // sin(theta) at the edges of the plot\n\nfunction Xs(s) { return (x0 + x1) / 2 + (s / sMax) * (x1 - x0) / 2; }\nfunction Yi(I) { return yBase - I * (yBase - yTop); }\n\n// axis\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x0, yBase); ctx.lineTo(x1, yBase); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"sin(theta)  ->\", (x0 + x1) / 2, H - 8);\nctx.fillText(\"-\" + sMax.toFixed(2), x0, H - 8);\nctx.fillText(\"+\" + sMax.toFixed(2), x1, H - 8);\nctx.textAlign = \"left\";\nctx.fillText(\"intensity\", x0 + 2, yTop - 4);\n\n// envelope (dashed)\nctx.strokeStyle = C.figure;\nctx.setLineDash([4, 4]);\nctx.beginPath();\nvar n, s, al, envv, fr, I;\nfor (n = 0; n <= 600; n++) {\n  s = -sMax + 2 * sMax * n / 600;\n  al = Math.PI * a * s / lam;\n  envv = (Math.abs(al) < 1e-6) ? 1 : Math.pow(Math.sin(al) / al, 2);\n  if (n === 0) ctx.moveTo(Xs(s), Yi(envv)); else ctx.lineTo(Xs(s), Yi(envv));\n}\nctx.stroke();\nctx.setLineDash([]);\n\n// full pattern (solid)\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.6;\nctx.beginPath();\nfor (n = 0; n <= 2000; n++) {\n  s = -sMax + 2 * sMax * n / 2000;\n  al = Math.PI * a * s / lam;\n  envv = (Math.abs(al) < 1e-6) ? 1 : Math.pow(Math.sin(al) / al, 2);\n  fr = Math.pow(Math.cos(Math.PI * d * s / lam), 2);\n  I = envv * fr;\n  if (n === 0) ctx.moveTo(Xs(s), Yi(I)); else ctx.lineTo(Xs(s), Yi(I));\n}\nctx.stroke();\nctx.lineWidth = 1;\n\n// mark envelope zeros\nctx.strokeStyle = C.faint;\nctx.setLineDash([2, 4]);\nfor (var k = 1; k <= 6; k++) {\n  var sz = k * lam / a;\n  if (sz > sMax) break;\n  ctx.beginPath(); ctx.moveTo(Xs(sz), yTop); ctx.lineTo(Xs(sz), yBase); ctx.stroke();\n  ctx.beginPath(); ctx.moveTo(Xs(-sz), yTop); ctx.lineTo(Xs(-sz), yBase); ctx.stroke();\n}\nctx.setLineDash([]);\n\nctx.fillStyle = C.figure;\nctx.fillText(\"envelope from slit width a\", x0 + 2, yTop + 12);\n\n// count fringes strictly inside central envelope\nvar ratio = d / a;\nvar mMax = Math.ceil(ratio) - 1;\nif (Math.abs(ratio - Math.round(ratio)) < 1e-6) mMax = Math.round(ratio) - 1;\nvar count = 2 * mMax + 1;\nvar missing = (Math.abs(ratio - Math.round(ratio)) < 1e-6)\n  ? \"  orders \" + Math.round(ratio) + \", \" + (2 * Math.round(ratio)) + \", ... missing\"\n  : \"  no missing orders\";\nout.note = \"d/a = \" + ratio.toFixed(2) + \",  \" + count\n  + \" maxima inside the central envelope,\" + missing;"
+ },
+ {
+  "id": "diffraction-grating",
+  "title": "Grating sharpness lab",
+  "caption": "More illuminated slits give narrower peaks in the same places.",
+  "height": 250,
+  "params": [
+   {
+    "key": "N",
+    "label": "Number of slits",
+    "unit": "",
+    "min": 2,
+    "max": 60,
+    "step": 1,
+    "value": 2
+   },
+   {
+    "key": "d",
+    "label": "Line spacing d",
+    "unit": "um",
+    "min": 0.8,
+    "max": 5,
+    "step": 0.1,
+    "value": 2
+   },
+   {
+    "key": "lam",
+    "label": "Wavelength",
+    "unit": "nm",
+    "min": 400,
+    "max": 700,
+    "step": 10,
+    "value": 550
+   }
+  ],
+  "draw": "var F = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = F;\nvar lam = p.lam * 1e-9;\nvar d = p.d * 1e-6;\nvar N = Math.round(p.N);\n\nvar pad = 30;\nvar x0 = pad, x1 = W - pad;\nvar yBase = H - 26, yTop = 18;\nvar sMax = 0.8;\n\nfunction Xs(s) { return (x0 + x1) / 2 + (s / sMax) * (x1 - x0) / 2; }\nfunction Yi(I) { return yBase - I * (yBase - yTop); }\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(x0, yBase); ctx.lineTo(x1, yBase); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"sin(theta)  ->\", (x0 + x1) / 2, H - 8);\nctx.textAlign = \"left\";\nctx.fillText(\"intensity / N^2\", x0 + 2, yTop - 4);\n\n// N-slit interference function, normalised to 1 at a principal maximum\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.6;\nctx.beginPath();\nvar n, s, ph, num, den, I;\nfor (n = 0; n <= 3000; n++) {\n  s = -sMax + 2 * sMax * n / 3000;\n  ph = Math.PI * d * s / lam;\n  den = Math.sin(ph);\n  if (Math.abs(den) < 1e-9) { I = 1; }\n  else { num = Math.sin(N * ph); I = Math.pow(num / (N * den), 2); }\n  if (I > 1) I = 1;\n  if (n === 0) ctx.moveTo(Xs(s), Yi(I)); else ctx.lineTo(Xs(s), Yi(I));\n}\nctx.stroke();\nctx.lineWidth = 1;\n\n// label the orders\nctx.fillStyle = C.figure;\nctx.textAlign = \"center\";\nfor (var m = -6; m <= 6; m++) {\n  var sm = m * lam / d;\n  if (Math.abs(sm) > sMax) continue;\n  ctx.fillText(\"m=\" + m, Xs(sm), yTop + 10);\n}\nctx.textAlign = \"left\";\n\nvar s1 = lam / d;\nvar ang = (Math.abs(s1) <= 1) ? (Math.asin(s1) * 180 / Math.PI).toFixed(1) + \" deg\" : \"none\";\nvar mMaxOrder = Math.floor(d / lam);\nout.note = \"N = \" + N + \" slits, d = \" + p.d.toFixed(2) + \" um: first order at \"\n  + ang + \", highest order m = \" + mMaxOrder\n  + \", resolving power in first order = \" + N;"
+ }
+]

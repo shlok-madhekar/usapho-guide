@@ -1,0 +1,119 @@
+[
+  {
+    "id": "relative-motion-triangle",
+    "title": "The velocity triangle",
+    "caption": "Head-to-tail addition of boat-relative-to-water and water-relative-to-ground.",
+    "height": 250,
+    "params": [
+      {
+        "key": "boat",
+        "label": "Boat speed relative to water",
+        "unit": "m/s",
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "value": 4.0
+      },
+      {
+        "key": "current",
+        "label": "Current speed",
+        "unit": "m/s",
+        "min": 0,
+        "max": 5,
+        "step": 0.1,
+        "value": 3.0
+      },
+      {
+        "key": "heading",
+        "label": "Aimed upstream of straight across",
+        "unit": "deg",
+        "min": -20,
+        "max": 80,
+        "step": 1,
+        "value": 0
+      }
+    ],
+    "draw": "\nfunction arrow(x1, y1, x2, y2, col, wid) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = wid || 2;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var a = Math.atan2(y2 - y1, x2 - x1), h = 8;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - h * Math.cos(a - 0.4), y2 - h * Math.sin(a - 0.4));\n  ctx.lineTo(x2 - h * Math.cos(a + 0.4), y2 - h * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineJoin = \"round\";\n\nvar u = p.boat, v = p.current;\nvar th = p.heading * Math.PI / 180;\n\n// boat relative to water, in a frame where +x is downstream and +y is across\nvar bwx = -u * Math.sin(th), bwy = u * Math.cos(th);\nvar wgx = v, wgy = 0;\nvar bgx = bwx + wgx, bgy = bwy + wgy;\n\nvar big = Math.max(u + v, 1);\nvar s = Math.min(W * 0.34, H * 0.62) / big;\n\nvar ox = W * 0.30, oy = H * 0.86;\nfunction PX(x) { return ox + x * s; }\nfunction PY(y) { return oy - y * s; }\n\n// reference axes\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(20, oy); ctx.lineTo(W - 20, oy); ctx.stroke();\nctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox, H * 0.08); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"straight across\", ox + 6, H * 0.10);\nctx.fillText(\"downstream\", W - 96, oy + 16);\n\n// v(boat / water)\narrow(PX(0), PY(0), PX(bwx), PY(bwy), C.accent, 2.4);\n// v(water / ground), laid tail-to-head on the first\narrow(PX(bwx), PY(bwy), PX(bgx), PY(bgy), C.figure, 2.4);\n// resultant v(boat / ground)\narrow(PX(0), PY(0), PX(bgx), PY(bgy), C.ink, 2.4);\n\nctx.fillStyle = C.accent;\nctx.fillText(\"v(boat/water) = \" + u.toFixed(1), PX(bwx) - 60, PY(bwy) - 8);\nctx.fillStyle = C.figure;\nctx.fillText(\"v(water/ground) = \" + v.toFixed(1), PX(bwx) + 6, PY(bwy) - 8 + 16);\nctx.fillStyle = C.ink;\nvar spd = Math.sqrt(bgx * bgx + bgy * bgy);\nctx.fillText(\"v(boat/ground) = \" + spd.toFixed(2), PX(bgx) + 8, PY(bgy) + 4);\n\n// mark the heading angle\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath();\nctx.arc(ox, oy, 26, -Math.PI / 2 - Math.abs(th), -Math.PI / 2);\nctx.stroke();\nctx.fillStyle = C.rule;\nctx.fillText(Math.abs(p.heading).toFixed(0) + \" deg\", ox - 46, oy - 30);\n\nvar drift = bgx;\nvar msg;\nif (Math.abs(drift) < 0.02) {\n  msg = \"sideways drift cancels exactly: the boat lands directly opposite\";\n} else if (drift > 0) {\n  msg = \"net downstream velocity \" + drift.toFixed(2) + \" m/s\";\n} else {\n  msg = \"net upstream velocity \" + (-drift).toFixed(2) + \" m/s\";\n}\nout.note = \"across \" + bgy.toFixed(2) + \" m/s, \" + msg;\n"
+  },
+  {
+    "id": "relative-motion-river",
+    "title": "River crossing lab",
+    "caption": "Aim the boat, then watch where and when it lands.",
+    "height": 280,
+    "params": [
+      {
+        "key": "width",
+        "label": "River width",
+        "unit": "m",
+        "min": 40,
+        "max": 200,
+        "step": 10,
+        "value": 100
+      },
+      {
+        "key": "boat",
+        "label": "Boat speed relative to water",
+        "unit": "m/s",
+        "min": 0.6,
+        "max": 6,
+        "step": 0.1,
+        "value": 4.0
+      },
+      {
+        "key": "current",
+        "label": "Current speed",
+        "unit": "m/s",
+        "min": 0,
+        "max": 5,
+        "step": 0.1,
+        "value": 3.0
+      },
+      {
+        "key": "heading",
+        "label": "Aimed upstream of straight across",
+        "unit": "deg",
+        "min": -20,
+        "max": 80,
+        "step": 1,
+        "value": 0
+      }
+    ],
+    "draw": "\nfunction arrow(x1, y1, x2, y2, col, wid) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = wid || 2;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var a = Math.atan2(y2 - y1, x2 - x1), h = 8;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - h * Math.cos(a - 0.4), y2 - h * Math.sin(a - 0.4));\n  ctx.lineTo(x2 - h * Math.cos(a + 0.4), y2 - h * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineJoin = \"round\";\n\nvar u = p.boat, v = p.current, wd = p.width;\nvar th = p.heading * Math.PI / 180;\n\nvar across = u * Math.cos(th);\nvar along = v - u * Math.sin(th);\nvar T = wd / across;\nvar drift = along * T;\n\nvar pad = 34;\nvar lo = Math.min(0, drift), hi = Math.max(0, drift);\nvar span = Math.max(hi - lo, wd * 0.5);\nlo = lo - span * 0.18; hi = hi + span * 0.18;\nvar sx = (W - pad * 2) / (hi - lo);\nvar sy = (H - pad * 2) / wd;\nfunction X(x) { return pad + (x - lo) * sx; }\nfunction Y(y) { return H - pad - y * sy; }\n\n// banks\nctx.strokeStyle = C.rule; ctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(0, Y(0)); ctx.lineTo(W, Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(0, Y(wd)); ctx.lineTo(W, Y(wd)); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"far bank\", 6, Y(wd) - 6);\nctx.fillText(\"near bank (start)\", 6, Y(0) + 16);\n\n// current arrows\nvar rows = 4, k, j;\nfor (k = 1; k <= rows; k++) {\n  var yy = wd * k / (rows + 1);\n  for (j = 0; j < 3; j++) {\n    var x0 = W * (0.14 + 0.30 * j);\n    arrow(x0, Y(yy), x0 + 26, Y(yy), C.faint, 1);\n  }\n}\nctx.fillStyle = C.faint;\nctx.fillText(\"current \" + v.toFixed(1) + \" m/s\", W * 0.14, Y(wd * 0.5) - 8);\n\n// straight-across reference\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(0), Y(wd)); ctx.stroke();\nctx.setLineDash([]);\n\n// ground track\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([5, 5]);\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(drift), Y(wd)); ctx.stroke();\nctx.setLineDash([]);\n\n// animate\nvar cyc = T * 1.35;\nvar cur = t % cyc; if (cur > T) cur = T;\nvar bx = along * cur, by = across * cur;\n\nctx.strokeStyle = C.accent; ctx.lineWidth = 2.4;\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(bx), Y(by)); ctx.stroke();\n\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(bx), Y(by), 5, 0, Math.PI * 2); ctx.fill();\n\n// where the nose points\nvar nx = -u * Math.sin(th), ny = u * Math.cos(th);\nvar nn = Math.sqrt(nx * nx + ny * ny);\narrow(X(bx), Y(by), X(bx) + nx / nn * 30, Y(by) - ny / nn * 30, C.figure, 1.8);\nctx.fillStyle = C.figure;\nctx.fillText(\"nose\", X(bx) + nx / nn * 30 + 4, Y(by) - ny / nn * 30 - 2);\n\n// landing point\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(X(drift), Y(wd), 3.5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"lands here\", X(drift) + 7, Y(wd) + 16);\n\nout.note = \"crossing takes \" + T.toFixed(1) + \" s, lands \" +\n  Math.abs(drift).toFixed(1) + \" m \" + (drift >= 0 ? \"downstream\" : \"upstream\") +\n  \" of the start\";\n"
+  },
+  {
+    "id": "relative-motion-approach",
+    "title": "Closest approach lab",
+    "caption": "The same two ships seen from the ground and from ship A.",
+    "height": 300,
+    "params": [
+      {
+        "key": "va",
+        "label": "Ship A speed, due east",
+        "unit": "km/h",
+        "min": 2,
+        "max": 40,
+        "step": 1,
+        "value": 15
+      },
+      {
+        "key": "vb",
+        "label": "Ship B speed, due south",
+        "unit": "km/h",
+        "min": 2,
+        "max": 40,
+        "step": 1,
+        "value": 25
+      },
+      {
+        "key": "d",
+        "label": "Head start of B, due north of A",
+        "unit": "km",
+        "min": 5,
+        "max": 40,
+        "step": 1,
+        "value": 20
+      }
+    ],
+    "draw": "\nfunction arrow(x1, y1, x2, y2, col, wid) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = wid || 2;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var a = Math.atan2(y2 - y1, x2 - x1), h = 8;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - h * Math.cos(a - 0.4), y2 - h * Math.sin(a - 0.4));\n  ctx.lineTo(x2 - h * Math.cos(a + 0.4), y2 - h * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineJoin = \"round\";\n\nvar va = p.va, vb = p.vb, d = p.d;\nvar tmin = d * vb / (va * va + vb * vb);\nvar dmin = d * va / Math.sqrt(va * va + vb * vb);\nvar Tmax = Math.max(2 * tmin, 0.2);\nvar cur = t % (Tmax * 1.3); if (cur > Tmax) cur = Tmax;\n\nvar pad = 30, gap = 14;\nvar pw = (W - pad * 2 - gap) / 2;\nvar ph = H - pad * 2 - 12;\n\n// world box shared by both panels\nvar xlo = -va * Tmax - d * 0.15, xhi = va * Tmax + d * 0.15;\nvar ylo = d - vb * Tmax - d * 0.15, yhi = d + d * 0.15;\nvar s = Math.min(pw / (xhi - xlo), ph / (yhi - ylo));\n\nfunction mk(left) {\n  return {\n    X: function (x) { return left + pw / 2 + (x - (xlo + xhi) / 2) * s; },\n    Y: function (y) { return pad + 12 + ph / 2 - (y - (ylo + yhi) / 2) * s; }\n  };\n}\nvar L = mk(pad), R = mk(pad + pw + gap);\n\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.strokeRect(pad, pad + 12, pw, ph);\nctx.strokeRect(pad + pw + gap, pad + 12, pw, ph);\nctx.fillStyle = C.faint;\nctx.fillText(\"ground frame\", pad + 2, pad + 6);\nctx.fillText(\"frame of ship A\", pad + pw + gap + 2, pad + 6);\n\n// ---- left panel: both ships move\nvar ax = va * cur, ay = 0;\nvar bx = 0, by = d - vb * cur;\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(L.X(0), L.Y(0)); ctx.lineTo(L.X(va * Tmax), L.Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(L.X(0), L.Y(d)); ctx.lineTo(L.X(0), L.Y(d - vb * Tmax)); ctx.stroke();\nctx.setLineDash([]);\n\nctx.strokeStyle = C.figure; ctx.lineWidth = 1.2;\nctx.beginPath(); ctx.moveTo(L.X(ax), L.Y(ay)); ctx.lineTo(L.X(bx), L.Y(by)); ctx.stroke();\n\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(L.X(ax), L.Y(ay), 5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"A\", L.X(ax) - 4, L.Y(ay) + 18);\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(L.X(bx), L.Y(by), 5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"B\", L.X(bx) + 8, L.Y(by) + 4);\n\nvar sep = Math.sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay));\nctx.fillStyle = C.figure;\nctx.fillText(sep.toFixed(1), (L.X(ax) + L.X(bx)) / 2 - 10, (L.Y(ay) + L.Y(by)) / 2 - 5);\n\n// ---- right panel: A pinned, B on a straight line\nvar rx = -va * cur, ry = d - vb * cur;\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([4, 4]);\nctx.beginPath();\nctx.moveTo(R.X(0), R.Y(d));\nctx.lineTo(R.X(-va * Tmax), R.Y(d - vb * Tmax));\nctx.stroke();\nctx.setLineDash([]);\n\n// perpendicular from A to that straight line = closest approach\nvar ux = -va, uy = -vb, un = Math.sqrt(ux * ux + uy * uy);\nux = ux / un; uy = uy / un;\nvar proj = (0 - 0) * ux + (0 - d) * uy;\nvar fx = 0 + proj * ux, fy = d + proj * uy;\nctx.strokeStyle = C.accent; ctx.lineWidth = 1.6;\nctx.beginPath(); ctx.moveTo(R.X(0), R.Y(0)); ctx.lineTo(R.X(fx), R.Y(fy)); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"min \" + dmin.toFixed(2), R.X(fx) - 4, R.Y(fy) - 6);\n\narrow(R.X(rx), R.Y(ry), R.X(rx + ux * d * 0.35), R.Y(ry + uy * d * 0.35), C.figure, 1.8);\nctx.fillStyle = C.figure;\nctx.fillText(\"v(B/A)\", R.X(rx) + 8, R.Y(ry) + 16);\n\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(R.X(0), R.Y(0), 5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"A at rest\", R.X(0) - 20, R.Y(0) + 18);\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(R.X(rx), R.Y(ry), 5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"B\", R.X(rx) - 12, R.Y(ry) + 4);\n\nout.note = \"separation now \" + sep.toFixed(2) + \" at t = \" + cur.toFixed(2) +\n  \"  |  closest \" + dmin.toFixed(2) + \" at t = \" + tmin.toFixed(2);\n"
+  }
+]

@@ -1,71 +1,342 @@
-## Make the graph a straight line
+You have a table of numbers. Somewhere in it is a law of physics, and your job
+is to get the law out. A pendulum was timed at five lengths. A cart rolled down
+a ramp past five photogates. A detector counted clicks every two minutes for
+ten minutes. None of those tables announces what it means. Stare at raw columns
+long enough and you can convince yourself of almost anything.
 
-A straight line is the only shape the eye judges reliably. You can see an
-outlier on a line, and you can see curvature that should not be there. So the
+The last lesson was about attacking a problem on paper: name what you know,
+name what you want, find the bridge. Data is the same job with one extra
+difficulty. The numbers are not exact. Every one of them is a little wrong, and
+you need an answer anyway, plus an honest statement of how wrong the answer
+might be. This lesson is the toolkit: turn the table into a straight line, read
+the physics off the slope and the intercept, and attach an uncertainty that
+means something.
+
+## Slope and area are the two things a graph gives you
+
+Start with the graph you already half-know. Plot velocity against time. Between
+two instants the velocity climbs by $\Delta v$ while the clock advances by
+$\Delta t$, and acceleration is defined as exactly that ratio, so the slope of
+a $v$–$t$ graph *is* the acceleration. Steeper line, bigger acceleration. A
+flat line means no acceleration at all.
+
+Now cut the same graph into thin vertical strips. Over a strip so narrow that
+$v$ barely changes, the distance covered is $v\,\Delta t$ — which is the height
+of the strip times its width, its area. Add up every strip and you get the
+total displacement. So the area under a $v$–$t$ graph is the displacement.
+Slope and area: those two readings cover most of what any graph in a lab is
+for.
+
+<Figure caption={<><b>Figure 1.</b> The slope triangle gives the acceleration
+on the rising segment; the shaded trapezium gives the total displacement.
+Notice that you never needed a formula — a ruler and the area of a trapezium
+were enough.</>}>
+  <Sim id="data-graphs-vt" />
+</Figure>
+
+Read that area as a trapezium: parallel sides of $8.0$ s and $4.0$ s, height
+$4.0$ m/s, so area $=\tfrac12(8.0+4.0)(4.0) = 24$ m. Chopping it into a
+triangle, a rectangle and another triangle gives the same 24 m. Use whichever
+shape is easier.
+
+The same two readings work on any axes. On a force-extension graph the slope is
+the spring constant, since $F = kx$ means $k = \Delta F/\Delta x$. On a
+voltage-current graph the slope is the resistance. On a position-time graph the
+slope is the speed. Before you read anything off a graph, say out loud what its
+slope means physically.
+
+<QuickCheck
+  question="A resistor's voltage is plotted on the vertical axis against current on the horizontal axis, and the points lie on a straight line through the origin. What does the area between the line and the current axis represent?"
+  options={["The resistance", "Nothing physical", "An energy", "A power"]}
+  answer={3}
+  explanation="Area on a V-I graph is volts times amps, and volts times amps is watts. The resistance is the slope, not the area. Always check what the product of the two axis units is before deciding an area means something."
+/>
+
+## Make the graph straight before you read it
+
+A straight line is the only shape your eye judges reliably. You can spot one
+point that has strayed off a line. You cannot spot one point that has strayed
+off a curve, because you do not know what the curve should have been. So the
 first move with any dataset is to plot it in whatever variables make the
-expected relation linear.
+expected relation a straight line.
 
-A pendulum's period obeys $T = 2\pi\sqrt{L/g}$. Plotting $T$ against $L$ gives
-a curve that many different laws could fit. Plot $T^2$ against $L$ instead and
-the prediction becomes a line through the origin with slope $4\pi^2/g$ — so
-the slope measures $g$, and the fact that the intercept comes out near zero is
-a check that the model is right.
+Take the pendulum. Theory says $T = 2\pi\sqrt{L/g}$, where $T$ is the period in
+seconds, $L$ the length in metres and $g$ the acceleration of free fall. Plot
+$T$ against $L$ and you get a gentle curve that a dozen different laws would
+fit about equally well. Square both sides instead:
 
-The general move: rearrange the expected relation into the form
-$y = mx + b$, where $x$ and $y$ are things you can compute from the data.
-Then the slope and intercept carry the physics.
+$$T^2 = \frac{4\pi^2}{g}\,L$$
 
-For a power law $y = Ax^n$ with $n$ unknown, take logarithms:
+That is $y = mx$ with $y = T^2$, $x = L$ and $m = 4\pi^2/g$. Plot $T^2$ against
+$L$ and the prediction is a straight line through the origin. Its slope
+measures $g$, and the fact that it comes out straight is itself evidence that
+the square-root law is right.
 
-$$\ln y = \ln A + n \ln x$$
+The general move: rearrange the expected relation into $y = mx + b$ where $x$
+and $y$ are things you can compute from your columns. Four patterns cover
+almost everything you will meet.
 
-A log-log plot is a straight line whose slope is the exponent and whose
-intercept is $\ln A$. For exponentials $y = A e^{-t/\tau}$, plot $\ln y$
-against $t$: the slope is $-1/\tau$. Deciding which of the two to use is
-itself a result — a power law is straight on log-log, an exponential on
-semi-log.
+- **Squared variable.** $v^2 = v_0^2 + 2ax$ is already linear in $v^2$ against
+  $x$: slope $2a$, intercept $v_0^2$.
+- **Reciprocals.** The thin lens equation $1/u + 1/v = 1/f$ becomes
+  $1/v = -\,1/u + 1/f$. Plot $1/v$ against $1/u$: slope $-1$ and intercept
+  $1/f$. The physics you want sits in the *intercept* here, not the slope.
+- **Power law with unknown exponent.** If $y = Ax^{n}$, take natural logs of
+  both sides: $\ln y = \ln A + n\ln x$. On a log-log plot the slope is the
+  exponent $n$ and the intercept is $\ln A$.
+- **Exponential.** If $y = A e^{-t/\tau}$, then $\ln y = \ln A - t/\tau$. On a
+  semi-log plot ($\ln y$ against $t$, with $t$ *not* logged) the slope is
+  $-1/\tau$.
+
+Those last two are different plots and telling them apart is a result in
+itself. A power law straightens on log-log. An exponential straightens on
+semi-log. If you are unsure which law you have, try both and see which one
+comes out straight.
+
+<Figure caption={<><b>Figure 2.</b> The same five pendulum timings, plotted as
+T to a power of your choosing against L. Drag the power from 1 to 2 and watch
+the worst departure from a straight line collapse from a few percent to
+essentially zero. Then change gravity: the points stay straight, only the slope
+moves.</>}>
+  <Sim id="data-graphs-linearize" />
+</Figure>
 
 <Aside label="Worth remembering">
-  Always ask what the slope and the intercept mean physically before you fit.
-  A nonzero intercept where theory predicts zero is not noise to be ignored;
-  it usually points at a systematic effect, like a timer offset or an unmeasured
-  extra length.
+  Decide what the slope and the intercept mean physically *before* you fit
+  anything. Half the linearising problems you will see hide the answer in the
+  intercept, and if you only ever look at slopes you will miss them.
 </Aside>
 
-## Uncertainty
+## Worked example 1: a curve straightened, twice
 
-Every measurement has a spread. Random error scatters points on both sides of
-the true line and shrinks as $1/\sqrt{N}$ when you average $N$ repeats.
-Systematic error shifts every point the same way and does not shrink with
-repetition — more data will never fix a miscalibrated ruler.
+A cart is released from rest on a ramp and photogates measure its speed at four
+positions: $(0.25\ \text{m},\ 1.24\ \text{m/s})$, $(0.50\ \text{m},\ 1.75\
+\text{m/s})$, $(0.75\ \text{m},\ 2.15\ \text{m/s})$, $(1.00\ \text{m},\ 2.48\
+\text{m/s})$. Find the acceleration.
 
-When quantities combine, so do their uncertainties. For products and
-quotients, relative uncertainties add in quadrature:
+Speed against position curves, so do not plot that. From rest, $v^2 = 2ax$, so
+square the speeds and plot $v^2$ against $x$:
+
+$1.24^2 = 1.538$, $1.75^2 = 3.063$, $2.15^2 = 4.622$, $2.48^2 = 6.150$, all in
+m²/s².
+
+Those four numbers against $0.25, 0.50, 0.75, 1.00$ do lie on a line through
+the origin. Take the slope from the two end points, which are the furthest
+apart and so the least affected by the wobble in any single reading:
+
+$$m = \frac{6.150 - 1.538}{1.00 - 0.25} = \frac{4.612}{0.75} = 6.149\ \text{m/s}^2$$
+
+The slope is $2a$, so $a = 6.149/2 = 3.07$ m/s². Two things to notice. The
+squaring was not a trick, it came from the kinematics you already know. And the
+line passing through the origin confirms the cart really did start from rest;
+a positive intercept would have meant it was given a push.
+
+## Worked example 2: the answer lives in the intercept
+
+A converging lens forms real images. Measured object and image distances are
+$(0.200\ \text{m},\ 0.300\ \text{m})$ and $(0.300\ \text{m},\ 0.200\
+\text{m})$. Find the focal length.
+
+Write the lens equation in straight-line form: $1/v = -1/u + 1/f$. Compute the
+reciprocals.
+
+For the first pair: $1/u = 1/0.200 = 5.000\ \text{m}^{-1}$ and
+$1/v = 1/0.300 = 3.333\ \text{m}^{-1}$.
+For the second: $1/u = 3.333\ \text{m}^{-1}$, $1/v = 5.000\ \text{m}^{-1}$.
+
+Slope first, as a check on the model:
+
+$$m = \frac{5.000 - 3.333}{3.333 - 5.000} = \frac{1.667}{-1.667} = -1.00$$
+
+Theory says the slope must be exactly $-1$, and it is, so the data is
+behaving. Now the intercept. Using the first point,
+
+$$b = \frac{1}{v} - m\cdot\frac{1}{u} = 3.333 - (-1.00)(5.000) = 8.333\ \text{m}^{-1}$$
+
+and $b = 1/f$, so $f = 1/8.333 = 0.120$ m, which is 12.0 cm. If you had only
+hunted for a slope you would have found $-1$, a pure number with no physics in
+it, and missed the lens entirely.
+
+<QuickCheck
+  question="Terminal speeds of coffee filters are plotted as the log of speed against the log of mass, and the points lie on a line of slope 0.5. What does that say about how terminal speed depends on mass?"
+  options={["Speed is proportional to mass", "Speed is proportional to the square root of mass", "Speed is proportional to mass squared", "Speed does not depend on mass"]}
+  answer={1}
+  explanation="On a log-log plot the slope is the exponent in y = A x^n, so n = 0.5 and the speed goes as the square root of the mass. Doubling the mass multiplies the terminal speed by about 1.41, not by 2."
+/>
+
+## Worked example 3: a background that ruins the straight line
+
+A detector watches a radioactive source and records total count rates:
+$(0\ \text{min},\ 425\ \text{s}^{-1})$, $(3\ \text{min},\ 225\ \text{s}^{-1})$,
+$(6\ \text{min},\ 125\ \text{s}^{-1})$. With the source taken away it still
+reads $25\ \text{s}^{-1}$ from cosmic rays and the walls. Find the half-life.
+
+Try the semi-log plot on the raw numbers first, to see the failure. $\ln 425 =
+6.052$, $\ln 225 = 5.416$, $\ln 125 = 4.828$. The drops are $0.636$ then
+$0.588$ — not equal, so the points are not on a line, and a plain exponential
+does not fit. That is the signature of an added constant.
+
+Subtract the background, because only the source part decays: $425-25 = 400$,
+$225-25 = 200$, $125-25 = 100$. Now $\ln 400 = 5.991$, $\ln 200 = 5.298$,
+$\ln 100 = 4.605$. The drops are $0.693$ and $0.693$, identical. Straight line.
+
+The slope is
+
+$$-\lambda = \frac{4.605 - 5.991}{6.0 - 0} = \frac{-1.386}{6.0} = -0.2310\ \text{min}^{-1}$$
+
+and the half-life is the time to fall by a factor of two, so
+$\lambda t_{1/2} = \ln 2$ and
+
+$$t_{1/2} = \frac{0.693}{0.2310} = 3.00\ \text{min}$$
+
+You could have seen it without logs at all: the corrected rates halve every
+three minutes. The logarithm is there so the eye can check that they keep
+halving at the same rate all the way along.
+
+<Aside label="Where this goes wrong" warn>
+  An exponential sitting on a constant offset still *looks* like a decay, and
+  its semi-log plot still slopes downwards. It is only slightly bent, and if
+  you fit a line through it anyway you get a half-life that is too long and no
+  warning that anything happened. Whenever a decay is measured by a detector,
+  ask what the reading is with the source gone, and subtract it first.
+</Aside>
+
+## Uncertainty: the number after the plus-or-minus
+
+A measurement with no uncertainty attached is not a measurement, it is a rumour.
+Two different things can go wrong.
+
+**Random error** scatters points on both sides of the truth. Timing by hand,
+you are sometimes early and sometimes late. Averaging beats it down.
+**Systematic error** shifts every point the same way: a ruler with a worn end,
+a stopwatch that starts late, a length measured to the top of a pendulum bob
+instead of its centre. Averaging does nothing to it. A thousand repeats with a
+bad ruler gives a beautifully precise wrong answer.
+
+For a single measurement quoted as $L = 12.4 \pm 0.3$ cm, the $0.3$ cm is the
+**absolute uncertainty** and the ratio $\delta L / L = 0.3/12.4 = 0.024$, or
+$2.4\%$, is the **relative uncertainty**. The same relation read backwards
+turns a percentage specification into a number: a balance good to $1.6\%$
+reading $4.75$ kg has $\delta m = 0.016 \times 4.75 = 0.076$ kg.
+
+Repeat a measurement $N$ times and you get a spread. The **standard deviation**
+$s$ measures how far a typical single reading falls from the mean:
+
+$$s = \sqrt{\frac{\sum (x_i - \bar{x})^2}{N-1}}$$
+
+But you do not report a single reading, you report the mean, and the mean is
+better than any one reading. Its uncertainty is the **standard error**
+
+$$\sigma_{\bar{x}} = \frac{s}{\sqrt{N}}$$
+
+Try five timings: $2.31$, $2.28$, $2.35$, $2.30$, $2.26$ s. The mean is
+$11.50/5 = 2.300$ s. The deviations are $+0.01, -0.02, +0.05, 0.00, -0.04$, and
+their squares sum to $0.0001+0.0004+0.0025+0+0.0016 = 0.0046$. Divide by
+$N-1 = 4$ to get $0.00115$, take the root: $s = 0.034$ s. Then
+$\sigma_{\bar x} = 0.034/\sqrt{5} = 0.034/2.236 = 0.015$ s. Report
+$2.300 \pm 0.015$ s.
+
+That $\sqrt{N}$ is also the answer to "how many trials do I need". Rearranged,
+$N = (s/\sigma_{\bar x})^2$. To pull a spread of $0.24$ s down to a standard
+error of $0.05$ s you need $N = (0.24/0.05)^2 = 4.8^2 = 23.04$. A count has to
+be a whole number, and $23$ would leave the standard error just above target,
+so round *up*: 24 trials. Notice how brutal the square root is: cutting the uncertainty in half
+costs four times the work.
+
+<Figure caption={<><b>Figure 3.</b> Each dot is one timing. Drag N up and the
+dots stay just as scattered, but the shaded band — one standard error either
+side of the mean — closes in on the true value. Try going from N = 8 to N = 32
+and check that the band narrows by about a factor of two, not four.</>}>
+  <Sim id="data-graphs-spread" />
+</Figure>
+
+## Carrying uncertainty through a calculation
+
+Uncertainties combine, and they do not simply add. Two independent errors are
+unlikely to both be at their worst in the same direction, so you add them **in
+quadrature**, which means squaring, adding, and taking the root.
+
+For a sum or difference $z = x \pm y$, the absolute uncertainties combine:
+
+$$\delta z = \sqrt{(\delta x)^2 + (\delta y)^2}$$
+
+For a product or quotient $z = xy$ or $z = x/y$, the *relative* uncertainties
+combine:
 
 $$\frac{\delta z}{z} = \sqrt{\left(\frac{\delta x}{x}\right)^2 + \left(\frac{\delta y}{y}\right)^2}$$
 
-For sums and differences, the absolute uncertainties add in quadrature
-instead. And a power multiplies the relative uncertainty by the exponent: if
-$z = x^3$, then $\delta z/z = 3\,\delta x/x$.
+And a power multiplies the relative uncertainty by the exponent: if $z = x^n$
+then $\delta z/z = |n|\,\delta x/x$. That last rule tells you where to spend
+your effort. In $g = 4\pi^2 L/T^2$ an error in $T$ counts double, so time
+twenty swings and divide by twenty before you worry about the ruler.
 
-That last rule tells you where to spend effort. In $g = 4\pi^2 L/T^2$, an
-error in $T$ counts double. Measure the period carefully — time twenty swings
-and divide — before worrying about the ruler.
+**Worked example 4.** Five pendulum timings are fitted with $T^2$ against $L$
+and the least-squares fit reports a slope $m = 4.037 \pm 0.025$ s²/m. What is
+$g$, and how well do you know it?
 
-Quote results as value plus uncertainty, with the uncertainty to one
-significant figure and the value rounded to match: $9.7 \pm 0.2\ \text{m/s}^2$,
-never $9.6873 \pm 0.2$.
+From $T^2 = (4\pi^2/g)L$, the slope is $4\pi^2/g$, so
+
+$$g = \frac{4\pi^2}{m} = \frac{39.478}{4.037} = 9.779\ \text{m/s}^2$$
+
+Since $g$ is a constant divided by $m$, it is a quotient, and the relative
+uncertainty passes straight through:
+
+$$\frac{\delta g}{g} = \frac{\delta m}{m} = \frac{0.025}{4.037} = 0.00619$$
+
+$$\delta g = 0.00619 \times 9.779 = 0.061\ \text{m/s}^2$$
+
+Report $g = 9.78 \pm 0.06$ m/s². Round the uncertainty to one significant
+figure, then round the value to the same decimal place. Writing
+$9.7792 \pm 0.06$ claims four digits you have not earned.
+
+One more number you will be asked for: the **percent difference** from an
+accepted value, which is just $|{\text{measured}-\text{accepted}}|/\text{accepted}$
+as a percentage. Here $|9.779-9.80|/9.80 = 0.0021$, or $0.2\%$. Compare that
+with your own $\pm 0.06$: the disagreement is smaller than your uncertainty, so
+the experiment agrees with the accepted value.
 
 <Aside label="Where this goes wrong" warn>
   Forcing a fit through the origin because theory says the intercept is zero
-  hides exactly the information you want. Fit both parameters, then check
-  whether the intercept is consistent with zero given its own uncertainty. If
-  it is not, the model is missing something, and that is the finding.
+  throws away the best warning you have. Fit both the slope and the intercept,
+  then ask whether the intercept is consistent with zero. If a $T^2$ against
+  $L$ line hits the vertical axis well above zero, every length was measured
+  short by the same amount — and the size of that missing length is
+  $b/m$, which you can now report as a finding instead of a mistake.
 </Aside>
 
-<QuickCheck
-  question="Measurements of a decaying quantity fall on a straight line when the natural log of the quantity is plotted against time. What does this show?"
-  options={["The decay is linear in time", "The decay is exponential, and the slope gives the negative reciprocal of the time constant", "The decay is a power law with exponent equal to the slope", "Nothing, since any data can be made linear"]}
-  answer={1}
-  explanation="Taking the log of an exponential gives a linear function of time whose slope is minus one over the time constant. A power law would instead straighten on a log-log plot, not a semi-log one."
-/>
+## Recognising that this is the technique
+
+You are being asked a data-analysis question, and should reach for this
+toolkit, whenever one of these shows up.
+
+**A table of pairs and the word "plot", "graph", "slope" or "intercept".** Even
+if the word is absent, four or five $(x, y)$ pairs in the problem statement
+means fit, not solve. You are not meant to substitute one pair into a formula.
+
+**A relation that is not linear, plus an unknown constant.** Then the question
+is which combination of the variables to put on the axes. Rearrange to
+$y = mx + b$ first and everything else follows.
+
+**An unknown exponent.** "Assuming $v = Am^{p}$, find $p$" always means logs of
+both columns, then the slope. If the independent variable appears in an
+exponent instead — a decay, a discharge, a cooling curve — log only the
+dependent variable.
+
+**A plus-or-minus anywhere in the given data.** Then the answer wants an
+uncertainty too, and you should track relative uncertainties through the
+algebra rather than the absolute ones, except across sums and differences.
+
+**Words like "background", "offset", "zero error", or a description of how the
+measurement was made that sounds slightly wrong.** Those are systematic-error
+problems in disguise, and the fix is either to subtract a constant before
+fitting or to read the constant off the intercept.
+
+The equipment in these questions changes every time — lenses, springs, filters,
+counters — but the moves do not. Get the relation into a straight line, decide
+in advance what the slope and the intercept mean, take the slope from
+well-separated points, and never quote a number without saying how well you
+know it.
+
+Next you will put the graph-reading half of this to work on real motion, where
+the slopes and areas stop being an exercise and start being positions,
+velocities and accelerations: [Motion in One Dimension](/guide/motion-1d).

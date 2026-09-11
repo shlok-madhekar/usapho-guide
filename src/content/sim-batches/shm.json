@@ -1,0 +1,137 @@
+[
+ {
+  "id": "shm-lab",
+  "title": "Oscillator lab",
+  "caption": "Position and velocity of a block on a spring.",
+  "height": 300,
+  "params": [
+   {
+    "key": "k",
+    "label": "Spring constant",
+    "unit": "N/m",
+    "min": 10,
+    "max": 400,
+    "step": 5,
+    "value": 100
+   },
+   {
+    "key": "mass",
+    "label": "Mass",
+    "unit": "kg",
+    "min": 0.25,
+    "max": 4,
+    "step": 0.05,
+    "value": 1.0
+   },
+   {
+    "key": "amplitude",
+    "label": "Amplitude",
+    "unit": "m",
+    "min": 0.05,
+    "max": 0.4,
+    "step": 0.01,
+    "value": 0.2
+   }
+  ],
+  "draw": "var omega = Math.sqrt(p.k / p.mass);\nvar T = 2 * Math.PI / omega;\nvar A = p.amplitude;\nvar eqX = W * 0.46, wallX = W * 0.06, scale = W * 0.26, midY = H * 0.24;\nvar x = A * Math.cos(omega * t);\nvar v = -A * omega * Math.sin(omega * t);\nvar massX = eqX + x * scale;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\nctx.fillStyle = C.faint;\nctx.fillRect(wallX - 8, midY - 40, 8, 80);\n\nctx.strokeStyle = C.accent;\nctx.beginPath();\nctx.moveTo(wallX, midY);\nvar i, sx, sy;\nfor (i = 1; i <= 14; i++) {\n  sx = wallX + (massX - 15 - wallX) * i / 14;\n  sy = midY + (i % 2 === 0 ? -9 : 9) * (i === 14 ? 0 : 1);\n  ctx.lineTo(sx, sy);\n}\nctx.lineTo(massX - 15, midY);\nctx.stroke();\n\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 5]);\nctx.beginPath(); ctx.moveTo(eqX, midY - 46); ctx.lineTo(eqX, midY + 34); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"x = 0\", eqX - 14, midY + 48);\n\nctx.fillStyle = C.figure;\nctx.fillRect(massX - 15, midY - 15, 30, 30);\n\nctx.strokeStyle = C.accent;\nctx.fillStyle = C.accent;\nvar ax = -omega * omega * x * scale * 0.06;\nif (Math.abs(ax) > 3) {\n  var dir = ax > 0 ? 1 : -1;\n  var tipX = massX + ax;\n  ctx.beginPath();\n  ctx.moveTo(massX, midY - 26);\n  ctx.lineTo(tipX, midY - 26);\n  ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(tipX, midY - 26);\n  ctx.lineTo(tipX - 6 * dir, midY - 30);\n  ctx.lineTo(tipX - 6 * dir, midY - 22);\n  ctx.closePath(); ctx.fill();\n  ctx.fillText(\"a\", (massX + tipX) / 2 - 3, midY - 32);\n}\n\nvar gy = H * 0.74, gh = H * 0.20;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(40, gy); ctx.lineTo(W - 12, gy); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"time\", W - 42, gy + 16);\nctx.fillStyle = C.figure;\nctx.fillText(\"x\", 20, gy - gh + 4);\nctx.fillStyle = C.accent;\nctx.fillText(\"v\", 20, gy + 14);\n\nvar span = 2.4;\nvar n = 160;\nctx.lineWidth = 1.6;\nctx.strokeStyle = C.figure;\nctx.beginPath();\nfor (i = 0; i < n; i++) {\n  var tt = t - span * (n - 1 - i) / (n - 1);\n  var px = 40 + (W - 52) * i / (n - 1);\n  var py = gy - Math.cos(omega * tt) * gh;\n  if (i === 0) { ctx.moveTo(px, py); } else { ctx.lineTo(px, py); }\n}\nctx.stroke();\nctx.strokeStyle = C.accent;\nctx.beginPath();\nfor (i = 0; i < n; i++) {\n  var tt2 = t - span * (n - 1 - i) / (n - 1);\n  var px2 = 40 + (W - 52) * i / (n - 1);\n  var py2 = gy + Math.sin(omega * tt2) * gh * 0.7;\n  if (i === 0) { ctx.moveTo(px2, py2); } else { ctx.lineTo(px2, py2); }\n}\nctx.stroke();\n\nout.note = \"omega = \" + omega.toFixed(2) + \" rad/s, T = \" + T.toFixed(3) + \" s, f = \" + (1 / T).toFixed(2) + \" Hz, vmax = \" + (A * omega).toFixed(2) + \" m/s, amax = \" + (A * omega * omega).toFixed(1) + \" m/s^2\";"
+ },
+ {
+  "id": "shm-energy",
+  "title": "Energy in the parabola",
+  "caption": "Kinetic energy is the gap between the total energy line and the potential curve.",
+  "height": 280,
+  "params": [
+   {
+    "key": "k",
+    "label": "Spring constant",
+    "unit": "N/m",
+    "min": 50,
+    "max": 800,
+    "step": 10,
+    "value": 200
+   },
+   {
+    "key": "mass",
+    "label": "Mass",
+    "unit": "kg",
+    "min": 0.25,
+    "max": 4,
+    "step": 0.05,
+    "value": 1.0
+   },
+   {
+    "key": "amplitude",
+    "label": "Amplitude",
+    "unit": "m",
+    "min": 0.04,
+    "max": 0.3,
+    "step": 0.01,
+    "value": 0.12
+   }
+  ],
+  "draw": "var omega = Math.sqrt(p.k / p.mass);\nvar A = p.amplitude;\nvar x = A * Math.cos(omega * t);\nvar v = -A * omega * Math.sin(omega * t);\nvar E = 0.5 * p.k * A * A;\nvar U = 0.5 * p.k * x * x;\nvar K = E - U;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\nvar cx = W * 0.36, baseY = H * 0.84, top = H * 0.14;\nvar xs = (W * 0.30) / A;\nvar ys = (baseY - top) / E;\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(cx - W * 0.32, baseY); ctx.lineTo(cx + W * 0.32, baseY); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cx, baseY + 6); ctx.lineTo(cx, top - 6); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"x\", cx + W * 0.30, baseY + 16);\nctx.fillText(\"energy\", cx + 6, top - 10);\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nvar i;\nfor (i = 0; i <= 80; i++) {\n  var xx = -A * 1.05 + (2.1 * A) * i / 80;\n  var px = cx + xx * xs;\n  var py = baseY - 0.5 * p.k * xx * xx * ys;\n  if (i === 0) { ctx.moveTo(px, py); } else { ctx.lineTo(px, py); }\n}\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"U = kx^2 / 2\", cx + A * 1.0 * xs - 60, baseY - E * ys - 10);\n\nvar eY = baseY - E * ys;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.5;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(cx - A * xs, eY); ctx.lineTo(cx + A * xs, eY); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.accent;\nctx.fillText(\"total E\", cx - A * xs - 4, eY - 8);\n\nvar bx = cx + x * xs;\nvar by = baseY - U * ys;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 3;\nctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx, eY); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(bx, by, 5, 0, 6.2832); ctx.fill();\nctx.fillStyle = C.accent;\nctx.fillText(\"K\", bx + 6, (by + eY) / 2 + 4);\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx, baseY); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.figure;\nctx.fillText(\"U\", bx + 6, (by + baseY) / 2 + 4);\n\nvar barX = W * 0.80, barW = W * 0.10, barTop = top, barBot = baseY;\nvar full = barBot - barTop;\nctx.strokeStyle = C.rule;\nctx.strokeRect(barX, barTop, barW, full);\nvar hK = full * (K / E);\nctx.fillStyle = C.accent;\nctx.fillRect(barX, barBot - hK, barW, hK);\nctx.fillStyle = C.figure;\nctx.fillRect(barX, barTop, barW, full - hK);\nctx.fillStyle = C.faint;\nctx.fillText(\"K\", barX + barW + 6, barBot - hK / 2);\nctx.fillText(\"U\", barX + barW + 6, barTop + (full - hK) / 2);\n\nout.note = \"x = \" + x.toFixed(3) + \" m, v = \" + Math.abs(v).toFixed(2) + \" m/s, K = \" + K.toFixed(3) + \" J, U = \" + U.toFixed(3) + \" J, total = \" + E.toFixed(3) + \" J\";"
+ },
+ {
+  "id": "shm-vertical",
+  "title": "Hanging spring: sag and oscillation",
+  "caption": "Gravity moves the centre of the oscillation and leaves the period alone.",
+  "height": 300,
+  "params": [
+   {
+    "key": "k",
+    "label": "Spring constant",
+    "unit": "N/m",
+    "min": 50,
+    "max": 600,
+    "step": 10,
+    "value": 240
+   },
+   {
+    "key": "mass",
+    "label": "Mass",
+    "unit": "kg",
+    "min": 0.2,
+    "max": 3,
+    "step": 0.05,
+    "value": 0.85
+   },
+   {
+    "key": "amplitude",
+    "label": "Amplitude",
+    "unit": "m",
+    "min": 0.005,
+    "max": 0.08,
+    "step": 0.005,
+    "value": 0.02
+   }
+  ],
+  "draw": "var g = 9.8;\nvar sag = p.mass * g / p.k;\nvar omega = Math.sqrt(p.k / p.mass);\nvar A = p.amplitude;\nvar u = A * Math.cos(omega * t);\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\nvar topY = H * 0.12;\nvar scale = (H * 0.52) / Math.max(sag + A, 0.02);\nif (scale > 900) { scale = 900; }\nvar natural = H * 0.34;\nvar colX = [W * 0.20, W * 0.50, W * 0.80];\n\nfunction coil(cx, y0, y1) {\n  ctx.strokeStyle = C.accent;\n  ctx.beginPath();\n  ctx.moveTo(cx, y0);\n  var i;\n  for (i = 1; i <= 12; i++) {\n    var yy = y0 + (y1 - y0) * i / 12;\n    var xx = cx + (i % 2 === 0 ? -10 : 10) * (i === 12 ? 0 : 1);\n    ctx.lineTo(xx, yy);\n  }\n  ctx.lineTo(cx, y1);\n  ctx.stroke();\n}\n\nctx.strokeStyle = C.faint;\nctx.lineWidth = 3;\nctx.beginPath(); ctx.moveTo(W * 0.08, topY); ctx.lineTo(W * 0.92, topY); ctx.stroke();\nctx.lineWidth = 2;\nctx.fillStyle = C.faint;\nctx.fillText(\"ceiling\", W * 0.08, topY - 8);\n\nvar labels = [\"no load\", \"hanging at rest\", \"oscillating\"];\nvar ends = [natural, natural + sag * scale, natural + (sag + u) * scale];\nvar i;\nfor (i = 0; i < 3; i++) {\n  coil(colX[i], topY, ends[i]);\n  if (i > 0) {\n    ctx.fillStyle = C.figure;\n    ctx.fillRect(colX[i] - 16, ends[i], 32, 24);\n  }\n  ctx.fillStyle = C.faint;\n  ctx.fillText(labels[i], colX[i] - 34, H * 0.95);\n}\n\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(colX[0] - 20, natural); ctx.lineTo(colX[2] + 30, natural); ctx.stroke();\nvar eqY = natural + sag * scale;\nctx.beginPath(); ctx.moveTo(colX[1] - 20, eqY); ctx.lineTo(colX[2] + 30, eqY); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"natural length\", colX[0] - 20, natural - 6);\nctx.fillStyle = C.accent;\nctx.fillText(\"equilibrium\", colX[2] - 10, eqY - 6);\n\nctx.strokeStyle = C.accent;\nctx.beginPath();\nctx.moveTo(colX[1] + 44, natural);\nctx.lineTo(colX[1] + 44, eqY);\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"mg/k\", colX[1] + 48, (natural + eqY) / 2 + 4);\n\nout.note = \"sag mg/k = \" + sag.toFixed(4) + \" m, omega = \" + omega.toFixed(2) + \" rad/s, T = \" + (2 * Math.PI / omega).toFixed(3) + \" s, amax = \" + (A * omega * omega).toFixed(2) + \" m/s^2 (contact needs amax below 9.8)\";"
+ },
+ {
+  "id": "shm-springs",
+  "title": "Parallel and series springs",
+  "caption": "The same two springs, combined two ways.",
+  "height": 260,
+  "params": [
+   {
+    "key": "k1",
+    "label": "Stiffness k1",
+    "unit": "N/m",
+    "min": 20,
+    "max": 800,
+    "step": 10,
+    "value": 400
+   },
+   {
+    "key": "k2",
+    "label": "Stiffness k2",
+    "unit": "N/m",
+    "min": 20,
+    "max": 800,
+    "step": 10,
+    "value": 600
+   }
+  ],
+  "draw": "var kp = p.k1 + p.k2;\nvar ks = (p.k1 * p.k2) / (p.k1 + p.k2);\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\nfunction coilH(x0, x1, y, turns) {\n  ctx.strokeStyle = C.accent;\n  ctx.beginPath();\n  ctx.moveTo(x0, y);\n  var i;\n  for (i = 1; i <= turns; i++) {\n    var xx = x0 + (x1 - x0) * i / turns;\n    var yy = y + (i % 2 === 0 ? -8 : 8) * (i === turns ? 0 : 1);\n    ctx.lineTo(xx, yy);\n  }\n  ctx.lineTo(x1, y);\n  ctx.stroke();\n}\n\nvar leftW = W * 0.46;\nvar wallA = W * 0.05, massA = W * 0.36;\nvar yA1 = H * 0.22, yA2 = H * 0.40;\nctx.fillStyle = C.faint;\nctx.fillRect(wallA - 8, yA1 - 26, 8, (yA2 - yA1) + 52);\ncoilH(wallA, massA, yA1, 10);\ncoilH(wallA, massA, yA2, 10);\nctx.fillStyle = C.figure;\nctx.fillRect(massA, yA1 - 14, 26, (yA2 - yA1) + 28);\nctx.fillStyle = C.ink;\nctx.fillText(\"k1\", (wallA + massA) / 2 - 6, yA1 - 16);\nctx.fillText(\"k2\", (wallA + massA) / 2 - 6, yA2 + 26);\nctx.fillStyle = C.faint;\nctx.fillText(\"parallel: same stretch, forces add\", wallA, H * 0.60);\nctx.fillStyle = C.accent;\nctx.fillText(\"k = k1 + k2 = \" + kp.toFixed(0) + \" N/m\", wallA, H * 0.72);\n\nvar wallB = W * 0.56, midB = W * 0.74, massB = W * 0.90;\nvar yB = H * 0.30;\nctx.fillStyle = C.faint;\nctx.fillRect(wallB - 8, yB - 26, 8, 52);\ncoilH(wallB, midB, yB, 8);\ncoilH(midB, massB - 4, yB, 8);\nctx.fillStyle = C.rule;\nctx.beginPath(); ctx.arc(midB, yB, 4, 0, 6.2832); ctx.fill();\nctx.fillStyle = C.figure;\nctx.fillRect(massB - 4, yB - 16, 24, 32);\nctx.fillStyle = C.ink;\nctx.fillText(\"k1\", (wallB + midB) / 2 - 6, yB - 18);\nctx.fillText(\"k2\", (midB + massB) / 2 - 6, yB - 18);\nctx.fillStyle = C.faint;\nctx.fillText(\"series: same force, stretches add\", wallB, H * 0.60);\nctx.fillStyle = C.accent;\nctx.fillText(\"1/k = 1/k1 + 1/k2 -> \" + ks.toFixed(1) + \" N/m\", wallB, H * 0.72);\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(W * 0.51, H * 0.10); ctx.lineTo(W * 0.51, H * 0.80); ctx.stroke();\n\nout.note = \"parallel k = \" + kp.toFixed(0) + \" N/m, series k = \" + ks.toFixed(1) + \" N/m (series is softer than either spring)\";"
+ }
+]

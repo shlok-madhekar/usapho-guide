@@ -1,64 +1,325 @@
-## Work is force times displacement, but only the useful part
+## The question forces alone make painful
 
-Push a crate sideways and lift it upward, and gravity has done nothing in the
-first case and taken energy from you in the second. Only the component of force
-along the motion counts, which is exactly what a dot product extracts:
+A block is launched up a rough ramp at $8.0\ \mathrm{m/s}$ and you want to know
+how far it gets before it stops. You can do this with $F = ma$: find the
+acceleration, then use a kinematic equation. Now curve the ramp so the slope
+changes as the block climbs. The acceleration is no longer constant, the
+kinematic equations die, and the honest route is a differential equation.
 
-$$W = \vec F \cdot \vec d = Fd\cos\theta$$
+But something has not changed. The block started with a certain amount of
+motion and ended with none, and gravity and friction were what drained it. If
+you can keep an account of how much each force takes out of that stock of
+motion, you get the answer without ever knowing the acceleration at any instant.
+That account is called **work**, the stock of motion is called **kinetic
+energy**, and the rule connecting them is the last general-purpose tool you
+need before conservation of energy becomes available in the
+[next lesson](/guide/potential-energy).
 
-Here $\theta$ is the angle between the force and the displacement. At $90°$ the
-work is zero, which is why a normal force on a sliding block, a rope tension on
-a mass in circular motion, and the magnetic force on a charged particle all do
-no work at all. They redirect motion without feeding it.
+Orbits in the previous lesson were a case where speed and radius traded off in
+a way $F = ma$ described but never made obvious. Work is the language in which
+that trade is bookkeeping.
 
-When the force changes along the way, or the path curves, sum the contributions
-piece by piece:
+## Only the part of the force along the motion counts
 
-$$W = \int_{A}^{B} \vec F \cdot d\vec r$$
+Push a crate $4.0\ \mathrm{m}$ across the floor with a steady $25\ \mathrm{N}$
+in the direction it moves, and you have done $25 \times 4.0 = 100\
+\mathrm{J}$ of work. One joule is one newton-metre. That is the whole
+definition when the force and the motion point the same way.
 
-For a spring pulled from $0$ to $x$, the force $-kx$ grows linearly, and the
-integral gives $-\tfrac{1}{2}kx^2$. The average force over that stretch is half
-the maximum, which is the same result read off the triangle under a force
-versus position graph. That graph reading is worth practicing: **area under an
-$F$ vs. $x$ curve is work**, with area below the axis counting negative.
+Now tilt your push. A child drags a sled with a rope at $30^\circ$ above the
+horizontal. The rope pulls partly forward and partly upward, and the sled only
+goes forward. The upward part of the pull is not lifting the sled anywhere — it
+just presses less weight onto the ground. Only the forward part of the tension
+travels with the sled, so only that part does work. Split the $40\ \mathrm{N}$
+tension into a forward piece $40\cos 30^\circ$ and an upward piece
+$40\sin 30^\circ$, and keep the forward one:
 
-## Negative work is a real answer
+$$W = Fd\cos\theta$$
 
-Friction on a sliding block points opposite the motion, so $\cos\theta = -1$ and
-the work is $-f d$. Nothing has gone wrong. Negative work means energy left the
-object's kinetic account. A crate lowered slowly by a rope receives negative
-work from the tension and positive work from gravity, and the two cancel because
-the speed never changes.
+where $F$ is the size of the force, $d$ the distance moved, and $\theta$ the
+angle between them. For the sled, $W = 40 \times 6.0 \times \cos 30^\circ$.
+In vector language this is the dot product, $W = \vec F \cdot \vec d$, which is
+the machine that picks out "the part of one vector along another".
 
-## Net work equals the change in kinetic energy
+Three consequences fall straight out of the cosine. At $\theta = 0$ you get
+$W = Fd$, the most work a force of that size can do. At $\theta = 90^\circ$,
+$\cos\theta = 0$ and the work is **exactly zero** — a normal force on a sliding
+block, the tension in a string swinging a ball in a circle, the track pressing
+sideways on a bead. These forces steer without feeding. And past $90^\circ$ the
+cosine goes negative. Friction on a sliding block points backwards, so
+$\theta = 180^\circ$, $\cos\theta = -1$, and the work is $-f d$. Negative work
+is a real answer, not a mistake: it means the force removed motion instead of
+supplying it.
 
-Add up the work from every force acting, and you get one clean statement:
+<Figure caption={<><b>Figure 1.</b> The rope's pull splits into a forward piece
+that does work and an upward piece that does none. Drag the angle to
+90 degrees and watch the work fall to zero even though you are pulling just as
+hard.</>}>
+  <Sim id="work-energy-theorem-angle" />
+</Figure>
 
-$$W_{\text{net}} = \Delta K = \tfrac{1}{2}mv_f^2 - \tfrac{1}{2}mv_i^2$$
-
-This is the work-energy theorem, and it follows from $F = ma$ by integrating
-over displacement rather than time. Its value is that it never mentions time.
-A block slides $2\text{ m}$ down a ramp of any shape with friction coefficient
-$\mu$; ask for the final speed and the theorem answers directly, while $F = ma$
-would demand you track the changing direction of motion.
-
-<Aside label="Where this goes wrong" warn>
-  Do not compute $W_{\text{net}}$ from the net force and then add individual
-  works on top of it. Pick one route: either find the vector sum of forces and
-  dot it with the displacement, or work out each force's contribution
-  separately and add the numbers. Doing both double counts.
+<Aside label="Worth remembering">
+  A force perpendicular to the motion does no work at any instant, no matter
+  how strong it is. That single fact removes normal forces, string tensions on
+  circular paths, and magnetic forces from most energy accounts before you
+  start calculating.
 </Aside>
+
+There is a bonus hiding in $W = \vec F \cdot \vec d$. If the force is
+**constant**, only the straight-line displacement from start to finish matters,
+not the path. A bead is dragged along a quarter circle of radius
+$1.5\ \mathrm{m}$ from $(1.5, 0)$ to $(0, 1.5)$ while a constant
+$\vec F = (10\ \mathrm{N})\hat x$ acts. The path is curved, but the net
+displacement is $\Delta x = 0 - 1.5 = -1.5\ \mathrm{m}$ and $\Delta y = +1.5\
+\mathrm{m}$. Only $\Delta x$ pairs with a force along $\hat x$, so
+$W = (10)(-1.5) = -15\ \mathrm{J}$. You never had to follow the arc.
 
 <QuickCheck
   question="A satellite moves in a perfectly circular orbit. How much work does gravity do over one full orbit?"
   options={["Zero", "Positive, equal to the kinetic energy", "Negative", "It depends on the orbital radius"]}
   answer={0}
-  explanation="Gravity points toward the center while the velocity is tangential, so the angle between force and displacement is 90 degrees at every instant. The speed never changes, which is another way to say the same thing."
+  explanation="Gravity points toward the centre while the velocity is tangential, so the angle between force and displacement is 90 degrees at every instant. The speed never changes, which is another way of saying the same thing."
 />
 
-## What to do with it
+## When the force changes with position
 
-Reach for the theorem whenever a problem gives you speeds and distances but no
-times, and whenever the force varies in a way that makes acceleration awkward.
-Reach for $F = ma$ instead when you need to know *when* something happens, or
-when you need the force itself as an answer.
+$W = Fd\cos\theta$ assumes $F$ is the same the whole way. Springs, gravity far
+from a planet, and a friction coefficient that worsens along a track all break
+that. The repair is the standard one: chop the motion into steps so short that
+the force is effectively constant across each, multiply force by step, and add.
+
+$$W = \int_{A}^{B} \vec F \cdot d\vec r$$
+
+If you have not met an integral, read the symbol as "the area under the curve of
+$F$ against $x$". That is not a metaphor — it is what the sum of
+$(\text{height}) \times (\text{width})$ strips converges to. **Area under an
+$F$ versus $x$ graph is work**, and area below the axis counts as negative.
+
+Two shapes cover most problems. A force growing linearly, $F = 6x$, from
+$x = 0$ to $x = 3.0\ \mathrm{m}$ traces a triangle of base $3.0$ and height
+$6 \times 3.0 = 18\ \mathrm{N}$, so the work is $\tfrac12 (3.0)(18) = 27\
+\mathrm{J}$. A force dying away linearly, $F = 12 - 2x$ from $x=0$ to
+$x = 5.0\ \mathrm{m}$, runs from $12\ \mathrm{N}$ down to $2\ \mathrm{N}$: a
+trapezoid, whose area is the average height times the width, $\tfrac{12+2}{2}
+\times 5.0 = 35\ \mathrm{J}$.
+
+For curved force laws you need one calculus fact, the power rule for areas: the
+area under $x^n$ from $0$ to $b$ is $b^{n+1}/(n+1)$. So $F = 3x^2$ from $0$ to
+$2.0\ \mathrm{m}$ does $3 \times 2.0^3/3 = 8.0\ \mathrm{J}$. The same rule with
+$n = -2$ handles inverse-square forces, where the antiderivative of $1/x^2$ is
+$-1/x$. Take a force of magnitude $50/x^2$ pulling a probe back toward the
+origin, so the force component along $+x$ is $-50/x^2$. Moving out from
+$x = 1.0\ \mathrm{m}$ to $x = 5.0\ \mathrm{m}$:
+
+$$W = \int_{1}^{5} \left(-\frac{50}{x^2}\right)dx = \left[\frac{50}{x}\right]_{1}^{5} = \frac{50}{5} - \frac{50}{1} = 10 - 50 = -40\ \mathrm{J}$$
+
+Negative, as it must be: the probe moved away from something pulling it back.
+
+<Figure caption={<><b>Figure 2.</b> Work as signed area. Change the intercept
+and the slope to build different force laws, and slide the finish line out.
+Push the slope negative until part of the shaded region drops below the axis
+and watch the total work stop growing.</>}>
+  <Sim id="work-energy-theorem-area" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  When a force reverses sign partway along the path, do not take the area of
+  the whole shape and call it done. Split at the crossing point, and subtract
+  the part below the axis instead of adding it. A sketch of $F$ against $x$
+  before you integrate costs ten seconds and catches this every time.
+</Aside>
+
+## Net work is the change in kinetic energy
+
+Here is why any of this is worth tracking. Start from $F_{\text{net}} = ma$ for
+motion along a line and compute the work done by the net force:
+
+$$W_{\text{net}} = \int F_{\text{net}}\,dx = \int m\frac{dv}{dt}\,dx$$
+
+Now use a trick worth keeping. Since $dx/dt = v$, you can write
+$dx = v\,dt$, and the $dt$ cancels:
+
+$$\int m\frac{dv}{dt}v\,dt = \int_{v_i}^{v_f} mv\,dv$$
+
+The variable is now $v$ instead of $x$, and that last area — a triangle under
+the line $mv$ — is $\tfrac12 mv_f^2 - \tfrac12 mv_i^2$. Define the **kinetic
+energy** $K = \tfrac12 mv^2$ and you have the work-energy theorem:
+
+$$W_{\text{net}} = \Delta K = \tfrac12 mv_f^2 - \tfrac12 mv_i^2$$
+
+Read it in words: add up the work done by every force acting on an object, and
+the total equals the change in its $\tfrac12 mv^2$. Speed up and the net work
+was positive. Slow down and it was negative. Move at constant speed, even
+around a corner, and the net work was zero.
+
+Notice what is absent. There is no time in that equation, and no acceleration.
+That is the whole reason to use it. A $1200\ \mathrm{kg}$ car at $20\
+\mathrm{m/s}$ comes to a stop; the brakes did $0 - \tfrac12(1200)(20)^2 =
+-240{,}000\ \mathrm{J}$ of work, and you do not need to know whether it took
+two seconds or ten.
+
+<Aside label="Where this goes wrong" warn>
+  Do not compute $W_{\text{net}}$ from the net force and then add the
+  individual works on top of it. Pick one route: either sum the forces as
+  vectors and dot the result with the displacement, or work out each force's
+  contribution separately and add the numbers. Doing both double counts, and
+  the symptom is an answer exactly twice too big.
+</Aside>
+
+<QuickCheck
+  question="A worker lifts a 12 kg bucket 8.0 m up a well at constant speed. What is the net work done on the bucket?"
+  options={["Zero", "940.8 J", "-940.8 J", "1881.6 J"]}
+  answer={0}
+  explanation="Constant speed means the kinetic energy never changes, so the net work is zero. The worker does +940.8 J and gravity does -940.8 J, and those are the two numbers that cancel. The question asks for the net, not for the worker's share."
+/>
+
+## Three worked examples
+
+**One: a sled with two forces acting.** A $25\ \mathrm{kg}$ sled starts from
+rest on level ground. A rope pulls with $90\ \mathrm{N}$ at $25^\circ$ above
+the horizontal for $12\ \mathrm{m}$, and the coefficient of kinetic friction is
+$0.15$. Find the final speed.
+
+On blank paper, write down every force first: tension, gravity, normal,
+friction. Gravity and the normal force are both perpendicular to the motion, so
+they do no work and you can drop them from the energy account — but you still
+need the normal force's *size*, because friction depends on it.
+
+Vertically the sled does not accelerate, so
+$N = mg - T\sin 25^\circ = (25)(9.8) - 90(0.4226) = 245 - 38.0 = 207.0\
+\mathrm{N}$. That upward tug of the rope matters: friction is
+$f = \mu_k N = 0.15 \times 207.0 = 31.05\ \mathrm{N}$.
+
+Work by the rope: $W_T = (90)(12)\cos 25^\circ = (90)(12)(0.9063) = 978.8\
+\mathrm{J}$. Work by friction: $W_f = -(31.05)(12) = -372.6\ \mathrm{J}$.
+Net work $= 978.8 - 372.6 = 606.2\ \mathrm{J}$.
+
+The sled started at rest, so $\tfrac12 mv_f^2 = 606.2$, giving
+$v_f^2 = 2(606.2)/25 = 48.5$ and $v_f = 6.96\ \mathrm{m/s}$.
+
+**Two: a force that varies, ending in a speed.** A $2.0\ \mathrm{kg}$ cart at
+rest is pushed along the $x$-axis by $F = 4x^2$ newtons, with $x$ in metres,
+from $x = 0$ to $x = 3.0\ \mathrm{m}$. Find the final speed.
+
+You cannot use $Fd$, because $F$ runs from $0$ to $4(3.0)^2 = 36\ \mathrm{N}$.
+Take the area instead. With $n = 2$, the area under $4x^2$ from $0$ to $3.0$ is
+$4 \times 3.0^3/3 = 4 \times 27/3 = 36\ \mathrm{J}$.
+
+Then $\tfrac12(2.0)v_f^2 = 36$, so $v_f^2 = 36$ and $v_f = 6.0\ \mathrm{m/s}$.
+
+A close cousin: if friction itself varies with position, say $\mu = 0.050x$,
+the friction force is $\mu mg = 0.050x\,mg$, which grows linearly, and its work
+over a distance $d$ is the triangle $-\tfrac12 (0.050 d\, mg)(d)$. Setting that
+equal to $-\tfrac12 mv_i^2$ makes the mass cancel and leaves
+$0.050\,g\,d^2 = v_i^2$. That is a one-line answer to a problem that would be a
+nightmare with $F = ma$.
+
+**Three: reeling up a hanging rope.** A uniform chain of mass $3.0\
+\mathrm{kg}$ and length $2.0\ \mathrm{m}$ hangs from a hook. How much work does
+it take to pull all of it up onto the hook?
+
+The trap is to reach for $mgh$ and not know what to use for $h$. Different
+pieces of the chain have to be lifted different distances: the top link barely
+moves, the bottom link travels the full $2.0\ \mathrm{m}$. So slice it.
+
+Let $y$ be the depth of a slice below the hook. The chain has mass per unit
+length $\lambda = m/L = 3.0/2.0 = 1.5\ \mathrm{kg/m}$, so a slice of thickness
+$dy$ has mass $\lambda\,dy$ and must be raised by $y$. Its share of the work is
+$(\lambda\,dy)gy$. Adding over $y$ from $0$ to $L$ is the area under a line
+again:
+
+$$W = \lambda g \int_0^L y\,dy = \lambda g \frac{L^2}{2} = \frac{mgL}{2}$$
+
+Numerically, $W = (3.0)(9.8)(2.0)/2 = 29.4\ \mathrm{J}$.
+
+Look at what $mgL/2$ says: it is the whole weight lifted through $L/2$, the
+distance the chain's **centre of mass** rises. That shortcut is general. For any
+rigid or floppy collection of pieces, the work gravity takes is
+$mg \times (\text{rise of the centre of mass})$.
+
+## Chains, ropes, and things that move different distances
+
+The centre-of-mass shortcut earns its keep whenever only part of an object
+moves. Suppose a length $\ell$ of a chain lying on a table hangs over the edge,
+with mass per unit length $\lambda$. The part on the table is already at table
+height and does not need lifting. The hanging part has mass $\lambda \ell$ and
+its centre of mass sits $\ell/2$ below the edge, so pulling it all back up
+costs
+
+$$W = (\lambda \ell) g \frac{\ell}{2} = \frac{\lambda g \ell^2}{2}$$
+
+Run the same accounting backwards and you get the falling case. Release a chain
+that is partly over the edge and let it slide off a frictionless table. Gravity
+does positive work equal to the weight times the *drop* of the centre of mass
+between the two configurations, and by the work-energy theorem that equals
+$\tfrac12 mv^2$ for the whole chain, which all moves at the same speed because
+it is inextensible. Find both centre-of-mass positions, subtract, multiply by
+$mg$, and solve for $v$. The only real work is being careful about where each
+centre of mass is.
+
+<QuickCheck
+  question="Two identical ropes are lifted onto a hook. Rope A is twice as long and twice as heavy as rope B. How does the work for A compare with the work for B?"
+  options={["Four times as much", "Twice as much", "The same", "Eight times as much"]}
+  answer={0}
+  explanation="The work is mgL/2. Doubling both the mass and the length multiplies the product mL by four. Answering 'twice' comes from changing the mass but forgetting that every slice also has further to travel."
+/>
+
+## Power, and one place it saves you
+
+Work per unit time is **power**, measured in watts. Differentiate
+$W = \vec F \cdot \vec d$ with respect to time and the displacement turns into
+velocity:
+
+$$P = \frac{dW}{dt} = \vec F \cdot \vec v = Fv\cos\theta$$
+
+The same "component along" idea, one derivative up. It is also the cleanest way
+to handle rope constraints. If a rope runs from a cart over a smooth pole, the
+speed at which the free end is reeled in equals the component of the cart's
+velocity *along the rope*, because that component is the rate at which the
+cart-to-pole distance shrinks.
+
+So: a cart on a level track is pulled by a rope over a pole $4.0\ \mathrm{m}$
+up, and the rope is hauled in at $3.0\ \mathrm{m/s}$. When the cart is $3.0\
+\mathrm{m}$ from the base of the pole, the rope's length to the cart is
+$\sqrt{3.0^2 + 4.0^2} = 5.0\ \mathrm{m}$, and the rope makes an angle with the
+track whose cosine is $3.0/5.0 = 0.6$. The cart's speed $v$ satisfies
+$v\cos\theta = 3.0$, so $v = 3.0/0.6 = 5.0\ \mathrm{m/s}$. The cart moves
+*faster* than the rope is pulled, and it does so because only part of its
+velocity shortens the rope.
+
+<Figure caption={<><b>Figure 3.</b> A block launched up a rough incline, with
+its kinetic energy draining into gravity and friction. Raise the friction
+coefficient and watch the stopping distance collapse; set it to zero and the
+block comes back with the speed it left with.</>}>
+  <Sim id="work-energy-theorem-ramp" />
+</Figure>
+
+## How to recognise a work-energy problem
+
+Look for these signals in the problem statement.
+
+**Speeds and distances, but no times.** "Launched at $8.0\ \mathrm{m/s}$, how
+far does it go?" or "how fast is it moving after $5\ \mathrm{m}$?" There is no
+clock in the question, so use the tool with no clock in it.
+
+**A force given as a function of position.** $F = 6x$, $F = 200/x^2$,
+$\mu = 0.050x$. The moment a force depends on $x$ rather than $t$, integrating
+over $x$ is natural and integrating over $t$ is not.
+
+**A curved or awkward path with a question only about the endpoints.** If you
+are asked for the speed at the bottom of a ramp of unspecified shape, nobody
+wants you tracking the direction of motion. Add up the work.
+
+**Something that moves in pieces**, like a chain or a rope, where "the distance
+moved" is different for different parts. Slice it, or use the centre of mass.
+
+Reach for $F = ma$ instead when the question asks *when* something happens,
+or asks for a force, or for an acceleration at a specific instant. Work-energy
+throws away the timeline in exchange for a scalar equation, which is a very
+good trade right up until the timeline is what you were asked about.
+
+One limitation to carry forward. In every example here you had to compute the
+work by each force explicitly, and for gravity and springs that computation
+turned out to depend only on the start and end points. Forces with that
+property let you skip the integral entirely by storing the answer in advance,
+which is what [potential energy](/guide/potential-energy) is.

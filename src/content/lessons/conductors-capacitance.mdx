@@ -1,57 +1,397 @@
-## A conductor is one number
+Hold a charged rod near a metal doorknob and the knob pulls back, even though
+the knob is neutral. Nothing was added to it. The charge that was already
+inside it moved, and the moving is the whole story. A conductor is a material
+with charges free to wander, and that one property is enough to fix where
+every last bit of charge ends up — no force balance, no integration, just one
+condition applied over and over.
 
-Charges in a conductor move until nothing pushes them, so in equilibrium
-$\vec E = 0$ inside the metal, excess charge sits on surfaces, and the whole
-body — surface, interior, and any disconnected face — is at a single
-potential. The last statement is the useful one, because it is a condition on
-$V$, and $V$ is a scalar you can set equal between two places and solve.
+The last lesson gave you potential: a scalar $V$ you can add up from charges
+without tracking directions, with $V = kq/r$ for a point charge and
+$\Delta V = -\int \vec E \cdot d\vec s$ between two places. That scalar is
+what makes conductors easy. This lesson turns it into a machine for handling
+metal, and then into the single number — capacitance — that summarises how
+much charge a pair of conductors will hold.
 
-Just outside the surface the field is perpendicular and
+## Why a conductor is one number
+
+Suppose the field inside a lump of metal were not zero somewhere. The free
+electrons there would feel a force, they would move, and they would keep
+moving until they had piled up somewhere that cancelled the field. So once
+things settle — electrostatics means settled — the field inside the metal is
+zero. Not small. Zero.
+
+Three things follow, and you should be able to get all three back from that
+one sentence.
+
+First, there is no net charge anywhere inside the metal. Draw any closed
+surface entirely inside the conductor. The field is zero on it, so the flux is
+zero, so by Gauss's law the charge enclosed is zero. Any excess charge has to
+live on a surface.
+
+Second, the whole conductor sits at a single potential. Take any two points
+$a$ and $b$ in the metal. Then
+$V_b - V_a = -\int_a^b \vec E \cdot d\vec s = 0$, because the integrand is
+zero the whole way. A conductor is an *equipotential*: one number describes
+its surface, its interior, and any face of it you cannot see.
+
+Third, just outside the surface the field is perpendicular to it. If it had a
+component along the surface, charges would slide along the surface, and things
+would not be settled. To get its size, put a tiny pillbox across a patch of
+the surface with area $\Delta A$, one face just outside and one just inside.
+The inside face contributes nothing, the sides contribute nothing because $E$
+is perpendicular to the surface, and the outside face contributes
+$E\,\Delta A$. Gauss's law says that equals $\sigma \Delta A/\varepsilon_0$,
+where $\sigma$ is the local surface charge per unit area. So
 
 $$E = \frac{\sigma}{\varepsilon_0}$$
 
-twice the infinite-sheet value, because there is no field on the metal side to
-share the flux with.
+That is twice the field of an isolated infinite sheet, $\sigma/2\varepsilon_0$,
+and the factor of two catches people. The sheet sends half its flux each way.
+A conductor surface sends all of it outward, because there is nothing on the
+metal side to receive it.
 
-## Induced charge is bookkeeping with two constraints
-
-Bring $+q$ near a neutral conducting slab. Electrons pile up on the near face
-and leave the far face positive. The two constraints that fix the amounts are
-always the same: total charge is conserved on each isolated conductor, and the
-field inside the metal must vanish.
-
-Run them on a shell with inner radius $a$, outer radius $b$, carrying net
-charge $Q$, with $+q$ at the center. A Gaussian sphere inside the metal must
-enclose zero, so the inner surface holds $-q$. Conservation then puts $Q+q$ on
-the outer surface. If the shell is grounded, the second constraint changes:
-charge flows in from the earth to hold $V=0$, the outer surface ends up bare,
-and the exterior field disappears.
-
-## Capacitance
-
-Put $+Q$ on one conductor and $-Q$ on a nearby one. The potential difference
-is proportional to $Q$, and the ratio depends only on geometry:
-
-$$C = \frac{Q}{V}$$
-
-For parallel plates of area $A$ and gap $d$, the field between them is
-$\sigma/\varepsilon_0 = Q/\varepsilon_0 A$, uniform, so $V = Ed$ and
-
-$$C = \frac{\varepsilon_0 A}{d}$$
-
-Wider plates hold more charge at the same voltage; a bigger gap means a longer
-climb against the same field, so less.
-
-<Aside label="Where this goes wrong" warn>
-  "Grounded" does not mean "uncharged" — it means held at $V = 0$ with charge
-  free to arrive. And $C$ is fixed by geometry: it does not change when you
-  charge the plates. If $C$ appears to depend on $Q$ in your algebra, a
-  variable is being held constant that should not be.
+<Aside label="Worth remembering">
+  $\sigma$ here is the *local* density. It is not uniform unless the geometry
+  is. On an isolated conductor the charge crowds where the surface curves
+  sharply, which is why the field is strongest at points and corners, and why
+  lightning rods are pointed.
 </Aside>
 
 <QuickCheck
-  question="A charged parallel-plate capacitor is disconnected from its battery and the plates are pulled farther apart. The voltage between them:"
+  question="Just outside a charged metal electrode the field is 3.0e5 V/m, pointing away from the metal. What is the local surface charge density?"
+  options={["2.66 microcoulombs per square metre", "1.33 microcoulombs per square metre", "5.31 microcoulombs per square metre", "You cannot tell without the area"]}
+  answer={0}
+  explanation="Use sigma = epsilon0 times E = 8.85e-12 times 3.0e5 = 2.66e-6 C per square metre. The tempting wrong answer, half that, comes from using the infinite-sheet formula with its factor of two."
+/>
+
+## Induced charge is bookkeeping with two rules
+
+Now put a charge near metal, or inside it, and ask where the induced charge
+goes. You never need a new idea. You need the same two rules every time:
+
+1. A Gaussian surface drawn *inside the metal* encloses zero net charge.
+2. Charge is conserved on each isolated conductor.
+
+Take a hollow conducting shell with a point charge $+q$ floating in the
+cavity, the shell itself carrying net charge $Q$. Draw a sphere through the
+middle of the metal. It encloses the cavity charge plus whatever sits on the
+inner wall, and that total must be zero, so the inner wall carries $-q$. Rule
+2 then says the shell's own $Q$ has to be accounted for: if $-q$ is on the
+inside, the outer surface must carry $Q + q$.
+
+The consequence is worth stating out loud. Outside the shell, the field is
+exactly the field of a charge $Q+q$ sitting at the centre — regardless of
+where in the cavity the charge actually is, and regardless of the cavity's
+shape. The shell hides the details. That is electrostatic shielding.
+
+<Figure caption={<><b>Figure 1.</b> The dashed circle is a Gaussian surface drawn inside the metal, where the field is zero, so it must enclose no net charge. Drag the cavity charge and the shell charge and watch the two surfaces rearrange. Notice that the number of field lines outside depends only on the sum.</>}>
+  <Sim id="conductors-capacitance-shell" />
+</Figure>
+
+Grounding changes rule 2, not rule 1. "Grounded" means connected to a huge
+reservoir of charge held at $V=0$; charge flows in or out freely to keep the
+conductor at zero potential. For the shell above, grounding the outside drains
+the $Q+q$ away, the outer surface ends up bare, and the field outside
+vanishes entirely. The inner wall still holds $-q$, because rule 1 never
+changed.
+
+<Aside label="Where this goes wrong" warn>
+  Grounded does not mean uncharged. It means $V=0$ with charge free to arrive.
+  A grounded plate near a positive charge carries a large *negative* induced
+  charge. If you set the charge on a grounded conductor to zero, you have
+  thrown away the whole problem.
+</Aside>
+
+## Equal potential, unequal charge
+
+Two conductors joined by a wire become one conductor, so they must end up at
+the same potential. That is usually all the physics a "connect them and see"
+problem contains.
+
+For a sphere of radius $R$ carrying $Q$, far from everything, the potential of
+the surface is $V = kQ/R$. Join two such spheres, radii $R_1$ and $R_2$, far
+enough apart that neither disturbs the other's field. Setting the potentials
+equal gives $kQ_1/R_1 = kQ_2/R_2$, so
+
+$$\frac{Q_1}{Q_2} = \frac{R_1}{R_2}$$
+
+Charge splits in proportion to radius. But look at the surface fields. Using
+$E = kQ/R^2$ and $Q \propto R$, you get $E \propto 1/R$: the *small* sphere has
+the *stronger* field at its surface, even though it holds less charge. That is
+the lightning-rod result again, in a form you can compute.
+
+Try it with numbers. Two spheres, $2.0\,\mathrm{cm}$ and $8.0\,\mathrm{cm}$,
+joined by a long wire, total charge $12.0\,\mathrm{nC}$. The split is
+$2:8$, so $Q_1 = 12.0 \times 2/10 = 2.4\,\mathrm{nC}$ on the small one. Its
+surface field is
+
+$$E = \frac{kQ_1}{R_1^2} = \frac{(8.99\times10^{9})(2.4\times10^{-9})}{(0.020)^2} = \frac{21.6}{4.0\times10^{-4}} = 5.4\times10^{4}\,\mathrm{V/m}$$
+
+The big sphere holds four times the charge and has a field four times weaker.
+
+## Capacitance
+
+Put $+Q$ on one conductor and $-Q$ on a second nearby one. Double both charges
+and every field doubles, so every potential difference doubles. The ratio
+$Q/\Delta V$ therefore does not depend on how much charge you put on. It
+depends only on the shapes and their spacing. Give the ratio a name:
+
+$$C = \frac{Q}{V}$$
+
+where $V$ means the potential difference between the two conductors and $Q$ is
+the magnitude of the charge on either one. The unit is the farad, one coulomb
+per volt, which is enormous; real capacitors run from picofarads
+($10^{-12}\,\mathrm{F}$) to millifarads.
+
+**Parallel plates.** Area $A$, gap $d$, and $d$ small enough that you can
+ignore the fringing at the edges. Each plate has $\sigma = Q/A$. Between them
+the two sheets' fields add to $E = \sigma/\varepsilon_0 = Q/\varepsilon_0 A$,
+uniform. A uniform field means $V = Ed$, so $V = Qd/\varepsilon_0 A$ and
+
+$$C = \frac{\varepsilon_0 A}{d}$$
+
+Bigger plates hold more charge at the same voltage. A bigger gap means a
+longer climb against the same field, so a bigger voltage for the same charge,
+so less capacitance.
+
+**A sphere alone.** One isolated sphere of radius $R$ is a capacitor too, with
+its partner infinitely far away at $V=0$. Then $V = kQ/R$, so
+$C = Q/V = R/k$. For a $0.15\,\mathrm{m}$ dome,
+$C = 0.15/(8.99\times10^{9}) = 1.67\times10^{-11}\,\mathrm{F} = 16.7\,\mathrm{pF}$.
+
+**Concentric spheres.** Inner ball radius $a$ with charge $+Q$, outer shell of
+inner radius $b$ with $-Q$. Between them Gauss's law gives $E = kQ/r^2$, so
+
+$$V = \int_a^b \frac{kQ}{r^2}\,dr = kQ\left(\frac{1}{a} - \frac{1}{b}\right) = kQ\,\frac{b-a}{ab}$$
+
+and therefore $C = ab/[k(b-a)]$.
+
+**Coaxial cable.** Inner radius $a$, outer $b$, length $L$, charge per length
+$\lambda$. Gauss's law on a cylinder gives $E = \lambda/2\pi\varepsilon_0 r$,
+so $V = (\lambda/2\pi\varepsilon_0)\ln(b/a)$ and the capacitance per unit
+length is $2\pi\varepsilon_0/\ln(b/a)$. For $a = 0.90\,\mathrm{mm}$ and
+$b = 3.00\,\mathrm{mm}$: $\ln(3.33) = 1.204$, so
+$C/L = (5.563\times10^{-11})/1.204 = 4.62\times10^{-11}\,\mathrm{F/m}$, or
+$46.2\,\mathrm{pF/m}$.
+
+Every one of these followed the same three steps: assume $\pm Q$, find $E$
+from Gauss's law, integrate $E$ to get $V$, divide. When you meet a shape you
+have not seen, run those steps rather than hunting for the formula.
+
+<QuickCheck
+  question="A charged parallel-plate capacitor is disconnected from its battery and the plates are then pulled farther apart. The voltage between them:"
   options={["Stays the same", "Increases", "Decreases", "Drops to zero"]}
   answer={1}
-  explanation="Isolated plates keep their charge, so the field between them is unchanged, but V equals E times d and d has grown. Capacitance falls in exactly the same proportion."
+  explanation="Isolated plates keep their charge, so sigma and therefore E are unchanged, but V equals E times d and d has grown. C falls in exactly the same proportion, keeping Q equal to CV."
 />
+
+## Series, parallel, and a ladder
+
+**Parallel.** Both capacitors span the same two nodes, so both have the same
+$V$. Charges add: $Q = C_1V + C_2V$, so $C_\text{eq} = C_1 + C_2$. A
+$4.7\,\mu\mathrm{F}$ and a $2.2\,\mu\mathrm{F}$ in parallel give
+$6.9\,\mu\mathrm{F}$.
+
+**Series.** Here is the part worth understanding rather than memorising. The
+stretch of conductor between two capacitors in a chain is isolated: it started
+neutral and nothing can reach it. So if $+Q$ arrives on the left plate of the
+first capacitor, $-Q$ appears on its right plate, and the same $+Q$ must sit
+on the next plate along to keep that isolated island neutral. **Every
+capacitor in a series chain carries the same charge.** The voltages add:
+
+$$V = \frac{Q}{C_1} + \frac{Q}{C_2} \quad\Longrightarrow\quad \frac{1}{C_\text{eq}} = \frac{1}{C_1} + \frac{1}{C_2}$$
+
+Those same two capacitors in series give
+$1/C = 1/4.7 + 1/2.2 = 0.2128 + 0.4545 = 0.6673$, so
+$C_\text{eq} = 1.50\,\mu\mathrm{F}$ — less than either one.
+
+Because the charge is shared, the voltage across a series member is
+$V_i = Q/C_i$: the *smallest* capacitor takes the *largest* share. For
+$2.0$, $3.0$ and $6.0\,\mu\mathrm{F}$ across $12.0\,\mathrm{V}$:
+$1/C = 1/2 + 1/3 + 1/6 = 1$, so $C_\text{eq} = 1.0\,\mu\mathrm{F}$ and
+$Q = (1.0\,\mu\mathrm{F})(12.0\,\mathrm{V}) = 12.0\,\mu\mathrm{C}$. The
+$2.0\,\mu\mathrm{F}$ capacitor then carries
+$V = 12.0/2.0 = 6.0\,\mathrm{V}$, half the battery on its own.
+
+**The ladder trick.** An infinite ladder — a series capacitor $C$ along the
+top rail, then a shunt capacitor $C$ down to the bottom rail, repeating
+forever — looks the same from node one as from node two. So if the input
+capacitance is $X$, then chopping off the first cell leaves a ladder whose
+input capacitance is also $X$. Reading from the input: $C$ in series with
+(the shunt $C$ in parallel with $X$). That gives
+
+$$X = \frac{C(C+X)}{C + (C + X)} = \frac{C(C+X)}{2C+X}$$
+
+Cross-multiplying, $X(2C+X) = C^2 + CX$, so $X^2 + CX - C^2 = 0$ and
+$X = C(\sqrt{5}-1)/2 = 0.618\,C$. For $1.00\,\mu\mathrm{F}$ cells, the input
+capacitance is $0.618\,\mu\mathrm{F}$. Self-similarity turns an infinite
+circuit into a quadratic.
+
+## Energy, and the pull between the plates
+
+Charging a capacitor means carrying charge from one plate to the other against
+the growing voltage. When the charge so far is $q$, the voltage is $q/C$, and
+moving the next $dq$ costs $dW = (q/C)\,dq$. Integrate from $0$ to $Q$:
+
+$$U = \int_0^Q \frac{q}{C}\,dq = \frac{Q^2}{2C} = \tfrac12 CV^2 = \tfrac12 QV$$
+
+The factor of $\tfrac12$ is there because the early charge moved cheaply. For
+a $470\,\mu\mathrm{F}$ flash capacitor at $320\,\mathrm{V}$:
+$Q = (4.70\times10^{-4})(320) = 0.150\,\mathrm{C}$ and
+$U = \tfrac12 (0.150)(320) = 24.1\,\mathrm{J}$.
+
+That energy is sitting in the field itself. For parallel plates,
+$U = \tfrac12 (\varepsilon_0 A/d)(Ed)^2 = \tfrac12 \varepsilon_0 E^2 (Ad)$,
+and $Ad$ is the volume between the plates. So the energy per unit volume is
+
+$$u = \tfrac12 \varepsilon_0 E^2$$
+
+This holds for any electrostatic field, not just this one. At the breakdown
+field of dry air, $3.0\times10^{6}\,\mathrm{V/m}$,
+$u = \tfrac12 (8.85\times10^{-12})(9.0\times10^{12}) = 39.8\,\mathrm{J/m^3}$.
+That is the ceiling on how much energy an air-gap capacitor can store per
+cubic metre, and it is why capacitors lose to batteries for storing energy.
+
+Now the force. Opposite plates attract, but do not write $F = QE$ with
+$E = \sigma/\varepsilon_0$ — that counts the plate's own field pushing on
+itself. The field one plate makes at the other's location is only
+$\sigma/2\varepsilon_0$. So
+
+$$F = Q\,\frac{\sigma}{2\varepsilon_0} = \frac{Q^2}{2\varepsilon_0 A}$$
+
+Check it with energy: pulling the isolated plates apart by $dx$ changes
+$U = Q^2 d/(2\varepsilon_0 A)$ by $Q^2 dx/(2\varepsilon_0 A)$, and that work
+came from you, so $F$ is exactly that over $dx$. It agrees.
+
+<Aside label="Where this goes wrong" warn>
+  Forgetting the $\tfrac12$ in the plate force is the single most common error
+  in this topic. A charged surface never feels its own field. Use the field
+  produced by *everything else*, which for a plate pair is half the total gap
+  field.
+</Aside>
+
+<Figure caption={<><b>Figure 2.</b> Drag the gap slider and watch C and Q fall while the field E = V/d and the pull both climb. Try holding the voltage fixed and halving the gap: the charge doubles, and the force goes up by four.</>}>
+  <Sim id="conductors-capacitance-plate-lab" />
+</Figure>
+
+**Worked example: force with the battery still connected.** Plates of area
+$0.020\,\mathrm{m^2}$, gap $1.00\,\mathrm{mm}$, held at $24.0\,\mathrm{V}$ by
+a battery that stays attached. Find the attraction.
+
+The first thing to write on blank paper is *what is held fixed*. The battery
+fixes $V$, not $Q$. So compute $Q$ from $V$ and then use the force formula.
+
+$$C = \frac{\varepsilon_0 A}{d} = \frac{(8.85\times10^{-12})(0.020)}{1.00\times10^{-3}} = 1.77\times10^{-10}\,\mathrm{F}$$
+
+$$Q = CV = (1.77\times10^{-10})(24.0) = 4.248\times10^{-9}\,\mathrm{C}$$
+
+$$F = \frac{Q^2}{2\varepsilon_0 A} = \frac{(4.248\times10^{-9})^2}{2(8.85\times10^{-12})(0.020)} = \frac{1.805\times10^{-17}}{3.54\times10^{-13}} = 5.10\times10^{-5}\,\mathrm{N}$$
+
+That is $51.0\,\mu\mathrm{N}$. Note what you must *not* do: with the battery
+attached, $dU/dx$ is not the force, because the battery is pumping energy in
+as well. Going through $Q$ avoids the trap entirely.
+
+**Worked example: three shells in series.** Concentric spheres of radii
+$2.00$, $3.00$ and $6.00\,\mathrm{cm}$. The inner and outer are wired
+together; the middle one is the other terminal. Find the capacitance between
+the terminals.
+
+Wiring the inner and outer together makes them one conductor at one potential.
+So there are two gaps, and both run from that conductor to the middle sphere —
+same pair of potentials across each. Same voltage means *parallel*, despite
+the word "series" in the phrasing. Use $C = ab/[k(b-a)]$ on each gap:
+
+$$C_{12} = \frac{(0.0200)(0.0300)}{(8.99\times10^{9})(0.0100)} = \frac{6.00\times10^{-4}}{8.99\times10^{7}} = 6.67\times10^{-12}\,\mathrm{F}$$
+
+$$C_{23} = \frac{(0.0300)(0.0600)}{(8.99\times10^{9})(0.0300)} = \frac{1.80\times10^{-3}}{2.697\times10^{8}} = 6.67\times10^{-12}\,\mathrm{F}$$
+
+Adding, $C = 13.3\,\mathrm{pF}$. The lesson is to decide series or parallel
+from which quantity the two elements share, never from the picture.
+
+## Images: replacing a conductor with a fake charge
+
+A point charge $+q$ a height $h$ above a large grounded plate is a genuinely
+hard problem, because the induced surface charge is spread out in a way you do
+not know in advance. Here is the trick that dissolves it.
+
+Forget the plate. Put $-q$ at depth $h$ *below* where the plate was. The plane
+halfway between two equal and opposite charges is at $V=0$ everywhere, by
+symmetry. So this two-charge arrangement satisfies exactly the same boundary
+condition as the real problem: $V=0$ on the plane, one charge $+q$ above it.
+The uniqueness theorem for electrostatics says a solution matching the
+boundary values and the sources is *the* solution. So in the region above the
+plate, the field of the charge plus its **image** is the true field.
+
+The force is then just Coulomb's law between $q$ and $-q$ a distance $2h$
+apart:
+
+$$F = \frac{kq^2}{(2h)^2} = \frac{kq^2}{4h^2}$$
+
+directed toward the plate. Energy takes one more step. You cannot write
+$U = -kq^2/2h$, because as you move the real charge the image moves too, and
+only half the usual work is done. Integrate the force instead:
+
+$$W = \int_h^\infty \frac{kq^2}{4x^2}\,dx = \frac{kq^2}{4h}$$
+
+For $q = 3.0\,\mathrm{nC}$ at $h = 2.0\,\mathrm{cm}$:
+
+$$W = \frac{(8.99\times10^{9})(3.0\times10^{-9})^2}{4(0.020)} = \frac{8.09\times10^{-8}}{0.080} = 1.01\times10^{-6}\,\mathrm{J}$$
+
+<Figure caption={<><b>Figure 3.</b> Field lines from the charge, all of them arriving perpendicular to the plate, as they must at an equipotential. The curve on the metal is the induced surface charge density. Lower the charge and watch it concentrate into a sharp spike right underneath.</>}>
+  <Sim id="conductors-capacitance-image" />
+</Figure>
+
+The same trick works for a grounded *sphere* of radius $R$ with a charge $q$ a
+distance $d$ from its centre, though the image is no longer a mirror copy.
+Placing $q' = -qR/d$ at a distance $b = R^2/d$ from the centre, on the line
+joining them, makes the whole sphere an equipotential at zero. Take it as
+given; the check is a page of algebra.
+
+**Worked example.** $q = 5.0\,\mathrm{nC}$ at $d = 8.0\,\mathrm{cm}$ from the
+centre of a grounded sphere of radius $R = 3.0\,\mathrm{cm}$. Find the
+attraction.
+
+$$q' = -\frac{qR}{d} = -\frac{(5.0)(3.0)}{8.0} = -1.875\,\mathrm{nC}, \qquad b = \frac{R^2}{d} = \frac{9.0}{8.0} = 1.125\,\mathrm{cm}$$
+
+The separation between the real charge and the image is
+$8.000 - 1.125 = 6.875\,\mathrm{cm}$. So
+
+$$F = \frac{k|qq'|}{(0.06875)^2} = \frac{(8.99\times10^{9})(5.0\times10^{-9})(1.875\times10^{-9})}{4.727\times10^{-3}} = \frac{8.43\times10^{-8}}{4.727\times10^{-3}} = 1.78\times10^{-5}\,\mathrm{N}$$
+
+The formula does not care whether the charge is outside the sphere or inside a
+grounded cavity of radius $R$; with $d < R$ the image simply lands outside,
+at $b = R^2/d > R$, and the force still pulls the charge toward the nearest
+wall.
+
+## How to tell which tool a problem wants
+
+The signals are unusually clean here.
+
+*The word "conductor", "metal" or "grounded" with charges near it.* Reach for
+the two bookkeeping rules. Draw a Gaussian surface inside the metal, set the
+enclosed charge to zero, then conserve charge — unless it is grounded, in
+which case drop conservation and impose $V=0$ instead.
+
+*"Connected by a wire", "touched and separated", "joined".* Equal potentials.
+For spheres that means charge in proportion to radius.
+
+*Two conductors, $\pm Q$, and a question about $Q$, $V$, or stored energy.*
+Capacitance. If the shape is not on your list, run the four steps: assume
+$\pm Q$, Gauss for $E$, integrate for $V$, divide.
+
+*"Stays connected to the battery" versus "disconnected".* This single phrase
+decides which quantity is fixed. Battery attached, $V$ is constant. Battery
+removed, $Q$ is constant. Almost every capacitor trick question turns on it.
+
+*A single point charge near a large grounded conductor of simple shape.*
+Images. Plane gives a mirror charge at equal depth; sphere gives $-qR/d$ at
+$R^2/d$. Then it is Coulomb's law, and if the question asks for work, you
+integrate the force rather than using $qV$.
+
+*An infinite repeating network.* Self-similarity: call the answer $X$, note
+that the network beyond the first cell is also $X$, and solve the quadratic.
+
+One thing this lesson kept quiet about: everything assumed vacuum between the
+conductors. Real capacitors are packed with plastic, oxide or oil, which
+changes the numbers substantially and for a reason worth understanding. That
+is [dielectrics and field energy](/guide/dielectrics).

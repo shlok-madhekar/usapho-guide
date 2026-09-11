@@ -1,0 +1,146 @@
+[
+  {
+    "id": "friction-budget",
+    "title": "The static friction budget",
+    "caption": "Push harder and harder on a crate. Friction matches you exactly, until it cannot.",
+    "height": 250,
+    "params": [
+      {
+        "key": "push",
+        "label": "Applied push",
+        "unit": "N",
+        "min": 0,
+        "max": 80,
+        "step": 1,
+        "value": 20
+      },
+      {
+        "key": "mass",
+        "label": "Crate mass",
+        "unit": "kg",
+        "min": 2,
+        "max": 20,
+        "step": 0.5,
+        "value": 10
+      },
+      {
+        "key": "mus",
+        "label": "Static coefficient",
+        "unit": "",
+        "min": 0.05,
+        "max": 1,
+        "step": 0.05,
+        "value": 0.5
+      },
+      {
+        "key": "muk",
+        "label": "Kinetic coefficient",
+        "unit": "",
+        "min": 0.05,
+        "max": 1,
+        "step": 0.05,
+        "value": 0.35
+      }
+    ],
+    "draw": "var g = 9.8;\nvar m = p.mass, F = p.push;\nvar N = m * g;\nvar fmax = p.mus * N;\nvar fk = Math.min(p.muk, p.mus) * N;\nvar moving = F > fmax;\nvar a = moving ? (F - fk) / m : 0;\nvar f = moving ? fk : F;\n\nvar floorY = H - 52;\nvar bw = Math.max(46, W * 0.14), bh = bw * 0.72;\nvar cycle = 2.6;\nvar tt = t % cycle;\nvar travel = moving ? 0.5 * a * tt * tt * 6 : 0;\nvar maxTravel = W * 0.32;\nif (travel > maxTravel) travel = maxTravel;\nvar bx = W * 0.28 + travel;\n\nctx.lineWidth = 1;\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(0, floorY); ctx.lineTo(W, floorY); ctx.stroke();\nfor (var i = 0; i < W; i += 12) {\n  ctx.beginPath(); ctx.moveTo(i, floorY); ctx.lineTo(i - 7, floorY + 7); ctx.stroke();\n}\n\nctx.fillStyle = C.figure;\nctx.globalAlpha = 0.25;\nctx.fillRect(bx - bw / 2, floorY - bh, bw, bh);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1.5;\nctx.strokeRect(bx - bw / 2, floorY - bh, bw, bh);\n\nfunction arrow(x1, y1, x2, y2, col) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var ang = Math.atan2(y2 - y1, x2 - x1);\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - 8 * Math.cos(ang - 0.4), y2 - 8 * Math.sin(ang - 0.4));\n  ctx.lineTo(x2 - 8 * Math.cos(ang + 0.4), y2 - 8 * Math.sin(ang + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nvar scale = (W * 0.20) / 80;\nvar midY = floorY - bh / 2;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nif (F > 0.5) {\n  arrow(bx - bw / 2 - F * scale, midY, bx - bw / 2, midY, C.accent);\n  ctx.fillStyle = C.accent;\n  ctx.textAlign = \"right\";\n  ctx.fillText(\"F = \" + F.toFixed(0) + \" N\", bx - bw / 2 - F * scale - 6, midY - 6);\n}\nif (f > 0.5) {\n  arrow(bx + bw / 2 + f * scale, floorY - 6, bx + bw / 2, floorY - 6, C.figure);\n  ctx.fillStyle = C.figure;\n  ctx.textAlign = \"left\";\n  ctx.fillText(\"friction \" + f.toFixed(1) + \" N\", bx + bw / 2 + 6, floorY + 18);\n}\n\nctx.textAlign = \"left\";\nctx.fillStyle = C.ink;\nctx.fillText(\"budget  mu_s N = \" + fmax.toFixed(1) + \" N\", 10, 18);\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nvar barX = 10, barY = 26, barW = W - 20, barH = 10;\nctx.strokeRect(barX, barY, barW, barH);\nvar frac = Math.min(1, F / fmax);\nctx.fillStyle = moving ? C.accent : C.figure;\nctx.globalAlpha = 0.55;\nctx.fillRect(barX + 1, barY + 1, (barW - 2) * frac, barH - 2);\nctx.globalAlpha = 1;\n\nif (moving) {\n  out.note = \"sliding: friction locked at mu_k N = \" + fk.toFixed(1) + \" N, a = \" + a.toFixed(2) + \" m/s^2\";\n} else {\n  out.note = \"at rest: friction = \" + F.toFixed(1) + \" N, which is \" + (100 * frac).toFixed(0) + \"% of the \" + fmax.toFixed(1) + \" N budget\";\n}"
+  },
+  {
+    "id": "friction-incline",
+    "title": "Angle of repose lab",
+    "caption": "Tilt the ramp until the demand beats the budget.",
+    "height": 260,
+    "params": [
+      {
+        "key": "angle",
+        "label": "Ramp angle",
+        "unit": "deg",
+        "min": 0,
+        "max": 60,
+        "step": 1,
+        "value": 20
+      },
+      {
+        "key": "mus",
+        "label": "Static coefficient",
+        "unit": "",
+        "min": 0.05,
+        "max": 1.2,
+        "step": 0.05,
+        "value": 0.5
+      },
+      {
+        "key": "muk",
+        "label": "Kinetic coefficient",
+        "unit": "",
+        "min": 0.05,
+        "max": 1.2,
+        "step": 0.05,
+        "value": 0.3
+      }
+    ],
+    "draw": "var g = 9.8;\nvar th = p.angle * Math.PI / 180;\nvar demand = Math.sin(th);\nvar budget = p.mus * Math.cos(th);\nvar slips = demand > budget;\nvar a = slips ? g * (Math.sin(th) - Math.min(p.muk, p.mus) * Math.cos(th)) : 0;\nif (a < 0) a = 0;\n\nvar pad = 26;\nvar ox = pad, oy = H - pad;\nvar len = W - 2 * pad - 10;\nvar tipY = oy - len * Math.tan(th);\nif (tipY < 30) { len = (oy - 30) / Math.tan(th); tipY = 30; }\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(ox, oy); ctx.lineTo(ox + len, oy); ctx.lineTo(ox + len, tipY); ctx.closePath();\nctx.stroke();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(p.angle.toFixed(0) + \" deg\", ox + 22, oy - 6);\n\nvar cycle = 2.4;\nvar tt = t % cycle;\nvar s = slips ? 0.5 * a * tt * tt * 3 : 0;\nvar maxS = len * 0.7;\nif (s > maxS) s = maxS;\nvar ux = -Math.cos(th), uy = Math.sin(th);\nvar startFrac = 0.72;\nvar bxs = ox + len - len * (1 - startFrac) - len * startFrac * 0.15;\nvar cx = ox + len * 0.80 + ux * s;\nvar cy = tipY + (oy - tipY) * 0.20 + uy * s;\n\nvar bw = 34, bh = 22;\nctx.save();\nctx.translate(cx, cy);\nctx.rotate(-th);\nctx.fillStyle = C.figure; ctx.globalAlpha = 0.25;\nctx.fillRect(-bw / 2, -bh, bw, bh);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.5;\nctx.strokeRect(-bw / 2, -bh, bw, bh);\nctx.restore();\n\nfunction arrow(x1, y1, x2, y2, col) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var ang = Math.atan2(y2 - y1, x2 - x1);\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - 7 * Math.cos(ang - 0.4), y2 - 7 * Math.sin(ang - 0.4));\n  ctx.lineTo(x2 - 7 * Math.cos(ang + 0.4), y2 - 7 * Math.sin(ang + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nvar mid = 34;\nvar hx = cx - Math.cos(th) * 0, hy = cy - Math.sin(th) * 0;\nvar cxm = cx + Math.sin(th) * (bh / 2) * 0 - Math.sin(th) * 11;\nvar cym = cy - Math.cos(th) * 11;\narrow(cxm, cym, cxm + Math.cos(th) * demand * mid * 2, cym + Math.sin(th) * demand * mid * 2, C.accent);\nvar fdraw = slips ? Math.min(p.muk, p.mus) * Math.cos(th) : demand;\narrow(cxm, cym, cxm - Math.cos(th) * fdraw * mid * 2, cym - Math.sin(th) * fdraw * mid * 2, C.figure);\n\nctx.textAlign = \"left\";\nctx.fillStyle = C.accent;\nctx.fillText(\"mg sin\", W * 0.46, H - 44);\nctx.fillStyle = C.figure;\nctx.fillText(\"friction\", W * 0.46, H - 28);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"tan = \" + Math.tan(th).toFixed(3) + \"   mu_s = \" + p.mus.toFixed(2), 10, 16);\n\nout.note = slips\n  ? \"slipping: tan(angle) = \" + Math.tan(th).toFixed(3) + \" exceeds mu_s = \" + p.mus.toFixed(2) + \", a = \" + a.toFixed(2) + \" m/s^2\"\n  : \"held: needs \" + (demand * 100).toFixed(1) + \"% of mg, budget is \" + (budget * 100).toFixed(1) + \"% of mg\";"
+  },
+  {
+    "id": "friction-fbd",
+    "title": "Free body diagram on a slope",
+    "caption": "Gravity split along and across the surface, with the friction cone drawn in.",
+    "height": 280,
+    "params": [
+      {
+        "key": "angle",
+        "label": "Slope angle",
+        "unit": "deg",
+        "min": 5,
+        "max": 55,
+        "step": 1,
+        "value": 30
+      },
+      {
+        "key": "mus",
+        "label": "Static coefficient",
+        "unit": "",
+        "min": 0.1,
+        "max": 1.2,
+        "step": 0.05,
+        "value": 0.6
+      }
+    ],
+    "draw": "var th = p.angle * Math.PI / 180;\nvar cone = Math.atan(p.mus);\n\nvar ox = 34, oy = H - 34;\nvar len = W - 80;\nvar tipY = oy - len * Math.tan(th);\nif (tipY < 40) { len = (oy - 40) / Math.tan(th); tipY = 40; }\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(ox, oy); ctx.lineTo(ox + len, oy); ctx.lineTo(ox + len, tipY); ctx.closePath();\nctx.stroke();\n\nvar cx = ox + len * 0.52;\nvar cy = oy - (len * 0.48) * Math.tan(th);\n\nctx.save();\nctx.translate(cx, cy);\nctx.rotate(-th);\nctx.fillStyle = C.figure; ctx.globalAlpha = 0.22;\nctx.fillRect(-20, -26, 40, 26);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.5;\nctx.strokeRect(-20, -26, 40, 26);\nctx.restore();\n\nvar px = cx - Math.sin(th) * 13;\nvar py = cy - Math.cos(th) * 13;\n\nfunction arrow(x1, y1, x2, y2, col, wid) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = wid || 2;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var ang = Math.atan2(y2 - y1, x2 - x1);\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - 8 * Math.cos(ang - 0.4), y2 - 8 * Math.sin(ang - 0.4));\n  ctx.lineTo(x2 - 8 * Math.cos(ang + 0.4), y2 - 8 * Math.sin(ang + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\n\nvar L = 64;\narrow(px, py, px, py + L, C.ink);\nctx.fillStyle = C.ink;\nctx.fillText(\"mg\", px + 6, py + L + 4);\n\nvar nx = Math.sin(th), ny = -Math.cos(th);\narrow(px, py, px + nx * L * Math.cos(th), py + ny * L * Math.cos(th), C.figure);\nctx.fillStyle = C.figure;\nctx.fillText(\"N = mg cos\", px + nx * L * Math.cos(th) + 4, py + ny * L * Math.cos(th) - 4);\n\nvar tx = -Math.cos(th), ty = -Math.sin(th);\narrow(px, py, px - tx * L * Math.sin(th), py - ty * L * Math.sin(th), C.accent);\nctx.fillStyle = C.accent;\nctx.fillText(\"mg sin\", px - tx * L * Math.sin(th) + 4, py - ty * L * Math.sin(th) + 14);\n\narrow(px, py, px + tx * L * Math.sin(th), py + ty * L * Math.sin(th), C.accent);\nctx.fillText(\"friction\", px + tx * L * Math.sin(th) - 56, py + ty * L * Math.sin(th) - 6);\n\nctx.setLineDash([3, 4]);\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nvar R = 78;\nvar base = Math.atan2(ny, nx);\nctx.beginPath();\nctx.moveTo(px, py);\nctx.lineTo(px + R * Math.cos(base - cone), py + R * Math.sin(base - cone));\nctx.stroke();\nctx.beginPath();\nctx.moveTo(px, py);\nctx.lineTo(px + R * Math.cos(base + cone), py + R * Math.sin(base + cone));\nctx.stroke();\nctx.beginPath();\nctx.arc(px, py, R, base - cone, base + cone);\nctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"friction cone, half angle \" + (cone * 180 / Math.PI).toFixed(1) + \" deg\", 10, 16);\nctx.fillText(\"slope \" + p.angle.toFixed(0) + \" deg\", 10, 32);\n\nout.note = (Math.tan(th) <= p.mus)\n  ? \"mg points inside the cone: the surface can hold it (tan = \" + Math.tan(th).toFixed(3) + \" <= \" + p.mus.toFixed(2) + \")\"\n  : \"mg points outside the cone: no way to hold it (tan = \" + Math.tan(th).toFixed(3) + \" > \" + p.mus.toFixed(2) + \")\";"
+  },
+  {
+    "id": "friction-pull-angle",
+    "title": "Best angle to pull",
+    "caption": "Tension needed to drag a load at constant speed, as a function of rope angle.",
+    "height": 270,
+    "params": [
+      {
+        "key": "angle",
+        "label": "Rope angle",
+        "unit": "deg",
+        "min": 0,
+        "max": 80,
+        "step": 1,
+        "value": 20
+      },
+      {
+        "key": "mass",
+        "label": "Load mass",
+        "unit": "kg",
+        "min": 5,
+        "max": 60,
+        "step": 1,
+        "value": 25
+      },
+      {
+        "key": "muk",
+        "label": "Kinetic coefficient",
+        "unit": "",
+        "min": 0.05,
+        "max": 1.2,
+        "step": 0.05,
+        "value": 0.5
+      }
+    ],
+    "draw": "var g = 9.8;\nvar mu = p.muk, m = p.mass;\nfunction T(a) { return mu * m * g / (Math.cos(a) + mu * Math.sin(a)); }\nvar best = Math.atan(mu);\nvar Tbest = T(best);\nvar th = p.angle * Math.PI / 180;\nvar Tnow = T(th);\n\nvar pad = 40;\nvar x0 = pad, x1 = W - 14;\nvar y0 = H - 34, y1 = 26;\nvar amax = 80 * Math.PI / 180;\nvar tmax = Math.max(T(0), T(amax)) * 1.12;\n\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y0); ctx.stroke();\nctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y1); ctx.stroke();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"rope angle above horizontal (deg)\", (x0 + x1) / 2, H - 12);\nctx.textAlign = \"left\";\nctx.fillText(\"tension (N)\", x0 - 30, y1 - 10);\n\nfunction PX(a) { return x0 + (a / amax) * (x1 - x0); }\nfunction PY(v) { return y0 - (v / tmax) * (y0 - y1); }\n\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 120; i++) {\n  var a = amax * i / 120;\n  if (i === 0) ctx.moveTo(PX(a), PY(T(a))); else ctx.lineTo(PX(a), PY(T(a)));\n}\nctx.stroke();\n\nctx.setLineDash([3, 4]);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(PX(best), y0); ctx.lineTo(PX(best), PY(Tbest)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(x0, PY(Tbest)); ctx.lineTo(PX(best), PY(Tbest)); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(PX(th), PY(Tnow), 5, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"min at arctan(mu) = \" + (best * 180 / Math.PI).toFixed(1) + \" deg\", PX(best) + 6, PY(Tbest) - 8);\nctx.textAlign = \"center\";\nctx.fillText(\"0\", x0, y0 + 16);\nctx.fillText(\"80\", x1 - 6, y0 + 16);\n\nout.note = \"at \" + p.angle.toFixed(0) + \" deg you need \" + Tnow.toFixed(1) + \" N; the best angle \" + (best * 180 / Math.PI).toFixed(1) + \" deg needs \" + Tbest.toFixed(1) + \" N\";"
+  }
+]

@@ -1,0 +1,73 @@
+[
+ {
+  "id": "moment-of-inertia-shapes",
+  "title": "Same mass, same radius, different k",
+  "caption": "Where the mass sits decides the coefficient in I = k M R^2.",
+  "height": 300,
+  "params": [],
+  "draw": "// Five arrangements of the same mass M at the same outer radius R.\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\nctx.textBaseline = \"middle\";\n\nvar names = [\"Hoop\", \"Disk\", \"Shell\", \"Solid sphere\", \"Rod (length L)\"];\nvar coefs = [1.0, 0.5, 2 / 3, 0.4, 1 / 12];\nvar labels = [\"M R^2\", \"0.5 M R^2\", \"0.67 M R^2\", \"0.40 M R^2\", \"0.083 M L^2\"];\n\nvar rows = 5;\nvar top = H * 0.10;\nvar rowH = (H * 0.86 - top) / rows;\nvar iconX = W * 0.10;\nvar iconR = Math.min(rowH * 0.34, W * 0.055);\nvar barX0 = W * 0.42;\nvar barMax = W * 0.30;\n\nctx.fillStyle = C.ink;\nctx.fillText(\"shape\", W * 0.02, top - rowH * 0.42);\nctx.fillText(\"I / M R^2  (bar)\", barX0, top - rowH * 0.42);\n\nfor (var i = 0; i < rows; i++) {\n  var cy = top + rowH * (i + 0.5);\n\n  // icon\n  ctx.strokeStyle = C.rule;\n  ctx.lineWidth = 1;\n  if (i === 0) {\n    ctx.strokeStyle = C.figure;\n    ctx.lineWidth = 4;\n    ctx.beginPath();\n    ctx.arc(iconX, cy, iconR, 0, Math.PI * 2);\n    ctx.stroke();\n  } else if (i === 1) {\n    ctx.fillStyle = C.figure;\n    ctx.beginPath();\n    ctx.arc(iconX, cy, iconR, 0, Math.PI * 2);\n    ctx.fill();\n  } else if (i === 2) {\n    ctx.strokeStyle = C.figure;\n    ctx.lineWidth = 4;\n    ctx.beginPath();\n    ctx.arc(iconX, cy, iconR, 0, Math.PI * 2);\n    ctx.stroke();\n    ctx.strokeStyle = C.rule;\n    ctx.lineWidth = 1;\n    ctx.beginPath();\n    ctx.ellipse(iconX, cy, iconR * 0.4, iconR, 0, 0, Math.PI * 2);\n    ctx.stroke();\n  } else if (i === 3) {\n    ctx.fillStyle = C.figure;\n    ctx.beginPath();\n    ctx.arc(iconX, cy, iconR, 0, Math.PI * 2);\n    ctx.fill();\n    ctx.strokeStyle = C.paper;\n    ctx.lineWidth = 1;\n    ctx.beginPath();\n    ctx.ellipse(iconX, cy, iconR * 0.4, iconR, 0, 0, Math.PI * 2);\n    ctx.stroke();\n  } else {\n    ctx.strokeStyle = C.figure;\n    ctx.lineWidth = 5;\n    ctx.beginPath();\n    ctx.moveTo(iconX - iconR, cy);\n    ctx.lineTo(iconX + iconR, cy);\n    ctx.stroke();\n  }\n\n  // axis through the centre of every icon\n  ctx.strokeStyle = C.accent;\n  ctx.lineWidth = 1;\n  ctx.setLineDash([3, 4]);\n  ctx.beginPath();\n  ctx.moveTo(iconX, cy - iconR * 1.5);\n  ctx.lineTo(iconX, cy + iconR * 1.5);\n  ctx.stroke();\n  ctx.setLineDash([]);\n\n  // name\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"left\";\n  ctx.fillText(names[i], W * 0.19, cy);\n\n  // bar\n  ctx.fillStyle = C.faint;\n  ctx.fillRect(barX0, cy - rowH * 0.18, barMax, rowH * 0.36);\n  ctx.fillStyle = C.accent;\n  ctx.fillRect(barX0, cy - rowH * 0.18, barMax * coefs[i], rowH * 0.36);\n  ctx.fillStyle = C.ink;\n  ctx.fillText(labels[i], barX0 + barMax + W * 0.02, cy);\n}\n\n// the k = 1 ceiling\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(barX0 + barMax, top - rowH * 0.2);\nctx.lineTo(barX0 + barMax, H * 0.88);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"k = 1: all mass at the rim\", barX0 + barMax * 0.5, H * 0.95);\n"
+ },
+ {
+  "id": "moment-of-inertia-pivot",
+  "title": "Pivot a rod anywhere lab",
+  "caption": "Slide the pivot and watch I and the period trade off.",
+  "height": 300,
+  "params": [
+   {
+    "key": "d",
+    "label": "Pivot distance from centre",
+    "unit": "m",
+    "min": 0,
+    "max": 0.5,
+    "step": 0.01,
+    "value": 0.5
+   },
+   {
+    "key": "L",
+    "label": "Rod length",
+    "unit": "m",
+    "min": 0.6,
+    "max": 1.0,
+    "step": 0.05,
+    "value": 1.0
+   },
+   {
+    "key": "M",
+    "label": "Rod mass",
+    "unit": "kg",
+    "min": 0.5,
+    "max": 4,
+    "step": 0.1,
+    "value": 1.0
+   }
+  ],
+  "draw": "// Uniform rod, mass M, length L, pivoted a distance d from its centre.\nvar g = 9.8;\nvar L = p.L;\nvar M = p.M;\nvar d = p.d;\nvar Icm = M * L * L / 12;\nvar I = Icm + M * d * d;\n\n// period of small oscillations; d = 0 is a free axis, no restoring torque\nvar hasSwing = d > 0.005;\nvar T = hasSwing ? 2 * Math.PI * Math.sqrt(I / (M * g * d)) : 0;\nvar theta0 = 0.28;\nvar theta = hasSwing ? theta0 * Math.cos(2 * Math.PI * t / T) : 0;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\n\n// ---- left panel: the swinging rod ----\nvar px = W * 0.26;\nvar py = H * 0.16;\nvar sc = (H * 0.62) / 1.7;\n\n// ceiling\nctx.strokeStyle = C.faint;\nctx.lineWidth = 4;\nctx.beginPath();\nctx.moveTo(px - W * 0.16, py);\nctx.lineTo(px + W * 0.16, py);\nctx.stroke();\n\n// vertical reference\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.setLineDash([3, 5]);\nctx.beginPath();\nctx.moveTo(px, py);\nctx.lineTo(px, py + sc * 1.05);\nctx.stroke();\nctx.setLineDash([]);\n\nvar ux = Math.sin(theta);\nvar uy = Math.cos(theta);\nvar farEnd = L / 2 + d;\nvar nearEnd = L / 2 - d;\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 6;\nctx.lineCap = \"round\";\nctx.beginPath();\nctx.moveTo(px - ux * nearEnd * sc, py - uy * nearEnd * sc);\nctx.lineTo(px + ux * farEnd * sc, py + uy * farEnd * sc);\nctx.stroke();\nctx.lineCap = \"butt\";\n\n// centre of mass marker\nvar cmx = px + ux * d * sc;\nvar cmy = py + uy * d * sc;\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.arc(cmx, cmy, 5, 0, Math.PI * 2);\nctx.fill();\n\n// pivot\nctx.fillStyle = C.ink;\nctx.beginPath();\nctx.arc(px, py, 4, 0, Math.PI * 2);\nctx.fill();\n\n// d label\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(px, py);\nctx.lineTo(cmx, cmy);\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"d\", (px + cmx) / 2 + 7, (py + cmy) / 2);\nctx.fillStyle = C.ink;\nctx.fillText(\"pivot\", px + 8, py - 10);\nctx.fillText(\"centre of mass\", cmx + 9, cmy + 12);\n\n// ---- right panel: T against d ----\nvar gx0 = W * 0.52;\nvar gx1 = W * 0.95;\nvar gy0 = H * 0.14;\nvar gy1 = H * 0.82;\nvar dmax = L / 2;\nvar Tmax = 2 * Math.PI * Math.sqrt((Icm + M * dmax * dmax) / (M * g * dmax)) * 1.9;\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(gx0, gy0);\nctx.lineTo(gx0, gy1);\nctx.lineTo(gx1, gy1);\nctx.stroke();\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nvar started = false;\nvar dBest = L / Math.sqrt(12);\nfor (var i = 0; i <= 160; i++) {\n  var dd = dmax * (i / 160);\n  if (dd < 0.02) { continue; }\n  var TT = 2 * Math.PI * Math.sqrt((Icm + M * dd * dd) / (M * g * dd));\n  var X = gx0 + (gx1 - gx0) * (dd / dmax);\n  var Y = gy1 - (gy1 - gy0) * Math.min(TT / Tmax, 1);\n  if (!started) { ctx.moveTo(X, Y); started = true; } else { ctx.lineTo(X, Y); }\n}\nctx.stroke();\n\n// marker for the minimum\nif (dBest <= dmax) {\n  var Tb = 2 * Math.PI * Math.sqrt((Icm + M * dBest * dBest) / (M * g * dBest));\n  var bx = gx0 + (gx1 - gx0) * (dBest / dmax);\n  var by = gy1 - (gy1 - gy0) * Math.min(Tb / Tmax, 1);\n  ctx.strokeStyle = C.rule;\n  ctx.setLineDash([2, 4]);\n  ctx.beginPath();\n  ctx.moveTo(bx, by);\n  ctx.lineTo(bx, gy1);\n  ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"center\";\n  ctx.fillText(\"d = L/sqrt(12)\", bx, gy1 + 14);\n}\n\n// current point\nif (hasSwing) {\n  var cx = gx0 + (gx1 - gx0) * (d / dmax);\n  var cy = gy1 - (gy1 - gy0) * Math.min(T / Tmax, 1);\n  ctx.fillStyle = C.accent;\n  ctx.beginPath();\n  ctx.arc(cx, cy, 4.5, 0, Math.PI * 2);\n  ctx.fill();\n}\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"period T\", gx0 + 4, gy0 - 2);\nctx.textAlign = \"right\";\nctx.fillText(\"d\", gx1, gy1 + 14);\n\nout.note = hasSwing\n  ? \"I = \" + I.toFixed(4) + \" kg m^2   (I_cm = \" + Icm.toFixed(4) +\n    \", M d^2 = \" + (M * d * d).toFixed(4) + \")   T = \" + T.toFixed(3) + \" s\"\n  : \"I = \" + Icm.toFixed(4) + \" kg m^2, the smallest possible. No gravity lever arm, so it does not swing.\";\n"
+ },
+ {
+  "id": "moment-of-inertia-hole",
+  "title": "Drilling a hole lab",
+  "caption": "Subtract the removed piece, with the parallel axis theorem when it is off centre.",
+  "height": 300,
+  "params": [
+   {
+    "key": "a",
+    "label": "Hole radius",
+    "unit": "m",
+    "min": 0.02,
+    "max": 0.14,
+    "step": 0.01,
+    "value": 0.1
+   },
+   {
+    "key": "c",
+    "label": "Hole offset from axis",
+    "unit": "m",
+    "min": 0,
+    "max": 0.16,
+    "step": 0.01,
+    "value": 0.15
+   }
+  ],
+  "draw": "// Disk of mass M and radius R with a circular hole of radius a, centre c from the axis.\nvar R = 0.30;\nvar M = 9.0;\nvar a = p.a;\nvar c = Math.min(p.c, R - a);\n\nvar Ifull = 0.5 * M * R * R;\nvar mHole = M * (a * a) / (R * R);\nvar Ihole = 0.5 * mHole * a * a + mHole * c * c;\nvar Inet = Ifull - Ihole;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\n\nvar cx = W * 0.30;\nvar cy = H * 0.50;\nvar sc = Math.min(H * 0.36, W * 0.24) / R;\n\n// the disk\nctx.fillStyle = C.figure;\nctx.beginPath();\nctx.arc(cx, cy, R * sc, 0, Math.PI * 2);\nctx.fill();\n\n// the hole\nctx.fillStyle = C.paper;\nctx.beginPath();\nctx.arc(cx + c * sc, cy, a * sc, 0, Math.PI * 2);\nctx.fill();\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.arc(cx + c * sc, cy, a * sc, 0, Math.PI * 2);\nctx.stroke();\n\n// axis\nctx.strokeStyle = C.accent;\nctx.setLineDash([3, 4]);\nctx.beginPath();\nctx.moveTo(cx, cy - R * sc - 14);\nctx.lineTo(cx, cy + R * sc + 14);\nctx.stroke();\nctx.setLineDash([]);\n\n// offset arrow\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(cx, cy);\nctx.lineTo(cx + c * sc, cy);\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.arc(cx + c * sc, cy, 3, 0, Math.PI * 2);\nctx.fill();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"axis\", cx, cy - R * sc - 24);\nctx.fillText(\"c = \" + c.toFixed(2) + \" m\", cx + c * sc * 0.5, cy - 12);\nctx.fillText(\"hole radius a = \" + a.toFixed(2) + \" m\", cx, cy + R * sc + 26);\n\n// ---- the bookkeeping, drawn as three bars ----\nvar bx = W * 0.56;\nvar bw = W * 0.34;\nvar rowY = [H * 0.26, H * 0.48, H * 0.70];\nvar vals = [Ifull, Ihole, Inet];\nvar tags = [\"full disk\", \"piece removed\", \"what is left\"];\nvar scaleBar = bw / Ifull;\n\nfor (var i = 0; i < 3; i++) {\n  ctx.fillStyle = C.faint;\n  ctx.fillRect(bx, rowY[i] - 9, bw, 18);\n  ctx.fillStyle = i === 1 ? C.rule : C.accent;\n  ctx.fillRect(bx, rowY[i] - 9, Math.max(vals[i] * scaleBar, 1), 18);\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"left\";\n  ctx.fillText(tags[i], bx, rowY[i] - 22);\n  ctx.textAlign = \"right\";\n  ctx.fillText(vals[i].toFixed(4), bx + bw, rowY[i] - 22);\n}\n\nctx.textAlign = \"left\";\nctx.fillStyle = C.ink;\nctx.fillText(\"I about the central axis (kg m^2)\", bx, H * 0.10);\n\nout.note = \"m_hole = \" + mHole.toFixed(3) + \" kg,  I_hole = 0.5 m a^2 + m c^2 = \" +\n  (0.5 * mHole * a * a).toFixed(4) + \" + \" + (mHole * c * c).toFixed(4) +\n  \" = \" + Ihole.toFixed(4) + \",  I = \" + Ifull.toFixed(4) + \" - \" + Ihole.toFixed(4) +\n  \" = \" + Inet.toFixed(4) + \" kg m^2\";\n"
+ }
+]

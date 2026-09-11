@@ -1,58 +1,415 @@
-## Where the mass sits
+## Why a hammer is hard to spin one way and easy the other
 
-Spin a hammer about its handle and it turns easily. Spin the same hammer about
-its head end and it resists. Nothing about the mass changed — only its distance
-from the axis.
+Hold a hammer by the end of its handle and swing it around in a circle. Now hold
+it by the head and swing it the same way. The second is noticeably easier. You
+did not change the hammer, and you did not change its mass. All you changed was
+where the heavy part sits relative to the axis you are turning about.
 
-Moment of inertia captures that. For a collection of point masses,
+In the [last lesson](/guide/torque-equilibrium) you worked out what makes
+something start to turn: torque, $\tau = rF\sin\theta$. You balanced torques so
+that nothing moved. Now you want to know what happens when they do not balance,
+and for that you need the rotational answer to a different question. In straight
+lines, mass tells you how hard it is to speed something up. In rotation, mass is
+not enough. You need a number that knows about mass *and* about where the mass
+is. That number is the moment of inertia, and this whole lesson is about
+computing it.
 
-$$I = \sum m_i r_i^2$$
+## Where the formula comes from
 
-and for a continuous body, $I = \int r^2\,dm$. The $r^2$ is the whole story:
-mass twice as far out contributes four times as much. This is why a flywheel
-puts its material in the rim and why tightrope walkers carry a long pole.
+Take a rigid body spinning about a fixed axis at angular velocity $\omega$
+(radians per second). Chop it into tiny pieces. Call the mass of one piece $m_i$
+and its perpendicular distance from the axis $r_i$. Because the body is rigid,
+every piece goes around at the same $\omega$, so piece $i$ moves at speed
+$v_i = \omega r_i$ — the pieces far out move fast, the pieces near the axis
+crawl.
 
-Note that $r$ is the distance from the *axis*, measured perpendicular to it,
-not the distance from the center of the body. Change the axis and $I$ changes.
+Add up the kinetic energy:
 
-## The shapes worth knowing
+$$
 
-All about the axis of symmetry through the center of mass:
+K = \sum \tfrac12 m_i v_i^2 = \sum \tfrac12 m_i (\omega r_i)^2
+   = \tfrac12 \Big(\sum m_i r_i^2\Big)\,\omega^2.
 
-$$I_{\text{hoop}} = mr^2, \qquad I_{\text{disk}} = \tfrac12 mr^2$$
+$$
 
-$$I_{\text{solid sphere}} = \tfrac25 mr^2, \qquad I_{\text{shell}} = \tfrac23 mr^2$$
+Compare that with $K = \tfrac12 m v^2$. The $\omega$ sits exactly where $v$ used
+to, and the bracket sits exactly where $m$ used to. So define
 
-$$I_{\text{rod, center}} = \tfrac{1}{12}mL^2$$
+$$I = \sum_i m_i r_i^2, \qquad K_{\text{rot}} = \tfrac12 I \omega^2.$$
 
-A useful sanity check: the coefficient rises as mass moves outward. Solid
-sphere $0.4$, hollow sphere $0.67$, disk $0.5$, hoop $1$ — every one of them
-between $0$ and $1$, because no mass can be farther than $r$ from the axis.
+$I$ is the moment of inertia. Read the definition in words: every gram of the
+body contributes its own mass times the *square* of its distance from the axis.
+The square is the entire story. Mass twice as far out counts four times as much.
+That is why a flywheel is built with its metal in the rim, why a tightrope
+walker carries a long pole, and why the hammer swung by its handle fights you.
 
-Moments of inertia about the same axis add. A disk with a rod stuck through it
-has $I = \tfrac12 m_d r^2 + \tfrac{1}{12}m_r L^2$. Drilling a hole out is the
-same rule with a minus sign: compute the full body and subtract the removed
-piece.
+Two warnings hide in the definition. First, $r_i$ is the distance from the
+**axis**, measured perpendicular to it — not the distance from the centre of the
+object. Second, $I$ is not a property of a body on its own. It is a property of
+a body *and an axis*. Change the axis and the number changes. Always write down
+which axis you mean before you compute anything.
 
-## Shifting the axis
-
-To get $I$ about an axis parallel to one through the center of mass and a
-distance $d$ away:
-
-$$I = I_{cm} + md^2$$
-
-A rod about its end: $\tfrac{1}{12}mL^2 + m(L/2)^2 = \tfrac13 mL^2$. That single
-theorem replaces most of the table you would otherwise memorize.
-
-<Aside label="Where this goes wrong" warn>
-  The parallel axis theorem only works starting from the center of mass. Going
-  from a rod's end to a point a quarter along it by adding $md^2$ is wrong —
-  return to the center of mass first, then step out to the new axis.
+<Aside label="Worth remembering">
+  A quick check: since $I = \sum m_i r_i^2$ and no piece of a body of radius $R$
+  is farther than $R$ from a central axis, any $I$ about a symmetry axis must
+  come out as $kMR^2$ with $0 < k \le 1$. If you ever get $k = 3$, you have made
+  an arithmetic slip.
 </Aside>
+
+For a solid body the sum becomes an integral, $I = \int r^2 \, dm$. You will
+only need a few of these, and the standard results all come out of one line of
+calculus. A thin rod of mass $M$ and length $L$, axis through the centre,
+perpendicular to the rod: the mass per unit length is $\lambda = M/L$, so
+$dm = \lambda\,dx$, and $r = |x|$ with $x$ running from $-L/2$ to $L/2$.
+
+$$
+
+I = \int_{-L/2}^{L/2} x^2 \frac{M}{L}\,dx
+    = \frac{M}{L}\left[\frac{x^3}{3}\right]_{-L/2}^{L/2}
+    = \frac{M}{L}\cdot\frac{2}{3}\cdot\frac{L^3}{8} = \tfrac{1}{12}ML^2.
+
+$$
+
+A uniform disk of mass $M$ and radius $R$ about its central axis: slice it into
+thin rings. A ring at radius $r$ of thickness $dr$ has area $2\pi r\,dr$, so
+with surface density $\sigma = M/\pi R^2$ its mass is $dm = \sigma 2\pi r\,dr$,
+and every bit of it sits at the same distance $r$:
+
+$$
+
+I = \int_0^R r^2\,\sigma 2\pi r\,dr = 2\pi\sigma \frac{R^4}{4}
+    = \frac{M}{\pi R^2}\cdot\frac{\pi R^4}{2} = \tfrac12 MR^2.
+
+$$
+
+These are the two you should be able to rebuild from scratch. The rest are worth
+knowing by heart.
+
+## The short table you actually need
+
+All of these are about an axis through the centre of mass, and all have the form
+$I = kMR^2$ or $kML^2$:
+
+- Point mass at distance $r$: $I = mr^2$. Everything else is built from this.
+- Thin hoop or hollow cylinder, axis through the centre: $I = MR^2$ $(k = 1)$.
+- Uniform disk or solid cylinder, central axis: $I = \tfrac12 MR^2$.
+- Annulus (a washer) with inner radius $R_1$, outer $R_2$:
+  $I = \tfrac12 M(R_1^2 + R_2^2)$.
+- Solid sphere about a diameter: $I = \tfrac25 MR^2$.
+- Thin spherical shell about a diameter: $I = \tfrac23 MR^2$.
+- Solid cone about its symmetry axis: $I = \tfrac{3}{10}MR^2$.
+- Thin rod about its centre, perpendicular: $I = \tfrac{1}{12}ML^2$.
+- Thin rod about one end, perpendicular: $I = \tfrac13 ML^2$.
+
+Look at the coefficients as a story about where mass sits. Hoop $1$: all the
+mass is at the rim. Disk $0.5$: mass spread evenly over the area, so most of it
+is well inside $R$. Shell $2/3$, solid sphere $2/5$: the same contrast for
+spheres, and the solid sphere is lowest of all because a sphere's mass crowds
+towards the middle, near the axis. If you forget a number, you can usually
+bracket it by asking how much of the body lives far from the axis.
+
+<Figure caption={<><b>Figure 1.</b> The same mass and the same radius, five
+different arrangements. Notice that the bar lengths are exactly the
+coefficients: the more mass drawn near the rim, the longer the bar. Nothing ever
+exceeds one.</>}>
+  <Sim id="moment-of-inertia-shapes" />
+</Figure>
 
 <QuickCheck
   question="Two disks have equal mass, but one has twice the radius. How do their moments of inertia compare?"
   options={["Equal", "The larger is twice as big", "The larger is four times as big", "The larger is half as big"]}
   answer={2}
-  explanation="I is one half m r squared, and r is squared, so doubling the radius at fixed mass multiplies I by four."
+  explanation="I is one half M R squared, and R is squared, so doubling the radius at fixed mass multiplies I by four. Mass alone tells you nothing about I."
 />
+
+One more quantity lives here. If you want a single length that summarises how
+far out the mass effectively sits, define the **radius of gyration** $k$ by
+$I = Mk^2$, so $k = \sqrt{I/M}$. It is the radius at which you would have to put
+all the mass, as a single hoop, to get the same $I$. For a body of mass
+$8.0\ \mathrm{kg}$ with $I = 0.50\ \mathrm{kg\,m^2}$,
+$k = \sqrt{0.50/8.0} = \sqrt{0.0625} = 0.25\ \mathrm{m}$.
+
+## Moments of inertia add, and they subtract
+
+Because $I$ is a sum over mass, two bodies rotating about the *same* axis have a
+combined moment of inertia equal to the sum of the separate ones. A disk with a
+lump of clay on its rim, about the central axis:
+
+$$I = \tfrac12 M_d R^2 + m_{\text{clay}} R^2.$$
+
+With $M_d = 4.0\ \mathrm{kg}$, $R = 0.30\ \mathrm{m}$ and
+$m = 1.0\ \mathrm{kg}$: $I = \tfrac12(4.0)(0.09) + (1.0)(0.09) = 0.18 + 0.09
+= 0.27\ \mathrm{kg\,m^2}$.
+
+The same logic run backwards handles holes. A disk with a piece drilled out is
+(full disk) minus (the piece that used to be there), so
+
+$$I_{\text{with hole}} = I_{\text{full}} - I_{\text{removed piece}},$$
+
+both taken about the same axis. This trick is worth more than any table entry,
+because it turns an impossible-looking shape into two easy ones.
+
+### Worked example 1: a disk with a central hole
+
+A uniform disk of radius $0.40\ \mathrm{m}$ and surface density
+$\sigma = 20\ \mathrm{kg/m^2}$ has a hole of radius $0.20\ \mathrm{m}$ cut out,
+centred on the axis. Find $I$ about that axis.
+
+You are given density, not mass, which is the hint that you should compute both
+masses yourself. Full disk:
+
+$$
+
+M_{\text{full}} = \sigma \pi R^2 = 20 \times \pi \times (0.40)^2
+= 20 \times \pi \times 0.16 = 10.053\ \mathrm{kg},
+
+$$
+
+$$I_{\text{full}} = \tfrac12 (10.053)(0.16) = 0.8042\ \mathrm{kg\,m^2}.$$
+
+Removed disk, radius $0.20\ \mathrm{m}$:
+
+$$
+
+M_{\text{hole}} = 20 \times \pi \times 0.04 = 2.513\ \mathrm{kg}, \qquad
+I_{\text{hole}} = \tfrac12 (2.513)(0.04) = 0.0503\ \mathrm{kg\,m^2}.
+
+$$
+
+Subtract: $I = 0.8042 - 0.0503 = 0.754\ \mathrm{kg\,m^2}$.
+
+Sanity check it against the annulus formula,
+$I = \tfrac12 M(R_1^2 + R_2^2)$ with $M = 10.053 - 2.513 = 7.540\ \mathrm{kg}$:
+$\tfrac12 (7.540)(0.04 + 0.16) = \tfrac12(7.540)(0.20) = 0.754$. Same number.
+The annulus formula is not something extra to memorise; it is this subtraction,
+done once in symbols.
+
+<Aside label="Where this goes wrong" warn>
+  When you subtract a hole, subtract the hole's *own* mass, not the mass of the
+  body you were given. In the example above the removed disk is
+  $2.513\ \mathrm{kg}$ because it is made of the same material at the same
+  density. Students routinely subtract $\tfrac12 M R_{\text{hole}}^2$ using the
+  full mass $M$, which quietly removes far too much.
+</Aside>
+
+## Moving the axis: the parallel axis theorem
+
+Everything so far was about an axis through the centre of mass. Real problems
+pivot things at their ends, their rims, a third of the way along. You do not
+need a new integral for each one.
+
+Put the origin at the centre of mass and let the new axis be parallel to the old
+one, a distance $d$ away. For piece $i$, its position vector from the centre of
+mass is $\vec{r}_i$, and its distance from the new axis is
+$|\vec{r}_i - \vec{d}\,|$. Then
+
+$$
+
+I = \sum m_i |\vec{r}_i - \vec{d}\,|^2
+   = \sum m_i r_i^2 - 2\vec{d}\cdot\sum m_i \vec{r}_i + d^2 \sum m_i .
+
+$$
+
+The first term is $I_{\text{cm}}$. The last is $Md^2$. The middle term contains
+$\sum m_i \vec{r}_i$, which is $M$ times the position of the centre of mass —
+measured from the centre of mass, so it is zero. That leaves
+
+$$I = I_{\text{cm}} + Md^2.$$
+
+In words: shifting the axis away from the centre of mass always *increases* $I$,
+by exactly the amount a point mass $M$ sitting at the centre of mass would
+contribute. Check it on the rod: about the end, $d = L/2$, so
+$I = \tfrac{1}{12}ML^2 + M(L/2)^2 = \tfrac{1}{12}ML^2 + \tfrac14 ML^2
+= \tfrac13 ML^2$, which is the table entry you were told to memorise.
+
+Two consequences fall straight out. The centre of mass axis gives the *smallest*
+possible $I$ among all parallel axes, since $Md^2 \ge 0$. And the growth is
+quadratic in $d$, so moving the pivot out is punishing fast.
+
+<Aside label="Where this goes wrong" warn>
+  The theorem starts from the centre of mass and only from there. To go from a
+  rod's end to a point a quarter of the way along, you cannot add $Md^2$ with
+  $d = L/4$. Come back to the centre of mass first, then step out to the new
+  axis in one move.
+</Aside>
+
+<QuickCheck
+  question="A uniform disk of mass 2.0 kg and radius 0.25 m rotates about an axis through its rim, parallel to the central axis. What is I?"
+  options={["0.0625 kg m^2", "0.125 kg m^2", "0.1875 kg m^2", "0.25 kg m^2"]}
+  answer={2}
+  explanation="I equals one half M R squared plus M d squared with d equal to R, which is 0.0625 plus 0.125 equals 0.1875. Answer 0.0625 is the centre-of-mass value alone, which forgets the shift."
+/>
+
+<Figure caption={<><b>Figure 2.</b> A rod pivoted a distance d from its centre,
+swinging as a pendulum. Drag the pivot and watch two numbers fight each other:
+I grows as d squared, but the restoring torque grows only like d. Try d = 0 to
+see the smallest possible I, then find the d that makes the period shortest.</>}>
+  <Sim id="moment-of-inertia-pivot" />
+</Figure>
+
+### Worked example 2: a rod with masses on its ends
+
+A uniform rod of mass $2.0\ \mathrm{kg}$ and length $1.2\ \mathrm{m}$ carries
+$0.50\ \mathrm{kg}$ point masses at each end, and rotates about its centre.
+Find $I$.
+
+Write down the pieces before touching a calculator. Three bodies, one axis, so
+three terms added.
+
+Rod about its centre: $\tfrac{1}{12}(2.0)(1.2)^2 = \tfrac{1}{12}(2.0)(1.44)
+= 0.24\ \mathrm{kg\,m^2}$.
+
+Each end mass is a point at $r = 0.60\ \mathrm{m}$:
+$mr^2 = (0.50)(0.36) = 0.18\ \mathrm{kg\,m^2}$, and there are two of them, so
+$0.36\ \mathrm{kg\,m^2}$.
+
+Total: $I = 0.24 + 0.36 = 0.60\ \mathrm{kg\,m^2}$. Notice that the two little
+masses, together only half the rod's mass, contribute more than the rod does.
+The $r^2$ again.
+
+### Worked example 3: an off-centre hole
+
+A uniform disk of mass $9.0\ \mathrm{kg}$ and radius $0.30\ \mathrm{m}$ has a
+hole of radius $0.10\ \mathrm{m}$ cut out, centred $0.15\ \mathrm{m}$ from the
+axis. Find $I$ about the original central axis.
+
+This one needs both tools at once, which is why it looks hard and is not.
+
+Full disk: $I_{\text{full}} = \tfrac12 (9.0)(0.30)^2 = \tfrac12(9.0)(0.09)
+= 0.405\ \mathrm{kg\,m^2}$.
+
+The removed piece: same material, so its mass is the full mass scaled by area
+ratio,
+
+$$
+
+m_{\text{hole}} = 9.0 \times \frac{\pi (0.10)^2}{\pi (0.30)^2}
+= 9.0 \times \frac{0.01}{0.09} = 1.0\ \mathrm{kg}.
+
+$$
+
+Its moment of inertia about *its own* centre is
+$\tfrac12 (1.0)(0.01) = 0.005\ \mathrm{kg\,m^2}$, but you need it about the
+disk's central axis, $0.15\ \mathrm{m}$ away. Parallel axis:
+
+$$
+
+I_{\text{hole}} = 0.005 + (1.0)(0.15)^2 = 0.005 + 0.0225
+= 0.0275\ \mathrm{kg\,m^2}.
+
+$$
+
+Subtract: $I = 0.405 - 0.0275 = 0.3775\ \mathrm{kg\,m^2}$.
+
+<Figure caption={<><b>Figure 3.</b> Drill the hole and slide it outwards. The
+readout splits the answer into the full disk, the piece you removed, and what is
+left. Watch how much more a hole near the rim costs than the same hole near the
+centre.</>}>
+  <Sim id="moment-of-inertia-hole" />
+</Figure>
+
+### Worked example 4: a rod whose density is not uniform
+
+A rod runs from $x = -1.0\ \mathrm{m}$ to $x = +1.0\ \mathrm{m}$, with mass per
+unit length $\lambda = \lambda_0(1 + x^2/L^2)$, where
+$\lambda_0 = 3.0\ \mathrm{kg/m}$ and $L = 1.0\ \mathrm{m}$. Find $I$ about the
+centre.
+
+No table entry helps here, so go back to the definition. Take a slice of width
+$dx$ at position $x$. Its mass is $dm = \lambda\,dx$ and its distance from the
+axis is $|x|$, so $r^2\,dm = x^2\lambda\,dx$:
+
+$$
+
+I = \int_{-1}^{1} x^2 \lambda_0\left(1 + \frac{x^2}{L^2}\right)dx
+    = 3.0\int_{-1}^{1} (x^2 + x^4)\,dx .
+
+$$
+
+Both integrands are even, so integrate from $0$ to $1$ and double:
+
+$$
+
+\int_{-1}^{1} x^2 dx = \frac{2}{3}, \qquad
+  \int_{-1}^{1} x^4 dx = \frac{2}{5}.
+
+$$
+
+So $I = 3.0\left(\tfrac23 + \tfrac25\right) = 3.0 \times \tfrac{16}{15}
+= 3.2\ \mathrm{kg\,m^2}$.
+
+Worth a sanity check. The total mass is
+$\int \lambda\,dx = 3.0(2 + \tfrac23) = 8.0\ \mathrm{kg}$, so the radius of
+gyration is $\sqrt{3.2/8.0} = 0.63\ \mathrm{m}$. A uniform rod of the same
+length would have $k = L_{\text{tot}}/\sqrt{12} = 2.0/3.46 = 0.58\ \mathrm{m}$.
+Slightly larger, as it should be: this rod is heavier at its ends.
+
+### Worked example 5: where to pivot for the fastest swing
+
+A uniform rod of length $L = 1.0\ \mathrm{m}$ hangs as a pendulum from a pivot a
+distance $d$ from its centre. The period of small swings is
+$T = 2\pi\sqrt{I/(Mgd)}$, where $d$ is the pivot-to-centre-of-mass distance.
+Which $d$ makes $T$ smallest?
+
+First put in the parallel axis theorem, $I = \tfrac{1}{12}ML^2 + Md^2$:
+
+$$
+
+T = 2\pi\sqrt{\frac{M\left(\tfrac{1}{12}L^2 + d^2\right)}{Mgd}}
+    = 2\pi\sqrt{\frac{1}{g}\left(\frac{L^2}{12d} + d\right)}.
+
+$$
+
+The mass cancelled, which already tells you something. $T$ is smallest when the
+bracket $f(d) = L^2/(12d) + d$ is smallest. Differentiate and set to zero:
+
+$$
+
+f'(d) = -\frac{L^2}{12d^2} + 1 = 0 \;\Longrightarrow\; d^2 = \frac{L^2}{12}
+\;\Longrightarrow\; d = \frac{L}{\sqrt{12}} = \frac{1.0}{3.464}
+= 0.289\ \mathrm{m}.
+
+$$
+
+That is the tug-of-war Figure 2 shows. Pivot too close to the centre and gravity
+has almost no lever arm, so the swing is slow. Pivot at the end and $I$ has
+grown too large. The best point is neither, and it lands where the two terms in
+$f(d)$ are equal.
+
+For the record, the plain end-pivot case: $d = 0.50\ \mathrm{m}$,
+$I = \tfrac13(M)(1.0)^2$, so
+$T = 2\pi\sqrt{\tfrac13/(9.8 \times 0.50)} = 2\pi\sqrt{0.0680}
+= 2\pi(0.2608) = 1.64\ \mathrm{s}$.
+
+## How to recognise these problems
+
+You are looking at a moment-of-inertia problem when the question involves
+something rigid turning about an axis and you need a number to plug into
+$K = \tfrac12 I\omega^2$, $\tau = I\alpha$, $L = I\omega$, or a pendulum period.
+Once you know that, the shape of the body tells you which tool:
+
+- **One named standard shape, axis through the centre.** Read off the table.
+  Nothing to do but square the radius.
+- **Several bodies on one axis.** Add. Clay on a rim, masses on a rod, a disk on
+  a shaft: compute each $I$ about the shared axis and sum them.
+- **A hole, a notch, a missing quarter.** Subtract. Compute the whole body, then
+  the removed piece, and take the difference. If the removed piece is off
+  centre, you will need the parallel axis theorem for it.
+- **The axis is not through the centre of mass.** Parallel axis theorem, always
+  starting from $I_{\text{cm}}$. Phrases like "about its end", "about its rim",
+  "a third of the way along" are the giveaway.
+- **A density that depends on position**, or a shape with no table entry. Go to
+  $I = \int r^2\,dm$. Write $dm$ in terms of $dx$ or $dr$ first; that step is
+  the whole problem.
+- **"Smallest", "fastest", "optimum".** Write $I$ as a function of the free
+  variable using the parallel axis theorem, then differentiate.
+
+Two habits will save you most of the marks. Write the axis down before anything
+else, because $I$ is meaningless without it. And check the coefficient at the
+end: a sensible answer for a body of size $R$ looks like $kMR^2$ with $k$ under
+one, unless the axis has been shifted away from the centre of mass.
+
+With $I$ in hand, the rotational version of Newton's second law is waiting.
+Torque plays the part of force, $I$ plays the part of mass, and angular
+acceleration plays the part of $a$. That is the next lesson:
+[Rotational Dynamics](/guide/rotational-dynamics).

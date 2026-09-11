@@ -1,54 +1,368 @@
-## Turning effect
+## A force is not the whole story
 
-A force applied to a rigid body does two things: it pushes the body, and it
-tries to turn it. The turning part is torque, and it depends on where the force
-is applied, not just how hard.
+Push on a door right next to its hinge and it barely moves. Push with the same
+hand, the same effort, out at the handle, and it swings. The force is the same.
+What changed is where you put it.
 
-$$\tau = rF\sin\theta = r_\perp F$$
+That is the gap this lesson closes. Newton's second law tells you how a body
+accelerates as a whole, and it does not care where on the body you push. But a
+real object is not a point. A wrench, a ladder, a shelf bracket, a plank across
+two sawhorses — these things can turn, and whether they turn depends on
+distance as much as on force. The last lesson,
+[angular kinematics](/guide/angular-kinematics), gave you the language of
+turning: angle $\theta$, angular velocity $\omega$, angular acceleration
+$\alpha$. Now you need the cause. The cause is called torque.
 
-The second form is usually faster: drop a perpendicular from the pivot onto the
-force's line of action, measure that distance, and multiply. That distance is
-the lever arm. A force whose line passes straight through the pivot has zero
-lever arm and zero torque, which is why pushing a door near its hinge is futile.
+## Torque: force times the distance that counts
 
-## Two conditions, not one
+Start with the door. You are pushing with force $F$ at a distance $r$ from the
+hinge. Double $F$ and you clearly double the turning effect. Double $r$ and
+experience says you also double it — a long wrench beats a short one by exactly
+the ratio of their lengths. So the turning effect is proportional to the
+product $rF$.
 
-A body is in static equilibrium when it neither accelerates nor angularly
-accelerates. That is two independent statements:
+But only when you push perpendicular to the door. Push along the door, straight
+towards the hinge, and nothing turns at all, no matter how hard you shove. So
+only the component of $F$ perpendicular to the line from the pivot does any
+turning. If the force makes an angle $\theta$ with that line, the perpendicular
+component is $F\sin\theta$. Putting the two pieces together:
 
-$$\sum \vec{F} = 0, \qquad \sum \vec{\tau} = 0$$
+$$\tau = rF\sin\theta$$
 
-Forces alone are not enough. Two equal opposite forces applied at different
-points sum to zero but spin the body — a couple. Both conditions must hold.
+This is the torque, symbol $\tau$ (the Greek letter tau), measured in newton
+metres (N·m). Here $r$ is the distance from the pivot to the point where the
+force is applied, $F$ is the size of the force, and $\theta$ is the angle
+between the direction of $\vec r$ and the direction of $\vec F$.
 
-In two dimensions this gives three scalar equations: $\sum F_x = 0$,
-$\sum F_y = 0$, $\sum \tau = 0$. Three equations means you can solve for at
-most three unknowns, which is why a ladder against a wall with friction at both
-ends is genuinely indeterminate rather than merely hard.
+Check the extremes. At $\theta = 90^\circ$, $\sin\theta = 1$ and you get the
+maximum, $\tau = rF$. At $\theta = 0$ or $180^\circ$, $\sin\theta = 0$ and the
+torque vanishes: a force pointing straight at or straight away from the pivot
+never turns anything.
 
-## Choosing the pivot
+There is a second way to group the same three numbers, and in practice it is
+faster. Instead of resolving the force, extend the force's line of action — the
+infinite straight line the arrow lies along — and measure the perpendicular
+distance from the pivot to that line. Call it $r_\perp$. A little geometry gives
+$r_\perp = r\sin\theta$, so
 
-For a body in equilibrium, the net torque is zero about *every* point, not just
-the real hinge. That freedom is the most useful tool in the whole topic.
+$$\tau = r_\perp F$$
 
-Take a uniform plank of weight $W$ resting on two supports, and suppose you
-want the force at the right support. Take torques about the left support. The
-left force now has zero lever arm and drops out of the equation entirely, and
-one line gives you the answer without ever solving a system.
+That perpendicular distance is called the **lever arm** (or moment arm). Drawing
+it is often a one-second job on a sketch where computing $\theta$ would take a
+minute. It also makes the zero cases obvious: if the line of action passes
+through the pivot, the lever arm is zero, and so is the torque.
 
-Procedure: draw the free-body diagram, mark every force and where it acts, then
-pick as pivot the point where the force you care least about is applied.
+<Figure caption={<><b>Figure 1.</b> The same force on the same wrench, applied at different angles. Drag the angle and watch the lever arm, the dashed perpendicular, shrink to nothing at 0 and 180 degrees. Notice that sliding the force along its own line of action does not change the torque at all.</>}>
+  <Sim id="torque-equilibrium-wrench" />
+</Figure>
 
-<Aside label="Where this goes wrong" warn>
-  Gravity is not applied at the pivot or at the end of the object — for a
-  uniform body it acts at the center of mass. Forgetting to include the weight
-  as a torque, or placing it at the wrong point, is the single most common error
-  in equilibrium problems.
+Torque needs a sign, because a body can be turned either way. Pick one sense as
+positive and stick with it for the whole problem. The standard choice is
+counterclockwise positive, clockwise negative. Nothing physical depends on the
+choice; only consistency matters.
+
+<Aside label="Worth remembering">
+  Torque is always torque *about a specific point*. "The torque of this force"
+  is a meaningless phrase until you say about what pivot. The same 50 N force
+  can have a torque of 25 N·m about one point and zero about another.
 </Aside>
 
 <QuickCheck
-  question="A beam is held by two supports. Which pivot choice best isolates the force at support A?"
-  options={["Support A", "Support B", "The center of mass", "The midpoint between supports"]}
-  answer={1}
-  explanation="Taking torques about B eliminates B's unknown force, leaving an equation containing A."
+  question="A 90 N force is applied to a wrench handle pointing directly along the handle, straight at the bolt. What torque does it produce about the bolt?"
+  options={["Zero", "90 N·m", "It depends on the handle length", "45 N·m"]}
+  answer={0}
+  explanation="The line of action passes through the pivot, so the lever arm is zero and so is the torque. Length is irrelevant when sine of the angle is zero."
 />
+
+## Two conditions for staying put
+
+An object that is not moving and not starting to move must satisfy two separate
+requirements, and beginners routinely use only the first.
+
+The first is the one you already know. If the centre of mass is not
+accelerating, the forces must cancel:
+
+$$\sum \vec F = 0$$
+
+The second is new. If the body is not starting to spin, the torques must cancel
+too:
+
+$$\sum \tau = 0$$
+
+These really are independent. Imagine two equal and opposite forces applied at
+opposite ends of a rod — one up on the left, one down on the right. The vector
+sum is exactly zero, so the centre of mass stays put. The rod still spins. That
+arrangement is called a *couple*, and it is the proof that force balance alone
+is not enough.
+
+In two dimensions the two conditions unpack into three scalar equations:
+$\sum F_x = 0$, $\sum F_y = 0$, and $\sum \tau = 0$. Three equations means you
+can find at most three unknowns. If a problem hands you four unknown forces with
+no extra condition, it is not hard, it is *statically indeterminate*, and no
+amount of cleverness with a rigid body will fix it.
+
+One more fact does most of the work in this topic. If a body is in equilibrium,
+the net torque about it is zero **about every point**, not merely about the real
+hinge. That is not obvious, but it follows quickly: if you shift the pivot by a
+vector $\vec d$, every torque changes by an amount involving $\vec d$ crossed
+with the individual force, and those extra terms add up to $\vec d$ crossed with
+$\sum \vec F$, which is zero. So the total is unchanged.
+
+You are therefore free to put the pivot anywhere you like. Use that freedom
+ruthlessly: **choose the pivot at the point where an unknown you do not care
+about is applied.** That unknown gets a zero lever arm and drops out of the
+equation entirely.
+
+## Weight acts at the centre of mass
+
+Gravity pulls on every atom of an object, so strictly there are millions of
+tiny forces. For torque purposes you can replace all of them with a single
+force $mg$ acting at the centre of mass. For a uniform bar, plank, ladder or
+rod, that is the geometric middle.
+
+This one line turns an impossible problem into a one-liner, and forgetting it
+is the single most common mistake in equilibrium. The weight of a beam is not
+at the hinge and not at the far end. It is at the middle.
+
+<Aside label="Where this goes wrong" warn>
+  Two errors cost more marks here than everything else combined. First: leaving
+  the object's own weight out because the problem emphasised a hanging load.
+  Second: putting that weight at the wrong point — at the end of a beam, or at
+  the pivot, instead of at the centre of mass. Before you write any equation,
+  mark the centre of mass on your sketch with a dot.
+</Aside>
+
+## Worked example 1: a plank on two supports
+
+A uniform plank of mass $30\ \mathrm{kg}$ and length $5.0\ \mathrm{m}$ rests on
+supports at each end. A person of mass $70\ \mathrm{kg}$ stands
+$1.5\ \mathrm{m}$ from the left support. Find the force each support pushes up
+with. Use $g = 9.8\ \mathrm{m/s^2}$.
+
+First, the sketch. Four forces: the left support pushes up with $N_L$ at
+$x = 0$; the right support pushes up with $N_R$ at $x = 5.0\ \mathrm{m}$; the
+plank's weight $30 \times 9.8 = 294\ \mathrm{N}$ pulls down at the middle,
+$x = 2.5\ \mathrm{m}$; the person's weight $70 \times 9.8 = 686\ \mathrm{N}$
+pulls down at $x = 1.5\ \mathrm{m}$.
+
+You want $N_R$, so take torques about the left support, where $N_L$ has zero
+lever arm. Everything here acts vertically on a horizontal plank, so each lever
+arm is just the horizontal distance. Counting counterclockwise as positive, the
+upward $N_R$ at the right turns the plank counterclockwise about the left end,
+and the two weights turn it clockwise:
+
+$$N_R(5.0) - (294)(2.5) - (686)(1.5) = 0$$
+
+$$5.0\,N_R = 735 + 1029 = 1764$$
+
+$$N_R = \frac{1764}{5.0} = 352.8\ \mathrm{N}$$
+
+Now the vertical force balance gives the other one for free:
+
+$$N_L + N_R = 294 + 686 = 980\ \mathrm{N}$$
+
+$$N_L = 980 - 352.8 = 627.2\ \mathrm{N}$$
+
+Sanity check: the person stands nearer the left support, so the left support
+should carry more. It does. Notice also that you could have found $N_L$ by
+taking torques about the *right* support instead, and got the same number — a
+free way to check your arithmetic.
+
+This also runs in reverse. If a beam of unknown shape sits on two scales
+$4.0\ \mathrm{m}$ apart reading $180\ \mathrm{N}$ and $300\ \mathrm{N}$, the
+total weight is $480\ \mathrm{N}$, and torques about the left scale give
+$480\,x = 300 \times 4.0$, so the centre of mass sits at
+$x = 1200/480 = 2.5\ \mathrm{m}$ from the left end. Scales locate the centre of
+mass.
+
+<Figure caption={<><b>Figure 2.</b> The free body diagram for that plank, with every force drawn where it acts. Slide the person and watch the two support readings trade off; when the person stands directly over a support, the other one carries only half the plank's weight.</>}>
+  <Sim id="torque-equilibrium-plank" />
+</Figure>
+
+<QuickCheck
+  question="A uniform beam is held by supports at A and B. Which pivot choice gives you the force at A in a single equation?"
+  options={["Support A", "Support B", "The centre of the beam", "Anywhere off the beam"]}
+  answer={1}
+  explanation="Pivoting at B kills B's unknown force, leaving one equation whose only unknown is the force at A. Pivoting at A would kill the very force you want."
+/>
+
+## Worked example 2: a boom with a cable, and the hinge force
+
+A uniform horizontal boom weighing $180\ \mathrm{N}$ and $4.0\ \mathrm{m}$ long
+is hinged to a wall at its left end. A cable runs from the far end up to the
+wall, making $40^\circ$ with the boom. A $320\ \mathrm{N}$ load hangs from the
+far end. Find the horizontal component of the force the hinge exerts.
+
+The hinge force is an unknown in both magnitude and direction, so write it as
+two components, $H_x$ and $H_y$. That is three unknowns in total with the cable
+tension $T$, and you have exactly three equations.
+
+Take torques about the hinge. Both hinge components vanish there. The cable
+pulls at $40^\circ$ at a distance $4.0\ \mathrm{m}$, so its torque is
+$T(4.0)\sin 40^\circ$, counterclockwise. The boom's weight acts down at
+$2.0\ \mathrm{m}$, and the load acts down at $4.0\ \mathrm{m}$, both clockwise:
+
+$$T(4.0)\sin 40^\circ - (180)(2.0) - (320)(4.0) = 0$$
+
+$\sin 40^\circ = 0.6428$, so $4.0 \times 0.6428 = 2.571$:
+
+$$2.571\,T = 360 + 1280 = 1640$$
+
+$$T = \frac{1640}{2.571} = 637.9\ \mathrm{N}$$
+
+Now horizontal forces. The cable pulls the boom's far end back towards the
+wall, with horizontal component $T\cos 40^\circ$. The only other horizontal
+force is the hinge, so it must pull the other way with the same size:
+
+$$H_x = T\cos 40^\circ = 637.9 \times 0.766 = 488.6\ \mathrm{N}$$
+
+Note how big that is — larger than either the boom's weight or the load. A
+shallow cable angle forces an enormous tension, and the hinge has to match its
+horizontal pull. That is why brackets pull out of walls.
+
+## Worked example 3: the ladder
+
+This is the standard hard problem, and once you have done one you have done
+them all.
+
+A uniform ladder of mass $15\ \mathrm{kg}$ and length $5.0\ \mathrm{m}$ leans at
+$65^\circ$ to the horizontal against a frictionless wall. The coefficient of
+static friction with the floor is $\mu_s = 0.40$. How far up can a
+$75\ \mathrm{kg}$ person climb before the ladder slips?
+
+Four forces act. The wall is frictionless, so it can only push horizontally:
+call that $N_w$, at the top. The floor pushes up with $N_f$ and rubs
+horizontally with friction $f$, both at the bottom. The ladder's weight
+$15g = 147\ \mathrm{N}$ acts at the middle, $2.5\ \mathrm{m}$ along. The
+person's weight $75g = 735\ \mathrm{N}$ acts at distance $d$ along the ladder,
+which is what you want.
+
+Vertical balance: the floor carries everything, since the wall pushes
+horizontally only.
+
+$$N_f = 147 + 735 = 882\ \mathrm{N}$$
+
+Horizontal balance: friction is the only thing opposing the wall's push, so
+$f = N_w$.
+
+At the point of slipping, friction is at its maximum:
+
+$$f_{\max} = \mu_s N_f = 0.40 \times 882 = 352.8\ \mathrm{N}$$
+
+so $N_w = 352.8\ \mathrm{N}$ at that instant.
+
+Now take torques about the foot of the ladder, killing both $N_f$ and $f$ at
+once. For the wall force at the top, the height is $L\sin 65^\circ$, and the
+force is horizontal, so the lever arm is that height. For the weights, which
+point down, the lever arm is the horizontal distance out from the foot:
+$2.5\cos 65^\circ$ for the ladder, $d\cos 65^\circ$ for the person. With
+$\sin 65^\circ = 0.9063$ and $\cos 65^\circ = 0.4226$:
+
+$$N_w (5.0)(0.9063) = (147)(2.5)(0.4226) + (735)\,d\,(0.4226)$$
+
+Left side: $352.8 \times 4.532 = 1598.8$. First term on the right:
+$147 \times 1.0566 = 155.3$. So
+
+$$1598.8 - 155.3 = 735 \times 0.4226 \times d = 310.6\,d$$
+
+$$d = \frac{1443.5}{310.6} = 4.65\ \mathrm{m}$$
+
+The person can climb about $4.6\ \mathrm{m}$ up a $5.0\ \mathrm{m}$ ladder
+before it goes. Climb further and the required friction exceeds what the floor
+can supply.
+
+The same setup answers the other classic question. Take the empty ladder: mass
+$m$, length $L$, angle $\phi$. Then $N_f = mg$, $f = N_w$, and torques about
+the foot give $N_w L\sin\phi = mg(L/2)\cos\phi$, so
+$N_w = \tfrac{1}{2}mg\cot\phi$. The required friction coefficient is
+
+$$\mu_{\min} = \frac{f}{N_f} = \frac{N_w}{mg} = \frac{1}{2}\cot\phi$$
+
+Everything cancels: not the mass, not the length. At $\phi = 60^\circ$,
+$\cot 60^\circ = 0.5774$, so $\mu_{\min} = 0.2887$. Run it the other way and
+$\tan\phi = 1/(2\mu)$ gives the shallowest angle a given floor will hold. With
+$\mu = 0.30$: $\tan\phi = 1.667$, $\phi = 59.0^\circ$. With $\mu = 0.50$:
+$\tan\phi = 1.0$, $\phi = 45^\circ$ exactly.
+
+<Figure caption={<><b>Figure 3.</b> Ladder lab. Drag the angle down and watch the required friction climb; the readout turns to a warning the moment the floor cannot supply it. Try to confirm that the critical angle depends only on the coefficient, not on the ladder's mass or length.</>}>
+  <Sim id="torque-equilibrium-ladder" />
+</Figure>
+
+<QuickCheck
+  question="For a uniform ladder against a frictionless wall, doubling the ladder's mass changes the minimum floor friction coefficient how?"
+  options={["Not at all", "It doubles", "It halves", "It doubles only if the ladder is longer than 4 m"]}
+  answer={0}
+  explanation="Both the required friction and the normal force are proportional to the weight, so their ratio, which is what the coefficient must match, is unchanged. Mass and length both cancel."
+/>
+
+## Tipping, and the edge of the base
+
+A crate does not need to slide to fall over. It can tip. Both failures come out
+of the same two equilibrium conditions, and which one happens first is a
+comparison.
+
+An object tips about the edge of its base that it is rotating over. Right at
+the tipping point, the whole normal force has migrated to that edge and the
+weight's line of action passes exactly through it. So: **an object is on the
+verge of tipping when its centre of mass is directly above the edge of its
+base.**
+
+That solves the plank question immediately. A uniform $4.0\ \mathrm{m}$ plank on
+a single support tips when its centre of mass, at the $2.0\ \mathrm{m}$ mark,
+passes the support, so it can hang over by $2.0\ \mathrm{m}$.
+
+Now the comparison. Take a uniform cube of side $a$ and weight $W$ on a floor
+with coefficient $\mu_s$, pushed horizontally with force $P$ at the top edge.
+Sliding starts when $P = \mu_s W$. Tipping starts when the torque about the
+front bottom edge balances: the push acts at height $a$, the weight at
+horizontal distance $a/2$ from that edge, so $Pa = W(a/2)$, giving $P = W/2$.
+The two thresholds are equal when $\mu_s W = W/2$, that is $\mu_s = 0.5$. Below
+that the crate slides first; above it, it tips.
+
+Stacking uses the same centre-of-mass rule repeatedly. With identical bricks of
+length $\ell$ at a table edge, the top brick may overhang the one below it by
+$\ell/2$. That pair, treated as one body, has its centre of mass $\ell/4$ from
+the edge of the second brick, so it may overhang by $\ell/4$. The three-brick
+group gives $\ell/6$, and so on. Four bricks of length $0.20\ \mathrm{m}$ give
+a total overhang of
+
+$$\frac{\ell}{2} + \frac{\ell}{4} + \frac{\ell}{6} = 0.10 + 0.05 + 0.0333 = 0.1833\ \mathrm{m}$$
+
+beyond the edge of the bottom brick, and the bottom brick itself can be pushed
+$\ell/8 = 0.025\ \mathrm{m}$ past the table, for $0.2083\ \mathrm{m}$ in total.
+The series never converges, which is why you can in principle overhang a table
+by any distance you like with enough bricks.
+
+<Aside label="Worth remembering">
+  Symmetric hanging loads split by geometry, not by torque. A picture of weight
+  $W$ on two wires each at angle $\alpha$ to the horizontal has, by vertical
+  balance, $2T\sin\alpha = W$, so $T = W/(2\sin\alpha)$. For a 40 N picture at
+  25 degrees, $T = 40/(2 \times 0.4226) = 47.3\ \mathrm{N}$ — more than the
+  whole weight of the picture, in each wire. Shallow angles are expensive.
+</Aside>
+
+## How to know this is the problem type
+
+Reach for torque and static equilibrium when the problem has all three of these
+marks:
+
+- **Nothing is moving**, or something is on the verge of moving. Words like
+  "at rest", "just about to slip", "maximum load before", "minimum angle".
+- **The object has extent**, and forces act at different places on it. A beam, a
+  ladder, a plank, a bracket, a crate, a wrench. If everything acts at a single
+  point, plain force balance is enough and there is no torque to write.
+- **You are asked for a force or a distance**, not a speed or a time. Support
+  reactions, hinge forces, cable tensions, how far along, how far up, what angle.
+
+The procedure is always the same four steps. Draw the body alone and mark every
+force at the point where it acts, including the weight at the centre of mass.
+Choose the pivot at whichever unknown you want gone. Write $\sum \tau = 0$ about
+that pivot and solve. Then, if you need more, use $\sum F_x = 0$ and
+$\sum F_y = 0$ to mop up the rest. When a problem says "on the verge of
+slipping", add the single extra fact $f = \mu_s N$; when it says "on the verge
+of tipping", add instead that the normal force sits at the edge.
+
+Everything so far has been about bodies that refuse to turn. Next you take the
+brakes off and ask what happens when the torques do not cancel — which means
+asking how hard a given body is to spin up, and that is
+[moment of inertia](/guide/moment-of-inertia).

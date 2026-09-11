@@ -1,0 +1,65 @@
+[
+  {
+    "id": "gravitation-orbit-lab",
+    "title": "Circular orbit lab",
+    "caption": "Gravity supplies the centripetal force. Drag the radius and watch speed fall while the period grows.",
+    "height": 260,
+    "params": [
+      {
+        "key": "rr",
+        "label": "Orbit radius",
+        "unit": "Earth radii",
+        "min": 1.05,
+        "max": 8,
+        "step": 0.05,
+        "value": 1.06
+      }
+    ],
+    "draw": "var GM = 3.986e14, Re = 6.37e6;\nvar r = p.rr * Re;\nvar v = Math.sqrt(GM / r);\nvar T = 2 * Math.PI * r / v;\nvar ve = Math.SQRT2 * v;\nvar gh = GM / (r * r);\n\nvar cx = W * 0.40, cy = H * 0.52;\nvar span = Math.min(W * 0.50, H * 0.46);\nvar s = span / 8.6;           // pixels per Earth radius\nvar Rp = s;                   // planet radius in px\nvar Ro = p.rr * s;            // orbit radius in px\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// orbit circle\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.setLineDash([4, 5]);\nctx.beginPath();\nctx.arc(cx, cy, Ro, 0, Math.PI * 2);\nctx.stroke();\nctx.setLineDash([]);\n\n// planet\nctx.fillStyle = C.figure;\nctx.beginPath();\nctx.arc(cx, cy, Rp, 0, Math.PI * 2);\nctx.fill();\nctx.fillStyle = C.paper;\nctx.textAlign = \"center\";\nctx.fillText(\"Earth\", cx, cy + 4);\n\n// satellite: visual period keeps Kepler scaling\nvar visT = 2.6 * Math.pow(p.rr, 1.5);\nvar ang = 2 * Math.PI * (t % visT) / visT;\nvar sxp = cx + Ro * Math.cos(ang);\nvar syp = cy - Ro * Math.sin(ang);\n\n// radius line\nctx.strokeStyle = C.faint;\nctx.beginPath();\nctx.moveTo(cx, cy);\nctx.lineTo(sxp, syp);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"r\", (cx + sxp) / 2 + 5, (cy + syp) / 2 - 5);\n\n// velocity arrow (tangent) and gravity arrow (inward)\nvar tx = -Math.sin(ang), ty = -Math.cos(ang);\nvar vlen = 16 + 26 * (v / 7900);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(sxp, syp);\nctx.lineTo(sxp + tx * vlen, syp + ty * vlen);\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"v\", sxp + tx * vlen + 4, syp + ty * vlen + 4);\n\nvar gx = (cx - sxp), gy = (cy - syp);\nvar gm = Math.sqrt(gx * gx + gy * gy);\nvar glen = 10 + 34 * (gh / 9.81);\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(sxp, syp);\nctx.lineTo(sxp + gx / gm * glen, syp + gy / gm * glen);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"g\", sxp + gx / gm * glen - 12, syp + gy / gm * glen - 4);\n\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.arc(sxp, syp, 4.5, 0, Math.PI * 2);\nctx.fill();\n\n// side panel of numbers\nvar px0 = W * 0.74;\nctx.textAlign = \"left\";\nctx.fillStyle = C.ink;\nctx.fillText(\"r = \" + (p.rr).toFixed(2) + \" R_E\", px0, H * 0.30);\nctx.fillText(\"v = \" + v.toFixed(0) + \" m/s\", px0, H * 0.30 + 18);\nctx.fillText(\"T = \" + (T / 3600).toFixed(2) + \" h\", px0, H * 0.30 + 36);\nctx.fillStyle = C.figure;\nctx.fillText(\"g = \" + gh.toFixed(2) + \" m/s^2\", px0, H * 0.30 + 54);\n\nout.note = \"r = \" + (r / 1e6).toFixed(2) + \"e6 m, v = \" + v.toFixed(0) +\n  \" m/s, T = \" + T.toFixed(0) + \" s (\" + (T / 3600).toFixed(2) +\n  \" h), escape speed here = \" + ve.toFixed(0) + \" m/s\";"
+  },
+  {
+    "id": "gravitation-null-point",
+    "title": "Two masses, one null point",
+    "caption": "Field along the line joining two bodies, and where the two pulls cancel.",
+    "height": 230,
+    "params": [
+      {
+        "key": "ratio",
+        "label": "Mass ratio M1/M2",
+        "unit": "",
+        "min": 1,
+        "max": 150,
+        "step": 1,
+        "value": 81
+      }
+    ],
+    "draw": "var k = p.ratio;                 // M1 / M2\nvar d = 1.0;\nvar x0 = d / (1 + Math.sqrt(1 / k));   // null point, fraction of d from M1\n\nvar pad = W * 0.12;\nvar y0 = H * 0.58;\nvar X = function (u) { return pad + u * (W - 2 * pad); };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// axis\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(X(0), y0);\nctx.lineTo(X(1), y0);\nctx.stroke();\n\n// bodies, radius by cube root of mass\nvar r1 = 9 * Math.pow(k / (k + 1), 1 / 3) * 1.25;\nvar r2 = 9 * Math.pow(1 / (k + 1), 1 / 3) * 1.25;\nif (r1 < 5) { r1 = 5; }\nif (r2 < 4) { r2 = 4; }\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(X(0), y0, r1, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(X(1), y0, r2, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"M1 (heavy)\", X(0), y0 + r1 + 16);\nctx.fillText(\"M2\", X(1), y0 + r2 + 16);\nctx.fillText(\"separation d\", X(0.5), y0 + 38);\n\n// field arrows above the line\nvar i, u, f, mag, dir, len;\nfor (i = 1; i <= 17; i++) {\n  u = i / 18;\n  if (Math.abs(u - x0) < 0.012) { continue; }\n  f = -k / (u * u) + 1 / ((1 - u) * (1 - u));   // positive means toward M1\n  dir = f > 0 ? -1 : 1;                          // arrow points toward pull\n  mag = Math.abs(f);\n  len = 6 + 26 * (mag / (mag + 6));\n  ctx.strokeStyle = dir < 0 ? C.figure : C.accent;\n  ctx.lineWidth = 1.8;\n  ctx.beginPath();\n  ctx.moveTo(X(u), y0 - 26);\n  ctx.lineTo(X(u) + dir * len, y0 - 26);\n  ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(X(u) + dir * len, y0 - 26);\n  ctx.lineTo(X(u) + dir * (len - 5), y0 - 31);\n  ctx.lineTo(X(u) + dir * (len - 5), y0 - 21);\n  ctx.closePath();\n  ctx.fillStyle = dir < 0 ? C.figure : C.accent;\n  ctx.fill();\n}\n\n// null marker\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1.5;\nctx.setLineDash([3, 3]);\nctx.beginPath();\nctx.moveTo(X(x0), y0 - 48);\nctx.lineTo(X(x0), y0 + 10);\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"net field = 0\", X(x0), y0 - 56);\nctx.fillText(\"x = \" + x0.toFixed(3) + \" d\", X(x0), H * 0.97);\n\nctx.textAlign = \"left\";\nctx.fillStyle = C.faint;\nctx.fillText(\"arrows show which way a stone would accelerate\", pad, H * 0.12);\n\nout.note = \"M1/M2 = \" + k.toFixed(0) + \"  ->  null point at x = \" + x0.toFixed(4) +\n  \" d from M1 (for Earth and Moon, ratio 81, that is 3.456e8 m of 3.84e8 m)\";"
+  },
+  {
+    "id": "gravitation-energy-well",
+    "title": "The gravitational well",
+    "caption": "Total energy is a horizontal line. Where it meets U(r) the body stops; if it never meets it, the body escapes.",
+    "height": 260,
+    "params": [
+      {
+        "key": "r0",
+        "label": "Launch radius",
+        "unit": "Earth radii",
+        "min": 1,
+        "max": 6,
+        "step": 0.1,
+        "value": 1
+      },
+      {
+        "key": "k",
+        "label": "Launch speed / circular speed",
+        "unit": "",
+        "min": 0.2,
+        "max": 1.6,
+        "step": 0.02,
+        "value": 1.0
+      }
+    ],
+    "draw": "var GM = 3.986e14, Re = 6.37e6;\nvar r0 = p.r0 * Re;\nvar vc = Math.sqrt(GM / r0);\nvar v = p.k * vc;\nvar E = 0.5 * v * v - GM / r0;          // per kilogram\nvar rmaxPhys = E < 0 ? -GM / E : Infinity;\n\nvar padL = W * 0.13, padR = W * 0.05, padT = H * 0.16, padB = H * 0.20;\nvar rMin = 1, rMax = 12;                 // in Earth radii\nvar Umin = -GM / (rMin * Re);            // most negative\nvar yTop = -Umin * 0.32;                 // a little headroom above zero\nvar X = function (rr) { return padL + (rr - rMin) / (rMax - rMin) * (W - padL - padR); };\nvar Y = function (u) { return padT + (yTop - u) / (yTop - Umin) * (H - padT - padB); };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// axes\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(padL, padT);\nctx.lineTo(padL, H - padB);\nctx.lineTo(W - padR, H - padB);\nctx.stroke();\n\n// U = 0 line\nctx.strokeStyle = C.faint;\nctx.setLineDash([2, 4]);\nctx.beginPath();\nctx.moveTo(padL, Y(0));\nctx.lineTo(W - padR, Y(0));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"U = 0 at infinity\", padL + 6, Y(0) - 5);\n\n// U(r) curve\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nvar i, rr, u;\nfor (i = 0; i <= 200; i++) {\n  rr = rMin + (rMax - rMin) * i / 200;\n  u = -GM / (rr * Re);\n  if (i === 0) { ctx.moveTo(X(rr), Y(u)); } else { ctx.lineTo(X(rr), Y(u)); }\n}\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"U(r) = -GMm/r\", X(7.2), Y(-GM / (7.2 * Re)) + 18);\n\n// total energy line\nvar Eclamped = E > yTop ? yTop : (E < Umin ? Umin : E);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.8;\nctx.beginPath();\nctx.moveTo(padL, Y(Eclamped));\nctx.lineTo(W - padR, Y(Eclamped));\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.textAlign = \"right\";\nctx.fillText(\"total E\", W - padR - 4, Y(Eclamped) - 6);\n\n// launch point marker\nctx.strokeStyle = C.ink;\nctx.setLineDash([3, 3]);\nctx.beginPath();\nctx.moveTo(X(p.r0), Y(-GM / r0));\nctx.lineTo(X(p.r0), Y(Eclamped));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"K here\", X(p.r0), (Y(-GM / r0) + Y(Eclamped)) / 2 + 4);\nctx.fillText(\"launch r0\", X(p.r0), H - padB + 16);\n\n// turning point\nif (E < 0 && rmaxPhys / Re <= rMax) {\n  var rt = rmaxPhys / Re;\n  ctx.fillStyle = C.accent;\n  ctx.beginPath();\n  ctx.arc(X(rt), Y(E), 4.5, 0, Math.PI * 2);\n  ctx.fill();\n  ctx.fillText(\"turns back\", X(rt), Y(E) - 10);\n}\n\n// axis labels\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"distance from centre (Earth radii)\", (padL + W - padR) / 2, H - 6);\nctx.textAlign = \"left\";\nctx.fillText(\"energy per kg\", padL - 6, padT - 6);\n\nif (E >= 0) {\n  out.note = \"launch speed \" + v.toFixed(0) + \" m/s at r0 = \" + p.r0.toFixed(1) +\n    \" R_E: E >= 0, the body escapes (escape speed here is \" +\n    (Math.SQRT2 * vc).toFixed(0) + \" m/s)\";\n} else {\n  out.note = \"launch speed \" + v.toFixed(0) + \" m/s at r0 = \" + p.r0.toFixed(1) +\n    \" R_E: bound, it rises to \" + (rmaxPhys / Re).toFixed(2) +\n    \" R_E and falls back (escape would need \" + (Math.SQRT2 * vc).toFixed(0) + \" m/s)\";\n}"
+  }
+]

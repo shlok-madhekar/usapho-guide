@@ -1,48 +1,296 @@
-## Acceleration without a change in speed
+## A force that never speeds anything up
 
-An object moving in a circle at constant speed is still accelerating, because
-its velocity keeps changing direction. That acceleration points at the center
-and has magnitude
+Tie a stone to a string and whirl it around your head at a steady rate. The
+stone's speed is not changing. Your hand is still pulling hard on the string,
+and you can feel it. Something has to be accelerating, because a force acts
+and nothing else is there to cancel it — but the speedometer reading of the
+stone, if it had one, would sit perfectly still.
 
-$$a_c = \frac{v^2}{r} = \omega^2 r$$
+That is the whole puzzle of this lesson, and the resolution is one line long:
+acceleration is the rate of change of *velocity*, and velocity is a vector.
+Turn the vector without lengthening it and you have still changed it. In the
+last lesson you watched a spring trade force for stretch along a single line.
+Here the force does something stranger: it bends the path and leaves the speed
+alone.
 
-The important habit: $a_c$ is not a force. Nothing called "centripetal force"
-appears in a free body diagram. You draw the real forces (gravity, normal,
-tension, friction) and then set their net inward component equal to $mv^2/r$.
+## How big the inward acceleration is
 
-## Where the inward force comes from
+Take an object going round a circle of radius $r$ at constant speed $v$. In a
+short time $\Delta t$ it moves along the arc through a small angle
+$\Delta\theta$. The velocity vector always points along the direction of
+travel, so as the object swings through $\Delta\theta$, the velocity vector
+swings through exactly the same angle $\Delta\theta$.
 
-The whole topic is really a catalogue of what supplies that net inward force.
+Draw the old velocity and the new velocity starting from the same point. Both
+have length $v$, and there is an angle $\Delta\theta$ between them. The change
+$\Delta \vec v$ is the little vector joining the tips. For a small angle that
+gap is an arc of a circle of radius $v$, so
 
-- Ball on a string: tension.
-- Car on a flat road: static friction, so the maximum speed is $v = \sqrt{\mu g r}$.
-- Car on a banked track: the horizontal component of the normal force, giving $\tan\theta = v^2/gr$ when no friction is needed.
-- Satellite: gravity.
-- Bucket swung overhead: gravity plus the normal force from the bucket, which is why there is a minimum speed at the top.
+$$|\Delta \vec v| = v\,\Delta\theta$$
 
-<Aside label="Where this goes wrong" warn>
-  At the top of a vertical loop, both gravity and the normal force point down,
-  so $N + mg = mv^2/r$. The critical case is $N = 0$, giving $v^2 = gr$. Adding
-  the two forces with the wrong sign here is the standard mistake.
+Divide by $\Delta t$. The angle swept per second is the *angular velocity*
+$\omega = \Delta\theta/\Delta t$, measured in radians per second, so
+
+$$a = \frac{|\Delta \vec v|}{\Delta t} = v\,\omega$$
+
+And since the object covers arc length $r\,\Delta\theta$ in that same time,
+$v = \omega r$. Substituting either way round:
+
+$$a_c = \frac{v^2}{r} = \omega^2 r = \omega v$$
+
+Which direction does it point? $\Delta \vec v$ is perpendicular to $\vec v$ —
+it has to be, since the length of $\vec v$ is not changing — and it tilts
+toward the inside of the turn. So the acceleration points at the centre of the
+circle. That is what *centripetal* means: centre-seeking. The subscript $c$ is
+just a reminder of the direction.
+
+Three more relations you will use constantly. If the period is $T$, one
+revolution of arc length $2\pi r$ takes $T$ seconds, so $v = 2\pi r/T$ and
+$\omega = 2\pi/T$. And revolutions per minute convert by dividing by 60 to get
+revolutions per second, then multiplying by $2\pi$.
+
+<Figure caption={<><b>Figure 1.</b> The velocity arrow stays the same length and swings round; the acceleration arrow always points at the centre. Drag the radius down at fixed speed and watch the acceleration readout climb — halving $r$ doubles $a$, but doubling $v$ quadruples it.</>}>
+  <Sim id="circular-motion-turntable" />
+</Figure>
+
+<Aside label="Worth remembering">
+  $a_c = v^2/r$ is brutally sensitive to speed. A car that corners comfortably
+  at 10 m/s needs four times the grip at 20 m/s, not twice.
 </Aside>
 
-## Gravitation
+**Example 1.** A point on a record sits 0.15 m from the centre and the record
+turns at 45 revolutions per minute. What is its centripetal acceleration?
 
-Newton's law of gravitation and the circular-orbit condition together give
-almost every orbital result you need:
+Convert the rate first. $45$ rev/min $= 45/60 = 0.75$ rev/s, and each
+revolution is $2\pi$ radians, so
 
-$$F = \frac{Gm_1m_2}{r^2}, \qquad \frac{GMm}{r^2} = \frac{mv^2}{r}$$
+$$\omega = 0.75 \times 2\pi = 4.712\ \mathrm{rad/s}$$
 
-Eliminating $v$ gives Kepler's third law, $T^2 \propto r^3$. The orbiting
-mass cancels, which is why a satellite's mass never appears in its period.
+Now use the form that already has $\omega$ in it, so you never need the speed:
 
-Two results worth carrying: orbital speed falls as $1/\sqrt{r}$, so a higher
-orbit is slower, and the total energy of a circular orbit is $-GMm/2r$,
-exactly half the potential energy and negative because the orbit is bound.
+$$a_c = \omega^2 r = (4.712)^2 \times 0.15 = 22.21 \times 0.15 = 3.33\ \mathrm{m/s^2}$$
 
 <QuickCheck
-  question="Satellite B orbits at four times the radius of satellite A. B's period is longer by a factor of:"
-  options={["2", "4", "8", "16"]}
+  question="A stone swings on a 0.80 m string, one revolution every 2.0 s. Its speed is closest to:"
+  options={["0.40 m/s", "1.26 m/s", "2.51 m/s", "5.03 m/s"]}
   answer={2}
-  explanation="Kepler's third law gives T proportional to r to the 3/2 power, so a factor of 4 in radius becomes 4^1.5 = 8 in period."
+  explanation="One lap is a circumference, 2 pi r = 2 pi times 0.80 = 5.03 m, covered in 2.0 s, so v = 2.51 m/s. Picking 5.03 means you forgot to divide by the period."
 />
+
+## There is no such thing as a centripetal force
+
+This is the single habit that decides whether the rest of the topic is easy or
+miserable. $mv^2/r$ is not a force. It is a *requirement*. It is the answer the
+real forces have to add up to, in the inward direction, if the object is going
+to keep going round.
+
+So the free body diagram never gets an arrow labelled "centripetal force". It
+gets the arrows it always got: gravity, the normal force, tension, friction.
+Then you pick the inward direction as positive, add up the components of those
+real forces along it, and set the total equal to $mv^2/r$:
+
+$$\sum F_{\text{inward}} = \frac{mv^2}{r}$$
+
+Perpendicular to that — along the direction of motion — the forces must sum to
+$ma_{\text{tangential}}$, which is zero when the speed is steady.
+
+<Figure caption={<><b>Figure 2.</b> The same equation in three geometries. Notice that in panel 1 "inward" means downward and in panel 2 it means upward, which is the only reason the sign in front of $mg$ flips. Nothing else changes.</>}>
+  <Sim id="circular-motion-fbd" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  Do not add $mv^2/r$ to your force diagram as an extra outward arrow to
+  "balance" things. Centrifugal force is a bookkeeping device for observers who
+  are themselves spinning, and it will cost you a factor of two or a sign the
+  moment you mix it with real forces. Draw real forces only, put $mv^2/r$ on
+  the right-hand side of the equals sign, and keep it there.
+</Aside>
+
+## Cornering: when friction is the inward force
+
+A car on a flat road turns because static friction from the road pushes it
+sideways, toward the centre of the curve. The vertical direction is boring —
+$N = mg$ — so the most static friction the road can supply is
+$f_{\max} = \mu_s N = \mu_s m g$. Setting that equal to the requirement gives
+the fastest safe cornering speed:
+
+$$\mu_s m g = \frac{mv^2}{r} \quad\Longrightarrow\quad v_{\max} = \sqrt{\mu_s g r}$$
+
+The mass cancels, which is why a loaded truck and an empty one skid at roughly
+the same speed.
+
+Friction is one vector, though, with one budget. If the car is also braking,
+the friction force has to do two jobs at once: point inward with magnitude
+$mv^2/r$ *and* point backward with magnitude $ma_{\text{brake}}$. Those two
+demands are perpendicular, so they add like the legs of a right triangle, and
+the total cannot exceed $\mu_s m g$.
+
+**Example 2.** A car takes a flat curve of radius 100 m at 20 m/s on a road
+with $\mu_s = 0.80$. How hard can it brake at the same time without skidding?
+
+The total friction available, per kilogram, is
+
+$$\frac{f_{\max}}{m} = \mu_s g = 0.80 \times 9.8 = 7.84\ \mathrm{m/s^2}$$
+
+The turning already spends
+
+$$a_c = \frac{v^2}{r} = \frac{20^2}{100} = \frac{400}{100} = 4.00\ \mathrm{m/s^2}$$
+
+These are at right angles, so what is left is not $7.84 - 4.00$. It is the
+other leg of the triangle:
+
+$$a_{\text{brake}} = \sqrt{(7.84)^2 - (4.00)^2} = \sqrt{61.47 - 16.00} = \sqrt{45.47} = 6.74\ \mathrm{m/s^2}$$
+
+Subtracting instead of using Pythagoras gives 3.84, and it is the most common
+wrong answer on this kind of problem.
+
+<QuickCheck
+  question="A car corners at exactly its maximum speed on a flat curve. How much braking is still available?"
+  options={["Almost all of it", "About half", "None", "It depends on the mass"]}
+  answer={2}
+  explanation="At the maximum cornering speed the whole friction budget is already pointed inward, so the remaining leg of the triangle is zero. This is why you brake before the corner, not in it."
+/>
+
+## Vertical circles and the speed you cannot go below
+
+Now swing the stone in a vertical circle instead of a horizontal one. Gravity
+still points down, but "inward" now rotates as the stone goes round, so the
+component of gravity that counts keeps changing.
+
+At the very top, the centre of the circle is directly below the stone. Both
+the tension $T$ and the weight $mg$ point down, which is inward, so
+
+$$T + mg = \frac{mv_{\text{top}}^2}{r}$$
+
+Rearranged, $T = mv_{\text{top}}^2/r - mg$. Slow the stone down and $T$ falls.
+A string can pull but it cannot push, so $T$ is not allowed to go negative.
+The slowest the stone can go while the string stays taut is the speed at which
+$T$ has just reached zero:
+
+$$0 + mg = \frac{mv_{\min}^2}{r} \quad\Longrightarrow\quad v_{\min} = \sqrt{gr}$$
+
+That is the famous condition, and the reason it matters is what it means
+physically: at that speed, gravity alone is exactly the force needed to bend
+the path into the circle. The string has nothing left to do. Go slower and
+gravity is more than enough, the stone falls inside the circle, and the string
+crumples. Notice the mass has dropped out — a bucket of water and a marble
+need the same minimum speed at the top of a 1.0 m circle, $\sqrt{9.8 \times 1.0}
+= 3.13$ m/s.
+
+At the bottom, the centre is above, so inward is up:
+
+$$T - mg = \frac{mv_{\text{bot}}^2}{r} \quad\Longrightarrow\quad T = \frac{mv_{\text{bot}}^2}{r} + mg$$
+
+The plus sign here and the minus sign at the top come entirely from which way
+"inward" points. If you only remember one thing, remember to redraw the
+picture at the point in the circle the question asks about.
+
+<Figure caption={<><b>Figure 3.</b> Set the speed at the top to 1.00 and the top bar drops to zero — that is the critical case. Push it below 1.00 and the string goes slack. Notice that the bottom tension stays large even in the critical case: try mass 0.25 kg, radius 0.80 m and read the bottom bar.</>}>
+  <Sim id="circular-motion-vertical-loop" />
+</Figure>
+
+Linking the top speed to the bottom speed takes energy conservation, which you
+will meet properly soon but need here. Falling from the top of the circle to
+the bottom is a drop of $2r$, so $v_{\text{bot}}^2 = v_{\text{top}}^2 + 4gr$.
+
+**Example 3.** A 0.25 kg ball is swung in a vertical circle at exactly the
+minimum speed at the top. What is the tension at the lowest point?
+
+Here is the trick that makes this clean: you are not told $r$, so keep it
+symbolic and hope it cancels. At the top, minimum speed means
+$v_{\text{top}}^2 = gr$. Then
+
+$$v_{\text{bot}}^2 = gr + 4gr = 5gr$$
+
+Put that into the bottom equation:
+
+$$T = \frac{m(5gr)}{r} + mg = 5mg + mg = 6mg$$
+
+The radius cancelled. So the tension at the bottom of a critical loop is
+always six times the weight, whatever the size of the circle:
+
+$$T = 6 \times 0.25 \times 9.8 = 14.7\ \mathrm{N}$$
+
+<Aside label="Worth remembering">
+  Critical vertical loop: zero tension at the top, exactly $6mg$ at the bottom.
+  If your answer to a loop problem is not a tidy multiple of $mg$, check
+  whether the radius really should have cancelled.
+</Aside>
+
+## When the support can push back
+
+The $v_{\min} = \sqrt{gr}$ condition comes from the string's inability to push.
+Change the support and the condition changes with it.
+
+A **rigid rod** can push as well as pull. Balanced at the top and nudged, a
+ball on a rod can start with essentially zero speed, because the rod will hold
+it up on the way round. So for a rod of length $\ell = 0.70$ m, the speed at
+the bottom comes straight from the $2\ell$ drop with $v_{\text{top}} \approx 0$:
+
+$$v_{\text{bot}} = \sqrt{4g\ell} = \sqrt{4 \times 9.8 \times 0.70} = \sqrt{27.44} = 5.24\ \mathrm{m/s}$$
+
+A **surface** can push but not pull, which flips the logic the other way. A
+block sliding over the outside of a dome of radius $R$ has the centre of the
+circle below it, so at an angle $\theta$ from the top the inward equation is
+
+$$mg\cos\theta - N = \frac{mv^2}{R}$$
+
+The block leaves the surface when $N$ falls to zero, so it leaves when
+$v^2 = gR\cos\theta$. Meanwhile energy gives $v^2 = 2gR(1 - \cos\theta)$ for a
+block starting from rest at the top. Setting those equal:
+
+$$gR\cos\theta = 2gR(1-\cos\theta) \quad\Longrightarrow\quad 3\cos\theta = 2 \quad\Longrightarrow\quad \cos\theta = \tfrac{2}{3}$$
+
+The height above the centre of the dome is $R\cos\theta = \tfrac{2}{3}R$, so a
+dome of radius 1.5 m releases the block at $\tfrac{2}{3}(1.5) = 1.0$ m. The
+angle is the same for every dome; only the height scales.
+
+## Two more sources of the inward force
+
+**A rotating string carrying several masses.** Cut the string anywhere in your
+mind and ask what the piece beyond the cut needs. The inner segment has to
+supply the inward force for *everything* outside it. For two 0.30 kg beads at
+0.40 m and 0.80 m rotating at 5.0 rad/s, the inner segment carries both:
+
+$$T = m\omega^2 r_1 + m\omega^2 r_2 = 0.30 \times 25 \times (0.40 + 0.80) = 7.5 \times 1.2 = 9.0\ \mathrm{N}$$
+
+For a continuous chain the same logic holds with the mass of the outer piece
+placed at its own centre of mass. Tension is largest at the axis and zero at
+the free tip.
+
+**Gravity, for an orbit.** A satellite in a circular orbit is held in by
+gravity and nothing else, so $GMm/r^2 = mv^2/r$. The satellite's mass cancels.
+Writing $v = 2\pi r/T$ and rearranging gives $T^2 \propto r^3$, so
+$T \propto r^{3/2}$. Four times the radius means $4^{3/2} = 8$ times the
+period.
+
+A **banked track** uses the horizontal component of the normal force. With no
+friction, the normal force's vertical part carries the weight and its
+horizontal part does the turning, and dividing one by the other gives
+$\tan\theta = v^2/(gr)$. For $r = 50$ m, $v = 20$ m/s and $g = 10$ m/s²,
+$\tan\theta = 400/500 = 0.8$, so $\theta = 38.7°$. The [next
+lesson](/guide/banked-curves) takes that apart properly, along with what
+happens when friction joins in.
+
+## Recognising it
+
+Reach for this technique when the problem contains any of these:
+
+- The words circle, loop, curve, corner, orbit, revolution, rpm, or a period
+  for something going round.
+- A radius together with a speed, or a radius together with an angular rate.
+- A question about the *minimum* or *maximum* speed for something to stay on a
+  track, in a bucket, or on a string.
+- A normal force or tension that you are asked to find at a specific point of a
+  curved path.
+
+Then the procedure is always the same four steps. Draw the object at the exact
+moment asked about. Mark which way the centre is from there — that is
+"inward". Add up the real forces along that direction, with signs, and set the
+sum equal to $mv^2/r$. If two different points of the path are involved, link
+their speeds with energy conservation before you solve.
+
+The one extra question to ask, every time: can the thing supplying the force
+only pull, only push, or both? A string only pulls, a surface only pushes, a
+rod does either. That single answer is what sets the critical condition, and
+it is where most of the hard problems in this topic hide.

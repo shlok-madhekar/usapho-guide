@@ -1,75 +1,348 @@
-## A force that depends on velocity
+## A force that only notices things that move
 
-The electric force on a charge points along the field. The magnetic force does
-not point along anything obvious — it is perpendicular to both the velocity and
-the field:
+Put a proton at rest in the gap of a strong magnet and nothing happens. It just
+sits there. Now flick it sideways at a hundred kilometres a second and it swings
+around in a tight circle, comes back, and keeps circling forever. Nothing about
+the magnet changed. The only thing that changed was the proton's velocity.
 
-$$\vec{F} = q\vec{v} \times \vec{B}$$
+That is the strange part of magnetism, and it is worth sitting with before you
+touch a formula. In the circuits you have just come from, current was pushed by
+a potential difference and the force on a charge pointed along the field. Here
+the force depends on how fast the charge is going, and it does not point along
+the field, and it does not point along the velocity either. It points off to
+the side, perpendicular to both.
 
-Its magnitude is $qvB\sin\theta$, where $\theta$ is the angle between $\vec{v}$
-and $\vec{B}$. A charge sitting still feels nothing. A charge moving parallel
-to the field feels nothing. The force is largest when the motion is
-perpendicular to the field.
+## The force law, and the direction
 
-## No work, ever
+Experiment says the force on a charge $q$ moving with velocity $\vec{v}$
+through a magnetic field $\vec{B}$ has three properties. It is proportional to
+$q$, proportional to $v$, and it vanishes when $\vec{v}$ lies along $\vec{B}$.
+It is also always perpendicular to both $\vec{v}$ and $\vec{B}$. There is
+exactly one product of two vectors that behaves that way, the cross product, so
 
-Because $\vec{F}$ is perpendicular to $\vec{v}$, the power delivered is
+$$\vec{F} = q\,\vec{v} \times \vec{B}$$
+
+The magnitude follows from the definition of the cross product:
+
+$$F = |q|\,v\,B\sin\theta$$
+
+where $\theta$ is the angle between $\vec{v}$ and $\vec{B}$. If the charge
+moves straight across the field, $\theta = 90^\circ$ and you get the maximum,
+$F = qvB$. If it moves along the field, $\sin 0 = 0$ and there is no force at
+all. $B$ is measured in tesla: one tesla pushes a one-coulomb charge moving at
+one metre per second across it with one newton of force. A tesla is a big
+field. The Earth's is about $5\times10^{-5}$ T, a fridge magnet a hundredth of
+a tesla, an MRI magnet a few tesla.
+
+The direction comes from the right-hand rule. Point your fingers along
+$\vec{v}$, curl them toward $\vec{B}$, and your thumb points along
+$\vec{v}\times\vec{B}$. That is the force *if $q$ is positive*. For an electron
+the force is the opposite way, because $q$ is negative.
+
+<Figure caption={<><b>Figure 1.</b> Two charges with identical velocity in the
+same field, differing only in sign. Notice the field is drawn as x marks
+because it points into the page, away from you, and that the force is
+perpendicular to the velocity in both panels.</>}>
+  <Sim id="magnetic-force-rhr" />
+</Figure>
+
+Try the easy end first. A proton at $2.0\times10^{5}$ m/s crossing a $0.50$ T
+field perpendicular feels
+
+$$F = (1.6\times10^{-19})(2.0\times10^{5})(0.50) = 1.6\times10^{-14}\ \text{N}$$
+
+Tiny in absolute terms, but the proton's mass is $1.67\times10^{-27}$ kg, so
+the acceleration is about $10^{13}$ m/s$^2$. Small forces do dramatic things to
+small masses.
+
+<Aside label="Where this goes wrong" warn>
+  The angle $\theta$ in $qvB\sin\theta$ is the angle between the velocity and
+  the field, not the angle to some surface or wall. An electron moving at
+  $30^\circ$ to $\vec{B}$ feels $qvB\sin 30^\circ = 0.5\,qvB$, not
+  $qvB\cos 30^\circ$. Draw the two vectors tail to tail before you decide which
+  trig function you need.
+</Aside>
+
+## Magnetic forces do no work
+
+Because $\vec{F}$ is always perpendicular to $\vec{v}$, the power it delivers is
 
 $$P = \vec{F}\cdot\vec{v} = q(\vec{v}\times\vec{B})\cdot\vec{v} = 0$$
 
-A magnetic field cannot change a particle's speed or kinetic energy. It can
-only bend the trajectory. This is a strong constraint and a good check: if a
-solution has a magnetic field speeding a particle up, something is wrong.
-
-<Aside label="Where this goes wrong" warn>
-  "Magnetic fields do no work" is a statement about point charges, not about
-  magnets. A magnet lifting a paperclip clearly transfers energy. The
-  resolution is that the energy comes from the internal structure of the
-  current loops and dipoles involved, not from the $q\vec{v}\times\vec{B}$ term
-  on a free charge. Use the no-work rule for particle-in-a-field problems and
-  do not try to stretch it into an argument about magnets and induction.
-</Aside>
-
-## Circular motion and the cyclotron radius
-
-Fire a charge perpendicular to a uniform field. The force has constant
-magnitude and stays perpendicular to the velocity, which is exactly the
-condition for uniform circular motion. Set the magnetic force equal to the
-centripetal requirement:
-
-$$qvB = \frac{mv^2}{r} \quad\Longrightarrow\quad r = \frac{mv}{qB} = \frac{p}{qB}$$
-
-The radius is proportional to momentum, which is why bending a beam through a
-known field and measuring the curvature is how detectors identify particles.
-
-The period is more striking:
-
-$$T = \frac{2\pi m}{qB}$$
-
-Speed has dropped out. Faster particles trace larger circles in exactly the
-same time, which is what lets a cyclotron drive every orbit with a single fixed
-frequency.
-
-If the velocity has a component along $\vec{B}$, that component is untouched.
-The result is a helix: circular in the plane perpendicular to the field,
-uniform along it.
-
-## Force on a wire
-
-A wire is a stream of moving charges. Summing $q\vec{v}\times\vec{B}$ over the
-carriers in a length $\vec{L}$ gives
-
-$$\vec{F} = I\vec{L}\times\vec{B}$$
-
-For a curved wire, integrate $I\,d\vec{\ell}\times\vec{B}$. In a uniform field
-the integral of $d\vec{\ell}$ depends only on the endpoints, so any wire shape
-feels the same force as the straight segment joining its ends — and a closed
-loop in a uniform field feels zero net force, though generally a nonzero
-torque.
+A magnetic field can never change a particle's speed or its kinetic energy. It
+can only bend the path. That is one of the most useful constraints in this
+whole unit. If a solution has a magnetic field speeding a particle up, the
+solution is wrong. If a particle enters a field region at $1.0\times10^{6}$ m/s,
+it leaves at $1.0\times10^{6}$ m/s, however long it spent inside and however
+much it turned.
 
 <QuickCheck
-  question="A proton and an alpha particle enter the same uniform magnetic field with the same speed, perpendicular to the field. The alpha has twice the charge and four times the mass. Its orbital radius compared to the proton's is:"
-  options={["Half as large", "The same", "Twice as large", "Four times as large"]}
+  question="A proton enters a region of uniform magnetic field, curves through most of a circle, and exits. Compared with its entry, its exit speed is:"
+  options={["Larger, since the field pushed it", "Smaller, since bending costs energy", "Exactly the same", "It depends on how long it was inside"]}
   answer={2}
-  explanation="The radius is mv over qB. Mass up by four and charge up by two gives a factor of two. The period also doubles, for the same reason."
+  explanation="The force is always perpendicular to the velocity, so it does zero work and the kinetic energy is unchanged. Only the direction of the velocity changed."
 />
+
+## Circles, periods, and the radius formula
+
+Fire a charge into a uniform field perpendicular to the field lines. The force
+has constant magnitude $qvB$ (the speed never changes, so neither does the
+force) and it always points at right angles to the motion. Constant-magnitude,
+always-perpendicular force is exactly the recipe for uniform circular motion.
+So set the magnetic force equal to what circular motion demands:
+
+$$qvB = \frac{mv^2}{r}$$
+
+One power of $v$ cancels off each side, and
+
+$$r = \frac{mv}{qB} = \frac{p}{qB}$$
+
+Read that. Radius is proportional to momentum and inversely proportional to
+field. A heavier or faster particle is harder to bend, a stronger field bends it
+more. Bending a beam through a known field and measuring the curvature is how
+particle detectors weigh what went through them.
+
+The period is stranger. Going once around covers $2\pi r$ at speed $v$, so
+
+$$T = \frac{2\pi r}{v} = \frac{2\pi m}{qB}$$
+
+The speed has vanished. A fast particle traces a big circle, a slow one traces
+a small circle, and they take exactly the same time. That fixed frequency,
+$f = qB/2\pi m$, is called the cyclotron frequency, and it is what lets a
+cyclotron drive every orbit, from the first tiny one to the last huge one, with
+a single fixed-frequency voltage.
+
+<Figure caption={<><b>Figure 2.</b> Drag the entry speed and watch the circle
+grow while the period in the readout stays put. Then drag the field instead,
+and watch both change. The mass slider turns the proton into a heavier ion.</>}>
+  <Sim id="magnetic-force-orbit" />
+</Figure>
+
+### Worked example: a mass spectrometer
+
+A singly charged ion starts from rest, falls through a potential difference of
+$2000$ V, then enters a $0.50$ T field perpendicular to its velocity and bends
+on a circle of radius $0.15$ m. What is its mass?
+
+Two stages, so two equations. First, the electrical stage gives it energy:
+
+$$qV = \tfrac{1}{2}mv^2 \quad\Longrightarrow\quad v = \sqrt{\frac{2qV}{m}}$$
+
+Second, the magnetic stage sets the radius, $r = mv/qB$. You do not know $v$ and
+you do not know $m$, so eliminate $v$. Substituting,
+
+$$r = \frac{m}{qB}\sqrt{\frac{2qV}{m}} = \frac{1}{B}\sqrt{\frac{2Vm}{q}}$$
+
+Square it and solve for the mass:
+
+$$m = \frac{qB^2r^2}{2V}$$
+
+Now the arithmetic. $B^2 = 0.25$ T$^2$, $r^2 = 0.0225$ m$^2$, so
+$B^2r^2 = 5.625\times10^{-3}$. Then
+
+$$m = \frac{(1.6\times10^{-19})(5.625\times10^{-3})}{2(2000)} = \frac{9.0\times10^{-22}}{4000} = 2.25\times10^{-25}\ \text{kg}$$
+
+About 135 atomic mass units. That $m \propto B^2r^2/V$ relation is the whole
+instrument: two isotopes accelerated through the same voltage arrive at radii
+in the ratio $\sqrt{m}$, and if you bend them a half circle onto a plate, the
+landing spots are $2(r_2 - r_1)$ apart.
+
+<Aside label="Worth remembering">
+  A particle that enters a slab of field and leaves before completing a circle
+  has turned through an angle $\phi$ given by $\sin\phi = d/r$, where $d$ is the
+  distance travelled across the slab and $r$ is the cyclotron radius. Draw the
+  circle, drop the perpendicular, and it is just geometry. For a proton at
+  $1.0\times10^{6}$ m/s in $0.10$ T, $r = 0.104$ m, so a $5.0$ cm slab gives
+  $\sin\phi = 0.479$ and $\phi \approx 28.6^\circ$.
+</Aside>
+
+If the velocity is not perpendicular to the field, split it. The component
+$v_\parallel = v\cos\theta$ along $\vec{B}$ feels no force at all and just
+coasts. The component $v_\perp = v\sin\theta$ across the field circles as
+before. Together they trace a helix: a circle of radius $mv_\perp/qB$ drifting
+steadily along the field. The distance it advances in one full turn is the
+**pitch**,
+
+$$\text{pitch} = v_\parallel T = v\cos\theta \cdot \frac{2\pi m}{qB}$$
+
+## Crossed fields
+
+Put $\vec{E}$ and $\vec{B}$ perpendicular to each other and send a charge
+through perpendicular to both. The electric force $qE$ pushes one way, the
+magnetic force $qvB$ the other. They cancel when
+
+$$qE = qvB \quad\Longrightarrow\quad v = \frac{E}{B}$$
+
+The charge and the mass both drop out. Every particle at exactly that speed
+sails straight through whatever it is; everything slower or faster gets
+deflected into a wall. That is a velocity selector, and it is the front end of
+most mass spectrometers, because $r = mv/qB$ is only useful if you know $v$.
+
+A charge released from *rest* in crossed fields does something more interesting.
+It has no magnetic force at first, so $E$ accelerates it; as it picks up speed
+the magnetic force grows and curves it around, eventually turning it back and
+slowing it to rest again. The path is a cycloid, the curve a point on a rolling
+wheel traces. Since magnetism does no work, all the kinetic energy came from
+$E$, and the particle is momentarily at rest again after drifting a distance
+$d$ sideways. The fastest point is halfway, and working through the geometry
+gives a maximum speed of $v_{\max} = 2E/B$ — for $E = 1.0\times10^{4}$ V/m and
+$B = 0.20$ T, that is $1.0\times10^{5}$ m/s.
+
+<QuickCheck
+  question="A velocity selector passes particles at 800 km/s. You double both the electric field and the magnetic field. The pass speed becomes:"
+  options={["400 km/s", "800 km/s", "1600 km/s", "3200 km/s"]}
+  answer={1}
+  explanation="The selected speed is E over B. Doubling both leaves the ratio alone, so the same speed passes."
+/>
+
+## Wires, because a wire is just charges moving
+
+A current is a stream of charges with a drift velocity. Take a straight
+segment of length $L$ carrying current $I$. In a time $\Delta t$ the charge that
+passes is $q = I\Delta t$, and it moves a distance $v\Delta t = L$. So summing
+$q\vec{v}\times\vec{B}$ over all the carriers gives $qvB\sin\theta =
+(I\Delta t)(L/\Delta t)B\sin\theta$, and the $\Delta t$ cancels:
+
+$$\vec{F} = I\vec{L}\times\vec{B}, \qquad F = ILB\sin\theta$$
+
+$\vec{L}$ points along the wire in the direction of conventional current. A
+$0.40$ m wire carrying $5.0$ A perpendicular to a $0.30$ T field feels
+$F = (5.0)(0.40)(0.30) = 0.60$ N. That is a force you can feel with your hand,
+which is why motors are built out of current-carrying wire and not out of
+individual protons.
+
+<Figure caption={<><b>Figure 3.</b> Turn the current up and the rod accelerates
+harder. The readout gives the force and the acceleration. Set the current or
+the field to zero and the rod stops moving at all.</>}>
+  <Sim id="magnetic-force-rails" />
+</Figure>
+
+For a bent wire you integrate $I\,d\vec{\ell}\times\vec{B}$, but in a *uniform*
+field $\vec{B}$ comes outside the integral and $\int d\vec{\ell}$ depends only
+on the endpoints. So a bent wire in a uniform field feels the same force as the
+straight wire joining its ends. A semicircle of radius $0.10$ m carrying
+$4.0$ A perpendicular to a $0.25$ T field feels the force of its $0.20$ m
+diameter: $F = (4.0)(0.20)(0.25) = 0.20$ N. And a closed loop in a uniform
+field feels zero net force, since its endpoints coincide.
+
+Two parallel wires each sit in the other's field. Using the field of a long wire
+that you will derive properly in the next lesson, $B = \mu_0 I/2\pi d$, the
+force per unit length is
+
+$$\frac{F}{L} = \frac{\mu_0 I_1 I_2}{2\pi d}$$
+
+Same direction, they attract; opposite, they repel. Two bus bars $5.0$ cm apart
+carrying $10$ A each pull on one another with
+$(4\pi\times10^{-7})(100)/(2\pi \times 0.05) = 4.0\times10^{-4}$ N per metre.
+
+### Worked example: starting a rod against friction
+
+A $0.20$ kg rod lies across horizontal rails $0.40$ m apart in a vertical
+$0.50$ T field. The static friction coefficient is $0.30$. What current just
+starts it moving?
+
+Start with what is on the paper: the field is vertical, the rod is horizontal
+and perpendicular to it, so $\vec{I}\vec{L}\times\vec{B}$ is horizontal, along
+the rails. Good, that is the direction the rod would slide. Its magnitude is
+$ILB$ with no $\sin\theta$ correction.
+
+The rod is on the verge of moving when that force equals the largest static
+friction the rails can supply. Nothing pushes the rod down or up, so the normal
+force is just the weight, $N = mg$, and
+
+$$ILB = \mu mg \quad\Longrightarrow\quad I = \frac{\mu m g}{LB}$$
+
+Numbers: $\mu m g = (0.30)(0.20)(9.8) = 0.588$ N, and $LB = (0.40)(0.50) = 0.20$
+T$\cdot$m. So $I = 0.588/0.20 = 2.94$ A.
+
+## Loops: moment, torque, and small oscillations
+
+A loop feels no net force in a uniform field, but it does feel a twist. Picture
+a rectangular loop of area $A$ carrying current $I$, with its plane containing
+the field. The two sides perpendicular to $\vec{B}$ feel forces $ILB$ in
+opposite directions, offset by the width of the loop. Equal and opposite forces
+on different lines of action are a couple: no net force, pure torque. Working
+out the lever arms gives $\tau = IAB$ for that orientation, and $N$ turns
+multiply it by $N$.
+
+Define the **magnetic dipole moment** $\mu = NIA$, a vector pointing along the
+normal to the loop (right hand curled the way the current flows, thumb along
+$\vec{\mu}$). Then for any orientation
+
+$$\vec{\tau} = \vec{\mu}\times\vec{B}, \qquad \tau = \mu B \sin\alpha$$
+
+where $\alpha$ is the angle between $\vec{\mu}$ and $\vec{B}$. Maximum torque
+when the loop's plane contains the field ($\alpha = 90^\circ$); zero torque when
+the normal lines up with the field. The associated potential energy is
+$U = -\vec{\mu}\cdot\vec{B} = -\mu B\cos\alpha$, lowest when aligned. Rotating a
+$0.50$ A$\cdot$m$^2$ moment from aligned to perpendicular in a $0.20$ T field
+costs $\Delta U = 0 - (-0.10) = 0.10$ J of external work.
+
+<Figure caption={<><b>Figure 4.</b> Swing the loop with the angle slider. The
+force couple is largest when the loop lies along the field and vanishes when
+the normal points along it. Watch the energy readout bottom out at zero
+degrees.</>}>
+  <Sim id="magnetic-force-torque" />
+</Figure>
+
+### Worked example: a coil that oscillates
+
+A coil of $200$ turns, area $4.0\times10^{-4}$ m$^2$, carries $0.50$ A and hangs
+so it can rotate about a vertical axis in a horizontal $0.020$ T field. Its
+moment of inertia is $1.2\times10^{-6}$ kg$\cdot$m$^2$. Find the period of small
+oscillations about the aligned position.
+
+The aligned position is the energy minimum, so nudge it and it swings back. The
+restoring torque at a small angle $\alpha$ is
+
+$$\tau = -\mu B\sin\alpha \approx -\mu B \alpha$$
+
+using $\sin\alpha \approx \alpha$ for small angles. That is a restoring torque
+proportional to displacement, which is angular simple harmonic motion:
+$I_{\text{rot}}\ddot\alpha = -\mu B\alpha$, so the effective torsion constant is
+$\kappa = \mu B$ and
+
+$$T = 2\pi\sqrt{\frac{I_{\text{rot}}}{\mu B}}$$
+
+Compute the moment first. $\mu = NIA = (200)(0.50)(4.0\times10^{-4}) =
+4.0\times10^{-2}$ A$\cdot$m$^2$. Then $\mu B = (4.0\times10^{-2})(0.020) =
+8.0\times10^{-4}$ N$\cdot$m per radian. So
+
+$$T = 2\pi\sqrt{\frac{1.2\times10^{-6}}{8.0\times10^{-4}}} = 2\pi\sqrt{1.5\times10^{-3}} = 2\pi(0.0387) = 0.243\ \text{s}$$
+
+That is the pendulum formula with $\mu B$ playing the role of $mg\ell$. Whenever
+you see a dipole nudged from alignment, expect this.
+
+## Recognising the technique
+
+Most magnetic force problems announce themselves in one of five ways.
+
+**A charge and a speed and a field.** If the question gives you a moving charge
+and asks for a force, it is $qvB\sin\theta$ and the only work is finding
+$\theta$. If it asks for a radius, a period, a frequency, or a kinetic energy,
+you want $r = mv/qB$ and $T = 2\pi m/qB$, and you pick whichever one contains
+the quantity you were given. Energy questions go through $K = \frac{1}{2}mv^2$
+with $v = qBr/m$.
+
+**Two stages, one electric and one magnetic.** A potential difference
+accelerating an ion and then a field bending it means eliminate $v$ between
+$qV = \frac{1}{2}mv^2$ and $r = mv/qB$. Any problem with a voltage and a radius
+in the same sentence is this problem.
+
+**A velocity that is not perpendicular to the field.** Split it into parallel
+and perpendicular pieces immediately. The parallel piece coasts, the
+perpendicular piece circles, and the words "helix" or "pitch" confirm it.
+
+**A wire or a rod.** Then it is $ILB\sin\theta$, and the rest is a free body
+diagram of the sort you have drawn many times: balance it against gravity for a
+floating wire, against $\mu N$ for friction, against $ma$ for an accelerating
+rod. Two wires means $\mu_0 I_1 I_2/2\pi d$ per unit length.
+
+**A loop, a coil, or the word "turns".** Compute $\mu = NIA$ first, always, then
+reach for $\tau = \mu B\sin\alpha$, $U = -\mu B\cos\alpha$, or the oscillation
+period. Do not try to add up forces on the individual sides; the dipole moment
+already did that for you.
+
+Everything here has taken the field as given. The next lesson asks where the
+field came from in the first place, and gives you the tool for computing it from
+the currents that make it: the [Biot-Savart law](/guide/biot-savart).

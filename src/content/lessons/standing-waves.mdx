@@ -1,56 +1,273 @@
-## Adding two waves
+A guitar string is about 0.65 m long and you can pull it into any shape you
+like before letting go. Yet when you let go it sings one note, the same note
+every time, and the note only changes if you change the string's length or how
+hard it is stretched. A flute is a tube of air with holes in it, and it does
+the same trick: one length of air column, one pitch. Nothing about a plucked
+string or a blown pipe says in advance which frequency it should pick.
 
-Superposition says the displacement at a point is the sum of what each wave
-would have produced alone. Send two identical waves in opposite directions
-along a string and add them:
+So where does the note come from? It comes from the ends. In the [previous
+lesson](/guide/wave-basics) a wave ran along the string forever and never met
+anything. Put two ends on the string and the wave comes back. What arrives at
+any point is now two waves at once, one going each way, and almost every
+frequency dies from that interference. A few survive. Those are the notes.
 
-$$A\sin(kx - \omega t) + A\sin(kx + \omega t) = 2A\sin(kx)\cos(\omega t)$$
+## Two waves on one string
 
-The $x$ and $t$ dependence has separated. Nothing travels any more. Every
-point oscillates at the same frequency $\omega$, and its amplitude $2A\sin(kx)$
-depends only on where it sits. Points where $\sin(kx) = 0$ never move — nodes,
-spaced half a wavelength apart. Halfway between them are antinodes swinging
-with amplitude $2A$.
+Start with the rule that makes all of this work. **Superposition**: when two
+waves overlap, the displacement at a point is the sum of what each wave would
+have given on its own. Waves do not collide or push each other aside. They add,
+pass through, and come out the other side unchanged.
 
-That factorization is the whole content of "standing wave." It is worth
-deriving once rather than remembering as a picture.
+Take the wave from the last lesson, $y = A\sin(kx - \omega t)$, moving in the
+$+x$ direction with amplitude $A$, wave number $k = 2\pi/\lambda$ and angular
+frequency $\omega = 2\pi f$. Its reflection off a far end is an identical wave
+moving the other way, $y = A\sin(kx + \omega t)$. Add them:
 
-## Modes of a string
+$$
+y(x,t) = A\sin(kx - \omega t) + A\sin(kx + \omega t)
+$$
 
-A string clamped at both ends forces a node at $x = 0$ and $x = L$. Only
-wavelengths satisfying $L = n\lambda/2$ survive, giving the harmonic series
-$f_n = nv/2L$ with $v = \sqrt{T/\mu}$.
+Use $\sin(P) + \sin(Q) = 2\sin\!\big(\tfrac{P+Q}{2}\big)\cos\!\big(\tfrac{P-Q}{2}\big)$,
+with $P = kx - \omega t$ and $Q = kx + \omega t$. The half-sum is $kx$ and the
+half-difference is $-\omega t$, and cosine does not care about that sign. So
 
-A real pluck is not a single mode. It is a superposition of many, with
-amplitudes fixed by the initial shape. Pluck at the midpoint and every even
-harmonic has a node there, so those modes get zero amplitude — the timbre
-changes with plucking position, which is why guitarists pick near the bridge
-for a brighter sound.
+$$
+y(x,t) = 2A\sin(kx)\,\cos(\omega t)
+$$
 
-## Why a closed pipe skips harmonics
+Look hard at what just happened. In the original waves, $x$ and $t$ were locked
+together inside one bracket, which is what made the shape travel. Now they sit
+in separate factors. Nothing moves along the string any more. Every point
+oscillates in time as $\cos(\omega t)$, all in step, and the only thing that
+changes from place to place is the size of the swing, $2A\sin(kx)$. That is a
+**standing wave**, and the factorising is the whole of it.
 
-In a sound wave the boundary condition is about displacement of the air. A
-closed end blocks motion, so it must be a displacement node. An open end is
-free to move and sits at an antinode.
+<Figure caption={<><b>Figure 1.</b> The top pair are the two travelling waves; the bottom curve is their sum, with its envelope dashed. Watch the bottom curve: it grows and shrinks in place but never slides sideways. Drag the loop count and notice the dots never move.</>}>
+  <Sim id="standing-waves-superposition" />
+</Figure>
 
-A node at one end and an antinode at the other means the pipe holds a quarter
-wavelength, or three quarters, or five — never a half. So
+## Nodes, antinodes, and the half-wavelength rule
 
-$$L = \frac{(2n-1)\lambda}{4}, \qquad f_n = \frac{(2n-1)v}{4L}$$
+The amplitude factor $2A\sin(kx)$ does two special things.
 
-Only odd multiples of the fundamental appear, and the fundamental is half that
-of an open pipe of equal length.
+Where $\sin(kx) = 0$, the string never moves at all, no matter what $t$ is.
+Those points are **nodes**. They happen when $kx = 0, \pi, 2\pi, \dots$, that
+is at $x = 0, \lambda/2, \lambda, \dots$, since $k = 2\pi/\lambda$. So
+**adjacent nodes are half a wavelength apart.** Not a whole one. This single
+fact does more work in this topic than any formula.
 
-<Aside label="Where this goes wrong" warn>
-  Pressure and displacement are out of phase by a quarter wavelength. A
-  displacement node is a pressure antinode. If a problem gives you a pressure
-  graph and you read its zeros as fixed ends, every mode number comes out
-  wrong. Decide which quantity the diagram shows before counting.
+Halfway between two nodes, $\sin(kx) = \pm 1$ and the point swings with
+amplitude $2A$, twice what either travelling wave carried alone. Those are
+**antinodes**. A node and its neighbouring antinode are a quarter wavelength
+apart.
+
+<Aside label="Worth remembering">
+  Node to node is $\lambda/2$. Node to antinode is $\lambda/4$. If a problem
+  hands you a distance between two features of a standing wave, you are one
+  step from $\lambda$, and then $v = f\lambda$ finishes it.
 </Aside>
 
 <QuickCheck
-  question="A pipe closed at one end has a fundamental of 100 Hz. What is its next resonant frequency?"
-  options={["200 Hz", "300 Hz", "150 Hz", "400 Hz"]}
+  question="A standing wave on a string has wavelength 0.80 m. How far apart are adjacent nodes?"
+  options={["0.20 m", "0.40 m", "0.80 m", "1.60 m"]}
   answer={1}
-  explanation="Closed pipes support only odd harmonics, so the next one is three times the fundamental."
+  explanation="Nodes sit half a wavelength apart, so 0.80 divided by 2 is 0.40 m. Reading the spacing as a full wavelength is the usual slip and doubles every answer that follows."
 />
+
+## A string fixed at both ends
+
+Now add the ends. A string clamped at $x = 0$ and $x = L$ cannot move at either
+clamp, so both ends have to be nodes. The $x = 0$ end is already a node in
+$2A\sin(kx)$. The other end costs you something: you need $\sin(kL) = 0$, so
+$kL = n\pi$ for some whole number $n = 1, 2, 3, \dots$
+
+Put $k = 2\pi/\lambda$ back in and that says $2\pi L/\lambda = n\pi$, or
+
+$$
+L = \frac{n\lambda}{2}
+$$
+
+In words: the string holds a whole number of half-wavelengths. Every other
+wavelength is forbidden, because its reflection comes back out of step with
+itself and cancels. Solve for the wavelength, $\lambda_n = 2L/n$, and feed it
+through $f = v/\lambda$:
+
+$$
+f_n = \frac{nv}{2L}
+$$
+
+These allowed frequencies are the **harmonics**. The lowest, $n = 1$, is the
+**fundamental** $f_1 = v/2L$, and every other one is a whole-number multiple of
+it: $f_2 = 2f_1$, $f_3 = 3f_1$, and so on. The $n$ also counts things you can
+see. Mode $n$ has $n$ loops (each loop is one half-wavelength), $n - 1$ nodes
+in the middle, and $n + 1$ nodes if you count the two clamped ends.
+
+One piece is still missing: what sets $v$? For a string it is the tension $T$
+pulling it taut and the linear mass density $\mu$, the mass per metre:
+
+$$
+v = \sqrt{\frac{T}{\mu}}
+$$
+
+Tighter means faster means higher. Heavier per metre means slower means lower,
+which is why the low strings on a guitar are the thick ones. Combining,
+
+$$
+f_n = \frac{n}{2L}\sqrt{\frac{T}{\mu}}
+$$
+
+<Figure caption={<><b>Figure 2.</b> The string lab. Set the harmonic number and watch the loops appear. Try this: quadruple the tension and see the frequency exactly double, because the speed goes as the square root. Then halve the length and watch it double again.</>}>
+  <Sim id="standing-waves-string-lab" />
+</Figure>
+
+<QuickCheck
+  question="A string fixed at both ends vibrates in its fourth harmonic. How many nodes does the standing wave have, counting the two fixed ends?"
+  options={["Four", "Five", "Eight", "Three"]}
+  answer={1}
+  explanation="The fourth harmonic has four loops, and four loops need five node points, since there is one at each end of each loop and neighbours share. Counting only the three interior nodes is the common miss."
+/>
+
+## Pipes, and the harmonics a stopped pipe cannot play
+
+Air in a pipe does the same thing, with one change in the boundary conditions.
+A sound wave is a longitudinal wave, so "displacement" means how far a slab of
+air slides back and forth along the pipe.
+
+A **closed** end is a solid wall. Air there cannot slide, so a closed end is a
+displacement **node**. An **open** end is free to breathe in and out against the
+open air, so it is a displacement **antinode**. That is the whole rule.
+
+A pipe open at both ends needs an antinode at each end. Antinode to antinode,
+like node to node, is half a wavelength, so the condition is identical to the
+string's: $L = n\lambda/2$, and
+
+$$
+f_n = \frac{nv}{2L}, \qquad n = 1, 2, 3, \dots
+$$
+
+with $v$ now the speed of sound, about 343 m/s in room-temperature air.
+
+A pipe closed at one end — a **stopped** pipe — needs a node at the closed end
+and an antinode at the open one. The shortest fit is a quarter wavelength. Add
+a half wavelength and it still fits; add another and it still fits. So the pipe
+holds a quarter, or three quarters, or five quarters, never a half:
+
+$$
+L = \frac{(2n-1)\lambda}{4}, \qquad f_n = \frac{(2n-1)v}{4L}
+$$
+
+Two consequences, both of which problems test. First, the fundamental of a
+stopped pipe is $v/4L$, half that of an open pipe the same length: stopping one
+end drops the pitch an octave. Second, only the **odd** harmonics exist. After
+$f_1$ comes $3f_1$, then $5f_1$. There is no $2f_1$, because that mode would
+need a node at the open end.
+
+<Figure caption={<><b>Figure 3.</b> Displacement envelopes for the two kinds of pipe at the same length. Notice the stopped pipe is pinched to zero at its closed end and swinging at its open end. Step the mode number and read off how the two frequency ladders differ.</>}>
+  <Sim id="standing-waves-pipes" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  Pressure and displacement are a quarter wavelength out of step. A
+  displacement node is a **pressure** antinode: air cannot move there, so it
+  gets squeezed hardest. If a diagram is labelled as a pressure wave and you
+  read its zeros as the fixed ends, every mode number comes out wrong. Decide
+  which quantity the picture shows before you count anything.
+</Aside>
+
+There is one more boundary pair worth naming, because it turns up on strings
+too. Clamp a string at one end and tie the other to a light ring that slides
+freely on a frictionless rod. The free end cannot be held down, so it is a
+displacement antinode. Node at one end, antinode at the other — exactly the
+stopped-pipe geometry. So $f_n = (2n-1)v/4L$ there as well, odd harmonics only.
+Whenever the two ends are different in kind, you get quarter wavelengths and odd
+harmonics. Whenever they match, you get half wavelengths and all harmonics.
+
+## Three worked examples
+
+**A violin string.** The vibrating length is $L = 0.65$ m and transverse waves
+travel along it at $v = 520$ m/s. Fixed at both ends, so
+$f_1 = v/2L$. The denominator is $2(0.65) = 1.30$ m, and
+$520/1.30 = 400$ Hz. Its third harmonic is just $3 \times 400 = 1200$ Hz,
+because a both-ends-fixed string keeps every multiple.
+
+**A pipe tuning a string.** A pipe 0.32 m long, closed at one end, is sounded at
+its fundamental with $v_{\text{sound}} = 343$ m/s. A string 0.40 m long with
+$\mu = 2.5\times10^{-3}$ kg/m, fixed at both ends, resonates in its fundamental
+with that tone. Find the string's tension.
+
+Nothing here can be plugged in directly, so set up first. The only thing the
+two objects share is a frequency, so get it from the pipe. Stopped pipe,
+fundamental, so $f = v/4L = 343/(4 \times 0.32) = 343/1.28 = 268.0$ Hz.
+
+Now go into the string with that number. Its fundamental is $f = v/2L$, so the
+wave speed on the string must be
+
+$$
+v = 2Lf = 2(0.40)(268.0) = 214.4 \text{ m/s}
+$$
+
+That is the speed of a wave on a wire, not the speed of sound; they are
+different numbers for the same note, and mixing them up is the main way this
+problem is lost. Finally $v = \sqrt{T/\mu}$ rearranges to $T = \mu v^2$:
+
+$$
+T = (2.5\times10^{-3})(214.4)^2 = (2.5\times10^{-3})(45960) = 114.9 \text{ N}
+$$
+
+**Counting resonances as water drains.** A tube 1.00 m long stands vertically,
+full of water. A 440 Hz fork sounds over the open top while the water drains
+out. Sound travels at 343 m/s. How many times do you hear it resonate?
+
+The frequency is fixed by the fork, so the wavelength is fixed too:
+$\lambda = v/f = 343/440 = 0.7795$ m. What changes is the length of air column
+above the water. The water surface is a closed end (a node), the top is open
+(an antinode), so the column resonates when
+
+$$
+L = \frac{(2n-1)\lambda}{4} = (2n-1)(0.1949) \text{ m}
+$$
+
+Work through the list: $n = 1$ gives 0.195 m, $n = 2$ gives 0.585 m, $n = 3$
+gives 0.974 m, and $n = 4$ would need 1.364 m, which is longer than the tube.
+The first three all fit inside 1.00 m, so you hear **three** resonances.
+
+Notice the spacing of those positions: 0.390 m each time, exactly
+$\lambda/2$. That is a general result and a fast way to measure the speed of
+sound in a lab — find two neighbouring resonance lengths, double the gap to get
+$\lambda$, and multiply by the fork's frequency.
+
+<Aside label="Two neighbours give you everything">
+  If a string fixed at both ends resonates at 420 Hz and 490 Hz with nothing in
+  between, those are consecutive harmonics, so their difference **is** the
+  fundamental: 70 Hz. For a stopped pipe the neighbours are $(2n-1)f_1$ and
+  $(2n+1)f_1$, so the gap is $2f_1$. Resonances at 750 Hz and 1050 Hz differ by
+  300 Hz, and the fundamental is 150 Hz — which checks out, since
+  $750 = 5 \times 150$ and $1050 = 7 \times 150$.
+</Aside>
+
+## How to recognise one of these
+
+The giveaway word is *resonates*, but the real signal is a **length with two
+ends**: a string between bridges, an air column above water, a pipe, a wire on
+a sonometer. Whenever a problem fixes a length and then asks for a frequency,
+or fixes a frequency and asks for a length, it is a standing-wave problem and
+the recipe never changes.
+
+1. Decide what each end is. Fixed, clamped, closed, in water — that is a node.
+   Open, free, sliding on a frictionless rod — that is an antinode.
+2. Same at both ends, use $L = n\lambda/2$ and $f_n = nv/2L$, all harmonics.
+   Different at the two ends, use $L = (2n-1)\lambda/4$ and
+   $f_n = (2n-1)v/4L$, odd harmonics only.
+3. Get $v$ from the right place. On a string, $v = \sqrt{T/\mu}$. In air, it is
+   the speed of sound, and if a temperature is quoted, $v$ scales as
+   $\sqrt{T_{\text{kelvin}}}$, so a warm pipe sounds sharp.
+4. Read what mode you are in. "Second harmonic", "nodes 0.20 m apart", "the
+   next resonance above" — each of these pins down $n$ before you solve.
+
+Where students actually lose the marks is step 1 and step 3: calling a stopped
+pipe an open one, or putting the speed of sound into a string formula. Write
+down the two boundary conditions before you write anything else.
+
+So far the two waves you added had the same frequency. What if they do not
+quite? Then the interference pattern cannot stand still, and what you hear is a
+throb — that is [beats and interference](/guide/beats-interference).

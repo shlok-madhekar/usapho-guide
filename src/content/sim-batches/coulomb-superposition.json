@@ -1,0 +1,128 @@
+[
+ {
+  "id": "coulomb-superposition-pair",
+  "title": "Two point charges",
+  "caption": "Drag either charge past zero and the arrows flip.",
+  "height": 230,
+  "params": [
+   {
+    "key": "q1",
+    "label": "Charge q1",
+    "unit": "uC",
+    "min": -5,
+    "max": 5,
+    "step": 0.5,
+    "value": 3
+   },
+   {
+    "key": "q2",
+    "label": "Charge q2",
+    "unit": "uC",
+    "min": -5,
+    "max": 5,
+    "step": 0.5,
+    "value": 2
+   },
+   {
+    "key": "sep",
+    "label": "Separation",
+    "unit": "m",
+    "min": 0.05,
+    "max": 0.5,
+    "step": 0.01,
+    "value": 0.2
+   }
+  ],
+  "draw": "\nvar k = 8.99e9;\nvar q1 = p.q1 * 1e-6, q2 = p.q2 * 1e-6, r = p.sep;\nvar F = k * Math.abs(q1 * q2) / (r * r);\nvar repel = (q1 * q2) > 0;\n\nvar yc = H * 0.52;\nvar frac = 0.18 + 0.55 * (r - 0.05) / 0.45;\nvar s = W * frac;\nvar x1 = W / 2 - s / 2, x2 = W / 2 + s / 2;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\n\n// axis\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(W * 0.04, yc); ctx.lineTo(W * 0.96, yc); ctx.stroke();\n\n// separation bar\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(x1, yc + 34); ctx.lineTo(x2, yc + 34); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"r = \" + r.toFixed(2) + \" m\", (x1 + x2) / 2, yc + 50);\n\nfunction blob(x, q, label) {\n  var R = 9 + 2.2 * Math.abs(q);\n  ctx.fillStyle = q >= 0 ? C.accent : C.figure;\n  ctx.beginPath(); ctx.arc(x, yc, R, 0, Math.PI * 2); ctx.fill();\n  ctx.fillStyle = C.paper;\n  ctx.fillText(q >= 0 ? \"+\" : \"-\", x, yc + 4);\n  ctx.fillStyle = C.ink;\n  ctx.fillText(label + \" = \" + q.toFixed(1) + \" uC\", x, yc - R - 10);\n}\n\nfunction arrow(x, dir, len) {\n  ctx.strokeStyle = C.ink;\n  ctx.lineWidth = 2;\n  var x0 = x + dir * 18, x1b = x + dir * (18 + len);\n  ctx.beginPath(); ctx.moveTo(x0, yc); ctx.lineTo(x1b, yc); ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(x1b, yc);\n  ctx.lineTo(x1b - dir * 7, yc - 5);\n  ctx.lineTo(x1b - dir * 7, yc + 5);\n  ctx.closePath();\n  ctx.fillStyle = C.ink; ctx.fill();\n}\n\nvar Fmax = k * 25e-12 / (0.05 * 0.05);\nvar len = 12 + 60 * Math.sqrt(Math.min(F / Fmax, 1));\nif (F > 0) {\n  arrow(x1, repel ? -1 : 1, len);\n  arrow(x2, repel ? 1 : -1, len);\n}\n\nblob(x1, p.q1, \"q1\");\nblob(x2, p.q2, \"q2\");\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(repel ? \"like signs: push apart\" : \"unlike signs: pull together\", W * 0.05, H * 0.14);\n\nout.note = \"F = \" + F.toExponential(3) + \" N  on each charge, equal and opposite\";\n"
+ },
+ {
+  "id": "coulomb-superposition-bisector",
+  "title": "Adding two fields",
+  "caption": "Two like charges seen from a point on their bisector.",
+  "height": 250,
+  "params": [
+   {
+    "key": "q",
+    "label": "Each charge",
+    "unit": "nC",
+    "min": 1,
+    "max": 9,
+    "step": 0.5,
+    "value": 3
+   },
+   {
+    "key": "d",
+    "label": "Half separation",
+    "unit": "m",
+    "min": 0.01,
+    "max": 0.06,
+    "step": 0.005,
+    "value": 0.04
+   },
+   {
+    "key": "x",
+    "label": "Distance of P along x",
+    "unit": "m",
+    "min": 0.005,
+    "max": 0.12,
+    "step": 0.005,
+    "value": 0.03
+   }
+  ],
+  "draw": "\nvar k = 8.99e9;\nvar q = p.q * 1e-9, d = p.d, x = p.x;\nvar r2 = x * x + d * d, r = Math.sqrt(r2);\nvar E1 = k * q / r2;\nvar Ex = 2 * E1 * x / r;\nvar Ey = E1 * d / r;\n\nvar ox = W * 0.22, oy = H * 0.5;\nvar scale = (W * 0.55) / 0.14;\nfunction X(a) { return ox + a * scale; }\nfunction Y(b) { return oy - b * scale; }\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\n\n// axes\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(W * 0.06, oy); ctx.lineTo(W * 0.97, oy); ctx.stroke();\nctx.beginPath(); ctx.moveTo(ox, H * 0.08); ctx.lineTo(ox, H * 0.92); ctx.stroke();\n\n// charges\nvar ys = [d, -d];\nfor (var i = 0; i < 2; i++) {\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(X(0), Y(ys[i]), 9, 0, Math.PI * 2); ctx.fill();\n  ctx.fillStyle = C.paper;\n  ctx.fillText(\"+\", X(0), Y(ys[i]) + 4);\n}\nctx.fillStyle = C.ink;\nctx.textAlign = \"right\";\nctx.fillText(\"+q\", X(0) - 13, Y(d) + 4);\nctx.fillText(\"+q\", X(0) - 13, Y(-d) + 4);\nctx.textAlign = \"center\";\n\n// dashed lines from each charge to P\nctx.strokeStyle = C.rule; ctx.setLineDash([3, 4]);\nfor (i = 0; i < 2; i++) {\n  ctx.beginPath(); ctx.moveTo(X(0), Y(ys[i])); ctx.lineTo(X(x), Y(0)); ctx.stroke();\n}\nctx.setLineDash([]);\n\nfunction vec(x0, y0, vx, vy, col) {\n  var L = Math.sqrt(vx * vx + vy * vy);\n  if (L < 0.5) return;\n  var ux = vx / L, uy = vy / L;\n  ctx.strokeStyle = col; ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0 + vx, y0 + vy); ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(x0 + vx, y0 + vy);\n  ctx.lineTo(x0 + vx - 8 * ux + 4 * uy, y0 + vy - 8 * uy - 4 * ux);\n  ctx.lineTo(x0 + vx - 8 * ux - 4 * uy, y0 + vy - 8 * uy + 4 * ux);\n  ctx.closePath(); ctx.fillStyle = col; ctx.fill();\n}\n\nvar Eref = k * 3e-9 / (0.02 * 0.02);\nvar g = 70 / Eref;\n\nvar px = X(x), py = Y(0);\n// individual fields (each points away from its charge)\nvec(px, py, E1 * (x / r) * g, E1 * (d / r) * g, C.rule);\nvec(px, py, E1 * (x / r) * g, -E1 * (d / r) * g, C.rule);\n// resultant\nvec(px, py, Ex * g, 0, C.accent);\n\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px, py, 3.5, 0, Math.PI * 2); ctx.fill();\nctx.fillText(\"P\", px, py + 18);\nctx.textAlign = \"left\";\nctx.fillText(\"net E\", px + Ex * g + 6, py - 6);\nctx.fillText(\"the two vertical parts cancel\", W * 0.06, H * 0.12);\n\nout.note = \"each charge gives E1 = \" + E1.toFixed(0) + \" N/C, vertical part \" + Ey.toFixed(0) +\n  \" N/C cancels, net = \" + Ex.toFixed(0) + \" N/C along x\";\n"
+ },
+ {
+  "id": "coulomb-superposition-threads",
+  "title": "Two charged balls on threads",
+  "caption": "The thread angle sets the balance between weight and Coulomb push.",
+  "height": 290,
+  "params": [
+   {
+    "key": "q",
+    "label": "Charge on each ball",
+    "unit": "nC",
+    "min": 5,
+    "max": 150,
+    "step": 5,
+    "value": 45
+   },
+   {
+    "key": "m",
+    "label": "Mass of each ball",
+    "unit": "g",
+    "min": 0.2,
+    "max": 5,
+    "step": 0.1,
+    "value": 1.2
+   },
+   {
+    "key": "L",
+    "label": "Thread length",
+    "unit": "m",
+    "min": 0.2,
+    "max": 1.0,
+    "step": 0.05,
+    "value": 0.8
+   }
+  ],
+  "draw": "\nvar k = 8.99e9, g = 9.8;\nvar q = p.q * 1e-9, m = p.m * 1e-3, L = p.L;\n\n// solve sin(th)^2 * tan(th) = k q^2 / (4 L^2 m g) by bisection\nvar Kc = k * q * q / (4 * L * L * m * g);\nvar lo = 1e-6, hi = 1.5533, mid = 0;\nfor (var i = 0; i < 60; i++) {\n  mid = 0.5 * (lo + hi);\n  var f = Math.sin(mid) * Math.sin(mid) * Math.tan(mid) - Kc;\n  if (f > 0) hi = mid; else lo = mid;\n}\nvar th = mid;\nvar sep = 2 * L * Math.sin(th);\n\n// gentle wobble so the reader sees it is an equilibrium\nvar wob = 0.05 * th * Math.cos(5 * t) * Math.exp(-(t % 9) * 0.5);\nvar thA = th + wob, thB = th + wob;\n\nvar px = W / 2, py = H * 0.1;\nvar scale = (H * 0.72) / L;\nvar ax = px - L * Math.sin(thA) * scale, ay = py + L * Math.cos(thA) * scale;\nvar bx = px + L * Math.sin(thB) * scale, by = py + L * Math.cos(thB) * scale;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\n\n// ceiling\nctx.strokeStyle = C.rule; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(W * 0.3, py); ctx.lineTo(W * 0.7, py); ctx.stroke();\n\n// vertical reference\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py + L * scale); ctx.stroke();\nctx.setLineDash([]);\n\n// threads\nctx.strokeStyle = C.rule; ctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(ax, ay); ctx.stroke();\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(bx, by); ctx.stroke();\n\n// balls\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(ax, ay, 8, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(bx, by, 8, 0, Math.PI * 2); ctx.fill();\n\n// separation marker\nctx.strokeStyle = C.figure; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(ax, ay + 20); ctx.lineTo(bx, by + 20); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"r = \" + sep.toFixed(3) + \" m\", (ax + bx) / 2, ay + 36);\n\n// angle label\nctx.fillText(\"theta = \" + (th * 180 / Math.PI).toFixed(1) + \" deg\", px + W * 0.20, py + 26);\n\nvar F = k * q * q / (sep * sep);\nctx.textAlign = \"left\";\nctx.fillText(\"Coulomb push = \" + F.toExponential(2) + \" N\", W * 0.04, H * 0.95);\nctx.fillText(\"weight = \" + (m * g).toExponential(2) + \" N\", W * 0.04, H * 0.86);\n\nout.note = \"separation \" + sep.toFixed(4) + \" m, angle \" + (th * 180 / Math.PI).toFixed(2) +\n  \" deg, tan(theta) = \" + Math.tan(th).toFixed(4);\n"
+ },
+ {
+  "id": "coulomb-superposition-null",
+  "title": "Where the field vanishes",
+  "caption": "Net field along the line between two positive charges.",
+  "height": 250,
+  "params": [
+   {
+    "key": "ratio",
+    "label": "Second charge Q2",
+    "unit": "uC",
+    "min": 0.2,
+    "max": 9,
+    "step": 0.1,
+    "value": 4.0
+   }
+  ],
+  "draw": "\nvar k = 8.99e9;\nvar Lm = 0.60;\nvar Q1 = 1e-6, Q2 = p.ratio * 1e-6;\nvar x0 = Lm / (1 + Math.sqrt(Q2 / Q1));\n\nvar padL = W * 0.10, padR = W * 0.05;\nvar yb = H * 0.80, yt = H * 0.12, ym = (yb + yt) / 2;\nfunction X(a) { return padL + (a / Lm) * (W - padL - padR); }\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// axis\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(padL, ym); ctx.lineTo(W - padR, ym); ctx.stroke();\n\n// curve of net Ex, compressed so it fits\nvar Eref = k * Q1 / (0.09 * 0.09);\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nvar started = false;\nfor (var i = 0; i <= 300; i++) {\n  var xx = 0.02 + (Lm - 0.04) * i / 300;\n  var E = k * Q1 / (xx * xx) - k * Q2 / ((Lm - xx) * (Lm - xx));\n  var u = Math.max(-1, Math.min(1, E / Eref));\n  var py = ym - u * (ym - yt) * 0.9;\n  if (!started) { ctx.moveTo(X(xx), py); started = true; } else ctx.lineTo(X(xx), py);\n}\nctx.stroke();\n\n// zero marker\nctx.strokeStyle = C.figure; ctx.lineWidth = 1.5;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(X(x0), yt); ctx.lineTo(X(x0), yb); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"net field zero here\", X(x0), yt + 12);\nctx.fillText(\"x = \" + x0.toFixed(3) + \" m\", X(x0), yb + 30);\n\n// charges\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(0), yb, 9, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(X(Lm), yb, 9, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.paper;\nctx.fillText(\"+\", X(0), yb + 4);\nctx.fillText(\"+\", X(Lm), yb + 4);\nctx.fillStyle = C.ink;\nctx.fillText(\"Q1 = 1.0 uC\", X(0), yb + 26);\nctx.fillText(\"Q2 = \" + p.ratio.toFixed(1) + \" uC\", X(Lm), yb + 26);\n\nctx.textAlign = \"left\";\nctx.fillText(\"net Ex  (up = pointing right)\", padL + 4, yt);\n\nout.note = \"null point at x = \" + x0.toFixed(4) + \" m from Q1; distance ratio \" +\n  (x0 / (Lm - x0)).toFixed(3) + \" = sqrt(Q1/Q2) = \" + Math.sqrt(Q1 / Q2).toFixed(3);\n"
+ }
+]

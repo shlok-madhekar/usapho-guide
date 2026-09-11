@@ -1,59 +1,356 @@
+Last lesson you added up the fields of a handful of point charges. Three
+charges, five, maybe ten: write each $k q/r^2$, resolve into components, add.
+Tedious, but nothing mysterious.
+
+Now the charge is smeared. A plastic rod rubbed with wool. A ring of wire. The
+drum of a photocopier. There is no "the charge" sitting at a point, there are
+$10^{12}$ of them spread over something, and the sum you want has no last
+term. The trick is that nothing new happens physically. Every tiny piece of
+that rod is still a point charge, still obeys Coulomb's law, and the fields
+still add. The sum just becomes an integral.
+
 ## Chop it into point charges
 
-A rod or a disk is not a point charge, but every little piece of it is. Cut
-the object into elements $dq$, write the field each element produces, and
-integrate:
+Take a chunk of the object so small that it may as well be a point. Call its
+charge $dq$. It sits a distance $r$ from the place you care about, and it
+makes a field there of
 
-$$d\vec E = \frac{k\,dq}{r^2}\hat r, \qquad \vec E = \int d\vec E$$
+$$d\vec E = \frac{k\,dq}{r^2}\,\hat r$$
 
-The physics is done in the first line. Everything after it is setting up an
-integral correctly, and there are only three decisions to make.
+where $k = 8.99\times10^9$ N·m²/C² and $\hat r$ is the unit vector pointing
+from the chunk towards your field point. Add up every chunk:
+
+$$\vec E = \int d\vec E$$
+
+That is the whole physics. It is one line and it is already finished. What
+remains is bookkeeping — but the bookkeeping is where people lose the
+problem, so it is worth having a fixed routine.
+
+How much charge is in a chunk depends on how the charge is spread. On a wire
+you quote charge per unit length, $\lambda$, in C/m, so $dq = \lambda\,dx$. On
+a surface you quote charge per unit area, $\sigma$, in C/m², so
+$dq = \sigma\,dA$. Through a solid you quote charge per unit volume, $\rho$,
+in C/m³, so $dq = \rho\,dV$. Those three letters are the whole vocabulary.
 
 ## The three decisions
 
-**Choose $dq$.** Pick one variable that sweeps the object once, and express
-$dq$ in it: $dq = \lambda\,dx$ for a line, $\sigma\,dA$ for a surface,
-$\rho\,dV$ for a volume. For a disk the good element is a thin ring of radius
-$s$, area $2\pi s\,ds$, because you already know a ring's field.
+**One: choose the element.** Pick a single variable that sweeps the object
+exactly once, and write $dq$ in terms of it. For a rod, the position $x$ along
+it. For an arc, the angle $\phi$. For a disk, the radius $s$ of a thin ring
+inside it — and that last choice matters, because if you already know a ring's
+field, a disk is just a stack of rings and you never have to do a double
+integral.
 
-**Kill a component.** Before integrating, find the symmetry. For a point on
-the axis of a ring, every element has a partner on the opposite side whose
-transverse contribution cancels. Only the axial part survives, and each
-element contributes $dE\cos\theta$ with $\cos\theta = z/\sqrt{z^2+R^2}$.
+**Two: kill a component before you integrate.** $d\vec E$ is a vector, and you
+cannot integrate a vector by integrating its length. Look for symmetry first.
+If every element has a partner whose sideways contribution points the opposite
+way, those sideways parts cancel in pairs, and you only need the surviving
+component: $dE_\parallel = dE\cos\theta$. Now you are integrating a scalar,
+which you know how to do.
 
-**Express everything in the integration variable.** $r$, $\cos\theta$, and
-$dq$ must all be written in terms of the one variable, with limits that cover
-the object exactly once.
+**Three: put everything in the one variable.** Both $r$ and $\cos\theta$ have
+to be rewritten in terms of your integration variable, with limits that cover
+the object once and only once. If an $r$ or a $\theta$ is still floating
+around when you start integrating, the answer will be wrong.
 
-## Carrying it through
+<Aside label="Where this goes wrong" warn>
+  The single most common error is integrating $|d\vec E|$ and calling the
+  result $E$. That adds up lengths of arrows pointing in different
+  directions, and it always comes out too big. Project onto the surviving
+  axis first, put the $\cos\theta$ *inside* the integral, then integrate.
+</Aside>
 
-For the ring, $r$ and $\cos\theta$ are the same for every element, so the
-integral is trivial and $\int dq = Q$:
+## The ring, and why it is the one to memorise
+
+Put a ring of radius $R$ with total charge $Q$ spread uniformly around it in
+the $xy$-plane, and stand at a point $P$ on the axis, a distance $z$ from the
+centre.
+
+Every element of the ring is the same distance from $P$:
+$r = \sqrt{z^2 + R^2}$. That is the reason this case is easy. Each element
+makes a field of magnitude $k\,dq/(z^2+R^2)$ pointing from the element towards
+$P$, tilted off the axis. But the element directly opposite makes an equally
+tilted field the other way, so the off-axis parts cancel in pairs. What
+survives is the axial part, $dE\cos\theta$, with
+
+$$\cos\theta = \frac{z}{\sqrt{z^2+R^2}}$$
+
+Since $r$ and $\cos\theta$ are the same for every element, both come out of
+the integral and all that is left is $\int dq = Q$:
 
 $$E_z = \frac{kQz}{(z^2+R^2)^{3/2}}$$
 
-Stack rings to get the disk. With $dq = \sigma\,2\pi s\,ds$ and $R \to s$,
+Read it. At $z = 0$ it gives zero, which it must: at the centre every element
+is cancelled by the one across from it. For $z \gg R$ the $R^2$ is negligible
+and it becomes $kQ/z^2$ — a point charge, as it has to be from far away.
+Between those two the field rises and falls, so somewhere it peaks. Setting
+$dE_z/dz = 0$ gives $(z^2+R^2)^{3/2} = 3z^2(z^2+R^2)^{1/2}$, so
+$z^2 + R^2 = 3z^2$ and
 
-$$E_z = 2\pi k\sigma\left(1 - \frac{z}{\sqrt{z^2+R^2}}\right) \xrightarrow{R\to\infty} \frac{\sigma}{2\varepsilon_0}$$
+$$z_{\text{peak}} = \frac{R}{\sqrt 2}$$
 
-That limit is the infinite sheet, which Gauss's law also gives in one line —
-a useful check that the setup was right.
+<Figure caption={<><b>Figure 1.</b> Drag the probe along the axis and watch the arrow and the curve below. The field is zero at the centre, zero far away, and largest at z = R/sqrt(2). Change R and notice that the peak moves with it but the shape does not.</>}>
+  <Sim id="charge-distributions-ring" />
+</Figure>
 
-<Aside label="Where this goes wrong" warn>
-  Do not integrate $|d\vec E|$ and call it $E$. Adding magnitudes ignores
-  direction and always overestimates. Project onto the surviving axis *first*,
-  put the $\cos\theta$ inside the integral, then integrate a scalar.
-</Aside>
+**Example 1.** A ring of radius $0.10$ m carries $5.0$ nC. Find $E$ on the
+axis at $z = 0.20$ m.
 
-<Aside label="Worth remembering">
-  Check every result in two limits. Far away, a bounded distribution must look
-  like a point charge; the ring gives $kQ/z^2$ for $z \gg R$. Close in, a
-  surface must look infinite.
-</Aside>
+$z^2 + R^2 = 0.040 + 0.010 = 0.050$ m². Then
+$(0.050)^{3/2} = 0.050 \times \sqrt{0.050} = 0.050 \times 0.2236 = 0.01118$.
+The numerator is $kQz = (8.99\times10^9)(5.0\times10^{-9})(0.20) = 8.99$.
+So $E = 8.99/0.01118 = 804$ N/C, pointing away from the ring along the axis.
+
+There is one more thing hiding in the ring formula. Very close to the centre,
+$z \ll R$, the denominator is just $R^3$, so $E_z \approx kQz/R^3$ — a field
+that grows *linearly* with displacement. A charge $-q$ of mass $m$ on the axis
+then feels a restoring force $-kQqz/R^3$, which is Hooke's law with
+$k_{\text{eff}} = kQq/R^3$. It oscillates, with
+$\omega = \sqrt{kQq/(mR^3)}$. That is the whole solution to any "bead through
+a ring" problem you meet.
 
 <QuickCheck
-  question="At the exact center of a uniformly charged ring, the field is:"
-  options={["Maximum", "Zero", "Infinite", "Equal to kQ over R squared"]}
+  question="You double the radius of a ring while keeping its total charge fixed. The peak field on the axis changes by what factor?"
+  options={["It is halved", "It is quartered", "It is unchanged", "It doubles"]}
   answer={1}
-  explanation="Every element is matched by one directly across the ring, so all contributions cancel. Setting z to zero in the axial result gives the same answer."
+  explanation="At the peak, z = R over root 2, so both z and the distance scale with R. Every length in kQz over (z squared plus R squared) to the 3/2 scales with R, leaving an overall factor of 1 over R squared. Doubling R divides the peak field by four. The peak moves outward, but it also gets weaker."
 />
+
+## Straight rods
+
+A rod has no such luck: different elements sit at different distances. Put the
+rod along the $y$-axis from $-L/2$ to $+L/2$ with uniform $\lambda = Q/L$, and
+stand at $P$ on the perpendicular bisector, a distance $y$ away.
+
+The element at height $x$ carries $dq = \lambda\,dx$ and sits a distance
+$r = \sqrt{x^2+y^2}$ from $P$. Its field at $P$ has a component along the
+bisector and a component parallel to the rod. The element at $-x$ gives the
+same thing with the parallel component flipped, so those cancel in pairs and
+only the bisector component survives, with
+$\cos\theta = y/\sqrt{x^2+y^2}$. So
+
+$$E = \int_{-L/2}^{L/2} \frac{k\lambda\,dx}{x^2+y^2}\cdot\frac{y}{\sqrt{x^2+y^2}} = k\lambda y\int_{-L/2}^{L/2}\frac{dx}{(x^2+y^2)^{3/2}}$$
+
+<Figure caption={<><b>Figure 2.</b> The setup that makes the rod integral work. Notice that the two dE arrows have the same horizontal part and opposite vertical parts — that is what lets you throw away one component before integrating.</>}>
+  <Sim id="charge-distributions-rod-setup" />
+</Figure>
+
+That integral is a standard one, and it is worth knowing where it comes from:
+substitute $x = y\tan\theta$, so $dx = y\sec^2\theta\,d\theta$ and
+$(x^2+y^2)^{3/2} = y^3\sec^3\theta$, and the integrand collapses to
+$\cos\theta\,d\theta/y^2$. Integrating gives $\sin\theta/y^2$, and
+$\sin\theta = x/\sqrt{x^2+y^2}$. So
+
+$$E = \frac{k\lambda}{y}\left[\frac{x}{\sqrt{x^2+y^2}}\right]_{-L/2}^{L/2} = \frac{2k\lambda}{y}\cdot\frac{L/2}{\sqrt{y^2+L^2/4}} = \frac{kQ}{y\sqrt{y^2+L^2/4}}$$
+
+Two limits fall straight out. If $y \gg L$ the square root is just $y$ and you
+get $kQ/y^2$: a point charge again. If $y \ll L$ the square root is $L/2$ and
+the $L$ cancels, leaving
+
+$$E_{\text{infinite wire}} = \frac{2k\lambda}{y}$$
+
+An infinite line falls off like $1/y$, not $1/y^2$. That is worth carrying
+around; you will derive it again in one line with Gauss's law.
+
+The same integral, with different limits, does other rods. For a half-infinite
+rod running from $x=0$ to $x=\infty$, the limits become $0$ to $\infty$, which
+in the $\theta$ form runs from $0$ to $90°$. The parallel component no longer
+cancels, so you need both: the perpendicular part is $k\lambda/y$ and the
+parallel part is also $k\lambda/y$, giving a field of magnitude
+$\sqrt2\,k\lambda/y$ tilted at 45°. And for a point on the rod's *own* axis
+there is no vector work at all — every element pushes the same way — so
+$E = \int_a^b k\lambda\,dx/x^2 = k\lambda(1/a - 1/b)$.
+
+**Example 2.** A rod of length $0.40$ m carries $15$ nC uniformly. Find $E$ at
+a point on the perpendicular bisector $0.10$ m from the rod.
+
+Use $E = kQ/\big(y\sqrt{y^2+L^2/4}\big)$. Here $L/2 = 0.20$ m, so
+$y^2 + L^2/4 = 0.010 + 0.040 = 0.050$ m² and $\sqrt{0.050} = 0.2236$ m.
+The numerator is $kQ = (8.99\times10^9)(15\times10^{-9}) = 134.85$.
+The denominator is $(0.10)(0.2236) = 0.02236$.
+So $E = 134.85/0.02236 = 6.03\times10^3$ N/C.
+
+Compare that with the infinite-wire estimate: $\lambda = 15/0.40 = 37.5$ nC/m,
+so $2k\lambda/y = 2(8.99\times10^9)(3.75\times10^{-8})/0.10 = 6.74\times10^3$
+N/C. Close, and too big — the real rod is missing the far-away charge the
+infinite wire has. Checking against a limit like that catches sign and factor
+errors fast.
+
+<QuickCheck
+  question="Two points sit the same distance from a long uniformly charged wire, one at 2 cm and one at 4 cm. The ratio of the field magnitudes, near field to far field, is:"
+  options={["2 to 1", "4 to 1", "1 to 1", "8 to 1"]}
+  answer={0}
+  explanation="A long wire gives E = 2k lambda over y, which falls off as one over y, not one over y squared. Halving the distance doubles the field. Assuming an inverse square here is the classic mistake."
+/>
+
+## Disks, washers, and the sheet
+
+Now use the ring result instead of starting over. A disk of radius $R$ with
+uniform $\sigma$ is a stack of rings. The ring of radius $s$ and thickness
+$ds$ has area $2\pi s\,ds$, so $dq = \sigma\,2\pi s\,ds$, and its contribution
+on the axis is the ring formula with $R$ replaced by $s$:
+
+$$E_z = \int_0^R \frac{k z\,(\sigma 2\pi s\,ds)}{(z^2+s^2)^{3/2}} = \pi k\sigma z\int_0^R \frac{2s\,ds}{(z^2+s^2)^{3/2}}$$
+
+The substitution $u = z^2+s^2$ makes $2s\,ds = du$, and
+$\int u^{-3/2}du = -2u^{-1/2}$, so
+
+$$E_z = 2\pi k\sigma\left(1 - \frac{z}{\sqrt{z^2+R^2}}\right) = \frac{\sigma}{2\varepsilon_0}\left(1 - \frac{z}{\sqrt{z^2+R^2}}\right)$$
+
+using $2\pi k = 1/(2\varepsilon_0)$ with $\varepsilon_0 = 8.85\times10^{-12}$
+F/m. Let $R\to\infty$, or equivalently stand very close, and the bracket goes
+to 1:
+
+$$E_{\text{sheet}} = \frac{\sigma}{2\varepsilon_0}$$
+
+which does not depend on distance at all. Two parallel plates with $+\sigma$
+and $-\sigma$ each contribute this, in the same direction between them and in
+opposite directions outside, so the gap field is $\sigma/\varepsilon_0$ and
+the outside field is zero. The same $\sigma/\varepsilon_0$ shows up just
+outside a charged conductor, which is why a photocopier drum is worked with
+that formula and not the plastic-sheet one.
+
+<Figure caption={<><b>Figure 3.</b> Push the disk radius up, or the probe distance down, and watch E climb towards the dashed sigma over 2 epsilon-nought line. The infinite sheet is not a different physical object — it is what a disk looks like when you stand close enough.</>}>
+  <Sim id="charge-distributions-disk" />
+</Figure>
+
+A washer, or annulus, is a disk with a smaller disk removed, so its field is
+the difference of two disk fields with the same $z$:
+
+$$E = \frac{\sigma}{2\varepsilon_0}\left(\frac{z}{\sqrt{z^2+a^2}} - \frac{z}{\sqrt{z^2+b^2}}\right)$$
+
+for inner radius $a$ and outer radius $b$. Subtracting one whole object from
+another is often faster than any integral.
+
+**Example 3.** A disk of radius $R = 8.0$ cm carries a surface density that is
+*not* uniform: $\sigma(r) = \sigma_0 r/R$ with $\sigma_0 = 5.0\times10^{-7}$
+C/m². Find $E$ on the axis at $z = 6.0$ cm.
+
+You cannot use the uniform-disk answer, but the ring decomposition still
+works, because $\sigma$ is constant around any one ring. The ring at radius
+$s$ carries $dq = \sigma(s)\,2\pi s\,ds = 2\pi\sigma_0 s^2\,ds/R$, so
+
+$$E_z = \frac{2\pi k\sigma_0 z}{R}\int_0^R\frac{s^2\,ds}{(z^2+s^2)^{3/2}}$$
+
+That integral is the other standard one:
+$\int s^2(z^2+s^2)^{-3/2}ds = \ln\!\big(s+\sqrt{s^2+z^2}\big) - s/\sqrt{s^2+z^2}$.
+With $R = 0.080$ m and $z = 0.060$ m, $\sqrt{R^2+z^2} = 0.100$ m. The log term
+between $0$ and $R$ is $\ln\big((0.080+0.100)/0.060\big) = \ln(3.000) =
+1.0986$, and the subtracted term is $0.080/0.100 = 0.800$. So the integral is
+$1.0986 - 0.800 = 0.2986$.
+
+The prefactor: $2\pi k = 5.649\times10^{10}$, times
+$\sigma_0 = 5.0\times10^{-7}$ gives $2.824\times10^4$, times
+$z/R = 0.060/0.080 = 0.750$ gives $2.118\times10^4$.
+
+$$E_z = (2.118\times10^4)(0.2986) = 6.3\times10^3\ \text{N/C}$$
+
+<Aside label="Worth remembering">
+  Three canonical results carry most problems: a ring gives
+  $kQz/(z^2+R^2)^{3/2}$, a long wire gives $2k\lambda/y$, and a big flat sheet
+  gives $\sigma/2\varepsilon_0$. Anything built out of rings, straight
+  segments or flat sheets can be assembled from these three rather than
+  integrated from scratch.
+</Aside>
+
+## Arcs, and adding pieces as vectors
+
+For an arc, use the angle. A wire bent into a circular arc of radius $R$ with
+uniform $\lambda$, and the field point at the centre: every element is the
+same distance $R$ away, so each contributes $k\lambda R\,d\phi/R^2 =
+k\lambda\,d\phi/R$, pointing radially inward or outward. Only the component
+along the arc's symmetry axis survives, so integrate $\cos\phi$ over the arc.
+For a semicircle, $\phi$ runs from $-90°$ to $+90°$ and
+$\int\cos\phi\,d\phi = 2$:
+
+$$E_{\text{semicircle}} = \frac{2k\lambda}{R}$$
+
+A quarter circle would give $\sqrt2\,k\lambda/R$ by the same integral, and a
+full circle gives zero, as it must.
+
+Once you have pieces, combine them as vectors, not as numbers. A ring with
+$+q$ on one half and $-q$ on the other is two semicircles whose fields at the
+centre point the *same* way (away from the positive half, towards the
+negative half), so they add to $4k\lambda/R$. A shape made of an arc plus a
+straight bit needs a proper vector sum, because the two pieces usually pull in
+perpendicular directions.
+
+**Example 4.** A wire with $\lambda = 3.0\times10^{-8}$ C/m is a semicircle of
+radius $0.10$ m centred on $O$, plus a straight segment of length $0.10$ m
+running outward from one end of the semicircle along the diameter line. Find
+$E$ at $O$.
+
+Do the pieces separately. The semicircle gives
+$2k\lambda/R = 2(8.99\times10^9)(3.0\times10^{-8})/0.10 = 5394$ N/C, directed
+along the semicircle's symmetry axis — that is, *perpendicular* to the
+diameter.
+
+The straight segment lies along the diameter line, with $O$ on its extension.
+Its near end is at $0.10$ m from $O$ and its far end at $0.20$ m, so it is the
+end-on case: $E = k\lambda(1/a - 1/b) = (8.99\times10^9)(3.0\times10^{-8})
+(1/0.10 - 1/0.20) = 269.7 \times 5.00 = 1349$ N/C, directed *along* the
+diameter.
+
+The two are perpendicular, so add in quadrature:
+
+$$E = \sqrt{5394^2 + 1349^2} = \sqrt{2.909\times10^7 + 1.82\times10^6} = 5.56\times10^3\ \text{N/C}$$
+
+Adding $5394 + 1349$ would have been wrong by 25 per cent.
+
+## Add and subtract whole objects
+
+Superposition works on objects, not only on point charges, and that turns some
+frightening problems into subtraction.
+
+A hemispherical shell is a stack of rings, and doing that integral gives
+$\sigma/4\varepsilon_0$ at the centre of its rim — exactly half the full
+sheet value, which is a reasonable thing for half a surface to give.
+
+A uniformly charged solid ball with a spherical cavity hollowed out of it is
+a full ball of density $+\rho$ plus a small ball of density $-\rho$ filling
+the cavity. Inside a uniform ball the field at displacement $\vec r$ from its
+centre is $\rho\vec r/(3\varepsilon_0)$ — you will prove that next lesson.
+Adding the two contributions at a point inside the cavity, the $\vec r$ terms
+cancel and only the displacement $\vec d$ between the two centres survives:
+
+$$\vec E = \frac{\rho\vec d}{3\varepsilon_0}$$
+
+The field inside the cavity is uniform. That is a genuinely surprising result
+and it comes out of two lines of subtraction.
+
+<Aside label="Where this goes wrong" warn>
+  Superposition of objects only works if the pieces really do add up to the
+  real charge distribution. "Full ball plus negative ball" is legitimate
+  because the densities cancel exactly inside the cavity. Splitting a
+  *conductor* this way is not, because moving charge around a conductor
+  changes how the rest of the charge arranges itself.
+</Aside>
+
+## Recognising which tool the problem wants
+
+Read the geometry first, not the numbers.
+
+If every piece of charge is the same distance from the field point — a ring on
+its axis, an arc at its centre, a shell at a point outside — the integral is
+easy and often you only need $\int dq = Q$ with one $\cos\theta$.
+
+If the problem says "on the axis" and the object is flat and round, build it
+from rings. If it says the density varies with radius, build it from rings
+anyway; only the $dq$ changes.
+
+If the object is a straight segment, decide first whether the field point is
+on the perpendicular bisector (one component cancels), on the rod's own axis
+(no vector work at all), or somewhere general (you need both components). If
+the words "very long" or "infinite" appear, use $2k\lambda/y$ and skip the
+integral. If "large sheet" appears, use $\sigma/2\varepsilon_0$, or
+$\sigma/\varepsilon_0$ if it is a conductor surface or the gap between
+opposite plates.
+
+If the object is a complete shape with a bite out of it — a washer, a ball
+with a cavity, a ring missing an arc — subtract rather than integrate.
+
+And if the object is a sphere, or a very long cylinder, or an infinite sheet,
+and the question asks for the field at a general point rather than just on an
+axis, stop setting up an integral. That symmetry is exactly what
+[Gauss's law](/guide/gauss-law) exists to exploit, and it gets those answers
+in a line.

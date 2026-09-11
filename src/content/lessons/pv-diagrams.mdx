@@ -1,64 +1,375 @@
-## Reading the four curves
+A gas sealed under a piston is a machine with exactly two knobs. You can change
+how much room it has, and you can change how hot it is. Everything else — the
+pressure it pushes with, the energy stored inside it, the work it delivers to
+the crankshaft — follows from those two. So if you draw a picture with volume
+across the bottom and pressure up the side, one dot on that picture is the
+complete story of the gas at one instant, and a curve is the complete story of
+a process.
 
-A PV diagram plots the state of the gas, so every point on it is a legitimate
-equilibrium state with its own temperature, fixed by $T = PV/nR$. Curves of
-constant temperature are hyperbolas; a point further from the origin is hotter.
-That one fact lets you read $\Delta U$ off the picture without computing
-anything, since $\Delta U = nC_V\Delta T$.
+That picture is the PV diagram, and it is the single most useful drawing in
+thermodynamics. Once you can read it, a question like "how much heat does this
+engine throw away every cycle" stops being a wall of algebra and becomes a walk
+around a closed loop, one leg at a time, with a small amount of arithmetic at
+each corner.
 
-The four standard legs look like this:
+The last lesson, [entropy](/guide/entropy), gave you the rule that decides which
+processes can happen at all. This one is the bookkeeping: given a cycle that
+does happen, how much work comes out and how much heat goes in.
 
-- **Isochoric** — vertical line. $W = 0$.
-- **Isobaric** — horizontal line. $W = P\Delta V$, a rectangle.
-- **Isothermal** — hyperbola, $PV$ constant. Stays on one temperature curve.
-- **Adiabatic** — $PV^\gamma$ constant, so it is *steeper* than the isotherm
-  through the same point and crosses to a different temperature.
+## One dot is one state
 
-Steepness is the tell. If two curves leave the same point and one falls off
-faster, that one is the adiabat, and $\gamma > 1$ is the reason.
+Every point on a PV diagram satisfies the ideal gas law,
 
-## Work is the area, sign is the direction
+$$PV = nRT$$
 
-$W = \int P\,dV$ is the area under the curve, measured down to the $V$ axis.
-Left-to-right motion means expansion and positive work; right-to-left means the
-same area counted negative. For a closed cycle the two contributions do not
-cancel, and what survives is the area enclosed by the loop:
+where $n$ is the number of moles, $R = 8.31$ J/mol·K is the gas constant, and
+$T$ is the absolute temperature in kelvin. Read that as a statement about the
+diagram: if you know where the dot is, you know $T$, because $T = PV/nR$. You
+never have to be told the temperature at a corner. You can always compute it.
 
-$$W_{net} = \oint P\,dV = \text{enclosed area}$$
+Try it on a corner you will meet again. A state at $P = 2.0\times10^5$ Pa and
+$V = 1.0\times10^{-3}$ m³ holding $0.50$ mol has
 
-Clockwise gives positive net work — the gas expands at high pressure and is
-pushed back at low pressure, which is an engine. Counterclockwise is negative:
-work goes in, and the device is a refrigerator or heat pump.
+$$T = \frac{PV}{nR} = \frac{(2.0\times10^5)(1.0\times10^{-3})}{(0.50)(8.31)} = \frac{200}{4.155} = 48.1 \text{ K}$$
 
-Around any complete cycle the gas returns to its starting state, so
-$\Delta U = 0$ and therefore $Q_{net} = W_{net}$.
+The product $PV$ has units of joules — a pascal is a newton per square metre and
+a cubic metre times that is a newton-metre. That is worth remembering, because
+it means an area on this diagram is an energy in joules with no conversion
+factor at all.
 
-<Aside label="Where this goes wrong" warn>
-  Reaching for $W = P\Delta V$ on a leg where $P$ is not constant. That form is
-  only the isobaric case. On an isotherm the work is $nRT\ln(V_f/V_i)$; on an
-  adiabat use $W = -\Delta U = -nC_V\Delta T$, which is far easier than
-  integrating $PV^\gamma$ directly.
+The second thing a dot tells you is the internal energy. For a monatomic ideal
+gas the molecules have only translational motion, three directions to move in,
+and the kinetic theory result is
+
+$$U = \tfrac{3}{2}nRT = \tfrac{3}{2}PV$$
+
+Again, no temperature needed. Multiply the coordinates of the dot, take three
+halves of it, and you have $U$ in joules. For a diatomic gas the two rotational
+modes add another $nRT$ and you get $U = \tfrac{5}{2}PV$. Write $U = nC_V T$ if
+you prefer symbols, with $C_V = \tfrac{3}{2}R$ for monatomic gases.
+
+<Aside label="Worth remembering">
+  $\Delta U$ depends only on where you start and where you finish, never on the
+  path between them. Two states with the same product $PV$ have the same
+  internal energy, even if one is reached by a wild detour. A closed loop
+  therefore has $\Delta U = 0$, always.
 </Aside>
 
-## Working a cycle
+## The four legs you will actually see
 
-Build a table, one row per leg, with columns $Q$, $W$ and $\Delta U$. Fill in
-whichever two of the three the process type hands you free, then get the third
-from $\Delta U = Q - W$.
+Almost every cycle in a problem is built from four kinds of leg, and each has a
+recognisable shape.
 
-Take a three-leg cycle: isobaric expansion from $V$ to $2V$ at pressure $P$,
-then isochoric cooling back to $P/2$, then isothermal compression to close the
-loop. Leg one gives $W = PV$ and, from $T$ doubling, $\Delta U = \tfrac{f}{2}PV$.
-Leg two gives $W = 0$ with all the heat leaving. Leg three, at fixed
-temperature, gives $\Delta U = 0$ and $W = Q = -nRT\ln 2 = -PV\ln 2$.
+An **isochoric** leg holds the volume fixed. The piston is locked, so the dot
+moves straight up or down. The gas cannot push anything through a distance, so
+the work is zero.
 
-Sum the work column for $W_{net}$, sum only the positive entries in the heat
-column for $Q_{in}$, and check that the $\Delta U$ column sums to zero. That
-check catches sign errors before they propagate into an efficiency.
+An **isobaric** leg holds the pressure fixed. The dot moves horizontally. The
+gas pushes with a steady force while the piston moves, so the work is
+$P\,\Delta V$.
+
+An **isothermal** leg holds the temperature fixed. Then $PV$ is a constant, so
+the dot traces a hyperbola — pressure falls as volume grows, in exact inverse
+proportion. Since $T$ never changes, $\Delta U = 0$ on this leg, so every joule
+of heat that enters comes straight back out as work.
+
+An **adiabatic** leg lets no heat in or out at all, $Q = 0$. The gas does work
+only by spending its own internal energy, so it cools as it expands. That means
+it drops off a temperature curve as it goes, and the resulting path
+$PV^\gamma = \text{constant}$ is steeper than the isotherm through the same
+point. Here $\gamma = C_P/C_V$, which is $5/3$ for a monatomic gas.
+
+<Figure caption={<><b>Figure 1.</b> Four processes leaving the same state. Drag the adiabatic index and watch the dashed adiabat pull away from the solid isotherm. Bring it toward 1 and the two curves merge, which is the tell that steepness is entirely the work of the exponent.</>}>
+  <Sim id="pv-diagrams-legs" />
+</Figure>
 
 <QuickCheck
-  question="A cycle on a PV diagram is traversed counterclockwise. What can you say about the net work and net heat?"
-  options={["Both are positive; the device is an engine", "Both are negative; work is done on the gas and net heat is expelled", "Net work is negative but net heat is positive", "Net work is zero because the gas returns to its initial state"]}
+  question="Two curves leave the same point on a PV diagram heading down and to the right. One falls off more steeply than the other. Which is which?"
+  options={["The steeper one is the isotherm", "The steeper one is the adiabat, because the exponent gamma is bigger than 1", "The steeper one is an isobar", "You cannot tell without knowing the number of moles"]}
   answer={1}
-  explanation="Counterclockwise means the low-pressure leg is the expansion, so the enclosed area counts negative. Since the internal energy change around a full cycle is zero, the net heat equals the net work and is also negative."
+  explanation="On an isotherm P goes like 1/V; on an adiabat P goes like 1 over V to the gamma, and gamma is bigger than 1, so the pressure collapses faster. This is the only shape cue you need to tell the two apart on a sketch."
 />
+
+## Work is the area under the path
+
+Push a piston of area $A$ out by a small distance $dx$ against pressure $P$. The
+force on the piston is $PA$, so the work the gas does is $PA\,dx$. But $A\,dx$ is
+exactly the extra volume the gas gained. So the work done by the gas in a small
+step is $P\,dV$, and over a whole leg,
+
+$$W = \int_{V_i}^{V_f} P\,dV$$
+
+That integral is the area under the curve, measured down to the volume axis.
+Reading rightwards means expanding, and the work counts positive: the gas is
+paying out energy. Reading leftwards means being squeezed, and the same area
+counts negative.
+
+Three of the four legs give you this area without any calculus. On an isochore
+there is no width, so $W = 0$. On an isobar the region is a rectangle, so
+$W = P(V_f - V_i)$. On a straight slanted line the region is a trapezium, and
+the area is the average height times the width:
+
+$$W = \tfrac{1}{2}(P_i + P_f)(V_f - V_i)$$
+
+Only the isotherm needs the integral, and it is a short one. Substitute
+$P = nRT/V$ and pull the constants out:
+
+$$W = \int_{V_i}^{V_f} \frac{nRT}{V}\,dV = nRT\ln\frac{V_f}{V_i}$$
+
+<Figure caption={<><b>Figure 2.</b> The shaded region is the isothermal work. The dashed line is what an isobar at the same starting pressure would have given. Drag the final volume out and notice how much the curved area falls behind the rectangle, and that raising the temperature lifts the whole curve and scales the work with it.</>}>
+  <Sim id="pv-diagrams-area" />
+</Figure>
+
+### Worked example 1: work along three simple legs
+
+A gas expands at constant pressure $P = 2.0\times10^5$ Pa from
+$V = 1.0\times10^{-3}$ m³ to $3.0\times10^{-3}$ m³. The path is a horizontal
+segment traced left to right, so
+
+$$W = P\,\Delta V = (2.0\times10^5)(3.0\times10^{-3} - 1.0\times10^{-3}) = (2.0\times10^5)(2.0\times10^{-3}) = 400 \text{ J}$$
+
+Now heat a sealed rigid tank so the state runs straight up from
+$1.0\times10^5$ Pa to $3.0\times10^5$ Pa at $V = 2.0\times10^{-3}$ m³. The
+volume never changes, so $\Delta V = 0$ and $W = 0$ J. The pressure tripling is
+irrelevant to the work; nothing moved.
+
+Finally, take 1.0 mol at 300 K from $1.0\times10^{-3}$ m³ to
+$2.0\times10^{-3}$ m³ along an isotherm:
+
+$$W = nRT\ln\frac{V_f}{V_i} = (1.0)(8.31)(300)\ln 2 = 2493 \times 0.6931 = 1728 \text{ J}$$
+
+Compare that with the isobaric answer you would get at the starting pressure,
+$P_i = nRT/V_i = 2.49\times10^6$ Pa, which would be 2493 J. The isotherm gives
+less because the pressure sags as the gas expands.
+
+<Aside label="Where this goes wrong" warn>
+  Reaching for $W = P\,\Delta V$ on a leg where the pressure is not constant.
+  That formula is the isobaric case and nothing else. On an isotherm use
+  $nRT\ln(V_f/V_i)$; on a straight slanted line use the trapezium; on an adiabat
+  use $W = -\Delta U = -nC_V\Delta T$, which is far less painful than
+  integrating $PV^\gamma$.
+</Aside>
+
+## Heat comes from the first law
+
+You now have $W$ from the shape and $\Delta U$ from the endpoints. The first law
+of thermodynamics ties them to the heat:
+
+$$\Delta U = Q - W$$
+
+with $Q$ the heat that flows into the gas and $W$ the work the gas does. The
+signs matter and this is the convention every problem in the bank uses. So the
+heat on any leg is $Q = \Delta U + W$, and for a monatomic gas that is
+
+$$Q = \tfrac{3}{2}(P_fV_f - P_iV_i) + W$$
+
+Three consequences drop out at once. On an isochore, $W = 0$, so
+$Q = \Delta U = \tfrac{3}{2}V\,\Delta P$. On an isotherm, $\Delta U = 0$, so
+$Q = W$. On an adiabat, $Q = 0$, so $W = -\Delta U$.
+
+Try the isochore: a monatomic gas at $V = 2.0\times10^{-3}$ m³ whose pressure
+drops from $3.0\times10^5$ Pa to $1.0\times10^5$ Pa has
+
+$$Q = \tfrac{3}{2}(2.0\times10^{-3})(1.0\times10^5 - 3.0\times10^5) = 1.5 \times (200 - 600) = -600 \text{ J}$$
+
+Negative, so 600 J leaves the gas. That is what cooling at fixed volume looks
+like.
+
+<QuickCheck
+  question="A monatomic gas expands along an isobar. Of the heat that enters, what fraction becomes work done by the gas?"
+  options={["All of it, since the gas is expanding", "Two fifths of it", "Three fifths of it", "None of it, since the temperature is rising"]}
+  answer={1}
+  explanation="On an isobar the work is P times the change in volume, and the internal energy change is three halves of that same quantity. So Q is five halves of P times delta V while W is one of them: the ratio is two fifths. The rest goes into heating the gas."
+/>
+
+## Around a closed loop
+
+Take the gas all the way around a cycle and it comes home to the state it
+started in. Its internal energy is a property of the state, so $\Delta U = 0$
+for the whole trip, and the first law collapses to
+
+$$Q_{\text{net}} = W_{\text{net}}$$
+
+Every joule of net heat absorbed comes out as net work. And the net work is the
+area enclosed by the loop, because the outbound leg contributes the area under
+it as positive and the return leg subtracts the area under itself, leaving the
+sandwiched region between them.
+
+Go clockwise and the expansion happens along the upper, high-pressure part of
+the loop, so the positive contribution wins and $W_{\text{net}} > 0$. That is an
+engine. Go counterclockwise and the sign flips: you feed work in, and the device
+moves heat from cold to hot. That is a refrigerator.
+
+<Figure caption={<><b>Figure 3.</b> A rectangular cycle. Watch the dot walk each leg and read the running work in the note. Set the direction slider to 0 to reverse the loop and see the net work change sign while the shaded area stays exactly the same size.</>}>
+  <Sim id="pv-diagrams-cycle" />
+</Figure>
+
+The way to work a cycle without drowning is a table: one row per leg, three
+columns headed $Q$, $W$ and $\Delta U$. Each process type hands you one entry
+free. Compute a second from the geometry or the endpoints. Get the third from
+$\Delta U = Q - W$. Then check that the $\Delta U$ column sums to zero. That
+check catches sign errors before they poison an efficiency.
+
+### Worked example 2: heat rejected by a rectangular cycle
+
+A monatomic gas goes clockwise around
+A $(2.0\times10^{-3}$ m³, $4.0\times10^5$ Pa$)$ →
+B $(5.0\times10^{-3}$ m³, $4.0\times10^5$ Pa$)$ →
+C $(5.0\times10^{-3}$ m³, $1.0\times10^5$ Pa$)$ →
+D $(2.0\times10^{-3}$ m³, $1.0\times10^5$ Pa$)$ → A. How much heat leaves per
+cycle?
+
+Heat leaves on the two legs where the dot moves down or left, so B→C and C→D.
+Do them one at a time.
+
+B→C is isochoric at $V = 5.0\times10^{-3}$ m³ with the pressure falling by
+$3.0\times10^5$ Pa. No work, so
+
+$$Q_{BC} = \Delta U = \tfrac{3}{2}(5.0\times10^{-3})(-3.0\times10^5) = 1.5 \times (-1500) = -2250 \text{ J}$$
+
+C→D is isobaric at $1.0\times10^5$ Pa, compressing from $5.0\times10^{-3}$ to
+$2.0\times10^{-3}$ m³. The work is
+
+$$W_{CD} = (1.0\times10^5)(2.0\times10^{-3} - 5.0\times10^{-3}) = -300 \text{ J}$$
+
+negative because the gas is being squeezed. The internal energy change uses the
+endpoints: $P_DV_D = 200$ J and $P_CV_C = 500$ J, so
+$\Delta U = \tfrac{3}{2}(200 - 500) = -450$ J. Then
+
+$$Q_{CD} = \Delta U + W = -450 + (-300) = -750 \text{ J}$$
+
+Total heat rejected is $2250 + 750 = 3000$ J.
+
+You can sanity-check this. The enclosed area is
+$(3.0\times10^5)(3.0\times10^{-3}) = 900$ J of net work, so the heat absorbed on
+the other two legs must be $3000 + 900 = 3900$ J. Adding A→B ($W = 1200$ J,
+$\Delta U = 1800$ J, so $Q = 3000$ J) to D→A ($W = 0$, $\Delta U = 900$ J) gives
+exactly 3900 J. The books balance.
+
+## Efficiency, and cycles with slanted legs
+
+An engine's **efficiency** is what you get divided by what you pay for:
+
+$$\eta = \frac{W_{\text{net}}}{Q_{\text{in}}}$$
+
+$Q_{\text{in}}$ is the sum of only the positive heats. Do not use the net heat
+in the denominator — the whole point is that you paid for all the heat that went
+in, including the part you later threw away. For the rectangle above,
+$\eta = 900/3900 = 0.231$.
+
+For a refrigerator the useful output is the heat pulled out of the cold space,
+so the figure of merit is the coefficient of performance
+$K = Q_c/W$, where $W$ is the work you put in. A cycle that absorbs 800 J from
+the cold side while you supply 200 J of work has $K = 800/200 = 4.0$. There is
+no contradiction with efficiency being under 1; these are different ratios.
+
+### Worked example 3: a triangular cycle
+
+Vertices A $(1.0\times10^{-3}$ m³, $1.0\times10^5$ Pa$)$,
+B $(3.0\times10^{-3}$ m³, $1.0\times10^5$ Pa$)$,
+C $(3.0\times10^{-3}$ m³, $4.0\times10^5$ Pa$)$, traversed A→B→C→A with the
+closing leg a straight line. The gas is monatomic. Find the efficiency.
+
+Net work first. The triangle has base $2.0\times10^{-3}$ m³ and height
+$3.0\times10^5$ Pa, so its area is
+$\tfrac{1}{2}(2.0\times10^{-3})(3.0\times10^5) = 300$ J. That is the magnitude
+of the net work per cycle.
+
+Now the legs. A→B is isobaric: $W = (1.0\times10^5)(2.0\times10^{-3}) = 200$ J,
+and $\Delta U = \tfrac{3}{2}(300 - 100) = 300$ J, so $Q_{AB} = 500$ J, entering.
+
+B→C is isochoric: $W = 0$ and
+$\Delta U = \tfrac{3}{2}(1200 - 300) = 1350$ J, so $Q_{BC} = 1350$ J, also
+entering.
+
+So $Q_{\text{in}} = 500 + 1350 = 1850$ J and
+
+$$\eta = \frac{300}{1850} = 0.162$$
+
+The third leg is worth doing as a check, because it is the one that trips
+people. C→A is a straight slanted line, so its work is the trapezium:
+
+$$W_{CA} = \tfrac{1}{2}(4.0\times10^5 + 1.0\times10^5)(1.0\times10^{-3} - 3.0\times10^{-3}) = \tfrac{1}{2}(5.0\times10^5)(-2.0\times10^{-3}) = -500 \text{ J}$$
+
+Its internal energy change is $\tfrac{3}{2}(100 - 1200) = -1650$ J, so
+
+$$Q_{CA} = -1650 + (-500) = -2150 \text{ J}$$
+
+Check the columns. Work: $200 + 0 - 500 = -300$ J, which matches the area to the
+joule and tells you the sense of travel: going right along the bottom, up the
+right-hand side, and back down the diagonal puts the enclosed region above the
+outbound leg, so this loop runs counterclockwise and the signed net work is
+$-300$ J. Internal energy: $300 + 1350 - 1650 = 0$, exactly as a closed loop
+demands. The heat column sums to $500 + 1350 - 2150 = -300$ J, equal to the net
+work, which is the closing check.
+
+The efficiency the question wants is the useful output over the gross heat paid
+for, $300/1850 = 0.162$, and the sense of travel does not change either number's
+size.
+
+<Aside label="Where this goes wrong" warn>
+  Putting the net heat in the denominator of the efficiency. If a cycle absorbs
+  3900 J and rejects 3000 J, the net heat is 900 J and $W_{\text{net}}$ is also
+  900 J — you would get an efficiency of 1, which is nonsense. The denominator
+  is the gross heat in, 3900 J.
+</Aside>
+
+## The Carnot cycle and the adiabatic shortcut
+
+Two isotherms joined by two adiabats make a Carnot cycle. Because no heat
+crosses the adiabats, all the heat in arrives on the hot isotherm at $T_h$ and
+all the heat out leaves on the cold isotherm at $T_c$. On an isotherm
+$Q = W = nRT\ln(V_f/V_i)$, and the geometry of the two adiabats forces the
+volume ratios on the two isotherms to be equal. So the two heats are in the
+ratio of the temperatures, and
+
+$$\eta = 1 - \frac{T_c}{T_h}$$
+
+Between 500 K and 300 K that is $1 - 300/500 = 0.400$. Run the same loop
+backwards as a fridge between 400 K and 250 K and the coefficient of performance
+is $K = T_c/(T_h - T_c) = 250/150 = 1.67$.
+
+The net work follows just as quickly. For 2.0 mol running the hot isotherm at
+600 K from $1.0\times10^{-3}$ to $3.0\times10^{-3}$ m³ and the cold one at
+300 K, the volume ratio is 3 on both, so
+
+$$W_{\text{net}} = nR(T_h - T_c)\ln 3 = (2.0)(8.31)(300)(1.0986) = 5478 \text{ J}$$
+
+The other classic is the **Otto cycle**: adiabatic compression, isochoric
+heating, adiabatic expansion, isochoric cooling. Heat is exchanged only on the
+two constant-volume legs, where $Q = nC_V\Delta T$. Working through the ratios
+gives
+
+$$\eta = 1 - \left(\frac{V_2}{V_1}\right)^{\gamma - 1}$$
+
+with $V_1/V_2$ the compression ratio. Compress a monatomic gas from
+$8.0\times10^{-4}$ m³ to $1.0\times10^{-4}$ m³, a ratio of 8, and with
+$\gamma - 1 = 2/3$ you get $8^{2/3} = 4$, so
+$\eta = 1 - \tfrac{1}{4} = 0.750$.
+
+## Recognising the technique
+
+A problem wants PV-diagram bookkeeping when it hands you a list of states as
+$(V, P)$ pairs, or describes a sequence of legs by name — isobaric, isochoric,
+isothermal, adiabatic — or asks for work, heat, efficiency or coefficient of
+performance "per cycle". Those phrases mean: draw the loop, then make the table.
+
+Inside that, the sub-choices are decided by single words. "Rigid", "sealed
+container", "constant volume" means $W = 0$ and $Q = \Delta U$. "At constant
+pressure" or "the piston is free and the outside pressure is fixed" means
+$W = P\Delta V$. "Isothermal" or "in contact with a reservoir at $T$" means
+$\Delta U = 0$ and you need the logarithm. "Insulated", "adiabatic" or "too fast
+for heat to flow" means $Q = 0$ and $W = -\Delta U$. "Straight line on the PV
+diagram" means trapezium.
+
+And three shortcuts save real time. If the question only asks for net work, find
+the enclosed area and stop. If it only asks for $\Delta U$ between two states,
+take $\tfrac{3}{2}(P_fV_f - P_iV_i)$ and ignore the path entirely — which is why
+a monatomic gas going from $(3.0\times10^5$ Pa$, 2.0\times10^{-3}$ m³$)$ to
+$(1.0\times10^5$ Pa$, 6.0\times10^{-3}$ m³$)$ has $\Delta U = 0$, both products
+being 600 J. And if it asks for the temperature at a corner, that is $PV/nR$ and
+nothing more.
+
+Next you leave thermodynamics for a while and pick up
+[wave basics](/guide/wave-basics), where the same habit — identify the quantity
+that is conserved, then track it step by step — comes back in a new costume.

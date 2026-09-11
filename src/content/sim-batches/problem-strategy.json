@@ -1,0 +1,64 @@
+[
+  {
+    "id": "problem-strategy-tilted-axes",
+    "title": "Tilted axes on an incline",
+    "caption": "Tilt the ramp and watch the weight split into a piece along the surface and a piece into it.",
+    "height": 260,
+    "params": [
+      {
+        "key": "angle",
+        "label": "Incline angle",
+        "unit": "deg",
+        "min": 0,
+        "max": 60,
+        "step": 1,
+        "value": 30
+      },
+      {
+        "key": "mass",
+        "label": "Block mass",
+        "unit": "kg",
+        "min": 0.5,
+        "max": 4,
+        "step": 0.1,
+        "value": 2
+      }
+    ],
+    "draw": "const th = p.angle * Math.PI / 180;\nconst m = p.mass, g = 9.8;\nconst a = g * Math.sin(th);\nconst N = m * g * Math.cos(th);\n\nconst pad = 26;\nconst baseY = H - pad;\nconst baseX = pad;\nconst len = (W - pad * 2) * 0.78;\nconst topY = baseY - len * Math.tan(th);\n\n// incline\nctx.lineWidth = 1.5;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(baseX, baseY);\nctx.lineTo(baseX + len, baseY);\nctx.lineTo(baseX + len, topY);\nctx.closePath();\nctx.stroke();\n\n// angle label at the bottom-left corner\nctx.strokeStyle = C.faint;\nctx.beginPath();\nctx.arc(baseX, baseY, 26, -th, 0);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillText(\"theta = \" + p.angle.toFixed(0) + \" deg\", baseX + 30, baseY - 6);\n\n// block slides from the top, restarts\nconst sMax = len / Math.cos(th) * 0.72;\nconst tRun = Math.sqrt(2 * sMax / Math.max(a, 0.001));\nconst now = (t % (tRun + 0.8));\nconst s = Math.min(0.5 * a * now * now, sMax);\nconst startX = baseX + len - sMax * Math.cos(th);\nconst startY = topY + sMax * Math.sin(th);\nconst bx = startX + s * Math.cos(th);\nconst by = startY - s * Math.sin(th);\n\n// block drawn as a small square sitting on the surface\nconst bs = 16;\nctx.save();\nctx.translate(bx, by);\nctx.rotate(-th);\nctx.fillStyle = C.accent;\nctx.fillRect(-bs / 2, -bs, bs, bs);\nctx.restore();\n\nfunction arrow(x0, y0, x1, y1, col, label) {\n  ctx.strokeStyle = col;\n  ctx.fillStyle = col;\n  ctx.lineWidth = 1.6;\n  ctx.beginPath();\n  ctx.moveTo(x0, y0);\n  ctx.lineTo(x1, y1);\n  ctx.stroke();\n  const ang = Math.atan2(y1 - y0, x1 - x0);\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 7 * Math.cos(ang - 0.4), y1 - 7 * Math.sin(ang - 0.4));\n  ctx.lineTo(x1 - 7 * Math.cos(ang + 0.4), y1 - 7 * Math.sin(ang + 0.4));\n  ctx.closePath();\n  ctx.fill();\n  ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n  ctx.fillText(label, x1 + 4, y1 - 2);\n}\n\n// centre of the block, lifted half a block along the surface normal\nconst cx = bx - (bs / 2) * Math.sin(th);\nconst cy = by - (bs / 2) * Math.cos(th);\nconst k = 3.2;\n\n// weight, straight down\narrow(cx, cy, cx, cy + m * g * k * 0.55, C.figure, \"mg\");\n// component along the surface (down-slope)\narrow(cx, cy, cx + m * g * Math.sin(th) * k * Math.cos(th) * 0.55,\n      cy + m * g * Math.sin(th) * k * Math.sin(th) * 0.55, C.accent, \"mg sin\");\n// component into the surface\narrow(cx, cy, cx - m * g * Math.cos(th) * k * Math.sin(th) * 0.55,\n      cy + m * g * Math.cos(th) * k * Math.cos(th) * 0.55, C.accent, \"mg cos\");\n// normal force, out of the surface\narrow(cx, cy, cx - N * k * Math.sin(th) * 0.55, cy - N * k * Math.cos(th) * 0.55,\n      C.ink, \"N\");\n\n// tilted axis hint\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath();\nctx.moveTo(cx - 40 * Math.cos(th), cy + 40 * Math.sin(th));\nctx.lineTo(cx + 40 * Math.cos(th), cy - 40 * Math.sin(th));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.font = \"11px ui-sans-serif, system-ui, sans-serif\";\nctx.fillText(\"x along surface\", pad, pad + 2);\nctx.fillText(\"y perpendicular\", pad, pad + 16);\n\nout.note = \"a = g sin(theta) = \" + a.toFixed(2) + \" m/s^2   |   N = mg cos(theta) = \" + N.toFixed(1) + \" N   |   weight mg = \" + (m * g).toFixed(1) + \" N\";"
+  },
+  {
+    "id": "problem-strategy-system-cut",
+    "title": "One system, then a cut",
+    "caption": "The same two blocks drawn twice: once with the boundary around both, once with the boundary cutting between them.",
+    "height": 250,
+    "params": [],
+    "draw": "ctx.lineWidth = 1.6;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nfunction arrow(x0, y0, x1, y1, col, label, above) {\n  ctx.strokeStyle = col;\n  ctx.fillStyle = col;\n  ctx.lineWidth = 1.6;\n  ctx.beginPath();\n  ctx.moveTo(x0, y0);\n  ctx.lineTo(x1, y1);\n  ctx.stroke();\n  const ang = Math.atan2(y1 - y0, x1 - x0);\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 7 * Math.cos(ang - 0.4), y1 - 7 * Math.sin(ang - 0.4));\n  ctx.lineTo(x1 - 7 * Math.cos(ang + 0.4), y1 - 7 * Math.sin(ang + 0.4));\n  ctx.closePath();\n  ctx.fill();\n  ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n  ctx.fillText(label, (x0 + x1) / 2 - 10, above ? Math.min(y0, y1) - 6 : Math.max(y0, y1) + 14);\n}\n\nconst halfW = W / 2;\nconst groundY = H * 0.62;\n\n// ---- left panel: the pair as one system ----\nctx.strokeStyle = C.faint;\nctx.beginPath();\nctx.moveTo(W * 0.04, groundY);\nctx.lineTo(halfW - W * 0.03, groundY);\nctx.stroke();\n\nconst aW = W * 0.10, bW = W * 0.13, bh = H * 0.20;\nconst ax0 = W * 0.16;\nctx.strokeStyle = C.rule;\nctx.fillStyle = C.paper;\nctx.fillRect(ax0, groundY - bh, aW, bh);\nctx.strokeRect(ax0, groundY - bh, aW, bh);\nctx.fillRect(ax0 + aW, groundY - bh, bW, bh);\nctx.strokeRect(ax0 + aW, groundY - bh, bW, bh);\nctx.fillStyle = C.ink;\nctx.fillText(\"3 kg\", ax0 + 4, groundY - bh / 2);\nctx.fillText(\"5 kg\", ax0 + aW + 6, groundY - bh / 2);\n\n// dashed system boundary around both\nctx.strokeStyle = C.accent;\nctx.setLineDash([5, 4]);\nctx.strokeRect(ax0 - 9, groundY - bh - 9, aW + bW + 18, bh + 18);\nctx.setLineDash([]);\n\narrow(ax0 - 48, groundY - bh / 2, ax0 - 11, groundY - bh / 2, C.figure, \"F = 12 N\", true);\nctx.fillStyle = C.accent;\nctx.fillText(\"system: both blocks\", W * 0.05, H * 0.14);\nctx.fillStyle = C.ink;\nctx.fillText(\"contact force is internal\", W * 0.05, H * 0.14 + 16);\nctx.fillText(\"a = F / (3 + 5) = 1.5 m/s^2\", W * 0.05, H * 0.14 + 32);\n\n// divider\nctx.strokeStyle = C.faint;\nctx.beginPath();\nctx.moveTo(halfW, H * 0.06);\nctx.lineTo(halfW, H * 0.94);\nctx.stroke();\n\n// ---- right panel: cut the system, isolate the front block ----\nctx.strokeStyle = C.faint;\nctx.beginPath();\nctx.moveTo(halfW + W * 0.04, groundY);\nctx.lineTo(W * 0.96, groundY);\nctx.stroke();\n\nconst cx0 = halfW + W * 0.22;\nctx.strokeStyle = C.rule;\nctx.fillStyle = C.paper;\nctx.fillRect(cx0, groundY - bh, aW, bh);\nctx.strokeRect(cx0, groundY - bh, aW, bh);\nctx.fillStyle = C.ink;\nctx.fillText(\"3 kg\", cx0 + 4, groundY - bh / 2);\n\nctx.strokeStyle = C.accent;\nctx.setLineDash([5, 4]);\nctx.strokeRect(cx0 - 9, groundY - bh - 9, aW + 18, bh + 18);\nctx.setLineDash([]);\n\narrow(cx0 - 48, groundY - bh / 2, cx0 - 11, groundY - bh / 2, C.figure, \"F = 12 N\", true);\narrow(cx0 + aW + 48, groundY - bh / 2, cx0 + aW + 11, groundY - bh / 2, C.figure, \"C = 7.5 N\", true);\narrow(cx0 + aW / 2, groundY - bh - 12, cx0 + aW / 2, groundY - bh - 44, C.ink, \"N\", false);\narrow(cx0 + aW / 2, groundY - bh / 2, cx0 + aW / 2, groundY + 26, C.ink, \"mg\", false);\n\nctx.fillStyle = C.accent;\nctx.fillText(\"system: front block only\", halfW + W * 0.04, H * 0.14);\nctx.fillStyle = C.ink;\nctx.fillText(\"contact force is now external\", halfW + W * 0.04, H * 0.14 + 16);\nctx.fillText(\"12 - C = 3 x 1.5, so C = 7.5 N\", halfW + W * 0.04, H * 0.14 + 32);"
+  },
+  {
+    "id": "problem-strategy-limits",
+    "title": "Limiting-case lab: the Atwood machine",
+    "caption": "Drag the masses to the extremes and check that the formula does what physics says it must.",
+    "height": 260,
+    "params": [
+      {
+        "key": "m1",
+        "label": "Left mass m1",
+        "unit": "kg",
+        "min": 0.2,
+        "max": 10,
+        "step": 0.1,
+        "value": 5
+      },
+      {
+        "key": "m2",
+        "label": "Right mass m2",
+        "unit": "kg",
+        "min": 0.2,
+        "max": 10,
+        "step": 0.1,
+        "value": 3
+      }
+    ],
+    "draw": "const g = 9.8;\nconst m1 = p.m1, m2 = p.m2;\nconst a = (m1 - m2) * g / (m1 + m2);\nconst T = 2 * m1 * m2 * g / (m1 + m2);\n\nconst pad = 26;\nconst panelW = W * 0.44;\n\n// ---- left: the machine, animated ----\nconst pulX = panelW * 0.5, pulY = pad + 8, R = 14;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.arc(pulX, pulY, R, 0, Math.PI * 2);\nctx.stroke();\n\nconst span = H - pulY - pad - 30;\nconst cycle = 1.6;\nconst ph = ((t % (2 * cycle)) / cycle);\nconst frac = ph < 1 ? ph : 2 - ph;\nconst dir = a >= 0 ? 1 : -1;\nconst shift = dir * (frac - 0.5) * span * 0.35 * Math.min(1, Math.abs(a) / g);\n\nconst y1 = pulY + span * 0.45 + shift;\nconst y2 = pulY + span * 0.45 - shift;\n\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(pulX - R, pulY);\nctx.lineTo(pulX - R, y1);\nctx.moveTo(pulX + R, pulY);\nctx.lineTo(pulX + R, y2);\nctx.stroke();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nconst bw = 30, bh = 20;\nctx.fillStyle = C.accent;\nctx.fillRect(pulX - R - bw / 2, y1, bw, bh);\nctx.fillRect(pulX + R - bw / 2, y2, bw, bh);\nctx.fillStyle = C.ink;\nctx.fillText(\"m1 = \" + m1.toFixed(1) + \" kg\", pulX - R - bw / 2 - 6, y1 + bh + 16);\nctx.fillText(\"m2 = \" + m2.toFixed(1) + \" kg\", pulX + R - bw / 2 - 6, y2 + bh + 16);\nctx.fillStyle = C.figure;\nctx.fillText(\"T = \" + T.toFixed(1) + \" N\", pulX - 24, pulY + span * 0.18);\n\n// ---- right: a against m1, with the two limits marked ----\nconst gx0 = panelW + 40, gx1 = W - pad;\nconst gy0 = pad + 6, gy1 = H - pad - 14;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(gx0, gy0);\nctx.lineTo(gx0, gy1);\nctx.lineTo(gx1, gy1);\nctx.stroke();\n// zero line (a = 0 sits in the middle)\nconst Ay = v => gy1 - (v + g) / (2 * g) * (gy1 - gy0);\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath();\nctx.moveTo(gx0, Ay(0));\nctx.lineTo(gx1, Ay(0));\nctx.moveTo(gx0, Ay(g));\nctx.lineTo(gx1, Ay(g));\nctx.moveTo(gx0, Ay(-g));\nctx.lineTo(gx1, Ay(-g));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.font = \"11px ui-sans-serif, system-ui, sans-serif\";\nctx.fillText(\"a = +g\", gx0 + 4, Ay(g) + 12);\nctx.fillText(\"a = 0\", gx0 + 4, Ay(0) - 4);\nctx.fillText(\"a = -g\", gx0 + 4, Ay(-g) - 4);\nctx.fillText(\"m1 (kg)\", gx1 - 46, gy1 + 12);\n\nconst mMax = 10;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (let i = 0; i <= 120; i++) {\n  const mm = 0.1 + (mMax - 0.1) * i / 120;\n  const av = (mm - m2) * g / (mm + m2);\n  const X = gx0 + (mm / mMax) * (gx1 - gx0);\n  i === 0 ? ctx.moveTo(X, Ay(av)) : ctx.lineTo(X, Ay(av));\n}\nctx.stroke();\n\nconst mx = gx0 + (Math.min(m1, mMax) / mMax) * (gx1 - gx0);\nctx.fillStyle = C.figure;\nctx.beginPath();\nctx.arc(mx, Ay(a), 4.5, 0, Math.PI * 2);\nctx.fill();\nctx.fillStyle = C.ink;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillText(\"a vs m1 at fixed m2\", gx0 + 4, gy0 + 12);\n\nout.note = \"a = (m1 - m2)g/(m1 + m2) = \" + a.toFixed(2) + \" m/s^2   |   T = 2 m1 m2 g/(m1 + m2) = \" + T.toFixed(1) + \" N   |   set m1 = m2 and a goes to 0; make m2 tiny and a goes to g\";"
+  }
+]

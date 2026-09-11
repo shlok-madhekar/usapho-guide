@@ -1,0 +1,101 @@
+[
+  {
+    "id": "standing-waves-superposition",
+    "title": "Two waves adding up",
+    "caption": "Two identical waves running opposite ways, and the standing wave they make.",
+    "height": 260,
+    "params": [
+      {
+        "key": "n",
+        "label": "Number of loops",
+        "unit": "",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "value": 3
+      },
+      {
+        "key": "L",
+        "label": "String length",
+        "unit": "m",
+        "min": 0.2,
+        "max": 2.0,
+        "step": 0.05,
+        "value": 1.0
+      }
+    ],
+    "draw": "var pad = 30;\nvar Lx = W - 2 * pad;\nvar k = p.n * Math.PI / Lx;\nvar w = 1.8;\nvar A = H * 0.085;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\nvar topY = H * 0.28;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(pad, topY); ctx.lineTo(W - pad, topY); ctx.stroke();\n\nctx.lineWidth = 1.6;\nctx.strokeStyle = C.faint;\nctx.beginPath();\nfor (var i = 0; i <= 240; i++) {\n  var x1 = pad + Lx * i / 240;\n  var y1 = topY - A * Math.sin(k * (x1 - pad) - w * t);\n  if (i === 0) { ctx.moveTo(x1, y1); } else { ctx.lineTo(x1, y1); }\n}\nctx.stroke();\n\nctx.strokeStyle = C.figure;\nctx.beginPath();\nfor (var j = 0; j <= 240; j++) {\n  var x2 = pad + Lx * j / 240;\n  var y2 = topY - A * Math.sin(k * (x2 - pad) + w * t);\n  if (j === 0) { ctx.moveTo(x2, y2); } else { ctx.lineTo(x2, y2); }\n}\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"two travelling waves, opposite directions\", pad, H * 0.09);\n\nvar by = H * 0.74;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(pad, by); ctx.lineTo(W - pad, by); ctx.stroke();\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([4, 4]);\nfor (var s = -1; s <= 1; s += 2) {\n  ctx.beginPath();\n  for (var m = 0; m <= 240; m++) {\n    var x3 = pad + Lx * m / 240;\n    var y3 = by - s * 2 * A * Math.sin(k * (x3 - pad));\n    if (m === 0) { ctx.moveTo(x3, y3); } else { ctx.lineTo(x3, y3); }\n  }\n  ctx.stroke();\n}\nctx.setLineDash([]);\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var q = 0; q <= 240; q++) {\n  var x4 = pad + Lx * q / 240;\n  var y4 = by - 2 * A * Math.sin(k * (x4 - pad)) * Math.cos(w * t);\n  if (q === 0) { ctx.moveTo(x4, y4); } else { ctx.lineTo(x4, y4); }\n}\nctx.stroke();\n\nctx.fillStyle = C.ink;\nfor (var nd = 0; nd <= p.n; nd++) {\n  var xn = pad + Lx * nd / p.n;\n  ctx.beginPath(); ctx.arc(xn, by, 3.5, 0, 6.2832); ctx.fill();\n}\nctx.fillText(\"their sum: nothing travels\", pad, H * 0.56);\nctx.fillText(\"node\", pad + Lx / p.n - 14, by + 16);\nctx.fillText(\"antinode\", pad + Lx / (2 * p.n) - 22, by - 2 * A - 8);\n\nvar lam = 2 * p.L / p.n;\nout.note = \"n = \" + p.n + \" loops on L = \" + p.L.toFixed(2) + \" m: wavelength = \" + lam.toFixed(3) + \" m, nodes every \" + (lam / 2).toFixed(3) + \" m\";"
+  },
+  {
+    "id": "standing-waves-string-lab",
+    "title": "String harmonic lab",
+    "caption": "Tension, mass per length, length and mode number, with the resonant frequency read out live.",
+    "height": 260,
+    "params": [
+      {
+        "key": "n",
+        "label": "Harmonic number",
+        "unit": "",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "value": 1
+      },
+      {
+        "key": "L",
+        "label": "String length",
+        "unit": "m",
+        "min": 0.2,
+        "max": 1.5,
+        "step": 0.05,
+        "value": 0.65
+      },
+      {
+        "key": "tension",
+        "label": "Tension",
+        "unit": "N",
+        "min": 10,
+        "max": 500,
+        "step": 5,
+        "value": 380
+      },
+      {
+        "key": "mu",
+        "label": "Mass per length",
+        "unit": "g/m",
+        "min": 0.2,
+        "max": 6,
+        "step": 0.1,
+        "value": 1.2
+      }
+    ],
+    "draw": "var pad = 34;\nvar Lx = W - 2 * pad;\nvar midY = H * 0.45;\nvar mu = p.mu / 1000;\nvar v = Math.sqrt(p.tension / mu);\nvar f = p.n * v / (2 * p.L);\nvar A = H * 0.2;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nctx.fillStyle = C.faint;\nctx.fillRect(pad - 8, midY - 34, 8, 68);\nctx.fillRect(W - pad, midY - 34, 8, 68);\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.setLineDash([3, 5]);\nctx.beginPath(); ctx.moveTo(pad, midY); ctx.lineTo(W - pad, midY); ctx.stroke();\nctx.setLineDash([]);\n\nctx.strokeStyle = C.faint;\nfor (var s = -1; s <= 1; s += 2) {\n  ctx.beginPath();\n  for (var m = 0; m <= 240; m++) {\n    var xe = pad + Lx * m / 240;\n    var ye = midY - s * A * Math.sin(p.n * Math.PI * (xe - pad) / Lx);\n    if (m === 0) { ctx.moveTo(xe, ye); } else { ctx.lineTo(xe, ye); }\n  }\n  ctx.stroke();\n}\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 240; i++) {\n  var x = pad + Lx * i / 240;\n  var y = midY - A * Math.sin(p.n * Math.PI * (x - pad) / Lx) * Math.cos(2 * Math.PI * 1.2 * t);\n  if (i === 0) { ctx.moveTo(x, y); } else { ctx.lineTo(x, y); }\n}\nctx.stroke();\n\nctx.fillStyle = C.ink;\nfor (var nd = 0; nd <= p.n; nd++) {\n  var xn = pad + Lx * nd / p.n;\n  ctx.beginPath(); ctx.arc(xn, midY, 3.5, 0, 6.2832); ctx.fill();\n}\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1;\nvar yArrow = midY + A + 26;\nctx.beginPath();\nctx.moveTo(pad, yArrow); ctx.lineTo(pad + Lx / p.n, yArrow);\nctx.moveTo(pad, yArrow - 4); ctx.lineTo(pad, yArrow + 4);\nctx.moveTo(pad + Lx / p.n, yArrow - 4); ctx.lineTo(pad + Lx / p.n, yArrow + 4);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"half a wavelength\", pad + 6, yArrow + 16);\nctx.fillText(\"fixed end\", pad - 8, midY - 42);\nctx.fillText(\"fixed end\", W - pad - 48, midY - 42);\n\nout.note = \"v = \" + v.toFixed(1) + \" m/s, wavelength = \" + (2 * p.L / p.n).toFixed(3) + \" m, f\" + p.n + \" = \" + f.toFixed(1) + \" Hz (fundamental \" + (v / (2 * p.L)).toFixed(1) + \" Hz)\";"
+  },
+  {
+    "id": "standing-waves-pipes",
+    "title": "Open pipe against stopped pipe",
+    "caption": "Displacement envelopes in a pipe open at both ends and a pipe closed at one end.",
+    "height": 280,
+    "params": [
+      {
+        "key": "n",
+        "label": "Mode number",
+        "unit": "",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "value": 1
+      },
+      {
+        "key": "L",
+        "label": "Pipe length",
+        "unit": "m",
+        "min": 0.1,
+        "max": 1.2,
+        "step": 0.05,
+        "value": 0.5
+      }
+    ],
+    "draw": "var pad = 26;\nvar pipeW = (W - 3 * pad) / 2;\nvar v = 343;\nvar L = p.L;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\nfunction envelope(x0, yMid, width, amp, harmonic, closedRight) {\n  ctx.strokeStyle = C.accent;\n  for (var s = -1; s <= 1; s += 2) {\n    ctx.beginPath();\n    for (var i = 0; i <= 200; i++) {\n      var u = i / 200;\n      var shape = closedRight\n        ? Math.cos(harmonic * Math.PI * u / 2)\n        : Math.cos(harmonic * Math.PI * u);\n      var x = x0 + width * u;\n      var y = yMid - s * amp * shape;\n      if (i === 0) { ctx.moveTo(x, y); } else { ctx.lineTo(x, y); }\n    }\n    ctx.stroke();\n  }\n}\n\nvar amp = H * 0.14;\nvar yA = H * 0.3;\nvar yB = H * 0.75;\n\n// open-open pipe\nctx.strokeStyle = C.rule;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(pad, yA - amp - 10); ctx.lineTo(pad + pipeW, yA - amp - 10);\nctx.moveTo(pad, yA + amp + 10); ctx.lineTo(pad + pipeW, yA + amp + 10);\nctx.stroke();\nenvelope(pad, yA, pipeW, amp, p.n, false);\n\n// closed-open pipe: closed at the right\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(pad * 2 + pipeW, yB - amp - 10); ctx.lineTo(pad * 2 + 2 * pipeW, yB - amp - 10);\nctx.lineTo(pad * 2 + 2 * pipeW, yB + amp + 10);\nctx.lineTo(pad * 2 + pipeW, yB + amp + 10);\nctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillRect(pad * 2 + 2 * pipeW - 6, yB - amp - 10, 6, 2 * amp + 20);\nvar odd = 2 * p.n - 1;\nenvelope(pad * 2 + pipeW, yB, pipeW, amp, odd, true);\n\nctx.fillStyle = C.ink;\nvar fOpen = p.n * v / (2 * L);\nvar fClosed = odd * v / (4 * L);\nctx.fillText(\"open at both ends, harmonic \" + p.n, pad, yA - amp - 20);\nctx.fillText(\"antinode\", pad - 4, yA + amp + 26);\nctx.fillText(\"antinode\", pad + pipeW - 52, yA + amp + 26);\nctx.fillText(\"closed at one end, harmonic \" + odd, pad * 2 + pipeW, yB - amp - 20);\nctx.fillText(\"antinode\", pad * 2 + pipeW - 4, yB + amp + 26);\nctx.fillText(\"node\", pad * 2 + 2 * pipeW - 34, yB + amp + 26);\n\nout.note = \"L = \" + L.toFixed(2) + \" m: open pipe \" + fOpen.toFixed(0) + \" Hz, stopped pipe \" + fClosed.toFixed(0) + \" Hz (odd harmonics only)\";"
+  }
+]

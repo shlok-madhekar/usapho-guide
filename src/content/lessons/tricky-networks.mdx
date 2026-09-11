@@ -1,61 +1,414 @@
-## When series-parallel reduction fails
+You have spent the last few lessons taking networks apart. Two resistors end to
+end add. Two side by side combine as reciprocals. A capacitor charging through a
+resistor rolls off with a time constant $\tau = RC$. Every circuit so far has
+yielded to the same move: find a pair that is clearly in series or clearly in
+parallel, replace it with one resistor, repeat until one resistor is left.
 
-Some networks contain no pair of resistors that is cleanly in series or cleanly
-in parallel. The five-resistor bridge is the smallest example. Reduction stalls
-immediately, and the three techniques below are what replace it.
+Now draw a square with a diagonal wire across it, a resistor on all five
+branches, and ask for the resistance corner to corner. There is no series pair:
+every junction has three wires meeting at it, so no resistor has another
+following it with nowhere else to go. There is no parallel pair either: no two
+resistors share both of their ends. Reduction stalls on the first move, and the
+network has only five resistors in it.
 
-## The Wheatstone bridge
+That shape is the Wheatstone bridge, the smallest network that defeats
+series-parallel reduction. A cube of twelve resistors defeats it too, and so does
+a ladder that repeats forever. Here are the tools that take over: symmetry, the
+balance condition, the delta-to-Y conversion, self-similarity, and the
+brute-force fallback that always works.
 
-Four resistors form two branches from the source, $R_1$ then $R_2$ down one
-side and $R_3$ then $R_4$ down the other, with a fifth resistor bridging the
-two midpoints. The bridge resistor carries current only if its two ends sit at
-different potentials. Each side is a voltage divider, so the midpoints match
-when the ratios match:
+## Equal potentials, and what you may do to them
 
-$$\frac{R_1}{R_2} = \frac{R_3}{R_4}$$
+Current flows through a resistor only when there is a potential difference across
+it. So if two nodes sit at exactly the same potential, any resistor joining them
+carries no current, and a resistor carrying no current is doing nothing: you may
+delete it. Equally you may fuse the two nodes with a wire, since a wire forces
+them to a potential they already shared. Both surgeries leave every current and
+voltage elsewhere untouched, and one of them usually breaks the deadlock.
 
-At balance the bridge element is irrelevant. Delete it — or short it, whichever
-you prefer — and the remaining four resistors reduce by inspection. Both moves
-give the same answer precisely because no current flows and no voltage stands
-across it.
+The question is how to spot equal potentials without solving the circuit first,
+and the answer is symmetry. Suppose some relabelling of the nodes maps the
+network onto itself — every resistor lands on an identical resistor — while
+leaving both terminals where they are. The relabelled circuit is the same
+circuit, driven the same way, so it has the same solution. Any node and its image
+therefore share a potential.
 
-<Aside label="Where this goes wrong" warn>
-  The balance condition is a ratio, not a difference. $R_1 = R_4$ and
-  $R_2 = R_3$ does not balance a bridge unless the ratios also match. And the
-  condition does not depend on the bridge resistor or the source voltage at
-  all, so checking balance is always the first thing to do: it costs one
-  comparison and can collapse the whole problem.
+Take the cube: twelve identical resistors $R$, one per edge, measured between
+opposite corners $A$ and $G$. Rotating by $120^\circ$ about the long diagonal
+$AG$ maps the cube onto itself and holds both $A$ and $G$ fixed. It cycles the
+three corners next to $A$ among themselves, so those three share a potential, and
+it cycles the three corners next to $G$ among themselves, so those share a
+second.
+
+<Figure caption={<><b>Figure 1.</b> The cube seen as three tiers. Every corner labelled 1 is one step from A, every corner labelled 2 is one step from G. Notice that no edge ever joins two corners with the same label, so merging the tiers loses nothing.</>}>
+  <Sim id="tricky-networks-cube" />
+</Figure>
+
+Fuse each triple into one node and the twelve edges sort themselves. Three edges
+run from $A$ to the first tier: three $R$ in parallel, $R/3$. Six run from the
+first tier to the second: $R/6$. Three run from the second tier to $G$: $R/3$.
+Those blocks are in series, so
+
+$$
+R_{AG} = \frac{R}{3} + \frac{R}{6} + \frac{R}{3} = \frac{5R}{6}.
+$$
+
+For $R = 6.0\ \Omega$ that is $5.0\ \Omega$, and you got it without writing a
+single node equation.
+
+The same rotation tells you the currents. Feed $1.0\ \mathrm{A}$ into $A$. It has
+three identical ways out, so each of the three edges at $A$ carries
+$0.333\ \mathrm{A}$.
+
+<Aside label="Worth remembering">
+  Merging equipotential nodes and cutting the wire between them are both legal,
+  and they are not the same operation. Merge when it creates parallel bundles you
+  can collapse. Cut when the offending resistor is the only thing standing
+  between you and a series-parallel network. On a balanced bridge either works.
 </Aside>
 
-## Infinite ladders
+<QuickCheck
+  question="Twelve identical 12 ohm resistors form a cube. What is the resistance between two corners that are diagonally opposite on the same face?"
+  options={["6.0 ohm", "9.0 ohm", "10.5 ohm", "12.0 ohm"]}
+  answer={1}
+  explanation="Reflecting the cube in the plane containing the two chosen corners holds both fixed and pairs up the other corners, which lets the network collapse to 3R/4. With R = 12 ohm that is 9.0 ohm. The edge case gives 7R/12 and the body diagonal gives 5R/6, so memorise all three as fractions of R, not as numbers."
+/>
 
-A ladder that repeats forever is unchanged by removing one stage. If $R_\infty$
-is the resistance of the whole ladder, then one series resistor $R_1$ followed
-by a shunt $R_2$ in parallel with *another copy of the whole ladder* must equal
-$R_\infty$:
+Rings are simpler still. Six $6.0\ \Omega$ resistors in a closed hexagon,
+measured across opposite vertices: two arcs of three, $18 \parallel 18 =
+9.0\ \Omega$. Across adjacent vertices, one resistor against the other five,
+$6 \parallel 30 = 5.0\ \Omega$. And in a square $ABCD$ with a diagonal brace from
+$B$ to $D$, measured $A$ to $C$: the reflection swapping $B$ and $D$ fixes $A$
+and $C$, so the brace carries nothing and two paths of $2R$ in parallel leave
+$R$.
 
-$$R_\infty = R_1 + \frac{R_2 R_\infty}{R_2 + R_\infty}$$
+## The bridge, and when it balances
 
-That is a quadratic. Solve it and discard the negative root, since a passive
-network cannot have negative resistance. The whole method rests on
-self-similarity, so it fails the moment the stages differ — a ladder whose
-resistors halve each stage needs a genuine series, not this trick.
+Now the five-resistor bridge. Label the input $P$ and the output $Q$. One branch
+goes $P \to A \to Q$ through $R_1$ and $R_2$, the other $P \to B \to Q$ through
+$R_3$ and $R_4$, and a fifth resistor $R_g$ joins $A$ to $B$. Historically $R_g$
+was a galvanometer, a sensitive current meter, and the point of the arrangement
+was to get it to read zero.
 
-## Symmetry and equipotential nodes
+Suppose no current flows through $R_g$. Then the left branch is an undisturbed
+voltage divider: the current through $R_1$ has nowhere to go but $R_2$. With $P$
+at potential $V$ and $Q$ at zero,
 
-If a symmetry of the network maps one node onto another while leaving the input
-and output terminals fixed, those two nodes are at equal potential. You may
-then merge them into one node or cut any wire between them. Both operations
-change nothing measurable, and one of them usually turns the network into
-something series-parallel reduction can finish.
+$$
+V_A = V \cdot \frac{R_2}{R_1 + R_2}.
+$$
 
-For a bridge fed symmetrically, the two midpoints are such a pair. For a
-resistor cube entered at a corner, the three neighbours of that corner form
-one equipotential set and the three next ones form another.
+The right branch is an undisturbed divider too, giving
+$V_B = V R_4 / (R_3 + R_4)$. For the assumption to be consistent you need
+$V_A = V_B$, which after cancelling $V$ and cross-multiplying reduces to
+
+$$
+\frac{R_1}{R_2} = \frac{R_3}{R_4}.
+$$
+
+That is the balance condition: the bridge balances when the two branches divide
+the voltage in the same proportion. It involves neither $R_g$ nor the supply
+voltage, which is what made the device useful. You find an unknown resistor by
+adjusting a known one until the meter reads zero, and you never need to know how
+strong your battery is or how sensitive your meter is.
+
+<Figure caption={<><b>Figure 2.</b> The bridge with live node potentials. Try setting the four arms to 300, 450, 120 and 180 and watch the bridge current fall to zero, then change the galvanometer resistance and confirm nothing moves. Then break the balance and see how little current the bridge arm actually carries.</>}>
+  <Sim id="tricky-networks-bridge" />
+</Figure>
+
+**Worked example 1.** Arm $PA = 100\ \Omega$, $AQ = 200\ \Omega$,
+$PB = 300\ \Omega$, $BQ = 600\ \Omega$, with a $50\ \Omega$ galvanometer from $A$
+to $B$. Find the resistance from $P$ to $Q$.
+
+Check balance first, always: $100/200 = 0.500$ and $300/600 = 0.500$. They match,
+so no current crosses the bridge and you may delete the $50\ \Omega$ resistor
+entirely. What is left is two simple chains in parallel:
+
+$$
+R_{PAQ} = 100 + 200 = 300\ \Omega, \qquad R_{PBQ} = 300 + 600 = 900\ \Omega,
+$$
+
+$$
+R_{PQ} = \frac{300 \times 900}{300 + 900} = \frac{270000}{1200} = 225\ \Omega.
+$$
+
+Balancing works in reverse just as easily. If $PA = 300\ \Omega$,
+$AQ = 450\ \Omega$ and $PB = 120\ \Omega$, then $BQ$ must satisfy
+$300/450 = 120/BQ$, so $BQ = 120 \times 450 / 300 = 180\ \Omega$.
+
+<Aside label="Where this goes wrong" warn>
+  The balance condition is a ratio, not a difference. Arms of
+  $100, 200, 300, 400$ are not balanced even though both branches step up by
+  $100\ \Omega$: the ratios are $0.500$ and $0.750$. Students also routinely
+  write the condition as $R_1 R_2 = R_3 R_4$. Cross-multiply
+  $R_1/R_2 = R_3/R_4$ carefully and you get $R_1 R_4 = R_2 R_3$ — the products of
+  <i>opposite</i> arms, not adjacent ones.
+</Aside>
+
+## When the bridge will not balance: delta to Y
+
+If the ratios do not match, current crosses the bridge and you cannot delete
+anything. You need a real transformation, and the useful one turns a triangle of
+resistors into a three-spoked star.
+
+Three nodes $X$, $Y$, $Z$ joined pairwise by $R_{XY}$, $R_{YZ}$, $R_{ZX}$ form a
+*delta*. The same terminals joined through a hidden centre node by spokes $R_X$,
+$R_Y$, $R_Z$ form a *Y*. They are interchangeable if they present the same
+resistance between every pair of terminals, and matching those three conditions
+gives
+
+$$
+R_X = \frac{R_{XY} R_{ZX}}{R_{XY} + R_{YZ} + R_{ZX}},
+$$
+
+with $R_Y$ and $R_Z$ by the same pattern: the spoke at a terminal is the product
+of the two delta arms touching that terminal, divided by the sum of all three.
+
+For three equal resistors $R$ in a delta, every spoke is $R^2/3R = R/3$: three
+$30\ \Omega$ resistors in a triangle behave exactly like three $10\ \Omega$
+spokes. Corner to corner an equal delta is one arm in parallel with the other two
+in series, $R \parallel 2R = 2R/3$, which for $9.0\ \Omega$ gives $6.0\ \Omega$;
+the Y picture gives $R/3 + R/3$, the same thing.
+
+**Worked example 2.** The unbalanced bridge: $PA = 100\ \Omega$,
+$AQ = 200\ \Omega$, $PB = 300\ \Omega$, $BQ = 400\ \Omega$, bridge
+$AB = 50\ \Omega$. Find $R_{PQ}$.
+
+Ratios are $0.500$ and $0.750$, so it is not balanced. Pick the delta $P$–$A$–$B$,
+whose arms are $PA = 100$, $PB = 300$ and $AB = 50$. Their sum is
+$100 + 300 + 50 = 450\ \Omega$. The spokes are
+
+$$
+R_P = \frac{100 \times 300}{450} = 66.67\ \Omega, \quad
+R_A = \frac{100 \times 50}{450} = 11.11\ \Omega, \quad
+R_B = \frac{300 \times 50}{450} = 33.33\ \Omega.
+$$
+
+The network is series-parallel again. From the hidden centre one path runs $R_A$
+then $AQ$, $11.11 + 200 = 211.11\ \Omega$; the other runs $R_B$ then $BQ$,
+$33.33 + 400 = 433.33\ \Omega$. In parallel,
+
+$$
+\frac{211.11 \times 433.33}{211.11 + 433.33} = \frac{91481}{644.44} = 141.95\ \Omega,
+$$
+
+and adding the spoke $R_P$ in series gives
+$66.67 + 141.95 = 208.6\ \Omega$.
 
 <QuickCheck
-  question="In a balanced Wheatstone bridge, removing the bridge resistor entirely changes the total resistance by:"
-  options={["A factor of two", "Nothing", "An amount depending on the bridge resistance", "An amount depending on the source voltage"]}
+  question="Before touching a five-resistor bridge, what should you compute first?"
+  options={["The total current from the battery", "The two arm ratios, to test for balance", "The delta-to-Y spokes", "The power in the bridge resistor"]}
   answer={1}
-  explanation="At balance the two midpoints are at the same potential, so the bridge element carries no current. Deleting it or shorting it both leave the rest of the circuit untouched."
+  explanation="Testing balance costs one division on each side. If it passes, the bridge resistor drops out and the problem collapses to two series chains in parallel. If it fails you have lost nothing and go on to delta-to-Y or node voltages."
 />
+
+## The fallback that always works
+
+Delta-to-Y gives the equivalent resistance but destroys the node you folded away,
+so it cannot tell you the current in the bridge arm. When a problem asks for a
+current or a power inside the network, fall back on node voltages: ground one
+terminal, name the unknown potentials, and write Kirchhoff's current law at each
+unknown node, current in equals current out.
+
+**Worked example 3.** Same unbalanced bridge, now with a $6.0\ \mathrm{V}$
+battery from $P$ to $Q$. Find the current through the $50\ \Omega$ galvanometer
+and the power it dissipates.
+
+Set $V_P = 6.0\ \mathrm{V}$ and $V_Q = 0$. Two unknowns, $V_A$ and $V_B$. At $A$,
+what arrives through $PA$ must leave through $AQ$ and through the bridge:
+
+$$
+\frac{6 - V_A}{100} = \frac{V_A}{200} + \frac{V_A - V_B}{50}.
+$$
+
+Multiply through by $200$ to clear the fractions:
+$2(6 - V_A) = V_A + 4(V_A - V_B)$, so $12 - 2V_A = 5V_A - 4V_B$, which tidies to
+$7V_A - 4V_B = 12$.
+
+At $B$:
+
+$$
+\frac{6 - V_B}{300} = \frac{V_B}{400} + \frac{V_B - V_A}{50}.
+$$
+
+Multiply by $1200$: $4(6 - V_B) = 3V_B + 24(V_B - V_A)$, so
+$24 - 4V_B = 27V_B - 24V_A$. Gather the unknowns on one side, watching the signs
+as each term crosses: $24V_A - 4V_B - 27V_B = -24$, that is
+$31V_B - 24V_A = 24$.
+
+From the first equation $V_A = (12 + 4V_B)/7$. Substitute, then multiply through
+by $7$ to clear the fraction:
+
+$$
+7 \times 31 V_B - 24(12 + 4V_B) = 7 \times 24,
+$$
+
+so $217V_B - 288 - 96V_B = 168$, and $121V_B = 456$. Therefore
+
+$$
+V_B = 3.769\ \mathrm{V}, \qquad V_A = \frac{12 + 4(3.769)}{7} = 3.868\ \mathrm{V}.
+$$
+
+Both land where a divider says they should, which is the check worth doing every
+time. The bridge voltage is $V_A - V_B = 0.0992\ \mathrm{V}$, so
+
+$$
+I_g = \frac{0.0992}{50} = 1.98 \times 10^{-3}\ \mathrm{A},
+$$
+
+$$
+P_g = I_g^2 R_g = (1.983\times10^{-3})^2 \times 50 = 1.97 \times 10^{-4}\ \mathrm{W}.
+$$
+
+A bridge only mildly off balance passes very little current through its middle
+arm. That is why the instrument is precise, and also why a strain gauge bridge
+needs amplification: four arms of $350.00\ \Omega$ with one strained to
+$350.35\ \Omega$ on a $5.00\ \mathrm{V}$ supply gives an open-circuit output of
+$V \Delta R / 4R = 5.00 \times 0.35 / 1400 = 1.25\ \mathrm{mV}$.
+
+## Ladders: solving a network with itself
+
+An infinite ladder is a series resistor $R_s$ along the top rail, then a shunt
+resistor $R_p$ across the rails, then another series, another shunt, forever.
+There is nothing to reduce, because there is no end to start from.
+
+Use the infinity. Chop off the first section; what remains is the identical
+infinite ladder, because removing one rung from an endless sequence of rungs
+leaves an endless sequence of rungs. Call the input resistance $R$. The whole
+thing is then $R_s$ in series with $R_p$ parallel to a second copy of $R$:
+
+$$
+R = R_s + \frac{R_p R}{R_p + R}.
+$$
+
+Multiply out: $R(R_p + R) = R_s(R_p + R) + R_p R$, so
+$R^2 - R_s R - R_s R_p = 0$, and the quadratic formula gives
+
+$$
+R = \frac{R_s + \sqrt{R_s^2 + 4R_s R_p}}{2}.
+$$
+
+The other root is negative and you throw it away: a network of resistors cannot
+have negative resistance.
+
+**Worked example 4.** All resistors $2.0\ \Omega$. Then
+$R = \tfrac{1}{2}(2 + \sqrt{4 + 16}) = 1 + \sqrt{5} = 3.236\ \Omega$. With
+$R_s = 4.0\ \Omega$ and $R_p = 6.0\ \Omega$,
+$R = \tfrac{1}{2}(4 + \sqrt{16 + 96}) = \tfrac{1}{2}(4 + 10.583) = 7.292\ \Omega$.
+
+<Figure caption={<><b>Figure 3.</b> Slide the section count up from one. By four sections the finite answer already agrees with the infinite one to three decimals, which is why truncating a real ladder is safe. The numbers under the rungs are the shunt currents, and they fall by the same factor every step.</>}>
+  <Sim id="tricky-networks-ladder" />
+</Figure>
+
+A finite ladder is easier: start at the far end, where you can see what is there,
+and work backwards. Three sections of $4.0\ \Omega$ series and $6.0\ \Omega$
+shunt: last shunt $6$, add the series in front for $10$, parallel with the next
+shunt for $6 \parallel 10 = 3.75$, add $4$ for $7.75$, parallel with $6$ for
+$3.382$, add $4$ for $7.382\ \Omega$ — already within $1.2\%$ of the infinite
+answer.
+
+For currents down a ladder you want a slightly different quantity. Let $X$ be the
+resistance looking into the ladder *from a shunt node*, so $X$ is $R_p$ in
+parallel with everything beyond, and the input resistance is $R_s + X$:
+
+$$
+X = \frac{R_p (R_s + X)}{R_p + R_s + X}.
+$$
+
+**Worked example 5.** $R_s = 1.0\ \Omega$, $R_p = 2.0\ \Omega$. The equation
+becomes $X(3 + X) = 2(1 + X)$, so $X^2 + X - 2 = 0$ and $X = 1.0\ \Omega$. At any
+shunt node the arriving current sees two ways forward: the shunt, $2.0\ \Omega$,
+and the rest of the ladder, $R_s + X = 2.0\ \Omega$. Equal, so the current splits
+in half, and the half that carries on meets the identical choice at the next
+node. The shunt currents run $I_0/2$, $I_0/4$, $I_0/8$: the third carries
+$0.125\,I_0$.
+
+<Aside label="Where this goes wrong" warn>
+  Self-similarity is the entire trick, so it fails the instant the sections stop
+  being identical. A ladder whose resistors halve every stage is a genuine
+  infinite series, not a fixed point. But if the sections scale by a constant
+  factor, self-similarity comes back in a new form.
+</Aside>
+
+**Worked example 6.** Section $n$ has series $100 \cdot 2^n\ \Omega$ and shunt
+$200 \cdot 2^n\ \Omega$. The ladder from section 1 onward is the whole ladder
+with every resistor doubled, and doubling every resistor doubles the resistance.
+So if $R$ is the input resistance at section 0, the input resistance at section 1
+is $2R$, and
+
+$$
+R = 100 + \frac{200 \cdot 2R}{200 + 2R} = 100 + \frac{200R}{100 + R}.
+$$
+
+Clearing: $R(100 + R) = 100(100 + R) + 200R$, so
+$R^2 - 200R - 10000 = 0$ and $R = 100 + 100\sqrt{2} = 241.4\ \Omega$.
+
+Capacitor ladders work the same way, with the series and parallel rules swapped.
+Identical capacitors $C$, series along the rail and shunt across: the input
+capacitance $C_{in}$ is $C$ in series with $(C + C_{in})$, giving
+$1/C_{in} = 1/C + 1/(C + C_{in})$, which rearranges to
+$C_{in}^2 + C\,C_{in} - C^2 = 0$ and $C_{in} = C(\sqrt5 - 1)/2$. For
+$C = 2.0\ \mu\mathrm{F}$ that is $1.236\ \mu\mathrm{F}$.
+
+## The infinite grid
+
+One last network, because it uses a tool nothing else here does. An infinite
+square grid of nodes, every nearest-neighbour pair joined by a resistor $R$. What
+is the resistance between two adjacent nodes?
+
+Inject a current $I$ into node $A$ and let it drain to infinity. By the four-fold
+symmetry of the grid it leaves $A$ equally along four edges, so the edge from $A$
+to its neighbour $B$ carries $I/4$. Separately, draw current $I$ out of node $B$
+from infinity: by the same symmetry that edge again carries $I/4$, in the same
+direction.
+
+Both are linear problems, so you may add them. Superposed, current $I$ enters at
+$A$ and leaves at $B$ with nothing at infinity — the measurement you want. Edge
+$AB$ now carries $I/2$, so the voltage across it, and hence between $A$ and $B$,
+is $IR/2$:
+
+$$
+R_{AB} = \frac{IR/2}{I} = \frac{R}{2}.
+$$
+
+For $8.0\ \Omega$ resistors that is $4.0\ \Omega$. Diagonal neighbours cannot be
+done this way, because the potential drop between them runs through many edges
+rather than one. The Fourier-integral result, worth knowing rather than deriving
+here, is $R_{\text{diag}} = 2R/\pi$; for $10\ \Omega$ that is $6.366\ \Omega$.
+
+## Recognising which tool a problem wants
+
+Count the resistors and look at the junctions. If every junction has exactly two
+wires, reduce as usual and stop reading.
+
+**Reach for symmetry** when the network is named after a shape — cube, square,
+hexagon, octahedron, tetrahedron — or when the resistors are all identical. Ask
+what rigid motion of the shape leaves both terminals alone, then find the nodes
+it swaps. Those are your equipotentials.
+
+**Reach for the balance condition** the moment you see five resistors in a bridge
+pattern, or a resistor bridging the midpoints of two dividers. Compute the two
+ratios first; the cost is two divisions. "Galvanometer reads zero" or "null" is a
+direct instruction to use it.
+
+**Reach for delta-to-Y** when balance fails and the question asks only for
+equivalent resistance. Pick the triangle containing the terminal you measure
+from, so the fold-away node is one you do not care about.
+
+**Reach for node voltages** when the question asks for a current or a power
+*inside* the network. The shortcuts give the resistance and destroy the interior;
+only the node equations keep it.
+
+**Reach for self-similarity** at the words "infinite", "repeating", "forever", or
+a ladder drawn with dots trailing off the page. Identical sections give
+$R = R_s + R_p \parallel R$. Sections scaling by a constant factor give the same
+kind of equation once you relate section 1 to section 0. Sections that do not
+scale at all leave you a series to sum, not a fixed point to find.
+
+One habit beats all five: check the size of your answer. If two nodes are joined
+by a direct $10\ \Omega$ edge, the answer cannot exceed $10\ \Omega$, because
+every extra path only pulls the total down.
+
+That takes resistor networks about as far as static circuits go. The next lesson
+leaves the wires behind and asks what those currents do to each other:
+[Magnetic Force](/guide/magnetic-force).

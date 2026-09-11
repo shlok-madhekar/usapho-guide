@@ -1,0 +1,83 @@
+[
+  {
+    "id": "photoelectric-tube",
+    "title": "Phototube lab",
+    "caption": "Change the colour of the light, the metal, and the retarding voltage.",
+    "height": 260,
+    "params": [
+      {
+        "key": "lam",
+        "label": "Wavelength",
+        "unit": "nm",
+        "min": 180,
+        "max": 700,
+        "step": 5,
+        "value": 400
+      },
+      {
+        "key": "phi",
+        "label": "Work function",
+        "unit": "eV",
+        "min": 1.5,
+        "max": 5.0,
+        "step": 0.05,
+        "value": 2.3
+      },
+      {
+        "key": "V",
+        "label": "Retarding voltage",
+        "unit": "V",
+        "min": 0,
+        "max": 4,
+        "step": 0.05,
+        "value": 0.4
+      }
+    ],
+    "draw": "\nvar hc = 1240;\nvar Eph = hc / p.lam;\nvar K = Eph - p.phi;\nvar Vstop = K > 0 ? K : 0;\nvar flows = (K > 0) && (p.V < K);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\nvar xc = W * 0.22, xa = W * 0.78;\nvar yTop = H * 0.18, yBot = H * 0.74;\nvar ymid = (yTop + yBot) / 2;\nvar gap = xa - xc;\n\n// plates\nctx.strokeStyle = C.ink;\nctx.lineWidth = 3;\nctx.beginPath(); ctx.moveTo(xc, yTop); ctx.lineTo(xc, yBot); ctx.stroke();\nctx.beginPath(); ctx.moveTo(xa, yTop); ctx.lineTo(xa, yBot); ctx.stroke();\nctx.lineWidth = 1.5;\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"cathode\", xc, yBot + 16);\nctx.fillText(\"anode\", xa, yBot + 16);\nctx.fillText(\"retarding voltage \" + p.V.toFixed(2) + \" V\", (xc + xa) / 2, H - 8);\n\n// incoming light: three photon markers sliding in from the left\nvar i, s, px, py;\nctx.strokeStyle = C.accent;\nfor (i = 0; i < 3; i++) {\n  s = ((t * 0.7 + i * 0.333) % 1);\n  px = xc * s;\n  py = yTop + (yBot - yTop) * (0.25 + 0.25 * i);\n  ctx.beginPath();\n  ctx.moveTo(px - 14, py);\n  ctx.lineTo(px, py);\n  ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(px, py); ctx.lineTo(px - 5, py - 3.5); ctx.lineTo(px - 5, py + 3.5);\n  ctx.closePath();\n  ctx.fillStyle = C.accent;\n  ctx.fill();\n}\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"light, \" + p.lam.toFixed(0) + \" nm\", 4, yTop - 6);\n\n// electrons\nvar n = 4, reach, ex;\nctx.textAlign = \"center\";\nfor (i = 0; i < n; i++) {\n  s = ((t * 0.55 + i / n) % 1);\n  if (K <= 0) { continue; }\n  if (flows) {\n    ex = xc + gap * s;\n  } else {\n    reach = p.V > 0 ? Math.min(K / p.V, 1) : 1;\n    ex = xc + gap * reach * (1 - (2 * s - 1) * (2 * s - 1));\n  }\n  py = ymid + (i - 1.5) * (yBot - yTop) * 0.16;\n  ctx.fillStyle = C.figure;\n  ctx.beginPath(); ctx.arc(ex, py, 4, 0, Math.PI * 2); ctx.fill();\n}\n\nif (K <= 0) {\n  ctx.fillStyle = C.figure;\n  ctx.fillText(\"no emission: photon is below the work function\", (xc + xa) / 2, ymid);\n} else if (!flows) {\n  ctx.strokeStyle = C.rule;\n  ctx.setLineDash([3, 4]);\n  var turn = xc + gap * Math.min(K / Math.max(p.V, 1e-9), 1);\n  ctx.beginPath(); ctx.moveTo(turn, yTop); ctx.lineTo(turn, yBot); ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.figure;\n  ctx.fillText(\"turned back\", turn, yTop - 6);\n}\n\n// ammeter\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(xc, yBot); ctx.lineTo(xc, H * 0.88);\nctx.lineTo(xa, H * 0.88); ctx.lineTo(xa, yBot);\nctx.stroke();\nctx.fillStyle = flows ? C.accent : C.faint;\nctx.beginPath(); ctx.arc((xc + xa) / 2, H * 0.88, 9, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.paper;\nctx.fillText(\"A\", (xc + xa) / 2, H * 0.88 + 4);\n\nout.note = \"photon \" + Eph.toFixed(2) + \" eV, work function \" + p.phi.toFixed(2)\n  + \" eV, Kmax \" + (K > 0 ? K.toFixed(2) : \"0.00\") + \" eV, stopping potential \"\n  + Vstop.toFixed(2) + \" V, current \" + (flows ? \"flowing\" : \"zero\");\n"
+  },
+  {
+    "id": "photoelectric-millikan",
+    "title": "Stopping potential against frequency",
+    "caption": "The straight line whose slope is Planck's constant over the electron charge.",
+    "height": 300,
+    "params": [
+      {
+        "key": "phi",
+        "label": "Work function",
+        "unit": "eV",
+        "min": 1.5,
+        "max": 5.0,
+        "step": 0.05,
+        "value": 2.3
+      }
+    ],
+    "draw": "\nvar h = 4.136e-15;   // eV s\nvar pad = 46;\nvar fmax = 1.6e15;\nvar Vmax = 4.5;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nvar Vmin = -5.2;\nvar sv = (H - 34) / (Vmax - Vmin);\nvar yzero = 14 + Vmax * sv;\n\nvar X = function (f) { return pad + (W - pad * 1.2) * (f / fmax); };\nvar Y = function (v) { return yzero - v * sv; };\n\n// axes\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.2;\nctx.beginPath(); ctx.moveTo(pad, 6); ctx.lineTo(pad, H - 8); ctx.stroke();\nctx.beginPath(); ctx.moveTo(pad - 6, Y(0)); ctx.lineTo(W - 6, Y(0)); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"frequency f  (10^15 Hz)\", (W + pad) / 2, Y(0) + 32);\nctx.save();\nctx.translate(12, H / 2);\nctx.rotate(-Math.PI / 2);\nctx.fillText(\"stopping potential Vs (V)\", 0, 0);\nctx.restore();\n\n// ticks\nvar k, fv;\nctx.fillStyle = C.faint;\nfor (k = 0; k <= 3; k++) {\n  fv = k * 0.5e15;\n  ctx.beginPath(); ctx.moveTo(X(fv), Y(0)); ctx.lineTo(X(fv), Y(0) + 4);\n  ctx.strokeStyle = C.rule; ctx.stroke();\n  ctx.fillStyle = C.faint;\n  ctx.textAlign = \"center\";\n  ctx.fillText((k * 0.5).toFixed(1), X(fv), Y(0) + 16);\n}\nfor (k = 1; k <= 4; k++) {\n  ctx.beginPath(); ctx.moveTo(pad - 4, Y(k)); ctx.lineTo(pad, Y(k));\n  ctx.strokeStyle = C.rule; ctx.stroke();\n  ctx.fillStyle = C.faint;\n  ctx.textAlign = \"right\";\n  ctx.fillText(k.toFixed(0), pad - 6, Y(k) + 4);\n}\n\nvar f0 = p.phi / h;\n\n// line above threshold\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(X(f0), Y(0));\nctx.lineTo(X(fmax), Y(h * fmax - p.phi));\nctx.stroke();\n\n// dashed continuation down to the intercept at -phi/e\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.setLineDash([4, 4]);\nctx.beginPath();\nctx.moveTo(X(0), Y(-p.phi));\nctx.lineTo(X(f0), Y(0));\nctx.stroke();\nctx.setLineDash([]);\n\n// threshold marker\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(X(f0), Y(0), 4, 0, Math.PI * 2); ctx.fill();\nctx.textAlign = \"left\";\nctx.fillText(\"threshold f0\", X(f0) + 6, Y(0) + 16);\nctx.fillText(\"intercept -phi/e\", X(0) + 4, Y(-p.phi) + 4);\n\n// slope triangle\nvar fa = f0 + 0.35e15, fb = fa + 0.35e15;\nctx.strokeStyle = C.figure;\nctx.beginPath();\nctx.moveTo(X(fa), Y(h * fa - p.phi));\nctx.lineTo(X(fb), Y(h * fa - p.phi));\nctx.lineTo(X(fb), Y(h * fb - p.phi));\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"slope = h/e\", X(fb) + 6, Y(h * fa - p.phi) - 4);\n\n// moving measurement point\nvar fnow = f0 + (fmax - f0) * (0.5 - 0.5 * Math.cos(t * 0.7));\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(fnow), Y(h * fnow - p.phi), 5, 0, Math.PI * 2); ctx.fill();\n\nout.note = \"work function \" + p.phi.toFixed(2) + \" eV, threshold \" + (f0 / 1e14).toFixed(2)\n  + \" x 10^14 Hz (\" + (1240 / p.phi).toFixed(0) + \" nm); at f = \"\n  + (fnow / 1e14).toFixed(2) + \" x 10^14 Hz the stopping potential is \"\n  + (h * fnow - p.phi).toFixed(2) + \" V\";\n"
+  },
+  {
+    "id": "photoelectric-compton",
+    "title": "Compton scattering diagram",
+    "caption": "A photon bounces off a free electron and comes away redder.",
+    "height": 260,
+    "params": [
+      {
+        "key": "theta",
+        "label": "Photon scattering angle",
+        "unit": "deg",
+        "min": 5,
+        "max": 180,
+        "step": 1,
+        "value": 90
+      },
+      {
+        "key": "lam",
+        "label": "Incident wavelength",
+        "unit": "nm",
+        "min": 0.005,
+        "max": 0.1,
+        "step": 0.005,
+        "value": 0.05
+      }
+    ],
+    "draw": "\nvar lc = 0.002426;\nvar th = p.theta * Math.PI / 180;\nvar dl = lc * (1 - Math.cos(th));\nvar lam = p.lam;\nvar lp = lam + dl;\nvar K = 1240 / lam - 1240 / lp;   // eV\nvar alpha = (1240 / lam) / 511000.0;\nvar phi = Math.atan(1 / ((1 + alpha) * Math.tan(th / 2 + 1e-9))) * 180 / Math.PI;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.6;\nvar cx = W * 0.46, cy = H * 0.52;\nvar L = Math.min(W, H) * 0.42;\n\n// incident photon\nctx.strokeStyle = C.accent;\nctx.beginPath(); ctx.moveTo(cx - L * 1.25, cy); ctx.lineTo(cx - 12, cy); ctx.stroke();\nctx.beginPath();\nctx.moveTo(cx - 10, cy); ctx.lineTo(cx - 20, cy - 4); ctx.lineTo(cx - 20, cy + 4);\nctx.closePath(); ctx.fillStyle = C.accent; ctx.fill();\nctx.textAlign = \"left\";\nctx.fillText(\"incoming photon, \" + lam.toFixed(4) + \" nm\", 4, cy - 10);\n\n// electron at rest\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(cx, cy, 5, 0, Math.PI * 2); ctx.fill();\nctx.textAlign = \"center\";\nctx.fillText(\"electron at rest\", cx, cy - 12);\n\n// dashed original direction\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + L * 1.1, cy); ctx.stroke();\nctx.setLineDash([]);\n\n// scattered photon\nvar sx = cx + L * Math.cos(th), sy = cy - L * Math.sin(th);\nctx.strokeStyle = C.accent;\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(sx, sy); ctx.stroke();\nctx.beginPath();\nctx.moveTo(sx, sy);\nctx.lineTo(sx - 10 * Math.cos(th) - 4 * Math.sin(th), sy + 10 * Math.sin(th) - 4 * Math.cos(th));\nctx.lineTo(sx - 10 * Math.cos(th) + 4 * Math.sin(th), sy + 10 * Math.sin(th) + 4 * Math.cos(th));\nctx.closePath(); ctx.fillStyle = C.accent; ctx.fill();\nctx.textAlign = sx > cx ? \"left\" : \"right\";\nctx.fillText(\"scattered photon, \" + lp.toFixed(4) + \" nm\", sx + (sx > cx ? 6 : -6), sy - 6);\n\n// recoil electron\nvar rp = phi * Math.PI / 180;\nvar ex = cx + L * 0.72 * Math.cos(rp), ey = cy + L * 0.72 * Math.sin(rp);\nctx.strokeStyle = C.figure;\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ex, ey); ctx.stroke();\nctx.beginPath();\nctx.moveTo(ex, ey);\nctx.lineTo(ex - 10 * Math.cos(rp) - 4 * Math.sin(rp), ey - 10 * Math.sin(rp) + 4 * Math.cos(rp));\nctx.lineTo(ex - 10 * Math.cos(rp) + 4 * Math.sin(rp), ey - 10 * Math.sin(rp) - 4 * Math.cos(rp));\nctx.closePath(); ctx.fillStyle = C.figure; ctx.fill();\nctx.textAlign = \"left\";\nctx.fillText(\"recoil electron\", ex + 6, ey + 12);\n\n// angle arcs\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.arc(cx, cy, 34, -th, 0); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"theta = \" + p.theta.toFixed(0) + \" deg\", cx + 38, cy - 16);\nctx.beginPath(); ctx.arc(cx, cy, 26, 0, rp); ctx.stroke();\nctx.fillText(\"phi = \" + phi.toFixed(0) + \" deg\", cx + 30, cy + 26);\n\nout.note = \"shift \" + dl.toFixed(5) + \" nm, scattered wavelength \" + lp.toFixed(5)\n  + \" nm, electron gains \" + K.toFixed(1) + \" eV\";\n"
+  }
+]

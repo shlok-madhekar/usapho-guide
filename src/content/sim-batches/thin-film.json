@@ -1,0 +1,101 @@
+[
+  {
+    "id": "thin-film-flips",
+    "title": "Counting the flips",
+    "caption": "Two reflections, one film. Change the indices and watch which reflection inverts.",
+    "height": 230,
+    "params": [
+      {
+        "key": "nfilm",
+        "label": "Film index",
+        "unit": "",
+        "min": 1.05,
+        "max": 2.2,
+        "step": 0.01,
+        "value": 1.33
+      },
+      {
+        "key": "nsub",
+        "label": "Substrate index",
+        "unit": "",
+        "min": 1,
+        "max": 2.2,
+        "step": 0.01,
+        "value": 1
+      }
+    ],
+    "draw": "\nvar nF = p.nfilm, nS = p.nsub;\nvar flipTop = nF > 1.0;\nvar flipBot = nS > nF;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nvar yTop = H * 0.40, yBot = H * 0.68;\nvar x0 = W * 0.10, x1 = W * 0.92;\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(x0, yTop); ctx.lineTo(x1, yTop); ctx.stroke();\nctx.beginPath(); ctx.moveTo(x0, yBot); ctx.lineTo(x1, yBot); ctx.stroke();\n\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nfor (var s = 0; s < 26; s++) {\n  var xs = x0 + (x1 - x0) * s / 25;\n  ctx.beginPath(); ctx.moveTo(xs, yBot); ctx.lineTo(xs + 7, yBot + 9); ctx.stroke();\n}\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"air, n = 1.00\", x0 + 4, yTop - 8);\nctx.fillText(\"film, n = \" + nF.toFixed(2), x0 + 4, (yTop + yBot) / 2 + 4);\nctx.fillText(\"substrate, n = \" + nS.toFixed(2), x0 + 4, yBot + 22);\n\nvar hitA = W * 0.34, hitB = W * 0.58;\nvar dx = (hitB - hitA);\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.6;\nctx.beginPath(); ctx.moveTo(hitA - dx, yTop - (yTop - 12)); ctx.lineTo(hitA, yTop); ctx.stroke();\nctx.beginPath(); ctx.moveTo(hitA, yTop); ctx.lineTo(hitA + dx * 0.55, 12); ctx.stroke();\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.6;\nctx.beginPath();\nctx.moveTo(hitA, yTop); ctx.lineTo(hitB, yBot); ctx.lineTo(hitB + (hitB - hitA), yTop);\nctx.lineTo(hitB + (hitB - hitA) + dx * 0.55, 12);\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"ray 1\", hitA + dx * 0.30, 26);\nctx.fillText(\"ray 2\", hitB + (hitB - hitA) + dx * 0.34, 26);\nctx.textAlign = \"left\";\nctx.fillText(\"in\", Math.max(2, hitA - dx + 4), 26);\n\nctx.fillStyle = C.accent;\nctx.textAlign = \"center\";\nctx.fillText(\"extra path 2t, optical path 2nt\", (hitA + hitB) / 2 + 20, yBot + 22);\n\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(W * 0.05, yTop); ctx.lineTo(W * 0.05, yBot); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"t\", W * 0.05 + 4, (yTop + yBot) / 2 + 4);\n\nvar mark = function (x, y, on) {\n  ctx.fillStyle = on ? C.accent : C.faint;\n  ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"center\";\n  ctx.fillText(on ? \"flip\" : \"no flip\", x, y - 10);\n};\nmark(hitA, yTop, flipTop);\nmark(hitB, yBot, flipBot);\n\nvar n = (flipTop ? 1 : 0) + (flipBot ? 1 : 0);\nvar cond = (n % 2 === 1) ? \"bright when 2nt = (m + 1/2) lambda\" : \"bright when 2nt = m lambda\";\nout.note = n + \" flip(s): \" + cond;\n"
+  },
+  {
+    "id": "thin-film-colour-lab",
+    "title": "Film colour lab",
+    "caption": "Reflected intensity across the visible band for a film of your chosen thickness and indices.",
+    "height": 250,
+    "params": [
+      {
+        "key": "thick",
+        "label": "Film thickness",
+        "unit": "nm",
+        "min": 20,
+        "max": 900,
+        "step": 5,
+        "value": 300
+      },
+      {
+        "key": "nfilm",
+        "label": "Film index",
+        "unit": "",
+        "min": 1.05,
+        "max": 2.2,
+        "step": 0.01,
+        "value": 1.33
+      },
+      {
+        "key": "nsub",
+        "label": "Substrate index",
+        "unit": "",
+        "min": 1,
+        "max": 2.2,
+        "step": 0.01,
+        "value": 1
+      }
+    ],
+    "draw": "\nvar nTop = 1.0;\nvar nF = p.nfilm, nS = p.nsub, th = p.thick;\nvar flipTop = nF > nTop ? 1 : 0;\nvar flipBot = nS > nF ? 1 : 0;\nvar net = (flipTop + flipBot) % 2;\n\nvar padL = 44, padR = 14, padT = 16, padB = 30;\nvar gx0 = padL, gx1 = W - padR, gy0 = padT, gy1 = H - padB;\nvar lam0 = 400, lam1 = 700;\nvar X = function (lam) { return gx0 + (lam - lam0) / (lam1 - lam0) * (gx1 - gx0); };\nvar Y = function (v) { return gy1 - v * (gy1 - gy0); };\n\nvar refl = function (lam) {\n  var delta = 2 * Math.PI * (2 * nF * th) / lam + (net ? Math.PI : 0);\n  var c = Math.cos(delta / 2);\n  return c * c;\n};\n\nctx.lineWidth = 1;\nctx.strokeStyle = C.faint;\nctx.beginPath();\nctx.moveTo(gx0, gy0); ctx.lineTo(gx0, gy1); ctx.lineTo(gx1, gy1);\nctx.stroke();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nfor (var lam = 400; lam <= 700; lam += 50) {\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath(); ctx.moveTo(X(lam), gy1); ctx.lineTo(X(lam), gy1 + 4); ctx.stroke();\n  ctx.fillText(String(lam), X(lam), gy1 + 17);\n}\nctx.fillText(\"wavelength in vacuum (nm)\", (gx0 + gx1) / 2, gy1 + 29);\nctx.textAlign = \"right\";\nctx.fillText(\"1\", gx0 - 6, gy0 + 5);\nctx.fillText(\"0\", gx0 - 6, gy1 + 4);\nctx.save();\nctx.translate(14, (gy0 + gy1) / 2);\nctx.rotate(-Math.PI / 2);\nctx.textAlign = \"center\";\nctx.fillText(\"reflected\", 0, 0);\nctx.restore();\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 300; i++) {\n  var L = lam0 + (lam1 - lam0) * i / 300;\n  var px = X(L), py = Y(refl(L));\n  if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);\n}\nctx.stroke();\n\nvar scan = lam0 + (lam1 - lam0) * (0.5 - 0.5 * Math.cos(t * 0.7));\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(scan), gy0); ctx.lineTo(X(scan), gy1); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(X(scan), Y(refl(scan)), 4, 0, Math.PI * 2); ctx.fill();\n\nvar best = lam0, bestV = -1, dark = 0, darkV = 2;\nfor (var k = 0; k <= 300; k++) {\n  var Lk = lam0 + (lam1 - lam0) * k / 300;\n  var v = refl(Lk);\n  if (v > bestV) { bestV = v; best = Lk; }\n  if (v < darkV) { darkV = v; dark = Lk; }\n}\nout.note = \"flips: \" + (flipTop + flipBot) + \"  |  2nt = \" + (2 * nF * th).toFixed(0) +\n  \" nm  |  brightest near \" + best.toFixed(0) + \" nm, weakest near \" + dark.toFixed(0) + \" nm\";\n"
+  },
+  {
+    "id": "thin-film-newton",
+    "title": "Newton's rings",
+    "caption": "The air gap under a curved lens, seen from above.",
+    "height": 260,
+    "params": [
+      {
+        "key": "radius",
+        "label": "Lens radius of curvature",
+        "unit": "m",
+        "min": 0.5,
+        "max": 4,
+        "step": 0.1,
+        "value": 2
+      },
+      {
+        "key": "lambda",
+        "label": "Wavelength",
+        "unit": "nm",
+        "min": 400,
+        "max": 700,
+        "step": 1,
+        "value": 589
+      },
+      {
+        "key": "ngap",
+        "label": "Index in the gap",
+        "unit": "",
+        "min": 1,
+        "max": 1.6,
+        "step": 0.01,
+        "value": 1
+      }
+    ],
+    "draw": "\nvar R = p.radius, lam = p.lambda * 1e-9, ng = p.ngap;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nvar mMax = 14;\nvar rMax = Math.sqrt(mMax * lam * R / ng);\nvar cx = W * 0.5, cy = H * 0.52;\nvar Rpx = Math.min(W, H) * 0.42;\nvar S = Rpx / rMax;\n\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.arc(cx, cy, Rpx, 0, Math.PI * 2); ctx.stroke();\n\nvar highlight = 1 + (Math.floor(t / 1.2) % 6);\n\nfor (var m = 1; m <= mMax; m++) {\n  var r = Math.sqrt(m * lam * R / ng) * S;\n  if (r > Rpx) break;\n  ctx.strokeStyle = (m === highlight) ? C.accent : C.ink;\n  ctx.lineWidth = (m === highlight) ? 3 : 1.6;\n  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();\n}\n\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI * 2); ctx.fill();\nctx.textAlign = \"center\";\nctx.fillText(\"dark centre, m = 0\", cx, cy + Rpx + 18);\n\nvar rh = Math.sqrt(highlight * lam * R / ng);\nvar rhpx = rh * S;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + rhpx, cy); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"m = \" + highlight, cx + rhpx * 0.35, cy - 6);\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"dark rings, 2 n t = m lambda\", 6, 14);\n\nout.note = \"ring m = \" + highlight + \" has radius \" + (rh * 1000).toFixed(3) +\n  \" mm  |  gap there t = \" + (rh * rh / (2 * R) * 1e9).toFixed(0) + \" nm\";\n"
+  }
+]

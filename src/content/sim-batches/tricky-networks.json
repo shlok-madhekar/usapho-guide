@@ -1,0 +1,100 @@
+[
+  {
+    "id": "tricky-networks-bridge",
+    "title": "Wheatstone bridge lab",
+    "caption": "Drag the arms until the two ratios match and the bridge current dies.",
+    "height": 260,
+    "params": [
+      {
+        "key": "r1",
+        "label": "Arm PA",
+        "unit": "ohm",
+        "min": 50,
+        "max": 500,
+        "step": 10,
+        "value": 100
+      },
+      {
+        "key": "r2",
+        "label": "Arm AQ",
+        "unit": "ohm",
+        "min": 50,
+        "max": 500,
+        "step": 10,
+        "value": 200
+      },
+      {
+        "key": "r3",
+        "label": "Arm PB",
+        "unit": "ohm",
+        "min": 50,
+        "max": 500,
+        "step": 10,
+        "value": 300
+      },
+      {
+        "key": "r4",
+        "label": "Arm BQ",
+        "unit": "ohm",
+        "min": 50,
+        "max": 900,
+        "step": 10,
+        "value": 400
+      },
+      {
+        "key": "rg",
+        "label": "Galvanometer",
+        "unit": "ohm",
+        "min": 10,
+        "max": 400,
+        "step": 10,
+        "value": 50
+      }
+    ],
+    "draw": "\nvar V = 6.0, Rg = p.rg;\nvar R1 = p.r1, R2 = p.r2, R3 = p.r3, R4 = p.r4;\n\n// node equations for VA, VB with P at 6 V and Q at 0 V\nvar a11 = 1/R1 + 1/R2 + 1/Rg, a12 = -1/Rg, b1 = V/R1;\nvar a22 = 1/R3 + 1/R4 + 1/Rg, a21 = -1/Rg, b2 = V/R3;\nvar det = a11*a22 - a12*a21;\nvar VA = (b1*a22 - a12*b2) / det;\nvar VB = (a11*b2 - b1*a21) / det;\nvar Ig = (VA - VB) / Rg;\nvar Itot = (V - VA)/R1 + (V - VB)/R3;\nvar Rpq = V / Itot;\n\nvar cx = W/2, cy = H/2;\nvar rx = Math.min(W*0.34, 190), ry = Math.min(H*0.30, 78);\nvar P = [cx - rx, cy], Q = [cx + rx, cy];\nvar A = [cx, cy - ry], B = [cx, cy + ry];\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.6;\nctx.textAlign = \"center\";\nctx.textBaseline = \"middle\";\n\nfunction wire(u, v, col) {\n  ctx.strokeStyle = col;\n  ctx.beginPath(); ctx.moveTo(u[0], u[1]); ctx.lineTo(v[0], v[1]); ctx.stroke();\n}\nfunction box(u, v, label, col) {\n  var mx = (u[0]+v[0])/2, my = (u[1]+v[1])/2;\n  var dx = v[0]-u[0], dy = v[1]-u[1];\n  var L = Math.sqrt(dx*dx + dy*dy); dx /= L; dy /= L;\n  var w = 20, h = 9;\n  ctx.save();\n  ctx.translate(mx, my);\n  ctx.rotate(Math.atan2(dy, dx));\n  ctx.fillStyle = C.paper;\n  ctx.fillRect(-w, -h, 2*w, 2*h);\n  ctx.strokeStyle = col;\n  ctx.strokeRect(-w, -h, 2*w, 2*h);\n  ctx.restore();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(label, mx - dy*22, my + dx*22);\n}\nfunction node(u, name, volts) {\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(u[0], u[1], 4, 0, Math.PI*2); ctx.fill();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(name + \"  \" + volts, u[0], u[1] - 16);\n}\n\nwire(P, A, C.rule); wire(A, Q, C.rule);\nwire(P, B, C.rule); wire(B, Q, C.rule);\nwire(A, B, C.figure);\n\nbox(P, A, R1.toFixed(0) + \" \u03a9\", C.rule);\nbox(A, Q, R2.toFixed(0) + \" \u03a9\", C.rule);\nbox(P, B, R3.toFixed(0) + \" \u03a9\", C.rule);\nbox(B, Q, R4.toFixed(0) + \" \u03a9\", C.rule);\nbox(A, B, Rg.toFixed(0) + \" \u03a9\", C.figure);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"P  6.00 V\", P[0] - 4, P[1] - 16);\nctx.fillText(\"Q  0.00 V\", Q[0] + 4, Q[1] - 16);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(P[0], P[1], 4, 0, Math.PI*2); ctx.fill();\nctx.beginPath(); ctx.arc(Q[0], Q[1], 4, 0, Math.PI*2); ctx.fill();\nnode(A, \"A\", VA.toFixed(3) + \" V\");\nctx.fillStyle = C.ink;\nctx.fillText(\"B  \" + VB.toFixed(3) + \" V\", B[0], B[1] + 18);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(B[0], B[1], 4, 0, Math.PI*2); ctx.fill();\n\n// animated charge in the bridge arm, speed set by the galvanometer current\nvar speed = Math.min(1.2, Math.abs(Ig) * 260);\nvar dir = Ig >= 0 ? 1 : -1;\nif (speed > 0.004) {\n  for (var k = 0; k < 4; k++) {\n    var f = ((t * speed + k/4) % 1);\n    var yy = A[1] + dir * f * (B[1] - A[1]);\n    if (dir < 0) yy = B[1] + f * (A[1] - B[1]);\n    ctx.fillStyle = C.figure;\n    ctx.beginPath(); ctx.arc(A[0], yy, 3, 0, Math.PI*2); ctx.fill();\n  }\n} else {\n  ctx.fillStyle = C.figure;\n  ctx.fillText(\"balanced: no current\", A[0] + 96, cy);\n}\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"ratio PA/AQ = \" + (R1/R2).toFixed(3), 8, H - 26);\nctx.fillText(\"ratio PB/BQ = \" + (R3/R4).toFixed(3), 8, H - 10);\n\nout.note = \"V(A) - V(B) = \" + (VA - VB).toFixed(4) + \" V, bridge current = \"\n  + (Ig*1000).toFixed(3) + \" mA, R(P to Q) = \" + Rpq.toFixed(2) + \" \u03a9\";\n"
+  },
+  {
+    "id": "tricky-networks-cube",
+    "title": "Resistor cube, corner to corner",
+    "caption": "The twelve edges sort themselves into three groups of parallel resistors.",
+    "height": 250,
+    "params": [],
+    "draw": "\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\nctx.textBaseline = \"middle\";\n\nvar s = Math.min((W - 150) / 1.45, (H - 60) / 1.35);\nvar ox = 46, oy = H - 26;\nfunction X(v) { return ox + (v[0] + 0.45 * v[2]) * s; }\nfunction Y(v) { return oy - (v[1] + 0.35 * v[2]) * s; }\n\nvar V = [];\nfor (var x = 0; x < 2; x++) for (var y = 0; y < 2; y++) for (var z = 0; z < 2; z++) V.push([x,y,z]);\nfunction key(v) { return v[0] + \"\" + v[1] + \"\" + v[2]; }\n\nvar A = [0,0,0], G = [1,1,1];\nfunction dist(u, v) { return Math.abs(u[0]-v[0]) + Math.abs(u[1]-v[1]) + Math.abs(u[2]-v[2]); }\n\n// edges\nfor (var i = 0; i < V.length; i++) for (var j = i+1; j < V.length; j++) {\n  if (dist(V[i], V[j]) !== 1) continue;\n  var dA = Math.min(dist(V[i], A), dist(V[j], A));\n  var dB = Math.min(dist(V[i], G), dist(V[j], G));\n  var near = (dA === 0) || (dB === 0);\n  ctx.strokeStyle = near ? C.accent : C.rule;\n  ctx.lineWidth = near ? 2 : 1.4;\n  ctx.beginPath(); ctx.moveTo(X(V[i]), Y(V[i])); ctx.lineTo(X(V[j]), Y(V[j])); ctx.stroke();\n}\n\n// vertices, coloured by distance from A\nfor (var i2 = 0; i2 < V.length; i2++) {\n  var v = V[i2], d = dist(v, A);\n  ctx.fillStyle = (d === 0 || d === 3) ? C.accent : C.figure;\n  ctx.beginPath(); ctx.arc(X(v), Y(v), (d === 0 || d === 3) ? 6 : 5, 0, Math.PI*2); ctx.fill();\n  ctx.fillStyle = C.ink;\n  var lab = d === 0 ? \"A\" : (d === 3 ? \"G\" : (d === 1 ? \"1\" : \"2\"));\n  ctx.fillText(lab, X(v) + 12, Y(v) - 11);\n}\n\nctx.lineWidth = 1;\nctx.textAlign = \"left\";\nctx.fillStyle = C.ink;\nvar tx = W - 132;\nctx.fillText(\"A to tier 1:  R/3\", tx, 24);\nctx.fillText(\"tier 1 to 2:  R/6\", tx, 44);\nctx.fillText(\"tier 2 to G:  R/3\", tx, 64);\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(tx, 76); ctx.lineTo(tx + 116, 76); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"total  =  5R/6\", tx, 92);\nctx.fillStyle = C.faint;\nctx.fillText(\"the three 1s share a potential,\", tx, 118);\nctx.fillText(\"and so do the three 2s\", tx, 134);\n\nout.note = \"Every corner marked 1 is one step from A; every corner marked 2 is two steps. Corners with the same label sit at the same potential.\";\n"
+  },
+  {
+    "id": "tricky-networks-ladder",
+    "title": "Infinite ladder lab",
+    "caption": "Add sections and watch the input resistance stop moving.",
+    "height": 250,
+    "params": [
+      {
+        "key": "rs",
+        "label": "Series resistor",
+        "unit": "ohm",
+        "min": 0.5,
+        "max": 10,
+        "step": 0.5,
+        "value": 2
+      },
+      {
+        "key": "rp",
+        "label": "Shunt resistor",
+        "unit": "ohm",
+        "min": 0.5,
+        "max": 10,
+        "step": 0.5,
+        "value": 2
+      },
+      {
+        "key": "n",
+        "label": "Sections shown",
+        "unit": "",
+        "min": 1,
+        "max": 7,
+        "step": 1,
+        "value": 4
+      }
+    ],
+    "draw": "\nvar Rs = p.rs, Rp = p.rp, n = Math.round(p.n);\n\n// exact infinite-ladder value: X is the resistance looking in at a shunt node\nvar Xinf = (-Rp + Math.sqrt(Rp*Rp + 4*Rp*Rs)) / 2;\nvar Rinf = Rs + Xinf;\n\n// finite ladder with n sections, built from the far end backwards\nvar X = Rp;\nfor (var k = 1; k < n; k++) { X = 1 / (1/Rp + 1/(Rs + X)); }\nvar Rfin = Rs + X;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.6;\nctx.textAlign = \"center\";\nctx.textBaseline = \"middle\";\n\nvar top = H * 0.30, bot = H * 0.78;\nvar left = 34, right = W - 26;\nvar seg = (right - left) / (n + 0.6);\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(left, bot); ctx.lineTo(right, bot); ctx.stroke();\n\nfunction box(x1, y1, x2, y2, label) {\n  var mx = (x1+x2)/2, my = (y1+y2)/2;\n  var horiz = Math.abs(x2-x1) > Math.abs(y2-y1);\n  var w = horiz ? 15 : 8, h = horiz ? 7 : 14;\n  ctx.fillStyle = C.paper;\n  ctx.fillRect(mx-w, my-h, 2*w, 2*h);\n  ctx.strokeStyle = C.rule;\n  ctx.strokeRect(mx-w, my-h, 2*w, 2*h);\n  ctx.fillStyle = C.ink;\n  if (horiz) ctx.fillText(label, mx, my - 16); else ctx.fillText(label, mx + 26, my);\n}\n\nvar Iin = 1.0;\nvar Icar = Iin;\nfor (var i = 0; i < n; i++) {\n  var x0 = left + i * seg, x1 = left + (i + 1) * seg;\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath(); ctx.moveTo(x0, top); ctx.lineTo(x1, top); ctx.stroke();\n  box(x0, top, x1, top, Rs.toFixed(1));\n  ctx.beginPath(); ctx.moveTo(x1, top); ctx.lineTo(x1, bot); ctx.stroke();\n  box(x1, top, x1, bot, Rp.toFixed(1));\n\n  // rest of the ladder beyond this node\n  var Xhere = Rp;\n  for (var k2 = 1; k2 < n - i; k2++) { Xhere = 1 / (1/Rp + 1/(Rs + Xhere)); }\n  var beyond = (i === n - 1) ? Infinity : (Rs + (function () {\n    var Z = Rp;\n    for (var m = 1; m < n - i - 1; m++) { Z = 1 / (1/Rp + 1/(Rs + Z)); }\n    return Z;\n  })());\n  var fshunt = (beyond === Infinity) ? 1 : beyond / (Rp + beyond);\n  var Ishunt = Icar * fshunt;\n\n  ctx.fillStyle = C.figure;\n  ctx.fillText(Ishunt.toFixed(3), x1 + 26, (top + bot) / 2 + 20);\n\n  // animated charge sliding along this rung\n  var ph = (t * 0.55 + i * 0.17) % 1;\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(x0 + ph * seg, top, 3, 0, Math.PI*2); ctx.fill();\n\n  Icar = Icar - Ishunt;\n}\n\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"1.000 A in\", left - 26, top - 26);\nctx.fillStyle = C.figure;\nctx.fillText(\"shunt currents, in amps, below each rung\", left, H - 8);\n\nout.note = n + \" section\" + (n === 1 ? \"\" : \"s\") + \": R = \" + Rfin.toFixed(4)\n  + \" \u03a9    infinite ladder: R = \" + Rinf.toFixed(4) + \" \u03a9\";\n"
+  }
+]

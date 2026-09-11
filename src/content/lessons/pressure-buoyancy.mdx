@@ -1,64 +1,384 @@
-## Pressure with depth
+Fill a plastic bottle with water, screw the cap on, and hold it under the
+surface of a bath. It fights you. Let go and it sits there, going nowhere.
+Empty the bottle, cap it again, and now you cannot keep it down — it squirts
+out of your hand and jumps clear of the water. The bottle is the same size and
+the same shape both times. Only what is inside changed.
 
-Pressure is force per unit area, and in a fluid at rest it acts equally in every
-direction — a fact you can feel by turning your head underwater and noticing
-nothing changes.
+The water outside cannot see inside the bottle. Whatever pushes up on it
+depends only on the shape and depth of the region the bottle occupies, so that
+upward push is the same both times, and the difference in behaviour is entirely
+a difference in weight. That one observation is the whole of this topic. In the
+[last lesson](/guide/effective-potentials) you found equilibria by asking where
+a potential energy curve flattens out. Here they come from a force balance in a
+fluid, and once you can write that balance down, almost every fluid statics
+problem is arithmetic.
 
-Take a column of fluid of height $h$ and cross-section $A$. Its weight,
-$\rho g h A$, must be supported by the pressure difference between top and
-bottom, so
+## Pressure, and why it grows with depth
 
-$$P = P_0 + \rho g h$$
+Pressure is force per unit area: $p = F/A$, in pascals, where 1 Pa = 1 N/m². In
+a fluid at rest it has a property forces do not: no direction. Rotate a gauge
+at fixed depth and it reads the same. Pressure at a point is one number, and
+the force it makes on any small surface is $pA$ perpendicular to that surface,
+whichever way the surface faces.
 
-Depth is all that matters. Two points at the same level in the same connected
-fluid are at the same pressure, whatever the shape of the container — the water
-in a narrow straw and in a wide tank beside it stand level. The shape of the
-vessel never enters the formula, which is why a thin tube of water can burst a
-barrel.
+Now find how it varies with depth. Imagine an invisible column of the fluid
+itself, top at the surface, bottom at depth $h$, cross-sectional area $A$. It
+is not moving, so the forces on it cancel. The atmosphere pushes down on the
+top with $p_0 A$, where $p_0$ is atmospheric pressure. Gravity pulls down on
+its mass. The fluid underneath pushes up on the bottom face with $pA$, where
+$p$ is the pressure at depth $h$. The sides push horizontally and cancel in
+pairs.
 
-At the surface of a lake, $P_0$ is atmospheric, about $10^5$ Pa. Ten metres of
-water adds another $10^5$ Pa, so the pressure doubles.
+The mass of the column is its density times its volume, $\rho \cdot hA$, so its
+weight is $\rho g h A$. Setting up equals down:
 
-## Archimedes
+$$pA = p_0 A + \rho g h A$$
 
-Now replace part of the fluid with an object. The surrounding fluid pushes
-harder on the bottom than the top, and that imbalance is the buoyant force.
+Divide out the area, which never mattered:
 
-$$F_B = \rho_{\text{fluid}} \, V_{\text{disp}} \, g$$
+$$p = p_0 + \rho g h$$
 
-It equals the weight of the fluid displaced — no more, no less. The argument is
-worth holding onto: imagine the object replaced by fluid of the same shape. That
-fluid sat there in equilibrium, so the push from its surroundings exactly
-matched its weight. The surroundings do not know what is inside, so the push is
-unchanged.
+Read this carefully. $p$ is the **absolute pressure**, the real total push. The
+piece $\rho g h$ is the **gauge pressure**, the amount by which you beat
+atmospheric; tyre gauges, depth gauges and manometers all read it, because they
+compare against the air around them. If a problem says "gauge", drop the $p_0$.
+If it says "absolute" or "total", keep it.
 
-Note the density in the formula is the *fluid's*. The object's density decides
-only what happens next.
+Notice what cancelled: the area, so nothing about the width or shape of the
+container appears. Only the vertical drop $h$, the density, and $g$. Two points
+at the same height in the same connected fluid are therefore at the same
+pressure, whatever path the fluid takes between them.
 
-## Float, sink, or hover
+<Figure caption={<><b>Figure 1.</b> The gauge pressure climbs in a straight line with depth. Drag the density slider up to mercury, 13600, and notice how little depth you need for the same pressure.</>}>
+  <Sim id="pressure-buoyancy-depth" />
+</Figure>
 
-Compare the buoyant force on a fully submerged object with its weight. Since
-both scale with the same volume, only densities matter: denser than the fluid
-and it sinks, less dense and it rises until part of it is out.
+Two consequences. A mercury barometer has vacuum above its sealed top, so
+$p_0 = \rho g h$ with no offset and the column stands at $h = p_0/(\rho g)$.
+And in fresh water one atmosphere of gauge pressure arrives at
+$h = 1.01\times10^5 / (1000 \times 9.8) = 10.3$ m: roughly another atmosphere
+every 10 metres.
 
-For a floating body, equilibrium requires $F_B = mg$, so
-$\rho_f V_{\text{sub}} g = \rho_o V g$, giving
-
-$$\frac{V_{\text{sub}}}{V} = \frac{\rho_{\text{object}}}{\rho_{\text{fluid}}}$$
-
-Ice at $917$ kg/m³ in seawater at $1025$ floats with $89\%$ of its volume under
-— the origin of the iceberg cliché, and a one-line calculation.
-
-<Aside label="Where this goes wrong" warn>
-  $V_{\text{disp}}$ is the submerged volume, not the whole volume, and not the
-  volume of the object's material. A hollow steel hull floats because it
-  displaces a hull-shaped region of water; melt it into a solid block and the
-  displaced volume collapses, so it sinks.
+<Aside label="Worth remembering">
+  In $p = p_0 + \rho g h$, the $h$ is always measured straight down from the
+  surface where $p_0$ acts. Not along a slanted pipe, not around a bend. Only
+  the vertical drop counts.
 </Aside>
 
 <QuickCheck
-  question="A block floats with one third of its volume above the surface of water. Its density is about:"
-  options={["330 kg per cubic metre", "500 kg per cubic metre", "667 kg per cubic metre", "1500 kg per cubic metre"]}
-  answer={2}
-  explanation="Two thirds is submerged, so the density ratio is two thirds, giving roughly 667 kg per cubic metre."
+  question="A diver at 25.0 m in fresh water, with atmospheric pressure 1.01e5 Pa. What is the absolute pressure on her?"
+  options={["2.45e5 Pa", "3.46e5 Pa", "1.01e5 Pa", "2.50e6 Pa"]}
+  answer={1}
+  explanation="Gauge pressure is 1000 x 9.8 x 25.0 = 2.45e5 Pa. Absolute pressure adds the atmosphere on top: 2.45e5 + 1.01e5 = 3.46e5 Pa. Choosing 2.45e5 means you forgot the air above the water."
 />
+
+## Same level, same pressure
+
+That last fact does more work than the formula itself. The trick is always the
+same: pick a horizontal line that passes through connected fluid of *one* kind,
+write the pressure at that line going down the left branch, write it again
+going down the right branch, and set them equal.
+
+Take a U-tube holding water and pour a column of oil of height $h_1$ and
+density $\rho_1$ into the left arm, where it floats as a slug on top. Draw the
+line through the oil-water interface. Down the left arm you pass air then oil:
+$p_0 + \rho_1 g h_1$. Down the right arm you pass air then water, a height
+$h_2$ from the free surface to the same line: $p_0 + \rho_2 g h_2$. Equal, so
+$p_0$ cancels and
+
+$$\rho_1 g h_1 = \rho_2 g h_2 \quad\Longrightarrow\quad \rho_1 h_1 = \rho_2 h_2$$
+
+The heavier liquid needs less height to produce the same pressure. The water
+level in the right arm stands above the interface by
+$h_2 = (\rho_1/\rho_2) h_1$.
+
+<Figure caption={<><b>Figure 2.</b> A U-tube with oil floating on water. Drag the oil column longer and the water on the far side rises by less, in the ratio of the densities. Try setting the oil density to 990 and watch the two heights become nearly equal.</>}>
+  <Sim id="pressure-buoyancy-utube" />
+</Figure>
+
+The same line-of-equal-pressure argument gives you the **hydraulic lift**.
+Two pistons of areas $A_1$ and $A_2$ sit at the same height on a sealed body of
+oil. Same height, same pressure, so $F_1/A_1 = F_2/A_2$, and
+
+$$F_2 = F_1 \frac{A_2}{A_1}$$
+
+Push the small piston with 150 N over $2.00\times10^{-3}\ \mathrm{m}^2$ and the
+pressure is $150 / 2.00\times10^{-3} = 7.50\times10^4$ Pa. The big piston, area
+$5.00\times10^{-2}\ \mathrm{m}^2$, feels
+$7.50\times10^4 \times 5.00\times10^{-2} = 3750$ N. Energy is not free here:
+the big piston moves 25 times less far, since the oil is incompressible and the
+volumes pushed must match.
+
+## Worked example 1: reading a manometer
+
+*A gas line is connected to one arm of an open water manometer. The water in
+the open arm stands 0.340 m higher than in the gas arm. What is the gauge
+pressure of the gas?*
+
+Draw the line of equal pressure at the lower water level, the one in the gas
+arm, because both branches are connected water at and below that line.
+
+Above the line on the gas side there is only gas, whose own weight you ignore
+(air is about a thousand times lighter than water, so a third of a metre of it
+contributes a couple of pascals). The pressure at the line on that side is just
+$p_{\text{gas}}$. On the open side you start at the atmosphere and descend
+0.340 m of water to the same level: $p_0 + \rho g (0.340)$. Set them equal:
+
+$$p_{\text{gas}} = p_0 + \rho g h$$
+
+Gauge pressure is what beats the atmosphere, so subtract $p_0$:
+
+$$p_{\text{gauge}} = 1000 \times 9.8 \times 0.340 = 3332\ \mathrm{Pa}$$
+
+Check the sign: the open side stands *higher*, so the gas is pushing the water
+down on its side, so the gas is above atmospheric. Had the open side been
+lower, the gauge pressure would have come out negative — a partial vacuum.
+
+## Archimedes: where the upward push comes from
+
+Now put an object in the fluid. Every face feels pressure pushing inwards,
+perpendicular to that face. Side faces are at matched depths on opposite sides,
+so they cancel. Top and bottom do not: the bottom is deeper, the pressure there
+is larger, and the upward push wins.
+
+Do it for a block of height $H$ and horizontal area $A$, top at depth $d$. Down
+on the top: $(p_0 + \rho g d)A$. Up on the bottom, at depth $d + H$:
+$(p_0 + \rho g (d+H))A$. Subtract, and both $p_0 A$ and $\rho g d A$ cancel,
+leaving a net upward force
+
+$$F_B = \rho g H A = \rho_{\text{fluid}}\, g\, V_{\text{disp}}$$
+
+since $HA$ is the volume of fluid pushed out of the way. This is **Archimedes'
+principle**: the buoyant force equals the weight of the fluid displaced. The
+density in it is the *fluid's*; the object's density is nowhere in it.
+
+<Figure caption={<><b>Figure 3.</b> The arrows on the lower face are longer than those on the upper face because the pressure there is greater. The leftover is the buoyant force. The sideways arrows cancel in pairs.</>}>
+  <Sim id="pressure-buoyancy-arrows" />
+</Figure>
+
+A slicker argument covers any shape. Scoop the object out and let the hole fill
+with fluid. That fluid sits in equilibrium, so the push from everything around
+it balances its own weight, $\rho_{\text{fluid}} g V$. Put the object back: the
+surrounding fluid touches the same surface at the same depths, so it pushes
+exactly as hard as before. The push does not know what is inside.
+
+<Aside label="Where this goes wrong" warn>
+  $V_{\text{disp}}$ is the volume of the region below the waterline, not the
+  volume of the object's material. A steel hull floats because it displaces a
+  hull-shaped region of water including the air inside it; melt the same steel
+  into a lump and the displaced volume collapses to the metal's volume and it
+  sinks. For a hollow object, buoyancy uses the *outside* volume.
+</Aside>
+
+## Floating: what fraction sits under
+
+An object floating at rest has two vertical forces on it: its weight
+$\rho_o V g$, and buoyancy from the submerged part, $\rho_f V_{\text{sub}} g$.
+Balance them:
+
+$$\rho_f V_{\text{sub}} g = \rho_o V g$$
+
+The $g$ cancels and nothing else does, giving the most useful line here:
+
+$$\frac{V_{\text{sub}}}{V} = \frac{\rho_{\text{object}}}{\rho_{\text{fluid}}}$$
+
+Pine at 700 kg/m³ in water at 1000 floats with 0.7 of its volume under. Ice at
+917 in seawater at 1025 floats with $917/1025 = 0.8946$ under, which is where
+the iceberg cliché comes from. A ratio bigger than 1 is a signal, not an
+answer: the object sinks.
+
+Fully submerged and held by a string, the string takes the difference, and the
+scale reads the **apparent weight**
+
+$$T = mg - \rho_f V g = mg\left(1 - \frac{\rho_f}{\rho_o}\right)$$
+
+using $V = m/\rho_o$. For a 2.50 kg aluminium block at 2700 kg/m³ the real
+weight is $2.50 \times 9.8 = 24.5$ N and the factor is
+$1 - 1000/2700 = 0.6296$, so the scale reads $24.5 \times 0.6296 = 15.43$ N.
+
+Run that backwards to measure density without measuring volume. If a sample
+weighs $W_{\text{air}}$ in air and $W_{\text{water}}$ submerged, the buoyant
+force is the difference, so $\rho_f V g = W_{\text{air}} - W_{\text{water}}$
+while $\rho_o V g = W_{\text{air}}$. Divide, and $Vg$ disappears:
+
+$$\rho_o = \rho_f \frac{W_{\text{air}}}{W_{\text{air}} - W_{\text{water}}}$$
+
+A sample weighing 40.0 N in air and 32.0 N in water has
+$\rho_o = 1000 \times 40.0/8.0 = 5000$ kg/m³.
+
+<Figure caption={<><b>Figure 4.</b> Set the object and fluid densities and read the fraction submerged. Push the object density past the fluid density and the block sinks; the readout then tells you what fraction of its weight a string would have to hold.</>}>
+  <Sim id="pressure-buoyancy-float" />
+</Figure>
+
+<QuickCheck
+  question="Oil of density 800 floats on water. A block of density 900 rests at the interface, partly in each fluid. What fraction of the block sits in the water?"
+  options={["0.10", "0.50", "0.80", "0.90"]}
+  answer={1}
+  explanation="Let f be the fraction in water. Both fluids push: 1000f + 800(1-f) = 900, so 200f = 100 and f = 0.50. The block's density sits exactly halfway between the two fluid densities, so it sits halfway across the interface."
+/>
+
+## Worked example 2: how much can the raft carry
+
+*A raft is a slab of wood of area 2.00 m², thickness 0.200 m, density
+600 kg/m³, floating in fresh water. What is the largest mass you can put on it
+before water reaches the top surface?*
+
+The phrase "before water reaches the top surface" is the whole problem. It
+names the limiting state: the raft is submerged right to its top, so
+$V_{\text{sub}}$ equals the full volume of the raft, $V = 2.00 \times 0.200 =
+0.400\ \mathrm{m}^3$. At that limit the buoyant force is at its maximum:
+
+$$F_B = \rho_w V g = 1000 \times 0.400 \times 9.8 = 3920\ \mathrm{N}$$
+
+The weight it must support is the raft plus the load. The raft's mass is
+$\rho_{\text{wood}} V = 600 \times 0.400 = 240$ kg, so its weight is
+$240 \times 9.8 = 2352$ N. Balance:
+
+$$3920 = 2352 + M(9.8)$$
+$$M = \frac{3920 - 2352}{9.8} = \frac{1568}{9.8} = 160\ \mathrm{kg}$$
+
+There is a shortcut. $g$ cancels throughout, so the load is the mass of water
+the raft could displace minus the raft's own mass:
+$(1000 - 600) \times 0.400 = 160$ kg. Lift per cubic metre is the *density
+difference* — worth remembering as its own idea.
+
+## Worked example 3: the beaker on the scale
+
+*A beaker of water sits on a scale; beaker plus water have mass 3.00 kg. A
+metal block of volume $2.50\times10^{-3}$ m³ hangs from a string, fully
+submerged, not touching the beaker. What does the scale read?*
+
+Two instincts fight here, and both are wrong: "the string holds the block, so
+the scale should not care", and "the block is in the water, so the scale reads
+its whole weight". Use Newton's third law. The water pushes up on the block
+with
+
+$$F_B = \rho_w V g = 1000 \times 2.50\times10^{-3} \times 9.8 = 24.5\ \mathrm{N}$$
+
+so the block pushes *down* on the water with 24.5 N. That is a real downward
+force on the beaker-plus-water system, and the scale has to supply it.
+
+Take the beaker and the water and nothing else as your system. Forces on it:
+its own weight $3.00 \times 9.8 = 29.4$ N down, the block's reaction 24.5 N
+down, and the normal force $N$ from the scale up. Nothing accelerates, so
+
+$$N = 29.4 + 24.5 = 53.9\ \mathrm{N}$$
+
+The string carries the rest, and scale reading plus tension add to the total
+weight of everything, as they must. Whenever something dangles in the liquid,
+draw the system boundary first and ask which forces cross it.
+
+<Aside label="Worth remembering">
+  Buoyancy is a pair of forces like any other. If the fluid pushes the object
+  up with $F_B$, the object pushes the fluid down with $F_B$. Forgetting the
+  reaction is the single most common error in scale-and-beaker problems.
+</Aside>
+
+## Worked example 4: the bobbing cylinder
+
+*A wooden cylinder of density 600 kg/m³ and height 0.150 m floats upright in
+water with its axis vertical. Push it down slightly and release it. Find the
+period of the small vertical oscillation.*
+
+This one needs a real idea: look at the *change* in force rather than the
+force. At its floating position the buoyancy exactly cancels the weight — that
+is what floating means. Push it down an extra distance $x$ and the weight has
+not changed at all, while the buoyancy has grown by the weight of the extra
+sliver of water displaced. The net force is that increase, pointing back up.
+
+The extra sliver has area $A$ (the cylinder's cross-section) and height $x$,
+so the extra buoyancy is $\rho_w g A x$, upward. Taking down as positive $x$:
+
+$$F_{\text{net}} = -\rho_w g A x$$
+
+That is Hooke's law with effective spring constant $k = \rho_w g A$, and any
+force proportional to displacement and pointing back to equilibrium gives
+simple harmonic motion with $T = 2\pi\sqrt{m/k}$. The mass is the cylinder's,
+$m = \rho_o A L$, with $L = 0.150$ m its full height. So
+
+$$T = 2\pi\sqrt{\frac{\rho_o A L}{\rho_w g A}} = 2\pi\sqrt{\frac{\rho_o L}{\rho_w g}}$$
+
+The area cancels: a wider cylinder has more mass to move but displaces
+proportionally more water for the same dip, and the two effects are equal. Now
+the numbers:
+
+$$\frac{\rho_o L}{\rho_w g} = \frac{600 \times 0.150}{1000 \times 9.8} = \frac{90.0}{9800} = 9.184\times10^{-3}\ \mathrm{s}^2$$
+
+Take the square root, $0.09583$ s, and multiply by $2\pi$:
+
+$$T = 2\pi \times 0.09583 = 0.602\ \mathrm{s}$$
+
+A hydrometer works off the same idea from the other end. Its weight is fixed,
+so $m = \rho_f V_{\text{sub}}$ fixes the submerged volume: in a lighter liquid
+$V_{\text{sub}}$ must grow, and all the growth happens along the thin stem. The
+extra depth is $\Delta x = \Delta V_{\text{sub}}/A_{\text{stem}}$. For
+$m = 0.0150$ kg going from 1000 to 900 kg/m³,
+$\Delta V = 0.0150(1/900 - 1/1000) = 1.667\times10^{-6}$ m³, so
+$\Delta x = 1.667\times10^{-6}/4.00\times10^{-5} = 0.0417$ m.
+
+## Traps
+
+**Gauge versus absolute.** Adding $p_0$ when you should not, or dropping it
+when you must not, is the commonest loss here. The word in the question tells
+you which. Gas-law problems always want absolute pressure, because
+$pV$ = constant is about the real total push. A bubble rising from
+depth $h$ obeys $(p_0 + \rho g h)V_{\text{bottom}} = p_0 V_{\text{top}}$, and
+if the volume triples then $p_0 + \rho g h = 3p_0$, giving
+$\rho g h = 2p_0$ and $h = 2 \times 1.01\times10^5/(1000\times9.8) = 20.6$ m.
+
+**Which density.** In $F_B = \rho V g$ the density is the fluid's. In
+$m = \rho V$ it is the object's. Swapping them gives answers off by exactly the
+density ratio, which looks plausible enough to slip through. And if the object
+is denser than the fluid there is no floating solution at all: the fraction
+formula is meaningless and the thing rests on the bottom.
+
+**Air counts.** A balloon displacing 5.00 m³ of air at 1.225 kg/m³ feels
+$1.225 \times 5.00 \times 9.8 = 60.0$ N of lift. Archimedes does not care that
+the fluid is a gas. For solids in air the effect is tiny; for a balloon it is
+the entire point.
+
+**Released floats do not stop at the surface.** A ball of density 300 kg/m³
+released 1.20 m down has net upward force $(\rho_w - \rho_o)Vg$ against mass
+$\rho_o V$, so its acceleration is
+$g(\rho_w/\rho_o - 1) = 9.8 \times (1000/300 - 1) = 22.87$ m/s² up. Over 1.20 m
+it gains kinetic energy, then flies clear of the water and decelerates at $g$
+for a further $1.20 \times 22.87/9.8 = 2.8$ m.
+
+<QuickCheck
+  question="A hollow steel sphere floats exactly half submerged. What is the average density of the whole sphere, cavity included?"
+  options={["500 kg per cubic metre", "1000 kg per cubic metre", "3900 kg per cubic metre", "7800 kg per cubic metre"]}
+  answer={0}
+  explanation="Fraction submerged equals the ratio of average density to fluid density, so half submerged means the average density is half of 1000. The steel's own density, 7800, only comes in afterwards when you work out how large the cavity has to be to dilute it to 500."
+/>
+
+## Recognising when this is the technique
+
+Reach for hydrostatics when a problem hands you a **density and a depth**, or a
+**density and a fluid**. That pairing is the signature.
+
+If it mentions a *depth*, a *level difference*, a *tube*, a *barometer*, a
+*manometer*, or *two liquids that do not mix*, you want $p = p_0 + \rho g h$
+and the equal-level rule: draw a horizontal line through connected fluid of one
+kind and write the pressure twice.
+
+If it mentions *floats*, *submerged*, *apparent weight*, *what fraction*,
+*how much load*, or a *scale reading with something in the water*, you want
+Archimedes. Write a force balance on the object, $\rho_{\text{fluid}}
+V_{\text{disp}} g$ up against $\rho_{\text{object}} V g$ down, and look for the
+factors that cancel — $g$ always does, and often the area or volume too.
+
+If the object is *displaced slightly from floating and released*, or it is
+*hinged*, the balance alone is not enough. For a small displacement, compute
+the change in buoyancy and you have a spring constant. For a hinged rod, take
+torques about the hinge with the buoyant force acting at the midpoint of the
+submerged part and the weight at the midpoint of the whole rod; the submerged
+length depends on the angle, so you get one equation in $\theta$.
+
+Check dimensionless answers against sense before writing them down. A fraction
+submerged over 1 means the thing sinks.
+
+Next you leave still fluids and look at what happens when the frame you measure
+in is itself accelerating, in
+[Non-Inertial Frames & Pseudo-Forces](/guide/non-inertial-frames). Buoyancy
+comes back there in a strange guise: in an accelerating tank, the surface tilts
+and a helium balloon leans forward instead of back.

@@ -1,70 +1,271 @@
-## Decide what you are looking at
+Two students get the same problem: a block on a ramp, a string over a pulley, a
+hanging weight. One of them fills three pages with sines and cosines, makes a
+sign error on page two, and gets a number that is wrong by a factor of two. The
+other writes four lines and is done. They know the same physics. The difference
+happened before either of them wrote an equation.
 
-Before any equation, draw the situation and put a boundary around the thing
-you are analysing. Everything inside is the system; everything outside acts on
-it through external forces. That single choice determines which forces appear
-and which conservation laws apply.
+The last lesson gave you a way to make hard expressions
+[small and manageable](/guide/approximations) once you have them. This one is
+about the step before that: how to set a problem up so that the expressions are
+never hard in the first place. Three decisions do most of the work — what you
+draw a boundary around, which directions you call $x$ and $y$, and which law
+you reach for. Get those three right and most olympiad mechanics becomes
+bookkeeping.
 
-Choosing well saves enormous work. For two blocks connected by a string,
-treating them as one system makes the tension internal and it drops out
-entirely — one equation instead of three. If the tension is what you want,
-cut the system at the string and analyse one block.
+## Draw the boundary first
 
-Then choose axes. Axes are free, so pick the ones that make components
-trivial. On an incline, tilt the axes to lie along and perpendicular to the
-slope: the acceleration is then entirely along one axis, and only gravity
-needs decomposing. In circular motion, use radial and tangential directions.
-The physics does not change, but the algebra can go from a page to a line.
+Every equation in mechanics is about a **system**: a specific collection of
+stuff that you have mentally cut out of the world. Everything inside the
+boundary is the system. Everything outside can only touch the system through
+**external forces**, and only those appear in $\sum F = ma$.
+
+That word *only* is the whole trick. Forces between two parts of the same
+system come in equal and opposite pairs, so they cancel inside the sum and
+vanish from your equation. Move the boundary and a force that was giving you
+trouble can disappear.
+
+Take two blocks touching each other on a frictionless table, $m_A = 3.0$ kg in
+front and $m_B = 5.0$ kg behind it, with a horizontal force $F = 12$ N pushing
+on the front block so that both slide together. The blocks push on each other
+with some contact force $C$ that you do not know. If you draw the boundary
+around *both* blocks, $C$ is internal and never appears:
+
+$$F = (m_A + m_B)\,a \quad\Rightarrow\quad a = \frac{12\ \text{N}}{8.0\ \text{kg}} = 1.5\ \text{m/s}^2.$$
+
+One line. Now suppose the contact force is what you actually want. Move the
+boundary so it cuts between the blocks, keeping only the front block inside.
+The cut turns $C$ from internal into external, which is exactly why you make
+it. The front block feels $F$ forward and $C$ backward from the block behind
+it, and it has the acceleration you just found:
+
+$$F - C = m_A a \quad\Rightarrow\quad C = 12 - (3.0)(1.5) = 7.5\ \text{N}.$$
+
+Two systems, two lines, no simultaneous equations. The general rule: **put the
+boundary around everything when you want the motion, cut through the thing you
+want to know when you want a force.**
+
+<Figure caption={<><b>Figure 1.</b> The same pair of blocks, drawn twice. On the left the dashed boundary encloses both, so the contact force is internal and never enters the equation. On the right the boundary cuts between them and that same force becomes external. Notice that nothing physical changed — only where you drew the line.</>}>
+  <Sim id="problem-strategy-system-cut" />
+</Figure>
 
 <Aside label="Worth remembering">
-  Free-body diagrams are not a formality. Draw one per body, mark only real
-  forces (something must be touching it, or it is gravity), and label them
-  before writing a single equation. Most sign errors happen because the
-  diagram was skipped.
-</Aside>
-
-## Pick the right tool
-
-Newton's laws give you the full time evolution, but they cost the most work.
-When the question asks only about a before and an after, a conservation law is
-almost always faster.
-
-Energy conservation, when no friction or other dissipative force acts.
-Momentum conservation, when no net external force acts during the interval —
-true during a collision, even when gravity acts, because the collision is
-brief. Angular momentum conservation, when there is no external torque about
-your chosen axis. Notice these have different conditions; a collision can
-conserve momentum while destroying energy.
-
-Symmetry cuts work before it starts. If the setup is unchanged by rotating it,
-the answer cannot depend on the angle. If two objects are interchangeable, the
-answer must be symmetric under swapping their labels. Gauss's law is nothing
-but this argument used aggressively.
-
-## Check before you commit
-
-An answer is a formula, and a formula makes predictions you can test cheaply.
-
-Check dimensions first. Then push variables to extremes and see whether the
-result stays sensible. Take the Atwood machine, $a = (m_1 - m_2)g/(m_1 + m_2)$.
-Set $m_1 = m_2$ and the acceleration vanishes, correct. Let $m_2 \to 0$ and
-$a \to g$, a free fall, correct. Let $m_2 \to \infty$ and $a \to -g$, also
-correct. Three independent checks in ten seconds.
-
-Finally, ask whether the number is physically reasonable. A block sliding at
-$300\ \text{m/s}$ after a gentle push, an efficiency above 1, a negative
-kinetic energy — each says go back and look.
-
-<Aside label="Where this goes wrong" warn>
-  Applying energy conservation across an inelastic collision is the most
-  common error in olympiad mechanics. Momentum is conserved there; kinetic
-  energy is not. Before writing any conservation equation, state which
-  quantity is conserved and why the condition holds over your interval.
+  A force belongs on your diagram only if something outside the boundary is
+  touching the system, or it is gravity. If you cannot name the object doing
+  the pushing, the arrow is imaginary and it is costing you the problem.
 </Aside>
 
 <QuickCheck
-  question="A block slides down a frictionless incline, then collides and sticks to a second block. Which combination of laws applies?"
-  options={["Energy for the slide, energy for the collision", "Momentum for the slide, energy for the collision", "Energy for the slide, momentum for the collision", "Momentum for both stages"]}
-  answer={2}
-  explanation="The frictionless slide dissipates nothing, so energy is conserved there. The perfectly inelastic collision destroys kinetic energy but has no significant external impulse, so momentum carries across it."
+  question="A rope connects two carts that are pulled along a track. You want the tension in the rope. Which system should you analyse?"
+  options={["Both carts together, since the tension is then internal", "Both carts together, then one cart alone", "One cart alone, with the rope cut", "The rope alone, since it carries the tension"]}
+  answer={1}
+  explanation="Both carts together gives the acceleration in one line because the tension cancels. Then cutting the rope exposes the tension as an external force on a single cart, and you plug the acceleration in. Going straight to one cart leaves you with two unknowns in one equation."
 />
+
+## Axes are free, so choose selfishly
+
+Nothing in physics says $x$ must be horizontal. Axes are a bookkeeping choice
+you make, and the only rule is that they be perpendicular. So choose the pair
+that makes the most vectors lie flat along an axis.
+
+A block of mass $m = 2.0$ kg on a frictionless incline of angle
+$\theta = 30^\circ$ makes the point. With horizontal and vertical axes, the
+normal force and the acceleration both have two components, and you end up
+solving a pair of coupled equations. Tilt the axes instead: let $x$ point down
+along the surface and $y$ point out perpendicular to it. Now the normal force
+is entirely along $y$, and the acceleration is entirely along $x$, because the
+block cannot burrow into the ramp or lift off it. Only the weight needs
+splitting.
+
+The weight $mg$ points straight down, at angle $\theta$ from your new $y$ axis.
+So its component along the surface is $mg\sin\theta$ and its component into the
+surface is $mg\cos\theta$. Watch which one gets the sine: the piece that pushes
+the block along the ramp has to vanish when $\theta = 0$, and $\sin 0 = 0$,
+so it is the sine. That check takes a second and saves the most common error in
+mechanics.
+
+Along $x$: $\;mg\sin\theta = ma$, so
+
+$$a = g\sin\theta = (9.8)(0.500) = 4.9\ \text{m/s}^2.$$
+
+The mass cancelled, which it had to — every object falls the same way on a
+frictionless slope. Along $y$ the block does not accelerate, so the components
+must balance:
+
+$$N = mg\cos\theta = (2.0)(9.8)(0.866) = 17.0\ \text{N}.$$
+
+Less than the $19.6$ N weight, as it should be: the ramp only has to support
+the part of the weight pressing into it.
+
+<Figure caption={<><b>Figure 2.</b> The weight split along tilted axes. Drag the angle to zero and watch mg sin θ collapse while mg cos θ grows to the full weight; push it to 60 degrees and the normal force falls to half the weight. The readout gives both numbers as you drag.</>}>
+  <Sim id="problem-strategy-tilted-axes" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  When you tilt the axes, tilt them for *everything*. A very common wreck is
+  resolving the weight along the slope, then writing the normal force as $mg$
+  anyway because that is what it was on flat ground. Every vector in the
+  problem gets resolved in the same frame, or none do.
+</Aside>
+
+## Let symmetry answer the question for you
+
+If the whole setup is unchanged by some operation — a rotation, a reflection,
+a swap of two labels — then the answer must be unchanged by it too. That sounds
+abstract until you see how much arithmetic it deletes.
+
+A point charge $q = 6.0\ \mu\text{C}$ sits at one corner of a cube. What is the
+electric flux through one of the three faces that do not touch that corner?
+
+The honest way is a surface integral over a square with a charge at an awkward
+angle, which is unpleasant. Instead, build symmetry into the picture. Surround
+the charge with eight identical cubes, stacked to make one big cube with the
+charge at its centre. By Gauss's law the total flux out of that big cube is
+$q/\varepsilon_0$. The eight little cubes are interchangeable by reflection, so
+each takes an eighth: $q/8\varepsilon_0$ through your cube.
+
+Now look at one little cube. Three of its faces touch the charge, and the flux
+through those is zero because the field skims along them. The other three faces
+are interchangeable with each other by rotating the cube about its long
+diagonal, so they must split the $q/8\varepsilon_0$ equally, a third each:
+
+$$\Phi = \frac{q}{24\varepsilon_0} = \frac{6.0\times10^{-6}}{24\,(8.854\times10^{-12})} = \frac{6.0\times10^{-6}}{2.125\times10^{-10}} = 2.82\times10^{4}\ \text{N}\cdot\text{m}^2/\text{C}.$$
+
+No integral. The same reflex answers a whole family of questions in one step.
+Two identical charges, field at the midpoint between them: reflect the picture
+through that midpoint and it is unchanged, but every field vector flips, so the
+field must equal minus itself, so it is zero. A Wheatstone bridge whose left
+and right branches have the same ratio: the two midpoints sit at the same
+potential, so the current through the bridge resistor is zero and you can
+delete it from the circuit.
+
+<QuickCheck
+  question="A bridge has 10 ohm and 20 ohm in series on the left, the same 10 ohm and 20 ohm in series on the right, and a 50 ohm resistor joining the two midpoints. What current flows in the 50 ohm resistor?"
+  options={["Zero, because the two midpoints are at equal potential", "Zero, because 50 ohms is much larger than the others", "It depends on the battery voltage", "Half the total current"]}
+  answer={0}
+  explanation="The two branches divide the same total voltage in the same ratio, so both midpoints sit at the same potential. No potential difference means no current, whatever the bridge resistance is. The size of the 50 ohm resistor is irrelevant."
+/>
+
+## When the ground moves under you
+
+Some problems hide their difficulty in the choice of frame. A block rests on
+the frictionless $25^\circ$ face of a wedge, and the wedge is pushed
+horizontally so that the block rides along without sliding. What acceleration
+does that take?
+
+The block has only two forces on it: gravity $mg$ down and the normal force $N$
+perpendicular to the face. Here tilted axes are the wrong choice, because the
+acceleration is horizontal, not along the slope. Use horizontal and vertical
+axes and let $N$ be the one that splits. Vertically the block does not
+accelerate, so the vertical part of $N$ carries the weight:
+$N\cos\theta = mg$. Horizontally, the leftover part of $N$ is the only force,
+so it supplies the acceleration: $N\sin\theta = ma$. Divide the second by the
+first and $N$ cancels:
+
+$$a = g\tan\theta = (9.8)\tan 25^\circ = (9.8)(0.4663) = 4.57\ \text{m/s}^2.$$
+
+And if the block has mass $m = 1.5$ kg, the normal force follows from the
+vertical equation:
+
+$$N = \frac{mg}{\cos\theta} = \frac{(1.5)(9.8)}{0.9063} = 16.2\ \text{N},$$
+
+larger than the $14.7$ N weight, because the surface is doing two jobs at once.
+
+Now the harder cousin, and this one takes practice. A block of $m = 1.0$ kg
+slides down the frictionless $30^\circ$ face of a wedge of $M = 4.0$ kg that is
+itself free to slide on a frictionless floor. Find the wedge's acceleration.
+
+Choose the system generously first: block plus wedge together. The floor is
+frictionless and gravity is vertical, so there is **no external horizontal
+force at all**, and the horizontal momentum of the pair is conserved. Starting
+from rest, that gives $m\,v_x + M\,V = 0$ at every instant, and differentiating,
+$m\,a_x = -M\,A$ where $A$ is the wedge's acceleration. One unknown expressed
+in terms of the other, for free.
+
+For the second equation you need the block alone, and the key is that the
+block's acceleration is measured in the ground frame while the constraint —
+that it stays on the face — lives in the wedge's frame. Write the block's
+acceleration as the wedge's acceleration plus a sliding acceleration $a_r$
+along the face. Doing the two component equations for the block and eliminating
+$N$ gives the standard result
+
+$$A = \frac{m g \sin\theta\cos\theta}{M + m\sin^2\theta}.$$
+
+Before plugging in, test it. If $M \to \infty$ the denominator blows up and
+$A \to 0$: a wedge nailed to the earth does not move. If $\theta \to 0$ the
+face is flat, nothing slides, and $\sin\theta\cos\theta \to 0$ kills $A$. If
+$\theta \to 90^\circ$ the block falls vertically past a vertical face, pushing
+on nothing, and $\cos\theta \to 0$ kills $A$ again. Three checks passed, so
+plug in:
+
+$$A = \frac{(1.0)(9.8)(0.500)(0.866)}{4.0 + (1.0)(0.500)^2} = \frac{4.244}{4.25} = 1.0\ \text{m/s}^2.$$
+
+## Check the formula before you trust the number
+
+Those three limit checks were not decoration. A symbolic answer is a machine
+that makes predictions, and you can test it in ten seconds against cases whose
+answers you already know.
+
+Run the checks in this order. **Dimensions**: both sides must carry the same
+units, and if they do not, stop. **Limits**: send each variable to zero, to
+infinity, or to equality with another, and ask whether what comes out is what
+physics demands. **Symmetry**: if swapping two labels leaves the problem
+unchanged, it must leave the answer unchanged. **Sign**: does a positive answer
+point where you said positive points? **Magnitude**: a $2$ kg block moving at
+$300$ m/s after a nudge, an efficiency of $1.4$, a negative kinetic energy —
+each one means go back.
+
+The Atwood machine is the cleanest place to practise. Two masses on a string
+over an ideal pulley give $a = (m_1 - m_2)g/(m_1 + m_2)$ and
+$T = 2m_1m_2g/(m_1 + m_2)$. Set $m_1 = m_2$: the acceleration vanishes, correct.
+Let $m_2 \to 0$: $a \to g$, free fall, correct. Swap the labels: $a$ changes
+sign, which is right because "down on the left" becomes "up on the left". For
+$m_1 = 5.0$ kg and $m_2 = 3.0$ kg,
+
+$$a = \frac{(5.0-3.0)(9.8)}{8.0} = 2.45\ \text{m/s}^2, \qquad T = \frac{2(5.0)(3.0)(9.8)}{8.0} = 36.8\ \text{N},$$
+
+and $T$ sits between the two weights, $29.4$ N and $49$ N, exactly as it must:
+the string has to hold back the heavy one and drag up the light one.
+
+<Figure caption={<><b>Figure 3.</b> Make the two masses equal and watch the acceleration land on zero; shrink one mass and watch the curve flatten out against the a = g line it can never cross. The dot on the graph is your current setting.</>}>
+  <Sim id="problem-strategy-limits" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  Plugging numbers in at the start throws away every one of these checks. Once
+  $9.8$ has been multiplied into three other numbers you cannot send the mass
+  to infinity and see what survives. Carry symbols to the last line, then
+  substitute once.
+</Aside>
+
+## Recognising which move a problem wants
+
+The problem statement usually tells you, if you read it for structure rather
+than for numbers.
+
+If two objects are **joined and forced to move together** — touching blocks, a
+string, a pulley — do the pair first, then cut. If the question asks for a
+tension, a contact force, or a force in a hinge, that is the signal to cut
+exactly there.
+
+If the motion is **constrained to a surface**, tilt the axes to that surface.
+If instead the acceleration is along some other fixed direction, as with the
+driven wedge, keep the axes along the acceleration and resolve the normal force
+instead. The axis you refuse to tilt is the one the acceleration lies on.
+
+If the setup has a **repeated or interchangeable piece** — identical charges,
+identical resistors on the edges of a cube, an infinite lattice that looks the
+same from every node — look for a symmetry or superposition argument before
+computing anything. Those problems are usually unfeasible by brute force and
+one line by symmetry, which is a strong hint about what was intended.
+
+If the floor or the pivot is **frictionless and nothing external pushes
+sideways**, horizontal momentum is conserved and that is a free equation. If
+the question names a "before" and an "after" and asks nothing about the time in
+between, reach for a conservation law rather than for $F = ma$.
+
+And when the answer is a formula, spend the ten seconds on limits. That habit
+catches more mistakes than any amount of care in the algebra, and it is the one
+thing that separates the four-line solution from the three-page one.
+
+Next you will turn measurements into answers, which needs its own discipline:
+[graphs and uncertainty](/guide/data-graphs).

@@ -1,67 +1,317 @@
-## A nucleus weighs less than its parts
+## Weigh a nucleus and something is missing
 
-Weigh a helium-4 nucleus and compare it with two free protons plus two free
-neutrons. The nucleus is lighter, by about 0.5% — a real, measurable
-discrepancy called the **mass defect**:
+The last lesson treated decay as bookkeeping in time: a nucleus has a chance
+per second of falling apart, and you followed the population with
+$N = N_0 e^{-\lambda t}$. It never asked the more basic question. Why does a
+nucleus hold together at all, and why does one sometimes pay to break?
 
-$$\Delta m = Zm_p + (A - Z)m_n - m_{nucleus}$$
+Here is the experiment that answers it. Take a helium-4 nucleus and put it on
+the most precise scale ever built. Then weigh two free protons and two free
+neutrons separately and add those four numbers up. The two results are not the
+same. The assembled nucleus is lighter — by about half a percent, far more than
+any measurement error.
 
-The missing mass left as energy when the nucleus formed. Equivalently, that
-much energy must be supplied to pull it apart again, which is what "binding
-energy" means:
+Half a percent of a nucleus is enormous by the standards of chemistry, and it
+is not an accounting slip. Mass went somewhere. What happened is that when
+those four nucleons snapped together, the strong force pulled them into a
+bound state and a burst of energy left the system. By $E = mc^2$, energy
+leaving means mass leaving. The nucleus you are holding is the parts *minus*
+what escaped.
+
+That missing mass is the whole subject. It tells you how tightly a nucleus is
+held, which nuclei are stable, and how much energy comes out of a reactor or a
+star.
+
+## Mass defect and binding energy
+
+Write the arithmetic down. For a nucleus with $Z$ protons and $A$ nucleons
+total, so $A - Z$ neutrons, the **mass defect** is how much lighter it is than
+its scattered parts:
+
+$$\Delta m = Z m_p + (A - Z) m_n - m_{\text{nucleus}}$$
+
+Multiply by $c^2$ and you have the **binding energy**:
 
 $$E_B = \Delta m\, c^2$$
 
-Work in atomic mass units and the conversion is $1\ \text{u} = 931.5$ MeV/$c^2$,
-which turns this into arithmetic. Helium-4 comes out at 28.3 MeV.
+Read it in the direction that is easier to trust. $E_B$ is the energy you would
+have to *supply* to pull that nucleus completely apart into free nucleons at
+rest. Big $E_B$ means hard to take apart. It is not stored in the nucleus
+waiting to come out; it is energy already gone.
 
-<Aside label="Where this goes wrong" warn>
-  Binding energy is not stored in the nucleus like a charged battery. It is
-  energy already released. A more tightly bound nucleus has *less* mass and
-  *more* binding energy, which is why the sign confuses people. If in doubt,
-  ask which side of the reaction is lighter — that side is more stable.
+Two practical points make this arithmetic bearable. First, nuclear masses come
+in atomic mass units, defined so that a neutral carbon-12 atom weighs exactly
+$12$ u. The conversion you will use constantly is
+
+$$1\ \text{u} = 931.5\ \text{MeV}/c^2$$
+
+so a mass defect quoted in u becomes an energy in MeV by one multiplication.
+
+Second, published tables give **atomic** masses — nucleus plus its $Z$
+electrons — not bare nuclear masses. Rather than subtracting electrons, use
+$m_H = 1.007825$ u, the mass of a whole hydrogen *atom*, in place of the
+proton. Then the $Z$ electrons on the left cancel the $Z$ electrons carried
+along inside the atomic mass on the right:
+
+$$E_B = \left[Z m_H + (A - Z) m_n - m_{\text{atom}}\right] c^2$$
+
+The electron binding energies you are ignoring here are a few eV against
+millions, so the cancellation is exact for any purpose you have.
+
+<Figure caption={<><b>Figure 1.</b> The two weighings side by side. Drag the proton and neutron sliders and watch the gap between the bars. Notice that the gap is a much larger fraction of the total for a medium nucleus than for a very light one.</>}>
+  <Sim id="binding-energy-defect" />
+</Figure>
+
+**Worked example 1: helium-4.** Its atomic mass is $4.002603$ u. With $Z = 2$
+and $A - Z = 2$:
+
+$$Z m_H + N m_n = 2(1.007825) + 2(1.008665) = 2.015650 + 2.017330 = 4.032980\ \text{u}$$
+
+Subtract the real mass: $4.032980 - 4.002603 = 0.030377$ u. That is the defect.
+Now convert:
+
+$$E_B = 0.030377 \times 931.5 = 28.30\ \text{MeV}$$
+
+Four nucleons, $28.3$ MeV to separate them. Per nucleon that is
+$28.3/4 = 7.07$ MeV. For contrast, ripping an electron off a hydrogen atom
+costs $13.6$ eV. Nuclear energies run about a million times larger, and that
+single fact is why a gram of uranium outruns a tonne of coal.
+
+<Aside label="Worth remembering">
+  Carry all six decimal places until the very last step. The defect is a small
+  difference between two large numbers, so rounding masses to four decimals
+  before subtracting can change your answer by tens of percent. Subtract first,
+  round last.
 </Aside>
 
-## The curve
+<QuickCheck
+  question="A nucleus has a larger binding energy than its neighbour. Compared with the total mass of its own separated nucleons, it is:"
+  options={["Heavier, because binding energy adds mass", "Lighter, and the deficit equals the binding energy over c squared", "Exactly the same mass", "Lighter, but only if it is radioactive"]}
+  answer={1}
+  explanation="Binding energy is energy that left when the nucleus formed, so the bound system is lighter than its parts by exactly E_B over c squared. Nothing about radioactivity enters; every bound nucleus shows a defect."
+/>
 
-Total binding energy grows with $A$ simply because there are more nucleons, so
-it says little about stability. Divide by $A$ instead and the useful quantity
-appears: binding energy per nucleon, in MeV.
+## The curve that runs everything
 
-That curve rises steeply from hydrogen, passes 7 MeV around carbon, peaks near
-8.8 MeV at iron-56 and nickel-62, then declines slowly to about 7.6 MeV at
-uranium.
+Total binding energy is not a fair way to compare nuclei. Uranium beats helium
+easily, but only because it has sixty times as many nucleons. Divide it out.
+The quantity worth plotting is the **binding energy per nucleon**, $E_B/A$, in
+MeV — how tightly the average nucleon is held.
 
-Two competing effects shape it. The strong force is short-ranged, so each
-nucleon binds only to its neighbours — that saturates quickly and explains the
-early rise and the flat top. Coulomb repulsion is long-ranged, so every proton
-pushes on every other, and that term grows as $Z^2$ and drags the heavy end
-down.
+Plot that against $A$ and you get a shape you should carry in your head. It
+climbs steeply from the deuteron at $1.1$ MeV per nucleon, passes $7.07$ at
+helium-4 and about $7.9$ at oxygen-16, flattens into a broad maximum of
+$8.79$ MeV per nucleon near iron-56, then sags slowly back down to $7.57$ MeV
+at uranium-238.
 
-## Both directions release energy
+Two competing forces make that shape, and you can reason both out. The strong
+nuclear force is powerful but very short ranged, reaching barely past a
+nucleon's nearest neighbours. So each nucleon binds to a fixed number of
+partners no matter how big the nucleus gets, and total binding grows roughly
+in proportion to $A$ — that is the flat top. Nucleons on the surface have
+fewer neighbours, which is pure loss, and the surface fraction is largest for
+small nuclei — that is why the left-hand side climbs as the surface-to-volume
+ratio drops. Coulomb repulsion, by contrast, has unlimited range: every proton
+pushes on every other one, so that penalty grows like $Z^2$ and eventually
+wins. That is the long decline at the heavy end.
 
-Energy comes out of any reaction that moves nucleons toward the peak.
+<Figure caption={<><b>Figure 2.</b> Binding energy per nucleon against mass number. Drag A and read the live value. Note that both ends of the curve are lower than the middle, so nuclei can release energy by moving toward iron from either side.</>}>
+  <Sim id="binding-energy-curve" />
+</Figure>
 
-**Fission** splits a heavy nucleus into two mid-sized fragments, climbing from
-7.6 to roughly 8.5 MeV per nucleon. With 236 nucleons involved that is about
-200 MeV per event, mostly as kinetic energy of the fragments.
+## Q values: what a reaction pays
 
-**Fusion** joins light nuclei, climbing much more steeply — deuterium plus
-tritium to helium-4 releases 17.6 MeV from just five nucleons. Per nucleon,
-fusion wins by a wide margin, which is why stars run on it.
+For any nuclear reaction, the energy released is the mass that vanished:
 
-Neither contradicts the other. Both are downhill on the same curve, approached
-from opposite sides, and nothing releases energy by fusing past iron. That is
-also why iron is the endpoint of stellar burning and why heavier elements
-require a supernova to make.
+$$Q = \left(\sum m_{\text{initial}} - \sum m_{\text{final}}\right) c^2$$
 
-For any reaction, compute $Q = (m_{initial} - m_{final})c^2$. Positive $Q$
-means energy released and the reaction can proceed spontaneously as far as
-energy is concerned; negative $Q$ means the energy must be supplied.
+Positive $Q$ means energy comes out, carried off as kinetic energy of the
+products and gamma rays. Negative $Q$ means you must feed energy in and the
+reaction will not go by itself. Use atomic masses throughout and the electrons
+take care of themselves, with one exception noted below.
+
+**Worked example 2: D-T fusion.** Deuterium plus tritium gives helium-4 plus a
+neutron. Atomic masses: $^2$H $= 2.014102$, $^3$H $= 3.016049$,
+$^4$He $= 4.002603$, n $= 1.008665$ u.
+
+Initial: $2.014102 + 3.016049 = 5.030151$ u.
+Final: $4.002603 + 1.008665 = 5.011268$ u.
+Difference: $5.030151 - 5.011268 = 0.018883$ u.
+
+$$Q = 0.018883 \times 931.5 = 17.59\ \text{MeV}$$
+
+Five nucleons in, $17.6$ MeV out, which is $3.52$ MeV per nucleon. Compare that
+with fission's roughly $0.85$ MeV per nucleon and you see why fusion is the
+richer fuel, and why stars use it.
+
+There is a second way to get the same number without any masses. Helium-4 has
+$E_B = 28.3$ MeV; the deuteron has $2.22$ MeV and the triton $8.48$ MeV. The
+free neutron has none. So
+
+$$Q = \sum E_B(\text{final}) - \sum E_B(\text{initial}) = 28.3 - (2.22 + 8.48) = 17.6\ \text{MeV}$$
+
+Note the flip: with masses you subtract final from initial, with binding
+energies you subtract initial from final. Both say the same thing, because
+becoming more tightly bound *is* becoming lighter. Use whichever the problem
+hands you.
+
+<Aside label="Where this goes wrong" warn>
+  The atomic-mass trick hides an electron. For beta-minus decay it still works
+  and you just subtract atomic masses, because the daughter's extra proton
+  claims the emitted electron in the bookkeeping. For beta-plus decay it does
+  not: you must subtract an extra $2m_e c^2 = 1.022$ MeV. And in the
+  proton-proton chain, four hydrogen atoms to one helium atom gives
+  $Q = (4 \times 1.007825 - 4.002603)(931.5) = 26.7$ MeV, which already
+  includes the annihilation of the two positrons with two spare electrons.
+  Ask yourself where the electrons went before trusting the subtraction.
+</Aside>
 
 <QuickCheck
-  question="Fusing two nuclei heavier than iron would:"
-  options={["Release energy, as all fusion does", "Absorb energy, because binding energy per nucleon would decrease", "Release energy only if the product is stable", "Leave the total energy unchanged"]}
-  answer={1}
-  explanation="Iron sits at the peak of the binding-energy-per-nucleon curve, so any product heavier than iron is less tightly bound per nucleon and the reaction costs energy."
+  question="A reaction has Q = negative 2 MeV. What does that tell you?"
+  options={["It happens spontaneously and releases 2 MeV", "The products are lighter than the reactants", "At least 2 MeV must be supplied as kinetic energy for it to go", "It is forbidden under all circumstances"]}
+  answer={2}
+  explanation="Negative Q means the products are heavier, so the deficit has to be paid from the kinetic energy the reactants bring in. It is not forbidden, merely uphill, and it is exactly why endothermic reactions need an accelerator or a hot plasma."
 />
+
+## Fission and fusion are the same idea
+
+Both directions run downhill on the same curve. Anything that moves nucleons
+closer to iron pays out.
+
+**Fission** takes a heavy nucleus at about $7.6$ MeV per nucleon and splits it
+into mid-mass fragments at about $8.5$. The gain is about $0.9$ MeV per
+nucleon, and with $236$ nucleons involved that is roughly $200$ MeV per event,
+most of it as kinetic energy of the two fragments flying apart under their
+mutual Coulomb repulsion.
+
+**Worked example 3: is splitting uranium-238 in half worth it?** Suppose
+$^{238}$U, at $7.57$ MeV per nucleon, split into two identical $^{119}$Pd
+fragments at $8.50$ MeV per nucleon. Work with totals, not per-nucleon figures,
+or you will get lost.
+
+Parent: $238 \times 7.57 = 1801.7$ MeV of binding.
+Fragments: $2 \times 119 \times 8.50 = 2023.0$ MeV.
+
+The products are bound *more* tightly by
+$2023.0 - 1801.7 = 221$ MeV, so that much energy comes out. The reaction is
+allowed as far as energy is concerned. It does not happen appreciably anyway,
+because the nucleus has to stretch through a badly bound intermediate shape
+first, and that barrier is what a slow neutron helps a $^{235}$U nucleus over.
+Energetically allowed and actually happening are different questions, and this
+one is the clearest example of the gap.
+
+<Figure caption={<><b>Figure 3.</b> A splitting lab. Choose a parent and how evenly it divides. Try A near 240 and then drag A down to 60: below about A equals 90 the Q value goes negative and the split stops paying.</>}>
+  <Sim id="binding-energy-fission" />
+</Figure>
+
+**Fusion** climbs the steep left-hand side instead, and the gain per nucleon is
+several times larger. The price is getting two positive nuclei close enough for
+the strong force to reach, against their Coulomb repulsion. That barrier height
+is straight electrostatics:
+
+$$U = \frac{k q_1 q_2}{r} = \frac{Z_1 Z_2 (k e^2)}{r}$$
+
+and the useful constant is $ke^2 = 1.44$ MeV·fm. Two deuterons that must reach
+$3.00$ fm need
+
+$$U = \frac{(1)(1)(1.44)}{3.00} = 0.48\ \text{MeV}$$
+
+which, as a thermal energy, corresponds to billions of kelvin. Stars run
+cooler than that and fuse anyway, by quantum tunnelling and by the lucky tail
+of the speed distribution.
+
+## Turning MeV into watts
+
+Most of the harder problems are one energy calculation wrapped in unit
+conversion. Three numbers do all of it: $1$ MeV $= 1.602 \times 10^{-13}$ J,
+$1$ u $= 1.6605 \times 10^{-27}$ kg, and $N_A = 6.022 \times 10^{23}$.
+
+**Worked example 4: how long can the Sun burn hydrogen?** The core holds about
+$10\%$ of the Sun's $2.0 \times 10^{30}$ kg as usable hydrogen, hydrogen
+burning converts $0.71\%$ of the fuel's rest mass to energy, and the luminosity
+is $3.9 \times 10^{26}$ W.
+
+Fuel mass: $0.10 \times 2.0 \times 10^{30} = 2.0 \times 10^{29}$ kg.
+Mass actually converted: $0.0071 \times 2.0 \times 10^{29} = 1.42 \times 10^{27}$ kg.
+Energy available:
+
+$$E = mc^2 = (1.42 \times 10^{27})(3.00 \times 10^8)^2 = 1.28 \times 10^{44}\ \text{J}$$
+
+Divide by the power: $t = 1.28 \times 10^{44} / 3.9 \times 10^{26} = 3.3 \times 10^{17}$ s.
+In years, $3.3 \times 10^{17} / 3.16 \times 10^7 \approx 1 \times 10^{10}$ — ten
+billion years, which is the right order for a star like this one. The same
+chain run backwards gives a reactor's fuel burn: divide the required power by
+the energy per reaction to get reactions per second, then multiply by the mass
+per reaction.
+
+## Predicting the curve: the semi-empirical mass formula
+
+The reasoning about volume, surface and Coulomb can be made quantitative. Add a
+term punishing any imbalance between protons and neutrons, and one small
+correction for pairing, and you get the **semi-empirical mass formula**:
+
+$$B = a_v A - a_s A^{2/3} - a_c \frac{Z(Z-1)}{A^{1/3}} - a_{\text{sym}} \frac{(A - 2Z)^2}{A} \pm \frac{12}{\sqrt{A}}$$
+
+with $a_v = 15.75$, $a_s = 17.8$, $a_c = 0.711$, $a_{\text{sym}} = 23.7$ MeV.
+Term by term: volume binding proportional to $A$; a surface correction
+proportional to the area $A^{2/3}$; Coulomb repulsion over all $Z(Z-1)/2$
+proton pairs, divided by the radius which goes as $A^{1/3}$; a symmetry penalty
+that vanishes when $Z = A/2$; and a pairing term, $+$ for even-even nuclei,
+$-$ for odd-odd, zero otherwise.
+
+**Worked example 5: calcium-40**, with $Z = 20$, $A = 40$, even-even.
+
+Volume: $15.75 \times 40 = 630.0$.
+Surface: $40^{2/3} = 11.70$, so $17.8 \times 11.70 = 208.2$.
+Coulomb: $40^{1/3} = 3.420$, and $Z(Z-1) = 380$, so $0.711 \times 380/3.420 = 79.0$.
+Symmetry: $A - 2Z = 0$, so nothing.
+Pairing: $+12/\sqrt{40} = +1.90$.
+
+$$B = 630.0 - 208.2 - 79.0 - 0 + 1.9 = 344.7 \approx 345\ \text{MeV}$$
+
+That is $8.6$ MeV per nucleon, within a percent of the measured value from a
+formula with five constants.
+
+The formula also tells you which nucleus is the stable one at a given $A$. Only
+the Coulomb and symmetry terms depend on $Z$, so set $\partial B/\partial Z = 0$
+and solve. Doing that gives
+
+$$Z_{\min} = \frac{A}{2 + (a_c/2a_{\text{sym}})A^{2/3}}$$
+
+For $A = 125$: $125^{2/3} = 25.0$, and $a_c/2a_{\text{sym}} = 0.711/47.4 = 0.0150$,
+so the denominator is $2 + 0.0150 \times 25.0 = 2.375$ and
+$Z_{\min} = 125/2.375 = 52.6$. The real stable nuclide at $A = 125$ is
+tellurium, $Z = 52$. Notice what the formula says: for light nuclei the
+denominator is close to $2$ and $Z \approx A/2$, equal numbers of each. For
+heavy nuclei the Coulomb term pushes the ratio toward more neutrons, which is
+why the valley of stability bends away from the $N = Z$ line.
+
+## Recognising the technique
+
+You are in binding-energy territory whenever a problem hands you masses to more
+than four decimal places. That precision is only ever there so you can subtract
+and find a defect. The routine follows from what the problem gives you:
+
+Given **atomic masses and one nuclide**, you want $E_B$: sum $Z m_H + N m_n$,
+subtract the tabulated mass, multiply by $931.5$. Divide by $A$ if it asks per
+nucleon.
+
+Given **masses on both sides of a reaction**, you want $Q$: initial minus
+final, times $931.5$. This covers alpha decay, beta decay endpoints and every
+fusion reaction alike.
+
+Given **binding energies rather than masses**, flip the direction: final minus
+initial. Separation energies are the same move with one nucleon removed —
+taking a neutron out of helium-4 costs $28.3 - 7.72 = 20.6$ MeV, and the
+photon that does it needs at least that energy.
+
+Given **a power and an energy per event**, you are converting units: watts to
+events per second, or grams per day, through $1$ MeV $= 1.602 \times 10^{-13}$ J.
+
+Given **two nuclei that must touch**, it is not binding energy at all, it is
+$ke^2 Z_1 Z_2/r$ with $ke^2 = 1.44$ MeV·fm.
+
+Every one of these is the same conservation law you have used since mechanics.
+Mass is simply another place energy can sit. Next you go below the nucleus, to
+what protons and neutrons are actually made of, in
+[Intro to Particle Physics](/guide/particle-physics).

@@ -1,0 +1,145 @@
+[
+  {
+    "id": "magnetic-force-rhr",
+    "title": "Right-hand rule",
+    "caption": "Same velocity, same field, opposite charge signs.",
+    "height": 250,
+    "params": [],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\nvar half = W / 2;\n\nfunction cross(cx, cy, s) {\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath();\n  ctx.moveTo(cx - s, cy - s); ctx.lineTo(cx + s, cy + s);\n  ctx.moveTo(cx + s, cy - s); ctx.lineTo(cx - s, cy + s);\n  ctx.stroke();\n}\n\nfunction arrow(x1, y1, x2, y2, col) {\n  ctx.strokeStyle = col; ctx.fillStyle = col;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var a = Math.atan2(y2 - y1, x2 - x1), h = 8;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - h * Math.cos(a - 0.42), y2 - h * Math.sin(a - 0.42));\n  ctx.lineTo(x2 - h * Math.cos(a + 0.42), y2 - h * Math.sin(a + 0.42));\n  ctx.closePath(); ctx.fill();\n}\n\nfunction panel(x0, sign, label) {\n  var i, j;\n  for (i = 0; i < 5; i++) {\n    for (j = 0; j < 3; j++) {\n      cross(x0 + half * 0.16 + i * half * 0.17, H * 0.26 + j * H * 0.21, 4);\n    }\n  }\n  var cx = x0 + half * 0.42, cy = H * 0.52;\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(cx, cy, 6, 0, Math.PI * 2); ctx.fill();\n  ctx.fillStyle = C.paper;\n  ctx.fillText(sign > 0 ? \"+\" : \"-\", cx - 3, cy + 4);\n\n  arrow(cx, cy, cx + half * 0.30, cy, C.figure);\n  ctx.fillStyle = C.ink;\n  ctx.fillText(\"v\", cx + half * 0.31, cy + 15);\n\n  var fy = sign > 0 ? -1 : 1;\n  arrow(cx, cy, cx, cy + fy * H * 0.26, C.accent);\n  ctx.fillStyle = C.ink;\n  ctx.fillText(\"F = qvB\", cx + 8, cy + fy * H * 0.26 + (sign > 0 ? -4 : 14));\n  ctx.fillText(label, x0 + half * 0.10, H - 8);\n}\n\npanel(0, 1, \"positive charge: force is up\");\npanel(half, -1, \"negative charge: force is down\");\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(half, 22); ctx.lineTo(half, H - 22); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"B points into the page everywhere (the x marks)\", 10, 15);\n\nout.note = \"Point fingers along v, curl them into B, thumb gives v x B. For a negative charge the force is the other way.\";"
+  },
+  {
+    "id": "magnetic-force-orbit",
+    "title": "Cyclotron orbit lab",
+    "caption": "A charged particle entering a uniform field sideways.",
+    "height": 260,
+    "params": [
+      {
+        "key": "speed",
+        "label": "Entry speed",
+        "unit": "10^6 m/s",
+        "min": 0.4,
+        "max": 3.0,
+        "step": 0.1,
+        "value": 1.0
+      },
+      {
+        "key": "field",
+        "label": "Field strength",
+        "unit": "T",
+        "min": 0.2,
+        "max": 1.2,
+        "step": 0.05,
+        "value": 0.5
+      },
+      {
+        "key": "mass",
+        "label": "Mass",
+        "unit": "proton masses",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "value": 1
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar e = 1.6e-19, mp = 1.67e-27;\nvar m = p.mass * mp;\nvar v = p.speed * 1e6;\nvar B = p.field;\nvar r = m * v / (e * B);\nvar T = 2 * Math.PI * m / (e * B);\nvar f = 1 / T;\n\nvar S = (0.40 * H) / 0.10;\nvar rp = r * S;\nvar x0 = W * 0.14, y0 = H * 0.52;\nvar cx = x0, cy = y0 + rp;\n\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nvar i, j;\nfor (i = 0; i < 9; i++) {\n  for (j = 0; j < 5; j++) {\n    var dx = W * 0.06 + i * W * 0.11, dy = H * 0.10 + j * H * 0.20;\n    ctx.beginPath(); ctx.arc(dx, dy, 1.6, 0, Math.PI * 2); ctx.stroke();\n  }\n}\n\nctx.strokeStyle = C.rule;\nctx.setLineDash([4, 5]);\nctx.lineWidth = 1;\nctx.beginPath();\nctx.arc(cx, cy, rp, 0, Math.PI * 2);\nctx.stroke();\nctx.setLineDash([]);\n\nvar Tvis = T * 3e6;\nvar ph = (t / Tvis) * 2 * Math.PI;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nvar k;\nfor (k = 0; k <= 60; k++) {\n  var a = -Math.PI / 2 + (ph % (2 * Math.PI)) * k / 60;\n  var px = cx + rp * Math.cos(a), py = cy + rp * Math.sin(a);\n  if (k === 0) { ctx.moveTo(px, py); } else { ctx.lineTo(px, py); }\n}\nctx.stroke();\n\nvar ang = -Math.PI / 2 + ph;\nvar bx = cx + rp * Math.cos(ang), by = cy + rp * Math.sin(ang);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(bx, by, 5, 0, Math.PI * 2); ctx.fill();\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(cx, cy); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"F points at the centre\", cx + 8, cy - 6);\n\nvar bar = 0.05 * S;\nctx.strokeStyle = C.ink;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(W - 20 - bar, H - 16); ctx.lineTo(W - 20, H - 16); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.lineWidth = 1;\nctx.fillText(\"5 cm\", W - 20 - bar, H - 22);\nctx.fillText(\"B out of the page\", 10, 14);\n\nout.note = \"r = \" + r.toFixed(4) + \" m,  T = \" + T.toExponential(3) + \" s,  f = \" + (f / 1e6).toFixed(2) + \" MHz  (change the speed: T does not move)\";"
+  },
+  {
+    "id": "magnetic-force-rails",
+    "title": "Rod on rails lab",
+    "caption": "Current through a rod sitting in a field.",
+    "height": 250,
+    "params": [
+      {
+        "key": "current",
+        "label": "Current",
+        "unit": "A",
+        "min": 0,
+        "max": 12,
+        "step": 0.5,
+        "value": 8
+      },
+      {
+        "key": "field",
+        "label": "Field",
+        "unit": "T",
+        "min": 0,
+        "max": 1.0,
+        "step": 0.05,
+        "value": 0.6
+      },
+      {
+        "key": "sep",
+        "label": "Rail separation",
+        "unit": "m",
+        "min": 0.1,
+        "max": 0.6,
+        "step": 0.05,
+        "value": 0.3
+      },
+      {
+        "key": "mass",
+        "label": "Rod mass",
+        "unit": "g",
+        "min": 20,
+        "max": 200,
+        "step": 5,
+        "value": 50
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar I = p.current, B = p.field, L = p.sep, m = p.mass / 1000;\nvar F = I * L * B;\nvar a = F / m;\n\nfunction arrow(x1, y1, x2, y2, col) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 1.8;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var an = Math.atan2(y2 - y1, x2 - x1), h = 8;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - h * Math.cos(an - 0.42), y2 - h * Math.sin(an - 0.42));\n  ctx.lineTo(x2 - h * Math.cos(an + 0.42), y2 - h * Math.sin(an + 0.42));\n  ctx.closePath(); ctx.fill();\n}\n\nvar yTop = H * 0.28, yBot = H * 0.78;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(W * 0.08, yTop); ctx.lineTo(W * 0.94, yTop);\nctx.moveTo(W * 0.08, yBot); ctx.lineTo(W * 0.94, yBot);\nctx.moveTo(W * 0.08, yTop); ctx.lineTo(W * 0.08, yBot);\nctx.stroke();\n\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nvar i, j;\nfor (i = 0; i < 8; i++) {\n  for (j = 0; j < 2; j++) {\n    var dx = W * 0.18 + i * W * 0.095, dy = yTop + (j + 1) * (yBot - yTop) / 3;\n    ctx.beginPath();\n    ctx.moveTo(dx - 3.5, dy - 3.5); ctx.lineTo(dx + 3.5, dy + 3.5);\n    ctx.moveTo(dx + 3.5, dy - 3.5); ctx.lineTo(dx - 3.5, dy + 3.5);\n    ctx.stroke();\n  }\n}\n\nvar span = W * 0.70;\nvar tt = t % 2.2;\nvar s = 0.5 * a * tt * tt * 0.004;\nif (s > 1) { s = 1; }\nvar xr = W * 0.16 + s * span * 0.9;\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 5;\nctx.beginPath(); ctx.moveTo(xr, yTop); ctx.lineTo(xr, yBot); ctx.stroke();\n\narrow(xr, yBot - 6, xr, yTop + 10, C.figure);\nctx.fillStyle = C.ink;\nctx.fillText(\"I\", xr - 12, (yTop + yBot) / 2);\n\narrow(xr, H * 0.15, xr + Math.min(W * 0.22, 30 + F * 60), H * 0.15, C.accent);\nctx.fillStyle = C.ink;\nctx.fillText(\"F = I L B\", xr + 10, H * 0.12);\nctx.fillText(\"B into the page\", W * 0.08, 14);\nctx.fillText(\"rails\", W * 0.08, yBot + 16);\n\nout.note = \"F = \" + F.toFixed(3) + \" N,  a = \" + a.toFixed(1) + \" m/s^2  (reverse nothing: flip I or B and the rod runs the other way)\";"
+  },
+  {
+    "id": "magnetic-force-torque",
+    "title": "Torque on a current loop",
+    "caption": "Turning a loop away from alignment.",
+    "height": 250,
+    "params": [
+      {
+        "key": "angle",
+        "label": "Angle of normal to field",
+        "unit": "deg",
+        "min": 0,
+        "max": 180,
+        "step": 1,
+        "value": 60
+      },
+      {
+        "key": "turns",
+        "label": "Turns",
+        "unit": "",
+        "min": 1,
+        "max": 200,
+        "step": 1,
+        "value": 100
+      },
+      {
+        "key": "current",
+        "label": "Current",
+        "unit": "A",
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.1,
+        "value": 0.5
+      },
+      {
+        "key": "area",
+        "label": "Area of one turn",
+        "unit": "m^2",
+        "min": 0.002,
+        "max": 0.04,
+        "step": 0.002,
+        "value": 0.02
+      },
+      {
+        "key": "field",
+        "label": "Field",
+        "unit": "T",
+        "min": 0.05,
+        "max": 0.6,
+        "step": 0.05,
+        "value": 0.3
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar th = p.angle * Math.PI / 180;\nvar N = p.turns, I = p.current, A = p.area, B = p.field;\nvar mu = N * I * A;\nvar tau = mu * B * Math.sin(th);\nvar U = -mu * B * Math.cos(th);\n\nfunction arrow(x1, y1, x2, y2, col, lw) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var an = Math.atan2(y2 - y1, x2 - x1), h = 8;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - h * Math.cos(an - 0.42), y2 - h * Math.sin(an - 0.42));\n  ctx.lineTo(x2 - h * Math.cos(an + 0.42), y2 - h * Math.sin(an + 0.42));\n  ctx.closePath(); ctx.fill();\n}\n\nvar cx = W * 0.46, cy = H * 0.52;\nvar R = Math.min(W * 0.20, H * 0.30);\n\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nvar i;\nfor (i = 0; i < 5; i++) {\n  var y = H * 0.12 + i * H * 0.19;\n  ctx.beginPath(); ctx.moveTo(W * 0.06, y); ctx.lineTo(W * 0.94, y); ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(W * 0.94, y); ctx.lineTo(W * 0.94 - 6, y - 3.5); ctx.lineTo(W * 0.94 - 6, y + 3.5);\n  ctx.closePath(); ctx.fillStyle = C.faint; ctx.fill();\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"B\", W * 0.90, H * 0.06);\n\nvar ex = R * Math.sin(th), ey = -R * Math.cos(th);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 4;\nctx.beginPath();\nctx.moveTo(cx - ex, cy - ey); ctx.lineTo(cx + ex, cy + ey);\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(cx + ex, cy + ey, 6, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(cx - ex, cy - ey, 6, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.paper;\nctx.fillText(\".\", cx + ex - 1, cy + ey - 1);\nctx.fillStyle = C.ink;\nctx.fillText(\"loop seen edge on\", cx - R - 10, H - 10);\n\narrow(cx, cy, cx + R * 1.15 * Math.cos(th - Math.PI / 2), cy + R * 1.15 * Math.sin(th - Math.PI / 2), C.figure, 2);\nctx.fillStyle = C.ink;\nctx.fillText(\"normal, m\", cx + R * 1.25 * Math.cos(th - Math.PI / 2) + 4, cy + R * 1.25 * Math.sin(th - Math.PI / 2));\n\nvar fl = 22 + 120 * tau;\nif (fl > H * 0.22) { fl = H * 0.22; }\narrow(cx + ex, cy + ey, cx + ex, cy + ey - fl, C.figure, 1.6);\narrow(cx - ex, cy - ey, cx - ex, cy - ey + fl, C.figure, 1.6);\nctx.fillStyle = C.ink;\nctx.fillText(\"force couple\", cx + ex + 8, cy + ey - fl - 4);\n\nctx.fillText(\"angle between m and B: \" + p.angle.toFixed(0) + \" deg\", 8, 14);\n\nout.note = \"m = \" + mu.toFixed(3) + \" A m^2,  torque = \" + tau.toFixed(4) + \" N m,  U = \" + U.toFixed(4) + \" J\";"
+  }
+]

@@ -1,0 +1,154 @@
+[
+ {
+  "id": "motional-emf-rails",
+  "title": "Rod on rails lab",
+  "caption": "Drag the sliders and watch the emf, the current and the braking force move together.",
+  "height": 250,
+  "params": [
+   {
+    "key": "B",
+    "label": "Field",
+    "unit": "T",
+    "min": 0.1,
+    "max": 1.2,
+    "step": 0.05,
+    "value": 0.4
+   },
+   {
+    "key": "L",
+    "label": "Rail separation",
+    "unit": "m",
+    "min": 0.1,
+    "max": 1.0,
+    "step": 0.05,
+    "value": 0.5
+   },
+   {
+    "key": "v",
+    "label": "Rod speed",
+    "unit": "m/s",
+    "min": 0.5,
+    "max": 10,
+    "step": 0.5,
+    "value": 3
+   },
+   {
+    "key": "R",
+    "label": "Resistance",
+    "unit": "ohm",
+    "min": 0.2,
+    "max": 5,
+    "step": 0.1,
+    "value": 2
+   }
+  ],
+  "draw": "\nconst B = p.B, L = p.L, v = p.v, R = p.R;\nconst emf = B * L * v, I = emf / R, F = B * I * L, P = emf * I;\n\nconst pad = 34;\nconst yTop = pad + 10, yBot = H - pad - 14;\nconst xL = pad + 18, xR = W - pad;\n\n// rails\nctx.lineWidth = 2;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(xL, yTop); ctx.lineTo(xR, yTop); ctx.stroke();\nctx.beginPath(); ctx.moveTo(xL, yBot); ctx.lineTo(xR, yBot); ctx.stroke();\n\n// resistor box on the left end\nconst bw = 26, bh = 14;\nctx.strokeStyle = C.ink;\nctx.beginPath(); ctx.moveTo(xL, yTop); ctx.lineTo(xL, (yTop + yBot) / 2 - bh); ctx.stroke();\nctx.beginPath(); ctx.moveTo(xL, yBot); ctx.lineTo(xL, (yTop + yBot) / 2 + bh); ctx.stroke();\nctx.strokeRect(xL - bw / 2, (yTop + yBot) / 2 - bh, bw, 2 * bh);\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"R\", xL, (yTop + yBot) / 2 + 4);\n\n// field dots out of the page\nctx.fillStyle = C.faint;\nfor (let gx = xL + 46; gx < xR - 10; gx += 34) {\n  for (let gy = yTop + 20; gy < yBot - 8; gy += 26) {\n    ctx.beginPath(); ctx.arc(gx, gy, 2, 0, Math.PI * 2); ctx.fill();\n  }\n}\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"B out of page\", xL + 46, yTop + 12);\n\n// rod position: cycles across the rails\nconst travel = xR - 26 - (xL + 52);\nconst per = 4.0;\nconst rx = xL + 52 + travel * ((t % per) / per);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 4;\nctx.beginPath(); ctx.moveTo(rx, yTop); ctx.lineTo(rx, yBot); ctx.stroke();\n\n// velocity arrow\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nconst vy = (yTop + yBot) / 2 - 26;\nconst av = 34;\nctx.beginPath(); ctx.moveTo(rx, vy); ctx.lineTo(rx + av, vy); ctx.stroke();\nctx.beginPath(); ctx.moveTo(rx + av, vy); ctx.lineTo(rx + av - 6, vy - 4); ctx.lineTo(rx + av - 6, vy + 4); ctx.closePath();\nctx.fillStyle = C.figure; ctx.fill();\nctx.fillStyle = C.figure;\nctx.textAlign = \"left\";\nctx.fillText(\"v\", rx + av + 4, vy + 4);\n\n// magnetic drag arrow, scaled to the force\nctx.strokeStyle = C.ink;\nconst aF = Math.min(48, 8 + F * 260);\nconst fy = (yTop + yBot) / 2 + 26;\nctx.beginPath(); ctx.moveTo(rx, fy); ctx.lineTo(rx - aF, fy); ctx.stroke();\nctx.beginPath(); ctx.moveTo(rx - aF, fy); ctx.lineTo(rx - aF + 6, fy - 4); ctx.lineTo(rx - aF + 6, fy + 4); ctx.closePath();\nctx.fillStyle = C.ink; ctx.fill();\nctx.textAlign = \"right\";\nctx.fillText(\"F = BIL\", rx - aF - 4, fy + 4);\n\n// current arrows around the loop\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.5;\nctx.textAlign = \"center\";\nctx.fillStyle = C.accent;\nctx.fillText(\"I\", (xL + rx) / 2, yTop - 6);\nctx.fillText(\"I\", (xL + rx) / 2, yBot + 16);\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"rod, length L\", rx + 6, yBot + 16);\n\nout.note = \"emf = BLv = \" + emf.toFixed(3) + \" V, I = \" + I.toFixed(3) + \" A, F = \" + F.toFixed(4) + \" N, P = \" + P.toFixed(4) + \" W\";\n"
+ },
+ {
+  "id": "motional-emf-fbd",
+  "title": "Why a moving rod has an emf",
+  "caption": "The magnetic force on the carriers inside the rod, and the force balance on the rod itself.",
+  "height": 230,
+  "params": [],
+  "draw": "\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\n// ---- left panel: charge separation inside the rod ----\nconst midX = W * 0.46;\nconst cx = W * 0.20;\nconst top = 34, bot = H - 46;\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 5;\nctx.beginPath(); ctx.moveTo(cx, top); ctx.lineTo(cx, bot); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"+\", cx, top - 8);\nctx.fillText(\"-\", cx, bot + 16);\nctx.fillText(\"rod seen edge-on\", cx, H - 12);\n\n// v arrow\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nconst my = (top + bot) / 2;\nctx.beginPath(); ctx.moveTo(cx, my); ctx.lineTo(cx + 44, my); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cx + 44, my); ctx.lineTo(cx + 37, my - 4); ctx.lineTo(cx + 37, my + 4); ctx.closePath();\nctx.fillStyle = C.figure; ctx.fill();\nctx.textAlign = \"left\";\nctx.fillText(\"v\", cx + 48, my + 4);\n\n// qvxB arrow along the rod, upward\nctx.strokeStyle = C.ink;\nctx.beginPath(); ctx.moveTo(cx - 22, my + 22); ctx.lineTo(cx - 22, my - 30); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cx - 22, my - 30); ctx.lineTo(cx - 26, my - 23); ctx.lineTo(cx - 18, my - 23); ctx.closePath();\nctx.fillStyle = C.ink; ctx.fill();\nctx.textAlign = \"right\";\nctx.fillText(\"qvB\", cx - 28, my - 8);\n\n// field dots\nctx.fillStyle = C.faint;\nfor (let gy = top + 14; gy < bot; gy += 26) {\n  ctx.beginPath(); ctx.arc(cx + 70, gy, 2, 0, Math.PI * 2); ctx.fill();\n}\nctx.textAlign = \"left\";\nctx.fillText(\"B out of page\", cx + 78, top + 14);\n\n// divider\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(midX + 14, 20); ctx.lineTo(midX + 14, H - 20); ctx.stroke();\n\n// ---- right panel: force balance on the rod ----\nconst rx = W * 0.76, ry = H * 0.50;\nctx.strokeStyle = C.accent; ctx.lineWidth = 5;\nctx.beginPath(); ctx.moveTo(rx, ry - 44); ctx.lineTo(rx, ry + 44); ctx.stroke();\n\nfunction arrow(x0, y0, x1, y1, col, lab, side) {\n  ctx.strokeStyle = col; ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();\n  const dx = x1 - x0, dy = y1 - y0, n = Math.sqrt(dx * dx + dy * dy);\n  const ux = dx / n, uy = dy / n;\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 7 * ux + 4 * uy, y1 - 7 * uy - 4 * ux);\n  ctx.lineTo(x1 - 7 * ux - 4 * uy, y1 - 7 * uy + 4 * ux);\n  ctx.closePath();\n  ctx.fillStyle = col; ctx.fill();\n  ctx.fillStyle = col;\n  ctx.textAlign = side;\n  ctx.fillText(lab, x1 + (side === \"left\" ? 5 : -5), y1 + 4);\n}\n\narrow(rx, ry, rx + 62, ry, C.figure, \"F applied\", \"left\");\narrow(rx, ry, rx - 62, ry, C.ink, \"B I L\", \"right\");\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"steady speed: the two balance\", rx, H - 12);\nctx.fillText(\"charges pile up until the circuit carries them away\", cx, 18);\n"
+ },
+ {
+  "id": "motional-emf-brake",
+  "title": "Magnetic braking lab",
+  "caption": "A rod left to coast slows exponentially. Watch the time constant, the stopping distance and the heat.",
+  "height": 250,
+  "params": [
+   {
+    "key": "m",
+    "label": "Rod mass",
+    "unit": "kg",
+    "min": 0.02,
+    "max": 0.5,
+    "step": 0.01,
+    "value": 0.1
+   },
+   {
+    "key": "B",
+    "label": "Field",
+    "unit": "T",
+    "min": 0.1,
+    "max": 1.5,
+    "step": 0.05,
+    "value": 0.8
+   },
+   {
+    "key": "L",
+    "label": "Rail separation",
+    "unit": "m",
+    "min": 0.1,
+    "max": 1.0,
+    "step": 0.05,
+    "value": 0.5
+   },
+   {
+    "key": "R",
+    "label": "Resistance",
+    "unit": "ohm",
+    "min": 0.05,
+    "max": 2,
+    "step": 0.05,
+    "value": 0.2
+   },
+   {
+    "key": "v0",
+    "label": "Initial speed",
+    "unit": "m/s",
+    "min": 1,
+    "max": 12,
+    "step": 0.5,
+    "value": 6
+   }
+  ],
+  "draw": "\nconst m = p.m, R = p.R, B = p.B, L = p.L, v0 = p.v0;\nconst k = B * B * L * L / R;\nconst tau = m / k;\n\nconst pad = 40;\nconst X0 = pad + 6, X1 = W - pad + 10;\nconst Y0 = H - 32, Y1 = 26;\nconst tMax = 5 * tau;\nconst X = s => X0 + (X1 - X0) * (s / tMax);\nconst Y = vv => Y0 - (Y0 - Y1) * (vv / v0);\n\n// axes\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X0, Y0); ctx.lineTo(X1, Y0); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X0, Y0); ctx.lineTo(X0, Y1); ctx.stroke();\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"time (s)\", (X0 + X1) / 2, H - 10);\nctx.textAlign = \"left\";\nctx.fillText(\"speed (m/s)\", X0 + 4, Y1 - 8);\nctx.fillText(v0.toFixed(1), X0 - 34, Y1 + 4);\nctx.fillText(\"0\", X0 - 16, Y0 + 4);\nctx.fillText(tMax.toFixed(2), X1 - 18, Y0 + 16);\n\n// full decay curve\nctx.strokeStyle = C.rule; ctx.lineWidth = 1.5;\nctx.setLineDash([4, 5]);\nctx.beginPath();\nfor (let i = 0; i <= 160; i++) {\n  const s = tMax * i / 160;\n  const vv = v0 * Math.exp(-s / tau);\n  i === 0 ? ctx.moveTo(X(s), Y(vv)) : ctx.lineTo(X(s), Y(vv));\n}\nctx.stroke();\nctx.setLineDash([]);\n\n// swept so far\nconst now = t % (tMax + 1.0);\nconst cur = Math.min(now, tMax);\nctx.strokeStyle = C.accent; ctx.lineWidth = 2.5;\nctx.beginPath();\nfor (let i = 0; i <= 160; i++) {\n  const s = cur * i / 160;\n  const vv = v0 * Math.exp(-s / tau);\n  i === 0 ? ctx.moveTo(X(s), Y(vv)) : ctx.lineTo(X(s), Y(vv));\n}\nctx.stroke();\n\nconst vnow = v0 * Math.exp(-cur / tau);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(cur), Y(vnow), 4.5, 0, Math.PI * 2); ctx.fill();\n\n// tau marker\nctx.strokeStyle = C.figure; ctx.lineWidth = 1;\nctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(X(tau), Y0); ctx.lineTo(X(tau), Y(v0 * Math.exp(-1))); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.figure;\nctx.textAlign = \"center\";\nctx.fillText(\"one time constant\", X(tau), Y(v0 * Math.exp(-1)) - 8);\n\nconst dist = v0 * tau;\nconst heat = 0.5 * m * v0 * v0;\nout.note = \"time constant \" + tau.toFixed(3) + \" s, total distance \" + dist.toFixed(3) + \" m, total heat \" + heat.toFixed(3) + \" J, speed now \" + vnow.toFixed(2) + \" m/s\";\n"
+ },
+ {
+  "id": "motional-emf-rotor",
+  "title": "Rotating rod lab",
+  "caption": "One end pinned, the other sliding on a circular rail. Outer parts of the rod move faster, so the emf builds up with the square of the length.",
+  "height": 250,
+  "params": [
+   {
+    "key": "B",
+    "label": "Field",
+    "unit": "T",
+    "min": 0.1,
+    "max": 1.2,
+    "step": 0.05,
+    "value": 0.6
+   },
+   {
+    "key": "L",
+    "label": "Rod length",
+    "unit": "m",
+    "min": 0.1,
+    "max": 0.6,
+    "step": 0.05,
+    "value": 0.25
+   },
+   {
+    "key": "w",
+    "label": "Angular speed",
+    "unit": "rad/s",
+    "min": 5,
+    "max": 60,
+    "step": 1,
+    "value": 40
+   },
+   {
+    "key": "R",
+    "label": "Circuit resistance",
+    "unit": "ohm",
+    "min": 0.2,
+    "max": 5,
+    "step": 0.1,
+    "value": 1.5
+   }
+  ],
+  "draw": "\nconst B = p.B, L = p.L, w = p.w, R = p.R;\nconst emf = 0.5 * B * w * L * L;\nconst I = emf / R;\n\nconst cx = W * 0.5, cy = H * 0.52;\nconst rad = Math.min(W * 0.30, H * 0.36);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// circular rail\nctx.strokeStyle = C.rule; ctx.lineWidth = 2;\nctx.beginPath(); ctx.arc(cx, cy, rad, 0, Math.PI * 2); ctx.stroke();\n\n// field dots\nctx.fillStyle = C.faint;\nfor (let gx = cx - rad; gx <= cx + rad; gx += 30) {\n  for (let gy = cy - rad; gy <= cy + rad; gy += 30) {\n    const dx = gx - cx, dy = gy - cy;\n    if (dx * dx + dy * dy < rad * rad * 0.92) {\n      ctx.beginPath(); ctx.arc(gx, gy, 1.8, 0, Math.PI * 2); ctx.fill();\n    }\n  }\n}\n\n// rotating rod\nconst ang = w * t * 0.06;\nconst ex = cx + rad * Math.cos(ang), ey = cy - rad * Math.sin(ang);\nctx.strokeStyle = C.accent; ctx.lineWidth = 4;\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ex, ey); ctx.stroke();\n\n// pivot\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(cx, cy, 4, 0, Math.PI * 2); ctx.fill();\n\n// a sample element dr at radius r, with its local speed arrow\nconst rr = rad * 0.62;\nconst px = cx + rr * Math.cos(ang), py = cy - rr * Math.sin(ang);\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2); ctx.fill();\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nconst tx = -Math.sin(ang), ty = -Math.cos(ang);\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + 30 * tx, py + 30 * ty); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.textAlign = \"left\";\nctx.fillText(\"speed w r\", px + 30 * tx + 5, py + 30 * ty);\n\n// labels\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"pivot\", cx, cy + 18);\nctx.fillText(\"sliding contact\", ex, ey - 10);\nctx.fillStyle = C.faint;\nctx.fillText(\"B out of page, along the axis\", cx, H - 8);\n\nout.note = \"emf = half B w L squared = \" + emf.toFixed(3) + \" V, current \" + I.toFixed(3) + \" A\";\n"
+ }
+]

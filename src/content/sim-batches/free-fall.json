@@ -1,0 +1,101 @@
+[
+  {
+    "id": "free-fall-throw",
+    "title": "Vertical throw lab",
+    "caption": "One acceleration, three different-looking motions.",
+    "height": 260,
+    "params": [
+      {
+        "key": "v0",
+        "label": "Launch velocity (up positive)",
+        "unit": "m/s",
+        "min": -10,
+        "max": 25,
+        "step": 1,
+        "value": 15
+      },
+      {
+        "key": "h0",
+        "label": "Release height",
+        "unit": "m",
+        "min": 0,
+        "max": 60,
+        "step": 1,
+        "value": 20
+      },
+      {
+        "key": "gravity",
+        "label": "g",
+        "unit": "m/s^2",
+        "min": 1.62,
+        "max": 24,
+        "step": 0.01,
+        "value": 9.8
+      }
+    ],
+    "draw": "var g = p.gravity, v0 = p.v0, h0 = p.h0;\nvar tf = (v0 + Math.sqrt(v0 * v0 + 2 * g * h0)) / g;\nvar peak = h0 + (v0 > 0 ? (v0 * v0) / (2 * g) : 0);\nvar top = Math.max(peak * 1.18, 4);\nvar pad = 24;\nvar groundY = H - pad;\nvar sc = (groundY - pad) / top;\nfunction Y(y) { return groundY - y * sc; }\nvar cx = W * 0.34;\n\nvar cyc = tf + 0.9;\nvar now = t % cyc;\nvar tt = now < tf ? now : tf;\nvar y = h0 + v0 * tt - 0.5 * g * tt * tt;\nif (y < 0) { y = 0; }\nvar v = v0 - g * tt;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(10, groundY); ctx.lineTo(W - 10, groundY); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"ground, y = 0\", 12, groundY + 14);\n\nctx.setLineDash([3, 4]);\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(10, Y(h0)); ctx.lineTo(W - 10, Y(h0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(10, Y(peak)); ctx.lineTo(W - 10, Y(peak)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"release  \" + h0.toFixed(0) + \" m\", W * 0.58, Y(h0) - 5);\nctx.fillText(\"peak  \" + peak.toFixed(1) + \" m\", W * 0.58, Y(peak) - 5);\n\n/* strobe: one dot every 0.2 s, equal time steps */\nctx.fillStyle = C.figure;\nfor (var s = 0; s <= tt + 1e-9; s += 0.2) {\n  var ys = h0 + v0 * s - 0.5 * g * s * s;\n  if (ys < 0) { continue; }\n  ctx.beginPath(); ctx.arc(cx - 26, Y(ys), 2.5, 0, Math.PI * 2); ctx.fill();\n}\nctx.fillStyle = C.faint;\nctx.fillText(\"strobe every 0.2 s\", 10, pad - 8);\n\n/* the ball */\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(cx, Y(y), 6, 0, Math.PI * 2); ctx.fill();\n\n/* velocity arrow */\nvar av = v * 2.2;\nif (Math.abs(av) > 60) { av = av > 0 ? 60 : -60; }\nvar y0p = Y(y), y1p = Y(y) - av;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(cx, y0p); ctx.lineTo(cx, y1p); ctx.stroke();\nvar dir = av >= 0 ? 1 : -1;\nctx.beginPath();\nctx.moveTo(cx, y1p);\nctx.lineTo(cx - 4, y1p + dir * 7);\nctx.lineTo(cx + 4, y1p + dir * 7);\nctx.closePath();\nctx.fillStyle = C.accent; ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"v = \" + v.toFixed(1) + \" m/s\", cx + 10, y1p + 4);\n\n/* gravity arrow, always down, always the same length */\nvar gx = W - 52;\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(gx, H * 0.34); ctx.lineTo(gx, H * 0.34 + 34); ctx.stroke();\nctx.beginPath();\nctx.moveTo(gx, H * 0.34 + 41);\nctx.lineTo(gx - 4, H * 0.34 + 34);\nctx.lineTo(gx + 4, H * 0.34 + 34);\nctx.closePath();\nctx.fillStyle = C.figure; ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"a = g down\", gx - 14, H * 0.34 - 6);\n\nout.note = \"t = \" + tt.toFixed(2) + \" s, y = \" + y.toFixed(1) + \" m, v = \" + v.toFixed(1) +\n  \" m/s  |  peak \" + peak.toFixed(1) + \" m, lands at t = \" + tf.toFixed(2) + \" s\";"
+  },
+  {
+    "id": "free-fall-graphs",
+    "title": "The three graphs of a vertical throw",
+    "caption": "Position curves, velocity is a straight line, acceleration is flat.",
+    "height": 230,
+    "params": [
+      {
+        "key": "v0",
+        "label": "Launch speed",
+        "unit": "m/s",
+        "min": 5,
+        "max": 40,
+        "step": 1,
+        "value": 20
+      }
+    ],
+    "draw": "var g = 9.8, v0 = p.v0;\nvar tf = 2 * v0 / g;\nvar tp = v0 / g;\nvar hmax = v0 * v0 / (2 * g);\nvar pad = 34;\nvar colW = (W - pad * 2 - 24) / 3;\nvar gh = H - pad - 26;\nvar top = pad;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\nfunction axes(x0, title) {\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath();\n  ctx.moveTo(x0, top);\n  ctx.lineTo(x0, top + gh);\n  ctx.lineTo(x0 + colW, top + gh);\n  ctx.stroke();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(title, x0, top - 10);\n  ctx.fillStyle = C.faint;\n  ctx.fillText(\"t\", x0 + colW - 6, top + gh + 15);\n}\n\n/* panel 1: height against time */\nvar x1 = pad;\naxes(x1, \"y (m)\");\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 120; i++) {\n  var s = tf * i / 120;\n  var y = v0 * s - 0.5 * g * s * s;\n  var px = x1 + colW * s / tf;\n  var py = top + gh - (gh - 10) * y / hmax;\n  i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);\n}\nctx.stroke();\nctx.setLineDash([3, 4]); ctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x1, top + 10); ctx.lineTo(x1 + colW / 2, top + 10); ctx.stroke();\nctx.beginPath(); ctx.moveTo(x1 + colW / 2, top + 10); ctx.lineTo(x1 + colW / 2, top + gh); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(hmax.toFixed(1), x1 - 30, top + 14);\nctx.fillText(tp.toFixed(2) + \" s\", x1 + colW / 2 - 12, top + gh + 15);\n\n/* panel 2: velocity against time */\nvar x2 = pad + colW + 12;\naxes(x2, \"v (m/s)\");\nvar mid = top + gh / 2;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(x2, mid); ctx.lineTo(x2 + colW, mid); ctx.stroke();\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(x2, mid - (gh / 2 - 8));\nctx.lineTo(x2 + colW, mid + (gh / 2 - 8));\nctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"+\" + v0.toFixed(0), x2 - 26, mid - gh / 2 + 12);\nctx.fillText(\"-\" + v0.toFixed(0), x2 - 26, mid + gh / 2 - 2);\nctx.fillText(\"slope = -g\", x2 + 6, mid - 8);\n\n/* panel 3: acceleration against time */\nvar x3 = pad + 2 * colW + 24;\naxes(x3, \"a (m/s^2)\");\nvar mid3 = top + gh / 2;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(x3, mid3); ctx.lineTo(x3 + colW, mid3); ctx.stroke();\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(x3, mid3 + gh * 0.22);\nctx.lineTo(x3 + colW, mid3 + gh * 0.22);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"-9.8, flat\", x3 + 6, mid3 + gh * 0.22 - 7);\n\n/* moving cursor tying the three panels together */\nvar now = t % tf;\nctx.strokeStyle = C.figure; ctx.lineWidth = 1;\nctx.setLineDash([2, 3]);\nvar cols = [x1, x2, x3];\nfor (var k = 0; k < 3; k++) {\n  var cxk = cols[k] + colW * now / tf;\n  ctx.beginPath(); ctx.moveTo(cxk, top); ctx.lineTo(cxk, top + gh); ctx.stroke();\n}\nctx.setLineDash([]);\n\nvar yc = v0 * now - 0.5 * g * now * now;\nvar vc = v0 - g * now;\nout.note = \"t = \" + now.toFixed(2) + \" s: y = \" + yc.toFixed(1) + \" m, v = \" + vc.toFixed(1) +\n  \" m/s, a = -9.80 m/s^2 the whole way\";"
+  },
+  {
+    "id": "free-fall-meet",
+    "title": "Two balls, one meeting point",
+    "caption": "The gap between them shrinks at a constant rate.",
+    "height": 260,
+    "params": [
+      {
+        "key": "height",
+        "label": "Drop height",
+        "unit": "m",
+        "min": 20,
+        "max": 100,
+        "step": 5,
+        "value": 60
+      },
+      {
+        "key": "u",
+        "label": "Throw speed from the ground",
+        "unit": "m/s",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "value": 30
+      }
+    ],
+    "draw": "var g = 9.8, Hh = p.height, u = p.u;\nvar tm = Hh / u;\nvar tland = Math.sqrt(2 * Hh / g);\nvar ymeet = Hh - 0.5 * g * tm * tm;\nvar pad = 26;\nvar groundY = H - pad;\nvar sc = (groundY - pad) / (Hh * 1.05);\nfunction Y(y) { return groundY - y * sc; }\nvar xa = W * 0.34, xb = W * 0.56;\n\nvar stop = tm < tland ? tm : tland;\nvar cyc = stop + 1.0;\nvar now = t % cyc;\nvar tt = now < stop ? now : stop;\n\nvar yA = Hh - 0.5 * g * tt * tt;\nvar yB = u * tt - 0.5 * g * tt * tt;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(10, groundY); ctx.lineTo(W - 10, groundY); ctx.stroke();\n\nctx.setLineDash([3, 4]); ctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(10, Y(Hh)); ctx.lineTo(W - 10, Y(Hh)); ctx.stroke();\nif (ymeet > 0) {\n  ctx.beginPath(); ctx.moveTo(10, Y(ymeet)); ctx.lineTo(W - 10, Y(ymeet)); ctx.stroke();\n}\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"drop from \" + Hh.toFixed(0) + \" m\", 12, Y(Hh) - 6);\nif (ymeet > 0) { ctx.fillText(\"they meet at \" + ymeet.toFixed(1) + \" m\", 12, Y(ymeet) - 6); }\n\n/* gap bar: the separation closes at the constant rate u */\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(W - 34, Y(yA)); ctx.lineTo(W - 34, Y(yB)); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText((yA - yB).toFixed(1) + \" m apart\", W - 120, (Y(yA) + Y(yB)) / 2 - 6);\n\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(xa, Y(yA), 6, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(xb, Y(yB > 0 ? yB : 0), 6, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"dropped\", xa - 24, Y(yA) - 12);\nctx.fillText(\"thrown up at \" + u.toFixed(0) + \" m/s\", xb + 12, Y(yB > 0 ? yB : 0) + 4);\n\nout.note = \"gap = \" + Hh.toFixed(0) + \" - \" + u.toFixed(0) + \"t, so they meet at t = \" +\n  tm.toFixed(2) + \" s and height \" + (ymeet > 0 ? ymeet.toFixed(1) + \" m\" : \"ground level or below\");"
+  },
+  {
+    "id": "free-fall-drag",
+    "title": "Falling with linear drag",
+    "caption": "The straight line is the no-drag answer; the curve is what really happens.",
+    "height": 240,
+    "params": [
+      {
+        "key": "vt",
+        "label": "Terminal speed",
+        "unit": "m/s",
+        "min": 2,
+        "max": 60,
+        "step": 0.5,
+        "value": 6
+      }
+    ],
+    "draw": "var g = 9.8, vt = p.vt;\nvar tmax = 4 * vt / g;\nvar pad = 38;\nvar gw = W - pad - 16, gh = H - pad - 26;\nvar x0 = pad, y0 = 20;\nvar vmax = vt * 1.45;\nfunction X(s) { return x0 + gw * s / tmax; }\nfunction V(v) { return y0 + gh - gh * v / vmax; }\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + gh); ctx.lineTo(x0 + gw, y0 + gh);\nctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"v (m/s)\", x0 - 30, y0 + 4);\nctx.fillText(\"t (s)\", x0 + gw - 18, y0 + gh + 16);\nctx.fillText(\"0\", x0 - 12, y0 + gh + 4);\nctx.fillText(tmax.toFixed(1), x0 + gw - 10, y0 + gh + 16);\n\n/* terminal speed line */\nctx.setLineDash([4, 5]); ctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(x0, V(vt)); ctx.lineTo(x0 + gw, V(vt)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"terminal speed \" + vt.toFixed(1) + \" m/s\", x0 + 8, V(vt) - 6);\n\n/* no-drag line v = gt */\nctx.strokeStyle = C.figure; ctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(X(0), V(0));\nvar send = vmax / g < tmax ? vmax / g : tmax;\nctx.lineTo(X(send), V(g * send));\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"no drag: v = gt\", X(send) + 4, V(g * send) + 14);\n\n/* with drag */\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 160; i++) {\n  var s = tmax * i / 160;\n  var v = vt * (1 - Math.exp(-g * s / vt));\n  i === 0 ? ctx.moveTo(X(s), V(v)) : ctx.lineTo(X(s), V(v));\n}\nctx.stroke();\n\n/* time constant marker */\nvar tau = vt / g;\nctx.setLineDash([2, 3]); ctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(tau), y0 + gh); ctx.lineTo(X(tau), V(0.632 * vt)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"t = vt/g\", X(tau) - 16, y0 + gh + 16);\n\n/* sweeping cursor */\nvar now = t % tmax;\nvar vnow = vt * (1 - Math.exp(-g * now / vt));\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(now), V(vnow), 5, 0, Math.PI * 2); ctx.fill();\nctx.strokeStyle = C.figure; ctx.lineWidth = 1;\nctx.setLineDash([2, 3]);\nctx.beginPath(); ctx.moveTo(X(now), V(vnow)); ctx.lineTo(x0, V(vnow)); ctx.stroke();\nctx.setLineDash([]);\n\nout.note = \"t = \" + now.toFixed(2) + \" s: with drag v = \" + vnow.toFixed(2) +\n  \" m/s (\" + (100 * vnow / vt).toFixed(0) + \"% of terminal), without drag v = \" +\n  (g * now).toFixed(1) + \" m/s\";"
+  }
+]

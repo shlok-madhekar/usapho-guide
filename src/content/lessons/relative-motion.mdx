@@ -1,62 +1,336 @@
-## Velocities add
+## Every velocity has a hidden second half
 
-Every velocity is measured relative to something. Once you say so explicitly,
-the bookkeeping becomes one rule:
+You are on a train doing 30 m/s. You walk toward the front at 1.5 m/s. How fast
+are you going? Both answers are right. Someone sitting across the aisle sees
+1.5 m/s. Someone standing on the platform sees 31.5 m/s. Nobody is mistaken —
+the question was incomplete, because a velocity is not a property of an object.
+It is a comparison between an object and something you have chosen to call
+"not moving".
+
+In [projectile motion](/guide/projectiles) you never had to think about this.
+The ground was the frame, always, and the only thing moving was the ball. Now
+two things move at once: a boat and the river under it, a plane and the air
+around it, you and the rain. The whole difficulty of these problems is
+bookkeeping — keeping straight which velocity is measured against what. Get a
+notation that makes that impossible to forget and most of these problems become
+one triangle and a bit of trigonometry.
+
+## The subscript chain
+
+Write $\vec{v}_{A/B}$ for "the velocity of A as measured by B", where B is
+whatever you are treating as stationary. Read the slash as "relative to".
+
+Suppose you know how fast you walk along the train, $\vec{v}_{\text{you/train}}$,
+and how fast the train moves over the ground, $\vec{v}_{\text{train/ground}}$.
+In one second you move 1.5 m forward along the carriage, and in that same
+second the carriage itself is carried 30 m forward. The platform sees both
+displacements happen, one after the other, so it sees you move 31.5 m. Divide
+by the second and you have the rule:
 
 $$\vec{v}_{A/C} = \vec{v}_{A/B} + \vec{v}_{B/C}$$
 
-Read the subscripts as a chain. The inner labels match and cancel, leaving the
-outer pair. Reversing a subscript pair flips the sign:
-$\vec{v}_{B/A} = -\vec{v}_{A/B}$.
+The inner labels match and drop out, leaving the outer pair — like cancelling
+in a fraction. That is the whole trick. If the chain of subscripts doesn't
+close up like that, you have made an error before doing any arithmetic.
 
-These are vector sums, not number sums. A plane flying north at 200 km/h
-through air drifting east at 50 km/h moves over the ground at
-$\sqrt{200^2 + 50^2} \approx 206$ km/h, on a heading tilted east of north.
-Accelerations add the same way, provided neither frame is rotating.
+Two consequences you will use constantly. First, reversing a pair flips the
+sign: $\vec{v}_{B/A} = -\vec{v}_{A/B}$. If B sees A approaching at 8 m/s east,
+A sees B approaching at 8 m/s west. Second, these are **vector** sums, not
+number sums. A plane whose velocity relative to the air is 200 km/h north, in
+air moving east at 50 km/h, has a ground velocity with components
+(50 east, 200 north), so its ground speed is
+$\sqrt{200^2 + 50^2} = \sqrt{40000+2500} = \sqrt{42500} = 206.2$ km/h — not 250.
+
+<Figure caption={<><b>Figure 1.</b> The two known vectors go tail-to-head; the
+resultant runs from the first tail to the last head. Drag the heading up from 0
+and watch the black resultant swing back toward vertical — at one particular
+angle the downstream drift cancels exactly.</>}>
+  <Sim id="relative-motion-triangle" />
+</Figure>
+
+<Aside label="Worth remembering">
+  When the two velocities are perpendicular, the resultant is just Pythagoras.
+  A boat doing 4.0 m/s straight across a 3.0 m/s current moves over the ground
+  at $\sqrt{4^2+3^2} = 5.0$ m/s. Most river problems are a 3-4-5 triangle
+  wearing a disguise.
+</Aside>
+
+<QuickCheck
+  question="Two cars drive the same way down a straight road at 30 m/s and 22 m/s. How fast does the faster one approach the slower one?"
+  options={["8 m/s", "52 m/s", "30 m/s", "26 m/s"]}
+  answer={0}
+  explanation="Velocity of fast relative to slow is 30 minus 22, because both point the same way. The 52 answer comes from adding, which is what you would do if they were driving toward each other."
+/>
 
 ## Crossing a river
 
-A swimmer moves at speed $u$ relative to the water; the river runs at $v$
-across a channel of width $w$. Two different questions get two different
-answers.
+This is the situation the whole topic is built on, so get comfortable with it.
+A boat can do speed $u$ **relative to the water**. The river runs at $v$
+relative to the bank, and the channel is $w$ wide. The boat's nose points at
+angle $\theta$ upstream from the straight-across direction.
 
-To cross in the least time, aim straight across. The downstream current does
-nothing to the across-channel component, so $t = w/u$ no matter how fast the
-river runs. You land downstream, but you land soonest.
+Split into components: across the river, and along it. Across the river the
+current contributes nothing — the water only carries you sideways — so the
+across-component of the boat's ground velocity is $u\cos\theta$, and the
+crossing takes
 
-To land directly opposite, aim upstream at angle $\theta$ with
-$\sin\theta = v/u$, so the upstream component cancels the drift. The remaining
-across-channel speed is $\sqrt{u^2 - v^2}$ and the crossing takes
-$t = w/\sqrt{u^2 - v^2}$. If $v \ge u$, that has no solution: a swimmer slower
-than the current cannot reach the point opposite at all.
+$$t = \frac{w}{u\cos\theta}.$$
+
+Along the river the two contributions compete: the current pushes you
+downstream at $v$, and your upstream aim pulls you back at $u\sin\theta$. The
+net downstream velocity is $v - u\sin\theta$, so the sideways drift by the time
+you land is
+
+$$x = (v - u\sin\theta)\,\frac{w}{u\cos\theta}.$$
+
+Those two formulas answer every river question. Three cases matter.
+
+**Quickest crossing.** Minimise $t$, which means maximise $u\cos\theta$, which
+means $\theta = 0$. Aim straight across, and $t = w/u$ *no matter how fast the
+river runs*. That surprises people. The current is entirely sideways; it cannot
+slow down your progress toward the far bank.
+
+**Land directly opposite.** Set the drift to zero: $v - u\sin\theta = 0$, so
+$\sin\theta = v/u$. The across-component left over is
+$u\cos\theta = u\sqrt{1-(v/u)^2} = \sqrt{u^2-v^2}$, and the trip takes
+$t = w/\sqrt{u^2-v^2}$. Note this only has a solution when $u > v$. A swimmer
+slower than the current cannot land opposite, ever.
+
+**Least drift when $u < v$.** You cannot get the drift to zero, so make it as
+small as you can. From the drift formula,
+$x/w = \frac{v}{u}\sec\theta - \tan\theta$. Differentiate with respect to
+$\theta$ and set it to zero: $\frac{v}{u}\sec\theta\tan\theta - \sec^2\theta = 0$,
+which tidies to $\sin\theta = u/v$. Notice the ratio is upside down compared to
+the "land opposite" case, which is a good sanity check on which regime you are in.
+
+<Figure caption={<><b>Figure 2.</b> Set the current above the boat speed and
+drag the heading: the landing point moves upstream, reaches a leftmost limit,
+then goes back downstream. That limit is the least-drift angle. Also try
+heading 0 with different currents and watch the crossing time refuse to
+change.</>}>
+  <Sim id="relative-motion-river" />
+</Figure>
 
 <Aside label="Where this goes wrong" warn>
-  Decide which velocity the given speed describes before drawing anything.
-  "Swims at 2 m/s" almost always means relative to the water, and the current
-  is relative to the bank. Mixing the two frames in one triangle is the error
-  that quietly ruins river and wind problems.
+  Decide which frame each given speed belongs to before you draw anything.
+  "Swims at 1.2 m/s" means relative to the **water**. "River flows at 1.6 m/s"
+  means relative to the **bank**. Putting both into one triangle as if they were
+  both ground velocities is the single most common way these problems get
+  wrecked. Same for planes: "airspeed" is relative to the air, "ground speed"
+  is not.
 </Aside>
 
-## Choosing the frame
+## Three river crossings, worked
 
-The real payoff is that a good frame can delete most of a problem.
+**Example 1.** A river is 80 m wide and flows at 3.0 m/s. A boat that does
+4.0 m/s in still water is aimed straight across. Find the crossing time and the
+drift.
 
-Two objects approaching each other: work in the frame of one of them. It is at
-rest, the other closes at the relative velocity, and the time to meet is just
-separation divided by that speed.
+Straight across means $\theta = 0$. The across-speed is the full 4.0 m/s, so
 
-Two projectiles launched simultaneously: in the frame of the first, gravity
-cancels out of the relative motion entirely, since both accelerate at $-g$. The
-second moves in a straight line at constant relative velocity. A question about
-whether they collide becomes a question about whether a line passes through a
-point.
+$$t = \frac{80\ \text{m}}{4.0\ \text{m/s}} = 20\ \text{s}.$$
 
-Any inertial frame gives the same physics, so pick the one where the answer is
-easiest to see, then translate back at the end.
+During those 20 s the current carries the boat downstream at 3.0 m/s the whole
+time, so $x = 3.0 \times 20 = 60$ m. The boat lands 60 m downstream, 20 s after
+setting off. Its speed over the ground was 5.0 m/s, but that number was never
+needed.
+
+**Example 2.** A 200 m river flows at 2.0 m/s. A boat capable of 3.0 m/s
+relative to the water must land at a point 50 m downstream of the point
+opposite its start. How long does the crossing take?
+
+Now the drift is prescribed, so you cannot pick $\theta$ freely. Write both
+components in terms of the unknown time $t$. Across: $3.0\cos\theta \cdot t = 200$.
+Along: $(2.0 - 3.0\sin\theta)\,t = 50$.
+
+Two equations, two unknowns. Solve each for the trig function:
+$\cos\theta = 200/(3t)$ and $\sin\theta = (2.0 - 50/t)/3.0 = (2t-50)/(3t)$.
+Now use $\sin^2+\cos^2 = 1$, which is what lets you eliminate the angle you
+don't care about:
+
+$$\frac{200^2 + (2t-50)^2}{9t^2} = 1.$$
+
+Multiply out: $40000 + 4t^2 - 200t + 2500 = 9t^2$, so
+$5t^2 + 200t - 42500 = 0$, or $t^2 + 40t - 8500 = 0$. The quadratic formula
+gives
+
+$$
+
+t = \frac{-40 + \sqrt{1600 + 34000}}{2} = \frac{-40 + \sqrt{35600}}{2}
+= \frac{-40 + 188.68}{2} = 74.3\ \text{s}.
+
+$$
+
+(The other root is negative, so discard it.) About 74 s. The useful move here
+was refusing to solve for $\theta$ — you squared and added to make it vanish.
+
+**Example 3.** A swimmer manages 1.20 m/s relative to the water in a 60 m river
+running at 1.60 m/s. What is the smallest downstream drift he can achieve?
+
+Here $u = 1.20 < v = 1.60$, so landing opposite is impossible and this is the
+least-drift case: $\sin\theta = u/v = 1.20/1.60 = 0.750$, giving
+$\theta = 48.6^\circ$ and $\cos\theta = \sqrt{1-0.5625} = 0.6614$.
+
+Across-speed: $1.20 \times 0.6614 = 0.7937$ m/s, so the crossing takes
+$t = 60/0.7937 = 75.60$ s. Net downstream speed:
+$1.60 - 1.20 \times 0.750 = 1.60 - 0.90 = 0.700$ m/s. The drift is therefore
+
+$$x = 0.700 \times 75.60 = 52.9\ \text{m}.$$
+
+He lands 52.9 m downstream, and no other heading does better.
+
+## Rain, wind, and apparent directions
+
+The same rule explains something you have seen. Rain falling straight down
+looks slanted when you run through it, because what you see is
+$\vec{v}_{\text{rain/you}} = \vec{v}_{\text{rain/ground}} - \vec{v}_{\text{you/ground}}$.
+Subtracting your own velocity tilts the apparent fall toward you.
+
+If rain falls vertically at 8.0 m/s and you cycle east at 6.0 m/s, then in your
+frame the rain has a horizontal component of 6.0 m/s *westward* (toward your
+face) and 8.0 m/s down. The angle from the vertical is
+$\arctan(6.0/8.0) = 36.9^\circ$.
+
+Run it backwards and it becomes a real puzzle. **Example 4.** A man walking
+east at 3.0 m/s sees the rain fall exactly vertically. When he speeds up to
+6.0 m/s east, it appears to come from ahead at $30^\circ$ from the vertical.
+Find the rain's actual speed relative to the ground.
+
+Let the rain's ground velocity have eastward component $R_x$ and downward
+component $R_y$. In his frame the horizontal part is $R_x - 3.0$, and he
+reports it as zero, so $R_x = 3.0$ m/s. The rain is genuinely drifting east at
+3.0 m/s.
+
+At 6.0 m/s the apparent horizontal part is $3.0 - 6.0 = -3.0$ m/s, i.e. 3.0 m/s
+from ahead — consistent with what he says. The vertical part is unchanged by
+his walking, so
+
+$$
+
+\tan 30^\circ = \frac{3.0}{R_y} \quad\Rightarrow\quad
+R_y = \frac{3.0}{0.5774} = 5.196\ \text{m/s}.
+
+$$
+
+The actual speed is $\sqrt{3.0^2 + 5.196^2} = \sqrt{9.0 + 27.0} = \sqrt{36.0}
+= 6.0$ m/s. The trick was realising that changing frames only ever changes the
+component along your own motion — the vertical part is the same for everyone.
 
 <QuickCheck
-  question="A swimmer whose speed in still water is 3 m/s crosses a 60 m river flowing at 2 m/s, aiming straight across. How long does the crossing take?"
-  options={["20 s", "24 s", "27 s", "12 s"]}
+  question="A moving walkway runs at 3.0 m/s. A traveller walks on the ground beside it, against the walkway direction, at 1.5 m/s. How long does he take to cover 30 m of ground?"
+  options={["20 s", "6.7 s", "10 s", "30 s"]}
   answer={0}
-  explanation="Aiming straight across leaves the full 3 m/s pointed across the channel, so the time is 60 divided by 3. The current only changes where the swimmer lands, not when."
+  explanation="He is walking on the ground, not on the walkway, so the walkway does nothing to him at all. 30 divided by 1.5 is 20 s. The 6.7 s answer comes from adding a speed that was never in his frame."
 />
+
+## Stand on one of them
+
+The real payoff is that a well-chosen frame can delete most of a problem. If
+two things are moving, sit on one. It is now at rest, and only one object is
+left moving.
+
+Two trains, 120 m and 180 m long, pass each other in opposite directions at
+20 m/s and 25 m/s. Sit on the first train. It is stationary; the second sweeps
+past at $20 + 25 = 45$ m/s and must cover the sum of the lengths,
+$120 + 180 = 300$ m, from nose-meets-nose to tail-clears-tail. So
+$t = 300/45 = 6.67$ s. No absolute positions, no algebra.
+
+Free fall is even better. Two objects both accelerate downward at $g$, so in
+the frame of one of them the other has **zero** acceleration: gravity cancels
+out of the relative motion. Throw a ball up at 20 m/s from the ground at the
+instant another is dropped from rest 50 m above it. Relative to the dropped
+ball, the thrown ball moves at a constant 20 m/s upward, closing a fixed 50 m
+gap. They meet at $t = 50/20 = 2.5$ s. That is the whole solution.
+
+The same cancelling idea handles the four ants. Four ants sit at the corners of
+a 1.50 m square, each crawling at 0.020 m/s straight at the ant counterclockwise
+from it. By symmetry the four always form a square, so the ant you are chasing
+always moves *perpendicular* to the line between you — its motion never changes
+the gap. The gap therefore closes at your full 0.020 m/s, and the time is
+$1.50/0.020 = 75.0$ s, even though the paths are spirals.
+
+**Example 5.** Ship A sails due east at 15 km/h. At that instant ship B is
+20 km due north of A, sailing due south at 25 km/h. Find their closest
+separation and when it happens.
+
+Sit on A. Take east as $x$, north as $y$. Then
+$\vec{v}_{B/A} = \vec{v}_B - \vec{v}_A = (0, -25) - (15, 0) = (-15, -25)$ km/h.
+In A's frame, B starts at $(0, 20)$ and travels in a straight line with that
+constant velocity. Its position relative to A is
+
+$$\vec{r}(t) = (-15t,\; 20 - 25t).$$
+
+The separation squared is
+$s^2 = 225t^2 + (20-25t)^2 = 225t^2 + 400 - 1000t + 625t^2 = 850t^2 - 1000t + 400$.
+Minimise by differentiating: $1700t - 1000 = 0$, so
+
+$$t = \frac{1000}{1700} = 0.588\ \text{h} \approx 0.59\ \text{h}.$$
+
+Put that back: $s^2 = 850(0.3460) - 1000(0.5882) + 400 = 294.1 - 588.2 + 400
+= 105.9$, so $s = 10.29$ km.
+
+Geometrically, the closest approach is just the perpendicular distance from A
+to B's straight-line relative path — which is why the frame change is worth
+making.
+
+The method survives when the two paths are not at right angles. Two roads cross
+at $60^\circ$; car A is 400 m from the junction closing at 20 m/s, car B is
+300 m out on the other road closing at 12 m/s. Let $a = 400 - 20t$ and
+$b = 300 - 12t$ be the two distances from the junction. The law of cosines
+gives the separation directly, $s^2 = a^2 + b^2 - 2ab\cos 60^\circ = a^2+b^2-ab$,
+and you minimise that in $t$ exactly as above. The one subtlety is that the
+answer comes out at $t \approx 20.4$ s, a moment *after* car A has gone through
+the junction, so $a$ is negative there. That is legitimate — a negative $a$
+just means "this far past the junction" — but it is worth noticing rather than
+assuming the cars are still approaching.
+
+Escalators and walkways are the same rule at its gentlest. Walk up a 24 m
+escalator at 0.80 m/s relative to the steps while the steps rise at 0.60 m/s:
+your ground speed is $0.80 + 0.60 = 1.40$ m/s, so the trip takes
+$24/1.40 = 17.1$ s. Chain the subscripts — you relative to steps, steps
+relative to ground — and you cannot get the sign wrong.
+
+<Figure caption={<><b>Figure 3.</b> The same two ships twice. On the left both
+move and the separation wobbles confusingly; on the right A is pinned down and
+B walks a straight line, with the closest approach as a simple perpendicular.
+Drag the speeds and watch both readouts agree.</>}>
+  <Sim id="relative-motion-approach" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  Minimum-separation problems tempt you to minimise $s$ itself, which brings a
+  square root into the derivative for no reason. Minimise $s^2$. It has its
+  minimum at the same time, because squaring is increasing for positive
+  numbers. And check whether the minimising time is physically reachable — for
+  cars heading toward a junction on roads crossing at an angle, the algebra may
+  put the closest moment just *after* one car has passed through, which is fine
+  as long as the roads continue.
+</Aside>
+
+## How to recognise one of these
+
+Three signals, any one of which should make you write subscripts on every
+velocity before doing anything else.
+
+**Two things move at once, and one carries the other.** Boat and river, plane
+and air, walker and escalator, you and the rain. The giveaway wording is
+"relative to the water", "in still air", "relative to the steps". The speed
+you were handed is not a ground speed.
+
+**The question asks for a distance or time between two moving objects.**
+Closest approach, time to overtake, how long to pass, when do they meet. Do not
+track both positions in the ground frame. Sit on one of them, get
+$\vec{v}_{B/A}$, and the problem collapses to one object moving in a straight
+line from a known starting offset.
+
+**Something is described as "apparent" or "seems to".** Rain that appears to
+fall at an angle, a wind that seems to come from ahead, a star that appears
+displaced. "Appears" is a direct instruction to work in the observer's frame,
+and the translation is always subtracting the observer's own velocity.
+
+One caution to carry forward: everything here assumed the frames move at
+constant velocity relative to one another. Swap to an accelerating frame — a
+braking bus, a spinning turntable — and objects start to appear to accelerate
+with no force pushing them. Sorting out what does and does not count as a force
+is the job of the next lesson,
+[Newton's three laws and free body diagrams](/guide/newtons-laws-fbd).

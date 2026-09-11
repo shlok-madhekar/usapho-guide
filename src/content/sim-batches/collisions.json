@@ -1,0 +1,64 @@
+[
+  {
+    "id": "collisions-restitution",
+    "title": "Restitution and the dying bounce",
+    "caption": "Drop a ball and watch each bounce keep e squared of the previous height.",
+    "height": 260,
+    "params": [
+      {
+        "key": "h",
+        "label": "Drop height",
+        "unit": "m",
+        "min": 0.5,
+        "max": 3.0,
+        "step": 0.1,
+        "value": 2.0
+      },
+      {
+        "key": "e",
+        "label": "Coefficient of restitution e",
+        "unit": "",
+        "min": 0.3,
+        "max": 0.95,
+        "step": 0.05,
+        "value": 0.75
+      }
+    ],
+    "draw": "var g = 9.8, h = p.h, e = p.e;\nvar floorY = H - 26, topY = 30;\nvar sc = (floorY - topY) / h;\nvar tf = Math.sqrt(2 * h / g);\nvar total = tf + 2 * tf * e / (1 - e) + 0.6;\nvar tt = t % total;\nvar y = 0, n = 0, peak = h;\nif (tt < tf) { y = h - 0.5 * g * tt * tt; n = 0; peak = h; }\nelse {\n  var rem = tt - tf, vn = g * tf * e;\n  n = 1; peak = vn * vn / (2 * g); y = 0;\n  for (var i = 0; i < 80; i++) {\n    var dur = 2 * vn / g;\n    if (rem < dur) { y = vn * rem - 0.5 * g * rem * rem; peak = vn * vn / (2 * g); n = i + 1; break; }\n    rem -= dur; vn *= e; n = i + 2; peak = vn * vn / (2 * g); y = 0;\n  }\n}\nif (y < 0) y = 0;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(0, floorY); ctx.lineTo(W, floorY); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"floor\", 6, floorY + 15);\n\nvar bx = W * 0.34;\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(W * 0.10, floorY - h * sc); ctx.lineTo(W * 0.78, floorY - h * sc); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"drop height h = \" + h.toFixed(2) + \" m\", W * 0.80, floorY - h * sc + 4);\n\nvar k;\nfor (k = 1; k <= 5; k++) {\n  var hk = h * Math.pow(e, 2 * k);\n  if (hk * sc < 4) break;\n  ctx.strokeStyle = C.rule;\n  ctx.setLineDash([2, 4]);\n  ctx.beginPath(); ctx.moveTo(W * 0.62, floorY - hk * sc); ctx.lineTo(W * 0.78, floorY - hk * sc); ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.faint;\n  ctx.fillText(\"bounce \" + k + \": \" + hk.toFixed(2) + \" m\", W * 0.80, floorY - hk * sc + 4);\n}\n\nctx.strokeStyle = C.accent;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(W * 0.16, floorY - peak * sc); ctx.lineTo(W * 0.56, floorY - peak * sc); ctx.stroke();\nctx.setLineDash([]);\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(W * 0.14, floorY); ctx.lineTo(W * 0.14, floorY - peak * sc); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.textAlign = \"right\";\nctx.fillText(\"current peak\", W * 0.12, floorY - peak * sc / 2);\n\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(bx, floorY - y * sc - 9, 9, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"e = \" + e.toFixed(2) + \"  so each bounce keeps e squared = \" + (e * e).toFixed(3) + \" of the height\", 6, 16);\n\nvar totalDist = h * (1 + e * e) / (1 - e * e);\nout.note = \"bounce \" + n + \", peak \" + peak.toFixed(3) + \" m, total path over all bounces \" + totalDist.toFixed(2) + \" m\";"
+  },
+  {
+    "id": "collisions-2d",
+    "title": "Elastic collision in a plane",
+    "caption": "Change the mass ratio and the scattering angle, and watch the momentum triangle close.",
+    "height": 280,
+    "params": [
+      {
+        "key": "ratio",
+        "label": "Mass ratio m1/m2",
+        "unit": "",
+        "min": 0.2,
+        "max": 5.0,
+        "step": 0.1,
+        "value": 1.0
+      },
+      {
+        "key": "theta",
+        "label": "Deflection of m1",
+        "unit": "deg",
+        "min": 1,
+        "max": 89,
+        "step": 1,
+        "value": 35
+      }
+    ],
+    "draw": "var m1 = p.ratio, m2 = 1, u = 5;\nvar thMaxDeg = 180;\nif (m1 > m2) thMaxDeg = Math.asin(m2 / m1) * 180 / Math.PI;\nvar thDeg = p.theta;\nif (thDeg > thMaxDeg - 0.5) thDeg = thMaxDeg - 0.5;\nif (thDeg < 1) thDeg = 1;\nvar th = thDeg * Math.PI / 180;\n\nvar disc = m2 * m2 - m1 * m1 * Math.sin(th) * Math.sin(th);\nif (disc < 0) disc = 0;\nvar v1 = u * (m1 * Math.cos(th) + Math.sqrt(disc)) / (m1 + m2);\nvar p1x = m1 * v1 * Math.cos(th), p1y = m1 * v1 * Math.sin(th);\nvar p2x = m1 * u - p1x, p2y = -p1y;\nvar v2 = Math.sqrt(p2x * p2x + p2y * p2y) / m2;\nvar th2 = Math.atan2(-p2y, p2x);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.4;\n\nvar cx = W * 0.28, cy = H * 0.56;\nvar vs = 11;\nvar cycle = 3.4, tHit = 1.5;\nvar now = t % cycle;\n\nfunction arrow(x0, y0, x1, y1, col) {\n  ctx.strokeStyle = col;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();\n  var a = Math.atan2(y1 - y0, x1 - x0);\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 7 * Math.cos(a - 0.4), y1 - 7 * Math.sin(a - 0.4));\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 7 * Math.cos(a + 0.4), y1 - 7 * Math.sin(a + 0.4));\n  ctx.stroke();\n}\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(cx - W * 0.22, cy); ctx.lineTo(cx + W * 0.30, cy); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(th) * W * 0.26, cy - Math.sin(th) * W * 0.26); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(th2) * W * 0.26, cy + Math.sin(th2) * W * 0.26); ctx.stroke();\nctx.setLineDash([]);\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(cx, cy, 26, -th, 0); ctx.stroke();\nctx.beginPath(); ctx.arc(cx, cy, 38, 0, th2); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"th1 \" + thDeg.toFixed(0) + \" deg\", cx + 30, cy - 14);\nctx.fillText(\"th2 \" + (th2 * 180 / Math.PI).toFixed(0) + \" deg\", cx + 42, cy + 26);\n\nvar x1, y1, x2, y2;\nif (now < tHit) {\n  x1 = cx - (tHit - now) * u * vs; y1 = cy;\n  x2 = cx; y2 = cy;\n  arrow(x1 - 34, y1, x1 - 12, y1, C.ink);\n  ctx.fillStyle = C.ink; ctx.textAlign = \"center\";\n  ctx.fillText(\"u = 5.0 m/s\", x1 - 23, y1 - 10);\n} else {\n  var af = now - tHit;\n  x1 = cx + v1 * Math.cos(th) * vs * af; y1 = cy - v1 * Math.sin(th) * vs * af;\n  x2 = cx + v2 * Math.cos(th2) * vs * af; y2 = cy + v2 * Math.sin(th2) * vs * af;\n}\n\nvar r1 = 7 + 4 * Math.sqrt(m1), r2 = 7 + 4 * Math.sqrt(m2);\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(x1, y1, r1, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(x2, y2, r2, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"m1\", x1, y1 - r1 - 5);\nctx.fillText(\"m2\", x2, y2 + r2 + 13);\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"mass ratio m1/m2 = \" + m1.toFixed(1), 6, 16);\n\nvar ox = W * 0.70, oy = H * 0.30;\nvar L = W * 0.24;\nvar psc = L / (m1 * u);\narrow(ox, oy, ox + m1 * u * psc, oy, C.faint);\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"p before\", ox + m1 * u * psc / 2, oy - 8);\n\nvar hx = ox + p1x * psc, hy = oy - p1y * psc;\narrow(ox, oy, hx, hy, C.figure);\nctx.fillStyle = C.figure;\nctx.textAlign = \"right\";\nctx.fillText(\"p1 after\", hx - 6, hy - 4);\n\narrow(hx, hy, ox + m1 * u * psc, oy, C.accent);\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"p2 after\", hx + 10, hy + 16);\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"the two after-arrows must close on the before-arrow\", ox + m1 * u * psc / 2, oy + H * 0.30);\n\nvar note = \"v1 = \" + v1.toFixed(2) + \" m/s at \" + thDeg.toFixed(0) + \" deg, v2 = \" + v2.toFixed(2) + \" m/s at \" + (th2 * 180 / Math.PI).toFixed(0) + \" deg\";\nif (m1 > m2) note = note + \"  |  max deflection of m1 = \" + thMaxDeg.toFixed(1) + \" deg\";\nout.note = note;"
+  },
+  {
+    "id": "collisions-pendulum",
+    "title": "Ballistic pendulum: two problems, not one",
+    "caption": "The bang is a momentum problem; the swing is an energy problem. They meet at V.",
+    "height": 250,
+    "params": [],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.4;\nctx.textAlign = \"center\";\n\nfunction arrow(x0, y0, x1, y1, col) {\n  ctx.strokeStyle = col;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();\n  var a = Math.atan2(y1 - y0, x1 - x0);\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 7 * Math.cos(a - 0.4), y1 - 7 * Math.sin(a - 0.4));\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 7 * Math.cos(a + 0.4), y1 - 7 * Math.sin(a + 0.4));\n  ctx.stroke();\n}\n\nctx.strokeStyle = C.rule;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(W * 0.5, 6); ctx.lineTo(W * 0.5, H - 6); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"STAGE 1: the bang  -  use momentum\", W * 0.25, 18);\nctx.fillText(\"STAGE 2: the swing  -  use energy\", W * 0.75, 18);\n\nvar pivx = W * 0.25, pivy = 34;\nvar Lr = H * 0.46;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(pivx - 30, pivy); ctx.lineTo(pivx + 30, pivy); ctx.stroke();\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(pivx, pivy); ctx.lineTo(pivx, pivy + Lr); ctx.stroke();\n\nvar bw = 26;\nctx.fillStyle = C.figure;\nctx.fillRect(pivx - bw / 2, pivy + Lr, bw, bw);\nctx.fillStyle = C.paper;\nctx.fillText(\"M\", pivx, pivy + Lr + 17);\n\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(pivx - 60, pivy + Lr + bw / 2, 5, 0, Math.PI * 2); ctx.fill();\narrow(pivx - 54, pivy + Lr + bw / 2, pivx - 22, pivy + Lr + bw / 2, C.accent);\nctx.fillStyle = C.accent;\nctx.fillText(\"m, speed v\", pivx - 60, pivy + Lr - 8);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"m v = (m + M) V\", W * 0.25, pivy + Lr + 48);\nctx.fillStyle = C.faint;\nctx.fillText(\"energy is NOT conserved here\", W * 0.25, pivy + Lr + 66);\n\nvar pv2 = W * 0.75;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(pv2 - 30, pivy); ctx.lineTo(pv2 + 30, pivy); ctx.stroke();\nvar ang = 0.62;\nvar ex = pv2 + Lr * Math.sin(ang), ey = pivy + Lr * Math.cos(ang);\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(pv2, pivy); ctx.lineTo(pv2, pivy + Lr); ctx.stroke();\nctx.setLineDash([]);\nctx.strokeStyle = C.figure;\nctx.beginPath(); ctx.moveTo(pv2, pivy); ctx.lineTo(ex, ey); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillRect(ex - bw / 2, ey, bw, bw);\nctx.fillStyle = C.paper;\nctx.fillText(\"m+M\", ex, ey + 17);\n\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(pv2 - 40, pivy + Lr); ctx.lineTo(ex + 40, pivy + Lr); ctx.stroke();\nctx.beginPath(); ctx.moveTo(ex + 40, ey); ctx.lineTo(ex, ey); ctx.stroke();\nctx.setLineDash([]);\narrow(ex + 34, pivy + Lr, ex + 34, ey + 2, C.accent);\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"h\", ex + 40, (ey + pivy + Lr) / 2);\n\nctx.textAlign = \"center\";\nctx.fillStyle = C.ink;\nctx.fillText(\"half V squared = g h\", pv2, pivy + Lr + 48);\nctx.fillStyle = C.faint;\nctx.fillText(\"V from stage 1 is the only link\", pv2, pivy + Lr + 66);"
+  }
+]

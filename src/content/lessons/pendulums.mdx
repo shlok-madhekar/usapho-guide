@@ -1,62 +1,197 @@
+A grandfather clock is a strange machine. It is driven by a falling weight, which supplies energy at whatever rate it pleases, and yet the hands move at a rate you can set your life by. The thing that makes it honest is a swinging rod. Give that rod a bigger shove and it swings wider, but it still comes back at the same moment it would have anyway. The push changes the size of the motion and not its timing.
+
+You met that behaviour in [the previous lesson](/guide/shm): whenever the restoring force is proportional to the displacement, the motion is simple harmonic, the period is $T = 2\pi\sqrt{m/k}$, and the amplitude drops out. A pendulum has no spring in it. Nothing about a bob on a string looks like $F = -kx$. This lesson is about why it behaves as if it did, exactly how far that pretence can be pushed, and what to do when the swinging object is a rod, a disk, or a meter stick with a pin through it.
+
 ## Where the period comes from
 
-A pendulum of length $L$ displaced by angle $\theta$ has a restoring torque
-from gravity. Only the component of weight perpendicular to the string does
-anything:
+Hang a small bob of mass $m$ on a light string of length $L$. Pull it aside so the string makes an angle $\theta$ with the vertical, and look at what gravity is doing.
 
-$$mL^2\ddot{\theta} = -mgL\sin\theta$$
+Two forces act on the bob: the tension $T_{\text{s}}$ along the string, and the weight $mg$ straight down. The tension points exactly at the pivot, so it can never speed the bob up or slow it down along its arc — it only keeps the bob on the circle. Split the weight into a piece along the string and a piece perpendicular to it. The along-string piece is $mg\cos\theta$, and the tension deals with that. The perpendicular piece is
 
-That $\sin\theta$ is the problem. It makes the equation nonlinear and there is
-no elementary solution. But for small angles $\sin\theta \approx \theta$, and
-the equation collapses to the one shape every oscillation problem reduces to:
+$$F_{\text{tan}} = -mg\sin\theta$$
 
-$$\ddot{\theta} = -\frac{g}{L}\theta \quad\Longrightarrow\quad \omega = \sqrt{\frac{g}{L}}, \qquad T = 2\pi\sqrt{\frac{L}{g}}$$
+and that is the only force that drives the swing. The minus sign says it points back toward the bottom: swing right, and it pushes left.
 
-Notice what is absent. No mass, because gravity supplies both the restoring
-force and the inertia, and $m$ cancels. And no amplitude, which is the whole
-point of the approximation.
+<Figure caption={<><b>Figure 1.</b> The only force that matters is the piece of the weight perpendicular to the string. Drag the angle out to 40 degrees and watch the readout: the restoring force stops keeping pace with the angle, because sine bends away from the straight line.</>}>
+  <Sim id="pendulums-forces" />
+</Figure>
 
-## Why amplitude drops out, and when it comes back
+Now write Newton's second law along the arc. The bob's distance along the arc from the bottom is $s = L\theta$, so its acceleration along the arc is $\ddot{s} = L\ddot{\theta}$, where the dots mean derivatives with respect to time. Then
 
-Amplitude disappears because the linearized restoring torque is exactly
-proportional to displacement. Double the swing and you double the restoring
-torque, so the motion covers twice the distance at twice the speed and takes
-the same time.
+$$mL\ddot{\theta} = -mg\sin\theta \quad\Longrightarrow\quad \ddot{\theta} = -\frac{g}{L}\sin\theta.$$
 
-The real $\sin\theta$ is slightly *less* than $\theta$, so a large swing is
-restored a little too weakly and runs slow:
+That $\sin\theta$ is the trouble. Simple harmonic motion needs acceleration proportional to displacement, and $\sin\theta$ is not proportional to $\theta$. But for small angles it very nearly is. In radians, $\sin(0.1) = 0.09983$. The sine of a small angle and the angle itself agree to better than a part in a thousand. Replace $\sin\theta$ by $\theta$ and the equation becomes
 
-$$T \approx 2\pi\sqrt{\frac{L}{g}}\left(1 + \frac{\theta_0^2}{16}\right)$$
+$$\ddot{\theta} = -\frac{g}{L}\,\theta,$$
 
-At 10° the correction is about 0.2 percent. At 60° it is near 7 percent. Small
-angle is not a formality, it is a numerical claim you should be willing to
-check.
+which is exactly the shape $\ddot{x} = -\omega^2 x$ from last lesson, with $\omega^2 = g/L$. So
 
-<Aside label="Where this goes wrong" warn>
-  Do not carry $T = 2\pi\sqrt{L/g}$ into a physical pendulum. A swinging rod or
-  hoop is not a point mass on a string, and using its total length as $L$ gives
-  the wrong answer. Compute $I$ about the pivot and the distance $d$ to the
-  center of mass instead.
+$$\omega = \sqrt{\frac{g}{L}}, \qquad T = \frac{2\pi}{\omega} = 2\pi\sqrt{\frac{L}{g}}.$$
+
+**Worked example 1.** A brass bob hangs from a string of length $1.00\ \mathrm{m}$ and swings through a small angle. Take $g = 9.8\ \mathrm{m/s^2}$.
+
+$$T = 2\pi\sqrt{\frac{1.00}{9.8}} = 2\pi\sqrt{0.10204} = 2\pi(0.31944) = 2.007\ \mathrm{s}.$$
+
+Run it backwards to design a clock. If you want $T = 2.00\ \mathrm{s}$ exactly, square the formula: $T^2 = 4\pi^2 L/g$, so $L = gT^2/4\pi^2$. That gives $L = (9.8)(4.00)/39.478 = 0.9929\ \mathrm{m}$. A pendulum just under a metre long ticks once per second, which is why so many clock cases are the height they are.
+
+<Aside label="Radians, not degrees">
+  The approximation $\sin\theta \approx \theta$ is only true in radians, because it comes from the series $\sin\theta = \theta - \theta^3/6 + \dots$, which is written in radians. A calculator in degree mode gives $\sin(10) = 0.1736$, nothing like $10$. Convert with $\theta_{\text{rad}} = \theta_{\text{deg}} \times \pi/180$ before you use any small-angle result.
 </Aside>
 
-## The physical pendulum
+## What is missing from the formula
 
-Any rigid body pivoted off its center of mass swings the same way. Replace
-inertia with the moment of inertia about the pivot and the restoring lever arm
-with $d$, the pivot-to-center-of-mass distance:
+Look at $T = 2\pi\sqrt{L/g}$ and notice what is not in it.
 
-$$T = 2\pi\sqrt{\frac{I}{mgd}}$$
+The mass is gone. It cancelled in the very first line, because gravity supplies both the restoring force (proportional to $m$) and the inertia that resists it (also proportional to $m$). A lead bob and a cork bob on equal strings keep the same time.
 
-A uniform rod of length $L$ pivoted at one end has $I = \tfrac{1}{3}mL^2$ and
-$d = L/2$, giving $T = 2\pi\sqrt{2L/3g}$. It swings faster than a simple
-pendulum of the same length, because much of its mass sits closer to the pivot
-than the tip does.
+The amplitude is gone too. That is the whole content of the small-angle step. Double the swing and you double the restoring torque, so the bob covers twice the distance at twice the speed and arrives at the same instant.
 
-Setting $I = mL^2$ and $d = L$ recovers the simple pendulum, as it must.
+Both facts make the period a slow function of $L$, since $T \propto \sqrt{L}$. To double the period you need four times the length, not twice.
 
 <QuickCheck
-  question="A simple pendulum keeps correct time on Earth. Taken to a planet with one quarter of Earth's surface gravity, how does its period change?"
-  options={["It doubles", "It halves", "It is unchanged", "It quadruples"]}
+  question="A pendulum has a period of 1.55 s. Its string is replaced by one twice as long, and nothing else changes. What is the new period?"
+  options={["2.19 s", "3.10 s", "1.10 s", "1.55 s"]}
   answer={0}
-  explanation="The period varies as the inverse square root of g, so dividing g by four multiplies the period by two. The mass of the bob is irrelevant either way."
+  explanation="Period goes as the square root of length, so doubling L multiplies T by the square root of 2, about 1.414. That gives 1.55 times 1.414, or 2.19 s. Doubling the period would need four times the length."
 />
+
+<Figure caption={<><b>Figure 2.</b> A pendulum lab. Change the length and watch the period crawl: you need four times the length for twice the period. Then push the amplitude past 30 degrees and watch the true period drift away from the small-angle prediction in the readout.</>}>
+  <Sim id="pendulums-lab" />
+</Figure>
+
+The same $\sqrt{L/g}$ makes the pendulum a good instrument. Time one and you have measured $g$. Rearranged, $g = 4\pi^2 L/T^2$. A student times a $0.750\ \mathrm{m}$ pendulum at $T = 1.74\ \mathrm{s}$ and gets
+
+$$g = \frac{4\pi^2 (0.750)}{(1.74)^2} = \frac{29.608}{3.0276} = 9.78\ \mathrm{m/s^2}.$$
+
+Small changes are worth handling with the squared form rather than the square root, because it avoids a difference of two nearly equal square roots. A clock pendulum meant to have $T = 2.000\ \mathrm{s}$ runs slow at $T = 2.008\ \mathrm{s}$. How much shorter should it be? Since $L = gT^2/4\pi^2$,
+
+$$\Delta L = \frac{g}{4\pi^2}\left(T_{\text{old}}^2 - T_{\text{new}}^2\right) = \frac{9.8}{39.478}\left(2.008^2 - 2.000^2\right) = 0.24824\,(4.03206 - 4.00000) = 0.00796\ \mathrm{m},$$
+
+about $7.96\ \mathrm{mm}$. A clock's timing screw moves the bob by that sort of amount, which is why it is a screw and not a slider.
+
+## When the swing is too big
+
+The amplitude only vanishes because you threw away the difference between $\sin\theta$ and $\theta$. Since $\sin\theta = \theta - \theta^3/6 + \dots$ is a little *less* than $\theta$, a wide swing is restored slightly too weakly, and a real pendulum released far from the bottom runs slow. Solving the exact equation gives a correction series in the release angle $\theta_0$, in radians:
+
+$$T = T_0\left(1 + \frac{\theta_0^2}{16} + \frac{11\theta_0^4}{3072} + \dots\right), \qquad T_0 = 2\pi\sqrt{\frac{L}{g}}.$$
+
+**Worked example 2.** A $1.00\ \mathrm{m}$ pendulum is released from rest at $30.0^\circ$, with $g = 9.8\ \mathrm{m/s^2}$.
+
+First convert: $\theta_0 = 30.0 \times \pi/180 = 0.52360\ \mathrm{rad}$. Then $\theta_0^2 = 0.27416$ and $\theta_0^4 = 0.075164$.
+
+$$\frac{\theta_0^2}{16} = 0.017135, \qquad \frac{11\theta_0^4}{3072} = \frac{0.82680}{3072} = 0.000269.$$
+
+From example 1, $T_0 = 2.0071\ \mathrm{s}$. So
+
+$$T = 2.0071\,(1 + 0.017135 + 0.000269) = 2.0071 \times 1.017404 = 2.042\ \mathrm{s}.$$
+
+A $30^\circ$ swing runs about $1.7$ percent slow. At $10^\circ$ the correction is $0.2$ percent; at $60^\circ$ it is near $7$ percent. "Small angle" is not a formality, it is a numerical claim, and you should be willing to check it.
+
+<Aside label="Where this goes wrong" warn>
+  Do not carry $T = 2\pi\sqrt{L/g}$ into a problem about a swinging rod, hoop, or meter stick, with the object's total length plugged in as $L$. That formula assumes every gram of mass sits at distance $L$ from the pivot. In a rod, most of the mass sits closer in, so the rod swings faster than a string of the same length. Use the physical pendulum formula below instead.
+</Aside>
+
+## Any rigid body can be a pendulum
+
+Take any rigid object, pin it at a point that is not its center of mass, and let it hang. Call $m$ its total mass, $d$ the distance from the pivot to the center of mass, and $I$ its moment of inertia about the pivot axis.
+
+Gravity acts at the center of mass, so the restoring torque about the pivot is $\tau = -mgd\sin\theta$, with $\theta$ measured from the hanging position. Rotational Newton's second law says $\tau = I\ddot{\theta}$, so
+
+$$I\ddot{\theta} = -mgd\sin\theta \quad\xrightarrow{\ \sin\theta\,\approx\,\theta\ }\quad \ddot{\theta} = -\frac{mgd}{I}\theta.$$
+
+Same shape again. So $\omega^2 = mgd/I$, and
+
+$$T = 2\pi\sqrt{\frac{I}{mgd}}.$$
+
+Check it against the simple pendulum: a point bob at distance $L$ has $I = mL^2$ and $d = L$, giving $T = 2\pi\sqrt{mL^2/mgL} = 2\pi\sqrt{L/g}$, as it must.
+
+Almost always you will need the parallel axis theorem to get $I$ about the pivot: $I = I_{\text{cm}} + md^2$, where $I_{\text{cm}}$ is about a parallel axis through the center of mass. For a uniform rod, $I_{\text{cm}} = \frac{1}{12}mL^2$; for a uniform disk in its own plane, $I_{\text{cm}} = \frac{1}{2}mR^2$; for a solid sphere, $I_{\text{cm}} = \frac{2}{5}mR^2$.
+
+**Worked example 3.** A uniform meter stick swings on a pin through its $20\ \mathrm{cm}$ mark. Find the period.
+
+Write down the three things the formula wants. The center of mass of a uniform stick is at the $50\ \mathrm{cm}$ mark, so $d = 0.50 - 0.20 = 0.30\ \mathrm{m}$. The mass $m$ is unknown, but it will cancel, so carry it as a symbol. The moment of inertia about the pin is
+
+$$I = \tfrac{1}{12}m(1.00)^2 + m(0.30)^2 = m(0.083333 + 0.090000) = 0.173333\,m.$$
+
+Then
+
+$$T = 2\pi\sqrt{\frac{0.173333\,m}{m(9.8)(0.30)}} = 2\pi\sqrt{\frac{0.173333}{2.9400}} = 2\pi\sqrt{0.058957} = 2\pi(0.242810) = 1.526\ \mathrm{s}.$$
+
+The mass cancelling is not luck. It cancels whenever gravity is the only thing driving the swing, because $I$ is proportional to $m$ too.
+
+This also handles a "simple" pendulum whose bob is not really a point. A sphere of radius $5.0\ \mathrm{cm}$ hung with its center $0.900\ \mathrm{m}$ below the pivot has $d = 0.900$ and $I = \frac{2}{5}m(0.050)^2 + m(0.900)^2 = m(0.001000 + 0.810000) = 0.811000\,m$. That gives $T = 2\pi\sqrt{0.811/(9.8 \times 0.9)} = 2\pi\sqrt{0.091950} = 1.905\ \mathrm{s}$, against $1.904\ \mathrm{s}$ for a true point bob. The finite size matters at the fourth digit here, but the same correction on a fat bob and a short string matters much sooner.
+
+One more member of the family. Hang a body from a wire and twist it instead of tilting it. A wire resists twist with a torque $\tau = -\kappa\theta$, where $\kappa$ is the torsional constant in newton-metres per radian. This is $F = -kx$ already, with no approximation needed and no small-angle condition:
+
+$$I\ddot{\theta} = -\kappa\theta \quad\Longrightarrow\quad T = 2\pi\sqrt{\frac{I}{\kappa}}.$$
+
+A balance wheel with $I = 4.0\times10^{-3}\ \mathrm{kg\,m^2}$ on a wire with $\kappa = 0.025\ \mathrm{N\,m/rad}$ has $T = 2\pi\sqrt{4.0\times10^{-3}/0.025} = 2\pi\sqrt{0.16} = 2\pi(0.4) = 2.513\ \mathrm{s}$. Notice $g$ does not appear: a torsion pendulum keeps the same time on the Moon.
+
+<QuickCheck
+  question="Why does the mass of a uniform rod not affect its period when it swings on a pivot at one end?"
+  options={["Because the mass appears in both the moment of inertia and the gravitational torque, and cancels", "Because gravity does no work on a rotating body", "Because the rod's center of mass does not move", "Because moment of inertia does not depend on mass"]}
+  answer={0}
+  explanation="Both I and mgd scale with m, so the ratio inside the square root is independent of mass. The same cancellation fails for a torsion pendulum, where the restoring torque comes from a wire rather than from gravity, so heavier bodies really do swing slower there."
+/>
+
+## The center of oscillation
+
+Every physical pendulum swings exactly like *some* simple pendulum. Compare the two formulas: $T = 2\pi\sqrt{I/mgd}$ and $T = 2\pi\sqrt{L_{\text{eq}}/g}$ match when
+
+$$L_{\text{eq}} = \frac{I}{md}.$$
+
+This $L_{\text{eq}}$ is called the **equivalent length**, and the point that far from the pivot, along the line through the center of mass, is the **center of oscillation**. Put all the mass there on a string and the timing is unchanged.
+
+For a uniform rod of length $L$ pivoted a distance $d$ from its center, $I = m(L^2/12 + d^2)$, so
+
+$$L_{\text{eq}} = \frac{L^2/12 + d^2}{d} = \frac{L^2}{12d} + d.$$
+
+For a $1.20\ \mathrm{m}$ rod pivoted $0.40\ \mathrm{m}$ from center: $L_{\text{eq}} = 1.44/(12 \times 0.40) + 0.40 = 0.300 + 0.400 = 0.700\ \mathrm{m}$.
+
+**Worked example 4.** A uniform rod of length $1.00\ \mathrm{m}$ has a hole drilled a distance $d$ from its center and hangs on a nail through the hole. Choose $d$ to make the period as short as possible, and find that period.
+
+Shortest period means smallest $L_{\text{eq}}$, since $T = 2\pi\sqrt{L_{\text{eq}}/g}$. So minimise
+
+$$f(d) = \frac{L^2}{12d} + d.$$
+
+Both terms fight each other. Pivot very close to the center and $d \to 0$ makes the restoring torque vanish, so $f$ blows up. Pivot at the very end and $d$ itself is large. Somewhere between is a minimum. Differentiate and set to zero:
+
+$$f'(d) = -\frac{L^2}{12d^2} + 1 = 0 \quad\Longrightarrow\quad d^2 = \frac{L^2}{12} \quad\Longrightarrow\quad d = \frac{L}{\sqrt{12}} = \frac{1.00}{3.4641} = 0.28868\ \mathrm{m}.$$
+
+At that $d$ the two terms are equal, so $L_{\text{eq}} = 2d = 0.57735\ \mathrm{m}$, and
+
+$$T = 2\pi\sqrt{\frac{0.57735}{9.8}} = 2\pi\sqrt{0.058913} = 2\pi(0.242720) = 1.525\ \mathrm{s}.$$
+
+If you would rather not use calculus, notice that $L^2/12d$ and $d$ have a fixed product $L^2/12$, and a sum with fixed product is smallest when the two are equal. That gives $d^2 = L^2/12$ again.
+
+<Figure caption={<><b>Figure 3.</b> A uniform rod on a movable pivot. Slide the pivot toward the center and the period grows without limit; slide it to the end and the period grows again. The hollow dot is the center of oscillation. Find the setting that makes the period smallest and check it against 0.289 m.</>}>
+  <Sim id="pendulums-rod" />
+</Figure>
+
+## When gravity is not g
+
+In every derivation above, $g$ entered as "the acceleration of the uniform field pulling on the bob". Nothing required that field to be Earth's gravity as measured by someone standing still. In an accelerating frame, the bob feels gravity plus an inertial pull, and the pendulum responds to the **effective gravity** $g_{\text{eff}}$: the vector sum, taken in the frame of the support. Three cases cover nearly everything.
+
+**Straight-line acceleration upward.** An elevator accelerating up at $a$ has $g_{\text{eff}} = g + a$, still pointing down. A $0.90\ \mathrm{m}$ pendulum with $a = 2.5\ \mathrm{m/s^2}$: $g_{\text{eff}} = 12.3\ \mathrm{m/s^2}$, so $T = 2\pi\sqrt{0.90/12.3} = 2\pi\sqrt{0.073171} = 1.70\ \mathrm{s}$. Faster, because the effective pull is stronger. Accelerating down, subtract; in free fall $g_{\text{eff}} = 0$ and the pendulum never returns at all.
+
+**Horizontal acceleration.** In a car accelerating at $a$ on a level road, the two contributions are perpendicular, so $g_{\text{eff}} = \sqrt{g^2 + a^2}$, tilted backward from vertical. The pendulum hangs along that tilted direction and oscillates about it. With $L = 0.55\ \mathrm{m}$ and $a = 3.0\ \mathrm{m/s^2}$: $g_{\text{eff}} = \sqrt{96.04 + 9.00} = \sqrt{105.04} = 10.249\ \mathrm{m/s^2}$, so $T = 2\pi\sqrt{0.55/10.249} = 2\pi\sqrt{0.053664} = 1.456\ \mathrm{s}$.
+
+**A cart sliding down a frictionless incline.** The cart accelerates at $g\sin\alpha$ down the slope. Add that inertial term to gravity and the components along the slope cancel exactly, leaving only the component perpendicular to the incline: $g_{\text{eff}} = g\cos\alpha$, pointing perpendicular to the slope surface. For $\alpha = 30^\circ$ and $L = 0.65\ \mathrm{m}$: $g_{\text{eff}} = 9.8\cos 30^\circ = 8.487\ \mathrm{m/s^2}$, and $T = 2\pi\sqrt{0.65/8.487} = 2\pi\sqrt{0.076590} = 1.739\ \mathrm{s}$. The pendulum hangs perpendicular to the incline, not vertically.
+
+There is one last thing a pendulum problem may ask that is not about period at all: how fast the bob is going at the bottom. That is energy, not oscillation. The bob rises a height $h = L(1 - \cos\theta_0)$ when pulled aside, so $\tfrac{1}{2}mv^2 = mgL(1-\cos\theta_0)$ and $v = \sqrt{2gL(1-\cos\theta_0)}$. For $L = 1.20\ \mathrm{m}$ and $\theta_0 = 8.0^\circ$: $1 - \cos 8.0^\circ = 1 - 0.990268 = 0.009732$, so $v = \sqrt{2(9.8)(1.20)(0.009732)} = \sqrt{0.22890} = 0.478\ \mathrm{m/s}$. No small-angle approximation is needed for that one. The [next lesson](/guide/oscillator-energy) takes that energy view and runs it through every oscillator, not just this one.
+
+## How to recognise the technique
+
+A problem wants the pendulum machinery when something is pivoted and allowed to swing or twist under a restoring torque, and the question asks for a period, a frequency, a length, or $g$.
+
+Once you know that, the decision tree is short.
+
+If all the mass is effectively at one distance from the pivot — a bob on a string, a small mass on a light rod — use $T = 2\pi\sqrt{L/g}$, where $L$ reaches to the center of the bob.
+
+If the swinging thing is an extended rigid body — a rod, a stick, a disk on a nail, a rod with something bolted to it — use $T = 2\pi\sqrt{I/mgd}$. Write down $d$ first, from the pivot to the center of mass of the whole assembly, then build $I$ about the pivot with the parallel axis theorem, adding the pieces if there is more than one. If several bodies are joined, sum both $I$ and the $m_i d_i$ terms, using $d = \sum m_i d_i / \sum m_i$ for the combined center of mass.
+
+If the restoring torque comes from a twisted wire or a spiral spring rather than from gravity, it is torsional: $T = 2\pi\sqrt{I/\kappa}$, and $g$ never appears. Two different bodies on the same wire give you $I_2/I_1 = T_2^2/T_1^2$, which is how you weigh a moment of inertia you cannot calculate.
+
+If the support is accelerating, or sitting on an incline, or in an elevator, work out $g_{\text{eff}}$ first and only then reach for a period formula. The pendulum hangs along $g_{\text{eff}}$, which may not be vertical.
+
+And if the release angle is stated to three digits and is bigger than about $15^\circ$, or the problem hands you a series in $\theta_0$, the point of the problem is the failure of the small-angle approximation. Convert the angle to radians before you put it in the series.

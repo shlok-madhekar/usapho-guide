@@ -1,0 +1,109 @@
+[
+ {
+  "id": "center-of-mass-balance",
+  "title": "Two masses on a line",
+  "caption": "Drag the masses and watch the balance point move. The two m*d products always match.",
+  "height": 250,
+  "params": [
+   {
+    "key": "m1",
+    "label": "Left mass at x = 0",
+    "unit": "kg",
+    "min": 0.5,
+    "max": 10,
+    "step": 0.5,
+    "value": 2
+   },
+   {
+    "key": "m2",
+    "label": "Right mass",
+    "unit": "kg",
+    "min": 0.5,
+    "max": 10,
+    "step": 0.5,
+    "value": 3
+   },
+   {
+    "key": "x2",
+    "label": "Position of right mass",
+    "unit": "m",
+    "min": 1,
+    "max": 10,
+    "step": 0.5,
+    "value": 5
+   }
+  ],
+  "draw": "const m1 = p.m1, m2 = p.m2, x2 = p.x2;\nconst xcm = (m1 * 0 + m2 * x2) / (m1 + m2);\nconst L = 10;                      // metres shown\nconst x0 = W * 0.10, x1 = W * 0.92;\nconst sx = function (xm) { return x0 + (x1 - x0) * xm / L; };\nconst beamY = H * 0.52;\nconst tilt = Math.sin(t * 1.4) * 0.012;   // gentle wobble about the pivot\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\n\n// axis\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x0, H * 0.86); ctx.lineTo(x1, H * 0.86); ctx.stroke();\nctx.fillStyle = C.faint;\nfor (let k = 0; k <= L; k += 2) {\n  const xx = sx(k);\n  ctx.beginPath(); ctx.moveTo(xx, H * 0.86); ctx.lineTo(xx, H * 0.89); ctx.stroke();\n  ctx.fillText(k + \" m\", xx, H * 0.97);\n}\n\n// pivot under the centre of mass\nconst px = sx(xcm);\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.moveTo(px, beamY + 10); ctx.lineTo(px - 12, beamY + 34); ctx.lineTo(px + 12, beamY + 34);\nctx.closePath(); ctx.fill();\n\n// beam, tilted a touch about the pivot\nctx.save();\nctx.translate(px, beamY);\nctx.rotate(tilt);\nctx.fillStyle = C.figure;\nctx.fillRect(x0 - px, -3, x1 - x0, 6);\n\nconst r1 = 6 + 14 * Math.sqrt(m1 / 10);\nconst r2 = 6 + 14 * Math.sqrt(m2 / 10);\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(sx(0) - px, -3 - r1, r1, 0, 6.284); ctx.fill();\nctx.beginPath(); ctx.arc(sx(x2) - px, -3 - r2, r2, 0, 6.284); ctx.fill();\nctx.fillStyle = C.paper;\nctx.fillText(m1.toFixed(1), sx(0) - px, -3 - r1 + 4);\nctx.fillText(m2.toFixed(1), sx(x2) - px, -3 - r2 + 4);\nctx.restore();\n\n// centre-of-mass marker\nctx.strokeStyle = C.accent; ctx.lineWidth = 1.5;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(px, H * 0.12); ctx.lineTo(px, beamY + 8); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.accent;\nctx.fillText(\"centre of mass\", px, H * 0.09);\n\n// lever arms\nctx.strokeStyle = C.figure; ctx.lineWidth = 1;\nconst ay = beamY + 46;\nctx.beginPath(); ctx.moveTo(sx(0), ay); ctx.lineTo(px, ay); ctx.stroke();\nctx.beginPath(); ctx.moveTo(px, ay); ctx.lineTo(sx(x2), ay); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"d1 = \" + xcm.toFixed(2) + \" m\", (sx(0) + px) / 2, ay - 6);\nctx.fillText(\"d2 = \" + (x2 - xcm).toFixed(2) + \" m\", (px + sx(x2)) / 2, ay - 6);\n\nout.note = \"x_cm = \" + xcm.toFixed(3) + \" m    m1*d1 = \" + (m1 * xcm).toFixed(2) +\n  \" kg m,  m2*d2 = \" + (m2 * (x2 - xcm)).toFixed(2) + \" kg m\";"
+ },
+ {
+  "id": "center-of-mass-explosion",
+  "title": "Exploding firework lab",
+  "caption": "The shell bursts at the top. The centre of mass keeps going along the dashed parabola.",
+  "height": 260,
+  "params": [
+   {
+    "key": "m1",
+    "label": "Mass of the light piece (total 6.0 kg)",
+    "unit": "kg",
+    "min": 1,
+    "max": 3,
+    "step": 0.5,
+    "value": 2
+   },
+   {
+    "key": "range",
+    "label": "Range of the unexploded shell",
+    "unit": "m",
+    "min": 140,
+    "max": 260,
+    "step": 10,
+    "value": 200
+   },
+   {
+    "key": "x1",
+    "label": "Where the light piece lands",
+    "unit": "m",
+    "min": 0,
+    "max": 150,
+    "step": 10,
+    "value": 60
+   }
+  ],
+  "draw": "const M = 6.0, m1 = p.m1, m2 = M - m1;\nconst R = p.range;                 // full range of the unexploded shell, metres\nconst x1land = p.x1;               // where the light piece lands\nconst x2land = (M * R - m1 * x1land) / m2;\n\nconst xmax = Math.max(R, x1land, x2land) * 1.12 + 10;\nconst x0 = W * 0.08, xR = W * 0.95, gy = H * 0.80;\nconst sx = function (xm) { return x0 + (xR - x0) * xm / xmax; };\nconst apexY = H * 0.18;\nconst yOf = function (xm) {\n  const u = xm / R;                // 0..1 along the parabola\n  return gy - (apexY - gy) * (-4 * u * (1 - u));\n};\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\n\n// ground\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x0, gy); ctx.lineTo(W, gy); ctx.stroke();\nctx.fillStyle = C.faint;\nfor (let k = 0; k <= xmax; k += 50) {\n  ctx.beginPath(); ctx.moveTo(sx(k), gy); ctx.lineTo(sx(k), gy + 4); ctx.stroke();\n  ctx.fillText(k + \" m\", sx(k), gy + 17);\n}\n\n// the undisturbed parabola: this is the path of the centre of mass\nctx.strokeStyle = C.accent; ctx.lineWidth = 1.5;\nctx.setLineDash([5, 4]);\nctx.beginPath();\nfor (let i = 0; i <= 100; i++) {\n  const xm = R * i / 100;\n  i === 0 ? ctx.moveTo(sx(xm), yOf(xm)) : ctx.lineTo(sx(xm), yOf(xm));\n}\nctx.stroke();\nctx.setLineDash([]);\n\n// timing: 0..1 rise, 1..2 fall\nconst per = 3.4;\nconst u = (t % per) / (per / 2);\nif (u <= 1) {\n  const xm = R * 0.5 * u;\n  ctx.fillStyle = C.ink;\n  ctx.beginPath(); ctx.arc(sx(xm), yOf(xm), 6, 0, 6.284); ctx.fill();\n  ctx.fillText(\"6.0 kg\", sx(xm), yOf(xm) - 12);\n} else {\n  const v = u - 1;                              // 0..1 after the burst\n  const xa = R / 2 + (x1land - R / 2) * v;\n  const xb = R / 2 + (x2land - R / 2) * v;\n  const ya = gy - (gy - apexY) * (1 - v * v);\n  const xc = R / 2 + (R - R / 2) * v;\n  ctx.fillStyle = C.figure;\n  ctx.beginPath(); ctx.arc(sx(xa), ya, 5, 0, 6.284); ctx.fill();\n  ctx.fillText(m1.toFixed(1) + \" kg\", sx(xa), ya - 10);\n  ctx.beginPath(); ctx.arc(sx(xb), ya, 7, 0, 6.284); ctx.fill();\n  ctx.fillText(m2.toFixed(1) + \" kg\", sx(xb), ya - 12);\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(sx(xc), yOf(xc), 4, 0, 6.284); ctx.fill();\n}\n\n// burst point\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(sx(R / 2), apexY, 3, 0, 6.284); ctx.fill();\nctx.fillText(\"burst\", sx(R / 2), apexY - 8);\n\n// landing marks\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(sx(x1land), gy - 7); ctx.lineTo(sx(x1land), gy + 7); ctx.stroke();\nctx.beginPath(); ctx.moveTo(sx(x2land), gy - 7); ctx.lineTo(sx(x2land), gy + 7); ctx.stroke();\nctx.strokeStyle = C.accent;\nctx.beginPath(); ctx.moveTo(sx(R), gy - 10); ctx.lineTo(sx(R), gy + 10); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"light piece\", sx(x1land), gy + 32);\nctx.fillText(\"heavy piece\", sx(x2land), gy + 32);\nctx.fillStyle = C.accent;\nctx.fillText(\"cm lands here\", sx(R), gy + 45);\n\nout.note = \"heavy piece lands at x = \" + x2land.toFixed(1) + \" m   (\" +\n  m1.toFixed(1) + \"*\" + x1land.toFixed(0) + \" + \" + m2.toFixed(1) + \"*\" +\n  x2land.toFixed(1) + \" = 6.0*\" + R.toFixed(0) + \")\";"
+ },
+ {
+  "id": "center-of-mass-shapes",
+  "title": "Three standard shapes",
+  "caption": "The centre of mass of a half disk, a solid hemisphere and a cone, measured from the flat face.",
+  "height": 230,
+  "params": [],
+  "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\nconst cy = H * 0.62;\nconst s = Math.min(W / 3.4, H) * 0.46;\n\nfunction label(x, y, txt) { ctx.fillStyle = C.ink; ctx.fillText(txt, x, y); }\nfunction dot(x, y) {\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(x, y, 4, 0, 6.284); ctx.fill();\n}\n\n// ---- half disk ----\nlet cx = W * 0.18;\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(cx, cy, s, Math.PI, 0); ctx.closePath(); ctx.fill();\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(cx - s - 6, cy); ctx.lineTo(cx + s + 6, cy); ctx.stroke();\ndot(cx, cy - 4 * s / (3 * Math.PI));\nctx.strokeStyle = C.accent;\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx, cy - 4 * s / (3 * Math.PI)); ctx.stroke();\nlabel(cx, cy + 20, \"half disk\");\nctx.fillStyle = C.accent;\nctx.fillText(\"4R / 3pi = 0.424 R\", cx, cy + 38);\nctx.fillStyle = C.faint;\nctx.fillText(\"R\", cx + s * 0.55, cy - 6);\n\n// ---- solid hemisphere ----\ncx = W * 0.5;\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(cx, cy, s, Math.PI, 0); ctx.closePath(); ctx.fill();\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(cx - s - 6, cy); ctx.lineTo(cx + s + 6, cy); ctx.stroke();\nctx.strokeStyle = C.paper; ctx.lineWidth = 1;\nfor (let i = 1; i < 5; i++) {\n  const yy = cy - s * i / 5;\n  const hw = Math.sqrt(Math.max(s * s - (cy - yy) * (cy - yy), 0));\n  ctx.beginPath(); ctx.moveTo(cx - hw, yy); ctx.lineTo(cx + hw, yy); ctx.stroke();\n}\ndot(cx, cy - 3 * s / 8);\nctx.strokeStyle = C.accent; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx, cy - 3 * s / 8); ctx.stroke();\nlabel(cx, cy + 20, \"solid hemisphere\");\nctx.fillStyle = C.accent;\nctx.fillText(\"3R / 8 = 0.375 R\", cx, cy + 38);\n\n// ---- solid cone ----\ncx = W * 0.82;\nctx.fillStyle = C.figure;\nctx.beginPath();\nctx.moveTo(cx - s * 0.75, cy); ctx.lineTo(cx + s * 0.75, cy); ctx.lineTo(cx, cy - s);\nctx.closePath(); ctx.fill();\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(cx - s - 6, cy); ctx.lineTo(cx + s + 6, cy); ctx.stroke();\ndot(cx, cy - s / 4);\nctx.strokeStyle = C.accent;\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx, cy - s / 4); ctx.stroke();\nlabel(cx, cy + 20, \"solid cone\");\nctx.fillStyle = C.accent;\nctx.fillText(\"h / 4 above the base\", cx, cy + 38);\nctx.fillStyle = C.faint;\nctx.fillText(\"h\", cx + 10, cy - s * 0.7);\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"each dot is the centre of mass; the flat face is the reference line\", 10, H * 0.10);"
+ },
+ {
+  "id": "center-of-mass-blocks",
+  "title": "Stacked blocks overhang",
+  "caption": "Push each block out until something topples. Two conditions have to hold at once.",
+  "height": 250,
+  "params": [
+   {
+    "key": "bottom",
+    "label": "Lower block past the table edge",
+    "unit": "L",
+    "min": 0,
+    "max": 0.7,
+    "step": 0.025,
+    "value": 0.25
+   },
+   {
+    "key": "top",
+    "label": "Top block past the lower block",
+    "unit": "L",
+    "min": 0,
+    "max": 0.7,
+    "step": 0.025,
+    "value": 0.5
+   }
+  ],
+  "draw": "const L = 1.0;                    // block length in units\nconst over2 = p.top;              // overhang of top block past the lower block, in units of L\nconst over1 = p.bottom;           // overhang of lower block past the table, in units of L\n\nconst scale = W * 0.30;           // pixels per block length\nconst tableX = W * 0.44;          // table edge\nconst bh = Math.max(16, H * 0.13);\nconst baseY = H * 0.72;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"center\";\n\n// table\nctx.fillStyle = C.faint;\nctx.fillRect(20, baseY, tableX - 20, H * 0.20);\nctx.fillStyle = C.ink;\nctx.fillText(\"table\", (20 + tableX) / 2, baseY + H * 0.14);\n\n// lower block: left end at tableX - (1 - over1)*scale\nconst x1 = tableX - (L - over1) * scale;\nconst x2 = x1 + over2 * scale;    // top block shifted further right\nctx.fillStyle = C.figure;\nctx.fillRect(x1, baseY - bh, L * scale, bh);\nctx.fillRect(x2, baseY - 2 * bh - 2, L * scale, bh);\n\n// centres of mass\nconst c1 = x1 + 0.5 * scale, c2 = x2 + 0.5 * scale;\nconst cpair = (c1 + c2) / 2;\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(c1, baseY - bh / 2, 4, 0, 6.284); ctx.fill();\nctx.beginPath(); ctx.arc(c2, baseY - 1.5 * bh - 2, 4, 0, 6.284); ctx.fill();\n\n// combined cm line\nctx.strokeStyle = C.accent; ctx.lineWidth = 1.5;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(cpair, H * 0.10); ctx.lineTo(cpair, baseY + 4); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.accent;\nctx.fillText(\"cm of the pair\", cpair, H * 0.07);\n\n// table edge line\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(tableX, H * 0.10); ctx.lineTo(tableX, baseY + H * 0.20); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"edge\", tableX + 4, H * 0.16);\n\nconst topOK = c2 <= x1 + L * scale + 0.01;\nconst pairOK = cpair <= tableX + 0.01;\nctx.textAlign = \"center\";\nctx.fillStyle = C.ink;\nctx.fillText(topOK ? \"top block: stable\" : \"top block: topples\", W * 0.80, H * 0.28);\nctx.fillText(pairOK ? \"pair: stable\" : \"pair: topples\", W * 0.80, H * 0.44);\n\nconst total = (over1 + over2) * L;\nout.note = \"total overhang = \" + total.toFixed(3) + \" L\" +\n  ((topOK && pairOK) ? \"   (stable; the limit is 0.500 + 0.250 = 0.750 L)\" : \"   (UNSTABLE)\");"
+ }
+]

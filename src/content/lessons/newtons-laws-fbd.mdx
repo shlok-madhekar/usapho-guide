@@ -1,48 +1,293 @@
-## The procedure
+In the last lesson you were changing your mind about which frame to watch a
+motion from, and the velocities all shifted around depending on who was doing
+the looking. Accelerations did not. That is the hint this lesson is built on:
+acceleration is the thing that every non-accelerating observer agrees about,
+and forces are what produce it.
 
-Newton's second law is easy. Applying it to the wrong set of forces is the
-mistake, and a free body diagram is the discipline that prevents it. Four
-steps, in order:
+Here is the question. A crate sits on a table. The table pushes up on it, and
+the crate does not move. Now you put the same crate in a lift and the lift
+starts up, and a scale under the crate reads more than it did before, even
+though nothing about the crate changed. Something is deciding, moment by
+moment, how hard the floor pushes. What decides it? The answer is never a
+formula you look up. It is a bookkeeping discipline: find every force acting
+on one chosen object, add them as vectors, and set the sum equal to $ma$. The
+hard part is the finding, not the adding.
 
-1. Choose one body and draw it alone.
-2. Draw every force acting **on** it. Never forces it exerts on something else.
-3. Choose axes, usually with one along the acceleration.
-4. Write $\sum F = ma$ per axis.
+## The three laws, said carefully
 
-$$\sum F_x = ma_x, \qquad \sum F_y = ma_y$$
+**First law.** An object with no net force on it keeps a constant velocity.
+Not "stays still" — constant velocity, which includes staying still as the
+special case where that constant is zero. The law's real content is that
+motion needs no cause. Only *change* of motion needs a cause. A puck gliding
+across frictionless ice needs nothing pushing it forward.
 
-## The forces you will meet
+**Second law.** The net force on an object equals its mass times its
+acceleration:
 
-Weight is $mg$, always straight down. The normal force is perpendicular to the
-contact surface and is whatever magnitude prevents interpenetration, which is
-frequently not $mg$. Tension is uniform along a massless rope and changes at
-any pulley with mass.
+$$\sum \vec F = m\vec a$$
 
-Friction deserves its own note, because it comes in two kinds with different
-grammar:
+That is a vector equation, and a vector equation is really several scalar
+equations at once. Pick axes and it becomes
 
-$$f_s \le \mu_s N, \qquad f_k = \mu_k N$$
+$$\sum F_x = m a_x, \qquad \sum F_y = m a_y$$
 
-Kinetic friction is an equation. Static friction is an inequality: it takes
-whatever value is needed to prevent sliding, up to a ceiling.
+The symbol $\sum$ means "add up all of them". $m$ is the mass in kilograms,
+$a$ the acceleration in m/s², and force is then in newtons: one newton is one
+kilogram-metre per second squared. Read the equation as a statement about
+*cause and response*: forces are the input, acceleration is the output, and
+mass is how stubbornly the object resists. Double the force, double the
+acceleration. Double the mass instead, halve it.
+
+**Third law.** If A pushes on B, then B pushes on A with the same magnitude in
+the opposite direction. The two forces in such a pair always act on *different
+objects*. That last clause is the whole point, and it is where most of the
+confusion about this law lives.
 
 <Aside label="Where this goes wrong" warn>
-  Writing $f = \mu_s N$ before checking whether the object is actually on the
-  verge of slipping is the most common error on this topic. If the object is
-  sitting still and nothing says "about to slip", static friction is an
-  unknown to solve for, not a number to plug in.
+  The crate on the table feels a downward weight $mg$ and an upward normal
+  force $N$, and here $N = mg$. People call that a third law pair. It is not.
+  Both of those forces act on the *crate*, so they are two entries in one free
+  body diagram, and they happen to cancel because the crate is not
+  accelerating. The real partner of the crate's weight is the crate's
+  gravitational pull on the Earth. The real partner of $N$ is the crate
+  pushing down on the table. Put the lift under the table and $N$ stops
+  equalling $mg$ immediately, which would be impossible if they were a third
+  law pair.
 </Aside>
 
+## The procedure
+
+Four steps, in this order, every time.
+
+1. **Choose one body** and draw it alone, as a box or a dot. Nothing else on
+   the page — no table, no rope, no other block.
+2. **Draw every force acting on it.** On it, from outside it. Never a force it
+   exerts on something else, and never an internal force.
+3. **Choose axes.** Usually one axis along the known direction of the
+   acceleration, because that makes the other component zero.
+4. **Write $\sum F_x = ma_x$ and $\sum F_y = ma_y$** and solve.
+
+Step 2 needs a catalogue, so here is the short list of what can appear.
+
+*Weight*, $W = mg$, always straight down, always present, magnitude $mg$ with
+$g = 9.8$ m/s² near the Earth's surface. *Normal force* $N$, from any surface
+in contact. The word normal here means perpendicular, not usual: it points
+perpendicular to the contact surface, away from it. Its magnitude is whatever
+is needed to stop the two objects passing through each other, which is
+frequently not $mg$. *Tension* $T$, from any rope or cable, pulling along the
+rope, away from the object. A rope can only pull. *Applied forces*, whatever
+the problem says someone is pushing with. And friction, which gets its own
+lesson next.
+
+Nothing else. If you find yourself drawing an arrow labelled "the force of
+motion" or "centrifugal force", stop: neither exists in this framework.
+
 <QuickCheck
-  question="A block sits on a frictionless incline, held in place by a purely horizontal push. As the incline gets steeper, the normal force:"
-  options={["Decreases", "Stays mg·cos(θ), so decreases", "Increases", "Stays constant"]}
+  question="A hockey puck slides at constant velocity across frictionless ice. Which forces act on it?"
+  options={["Gravity down, normal up, and a forward force keeping it moving", "Only a forward force", "Gravity down and normal up, nothing horizontal", "No forces at all"]}
   answer={2}
-  explanation="With a horizontal applied force, equilibrium requires N = mg/cos(θ), which grows as the slope steepens. The familiar mg·cos(θ) assumes the applied force points along the incline. Draw the diagram before reaching for a formula."
+  explanation="Constant velocity means zero acceleration, so the net force is zero, but that does not mean no forces. Gravity and the normal force are both there and cancel vertically. There is no horizontal force; the puck keeps moving because nothing stops it, which is the first law."
 />
 
-## Systems and constraints
+## One diagram per object
 
-When two bodies are connected, they share a constraint: a rope over a pulley
-means equal speeds, blocks in contact mean equal accelerations. Writing the
-second law for each body separately and then adding the equations usually
-eliminates the internal force you did not want to know anyway.
+The moment there is more than one body, the discipline pays off. Two blocks of
+mass $m_1 = 2.0$ kg and $m_2 = 3.0$ kg sit touching on a frictionless floor,
+and you push the first with $F = 20$ N so the pair slides together.
+
+<Figure caption={<><b>Figure 1.</b> The applied force only touches the first block. The second one is accelerated entirely by the contact force between them. Slide the masses around and watch the contact force change even though F does not.</>}>
+  <Sim id="newtons-laws-fbd-pair" />
+</Figure>
+
+Because they stay in contact they have the same acceleration. Treat the pair
+as one object of mass $m_1 + m_2 = 5.0$ kg. The only external horizontal force
+is $F$, since the contact force between them is internal to this choice of
+system and cancels out of the sum:
+
+$$a = \frac{F}{m_1 + m_2} = \frac{20\ \text{N}}{5.0\ \text{kg}} = 4.0\ \text{m/s}^2$$
+
+Now, to get the contact force $C$, you have to break the system apart, because
+$C$ was invisible while the blocks were one object. Draw the second block
+alone. The only horizontal force on it is $C$, pushing forward:
+
+$$C = m_2 a = (3.0\ \text{kg})(4.0\ \text{m/s}^2) = 12\ \text{N}$$
+
+Check it against the first block, which feels $F$ forward and $C$ backward by
+the third law: $20 - 12 = 8.0$ N, and $m_1 a = (2.0)(4.0) = 8.0$ N. It agrees.
+That cross-check is worth doing while you are learning, because it catches a
+sign error instantly.
+
+<Aside label="Worth remembering">
+  Combine bodies into one system when you want the acceleration and do not
+  care about the force between them. Split them apart when the force between
+  them is what you were asked for. Most two-body problems are one of each,
+  done in that order.
+</Aside>
+
+## Choosing axes: the ramp
+
+A $12$ kg box rests on a ramp tilted at $25°$. What is the normal force?
+
+The trap is answering $mg$. The box is not accelerating, true, but the normal
+force is perpendicular to the ramp and the weight is vertical, and those are
+no longer the same line. Tilt your axes to match the ramp: $x$ down the slope,
+$y$ perpendicular to it. Then $N$ lies entirely along $y$ and only the weight
+needs splitting. The weight makes an angle $\theta$ with the perpendicular —
+the same $\theta$ as the ramp, because their arms are mutually perpendicular —
+so its component along $y$ is $mg\cos\theta$ and along $x$ is $mg\sin\theta$.
+
+With no acceleration perpendicular to the surface, $N - mg\cos\theta = 0$:
+
+$$N = mg\cos\theta = (12)(9.8)\cos 25° = 117.6 \times 0.906 = 106.6\ \text{N}$$
+
+Less than the $117.6$ N you would get on flat ground, which makes sense: the
+ramp only has to support part of the weight, and the rest goes into pulling
+the box down the slope. Along the slope, if nothing holds the box,
+$mg\sin\theta = ma$ gives $a = g\sin\theta$, independent of mass.
+
+<Figure caption={<><b>Figure 2.</b> With the hold slider at 0, the block is free and N = mg cos θ, which shrinks as the ramp steepens. Set the hold to 1 and the block is pinned by a horizontal push instead. Now drag the angle up: the normal force grows without limit.</>}>
+  <Sim id="newtons-laws-fbd-incline" />
+</Figure>
+
+That second case is the one worth chasing, so work it in full. A $2$ kg block
+sits on a frictionless $40°$ incline, held in place by a purely *horizontal*
+force. Take $g = 10$ m/s². What is the normal force?
+
+Tilted axes are now a poor choice, because both the weight and the applied
+force would need splitting. Use horizontal and vertical axes instead, and
+split $N$. The normal is perpendicular to a surface tilted at $40°$, so $N$
+itself is tilted $40°$ from the vertical: its vertical component is
+$N\cos 40°$ and its horizontal component is $N\sin 40°$. The block is in
+equilibrium, so each direction sums to zero.
+
+Vertical: $N\cos 40° - mg = 0$, so
+
+$$N = \frac{mg}{\cos 40°} = \frac{(2)(10)}{0.766} = 26.1\ \text{N}$$
+
+Horizontal: $F - N \sin 40° = 0$, giving $F = 26.1 \times 0.643 = 16.8$ N,
+which is also $mg\tan 40°$.
+
+Notice that $N$ came out *larger* than $mg$, not $mg\cos\theta = 15.3$ N. The
+horizontal hand is squeezing the block into the ramp. Reaching for
+$mg\cos\theta$ here, out of habit, gets you a number that is wrong by 70%.
+
+<QuickCheck
+  question="A block on a frictionless incline is held by a horizontal force. As the incline gets steeper, the normal force:"
+  options={["Decreases as cos of the angle", "Stays the same", "Increases without limit", "Increases then decreases"]}
+  answer={2}
+  explanation="Vertical equilibrium gives N = mg / cos(angle), which grows as the angle grows and blows up as the ramp approaches vertical. The familiar mg cos(angle) assumes the only other forces lie along the incline. Draw the diagram before reaching for a formula."
+/>
+
+## Apparent weight
+
+Back to the lift. A $65$ kg student stands on a bathroom scale in a lift that
+accelerates upward at $1.5$ m/s². What does the scale read?
+
+A scale reads the force it is pushed with, which by the third law equals the
+normal force it pushes back with. So the question is really "what is $N$?"
+Draw the student alone: weight $mg$ down, normal force $N$ up, nothing else.
+Take up as positive. The acceleration is $+1.5$ m/s², so
+
+$$N - mg = ma \quad\Longrightarrow\quad N = m(g + a)$$
+
+$$N = 65(9.8 + 1.5) = 65 \times 11.3 = 734.5\ \text{N}$$
+
+Against $mg = 637$ N at rest. The same formula handles downward acceleration
+by making $a$ negative: at $a = -2.0$ m/s², $N = 65(9.8 - 2.0) = 65 \times 7.8
+= 507$ N. And if the cable snaps, $a = -g$ and $N = 0$. That is weightlessness
+— not the absence of gravity, but the absence of anything pushing back.
+
+<Figure caption={<><b>Figure 3.</b> Drag the acceleration through zero and watch the scale reading cross mg. Push it all the way down to −9.8 and the normal force vanishes: free fall.</>}>
+  <Sim id="newtons-laws-fbd-elevator" />
+</Figure>
+
+## Ropes, pulleys, and ropes with mass
+
+A rope pulls along its own length, away from whatever it is attached to. If
+the rope is massless, the tension is the same everywhere in it, because a
+piece of rope with zero mass needs zero net force no matter how it
+accelerates. An ideal pulley changes the direction of the rope without
+changing the tension.
+
+That gives the Atwood machine in three lines. A $3$ kg and a $2$ kg block hang
+over a frictionless pulley, $g = 10$ m/s². Take down as positive for the heavy
+block and up as positive for the light one, so a single $a$ describes both.
+Heavy block: $3g - T = 3a$. Light block: $T - 2g = 2a$. Add the two equations
+and $T$ disappears:
+
+$$3g - 2g = 5a \quad\Longrightarrow\quad a = \frac{(3-2)(10)}{5} = 2\ \text{m/s}^2$$
+
+Adding the equations is the same move as treating the two blocks plus rope as
+one system, where the tension is internal.
+
+Now let the rope have mass, and "tension" stops being a single number. A $10$
+kg block hangs from a uniform rope of mass $4.0$ kg, and the whole thing is
+hauled straight up with acceleration $2.0$ m/s². Find the tension at the
+midpoint of the rope.
+
+Cut the rope at the midpoint, in your head, and ask what the upper half is
+holding. Everything below the cut: the block, $10$ kg, plus the lower half of
+the rope, $2.0$ kg. That is $12$ kg. Draw that sub-system alone. Two forces:
+tension $T$ at the cut, pulling up, and its own weight, $12g$ down.
+
+$$T - (12)(9.8) = (12)(2.0)$$
+$$T = 117.6 + 24 = 141.6\ \text{N}$$
+
+The cut is the whole technique. Any point inside any extended object can be
+made into the boundary of a free body diagram, and the internal force there is
+just whatever it takes to give everything on one side of the cut its share of
+the acceleration. A hanging $6.0$ kg chain, one third of the way up from the
+bottom, supports $2.0$ kg of chain below it at rest: $T = (2.0)(9.8) = 19.6$
+N. A $5.0$ kg rope on a frictionless floor pushed with $12$ N accelerates at
+$12/5.0 = 2.4$ m/s²; the internal force $1.0$ m from the pushed end is what
+drives the remaining $2.0$ m, mass $(2.0/3.0)(5.0) = 3.33$ kg, so it is
+$(3.33)(2.4) = 8.0$ N.
+
+<QuickCheck
+  question="A uniform rope hangs at rest from the ceiling with a heavy block tied to its bottom end. Where in the rope is the tension largest?"
+  options={["At the bottom, next to the block", "At the top, next to the ceiling", "The same everywhere", "At the midpoint"]}
+  answer={1}
+  explanation="Cut the rope anywhere and the tension at the cut equals the weight of everything below it. The higher the cut, the more rope hangs below, so the tension is greatest at the top."
+/>
+
+<Aside label="Worth remembering">
+  A constraint is an extra equation you get for free from the geometry.
+  Blocks in contact that stay in contact have the same acceleration. Two ends
+  of an inextensible rope over a pulley move with equal speeds, so their
+  accelerations are equal in magnitude. Something that "does not slip" on a
+  surface has the same acceleration as the surface. Write the constraint down
+  explicitly before you start solving, and count: you need as many independent
+  equations as unknowns.
+</Aside>
+
+## Recognising the technique
+
+Almost every mechanics problem that is not about energy or momentum wants this
+method, so the useful question is not *whether* to draw free body diagrams but
+*how many* and *around what*.
+
+Draw one per object, always, if the problem names more than one object — two
+blocks, a block and a wedge, a painter and a platform. Do not try to hold them
+in your head.
+
+Reach for the **combined system first** when the question asks for an
+acceleration and the bodies clearly move together. Reach for the **split**
+when the question asks for a contact force, a tension, or "the force the
+platform exerts on the painter" — any force that lives at the boundary between
+two objects. Those words are the signal that the boundary has to become the
+edge of a diagram.
+
+Make a **cut** when the object is extended and the question asks about a point
+inside it: a rope with mass, a chain, a stack of bricks. The cut turns "inside"
+into "outside".
+
+Choose **tilted axes** when the acceleration is along a slope and the only
+awkward force is gravity. Choose **horizontal and vertical axes** when the
+awkward forces point in several directions at once, or when the object is in
+equilibrium so neither axis is special — hanging signs on two cables, blocks
+held by horizontal pushes.
+
+And when a problem says "frictionless", it is telling you the catalogue is
+short: weight, normal, tension, applied. Next comes the force that fills in
+the missing entry, and the reason the word "frictionless" was ever needed:
+[friction](/guide/friction).

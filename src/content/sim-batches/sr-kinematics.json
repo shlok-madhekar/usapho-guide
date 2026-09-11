@@ -1,0 +1,83 @@
+[
+  {
+    "id": "sr-kinematics-light-clock",
+    "title": "Light clock lab",
+    "caption": "A bounce of light between two mirrors, seen from the frame the clock is moving through.",
+    "height": 250,
+    "params": [
+      {
+        "key": "beta",
+        "label": "Speed of the clock",
+        "unit": "c",
+        "min": 0.1,
+        "max": 0.95,
+        "step": 0.01,
+        "value": 0.8
+      },
+      {
+        "key": "sep",
+        "label": "Mirror separation",
+        "unit": "m",
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "value": 1.5
+      }
+    ],
+    "draw": "var beta = p.beta;\nvar gam = 1 / Math.sqrt(1 - beta * beta);\nvar pad = 30;\nvar font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// mirror separation in pixels, shrunk so two slanted legs still fit the canvas\nvar d = Math.min(0.34 * H, (W - 2 * pad) / (2 * beta * gam + 0.6));\nvar yTop = 0.26 * H;\nvar yBot = yTop + d;\nvar adv = beta * gam * d;          // horizontal advance per one-way leg\nvar x0 = pad + 10;\n\n// mirrors at the three positions the clock occupies at the two turning points\nctx.lineWidth = 2;\nvar k;\nfor (k = 0; k < 3; k++) {\n  var xc = x0 + k * adv;\n  ctx.strokeStyle = k === 0 ? C.figure : C.faint;\n  ctx.beginPath();\n  ctx.moveTo(xc - 16, yBot); ctx.lineTo(xc + 16, yBot);\n  ctx.moveTo(xc - 16, yTop); ctx.lineTo(xc + 16, yTop);\n  ctx.stroke();\n}\n\n// the light path: down-up zigzag\nctx.lineWidth = 1.5;\nctx.strokeStyle = C.rule;\nctx.setLineDash([4, 5]);\nctx.beginPath();\nctx.moveTo(x0, yBot);\nctx.lineTo(x0 + adv, yTop);\nctx.lineTo(x0 + 2 * adv, yBot);\nctx.stroke();\nctx.setLineDash([]);\n\n// the vertical leg the clock's own frame sees\nctx.strokeStyle = C.faint;\nctx.beginPath();\nctx.moveTo(x0, yBot); ctx.lineTo(x0, yTop); ctx.stroke();\n\n// animate the photon over one full round trip, then pause\nvar period = 3.2;\nvar ph = (t % period) / period;\nvar leg = ph * 2;\nvar px, py;\nif (leg < 1) { px = x0 + adv * leg; py = yBot + (yTop - yBot) * leg; }\nelse { px = x0 + adv * leg; py = yTop + (yBot - yTop) * (leg - 1); }\nif (leg > 2) { px = x0 + 2 * adv; py = yBot; }\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(px, py, 4.5, 0, Math.PI * 2); ctx.fill();\n\n// travelled part of the slanted path\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(x0, yBot);\nif (leg < 1) ctx.lineTo(px, py);\nelse { ctx.lineTo(x0 + adv, yTop); ctx.lineTo(px, py); }\nctx.stroke();\n\n// labels\nctx.font = font;\nctx.fillStyle = C.ink;\nctx.textAlign = \"right\";\nctx.fillText(\"d\", x0 - 5, (yTop + yBot) / 2 + 4);\nctx.textAlign = \"center\";\nctx.fillText(\"v \u0394t\", x0 + adv / 2, yBot + 18);\nctx.fillStyle = C.figure;\nctx.fillText(\"c \u0394t\", x0 + adv / 2 - 14, (yTop + yBot) / 2 - 6);\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"mirror\", x0 + 20, yTop - 8);\nctx.fillText(\"mirror\", x0 + 20, yBot + 18);\n\n// base line marking the horizontal drift\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(x0, yBot + 8); ctx.lineTo(x0 + adv, yBot + 8); ctx.stroke();\n\nvar d0 = p.sep;\nvar tick0 = 2 * d0 / 3e8 * 1e9;\nout.note = \"gamma \" + gam.toFixed(3) + \"  |  round trip \" + tick0.toFixed(1) +\n  \" ns on the clock itself, \" + (gam * tick0).toFixed(1) + \" ns in the lab\";"
+  },
+  {
+    "id": "sr-kinematics-simultaneity",
+    "title": "Simultaneity on a train",
+    "caption": "A flash from the middle of a moving train, watched from the ground.",
+    "height": 240,
+    "params": [
+      {
+        "key": "beta",
+        "label": "Train speed",
+        "unit": "c",
+        "min": 0.1,
+        "max": 0.8,
+        "step": 0.01,
+        "value": 0.6
+      },
+      {
+        "key": "length",
+        "label": "Proper length of the train",
+        "unit": "m",
+        "min": 50,
+        "max": 1000,
+        "step": 10,
+        "value": 200
+      }
+    ],
+    "draw": "var beta = p.beta;\nvar gam = 1 / Math.sqrt(1 - beta * beta);\nvar pad = 24;\nvar font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nvar Lpix = 0.22 * W;               // contracted train length on screen\nvar xm0 = 0.22 * W;                // flash point at time zero\nvar yT = 0.38 * H, yB = 0.62 * H;\n\n// timings, in pixel units with c = 1 pixel per unit\nvar tBack = (Lpix / 2) / (1 + beta);\nvar tFront = (Lpix / 2) / (1 - beta);\nvar span = tFront * 1.25;\nvar tau = (t % 3.6) / 3.6 * span;\n\nvar xmid = xm0 + beta * tau;\nvar xr = xmid - Lpix / 2, xf = xmid + Lpix / 2;\n\n// ground\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(0, yB + 22); ctx.lineTo(W, yB + 22); ctx.stroke();\n\n// train\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.strokeRect(xr, yT, Lpix, yB - yT);\n\n// photons\nvar xl = Math.max(xm0 - tau, xr);\nvar xg = Math.min(xm0 + tau, xf);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(xl, (yT + yB) / 2, 4, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(xg, (yT + yB) / 2, 4, 0, Math.PI * 2); ctx.fill();\n\n// flash origin\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(xm0, yT - 14); ctx.lineTo(xm0, yB + 22); ctx.stroke();\nctx.setLineDash([]);\n\n// mark the ends once they are hit\nctx.font = font;\nctx.textAlign = \"center\";\nif (tau >= tBack) {\n  ctx.fillStyle = C.accent;\n  ctx.fillRect(xr - 3, yT, 6, yB - yT);\n  ctx.fillText(\"rear hit first\", xr, yT - 8);\n}\nif (tau >= tFront) {\n  ctx.fillStyle = C.accent;\n  ctx.fillRect(xf - 3, yT, 6, yB - yT);\n  ctx.fillText(\"front hit later\", xf, yT - 8);\n}\n\nctx.fillStyle = C.ink;\nctx.fillText(\"flash here\", xm0, yB + 38);\nctx.textAlign = \"left\";\nctx.fillText(\"rear\", xr + 6, yB - 8);\nctx.textAlign = \"right\";\nctx.fillText(\"front\", xf - 6, yB - 8);\nctx.textAlign = \"center\";\nctx.fillStyle = C.figure;\nctx.fillText(\"train moves right at \" + beta.toFixed(2) + \"c\", xmid, yT - 26);\n\nvar L0 = p.length;\nvar off = beta * L0 / 3e8 * 1e6;\nout.note = \"proper length \" + L0.toFixed(0) + \" m, measured on the ground \" +\n  (L0 / gam).toFixed(1) + \" m  |  rear clock reads ahead by \" + off.toFixed(2) + \" us\";"
+  },
+  {
+    "id": "sr-kinematics-muons",
+    "title": "Muon survival lab",
+    "caption": "How many fast muons reach the ground, with and without time dilation.",
+    "height": 260,
+    "params": [
+      {
+        "key": "beta",
+        "label": "Muon speed",
+        "unit": "c",
+        "min": 0.9,
+        "max": 0.999,
+        "step": 0.001,
+        "value": 0.995
+      },
+      {
+        "key": "height",
+        "label": "Creation altitude",
+        "unit": "km",
+        "min": 1,
+        "max": 20,
+        "step": 0.5,
+        "value": 15
+      }
+    ],
+    "draw": "var beta = p.beta;\nvar gam = 1 / Math.sqrt(1 - beta * beta);\nvar h = p.height * 1000;\nvar tau0 = 2.2e-6;\nvar c = 3e8;\nvar Lclass = beta * c * tau0;        // mean travel with no dilation\nvar Lrel = gam * Lclass;             // mean travel with dilation\nvar fRel = Math.exp(-h / Lrel);\nvar fCla = Math.exp(-h / Lclass);\n\nvar pad = 34;\nvar x0 = pad + 40, x1 = W - pad;\nvar yTop = pad, yBot = H - pad - 6;\nvar font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = font;\n\n// axes: vertical is altitude, horizontal is surviving fraction\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(x0, yTop); ctx.lineTo(x0, yBot); ctx.lineTo(x1, yBot);\nctx.stroke();\n\nvar Y = function (alt) { return yBot - (alt / h) * (yBot - yTop); };\nvar X = function (f) { return x0 + f * (x1 - x0); };\n\n// survival curves, drawn downward from the creation altitude\nvar i, alt, f;\nctx.strokeStyle = C.rule;\nctx.setLineDash([4, 5]);\nctx.beginPath();\nfor (i = 0; i <= 100; i++) {\n  alt = h - h * i / 100;\n  f = Math.exp(-(h - alt) / Lclass);\n  i === 0 ? ctx.moveTo(X(f), Y(alt)) : ctx.lineTo(X(f), Y(alt));\n}\nctx.stroke();\nctx.setLineDash([]);\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (i = 0; i <= 100; i++) {\n  alt = h - h * i / 100;\n  f = Math.exp(-(h - alt) / Lrel);\n  i === 0 ? ctx.moveTo(X(f), Y(alt)) : ctx.lineTo(X(f), Y(alt));\n}\nctx.stroke();\n\n// a muon falling, looping\nvar ph = (t % 4) / 4;\nvar altNow = h * (1 - ph);\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(x0 - 22, Y(altNow), 5, 0, Math.PI * 2); ctx.fill();\n\n// labels\nctx.fillStyle = C.ink;\nctx.textAlign = \"right\";\nctx.fillText(p.height.toFixed(0) + \" km\", x0 - 34, yTop + 5);\nctx.fillText(\"ground\", x0 - 34, yBot + 4);\nctx.textAlign = \"center\";\nctx.fillText(\"fraction still undecayed\", (x0 + x1) / 2, yBot + 20);\nctx.textAlign = \"left\";\nctx.fillStyle = C.accent;\nctx.fillText(\"with time dilation\", X(0.08), yTop + 14);\nctx.fillStyle = C.rule;\nctx.fillText(\"classical prediction\", X(0.08), yTop + 30);\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"right\";\nctx.fillText(\"1\", x1, yBot + 20);\nctx.textAlign = \"left\";\nctx.fillText(\"0\", x0, yBot + 20);\n\nout.note = \"gamma \" + gam.toFixed(2) + \"  |  reaching the ground: \" +\n  fRel.toExponential(2) + \" with dilation, \" + fCla.toExponential(2) + \" without\";"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "pendulums-forces",
+    "title": "What actually restores a pendulum",
+    "caption": "Only the part of the weight perpendicular to the string drives the swing.",
+    "height": 300,
+    "params": [
+      {
+        "key": "angle",
+        "label": "Angle from vertical",
+        "unit": "deg",
+        "min": 2,
+        "max": 55,
+        "step": 1,
+        "value": 18
+      }
+    ],
+    "draw": "var th = p.angle * Math.PI / 180;\nvar px = W * 0.46, py = H * 0.12;\nvar len = H * 0.52;\nvar bx = px + len * Math.sin(th), by = py + len * Math.cos(th);\nvar F = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nfunction arrow(x0, y0, x1, y1, col) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 2;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();\n  var a = Math.atan2(y1 - y0, x1 - x0);\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 8 * Math.cos(a - 0.4), y1 - 8 * Math.sin(a - 0.4));\n  ctx.lineTo(x1 - 8 * Math.cos(a + 0.4), y1 - 8 * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\n// ceiling\nctx.fillStyle = C.faint;\nctx.fillRect(px - W * 0.22, py - 8, W * 0.44, 8);\n\n// vertical reference\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([3, 5]);\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py + len + 30); ctx.stroke();\nctx.setLineDash([]);\n\n// angle arc\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(px, py, 40, Math.PI / 2 - th, Math.PI / 2); ctx.stroke();\nctx.fillStyle = C.ink; ctx.font = F;\nctx.fillText(\"theta = \" + p.angle.toFixed(0) + \" deg\", px + 8, py + 56);\n\n// string\nctx.strokeStyle = C.ink; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(bx, by); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"L\", (px + bx) / 2 - 14, (py + by) / 2);\n\n// unit vectors along and across the string\nvar ux = Math.sin(th), uy = Math.cos(th);      // away from pivot\nvar tx = Math.cos(th), ty = -Math.sin(th);     // tangential, toward the bottom\n\nvar g = H * 0.30;   // pixel length standing for mg\n\n// weight mg, straight down\narrow(bx, by, bx, by + g, C.figure);\nctx.fillStyle = C.figure;\nctx.fillText(\"mg\", bx + 6, by + g - 4);\n\n// component along the string: mg cos(theta)\narrow(bx, by, bx + ux * g * Math.cos(th), by + uy * g * Math.cos(th), C.faint);\nctx.fillStyle = C.ink;\nctx.fillText(\"mg cos theta\", bx + ux * g * Math.cos(th) + 6, by + uy * g * Math.cos(th) + 4);\n\n// tangential component: mg sin(theta), the restoring force\narrow(bx, by, bx - tx * g * Math.sin(th), by - ty * g * Math.sin(th), C.accent);\nctx.fillStyle = C.accent;\nctx.fillText(\"mg sin theta\", bx - tx * g * Math.sin(th) - 92, by - ty * g * Math.sin(th) - 8);\n\n// tension\narrow(bx, by, bx - ux * g * Math.cos(th), by - uy * g * Math.cos(th), C.rule);\nctx.fillStyle = C.ink;\nctx.fillText(\"tension\", bx - ux * g * Math.cos(th) * 0.6 - 58, by - uy * g * Math.cos(th) * 0.6);\n\n// bob\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(bx, by, 9, 0, 2 * Math.PI); ctx.fill();\n\n// sine versus angle, small inset graph\nvar gx0 = W * 0.06, gy0 = H * 0.94, gw = W * 0.26, gh = H * 0.34;\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(gx0, gy0 - gh); ctx.lineTo(gx0, gy0); ctx.lineTo(gx0 + gw, gy0); ctx.stroke();\nvar maxA = Math.PI / 3;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nfor (var i = 0; i <= 40; i++) {\n  var a1 = maxA * i / 40;\n  var X = gx0 + gw * a1 / maxA, Y = gy0 - gh * a1 / maxA;\n  i === 0 ? ctx.moveTo(X, Y) : ctx.lineTo(X, Y);\n}\nctx.stroke();\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nfor (var j = 0; j <= 40; j++) {\n  var a2 = maxA * j / 40;\n  var X2 = gx0 + gw * a2 / maxA, Y2 = gy0 - gh * Math.sin(a2) / maxA;\n  j === 0 ? ctx.moveTo(X2, Y2) : ctx.lineTo(X2, Y2);\n}\nctx.stroke();\nctx.fillStyle = C.ink; ctx.font = F;\nctx.fillText(\"theta\", gx0 + gw * 0.42, gy0 - gh * 0.86);\nctx.fillStyle = C.accent;\nctx.fillText(\"sin theta\", gx0 + gw * 0.30, gy0 - gh * 0.30);\n// marker at the current angle\nvar frac = Math.min(th / maxA, 1);\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(gx0 + gw * frac, gy0 - gh * Math.sin(th) / maxA, 4, 0, 2 * Math.PI); ctx.fill();\n\nvar err = (th === 0) ? 0 : (th - Math.sin(th)) / th * 100;\nout.note = \"theta = \" + th.toFixed(3) + \" rad, sin theta = \" + Math.sin(th).toFixed(3) +\n  \" - restoring force is \" + err.toFixed(2) + \"% weaker than the straight-line law\";"
+  },
+  {
+    "id": "pendulums-lab",
+    "title": "Simple pendulum lab",
+    "caption": "Length, gravity and amplitude, with the small-angle period and the true period side by side.",
+    "height": 320,
+    "params": [
+      {
+        "key": "length",
+        "label": "String length",
+        "unit": "m",
+        "min": 0.2,
+        "max": 2.5,
+        "step": 0.05,
+        "value": 1.0
+      },
+      {
+        "key": "gravity",
+        "label": "Gravity",
+        "unit": "m/s^2",
+        "min": 1.6,
+        "max": 20,
+        "step": 0.1,
+        "value": 9.8
+      },
+      {
+        "key": "amp",
+        "label": "Release angle",
+        "unit": "deg",
+        "min": 3,
+        "max": 60,
+        "step": 1,
+        "value": 15
+      }
+    ],
+    "draw": "var L = p.length, g = p.gravity, th0 = p.amp * Math.PI / 180;\nvar T0 = 2 * Math.PI * Math.sqrt(L / g);\nvar Tex = T0 * (1 + th0 * th0 / 16 + 11 * Math.pow(th0, 4) / 3072);\nvar th = th0 * Math.cos(2 * Math.PI * t / Tex);\nvar F = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nvar px = W * 0.5, py = H * 0.10;\nvar scale = (H * 0.66) / 2.5;          // pixels per metre, longest string fits\nvar len = L * scale;\nvar bx = px + len * Math.sin(th), by = py + len * Math.cos(th);\n\n// ceiling\nctx.fillStyle = C.faint;\nctx.fillRect(px - W * 0.3, py - 8, W * 0.6, 8);\n\n// vertical reference\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([3, 5]);\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py + len + 24); ctx.stroke();\nctx.setLineDash([]);\n\n// swept arc between the turning points\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(px, py, len, Math.PI / 2 - th0, Math.PI / 2 + th0); ctx.stroke();\n\n// turning point markers\nctx.fillStyle = C.faint;\nctx.beginPath(); ctx.arc(px + len * Math.sin(th0), py + len * Math.cos(th0), 4, 0, 2 * Math.PI); ctx.fill();\nctx.beginPath(); ctx.arc(px - len * Math.sin(th0), py + len * Math.cos(th0), 4, 0, 2 * Math.PI); ctx.fill();\n\n// string and bob\nctx.strokeStyle = C.ink; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(bx, by); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(bx, by, 10, 0, 2 * Math.PI); ctx.fill();\n\nctx.fillStyle = C.ink; ctx.font = F;\nctx.fillText(\"L = \" + L.toFixed(2) + \" m\", px + 10, py + len * 0.5);\nctx.fillText(\"amplitude \" + p.amp.toFixed(0) + \" deg\", px - W * 0.28, py + 24);\n\n// angle against time, drawn along the bottom\nvar gy = H * 0.90, x0 = W * 0.06, x1 = W * 0.94;\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x0, gy); ctx.lineTo(x1, gy); ctx.stroke();\nvar span = 4 * Tex;                    // seconds across the plot\nctx.strokeStyle = C.accent; ctx.lineWidth = 1.5;\nctx.beginPath();\nfor (var i = 0; i <= 200; i++) {\n  var tt = t - span * (200 - i) / 200;\n  var X = x0 + (x1 - x0) * i / 200;\n  var Y = gy - (H * 0.07) * Math.cos(2 * Math.PI * tt / Tex);\n  i === 0 ? ctx.moveTo(X, Y) : ctx.lineTo(X, Y);\n}\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"angle against time\", x0, gy + 18);\n\nout.note = \"small-angle T = \" + T0.toFixed(3) + \" s, true T = \" + Tex.toFixed(3) +\n  \" s, slow by \" + ((Tex / T0 - 1) * 100).toFixed(2) + \"%\";"
+  },
+  {
+    "id": "pendulums-rod",
+    "title": "Physical pendulum: rod on a movable pivot",
+    "caption": "A one metre uniform rod hung at distance d from its centre, with its equivalent simple pendulum beside it.",
+    "height": 320,
+    "params": [
+      {
+        "key": "d",
+        "label": "Pivot distance from centre",
+        "unit": "m",
+        "min": 0.03,
+        "max": 0.5,
+        "step": 0.005,
+        "value": 0.35
+      }
+    ],
+    "draw": "var L = 1.0, d = p.d, g = 9.8;\nvar Ioverm = L * L / 12 + d * d;\nvar Leq = Ioverm / d;\nvar T = 2 * Math.PI * Math.sqrt(Leq / g);\nvar th0 = 0.22;\nvar th = th0 * Math.cos(2 * Math.PI * t / T);\nvar F = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nvar px = W * 0.5, py = H * 0.14;\nvar scale = H * 0.60;                 // pixels per metre of rod\nvar ux = Math.sin(th), uy = Math.cos(th);   // down the rod\nvar topX = px - ux * (L / 2 - d) * scale, topY = py - uy * (L / 2 - d) * scale;\nvar botX = px + ux * (L / 2 + d) * scale, botY = py + uy * (L / 2 + d) * scale;\n\n// support bracket\nctx.fillStyle = C.faint;\nctx.fillRect(px - W * 0.14, py - 26, W * 0.28, 7);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(px, py - 19); ctx.lineTo(px, py); ctx.stroke();\n\n// vertical reference through the pivot\nctx.setLineDash([3, 5]);\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py + scale * 0.8); ctx.stroke();\nctx.setLineDash([]);\n\n// the rod\nctx.strokeStyle = C.figure; ctx.lineWidth = 7; ctx.lineCap = \"round\";\nctx.beginPath(); ctx.moveTo(topX, topY); ctx.lineTo(botX, botY); ctx.stroke();\nctx.lineWidth = 1; ctx.lineCap = \"butt\";\n\n// pivot\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px, py, 5, 0, 2 * Math.PI); ctx.fill();\n\n// centre of mass, filled\nvar cmX = px + ux * d * scale, cmY = py + uy * d * scale;\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(cmX, cmY, 5, 0, 2 * Math.PI); ctx.fill();\n\n// centre of oscillation, hollow\nvar coX = px + ux * Leq * scale, coY = py + uy * Leq * scale;\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.arc(coX, coY, 6, 0, 2 * Math.PI); ctx.stroke();\n\n// the equivalent simple pendulum, drawn faintly alongside\nvar sx = px + W * 0.30;\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(sx, py); ctx.lineTo(sx + ux * Leq * scale, py + uy * Leq * scale); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.beginPath(); ctx.arc(sx + ux * Leq * scale, py + uy * Leq * scale, 8, 0, 2 * Math.PI); ctx.fill();\nctx.fillStyle = C.ink; ctx.font = F;\nctx.fillText(\"equivalent simple pendulum\", sx - W * 0.10, py - 34);\n\nctx.fillStyle = C.accent;\nctx.fillText(\"centre of mass\", cmX + 10, cmY - 4);\nctx.fillText(\"centre of oscillation\", coX + 10, coY + 14);\nctx.fillStyle = C.ink;\nctx.fillText(\"pivot\", px + 10, py - 6);\n\nout.note = \"d = \" + d.toFixed(3) + \" m, equivalent length = \" + Leq.toFixed(3) +\n  \" m, T = \" + T.toFixed(3) + \" s\";"
+  }
+]

@@ -1,66 +1,344 @@
-## Momentum is what force changes over time
+A baseball leaves a pitcher's hand at 40 m/s and a catcher stops it dead. For
+the few milliseconds the ball is squashing into the leather, the force between
+them is enormous, wildly non-constant, and completely unknown. You cannot write
+$F = ma$ for that, because you do not know $F$ at any instant, and $a$ changes
+from zero to something huge and back again in the time it takes a fly to beat
+its wings.
 
-Newton's second law is more honestly written as a statement about momentum:
+And yet a catcher can tell you exactly how hard the catch felt, and you can
+predict it. The trick is to stop asking what the force is at each instant and
+ask instead what the force does *in total, over the whole contact*. That total
+turns out to be an easy number even when the force is a mess. This lesson is
+about that number.
 
-$$\vec F_{\text{net}} = \frac{d\vec p}{dt}, \qquad \vec p = m\vec v$$
+## The honest form of Newton's second law
 
-The familiar $F = ma$ is the special case where the mass is constant. Keep the
-momentum form and rockets, falling chains, and conveyor belts loading sand all
-stay in reach.
+In [Power](/guide/power) you tracked how fast energy moved. Here you track
+something else that a force delivers: motion itself, weighted by mass.
 
-Momentum is a vector, so it has one equation per axis. Its units,
-$\text{kg}\cdot\text{m/s}$, are the same as those of impulse — no coincidence.
+Define the **momentum** of an object of mass $m$ moving with velocity
+$\vec v$ as
 
-## Impulse is the time integral of force
+$$\vec p = m\vec v$$
 
-Multiply through by $dt$ and integrate:
+It is a vector, pointing wherever the velocity points, and its units are
+$\mathrm{kg\cdot m/s}$. A 72 kg runner at 6.5 m/s carries
+$72 \times 6.5 = 468\ \mathrm{kg\cdot m/s}$.
 
-$$\vec J = \int \vec F\, dt = \Delta \vec p$$
+Now look at what Newton actually wrote. Not $F = ma$, but
 
-That is the impulse-momentum theorem, and it is the time-domain twin of the
-work-energy theorem. Where the work-energy theorem integrates force over
-distance and gives a scalar change in $K$, this integrates force over time and
-gives a vector change in $\vec p$. Problems that mention a duration, a contact
-time, or an average force during an impact belong to this one.
+$$\vec F_{\text{net}} = \frac{d\vec p}{dt}$$
 
-On a graph of force versus time, the impulse is the **area under the curve**.
-Real collision forces spike into a sharp hump lasting milliseconds; you rarely
-know the shape, but the area is what you need, and an average force defined by
-$\bar F \Delta t = \Delta p$ captures it exactly.
+The net force on something is the rate at which its momentum changes. If the
+mass is constant this collapses to the familiar version, since
+$d(m\vec v)/dt = m\, d\vec v/dt = m\vec a$. But keep the momentum form and you
+keep problems where the mass is *not* constant: a rocket throwing fuel out the
+back, a chain landing on a scale, a jet of water hitting a wall. Those all
+break $F = ma$ and none of them break $\vec F = d\vec p/dt$.
+
+One more thing worth having in your pocket. Kinetic energy is
+$K = \tfrac12 mv^2$ and $p = mv$, so $p^2 = m^2v^2 = 2m\left(\tfrac12 mv^2\right)$,
+giving
+
+$$p = \sqrt{2mK}$$
+
+A 2.0 kg object with 36 J of kinetic energy therefore has
+$p = \sqrt{2 \times 2.0 \times 36} = \sqrt{144} = 12\ \mathrm{kg\cdot m/s}$.
+
+<Aside label="Worth remembering">
+  Momentum is a vector; kinetic energy is a scalar. Two objects with equal and
+  opposite momenta have zero total momentum but plenty of total kinetic energy.
+  That difference is what makes the two conservation laws say different things
+  about a collision.
+</Aside>
+
+## Impulse is the area under the force-time curve
+
+Take $\vec F_{\text{net}} = d\vec p/dt$, multiply both sides by $dt$, and add
+up every instant from the start of the contact to the end:
+
+$$\vec J \equiv \int_{t_1}^{t_2} \vec F\, dt = \vec p_2 - \vec p_1 = \Delta\vec p$$
+
+That is the **impulse-momentum theorem**, and $\vec J$ is called the
+**impulse**. In words: the total accumulated force-times-time is exactly the
+change in momentum, and nothing else about the force matters. The spike can be
+any shape at all. Only the area under it counts.
+
+It has the same relationship to $\vec F = d\vec p/dt$ that the work-energy
+theorem has to $F = ma$: one integrates force over *distance* and gives you a
+scalar change in energy, the other integrates force over *time* and gives you a
+vector change in momentum. Which one a problem wants is usually decided by
+whether it hands you a distance or a duration.
+
+If the force is constant, the integral is a rectangle and $\vec J = \vec F\Delta t$.
+A 40 N force acting for 0.25 s delivers $40 \times 0.25 = 10\ \mathrm{N\cdot s}$.
+And $\mathrm{N\cdot s}$ is the same unit as $\mathrm{kg\cdot m/s}$, since
+$1\ \mathrm{N} = 1\ \mathrm{kg\cdot m/s^2}$. That is not a coincidence; it is the
+theorem.
+
+If the force is not constant, you still want the area, and you can define an
+**average force** $\bar F$ as the constant force that would give the same area:
+
+$$\bar F\, \Delta t = \Delta p$$
+
+<Figure caption={<><b>Figure 1.</b> A realistic impact force: a hump that rises and falls. The shaded region growing left to right is the impulse delivered so far, and the dashed line is the one constant force with the same total area. Drag the peak up and the contact time down and watch the impulse readout: the two fight each other.</>}>
+  <Sim id="momentum-impulse-ftgraph" />
+</Figure>
+
+**Worked example 1.** A collision force is modelled as
+$F(t) = F_0\sin(\pi t/T)$ with $F_0 = 900\ \mathrm{N}$ and $T = 0.040\ \mathrm{s}$,
+acting from $t = 0$ to $t = T$. Find the total impulse.
+
+The force is not constant, so integrate:
+
+$$
+
+J = \int_0^{T} F_0\sin\!\left(\frac{\pi t}{T}\right) dt
+   = F_0\left[-\frac{T}{\pi}\cos\!\left(\frac{\pi t}{T}\right)\right]_0^{T}
+   = \frac{F_0 T}{\pi}\left(\cos 0 - \cos\pi\right) = \frac{2F_0T}{\pi}
+
+$$
+
+Now the numbers:
+
+$$J = \frac{2 \times 900 \times 0.040}{\pi} = \frac{72.0}{3.14159} = 22.9\ \mathrm{N\cdot s}$$
+
+Notice the average force that hides in there: $\bar F = J/T = 22.9/0.040 = 573\ \mathrm{N}$,
+which is $2/\pi \approx 0.637$ of the peak. A half-sine hump is about two-thirds
+as effective as a square pulse of the same height.
+
+<QuickCheck
+  question="A force rises linearly from 0 to 60 N over 0.10 s, then falls linearly back to 0 over the next 0.10 s. What impulse does it deliver?"
+  options={["6.0 N s", "12 N s", "3.0 N s", "60 N s"]}
+  answer={0}
+  explanation="The graph is a triangle of base 0.20 s and height 60 N, so the area is one half times 0.20 times 60, which is 6.0 N s. Multiplying peak force by total time would give 12 N s and double-counts, because the force is only at its peak for an instant."
+/>
 
 ## Stretch the time and the force drops
 
-For a fixed change in momentum, $\bar F$ and $\Delta t$ trade off inversely:
+Rearrange $\bar F \Delta t = \Delta p$ into
 
 $$\bar F = \frac{\Delta p}{\Delta t}$$
 
-A car crash brings you from $30\text{ m/s}$ to rest whether or not the car has a
-crumple zone. What the crumple zone changes is the time. Stopping in
-$0.01\text{ s}$ against a rigid dashboard means a hundred times the force of
-stopping in $1\text{ s}$ against an inflating airbag. The same logic covers
-bending your knees on landing, catching an egg by drawing your hand back, and
-padding on a gymnastics floor. None of them reduce the momentum you must shed;
-all of them lengthen the shedding.
+and read it as a bargain you are allowed to strike. The change in momentum is
+usually fixed by the physics of the situation: a falling egg arrives with the
+speed it arrives with, and it has to end at rest. You cannot argue with
+$\Delta p$. What you *can* control is $\Delta t$. Double the stopping time and
+you halve the force.
 
-<Aside label="Worth remembering">
-  Impulse is a vector, and a reversal counts double. A ball hitting a wall at
-  $5\text{ m/s}$ and rebounding at $5\text{ m/s}$ has $|\Delta p| = 2mv$, not
-  zero and not $mv$. Choose a positive direction and write signed components
-  before doing any arithmetic.
+This is every piece of safety equipment ever built. Airbags, crumple zones,
+crash mats, bending your knees on landing, drawing your hand back as you catch.
+None of them reduce the momentum you have to get rid of. All of them lengthen
+the time over which you get rid of it.
+
+<Figure caption={<><b>Figure 2.</b> The same ball, the same incoming speed, caught three ways. The change in momentum readout never moves when you drag the stopping time; the average force arrow changes enormously. Set the stopping time to 0.01 s, then to 0.4 s, and compare the force.</>}>
+  <Sim id="momentum-impulse-catch" />
+</Figure>
+
+**Worked example 2.** A 0.20 kg ball hits a wall horizontally at 8.0 m/s and
+rebounds at 6.0 m/s. Contact lasts 0.015 s. Find the impulse on the ball and
+the average force.
+
+First thing on blank paper: a positive direction. Take *towards the wall* as
+positive. Then $v_1 = +8.0\ \mathrm{m/s}$ and $v_2 = -6.0\ \mathrm{m/s}$, because
+the ball comes back.
+
+$$
+
+p_1 = 0.20 \times 8.0 = 1.6\ \mathrm{kg\cdot m/s}, \qquad
+p_2 = 0.20 \times (-6.0) = -1.2\ \mathrm{kg\cdot m/s}
+
+$$
+
+$$J = \Delta p = p_2 - p_1 = -1.2 - 1.6 = -2.8\ \mathrm{kg\cdot m/s}$$
+
+Magnitude 2.8 N·s, directed away from the wall. The signs did the work: if you
+had subtracted the speeds instead of the velocities you would have got
+$0.20 \times 2.0 = 0.4\ \mathrm{N\cdot s}$, seven times too small. The average
+force is
+
+$$\bar F = \frac{2.8}{0.015} = 187\ \mathrm{N}$$
+
+<Aside label="Where this goes wrong" warn>
+  A reversal counts double, and this is the single most common momentum error.
+  A ball that hits a wall at $v$ and bounces back at $v$ has
+  $|\Delta p| = 2mv$, not zero and not $mv$. A ball that sticks has
+  $|\Delta p| = mv$. So the bouncing ball pushes twice as hard on the wall as
+  the sticking one, even though it "ends up going the same speed it arrived".
+  Write signed components before you touch a calculator.
 </Aside>
 
+## Every force acting during the interval counts
+
+The theorem is about the *net* force. If something other than the impact is
+pushing during the contact time, it contributes its own impulse and you have to
+include it.
+
+**Worked example 3.** A 0.055 kg egg falls 1.2 m and is brought to rest by a
+pillow over 0.15 s. What average force does the pillow exert? Use
+$g = 9.8\ \mathrm{m/s^2}$.
+
+Two stages. First the fall, to find the arrival speed:
+
+$$v = \sqrt{2gh} = \sqrt{2 \times 9.8 \times 1.2} = \sqrt{23.52} = 4.850\ \mathrm{m/s}$$
+
+Now the stop. Take upward as positive, so the egg arrives with
+$v_1 = -4.850\ \mathrm{m/s}$ and ends at $v_2 = 0$:
+
+$$\Delta p = m(v_2 - v_1) = 0.055 \times (0 - (-4.850)) = +0.2668\ \mathrm{kg\cdot m/s}$$
+
+During those 0.15 s, two forces act: the pillow pushing up with $\bar N$, and
+gravity pulling down with $mg = 0.055 \times 9.8 = 0.539\ \mathrm{N}$. The net
+impulse is what equals $\Delta p$:
+
+$$(\bar N - mg)\,\Delta t = \Delta p$$
+
+$$
+
+\bar N = \frac{\Delta p}{\Delta t} + mg = \frac{0.2668}{0.15} + 0.539
+ = 1.778 + 0.539 = 2.32\ \mathrm{N}
+
+$$
+
+Dropping the gravity term would have given 1.78 N, about 23 % low. Whether that
+matters depends on how short the stop is: for a 0.002 s impact against concrete,
+the weight term is invisible next to a force of hundreds of newtons, and that is
+exactly why you are allowed to ignore gravity during a genuine collision. Here
+the stop is slow enough that gravity gets a word in.
+
 <QuickCheck
-  question="Two identical balls hit a wall at the same speed. One sticks, the other bounces back at the same speed. Which delivers the larger impulse to the wall?"
-  options={["The one that bounces", "The one that sticks", "They deliver equal impulses", "It depends on the contact time"]}
+  question="A 0.60 kg ball is in free flight for 1.8 s. What impulse does gravity deliver to it?"
+  options={["10.6 N s", "5.9 N s", "0 N s", "1.1 N s"]}
   answer={0}
-  explanation="The sticking ball changes its momentum by mv; the bouncing ball changes it by 2mv because the velocity reverses. By Newton's third law the wall receives an equal and opposite impulse in each case, so the bouncing ball delivers twice as much."
+  explanation="Gravity is a constant force of 0.60 times 9.8, which is 5.88 N, acting for 1.8 s, so the impulse is 5.88 times 1.8, which is 10.6 N s downward. It does not matter that the ball is moving sideways as well, or that its speed at the end equals its speed at the start."
 />
 
-## Why momentum survives collisions
+## When mass arrives instead of speeding up
 
-Internal forces between two colliding bodies are equal and opposite at every
-instant, so they contribute equal and opposite impulses and cancel from the
-total. Only external forces can change a system's momentum. During a short
-impact, gravity and friction have almost no time to act, which is why total
-momentum is conserved through a collision even when the system is not truly
-isolated.
+Now use the form of the law that $F = ma$ cannot reach. Suppose a stream of
+material arrives steadily at a surface: water from a hose, sand onto a
+conveyor, air pushed down by a drone. Nothing is accelerating in the ordinary
+sense. Instead, in every second, a mass $dm$ has its velocity changed by
+$\Delta v$. The momentum delivered per second is
+
+$$F = \frac{dp}{dt} = \frac{dm}{dt}\,\Delta v$$
+
+Read $dm/dt$ as "kilograms arriving per second" and $\Delta v$ as "how much each
+kilogram's velocity changes". Multiply. That is the force.
+
+<Figure caption={<><b>Figure 3.</b> A steady jet hitting a surface. Set the rebound slider to 0 for a flat wall, where the water just stops moving forward, then to 1 for a curved vane that sends it back the way it came. The force doubles, for exactly the same reason a bouncing ball hits harder than one that sticks.</>}>
+  <Sim id="momentum-impulse-jet" />
+</Figure>
+
+Water at 4.0 kg/s hitting a wall at 15 m/s and dribbling down gives
+$4.0 \times 15 = 60\ \mathrm{N}$. Water at 6.0 kg/s at 10 m/s turned completely
+around by a curved vane changes each kilogram's velocity by
+$10 - (-10) = 20\ \mathrm{m/s}$, so the force is
+$6.0 \times 20 = 120\ \mathrm{N}$.
+
+A drone hovering needs thrust equal to its weight, so
+$\dot m \times 18 = 32\ \mathrm{N}$ gives $\dot m = 1.78\ \mathrm{kg/s}$ of air
+pushed down. A rocket engine is the same sum run backwards: ejecting exhaust at
+rate $\dot m$ with speed $u$ relative to the rocket produces thrust
+$F = \dot m u$, so 3.0 kg/s at 2500 m/s is 7500 N.
+
+**Worked example 4.** A uniform chain of linear density
+$\lambda = 1.5\ \mathrm{kg/m}$ is released from rest with its lower end just
+touching a scale. What does the scale read when 0.80 m has landed?
+
+This one takes a moment. The scale supports two separate things.
+
+The first is the *weight of the chain already lying on it*: a length
+$x = 0.80\ \mathrm{m}$ of chain, mass $\lambda x = 1.5 \times 0.80 = 1.2\ \mathrm{kg}$,
+weighing $1.2 \times 9.8 = 11.76\ \mathrm{N}$.
+
+The second is the force needed to *stop the links that are landing right now*.
+The chain fell freely through $x = 0.80$ m, so the arriving links have speed
+$v = \sqrt{2gx} = \sqrt{2 \times 9.8 \times 0.80} = 3.960\ \mathrm{m/s}$. Chain
+arrives at a rate $dm/dt = \lambda v$ kilograms per second, and each kilogram
+has its speed cut from $v$ to zero. So the stopping force is
+
+$$
+
+F_{\text{stop}} = \frac{dm}{dt}\,v = \lambda v \cdot v = \lambda v^2
+ = 1.5 \times (3.960)^2 = 1.5 \times 15.68 = 23.52\ \mathrm{N}
+
+$$
+
+Since $v^2 = 2gx$, that term is exactly $2\lambda g x$, twice the weight of the
+landed part. The scale reads
+
+$$N = \lambda g x + 2\lambda g x = 3\lambda g x = 3 \times 11.76 = 35.3\ \mathrm{N}$$
+
+Three times the weight of what is lying there. The same structure solves the
+rope pulled off a heap: if you drag rope of density 0.90 kg/m horizontally at a
+constant 2.0 m/s, you set $\lambda v = 1.8$ kg of rope into motion each second
+and each kilogram goes from 0 to 2.0 m/s, so
+$F = \lambda v^2 = 0.90 \times 4.0 = 3.6\ \mathrm{N}$.
+
+## Rockets: when the mass leaves
+
+A rocket in deep space throws mass backwards to push itself forwards. In a
+short time $dt$ it ejects mass $-dm$ (negative because the rocket is losing it)
+at speed $u$ relative to itself. Total momentum is conserved, so the momentum
+the exhaust carries backwards equals the momentum the rocket gains forwards:
+
+$$m\,dv = -u\,dm \quad\Longrightarrow\quad dv = -u\,\frac{dm}{m}$$
+
+Integrate from the initial mass $m_0$ to the final mass $m_f$:
+
+$$\Delta v = -u\int_{m_0}^{m_f}\frac{dm}{m} = u\ln\!\frac{m_0}{m_f}$$
+
+That is the rocket equation. What it says is brutal: speed grows only with the
+*logarithm* of the mass ratio, so doubling your fuel does not double your speed.
+A 2000 kg rocket burning down to 800 kg with $u = 2800$ m/s, starting from rest,
+reaches
+
+$$
+
+v = 2800 \times \ln(2000/800) = 2800 \times \ln 2.5 = 2800 \times 0.9163
+ = 2566\ \mathrm{m/s}
+
+$$
+
+Launching from the ground, gravity spends the whole burn taking momentum back,
+delivering an impulse $-mg\,dt$ that costs you $g\,t_{\text{burn}}$ of speed:
+
+$$v = u\ln\!\frac{m_0}{m_f} - g\,t_{\text{burn}}$$
+
+For 5000 kg down to 2000 kg over 50 s with $u = 2400$ m/s:
+$2400 \times \ln 2.5 = 2400 \times 0.9163 = 2199.1\ \mathrm{m/s}$, minus
+$9.8 \times 50 = 490\ \mathrm{m/s}$, leaving $1709\ \mathrm{m/s}$.
+
+<Aside label="Worth remembering">
+  In the rocket equation $u$ is the exhaust speed <i>relative to the rocket</i>,
+  not relative to the ground, and the mass ratio is initial over final. If your
+  answer comes out negative you have the ratio upside down.
+</Aside>
+
+## How to tell this is an impulse problem
+
+Reach for impulse and momentum when you see any of these:
+
+- **A duration, a contact time, or an average force.** "Stopped over 0.08 s",
+  "the bat is in contact for 1.2 ms". Energy methods want a distance; this one
+  wants a time.
+- **A force given as a function of time**, or a force-time graph. The question
+  is asking you for an area.
+- **You are not told the force and do not want to know it.** Collisions,
+  catches, kicks, explosions. You know the before and the after, and the middle
+  is a mess you are allowed to skip.
+- **Mass per second.** "kg/s", "20 balls per second", "burns fuel at a constant
+  rate", a chain landing, a belt being loaded. That is $F = \dot m\,\Delta v$.
+- **Something reverses.** The moment a problem says "rebounds" or "is turned
+  around", it is testing whether you will write the minus sign.
+
+And a last check on any answer: momentum is a vector, so every one of these
+should have been done axis by axis with a chosen positive direction. If you only
+ever worked with speeds, go back and look for a sign you dropped.
+
+Everything here has been one object and the outside world. Next you point the
+same theorem at two objects hitting each other, where the internal forces cancel
+in pairs and the total momentum of the pair is conserved no matter how violent
+the contact:
+[Collisions in One and Two Dimensions](/guide/collisions).

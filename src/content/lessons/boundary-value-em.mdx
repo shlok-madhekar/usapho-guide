@@ -1,72 +1,338 @@
-## A charge near a conductor is a hard problem in disguise
+## A charge near a metal plate
 
-Put a point charge $q$ a distance $d$ above a large grounded conducting plane.
-The charge attracts electrons in the metal, they rearrange, and the induced
-surface charge density is not uniform. That induced charge produces its own
-field, which changes the potential everywhere, so integrating over an unknown
-distribution to find the field looks circular.
+Hold a small positive charge a centimetre above a large sheet of grounded
+metal and let go. It accelerates downward. Nothing in the metal was charged to
+begin with, and the sheet as a whole is still neutral, so what is pulling?
 
-What you actually know is a *boundary condition*: the plane is a grounded
-conductor, so $V = 0$ everywhere on it. The method of images turns that single
-fact into the whole answer.
+The charge pulled electrons in the metal toward the spot beneath it. Those
+electrons pile up into a thin layer of negative surface charge, and that layer
+attracts the charge. To find the force you need the surface charge density
+$\sigma$ at every point of the plate. But $\sigma$ arranges itself in response
+to the total field, and the total field includes the field of $\sigma$ itself.
+You cannot integrate your way in from the outside. This is a *boundary-value
+problem*: you are not told the charge everywhere, you are told a condition on a
+surface, and you have to build the field that satisfies it.
 
-## The method of images
+In the [coupled oscillator](/guide/coupled-oscillators) lessons you found the
+motion by guessing a form and checking it satisfied the equations. The same
+move works here, and here it comes with a proof that the guess is the only
+answer.
 
-Delete the conductor. Put a charge $-q$ at the mirror position, a distance $d$
-on the far side of where the plane was. Two point charges, no metal, a problem
-you already know how to solve.
+## Uniqueness is what licenses the guess
 
-Check the boundary. Any point on the old plane is equidistant from $+q$ and
-$-q$, so the two potentials $kq/r$ and $-kq/r$ cancel exactly and $V = 0$
-across the entire plane. The image reproduces the boundary condition the
-conductor was enforcing.
+Everywhere outside the conductors, the potential obeys Poisson's equation,
+$\nabla^2 V = -\rho/\varepsilon_0$, which reduces to Laplace's equation
+$\nabla^2 V = 0$ wherever there is no charge. The **uniqueness theorem** says:
+if you specify the charge inside a region and the value of $V$ on every
+boundary of that region, then at most one potential satisfies both.
 
-Everything above the plane now follows. The force on the real charge is the
-attraction to its image,
+Read what that buys you. You are allowed to find the solution *any way you
+like*, including inventing fictitious charges out of thin air. If your
+construction (a) puts the same real charges in the region you care about and
+(b) produces the correct potential on the boundary, it is the answer. There is
+nothing left to check. A guess that passes those two tests is a proof.
 
-$$F = \frac{kq^2}{(2d)^2}$$
+One immediate consequence is worth having in your pocket. Hollow out an empty
+cavity inside a conductor held at $0$ V. Inside the cavity there is no charge,
+so $\nabla^2 V = 0$, and on the whole boundary $V = 0$. The constant function
+$V = 0$ satisfies both. By uniqueness it is the potential, so $\vec{E} = 0$
+inside the cavity, no matter what you do with charges outside. That is
+electrostatic shielding, proved in three lines.
 
-The field lines meet the plane perpendicularly, as they must at a conductor
-surface, and the induced surface density is $\sigma = -\varepsilon_0 E$ at
-each point, which integrates to exactly $-q$ in total.
-
-For a **grounded sphere** of radius $R$ with a charge $q$ at distance $a$ from
-its center, one image charge again suffices, but it is neither equal in
-magnitude nor at the mirror point:
-
-$$q' = -\frac{R}{a}q \qquad \text{at} \qquad b = \frac{R^2}{a}$$
-
-placed on the line from the center to $q$. Those two numbers are exactly what
-makes $V = 0$ over the whole sphere. If the sphere is insulated and neutral
-rather than grounded, add a second image $+\tfrac{R}{a}q$ at the center: that
-restores zero net charge while keeping the surface an equipotential, since a
-charge at the center contributes the same potential everywhere on it.
-
-## Why you are allowed to do this
-
-The justification is the **uniqueness theorem**: in a region where the charge
-distribution is specified and the potential is specified on every boundary,
-the solution to Laplace's or Poisson's equation is unique.
-
-So the reasoning is not a lucky guess but a proof. The image configuration
-satisfies Poisson's equation in the region of interest with the same real
-charge $q$, and it matches the same boundary condition $V = 0$ on the
-conductor. By uniqueness it must be the solution, and there is nothing left to
-verify.
-
-<Aside label="Where this goes wrong" warn>
-  The image solution is valid *only in the region containing the real charge*,
-  outside the conductor. Inside the conductor the true field is zero, while
-  the image construction would predict a nonzero field from a charge that does
-  not exist there. A common error is computing the interaction energy as
-  $-kq^2/2d$, the energy of two real charges. The correct work to bring the
-  charge in from infinity is half that, $-kq^2/4d$, because the image moves as
-  the real charge moves rather than sitting fixed.
+<Aside label="Worth remembering">
+  A solution to a boundary-value problem never has to be derived. It only has
+  to be exhibited and checked. Nearly every hard E&M problem in this unit is
+  solved by producing a configuration of fake charges and verifying the
+  boundary condition.
 </Aside>
 
+## The image charge for a grounded plane
+
+Put $+q$ at height $d$ above an infinite grounded plane. Grounded means the
+plane is wired to the earth, free to gain or lose charge, and held at $V = 0$.
+
+Delete the metal. Place $-q$ at the mirror point, a distance $d$ below where
+the plane was. Now look at any point $P$ on the old plane. It sits at the same
+distance $r$ from $+q$ and from $-q$, because they are mirror images. The
+potentials add:
+
+$$V_P = \frac{kq}{r} + \frac{k(-q)}{r} = 0$$
+
+That holds at every point of the plane. The fake charge sits *below* the
+plane, so above the plane the only real charge is still $q$. Both conditions of
+the uniqueness theorem are met, so above the plane the field of these two point
+charges is the true field.
+
+The force follows at once. The charges are $2d$ apart, so
+
+$$F = \frac{kq^2}{(2d)^2} = \frac{kq^2}{4d^2}$$
+
+attractive, pointing at the plane. Note the $2d$: forgetting it and writing
+$kq^2/d^2$ is the single most common error in this topic.
+
+The induced surface density comes from the field just outside a conductor,
+$E = \sigma/\varepsilon_0$ pointing along the outward normal. At a point on the
+plane a horizontal distance $s$ from the foot of the charge, both point charges
+lie a distance $\sqrt{s^2+d^2}$ away, the horizontal components cancel, and the
+vertical components add:
+
+$$\sigma(s) = -\frac{qd}{2\pi (s^2+d^2)^{3/2}}$$
+
+It is negative everywhere, largest in magnitude directly beneath the charge,
+and it falls off like $1/s^3$ far out. Integrate it over the plane and you get
+exactly $-q$: the plane pulls up precisely enough charge to terminate every
+field line leaving $q$.
+
+<Figure caption={<><b>Figure 1.</b> The real charge, its image below the plane, the field lines, and the induced surface density drawn as the shaded curve under the plane. Drag the height up and watch the peak density collapse while the curve spreads sideways. The total shaded area never changes.</>}>
+  <Sim id="boundary-value-em-plane" />
+</Figure>
+
 <QuickCheck
-  question="What makes the image charge for a grounded plane the correct replacement for the conductor?"
-  options={["It has the same sign and magnitude as the real charge", "It reproduces the boundary condition that the potential is zero on the plane", "It sits at the location of the induced surface charge", "It makes the total charge in the region zero"]}
+  question="A charge sits 8 cm above a grounded plane. Where does the field of the image charge give the correct answer?"
+  options={["Everywhere", "Only above the plane", "Only below the plane", "Only on the plane itself"]}
   answer={1}
-  explanation="Every point of the plane is equidistant from the real charge and its mirror image of opposite sign, so their potentials cancel and V equals zero across the plane. The uniqueness theorem then guarantees this is the one solution, since it satisfies the same equation with the same boundary condition."
+  explanation="The image is valid only in the region that contains the real charge and no fake one. Below the plane the true field is zero inside the metal, while the image construction would predict the field of a charge that is not there."
 />
+
+### Example 1: an electron on a copper plate
+
+An electron sits $2.00$ nm above a large grounded copper plate. Find the force
+on it.
+
+Charge magnitude $e = 1.602\times10^{-19}$ C, $d = 2.00\times10^{-9}$ m.
+
+$$F = \frac{ke^2}{4d^2} = \frac{(8.99\times10^{9})(1.602\times10^{-19})^2}{4(2.00\times10^{-9})^2}$$
+
+The numerator is $8.99\times10^{9} \times 2.566\times10^{-38} =
+2.307\times10^{-28}$. The denominator is $4 \times 4.00\times10^{-18} =
+1.60\times10^{-17}$. Dividing, $F = 1.44\times10^{-11}$ N, directed into the
+plate. This attraction is the *image force* that makes it take work to pull an
+electron out of a metal.
+
+## Energy: the factor of one half
+
+Here is the trap. Two real charges $+q$ and $-q$ separated by $2d$ have
+interaction energy $-kq^2/2d$. That is *not* the energy of the charge-plane
+system.
+
+Bring the charge in from infinity to height $d$ and add up the work you do
+against the attraction. At height $z$ the force on you is $kq^2/4z^2$ toward
+the plane, so you do work
+
+$$W = -\int_{\infty}^{d} \frac{kq^2}{4z^2}\,dz = -\frac{kq^2}{4d}$$
+
+Half of the two-charge answer. The reason is physical: the image is not an
+independent object you have to drag around. It moves because the real charge
+moves, and it costs nothing to move. Only the real charge's trip counts.
+
+So the energy of the system is $U = -kq^2/4d$, and the work an external agent
+does moving the charge from $d_1$ to $d_2$ is $U(d_2) - U(d_1)$.
+
+<Aside label="Where this goes wrong" warn>
+  Force uses the full two-charge formula. Energy uses half of it. Write
+  $F = kq^2/4d^2$ but $U = -kq^2/4d$, and check that $F = -dU/dz$ gives back the
+  force with the right sign. If your energy differs from the textbook by a
+  factor of two, this is why.
+</Aside>
+
+### Example 2: work to double the height
+
+A charge $q = +2.0$ nC is held $5.0$ cm above a grounded plane and moved
+slowly to $10.0$ cm. Find the work done by the external agent.
+
+First $kq^2 = (8.99\times10^{9})(2.0\times10^{-9})^2 = 3.596\times10^{-8}$
+N$\cdot$m$^2$. Then
+
+$$U = -\frac{kq^2}{4d} \quad\Rightarrow\quad W = \frac{kq^2}{4}\left(\frac{1}{d_1} - \frac{1}{d_2}\right)$$
+
+with $d_1 = 0.050$ m and $d_2 = 0.100$ m. The bracket is $20.0 - 10.0 = 10.0$
+m$^{-1}$. So $W = (3.596\times10^{-8}/4)(10.0) = 8.99\times10^{-8}$ J, or
+$89.9$ nJ. Positive, as it must be: you are pulling against an attraction.
+
+## Corners, wedges and plates: more than one image
+
+A single plane needs one image. Bring in a second grounded plane and each image
+spoils the boundary condition on the other plane, so you reflect again.
+
+Two planes meeting at a right angle, with $q$ at $(a,a)$, need three images:
+$-q$ at $(-a,a)$, $-q$ at $(a,-a)$, and $+q$ at $(-a,-a)$. Check a point on the
+vertical wall: the first and third images pair off with the real charge and the
+second image, and $V = 0$. The same check works on the horizontal wall. Three
+images, and the series closes.
+
+It closes because $90^\circ$ divides into $360^\circ$ a whole number of times.
+For a wedge of opening angle $\theta$, the reflections generate $360^\circ/\theta$
+charges in total counting the real one, so you need $360^\circ/\theta - 1$
+images. A $30^\circ$ wedge needs $12 - 1 = 11$. If $360^\circ/\theta$ is not an
+integer the images never close up and the method fails outright.
+
+<Figure caption={<><b>Figure 2.</b> The right-angle corner. Two negative images and one positive one, with the force each exerts on the real charge. Notice that the far positive image pushes outward and partly cancels the two attractions.</>}>
+  <Sim id="boundary-value-em-corner" />
+</Figure>
+
+Two *parallel* grounded plates are the case where the series never closes. The
+charge reflects in the left plate, that image reflects in the right plate, and
+so on forever: an infinite ladder of alternating charges spaced by twice the
+plate separation. The force is then an infinite sum, which converges quickly
+because distant images fall off like $1/n^2$. The same infinite ladder appears
+for a conducting sphere near a plane, and it is why the capacitance of that
+pair is an infinite series rather than a closed formula.
+
+One special case you can do in your head: a charge exactly midway between two
+grounded plates. Every image on the left has a partner at the mirror distance
+on the right, so every force cancels in pairs and the net force is zero. It is
+an unstable equilibrium.
+
+### Example 3: charge between two grounded plates
+
+$q = +4.0$ nC sits between grounded plates $12.0$ cm apart, $3.0$ cm from the
+left plate.
+
+Set up coordinates with the left plate at $x = 0$, the right at $x = L = 0.120$
+m, and the charge at $x_0 = 0.030$ m. Reflecting in the left plate puts $-q$ at
+$-x_0$. Reflecting that in the right plate puts $+q$ at $2L + x_0$, and so on.
+The full set is $+q$ at $2nL + x_0$ and $-q$ at $2nL - x_0$ for every integer
+$n$, with $n = 0$ omitted from the first family because that is the real
+charge.
+
+The nearest few dominate. The $-q$ image at $x = -0.030$ m is $0.060$ m away
+and pulls left with
+
+$$F_1 = \frac{kq^2}{(0.060)^2} = \frac{1.438\times10^{-7}}{3.60\times10^{-3}} = 4.00\times10^{-5}\ \text{N}$$
+
+The $-q$ image at $x = 2L - x_0 = 0.210$ m is $0.180$ m away and pulls right
+with $1.438\times10^{-7}/0.0324 = 4.44\times10^{-6}$ N. The $+q$ image at
+$x = -2L + x_0 = -0.210$ m is $0.240$ m away and pushes right with
+$1.438\times10^{-7}/0.0576 = 2.50\times10^{-6}$ N. Already the running total is
+$4.00 - 0.444 - 0.250 = 3.31\times10^{-5}$ N to the left, and the remaining
+terms add back about $10\%$. Summing the whole ladder gives $3.66\times10^{-5}$
+N, or $36.6$ $\mu$N, toward the near plate.
+
+You will not be asked to sum an infinite series by hand under time pressure.
+You will be asked to write down the ladder correctly and evaluate enough terms
+to answer to two figures.
+
+## The grounded sphere
+
+The sphere is the other geometry worth memorising. Put $q$ a distance $a$ from
+the centre of a grounded sphere of radius $R$, with $a > R$. One image still
+works, but it is neither equal in size nor at the mirror point. Put
+
+$$q' = -\frac{R}{a}\,q \qquad \text{at a distance} \qquad b = \frac{R^2}{a}$$
+
+from the centre, on the line joining the centre to $q$. Those two numbers are
+forced: writing the potential at a surface point at angle $\alpha$ from that
+line and demanding it vanish for *all* $\alpha$ gives exactly this pair.
+
+Three things follow. The total induced charge on a grounded sphere is $q'$
+itself, since all the field lines from $q$ that land on the sphere must
+terminate on that much charge. The force is the attraction between $q$ and
+$q'$, separated by $a - b$:
+
+$$F = \frac{kqq'}{(a-b)^2} = -\frac{kq^2 R a}{(a^2-R^2)^2}$$
+
+And the energy, halved again for the same reason as before, is
+$U = -kq^2R/\left[2(a^2-R^2)\right]$.
+
+Two variants come up constantly:
+
+- **Isolated and neutral.** The sphere cannot take on net charge $q'$, so add a
+  second image $+\frac{R}{a}q$ at the centre. A charge at the centre gives the
+  same potential at every surface point, so the surface is still an
+  equipotential (just not at zero), and the net image charge is now zero.
+- **Held at potential $V_0$.** Put a charge $Q_c = RV_0/k$ at the centre instead.
+  That alone would put the sphere at $V_0$, and the original image keeps the
+  surface uniform.
+
+The same algebra covers a charge *inside* a grounded spherical cavity of radius
+$R$ at distance $s < R$: the image is $-Rq/s$ at $R^2/s$, now outside the
+cavity. The force magnitude is $kq^2Rs/(R^2-s^2)^2$, pulling the charge toward
+the nearest wall.
+
+<Figure caption={<><b>Figure 3.</b> Sphere lab. Drag the charge in toward the sphere and watch the image slide outward from the centre and grow. Switch on the centre image to see the isolated neutral sphere, where the far-field attraction turns into repulsion.</>}>
+  <Sim id="boundary-value-em-sphere" />
+</Figure>
+
+<QuickCheck
+  question="A charge is far from a small isolated neutral conducting sphere. As the distance grows, how does the attraction fall off?"
+  options={["Like one over distance squared", "Like one over distance cubed", "Like one over distance to the fifth", "It does not fall off"]}
+  answer={2}
+  explanation="The two images nearly cancel at large distance, leaving an induced dipole. A charge interacting with a dipole it induces itself gives a force that goes like one over distance to the fifth power."
+/>
+
+### Example 4: an isolated neutral sphere
+
+$q = +2.0$ nC sits $15.0$ cm from the centre of an isolated uncharged sphere of
+radius $5.0$ cm. Find the force.
+
+Image one: $q' = -(0.05/0.15)(2.0) = -0.667$ nC at $b = 0.0025/0.15 = 0.0167$ m.
+Image two: $+0.667$ nC at the centre.
+
+Attraction to image one, over a separation $a - b = 0.150 - 0.0167 = 0.1333$ m:
+
+$$F_1 = \frac{(8.99\times10^{9})(2.0\times10^{-9})(0.667\times10^{-9})}{(0.1333)^2} = \frac{1.199\times10^{-8}}{0.01778} = 6.74\times10^{-7}\ \text{N}$$
+
+Repulsion from image two, at the full $0.150$ m:
+
+$$F_2 = \frac{1.199\times10^{-8}}{0.0225} = 5.33\times10^{-7}\ \text{N}$$
+
+Net $6.74\times10^{-7} - 5.33\times10^{-7} = 1.42\times10^{-7}$ N, or $142$ nN,
+still attractive. A neutral conductor always attracts a nearby charge.
+
+## Lines, wires and dielectrics
+
+The same mirror works for a line charge. A wire with linear density $\lambda$ a
+height $h$ above a grounded plane images to $-\lambda$ at depth $h$. Using the
+line-charge field $E = 2k\lambda/r$, the attraction per unit length is
+
+$$\frac{F}{L} = \frac{2k\lambda^2}{2h} = \frac{k\lambda^2}{h}$$
+
+Because the potential of the pair is $V = 2k\lambda\ln(r_-/r_+)$, the wire
+surface sits at $V = 2k\lambda \ln(2h/a)$ relative to the plane for a wire of
+radius $a \ll h$, so the capacitance per unit length is
+
+$$\frac{C}{L} = \frac{\lambda}{V} = \frac{2\pi\varepsilon_0}{\ln(2h/a)}$$
+
+Two identical wires of radius $a$ with axes a distance $D$ apart are the same
+problem cut in half: the midplane between them is at zero potential and can be
+replaced by a grounded plane, so each wire has $C/L$ to that plane with
+$2h = D$, and the two in series give $C/L = \pi\varepsilon_0/\ln(D/a)$.
+
+Finally, a charge $q$ in vacuum a height $d$ above a semi-infinite dielectric
+with relative permittivity $\varepsilon_r$. The dielectric is not a conductor
+and the boundary condition is different, but the construction survives with a
+weakened image:
+
+$$q' = -q\,\frac{\varepsilon_r - 1}{\varepsilon_r + 1}$$
+
+at the mirror point. When $\varepsilon_r \to \infty$ you recover the perfect
+conductor, $q' = -q$. The bound surface charge density follows the same shape
+as $\sigma$ did for the conductor, with $q$ replaced by $q'$.
+
+## Recognising a boundary-value problem
+
+Reach for images when a problem has all three of these features.
+
+**A conductor, or a dielectric surface, with a symmetric shape.** Plane,
+sphere, cylinder, or a corner built from planes. Anything else and the images
+will not close.
+
+**A stated boundary condition rather than a stated charge distribution.**
+"Grounded", "held at 200 V", "isolated and neutral". The word *grounded* is the
+loudest possible signal: it means $V = 0$ on that surface, which is exactly
+what an image is built to enforce.
+
+**A question about force, energy, induced charge, or capacitance** on a charge
+that sits outside the conductor. Gauss's law cannot touch these, because the
+induced charge is not uniform and there is no surface on which $E$ is constant.
+
+Then run the checklist. Identify the region you care about. Put images only
+*outside* it. Verify $V$ on the boundary. Use the full formula for force,
+and half of it for energy. And before you write the number down, ask whether
+the sign makes sense: a grounded or neutral conductor always pulls a charge in,
+never pushes it away.
+
+These tools turn a geometry into an algebra problem. Next you will
+do the same for spacetime, replacing awkward velocity transformations with a
+single object that carries its own bookkeeping, in
+[four-vectors and the relativistic Doppler effect](/guide/four-vectors).

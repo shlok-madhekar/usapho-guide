@@ -1,54 +1,319 @@
-## Rays
+Hold a magnifying glass over a page and the letters swell. Move it further out and
+they suddenly flip upside down. Nothing about the glass changed. Only the distance
+did.
 
-When wavelengths are small compared with the apparatus, light travels in
-straight lines and optics becomes geometry. Two rules cover it: angles of
-incidence and reflection are equal, and refraction follows Snell's law.
+That flip is the whole subject. A lens does one thing: it takes the rays spraying
+out from a point on an object and bends them so they meet again at some other
+point. A small move of the object can throw that meeting point from 30 cm behind
+the lens out to infinity and then around to the wrong side entirely. What follows
+is how to predict it, draw it, and chain several lenses and mirrors together
+without losing the signs.
 
-$$n_1\sin\theta_1 = n_2\sin\theta_2$$
+## Why the rays meet at all
 
-Going from a dense medium to a lighter one, the refracted ray bends away from
-the normal, and past the critical angle $\sin\theta_c = n_2/n_1$ it does not
-emerge at all. That total internal reflection is what makes optical fibre
-work.
+You already have the one law this rests on. In [reflection and
+refraction](/guide/reflection-refraction) you saw that a ray crossing into a
+denser medium bends toward the normal by $n_1\sin\theta_1 = n_2\sin\theta_2$, and
+that a mirror sends a ray back at the angle it arrived.
 
-Mirrors and thin lenses share one equation and one magnification:
+Now picture a point source sitting on the axis of a piece of glass whose faces are
+curved. A ray that leaves along the axis hits both faces head-on and goes straight
+through. A ray that leaves at a steeper angle hits the faces further from the
+centre, where they are more slanted, so it gets bent more. That is the trick: the
+further off-axis the ray strikes, the harder the glass turns it. If the curvature
+is chosen well, the extra bending exactly compensates for the extra angle, and
+every ray from that one source point arrives at one common point on the far side.
 
-$$\frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i}, \qquad m = -\frac{d_i}{d_o}$$
+The compensation is only exact for rays that stay close to the axis, where
+$\sin\theta \approx \tan\theta \approx \theta$. Those are called *paraxial* rays,
+and every formula below is a paraxial formula. Rays far off-axis miss the meeting
+point slightly, a blur called spherical aberration, which this lesson ignores.
 
-Sign conventions matter more than the algebra: a positive image distance means
-a real image on the far side of a lens, and a negative one means a virtual
-image on the same side as the object. For a multi-lens system, solve one
-element at a time, using each image as the next object.
+Call the distance from the lens to the object $d_o$, and the distance to the point
+where the rays reconverge $d_i$. Two facts pin down the relation between them.
+First, an object infinitely far away sends in rays that are parallel, and those
+converge at a special distance called the *focal length* $f$. Second, light does
+not care which way it travels: if an object at $d_o$ images at $d_i$, then an
+object at $d_i$ images at $d_o$. A relation symmetric in $d_o$ and $d_i$ that
+reduces to $d_i = f$ when $d_o \to \infty$ is
 
-## Waves
+$$\frac{1}{d_o} + \frac{1}{d_i} = \frac{1}{f}$$
 
-When the wavelength is comparable to the apparatus, interference appears.
-Two-slit maxima occur where the path difference is a whole number of
-wavelengths:
+and that is the thin lens equation. The derivation from Snell's law comes later in
+this lesson, when you build it out of single curved surfaces. In words: the
+reciprocals add. If the object is far, $1/d_o$ is nearly nothing and $d_i \approx
+f$. As the object walks in toward the focal point, $1/d_o$ grows until it eats the
+whole of $1/f$, and $1/d_i$ hits zero — the image runs off to infinity. Push
+closer still and $1/d_i$ goes negative.
 
-$$d\sin\theta = m\lambda$$
+## What a negative distance means
 
-A diffraction grating obeys the same relation with many more slits, which
-sharpens the maxima without moving them. A single slit of width $a$ instead
-puts *minima* at $a\sin\theta = m\lambda$, a formula that looks identical and
-means the opposite, which is a favourite trap.
+A negative $d_i$ is not an error. It means the rays leaving the lens are still
+spreading apart, and only their backward extensions meet. Your eye judges a bundle
+only by where it seems to come from, so it sees an image hanging on the *same* side
+as the object. That is a **virtual** image: you can look at it, you cannot catch it
+on a screen. A positive $d_i$ gives a **real** image, made of light that actually
+goes there, and a screen at that spot lights up.
 
-Thin films add one more effect: reflection off a denser medium flips the phase
-by half a wavelength. Whether constructive interference needs $2nt = m\lambda$
-or $2nt = (m + \tfrac12)\lambda$ depends on how many of the two reflections
-flip. Count them before writing the condition.
+Fix these conventions now and write them at the top of every problem:
 
-<Aside label="Where this goes wrong" warn>
-  Sign conventions, not the algebra. A positive image distance means a real
-  image on the far side of a lens; a negative one means a virtual image on the
-  same side as the object. Decide your convention before you start and write it
-  down, because a sign slip here turns a real image into a virtual one and the
-  arithmetic will not warn you.
+- $d_o > 0$ for an object in front of the element, where light actually comes from.
+- $d_i > 0$ for a real image: behind a lens, in front of a mirror.
+- $f > 0$ for a converging lens or a concave mirror; $f < 0$ for a diverging lens
+  or a convex mirror.
+- $R > 0$ when the centre of curvature lies on the side the light leaves toward.
+
+Size comes from the ray that goes straight through the middle of the lens. It
+arrives at height $h_o$ at distance $d_o$ and leaves at height $h_i$ at distance
+$d_i$ on the far side, so similar triangles give $h_i/h_o = -d_i/d_o$. That ratio
+is the **magnification**:
+
+$$m = \frac{h_i}{h_o} = -\frac{d_i}{d_o}$$
+
+The minus sign is the flip. A real image from a single converging lens always has
+$d_i > 0$ and $d_o > 0$, so $m < 0$, so it is upside down. Every time.
+
+<Figure caption={<><b>Figure 1.</b> The three rays that build an image: in parallel and out through the far focus, straight through the centre, and in through the near focus and out parallel. Drag the object inside the focal length and watch the outgoing rays stop converging, so the image jumps to the dashed side and turns upright.</>}>
+  <Sim id="lenses-mirrors-lens-lab" />
+</Figure>
+
+<Aside label="Worth remembering">
+  Optical power is the reciprocal of the focal length in metres, measured in
+  diopters: $P = 1/f$. A reading lens of $f = 25.0$ cm $= 0.250$ m has $P = 4.0$ D.
+  Thin lenses pressed together add their powers, which is why the equation is
+  written in reciprocals in the first place.
 </Aside>
 
 <QuickCheck
-  question="A soap film in air appears black where it is thinnest. Why?"
-  options={["The film absorbs all the light there", "Only the top reflection flips phase, so the two reflections cancel", "The film is too thin to reflect", "Both reflections flip phase, so they cancel"]}
+  question="An object sits between a converging lens and its focal point. The image is:"
+  options={["Real, inverted, enlarged", "Virtual, upright, enlarged", "Real, upright, reduced", "Virtual, inverted, reduced"]}
   answer={1}
-  explanation="At near-zero thickness the path difference vanishes, so the only difference is the half-wavelength flip at the air-to-film surface. The film-to-air reflection does not flip, so the two cancel and the film looks dark."
+  explanation="With d_o less than f, the term 1/d_o exceeds 1/f, so 1/d_i is negative and the image is virtual. Then m = -d_i/d_o is positive and larger than one: upright and enlarged. That is a magnifying glass held close to the page."
 />
+
+## Two examples, plug-in then set-up
+
+**A candle and a lens.** A converging lens has $f = 20.0$ cm and a candle stands
+$60.0$ cm in front of it. Where is the image, and how big?
+
+$$\frac{1}{d_i} = \frac{1}{20.0} - \frac{1}{60.0} = \frac{3 - 1}{60.0} = \frac{2}{60.0}$$
+
+so $d_i = 30.0$ cm, positive, so it is real and $30.0$ cm behind the lens. The
+magnification is $m = -30.0/60.0 = -0.500$, so the flame appears inverted at half
+size. If the candle is $5.0$ cm tall the image is $2.5$ cm tall.
+
+**How close can a projector get?** A converging lens with $f = 12.0$ cm throws a
+real image on a screen. What is the smallest possible object-to-screen distance?
+
+Nothing is given to plug in, so set it up. The total distance is $D = d_o + d_i$.
+Solve the lens equation for $d_i$:
+
+$$d_i = \frac{d_o f}{d_o - f}, \qquad D = d_o + \frac{d_o f}{d_o - f} = \frac{d_o^2}{d_o - f}$$
+
+Minimise $D$ by setting the derivative to zero. With $u = d_o$,
+
+$$\frac{dD}{du} = \frac{2u(u - f) - u^2}{(u - f)^2} = \frac{u^2 - 2uf}{(u-f)^2} = 0$$
+
+which needs $u = 2f$. Then $d_o = 24.0$ cm, $d_i = (24.0)(12.0)/(12.0) = 24.0$ cm,
+and $D = 48.0$ cm, which is $4f$. Object and image sit symmetrically at $2f$ and
+the image is the same size as the object.
+
+The same rearrangement explains a lab staple. Writing the total as
+$d_o^2 - D d_o + Df = 0$ shows that if $D > 4f$ there are *two* lens positions
+giving a sharp image on one screen, separated by $d = \sqrt{D^2 - 4Df}$. Invert
+that for the displacement method: $f = (D^2 - d^2)/(4D)$, so $D = 100$ cm with
+$d = 40.0$ cm gives $f = 8400/400 = 21.0$ cm.
+
+<Aside label="Where this goes wrong" warn>
+  Measuring $d_o$ from the focal point instead of from the lens. The lens equation
+  wants distances from the lens. If a problem hands you the distance $x$ from the
+  object to the front focus, either add $f$ first, or switch to Newton's form
+  $x x' = f^2$, where $x'$ is measured from the back focus. For $f = 15.0$ cm and
+  $x = 5.00$ cm: $x' = 225/5.00 = 45.0$ cm from the back focus, which is
+  $45.0 + 15.0 = 60.0$ cm from the lens. Mixing the two conventions in one line is
+  the most common way to lose a problem here.
+</Aside>
+
+## Mirrors run on the same equation
+
+A concave mirror takes parallel rays and sends them through a point too, so it has
+a focal length and obeys the same relation. Its focal length is not independent of
+its shape: a ray parallel to the axis at small height $h$ strikes a sphere of
+radius $R$ at an angle $h/R$ to the local normal, reflects through twice that
+angle, and therefore crosses the axis a distance $h/(2h/R) = R/2$ from the mirror.
+So
+
+$$f = \frac{R}{2}, \qquad \frac{1}{d_o} + \frac{1}{d_i} = \frac{2}{R}$$
+
+A shaving mirror ground to $R = 40.0$ cm has $f = 20.0$ cm. A convex mirror has its
+centre of curvature behind it, so $R$ and $f$ are negative and it can only make
+small upright virtual images, which is what a car's mirror does. For
+$R = -4.00$ m, $f = -2.00$ m, and a truck at $12.0$ m gives
+$1/d_i = -1/2.00 - 1/12.0 = -7/12.0$, so $d_i = -1.71$ m and
+$m = -(-1.71)/12.0 = +0.143$.
+
+<Figure caption={<><b>Figure 2.</b> The same equation on a mirror, with f equal to half the radius. Slide the radius through zero to turn the mirror convex and notice that the image never leaves the back of the mirror, and never gets bigger than the object.</>}>
+  <Sim id="lenses-mirrors-mirror-lab" />
+</Figure>
+
+Rates come out of the same equation by differentiating. Hold $f$ fixed and
+differentiate $1/d_o + 1/d_i = 1/f$ with respect to time:
+
+$$
+-\frac{1}{d_o^2}\frac{d d_o}{dt} - \frac{1}{d_i^2}\frac{d d_i}{dt} = 0
+\;\Rightarrow\; \frac{d d_i}{dt} = -\left(\frac{d_i}{d_o}\right)^{2}\frac{d d_o}{dt} = -m^2 \frac{d d_o}{dt}
+$$
+
+For a concave mirror with $f = 10.0$ cm and an object at $30.0$ cm, $d_i = 15.0$ cm
+and $m = -0.500$, so an object approaching at $2.00$ cm/s drives the image at
+$(0.500)^2 (2.00) = 0.500$ cm/s. Image speed is not object speed, and the factor is
+the square of the magnification.
+
+<QuickCheck
+  question="A concave mirror of focal length 20.0 cm has a face 15.0 cm in front of it. What is the magnitude of the magnification?"
+  options={["0.25", "1.33", "4.0", "0.75"]}
+  answer={2}
+  explanation="1/d_i = 1/20.0 - 1/15.0 = -1/60.0, so d_i = -60.0 cm, a virtual image behind the mirror. Then m = -(-60.0)/15.0 = +4.0, upright and four times life size. Inside the focal length a concave mirror magnifies, which is why shaving mirrors work only up close."
+/>
+
+## Where the focal length comes from
+
+Everything above took $f$ as given. To compute it, go back to one curved surface
+separating index $n_1$ from index $n_2$. Applying Snell's law in the paraxial
+approximation to a ray striking at height $h$ on a surface of radius $R$ gives
+
+$$\frac{n_1}{d_o} + \frac{n_2}{d_i} = \frac{n_2 - n_1}{R}$$
+
+Note that the indices ride along with their own side's distance, and that the right
+side plays the role of $1/f$. Take a bug $60.0$ cm in front of a fish tank wall of
+radius $R = +10.0$ cm bulging toward the air, with water at $n = 1.33$ behind it:
+
+$$\frac{1.00}{60.0} + \frac{1.33}{d_i} = \frac{0.33}{10.0} = 0.0330$$
+
+so $1.33/d_i = 0.0330 - 0.0167 = 0.0163$ and $d_i = 81.4$ cm inside the water.
+
+<Figure caption={<><b>Figure 3.</b> One curved surface, the building block of every lens. Turn the index of the second medium down toward one and the surface stops bending anything; make the radius negative and the image goes virtual.</>}>
+  <Sim id="lenses-mirrors-surface" />
+</Figure>
+
+A thin lens is two such surfaces back to back. Apply the surface equation at the
+front face, feed its image in as the object for the back face, let the glass
+thickness go to zero, and the intermediate distance cancels, leaving the
+**lensmaker's equation**:
+
+$$\frac{1}{f} = \left(\frac{n_{\text{lens}}}{n_{\text{medium}}} - 1\right)\left(\frac{1}{R_1} - \frac{1}{R_2}\right)$$
+
+For a biconvex lens of $n = 1.50$ in air with $R_1 = +20.0$ cm and
+$R_2 = -30.0$ cm: $1/f = (0.500)(1/20.0 + 1/30.0) = (0.500)(0.0833) = 0.0417$, so
+$f = 24.0$ cm. A plano-convex lens has one infinite radius, so one term drops: with
+$n = 1.60$ and $R = 10.0$ cm, $1/f = (0.600)(1/10.0)$ and $f = 16.7$ cm.
+
+The medium term matters. Dunk a $n = 1.50$ lens of focal length $20.0$ cm in water.
+The bracket falls from $0.500$ to $1.50/1.33 - 1 = 0.128$, so $f$ grows by the
+factor $0.500/0.128 = 3.91$, to $78.2$ cm. A glass lens in water is a feeble lens.
+
+**A pin and a glass ball.** A solid glass sphere, $R = 5.00$ cm and $n = 1.50$,
+sits in air with a pin $20.0$ cm in front. Where is the final image? Do the
+surfaces one at a time. Front surface, $R = +5.00$ cm:
+
+$$\frac{1.00}{20.0} + \frac{1.50}{d_i} = \frac{0.50}{5.00} = 0.100$$
+
+giving $1.50/d_i = 0.0500$ and $d_i = 30.0$ cm past the front surface. The sphere is
+only $10.0$ cm thick, so those rays are still converging when they reach the back
+face and would have met $20.0$ cm beyond it. An object the light has not reached yet
+is a **virtual object**, and it goes in with a negative distance: $d_o = -20.0$ cm.
+At the back surface light runs glass to air, so $n_1 = 1.50$, $n_2 = 1.00$, and the
+centre of curvature is now on the incoming side, so $R = -5.00$ cm:
+
+$$\frac{1.50}{-20.0} + \frac{1.00}{d_i} = \frac{1.00 - 1.50}{-5.00} = 0.100$$
+
+so $1/d_i = 0.100 + 0.0750 = 0.175$ and $d_i = 5.71$ cm beyond the back of the
+sphere.
+
+## Chains: one element at a time
+
+That is the general method and it never changes. **The image from element one is
+the object for element two.** Measure the new object distance from element two, let
+it go negative when element one would have imaged behind element two, and multiply
+the magnifications: $m_{\text{total}} = m_1 m_2$.
+
+Two converging lenses, $f_1 = 10.0$ cm and $f_2 = 15.0$ cm, $40.0$ cm apart, object
+$15.0$ cm in front of the first. Lens one:
+$1/d_i = 1/10.0 - 1/15.0 = 1/30.0$, so $d_i = 30.0$ cm. That image is $30.0$ cm past
+lens one, hence $40.0 - 30.0 = 10.0$ cm in front of lens two, a perfectly ordinary
+real object. Lens two: $1/d_i = 1/15.0 - 1/10.0 = -1/30.0$, so $d_i = -30.0$ cm, a
+virtual image $30.0$ cm in front of lens two.
+
+When the two lenses are close together you can collapse them into one effective
+focal length. Running the same chain symbolically for a separation $d$ gives
+
+$$\frac{1}{F} = \frac{1}{f_1} + \frac{1}{f_2} - \frac{d}{f_1 f_2}$$
+
+For $f_1 = 10.0$ cm, $f_2 = 20.0$ cm, $d = 5.00$ cm:
+$1/F = 0.100 + 0.0500 - 0.0250 = 0.125$, so $F = 8.00$ cm. At $d = 0$ this is the
+powers adding, as promised.
+
+A mirror in the chain works the same way, with the light turned around. A lens
+with its back face silvered acts as one mirror whose power is the mirror's plus
+*twice* the lens's, because the light crosses the glass going in and again coming
+out: $1/F = 2/f_{\text{lens}} + 1/f_{\text{mirror}}$. For a
+plano-convex lens of $n = 1.50$ and $R = 20.0$ cm, the lensmaker's equation gives
+$f_{\text{lens}} = 40.0$ cm, and the silvered flat face is a plane mirror with
+$1/f_{\text{mirror}} = 0$. So $1/F = 2/40.0 = 0.0500$ and $F = 20.0$ cm.
+
+## Instruments: what magnification means there
+
+For a telescope, image size on a screen is meaningless. What matters is the
+**angular** magnification: the angle the image subtends at your eye divided by the
+angle the object subtended without the instrument.
+
+With a magnifier, the best your unaided eye can do is bring the object to its near
+point $N = 25.0$ cm, giving angle $h/N$. Put the object at the focal point instead
+and the image goes to infinity, subtending $h/f$. So $M = N/f$, and a $f = 5.00$ cm
+loupe is a $5.0\times$ magnifier.
+
+A telescope in normal adjustment has the two focal points coincident, so a distant
+object subtending $\theta$ makes an intermediate image of height $f_o\theta$, which
+the eyepiece presents at angle $f_o\theta/f_e$. So $M = f_o/f_e$: a $100$ cm
+objective with a $2.50$ cm eyepiece gives $40.0\times$. A Galilean telescope uses a
+negative eyepiece and the same formula in magnitude, $50.0/10.0 = 5.0$.
+
+Rack the eyepiece out so the final image lands at the near point instead and the
+eyepiece object distance changes. With $f_e = 6.00$ cm and $d_i = -25.0$ cm:
+$1/d_o = 1/6.00 + 1/25.0 = 0.2067$, so $d_o = 4.839$ cm. The angular magnification
+is $f_o/d_o = 90.0/4.839 = 18.6$, a little more than the $15.0$ of normal
+adjustment.
+
+A microscope multiplies a linear magnification by an angular one: the objective
+makes a real image at the far end of the tube, magnified by $L/f_o$ for tube length
+$L$, and the eyepiece views it as a magnifier at $N/f_e$. With
+$f_o = 0.800$ cm, $f_e = 2.00$ cm, $L = 16.0$ cm and $N = 25.0$ cm:
+$(16.0/0.800)(25.0/2.00) = (20.0)(12.5) = 250$.
+
+## Recognising it
+
+The signal is an object, an element with a curvature or a focal length, and a
+question about where or how big. Then the decision tree is short.
+
+One thin lens or one mirror, with $f$ given: the thin lens equation and $m =
+-d_i/d_o$, and read the signs off the answers rather than guessing at the start.
+
+A radius given instead of a focal length: $f = R/2$ if it is a mirror, the
+lensmaker's equation if it is a lens, and the single-surface equation if the light
+stops inside the glass rather than coming out the other side. That last case is the
+tell for a glass sphere, a fish tank, or a bug in amber.
+
+More than one element, or a silvered surface: chain them, one at a time, image
+becomes object, and expect at least one negative distance. Distances from focal
+points rather than from the lens: Newton's form. A rate of change: differentiate and
+pick up the factor $m^2$. Angles rather than heights, or an eye at the end: angular
+magnification, and ask where the final image is meant to sit, at infinity or at the
+near point.
+
+Every one of those is the same equation wearing a different hat. The trouble is
+never the algebra, it is the signs, and the only cure is writing the convention
+down before the first line.
+
+Next comes the case where the ray picture breaks down entirely: apertures small
+enough that light spreads where geometry says it should not, in
+[diffraction and interference](/guide/diffraction).

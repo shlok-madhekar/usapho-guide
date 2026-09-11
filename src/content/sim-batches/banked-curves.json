@@ -1,0 +1,101 @@
+[
+  {
+    "id": "banked-curves-fbd",
+    "title": "The two forces on a banked curve",
+    "caption": "A car on a frictionless bank, seen end-on.",
+    "height": 300,
+    "params": [
+      {
+        "key": "angle",
+        "label": "Bank angle",
+        "unit": "deg",
+        "min": 5,
+        "max": 45,
+        "step": 1,
+        "value": 20
+      }
+    ],
+    "draw": "\nvar g = 9.8;\nvar th = p.angle * Math.PI / 180;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\nvar baseY = H * 0.78;\nvar apexX = W * 0.82;\nvar leftX = W * 0.16;\nvar run = apexX - leftX;\nvar rise = run * Math.tan(th);\nif (rise > H * 0.42) { rise = H * 0.42; run = rise / Math.tan(th); apexX = leftX + run; }\n\n// the bank: a wedge rising away from the centre of the circle\nctx.strokeStyle = C.rule;\nctx.fillStyle = C.faint;\nctx.beginPath();\nctx.moveTo(leftX, baseY);\nctx.lineTo(apexX, baseY);\nctx.lineTo(apexX, baseY - rise);\nctx.closePath();\nctx.fill();\nctx.stroke();\n\n// centre-of-circle marker on the left\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 5]);\nctx.beginPath(); ctx.moveTo(leftX - 10, baseY - rise - 30); ctx.lineTo(leftX - 10, baseY + 12); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"axis of the circle\", 6, baseY + 26);\n\n// car on the slope\nvar fx = leftX + run * 0.55, fy = baseY - (fx - leftX) * Math.tan(th);\nvar ux = Math.cos(th), uy = -Math.sin(th);      // up the slope\nvar nx = Math.sin(th), ny = -Math.cos(th);      // normal to the slope\nctx.save();\nctx.translate(fx, fy);\nctx.rotate(-th);\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.roundRect(-17, -13, 34, 13, 3); ctx.fill();\nctx.restore();\nvar cx = fx + nx * 7, cy = fy + ny * 7;\n\nfunction arrow(x0, y0, x1, y1, col) {\n  ctx.strokeStyle = col; ctx.fillStyle = col;\n  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();\n  var a = Math.atan2(y1 - y0, x1 - x0);\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 8 * Math.cos(a - 0.4), y1 - 8 * Math.sin(a - 0.4));\n  ctx.lineTo(x1 - 8 * Math.cos(a + 0.4), y1 - 8 * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nvar Nlen = H * 0.34;\nvar Nx = cx + nx * Nlen, Ny = cy + ny * Nlen;\narrow(cx, cy, Nx, Ny, C.accent);\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"N\", Nx + 5, Ny - 2);\n\n// components of N: vertical N cos(th) and horizontal N sin(th)\nctx.strokeStyle = C.accent;\nctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(Nx, Ny); ctx.lineTo(Nx, cy); ctx.stroke();\nctx.beginPath(); ctx.moveTo(Nx, cy); ctx.lineTo(cx, cy); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"N cos\" + String.fromCharCode(952) + \"  (holds the weight up)\", Nx + 5, (Ny + cy) / 2);\nctx.textAlign = \"center\";\nctx.fillText(\"N sin\" + String.fromCharCode(952) + \" = m v\" + String.fromCharCode(178) + \" / r\", (Nx + cx) / 2, cy - 8);\n\n// weight\nvar Wlen = Nlen * Math.cos(th);\narrow(cx, cy, cx, cy + Wlen, C.figure);\nctx.fillStyle = C.figure;\nctx.textAlign = \"left\";\nctx.fillText(\"mg\", cx + 6, cy + Wlen - 4);\n\n// horizontal acceleration arrow, at the base\nctx.strokeStyle = C.ink;\narrow(fx, baseY + 22, fx - 52, baseY + 22, C.ink);\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"a = v\" + String.fromCharCode(178) + \"/r  (horizontal, toward the axis)\", fx + 6, baseY + 26);\n\n// angle arc at the foot of the wedge\nctx.strokeStyle = C.ink;\nctx.beginPath(); ctx.arc(apexX, baseY, 34, Math.PI - th, Math.PI); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.textAlign = \"right\";\nctx.fillText(String.fromCharCode(952) + \" = \" + p.angle.toFixed(0) + String.fromCharCode(176), apexX - 40, baseY - 6);\n\nctx.textAlign = \"left\";\nout.note = \"Only N and mg act. N tilts by \" + p.angle.toFixed(0) + String.fromCharCode(176) + \", so it splits into a vertical part mg and an inward part m v\" + String.fromCharCode(178) + \"/r.\";\n"
+  },
+  {
+    "id": "banked-curves-lab",
+    "title": "Banked curve lab",
+    "caption": "Set the bank, the radius, the grip and your speed, and see the band of speeds that hold.",
+    "height": 320,
+    "params": [
+      {
+        "key": "radius",
+        "label": "Radius",
+        "unit": "m",
+        "min": 20,
+        "max": 200,
+        "step": 5,
+        "value": 90
+      },
+      {
+        "key": "angle",
+        "label": "Bank angle",
+        "unit": "deg",
+        "min": 0,
+        "max": 45,
+        "step": 1,
+        "value": 12
+      },
+      {
+        "key": "mu",
+        "label": "Static friction coefficient",
+        "unit": "",
+        "min": 0,
+        "max": 1.2,
+        "step": 0.05,
+        "value": 0.5
+      },
+      {
+        "key": "speed",
+        "label": "Your speed",
+        "unit": "m/s",
+        "min": 2,
+        "max": 60,
+        "step": 0.5,
+        "value": 25
+      }
+    ],
+    "draw": "\nvar g = 9.8;\nvar th = p.angle * Math.PI / 180;\nvar tn = Math.tan(th);\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\nvar vdes = Math.sqrt(p.radius * g * tn);\nvar denMax = 1 - p.mu * tn;\nvar vmax = denMax <= 0.001 ? 1e9 : Math.sqrt(p.radius * g * (tn + p.mu) / denMax);\nvar numMin = tn - p.mu;\nvar vmin = numMin <= 0 ? 0 : Math.sqrt(p.radius * g * numMin / (1 + p.mu * tn));\n\nvar slip = 0;\nif (p.speed > vmax) slip = 1;\nelse if (p.speed < vmin) slip = -1;\n\n// cross-section of the bank\nvar baseY = H * 0.60;\nvar leftX = W * 0.10, apexX = W * 0.70;\nvar run = apexX - leftX;\nvar rise = run * tn;\nif (rise > H * 0.34) { rise = H * 0.34; run = tn > 0 ? rise / tn : run; apexX = leftX + run; }\nctx.strokeStyle = C.rule;\nctx.fillStyle = C.faint;\nctx.beginPath();\nctx.moveTo(leftX, baseY); ctx.lineTo(apexX, baseY); ctx.lineTo(apexX, baseY - rise);\nctx.closePath(); ctx.fill(); ctx.stroke();\n\nvar drift = slip === 0 ? 0 : slip * 22 * (0.5 + 0.5 * Math.sin(t * 2.4));\nvar frac = 0.55 + drift / (run + 1);\nif (frac > 0.95) frac = 0.95;\nif (frac < 0.10) frac = 0.10;\nvar fx = leftX + run * frac;\nvar fy = baseY - (fx - leftX) * tn;\n\nctx.save();\nctx.translate(fx, fy);\nctx.rotate(-th);\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.roundRect(-18, -14, 36, 14, 3); ctx.fill();\nctx.fillStyle = C.paper;\nctx.beginPath(); ctx.roundRect(-9, -12, 12, 7, 2); ctx.fill();\nctx.restore();\n\n// friction arrow along the surface, drawn only when friction is doing work\nvar ux = Math.cos(th), uy = -Math.sin(th);\nvar need = p.speed * p.speed / p.radius;\nvar fsign = (need * Math.cos(th) > g * Math.sin(th)) ? -1 : 1;  // +1 = up the slope\nvar flen = 34;\nvar ax0 = fx, ay0 = fy + 3;\nctx.strokeStyle = C.accent; ctx.fillStyle = C.accent;\nctx.beginPath();\nctx.moveTo(ax0, ay0);\nctx.lineTo(ax0 + ux * flen * fsign, ay0 + uy * flen * fsign);\nctx.stroke();\nvar aa = Math.atan2(uy * fsign, ux * fsign);\nvar tipx = ax0 + ux * flen * fsign, tipy = ay0 + uy * flen * fsign;\nctx.beginPath();\nctx.moveTo(tipx, tipy);\nctx.lineTo(tipx - 7 * Math.cos(aa - 0.4), tipy - 7 * Math.sin(aa - 0.4));\nctx.lineTo(tipx - 7 * Math.cos(aa + 0.4), tipy - 7 * Math.sin(aa + 0.4));\nctx.closePath(); ctx.fill();\nctx.fillStyle = C.accent;\nctx.textAlign = fsign > 0 ? \"left\" : \"right\";\nctx.fillText(\"friction\", tipx + 6 * fsign, tipy + 14);\n\nctx.textAlign = \"left\";\nctx.fillStyle = C.ink;\nctx.fillText(String.fromCharCode(952) + \" = \" + p.angle.toFixed(0) + String.fromCharCode(176) + \",  r = \" + p.radius.toFixed(0) + \" m,  \" + String.fromCharCode(956) + \" = \" + p.mu.toFixed(2), leftX, H * 0.12);\nif (slip > 0) ctx.fillText(\"too fast: sliding up and off the bank\", leftX, H * 0.12 + 16);\nelse if (slip < 0) ctx.fillText(\"too slow: sliding down toward the axis\", leftX, H * 0.12 + 16);\nelse ctx.fillText(\"holds the curve\", leftX, H * 0.12 + 16);\n\n// speed number line with the safe band shaded\nvar gy = H * 0.86, gx0 = W * 0.08, gx1 = W * 0.92;\nvar vTop = 60;\nfunction sx(v) { var q = v / vTop; if (q > 1) q = 1; return gx0 + (gx1 - gx0) * q; }\nctx.fillStyle = C.faint;\nctx.fillRect(sx(vmin), gy - 12, sx(vmax > vTop ? vTop : vmax) - sx(vmin), 24);\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(gx0, gy); ctx.lineTo(gx1, gy); ctx.stroke();\nctx.strokeStyle = C.figure;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(sx(vdes), gy - 14); ctx.lineTo(sx(vdes), gy + 14); ctx.stroke();\nctx.setLineDash([]);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2.5;\nctx.beginPath(); ctx.moveTo(sx(p.speed), gy - 16); ctx.lineTo(sx(p.speed), gy + 16); ctx.stroke();\nctx.lineWidth = 1.5;\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"safe band of speeds (m/s)\", (gx0 + gx1) / 2, gy - 20);\nctx.textAlign = \"left\";\nctx.fillText(\"0\", gx0 - 3, gy + 26);\nctx.textAlign = \"right\";\nctx.fillText(vTop + \" m/s\", gx1, gy + 26);\nctx.textAlign = \"center\";\nctx.fillStyle = C.figure;\nctx.fillText(\"design\", sx(vdes), gy + 26);\n\nctx.textAlign = \"left\";\nvar maxTxt = vmax > 1e8 ? \"no upper limit\" : vmax.toFixed(1) + \" m/s\";\nout.note = \"design speed \" + vdes.toFixed(1) + \" m/s   |   safe from \" + vmin.toFixed(1) + \" m/s to \" + maxTxt + \"   |   you are at \" + p.speed.toFixed(1) + \" m/s\";\n"
+  },
+  {
+    "id": "banked-curves-cone",
+    "title": "Conical pendulum lab",
+    "caption": "Swing the cone wider and the ball speeds up while the period drops.",
+    "height": 320,
+    "params": [
+      {
+        "key": "length",
+        "label": "String length",
+        "unit": "m",
+        "min": 0.4,
+        "max": 2.5,
+        "step": 0.1,
+        "value": 1.2
+      },
+      {
+        "key": "angle",
+        "label": "Angle from vertical",
+        "unit": "deg",
+        "min": 5,
+        "max": 80,
+        "step": 1,
+        "value": 30
+      },
+      {
+        "key": "mass",
+        "label": "Ball mass",
+        "unit": "kg",
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.1,
+        "value": 0.5
+      }
+    ],
+    "draw": "\nvar g = 9.8;\nvar th = p.angle * Math.PI / 180;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\nvar L = p.length;\nvar r = L * Math.sin(th);\nvar h = L * Math.cos(th);\nvar omega = Math.sqrt(g / h);\nvar v = omega * r;\nvar per = 2 * Math.PI / omega;\nvar tension = p.mass * g / Math.cos(th);\n\nvar pxPerM = (H * 0.62) / 2.5;\nvar px = W * 0.5, py = H * 0.14;\nvar rx = r * pxPerM, ry = rx * 0.30, cyc = py + h * pxPerM;\n\n// pivot\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px, py, 4, 0, 6.2832); ctx.fill();\nctx.fillRect(px - 26, py - 8, 52, 5);\n\n// vertical axis\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 5]);\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, cyc + ry + 14); ctx.stroke();\nctx.setLineDash([]);\n\n// the circle the ball traces, drawn in perspective\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.ellipse(px, cyc, rx, ry, 0, 0, 6.2832); ctx.stroke();\n\n// cone edges\nctx.strokeStyle = C.faint;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px - rx, cyc); ctx.stroke();\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + rx, cyc); ctx.stroke();\n\n// ball\nvar ph = omega * t;\nvar bx = px + rx * Math.cos(ph), by = cyc + ry * Math.sin(ph);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(bx, by); ctx.stroke();\nctx.lineWidth = 1.5;\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(bx, by, 8, 0, 6.2832); ctx.fill();\n\n// labels\nctx.fillStyle = C.accent;\nctx.textAlign = \"right\";\nctx.fillText(\"L = \" + L.toFixed(2) + \" m\", (px + bx) / 2 - 8, (py + by) / 2);\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"h = L cos\" + String.fromCharCode(952) + \" = \" + h.toFixed(2) + \" m\", px + 6, py + h * pxPerM * 0.5);\nctx.textAlign = \"center\";\nctx.fillText(\"r = L sin\" + String.fromCharCode(952) + \" = \" + r.toFixed(2) + \" m\", px + rx * 0.5, cyc + ry + 28);\nctx.strokeStyle = C.ink;\nctx.beginPath(); ctx.moveTo(px, cyc); ctx.lineTo(px + rx, cyc); ctx.stroke();\n\n// angle arc at the pivot\nctx.strokeStyle = C.ink;\nctx.beginPath(); ctx.arc(px, py, 30, Math.PI / 2 - th, Math.PI / 2); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(String.fromCharCode(952) + \" = \" + p.angle.toFixed(0) + String.fromCharCode(176), px + 6, py + 44);\n\n// force triangle in the corner\nvar ox = W * 0.12, oy = H * 0.30, sc = 46;\nctx.strokeStyle = C.figure; ctx.fillStyle = C.figure;\nctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox, oy + sc); ctx.stroke();\nctx.fillText(\"mg\", ox - 22, oy + sc * 0.6);\nctx.strokeStyle = C.accent; ctx.fillStyle = C.accent;\nctx.beginPath(); ctx.moveTo(ox, oy + sc); ctx.lineTo(ox + sc * Math.tan(th), oy + sc); ctx.stroke();\nctx.fillText(\"T sin\" + String.fromCharCode(952), ox + 4, oy + sc + 14);\nctx.strokeStyle = C.ink;\nctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox + sc * Math.tan(th), oy + sc); ctx.stroke();\n\nout.note = \"v = \" + v.toFixed(2) + \" m/s   |   period = \" + per.toFixed(2) + \" s   |   tension = \" + tension.toFixed(2) + \" N   |   \" + String.fromCharCode(969) + \" = \" + omega.toFixed(2) + \" rad/s\";\n"
+  }
+]

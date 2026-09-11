@@ -1,62 +1,298 @@
-## A definition you can compute with
+## The question the second law leaves open
 
-Heat is not a state function, but heat divided by the temperature at which it
-is transferred turns out to be. Along a reversible path,
+Put a hot block against a cold one and heat crosses in one direction only. You
+have never seen the cold one get colder while the hot one gets hotter, even
+though energy would balance perfectly if it did. In the last lesson you met
+Carnot's result: no engine running between $T_H$ and $T_C$ can beat
+$1 - T_C/T_H$. That was a statement about engines. But the ban on cold-to-hot
+heat flow is not about engines at all, and neither is the fact that a gas
+released into a vacuum never gathers itself back into one corner.
+
+So there must be some quantity that keeps score. Something that goes up when a
+process runs the way processes actually run, and that would have to go down for
+the backwards version, which is why the backwards version never happens. That
+quantity is entropy, and the useful thing about it is that you can compute it
+with numbers and units, not just wave at it.
+
+## A quantity that depends only on where you are
+
+Start from the Carnot engine, because it is the one process you already know
+exactly. Over one cycle it takes $Q_H$ from the hot reservoir and dumps $Q_C$
+into the cold one, and Carnot's efficiency forces
+
+$$\frac{Q_C}{Q_H} = \frac{T_C}{T_H}$$
+
+Rearrange that into $Q_H/T_H = Q_C/T_C$. Count heat going *into* the working
+substance as positive and heat leaving as negative, and the two terms cancel:
+the sum of $Q/T$ around the whole cycle is zero. Heat itself does not come back
+to zero over a cycle — the engine absorbed more than it rejected, that was the
+point. But heat divided by the temperature at which it crossed does.
+
+A quantity whose total change around any closed loop is zero is a *state
+function*: its value depends only on which state you are in, not on how you got
+there. You have met one before — potential energy has exactly this property,
+which is why $\Delta U$ between two points does not care about the path. So
+define entropy $S$ by its changes along a reversible path:
 
 $$dS = \frac{dQ_{rev}}{T}, \qquad \Delta S = \int_i^f \frac{dQ_{rev}}{T}$$
 
-The subscript matters. The formula only defines $\Delta S$ when evaluated
-along a reversible path; the temperature in the denominator has to be a
-well-defined temperature of the system, which an irreversible process does not
-have.
+Read it in words. $dQ_{rev}$ is a small amount of heat entering the system, in
+joules, and $T$ is the absolute temperature in kelvin at which it enters. Their
+ratio has units of J/K, and that is what entropy is measured in. Heat in raises
+entropy; heat out lowers it. The same joule bought at a low temperature buys
+more entropy than at a high one, because you are dividing by a smaller number.
 
-Two cases cover most of what you will need. At constant temperature the
-integral is trivial, $\Delta S = Q/T$ — this is the melting-ice case and the
-isothermal-expansion case. For an ideal gas going anywhere at all, substitute
-$dQ = nC_V\,dT + P\,dV$ and integrate:
+The subscript "rev" is doing real work and is not decoration. The formula only
+tells you $\Delta S$ if you evaluate it along a reversible path, one where the
+system has a single well-defined temperature at every instant. Real processes
+usually do not. That sounds crippling. In a moment it turns out to be the
+source of the technique.
+
+<Aside label="Worth remembering">
+  Absolute temperature, always. A kelvin in the denominator, never a celsius
+  reading. Writing $Q/20$ for a process at $20^\circ$C instead of $Q/293$ is
+  the single most common arithmetic wreck in this topic.
+</Aside>
+
+## The three integrals you will actually do
+
+Almost every entropy calculation in a problem set is one of three shapes.
+
+**A reservoir, or anything at fixed temperature.** If $T$ never changes, it
+comes out of the integral and $\Delta S = Q/T$. A "large bath", a "huge
+reservoir", a furnace wall "held at 400 K" — these are all telling you that the
+body is big enough that the heat you give it does not shift its temperature.
+Melting and boiling are in this family too, because a phase change happens at
+one fixed temperature: $\Delta S = mL/T$.
+
+**A body that warms up.** Here $T$ changes as the heat goes in, so you need the
+integral. With heat capacity $C = mc$ held constant, $dQ = C\,dT$, and
+
+$$\Delta S = \int_{T_i}^{T_f} \frac{C\,dT}{T} = C\ln\frac{T_f}{T_i}$$
+
+That is the whole of the calculus you need here: the integral of $1/T$ is
+$\ln T$. If you have not met logarithms in this role, all you need is that
+$\ln(a/b) = \ln a - \ln b$ and that $\ln$ of a number less than 1 is negative —
+so cooling gives negative entropy change, as it should.
+
+**An ideal gas going anywhere.** Put the first law inside the definition. For
+$n$ moles, $dQ_{rev} = nC_V\,dT + P\,dV$, and $P = nRT/V$, so
+
+$$dS = nC_V\frac{dT}{T} + nR\frac{dV}{V}$$
+
+Integrate each piece and you get two logs:
 
 $$\Delta S = nC_V\ln\frac{T_f}{T_i} + nR\ln\frac{V_f}{V_i}$$
 
-Two logs. Memorize the shape, and note that it depends only on the endpoints.
+Nothing but the endpoints survives. The path that got the gas there has
+vanished from the answer, which is the state-function property showing up
+concretely. Set $T_f = T_i$ and you have the isothermal case,
+$\Delta S = nR\ln(V_f/V_i)$. Set $V_f = V_i$ and you have constant-volume
+heating. For constant pressure it is easier to swap in $C_P$ and the
+temperature ratio, $\Delta S = nC_P\ln(T_f/T_i)$, since at fixed pressure the
+volume ratio equals the temperature ratio anyway.
+
+<QuickCheck
+  question="A gas in an insulated cylinder is compressed slowly and reversibly by a piston. What is its entropy change?"
+  options={["Zero, because no heat crosses the walls", "Negative, because the volume went down", "Positive, because work was done on it", "It cannot be determined without the compression ratio"]}
+  answer={0}
+  explanation="Reversible plus adiabatic means dQ is zero at every step along a path that the definition accepts, so the integral is zero. The volume log is negative but the temperature log rises by exactly as much: that cancellation is what an adiabat is. Note that adiabatic alone is not enough — a free expansion is adiabatic and has positive entropy change."
+/>
 
 ## Invent a path
 
-Because $S$ is a state function, that last observation is a licence. An
-irreversible process — a free expansion, two blocks brought into contact, a
-gas stirred by a paddle — has no reversible path of its own, but you do not
-need one. Identify the initial and final states, then compute along any
-reversible path connecting them.
+Since $\Delta S$ depends only on the endpoints, you are free to reach them any
+way you like. This is a licence, and it is the central trick of the topic.
 
-For a free expansion of an ideal gas from $V$ to $2V$, no heat flows and no
-work is done, so $T$ is unchanged. Replace it with a slow isothermal expansion
-between the same two states: $\Delta S = nR\ln 2 > 0$. The gas gained entropy
-even though $Q = 0$ in the actual process, because $Q = 0$ was true of the
-real path, not the substitute one.
+The real process might be violent: a partition yanked out, two blocks slammed
+together, a paddle stirring a fluid. None of those has a reversible path, and
+at no instant does the system have one temperature you could put in a
+denominator. So do not use the real process. Write down the initial state and
+the final state, throw away everything that happened in between, and invent a
+slow reversible path connecting the same two states. The number you get is the
+entropy change of the real process, because entropy does not know the
+difference.
+
+Take the standard case. One mole of ideal gas sits behind a partition in an
+insulated box; you remove the partition and it fills twice the volume. No heat
+entered, no work was done on anything, so the internal energy and therefore the
+temperature are unchanged. The substitute path is a slow isothermal expansion
+from $V$ to $2V$, and along it $\Delta S = R\ln 2 = 8.31 \times 0.693 = 5.76$
+J/K. That is the answer for the free expansion too.
+
+<Figure caption={<><b>Figure 1.</b> Three ways to get from the same start to the same end. Drag the volume slider and watch the readout: the entropy change tracks the two dots and ignores the squiggle between them.</>}>
+  <Sim id="entropy-paths" />
+</Figure>
 
 <Aside label="Where this goes wrong" warn>
-  Setting $\Delta S = 0$ for a free expansion because no heat was exchanged.
-  The formula requires a reversible path, and free expansion is the textbook
-  irreversible process. Whenever a process is sudden, unresisted, or involves
-  a finite temperature difference, build a reversible substitute first.
+  Saying the free expansion has $\Delta S = 0$ because $Q = 0$. The $Q = 0$ was
+  true of the real, irreversible path, and that path is not one the definition
+  accepts. Whenever a process is sudden, unresisted, or driven by a finite
+  temperature difference, stop and build a reversible substitute before you put
+  anything over a $T$.
 </Aside>
 
-## Why heat flows one way
+## Entropy of the universe, and why it only goes up
 
-Nothing in the first law forbids a cold block spontaneously warming a hot one;
-energy would still balance. What forbids it is that the total entropy would
-drop. Move $Q$ from a body at $T_H$ to one at $T_C$:
+The system is never the whole story. Add up the entropy change of everything
+involved — the system plus every reservoir it touched — and call it
+$\Delta S_{univ}$. The second law, in its most usable form, says this total is
+zero for a reversible process and strictly positive for a real one. It never
+goes down.
 
-$$\Delta S_{total} = \frac{Q}{T_C} - \frac{Q}{T_H}$$
+You can see where the positivity comes from with the simplest irreversible
+process there is. Let $Q$ leak from a body at $T_H$ to one at $T_C$, both big
+enough not to change temperature:
 
-This is positive when $T_H > T_C$ and negative if you try to run it backwards.
-The same expression tells you the direction is only marginal when the two
-temperatures are nearly equal — which is exactly the condition for a transfer
-to be reversible, and exactly why reversible engines have to run infinitely
-slowly.
+$$\Delta S_{univ} = \frac{Q}{T_C} - \frac{Q}{T_H} = Q\left(\frac{1}{T_C} - \frac{1}{T_H}\right)$$
+
+Positive whenever $T_H > T_C$, which is the only direction it runs. Try it
+backwards and the expression flips sign, which is the ban you were looking for
+at the start. And notice what happens as $T_H \to T_C$: the entropy generated
+goes to zero. That is why reversible heat transfer has to happen across a
+vanishing temperature difference, and hence infinitely slowly.
+
+A real engine is the same bookkeeping. The working substance returns to its
+initial state each cycle, so its own $\Delta S$ is zero; all the entropy shows
+up in the reservoirs, $-Q_H/T_H + Q_C/T_C$. Carnot's engine makes that exactly
+zero. Every worse engine rejects more heat than Carnot's and makes it positive.
+So Carnot's limit is not a separate law — it is what $\Delta S_{univ} \ge 0$
+looks like when you apply it to an engine.
+
+<Figure caption={<><b>Figure 2.</b> Two finite blocks reaching a common temperature. The dashed curves are the two blocks separately; the solid one is their sum. Slide the starting temperatures further apart and watch the total climb faster.</>}>
+  <Sim id="entropy-mixing" />
+</Figure>
+
+## Worked examples
+
+**One. Heating a pot of water.** 2.0 kg of water, $c = 4186$ J/kg·K, taken
+slowly from $20^\circ$C to $80^\circ$C. The body warms, so this is the log
+case. First convert: $T_i = 293$ K, $T_f = 353$ K. The heat capacity is
+$C = mc = 2.0 \times 4186 = 8372$ J/K. Then
+
+$$\Delta S = 8372 \ln\frac{353}{293} = 8372 \times \ln(1.2048) = 8372 \times 0.1863 = 1560 \text{ J/K}$$
+
+Positive, because heat went in. If you had used $Q/T$ with $Q = 8372 \times 60
+= 5.02\times10^5$ J you would have had to pick a $T$, and there is no single
+right one to pick — that is the signal that the log is required.
+
+**Two. A hot ball in a cold bath.** A 0.50 kg lead ball, $c = 128$ J/kg·K, at
+$100^\circ$C, dropped into a very large water bath held at $20^\circ$C. Find
+the entropy change of ball plus bath.
+
+Two bodies, two different treatments, and that is the whole lesson of this
+example. The ball's temperature slides from 373 K to 293 K, so it gets the log:
+
+$$\Delta S_{ball} = (0.50)(128)\ln\frac{293}{373} = 64 \ln(0.7855) = 64 \times (-0.2414) = -15.45 \text{ J/K}$$
+
+The bath does not change temperature, so it gets $Q/T$. The heat it receives is
+what the ball gave up, $Q = 64 \times 80 = 5120$ J, arriving at 293 K:
+
+$$\Delta S_{bath} = \frac{5120}{293} = +17.47 \text{ J/K}$$
+
+Total: $-15.45 + 17.47 = +2.02$ J/K. Positive, as it must be, because dropping
+a hot thing into a cold bath is irreversible. The ball's loss is real; the
+bath's gain is bigger because the joules arrived at a lower temperature than
+they left.
+
+**Three. Both variables moving.** 2.0 mol of a monatomic ideal gas,
+$C_V = \tfrac{3}{2}R$, goes from 300 K at volume $V_0$ to 250 K at $3V_0$ along
+"some complicated path". The phrase is a gift: it means you are not supposed to
+care. Use the two-log formula.
+
+Temperature term: $nC_V = 2.0 \times 1.5 \times 8.31 = 24.93$ J/K, and
+$\ln(250/300) = \ln(0.8333) = -0.1823$, giving $24.93 \times (-0.1823) = -4.55$
+J/K. Volume term: $nR = 2.0 \times 8.31 = 16.62$ J/K, and $\ln 3 = 1.0986$,
+giving $16.62 \times 1.0986 = +18.26$ J/K. Add them:
+
+$$\Delta S = -4.55 + 18.26 = +13.71 \text{ J/K}$$
+
+Cooling pulled entropy down, expanding pushed it up more.
+
+**Four. Squeezing work out of a cooling block.** A 1.0 kg copper block,
+$c = 386$ J/kg·K, starts at 500 K and is used as the hot source of a
+*reversible* engine whose cold reservoir is a huge bath at 300 K. The engine
+runs until the block has cooled to 300 K. How much work comes out?
+
+You cannot use $1 - T_C/T_H$ directly, because $T_H$ is falling the whole time.
+Use entropy instead. Reversible means $\Delta S_{univ} = 0$, and that one
+equation is enough.
+
+The block cools from 500 K to 300 K, so its entropy change is the log case:
+
+$$\Delta S_{block} = 386 \ln\frac{300}{500} = 386 \times (-0.5108) = -197.2 \text{ J/K}$$
+
+The bath is at fixed 300 K, so its entropy change is $Q_C/300$. For the total
+to be zero, $Q_C/300 = +197.2$, giving $Q_C = 5.916\times10^4$ J. The heat the
+block gave up is straightforward energy bookkeeping:
+$Q_H = mc\,\Delta T = 386 \times 200 = 7.72\times10^4$ J. Energy in equals
+energy out, so
+
+$$W = Q_H - Q_C = 7.72\times10^4 - 5.916\times10^4 = 1.80\times10^4 \text{ J}$$
+
+About 18.0 kJ, out of 77.2 kJ available: an overall efficiency of 23%, below
+the 40% a Carnot engine gets at a fixed 500 K, because the source spends most
+of its life cooler than that. The same move — set $\Delta S_{univ} = 0$ and
+solve — handles two finite bodies driven to a common temperature, where the
+condition $C\ln(T_f/T_1) + C\ln(T_f/T_2) = 0$ collapses to
+$T_f = \sqrt{T_1T_2}$, the geometric mean rather than the average.
 
 <QuickCheck
-  question="An ideal gas is compressed isothermally and reversibly to half its volume. What happens to the entropy of the gas, and to the total entropy of gas plus reservoir?"
-  options={["Gas entropy decreases; total entropy decreases", "Gas entropy decreases; total entropy is unchanged", "Gas entropy is unchanged; total entropy increases", "Gas entropy increases; total entropy is unchanged"]}
+  question="Two identical blocks at 400 K and 200 K end at a common temperature. In which case is the final temperature lower: placed in direct contact, or connected through a reversible engine?"
+  options={["Direct contact, 300 K", "Through the engine, about 283 K", "The same either way", "Through the engine, about 316 K"]}
   answer={1}
-  explanation="The gas loses nR ln 2 of entropy since its volume halved at fixed temperature. The heat it expels raises the reservoir's entropy by exactly the same amount, so the total is unchanged, which is what reversible means."
+  explanation="Direct contact conserves energy and gives the arithmetic mean, 300 K. The engine carries some of that energy away as work, so less is left in the blocks and the final temperature is the geometric mean, about 283 K. Whenever work is extracted, the bodies end up cooler."
 />
+
+## What entropy is counting
+
+The formula came from engines, but the meaning comes from counting. A
+*macrostate* is what you can measure: pressure, temperature, how many molecules
+are on the left. A *microstate* is one specific arrangement of every molecule.
+Boltzmann's result is that
+
+$$S = k_B \ln \Omega$$
+
+where $\Omega$ is the number of microstates in the macrostate and
+$k_B = 1.38\times10^{-23}$ J/K. Take four labelled molecules in a box you
+imagine split down the middle. "All four on the left" can happen exactly one
+way, $\Omega = 1$. "Two on each side" can happen $\binom{4}{2} = 6$ ways. So
+the even split has more entropy by $k_B\ln 6 = 2.47\times10^{-23}$ J/K.
+
+<Figure caption={<><b>Figure 3.</b> Every way the molecules can be split, counted. Push the slider to 20 molecules and see how fast the middle bar outgrows the edge one.</>}>
+  <Sim id="entropy-microstates" />
+</Figure>
+
+The log is what makes this match the thermodynamic entropy: counts multiply
+when you combine systems, logs add, and entropy is additive. It also explains
+the free expansion in one line. Double the volume and each of $N$ molecules has
+twice as many places to be, so $\Omega$ is multiplied by $2^N$ and
+$\Delta S = k_B N \ln 2$. For a mole, $k_B N_A = R$, and you are back to
+$R\ln 2$. Two routes, the same number.
+
+## Recognising an entropy problem
+
+Reach for entropy when you see any of these.
+
+The question asks directly for "the entropy change of the universe", or of a
+body, in J/K. That is the obvious one, and the work is just deciding, for each
+body in the problem, whether it is a reservoir ($Q/T$), a phase change ($mL/T$),
+a body that warms ($C\ln(T_f/T_i)$), or a gas (two logs).
+
+A process is described as sudden, free, unresisted, or as happening across a
+finite temperature gap. Those words mean irreversible, which means invent a
+path, and they also mean the answer for the universe will be positive. If you
+get a negative total, you have made a sign error.
+
+The word "reversible" appears and a temperature is changing. Then
+$\Delta S_{univ} = 0$ is an equation you can solve, and it is usually the only
+one that gives you the unknown — the maximum work, or the final common
+temperature. This is the pattern that turns a very hard problem into two lines.
+
+A problem gives you a complicated or unspecified path between two known states.
+That is an invitation to ignore the path entirely.
+
+You now have both halves of the second law: the engine statement from the
+[previous lesson](/guide/heat-engines) and the entropy statement here. Next you
+put them on a picture, where areas are work and the shape of the loop tells you
+what the cycle is doing, in [PV diagrams and real cycles](/guide/pv-diagrams).

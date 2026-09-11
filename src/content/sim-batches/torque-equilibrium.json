@@ -1,0 +1,92 @@
+[
+  {
+    "id": "torque-equilibrium-wrench",
+    "title": "Lever arm lab",
+    "caption": "Force, distance and angle on a wrench. The torque is the force times the lever arm, the dashed perpendicular from the pivot to the line of action.",
+    "height": 260,
+    "params": [
+      {
+        "key": "force",
+        "label": "Applied force",
+        "unit": "N",
+        "min": 20,
+        "max": 200,
+        "step": 5,
+        "value": 120
+      },
+      {
+        "key": "dist",
+        "label": "Distance from bolt",
+        "unit": "m",
+        "min": 0.1,
+        "max": 0.5,
+        "step": 0.01,
+        "value": 0.3
+      },
+      {
+        "key": "angle",
+        "label": "Angle to the handle",
+        "unit": "deg",
+        "min": 0,
+        "max": 180,
+        "step": 1,
+        "value": 60
+      }
+    ],
+    "draw": "var F = p.force, r = p.dist, th = p.angle * Math.PI / 180;\nvar cx = W * 0.26, cy = H * 0.66;\nvar len = (r / 0.50) * (W * 0.40);\nvar ux = Math.cos(th), uy = -Math.sin(th);\nvar ax = cx + len, ay = cy;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\n// line of action, dashed, extended both ways\nctx.strokeStyle = C.faint;\nctx.setLineDash([4, 4]);\nctx.beginPath();\nctx.moveTo(ax - ux * W, ay - uy * W);\nctx.lineTo(ax + ux * W, ay + uy * W);\nctx.stroke();\nctx.setLineDash([]);\n\n// handle\nctx.strokeStyle = C.ink;\nctx.lineWidth = 5;\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ax, ay); ctx.stroke();\nctx.lineWidth = 2;\n\n// bolt\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(cx, cy, 9, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"pivot (bolt)\", cx - 22, cy + 26);\n\n// r label along handle\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(cx, cy - 16); ctx.lineTo(ax, ay - 16); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"r = \" + r.toFixed(2) + \" m\", (cx + ax) / 2 - 26, cy - 22);\n\n// lever arm: foot of perpendicular from pivot onto the line of action\nvar vx = cx - ax, vy = cy - ay;\nvar s = vx * ux + vy * uy;\nvar fx = ax + s * ux, fy = ay + s * uy;\nctx.strokeStyle = C.accent;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(fx, fy); ctx.stroke();\nctx.setLineDash([]);\nvar rperp = Math.abs(r * Math.sin(th));\nctx.fillStyle = C.accent;\nctx.fillText(\"lever arm \" + rperp.toFixed(3) + \" m\", (cx + fx) / 2 - 40, (cy + fy) / 2 - 8);\n\n// force arrow at the handle end\nvar alen = (F / 200) * (W * 0.24) + 14;\nvar ex = ax + ux * alen, ey = ay + uy * alen;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 3;\nctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ex, ey); ctx.stroke();\nctx.beginPath();\nctx.moveTo(ex, ey);\nctx.lineTo(ex - ux * 11 - uy * 6, ey - uy * 11 + ux * 6);\nctx.lineTo(ex - ux * 11 + uy * 6, ey - uy * 11 - ux * 6);\nctx.closePath();\nctx.fillStyle = C.figure;\nctx.fill();\nctx.fillText(\"F = \" + F.toFixed(0) + \" N\", ex + 6, ey - 6);\n\n// angle marker at the handle end\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.arc(ax, ay, 26, -th, 0, th > 0); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(p.angle.toFixed(0) + \" deg\", ax + 30, ay - 10);\n\nvar tau = r * F * Math.sin(th);\nctx.fillStyle = C.ink;\nctx.fillText(\"torque = r F sin(angle) = lever arm x F\", 14, H - 12);\nout.note = \"tau = \" + Math.abs(tau).toFixed(1) + \" N\u00b7m   (lever arm \" + rperp.toFixed(3) + \" m x \" + F.toFixed(0) + \" N)\";"
+  },
+  {
+    "id": "torque-equilibrium-plank",
+    "title": "Plank on two supports",
+    "caption": "A free body diagram for a 5 m, 30 kg plank on end supports, with one person standing on it.",
+    "height": 280,
+    "params": [
+      {
+        "key": "pos",
+        "label": "Person's position from A",
+        "unit": "m",
+        "min": 0,
+        "max": 5,
+        "step": 0.1,
+        "value": 1.5
+      },
+      {
+        "key": "mass",
+        "label": "Person's mass",
+        "unit": "kg",
+        "min": 20,
+        "max": 100,
+        "step": 1,
+        "value": 70
+      }
+    ],
+    "draw": "var g = 9.8;\nvar L = 5.0, mp = 30, mper = p.mass, x = p.pos;\nvar Wp = mp * g, Wper = mper * g;\nvar NR = (Wp * (L / 2) + Wper * x) / L;\nvar NL = Wp + Wper - NR;\n\nvar x0 = W * 0.12, x1 = W * 0.88, by = H * 0.52;\nfunction px(u) { return x0 + (u / L) * (x1 - x0); }\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\nfunction arrow(sx, sy, ex, ey, col) {\n  var dx = ex - sx, dy = ey - sy, m = Math.sqrt(dx * dx + dy * dy);\n  var ux = dx / m, uy = dy / m;\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 2.5;\n  ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(ex, ey);\n  ctx.lineTo(ex - ux * 10 - uy * 5, ey - uy * 10 + ux * 5);\n  ctx.lineTo(ex - ux * 10 + uy * 5, ey - uy * 10 - ux * 5);\n  ctx.closePath(); ctx.fill();\n}\n\n// plank\nctx.fillStyle = C.faint;\nctx.fillRect(x0, by - 7, x1 - x0, 14);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.strokeRect(x0, by - 7, x1 - x0, 14);\n\n// supports as triangles\nctx.fillStyle = C.rule;\nvar sup = [px(0), px(L)];\nfor (var i = 0; i < 2; i++) {\n  ctx.beginPath();\n  ctx.moveTo(sup[i], by + 8);\n  ctx.lineTo(sup[i] - 12, by + 28);\n  ctx.lineTo(sup[i] + 12, by + 28);\n  ctx.closePath(); ctx.fill();\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"A\", px(0) - 4, by + 42);\nctx.fillText(\"B\", px(L) - 4, by + 42);\n\n// normal forces up\nvar sc = (H * 0.30) / 900;\narrow(px(0), by - 8, px(0), by - 8 - NL * sc, C.accent);\narrow(px(L), by - 8, px(L), by - 8 - NR * sc, C.accent);\nctx.fillStyle = C.accent;\nctx.fillText(\"N_A = \" + NL.toFixed(0) + \" N\", px(0) - 14, by - 16 - NL * sc);\nctx.fillText(\"N_B = \" + NR.toFixed(0) + \" N\", px(L) - 44, by - 16 - NR * sc);\n\n// plank weight at centre\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px(L / 2), by, 4, 0, Math.PI * 2); ctx.fill();\narrow(px(L / 2), by + 8, px(L / 2), by + 8 + Wp * sc, C.figure);\nctx.fillStyle = C.figure;\nctx.fillText(\"plank \" + Wp.toFixed(0) + \" N at 2.5 m\", px(L / 2) - 50, by + 24 + Wp * sc);\n\n// person weight\narrow(px(x), by + 8, px(x), by + 8 + Wper * sc, C.figure);\nctx.fillText(\"person \" + Wper.toFixed(0) + \" N\", px(x) - 34, by + 38 + Wper * sc);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(px(x), by - 40); ctx.lineTo(px(x), by - 8); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"x = \" + x.toFixed(2) + \" m\", px(x) - 26, by - 46);\n\nout.note = \"N_A = \" + NL.toFixed(1) + \" N, N_B = \" + NR.toFixed(1) + \" N, total \" + (NL + NR).toFixed(1) + \" N\";"
+  },
+  {
+    "id": "torque-equilibrium-ladder",
+    "title": "Ladder lab",
+    "caption": "A uniform ladder against a frictionless wall. Lower the angle until the friction the floor can supply runs out.",
+    "height": 300,
+    "params": [
+      {
+        "key": "angle",
+        "label": "Angle to the horizontal",
+        "unit": "deg",
+        "min": 25,
+        "max": 80,
+        "step": 1,
+        "value": 60
+      },
+      {
+        "key": "mu",
+        "label": "Floor friction coefficient",
+        "unit": "",
+        "min": 0.05,
+        "max": 0.9,
+        "step": 0.01,
+        "value": 0.3
+      }
+    ],
+    "draw": "var g = 9.8, m = 12, L = 5.0;\nvar muReq = 0.5 / Math.tan(p.angle * Math.PI / 180);\nvar safe = p.mu >= muReq;\n\n// if it cannot hold, let it slip: the foot slides out on a 2 s loop\nvar phi = p.angle * Math.PI / 180;\nif (!safe) {\n  var frac = (t % 2.0) / 2.0;\n  var drop = Math.min(p.angle - 8, 26) * frac;\n  phi = (p.angle - drop) * Math.PI / 180;\n}\n\nvar wallX = W * 0.22, floorY = H * 0.84;\nvar scale = Math.min((W * 0.62) / (L * Math.cos(Math.max(phi, 0.2))), (floorY - H * 0.10) / (L * Math.sin(phi)));\nvar topY = floorY - L * scale * Math.sin(phi);\nvar footX = wallX + L * scale * Math.cos(phi);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// wall and floor\nctx.fillStyle = C.faint;\nctx.fillRect(wallX - 10, H * 0.06, 10, floorY - H * 0.06);\nctx.fillRect(wallX - 10, floorY, W - wallX - 4, 10);\nctx.fillStyle = C.ink;\nctx.fillText(\"frictionless wall\", wallX + 6, H * 0.12);\nctx.fillText(\"rough floor, mu = \" + p.mu.toFixed(2), W * 0.55, floorY + 26);\n\nfunction arrow(sx, sy, ex, ey, col, lab) {\n  var dx = ex - sx, dy = ey - sy, mm = Math.sqrt(dx * dx + dy * dy);\n  var ux = dx / mm, uy = dy / mm;\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 2.5;\n  ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(ex, ey);\n  ctx.lineTo(ex - ux * 10 - uy * 5, ey - uy * 10 + ux * 5);\n  ctx.lineTo(ex - ux * 10 + uy * 5, ey - uy * 10 - ux * 5);\n  ctx.closePath(); ctx.fill();\n  ctx.fillText(lab, ex + 4 * ux + 6, ey + 4 * uy - 4);\n}\n\n// ladder\nctx.strokeStyle = C.ink; ctx.lineWidth = 5;\nctx.beginPath(); ctx.moveTo(wallX, topY); ctx.lineTo(footX, floorY); ctx.stroke();\n\n// centre of mass dot\nvar cmx = (wallX + footX) / 2, cmy = (topY + floorY) / 2;\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(cmx, cmy, 5, 0, Math.PI * 2); ctx.fill();\n\nvar Nf = m * g;\nvar Nw = 0.5 * m * g / Math.tan(phi);\nvar fs = Nw;\nvar fsc = (W * 0.22) / (m * g);\n\narrow(wallX, topY, wallX + Nw * fsc, topY, C.accent, \"N_wall\");\narrow(footX, floorY, footX, floorY - Nf * fsc, C.accent, \"N_floor\");\narrow(footX, floorY, footX - fs * fsc, floorY, C.figure, \"friction\");\narrow(cmx, cmy, cmx, cmy + Nf * fsc, C.figure, \"W = mg\");\n\n// angle arc at the foot\nctx.strokeStyle = C.rule; ctx.lineWidth = 1.5;\nctx.beginPath(); ctx.arc(footX, floorY, 30, Math.PI - phi, Math.PI); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText((phi * 180 / Math.PI).toFixed(0) + \" deg\", footX - 62, floorY - 10);\n\nout.note = \"friction needed: mu = 0.5/tan(angle) = \" + muReq.toFixed(3) + \"   floor supplies \" + p.mu.toFixed(2) + (safe ? \"   -> it holds\" : \"   -> it slips\");"
+  }
+]

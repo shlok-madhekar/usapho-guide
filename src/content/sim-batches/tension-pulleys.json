@@ -1,0 +1,64 @@
+[
+  {
+    "id": "tension-pulleys-atwood",
+    "title": "Atwood machine lab",
+    "caption": "Two masses, one rope, one pulley. Watch what the tension does as the masses get closer together.",
+    "height": 300,
+    "params": [
+      {
+        "key": "m1",
+        "label": "Left mass m1",
+        "unit": "kg",
+        "min": 1,
+        "max": 10,
+        "step": 0.5,
+        "value": 5
+      },
+      {
+        "key": "m2",
+        "label": "Right mass m2",
+        "unit": "kg",
+        "min": 1,
+        "max": 10,
+        "step": 0.5,
+        "value": 3
+      }
+    ],
+    "draw": "var g = 9.8;\nvar m1 = p.m1, m2 = p.m2;\nvar a = (m1 - m2) * g / (m1 + m2);\nvar T = 2 * m1 * m2 * g / (m1 + m2);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\nvar cx = W * 0.5;\nvar cy = H * 0.16;\nvar R = Math.min(W, H) * 0.07;\nvar half = W * 0.20;\nvar rest = H * 0.55;\nvar span = H * 0.22;\n\n// animate: let the heavier side fall, then loop\nvar cycle = 2.6;\nvar s = t % cycle;\nvar d = 0.5 * a * s * s;\nvar maxd = span;\nif (d > maxd) { d = maxd; }\nif (d < -maxd) { d = -maxd; }\n\nvar y1 = rest + d;\nvar y2 = rest - d;\n\n// ceiling bracket\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(cx - W * 0.12, cy - R - 14);\nctx.lineTo(cx + W * 0.12, cy - R - 14);\nctx.stroke();\nctx.beginPath();\nctx.moveTo(cx, cy - R - 14);\nctx.lineTo(cx, cy - R);\nctx.stroke();\n\n// pulley\nctx.strokeStyle = C.figure;\nctx.beginPath();\nctx.arc(cx, cy, R, 0, Math.PI * 2);\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.beginPath();\nctx.arc(cx, cy, 2.5, 0, Math.PI * 2);\nctx.fill();\n\n// rope\nctx.strokeStyle = C.accent;\nctx.beginPath();\nctx.moveTo(cx - R, cy);\nctx.lineTo(cx - R, y1);\nctx.stroke();\nctx.beginPath();\nctx.moveTo(cx + R, cy);\nctx.lineTo(cx + R, y2);\nctx.stroke();\nctx.beginPath();\nctx.arc(cx, cy, R, Math.PI, 0, true);\nctx.stroke();\n\n// blocks, area scaled with mass\nfunction block(x, y, m, name) {\n  var w = 22 + m * 3.2;\n  var h = 16 + m * 1.6;\n  ctx.fillStyle = C.figure;\n  ctx.globalAlpha = 0.25;\n  ctx.fillRect(x - w / 2, y, w, h);\n  ctx.globalAlpha = 1;\n  ctx.strokeStyle = C.ink;\n  ctx.strokeRect(x - w / 2, y, w, h);\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"center\";\n  ctx.fillText(name + \" = \" + m.toFixed(1) + \" kg\", x, y + h + 14);\n}\nblock(cx - R, y1, m1, \"m1\");\nblock(cx + R, y2, m2, \"m2\");\n\n// tension arrows on the ropes\nctx.strokeStyle = C.ink;\nctx.fillStyle = C.ink;\nfunction up(x, y, len) {\n  ctx.beginPath();\n  ctx.moveTo(x, y);\n  ctx.lineTo(x, y - len);\n  ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(x, y - len);\n  ctx.lineTo(x - 4, y - len + 7);\n  ctx.lineTo(x + 4, y - len + 7);\n  ctx.closePath();\n  ctx.fill();\n}\nup(cx - R, y1 - 4, 26);\nup(cx + R, y2 - 4, 26);\nctx.textAlign = \"right\";\nctx.fillText(\"T\", cx - R - 7, y1 - 20);\nctx.textAlign = \"left\";\nctx.fillText(\"T\", cx + R + 7, y2 - 20);\n\n// acceleration direction marker\nctx.fillStyle = C.accent;\nctx.textAlign = \"center\";\nvar dirTxt = a > 0.02 ? \"m1 falls\" : (a < -0.02 ? \"m2 falls\" : \"balanced\");\nctx.fillText(dirTxt, cx, H - 8);\n\nout.note = \"a = \" + Math.abs(a).toFixed(2) + \" m/s^2,  T = \" + T.toFixed(1) +\n  \" N   (m1 g = \" + (m1 * g).toFixed(1) + \" N, m2 g = \" + (m2 * g).toFixed(1) + \" N)\";"
+  },
+  {
+    "id": "tension-pulleys-fbd",
+    "title": "Table and hanging block: the two free body diagrams",
+    "caption": "One rope, one tension, two diagrams.",
+    "height": 300,
+    "params": [],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\nctx.textAlign = \"center\";\n\nvar tableY = H * 0.42;\nvar edgeX = W * 0.62;\nvar bw = W * 0.16, bh = H * 0.15;\nvar bx = W * 0.26, by = tableY - bh;\n\n// table\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(W * 0.05, tableY);\nctx.lineTo(edgeX, tableY);\nctx.lineTo(edgeX, H * 0.72);\nctx.stroke();\n\n// block A on the table\nctx.fillStyle = C.figure;\nctx.globalAlpha = 0.25;\nctx.fillRect(bx, by, bw, bh);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.ink;\nctx.strokeRect(bx, by, bw, bh);\nctx.fillStyle = C.ink;\nctx.fillText(\"M on table\", bx + bw / 2, by - 6);\n\nvar acx = bx + bw / 2, acy = by + bh / 2;\n\nfunction arrow(x1, y1, x2, y2, col) {\n  ctx.strokeStyle = col;\n  ctx.fillStyle = col;\n  ctx.beginPath();\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x2, y2);\n  ctx.stroke();\n  var ang = Math.atan2(y2 - y1, x2 - x1);\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - 8 * Math.cos(ang - 0.4), y2 - 8 * Math.sin(ang - 0.4));\n  ctx.lineTo(x2 - 8 * Math.cos(ang + 0.4), y2 - 8 * Math.sin(ang + 0.4));\n  ctx.closePath();\n  ctx.fill();\n}\n\nvar L = H * 0.20;\narrow(acx, acy, acx, acy - L, C.figure);\narrow(acx, acy, acx, acy + L, C.figure);\narrow(acx, acy, acx + bw * 0.95, acy, C.accent);\nctx.fillStyle = C.figure;\nctx.textAlign = \"right\";\nctx.fillText(\"N\", acx - 6, acy - L + 4);\nctx.fillText(\"Mg\", acx - 6, acy + L);\nctx.textAlign = \"left\";\nctx.fillStyle = C.accent;\nctx.fillText(\"T\", acx + bw * 0.95 + 5, acy + 4);\n\n// rope over the pulley\nvar R = Math.min(W, H) * 0.05;\nvar pcx = edgeX, pcy = tableY - R;\nctx.strokeStyle = C.accent;\nctx.beginPath();\nctx.moveTo(bx + bw, tableY - R * 2);\nctx.lineTo(pcx, tableY - R * 2);\nctx.stroke();\nctx.beginPath();\nctx.arc(pcx, pcy, R, -Math.PI / 2, 0);\nctx.stroke();\n\nvar hy = H * 0.60;\nctx.beginPath();\nctx.moveTo(pcx + R, pcy);\nctx.lineTo(pcx + R, hy);\nctx.stroke();\n\nctx.strokeStyle = C.figure;\nctx.beginPath();\nctx.arc(pcx, pcy, R, 0, Math.PI * 2);\nctx.stroke();\n\n// hanging block\nvar hw = W * 0.13, hh = H * 0.14;\nvar hx = pcx + R - hw / 2;\nctx.fillStyle = C.figure;\nctx.globalAlpha = 0.25;\nctx.fillRect(hx, hy, hw, hh);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.ink;\nctx.strokeRect(hx, hy, hw, hh);\n\nvar hcx = hx + hw / 2, hcy = hy + hh / 2;\nvar L2 = H * 0.17;\narrow(hcx, hcy, hcx, hcy - L2, C.accent);\narrow(hcx, hcy, hcx, hcy + L2, C.figure);\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"T\", hcx + 6, hcy - L2 + 6);\nctx.fillStyle = C.figure;\nctx.fillText(\"mg\", hcx + 6, hcy + L2);\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"m hanging\", hcx, hy - 6);\n\n// constraint note\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"same rope, so the same T at both ends\", W * 0.05, H * 0.92);\nctx.fillText(\"same rope length, so the same |a|\", W * 0.05, H * 0.98);"
+  },
+  {
+    "id": "tension-pulleys-movable",
+    "title": "Movable pulley lab",
+    "caption": "Pull the free end and watch the load rise half as far.",
+    "height": 320,
+    "params": [
+      {
+        "key": "pull",
+        "label": "Free end pulled down",
+        "unit": "m",
+        "min": 0,
+        "max": 1.2,
+        "step": 0.05,
+        "value": 0.6
+      },
+      {
+        "key": "load",
+        "label": "Load mass",
+        "unit": "kg",
+        "min": 5,
+        "max": 60,
+        "step": 1,
+        "value": 40
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\nvar g = 9.8;\nvar Wload = p.load * g;\nvar pull = p.pull;              // metres the free end is drawn down\nvar rise = pull / 2;            // load rises half as far\n\nvar scale = H * 0.22;           // pixels per metre of drawn travel\nvar ceil = H * 0.14;\n\nvar anchorX = W * 0.30;\nvar fixedX = W * 0.70;\nvar R = Math.min(W, H) * 0.055;\n\n// ceiling\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(W * 0.10, ceil);\nctx.lineTo(W * 0.90, ceil);\nctx.stroke();\nfor (var i = 0; i < 9; i++) {\n  var hx = W * 0.10 + i * W * 0.10;\n  ctx.beginPath();\n  ctx.moveTo(hx, ceil);\n  ctx.lineTo(hx - 7, ceil - 8);\n  ctx.stroke();\n}\n\n// movable pulley position\nvar mpY = H * 0.62 - rise * scale;\n\n// fixed pulley\nctx.strokeStyle = C.figure;\nctx.beginPath();\nctx.arc(fixedX, ceil + R, R, 0, Math.PI * 2);\nctx.stroke();\n\n// movable pulley\nctx.beginPath();\nctx.arc(anchorX + R, mpY, R, 0, Math.PI * 2);\nctx.stroke();\n\n// rope: anchor -> down left side -> round movable pulley -> up -> over fixed pulley -> down free end\nctx.strokeStyle = C.accent;\nctx.beginPath();\nctx.moveTo(anchorX, ceil);\nctx.lineTo(anchorX, mpY);\nctx.stroke();\nctx.beginPath();\nctx.arc(anchorX + R, mpY, R, Math.PI, 0, false);\nctx.stroke();\nctx.beginPath();\nctx.moveTo(anchorX + 2 * R, mpY);\nctx.lineTo(anchorX + 2 * R, ceil + R);\nctx.stroke();\nctx.beginPath();\nctx.moveTo(anchorX + 2 * R, ceil + R);\nctx.lineTo(fixedX, ceil + R);\nctx.stroke();\nctx.beginPath();\nctx.arc(fixedX, ceil + R, R, -Math.PI / 2, 0);\nctx.stroke();\nvar freeEndY = H * 0.50 + pull * scale;\nif (freeEndY > H * 0.93) { freeEndY = H * 0.93; }\nctx.beginPath();\nctx.moveTo(fixedX + R, ceil + R);\nctx.lineTo(fixedX + R, freeEndY);\nctx.stroke();\n\n// load hanging under movable pulley\nvar lw = W * 0.14, lh = H * 0.12;\nvar lx = anchorX + R - lw / 2, ly = mpY + R;\nctx.strokeStyle = C.accent;\nctx.beginPath();\nctx.moveTo(anchorX + R, mpY + R);\nctx.lineTo(anchorX + R, ly + 2);\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.globalAlpha = 0.25;\nctx.fillRect(lx, ly, lw, lh);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.ink;\nctx.strokeRect(lx, ly, lw, lh);\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(p.load.toFixed(0) + \" kg\", lx + lw / 2, ly + lh / 2 + 4);\n\n// labels\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"tied\", anchorX - 20, ceil - 14);\nctx.textAlign = \"center\";\nctx.fillText(\"T\", anchorX - 8, (ceil + mpY) / 2);\nctx.fillText(\"T\", anchorX + 2 * R + 9, (ceil + mpY) / 2);\nctx.fillStyle = C.accent;\nctx.fillText(\"pull, F = T\", fixedX + R, freeEndY + 15);\n\n// marker of travel\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath();\nctx.moveTo(W * 0.06, H * 0.62 + R);\nctx.lineTo(anchorX - R, H * 0.62 + R);\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"start\", W * 0.06, H * 0.62 + R - 5);\n\nout.note = \"free end pulled \" + pull.toFixed(2) + \" m, load rose \" + rise.toFixed(2) +\n  \" m   |   weight \" + Wload.toFixed(1) + \" N held by 2T, so T = \" + (Wload / 2).toFixed(1) + \" N\";"
+  }
+]

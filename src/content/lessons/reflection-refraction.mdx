@@ -1,56 +1,340 @@
-## Bending at a boundary
+Stand at the edge of a swimming pool and look at your own legs. They bend at
+the waterline. Drop a coin in and the bottom looks closer than it is. Look up
+from underwater and the whole sky is squeezed into a bright circle overhead,
+with darkness around it. None of this is your eyes failing. It is light
+changing speed.
 
-The index of refraction is a ratio of speeds: $n = c/v$. Light in glass with
-$n = 1.5$ travels at two thirds of $c$.
+The last lesson treated light as a wave with a frequency that shifts when the
+source moves. Here you mostly get to forget the wave and follow straight lines
+called *rays*. A ray is the direction energy travels. Wherever the things light
+meets are much bigger than its wavelength — a pool surface, a prism, a
+raindrop — rays get you the right answer with geometry instead of wave
+mechanics.
 
-When a wavefront crosses a boundary at an angle, one edge enters the slow
-medium before the other and falls behind, pivoting the front. Frequency is
-fixed by the source and cannot change at a boundary, so it is the wavelength
-that shrinks: $\lambda_n = \lambda_0 / n$. Matching the wavefronts along the
-surface gives
+## Light slows down inside matter
+
+In vacuum light travels at $c = 3.00\times10^8$ m/s. Inside glass or water it
+goes slower, because the atoms absorb and re-radiate it and that takes time.
+Define the **refractive index** of a material as the ratio
+
+$$n = \frac{c}{v}$$
+
+where $v$ is the speed of light in that material. So $n$ is always at least 1,
+vacuum has $n = 1$ exactly, and air is $n = 1.0003$, near enough to 1 that you
+usually write 1. Crown glass has $n = 1.52$, so light inside it travels at
+$v = c/n = (3.00\times10^8)/1.52 = 1.97\times10^8$ m/s, about two thirds of
+its vacuum speed.
+
+One thing does not change at a boundary: the frequency. The wave on the far
+side is driven by the wave on the near side, crest for crest, so they must
+arrive at the same rate. Since $v = f\lambda$ and $f$ is fixed while $v$ drops
+by a factor $n$, the wavelength must drop by the same factor:
+
+$$\lambda_n = \frac{\lambda_0}{n}$$
+
+Slower speed, shorter waves, same frequency. Hold on to that; it is what makes
+refraction happen at all.
+
+## Reflection, and what mirrors do to angles
+
+Light hitting a smooth surface bounces with the angle of reflection equal to
+the angle of incidence, both measured **from the normal** — the line
+perpendicular to the surface. Angles from the surface itself will wreck every
+problem you ever do. Measure from the normal, always.
+
+A flat mirror puts the image as far behind the mirror as the object is in
+front. Two consequences show up constantly. If you walk toward a mirror at
+$1.20$ m/s, your image walks toward the mirror at $1.20$ m/s from the other
+side, so the gap between you and your image closes at $2.40$ m/s. And if you
+rotate a mirror by an angle $\alpha$ while the incoming beam is held fixed, the
+normal turns by $\alpha$, so the angle of incidence changes by $\alpha$ and the
+angle of reflection changes by $\alpha$ as well. The reflected beam turns by
+$2\alpha$. Rotate a galvanometer mirror $8.00°$ and the spot swings $16.0°$.
+
+Two mirrors hinged at an angle $\theta$ multiply images: light can bounce off
+one, then the other, then back. Counting the distinct images gives
+
+$$N = \frac{360°}{\theta} - 1$$
+
+when $360°/\theta$ is a whole number. Hinge them at $72.0°$ and you get
+$360/72 - 1 = 5 - 1 = 4$ images.
+
+<Aside label="Worth remembering">
+  Every angle here is measured from the normal. Every one. When a
+  problem hands you an angle "from the surface" or "grazing", your first move is
+  to convert: an angle $\phi$ above the surface is $90° - \phi$ from the normal.
+</Aside>
+
+## Snell's law, from wavefronts
+
+Picture a wide flat wavefront in air heading down onto water at a slant. The
+left edge of the front touches the water first and immediately slows down. The
+right edge is still in air, still fast. For the short time it takes the right
+edge to reach the surface, the left edge has crept forward a smaller distance.
+The front pivots. That pivot is refraction.
+
+Make it quantitative. In a time $\Delta t$ the part of the front still in air
+covers $v_1\Delta t$ and the part already in water covers $v_2\Delta t$. Both
+pieces share the same strip of surface, of length $L$. Geometry of the two
+right triangles built on that strip gives $v_1\Delta t = L\sin\theta_1$ and
+$v_2 \Delta t = L\sin\theta_2$. Divide one by the other and $L$ and $\Delta t$
+both vanish:
+
+$$\frac{\sin\theta_1}{\sin\theta_2} = \frac{v_1}{v_2} = \frac{n_2}{n_1}$$
+
+which is usually written in the symmetric form
 
 $$n_1\sin\theta_1 = n_2\sin\theta_2$$
 
-with angles measured from the normal, never from the surface. Reflection obeys
-the simpler $\theta_i = \theta_r$.
+Read it in words: the quantity $n\sin\theta$ is the same on both sides of the
+boundary. Going into a denser medium, $n$ goes up so $\sin\theta$ must come
+down and the ray bends *toward* the normal. Coming out into a rarer medium it
+bends *away*. At normal incidence, $\theta_1 = 0$, both sides are zero and
+nothing bends at all.
 
-## Total internal reflection
+<Figure caption={<><b>Figure 1.</b> One ray at a boundary. Notice that the reflected ray is always there alongside the refracted one. Set the top index above the bottom index, then push the incidence angle up until the refracted ray disappears entirely.</>}>
+  <Sim id="reflection-refraction-snell" />
+</Figure>
 
-Going from dense to rare, $n_1 > n_2$, Snell's law demands
-$\sin\theta_2 = (n_1/n_2)\sin\theta_1 > \sin\theta_1$. The refracted ray bends
-away from the normal, and at some incidence it would need $\sin\theta_2 > 1$.
-There is no such angle, so nothing is transmitted. Everything reflects. The
-threshold is
+<QuickCheck
+  question="A ray goes from water into glass. Compared with the incident ray, the refracted ray is..."
+  options={["bent toward the normal, and shorter in wavelength", "bent away from the normal, and shorter in wavelength", "bent toward the normal, and lower in frequency", "unchanged in direction"]}
+  answer={0}
+  explanation="Glass has the larger index, so n sin θ constant forces a smaller angle: toward the normal. The speed drops and the frequency cannot change, so the wavelength shrinks. Frequency is fixed by the source."
+/>
+
+### Worked example 1: a laser into a pool, and how deep it looks
+
+A laser in air strikes a pool at $30.0°$ from the normal; water has
+$n = 1.33$. Apply Snell's law directly:
+
+$$\sin\theta_2 = \frac{n_1\sin\theta_1}{n_2} = \frac{(1.00)(0.500)}{1.33} = 0.3759$$
+
+so $\theta_2 = \arcsin(0.3759) = 22.1°$. Bent toward the normal, as promised.
+
+Now the harder half. The pool is $2.40$ m deep and you look straight down. Rays
+from the bottom leave the water at small angles, so use the small-angle form of
+Snell's law: for small $\theta$, $\sin\theta \approx \tan\theta \approx \theta$,
+and $n_{\text{w}}\theta_{\text{w}} = \theta_{\text{air}}$. A ray from a point
+on the floor at true depth $h$ that crosses the surface a horizontal distance
+$x$ from straight-above has $\theta_{\text{w}} \approx x/h$. In air it leaves at
+$\theta_{\text{air}} \approx x/h'$, where $h'$ is the depth the backward
+extension points to. Putting those together, $x/h' = n_{\text{w}}(x/h)$, and
+the $x$ cancels:
+
+$$h' = \frac{h}{n}$$
+
+So the floor appears at $h' = 2.40/1.33 = 1.80$ m. The apparent depth is the
+real depth divided by the index. Stack two liquids and you apply this to each
+layer separately and add: $4.00$ cm of glycerin under $6.00$ cm of water gives
+$4.00/1.47 + 6.00/1.33 = 2.72 + 4.51 = 7.23$ cm.
+
+<Aside label="Where this goes wrong" warn>
+  Light at a boundary does not choose between reflecting and refracting. It does
+  both, in proportions that shift with angle. Below the critical angle some
+  fraction always reflects, which is why you see both the sky and the fish on a
+  pond. There is one special angle, **Brewster's angle**, where the reflected
+  light is completely polarised; it happens when the reflected and refracted
+  rays are exactly $90°$ apart, which forces $\theta_B + \theta_2 = 90°$ and
+  therefore $\tan\theta_B = n_2/n_1$. For glass with $n = 1.52$ that is
+  $\arctan(1.52) = 56.7°$.
+</Aside>
+
+## When there is nowhere to refract to
+
+Run Snell's law the other way, from dense to rare, with $n_1 > n_2$:
+
+$$\sin\theta_2 = \frac{n_1}{n_2}\sin\theta_1$$
+
+The prefactor is bigger than 1, so $\sin\theta_2 > \sin\theta_1$ and the ray
+tips away from the normal. Keep raising $\theta_1$ and at some point the
+formula demands $\sin\theta_2 > 1$. No angle has a sine above 1. There is no
+refracted ray. All of the energy goes into the reflected one. This is **total
+internal reflection**, and the threshold is where $\theta_2$ would be exactly
+$90°$:
 
 $$\sin\theta_c = \frac{n_2}{n_1}$$
 
-Glass to air gives about $42°$, which is why a prism can turn light through a
-right angle with no coating and why an optical fiber holds light in its core
-over kilometers. Note that TIR only exists in the dense-to-rare direction —
-there is no critical angle going into glass.
+Water to air gives $\sin\theta_c = 1/1.33 = 0.7519$, so $\theta_c = 48.8°$.
+Glass to air is about $42°$, which is why a $45°$-$45°$-$90°$ prism turns a
+beam through a right angle with no silver coating at all: the internal angle at
+the hypotenuse is $45°$, safely past $42°$. Run that backwards and you get the
+smallest index a periscope prism can have — you need $\theta_c \le 45°$, so
+$n \ge 1/\sin 45° = 1.41$.
 
-## What an image is
+Note the direction. TIR only exists going from high index to low. There is no
+critical angle on the way into glass.
 
-An image is a place where rays either meet or appear to have come from. Your
-eye cannot tell the difference; it reconstructs a source from the directions of
-arriving rays and reports whatever point they diverge from.
+<Figure caption={<><b>Figure 2.</b> A lamp under water. Rays steeper than the critical angle escape, the one at exactly the critical angle skims along the surface, and anything flatter is trapped. Lower the index and watch the bright window open up.</>}>
+  <Sim id="reflection-refraction-window" />
+</Figure>
 
-Rays that physically converge form a real image, and a screen there shows it.
-Rays that only extrapolate backward to a point form a virtual image, and a
-screen there shows nothing. The reflection behind a flat mirror is virtual: the
-rays never went there. Refraction at a flat surface makes a pool look shallower
-by the factor $n$ for the same reason.
-
-<Aside label="Where this goes wrong" warn>
-  At a boundary light does not choose between reflecting and refracting — it
-  does both, in proportions that change with angle. Below the critical angle
-  there is always a partial reflection. Energy problems that assume all the
-  light transmits will be off, sometimes badly at grazing incidence.
-</Aside>
+That bright circle is called **Snell's window**. A lamp at depth $h$ lights a
+patch of surface of radius $R = h\tan\theta_c$. At $h = 1.50$ m in water,
+$\tan(48.8°) = 1.14$, so $R = 1.71$ m.
 
 <QuickCheck
-  question="Light passes from water into glass. What happens to its wavelength and frequency?"
-  options={["Both decrease", "Wavelength decreases, frequency unchanged", "Frequency decreases, wavelength unchanged", "Both unchanged"]}
+  question="Light inside a glass block reaches the flat top face at 30 degrees from the normal. Glass is n = 1.50, air above. What happens?"
+  options={["Total internal reflection, nothing gets out", "It refracts out at 48.6 degrees from the normal", "It refracts out at 19.5 degrees from the normal", "It leaves along the surface"]}
   answer={1}
-  explanation="Frequency is set by the source and is continuous across a boundary, so the slower speed in glass shows up entirely as a shorter wavelength."
+  explanation="The critical angle here is arcsin of 1 over 1.50, which is 41.8 degrees, and 30 is below it, so light does get out. Snell gives sin θ = 1.50 times sin 30 = 0.750, so θ = 48.6 degrees, bent away from the normal."
 />
+
+### Worked example 2: escaping through a layer of water
+
+A glass block, $n = 1.60$, is covered by water, $n = 1.33$, with air above.
+Light inside the glass hits the glass-water boundary at $\theta$. Above what
+$\theta$ does none of it reach the air?
+
+You could do two Snell's laws in a row. Do it once and you will see why you
+never need to again. At the first boundary $1.60\sin\theta = 1.33\sin\theta_w$.
+At the second, $1.33\sin\theta_w = 1.00\sin\theta_a$. The middle term is
+identical in both, so it cancels straight out:
+
+$$1.60\sin\theta = 1.00\sin\theta_a$$
+
+The intermediate layer is invisible to the bookkeeping. Whenever your
+boundaries are all parallel, **$n\sin\theta$ is a constant all the way
+through**, and only the first and last media matter. Light stops escaping when
+$\theta_a$ would exceed $90°$:
+
+$$\sin\theta = \frac{1.00}{1.60} = 0.625 \quad\Rightarrow\quad \theta = 38.7°$$
+
+The water changes nothing. The same invariant runs the mirage over a hot road,
+where air near the tarmac is hot and thin, $n = 1.000230$, while air at eye
+level is cooler, $n = 1.000280$. There the ray is nearly horizontal, so work
+with the angle $\phi$ from the *horizontal*, for which $\sin\theta = \cos\phi$:
+
+$$n_{\text{eye}}\cos\phi = n_{\text{road}}\cos 0° $$
+$$\cos\phi = \frac{1.000230}{1.000280} = 0.99995 \quad\Rightarrow\quad \phi = 0.573°$$
+
+A ray leaving your eye barely more than half a degree below horizontal curves
+back up. You see sky on the road.
+
+## Prisms: two refractions and a total deviation
+
+A prism has two flat faces meeting at an **apex angle** $A$. Send a ray in at
+$\theta_1$, let it refract to $\theta_2$ inside, cross to the second face where
+it hits at $\theta_3$ inside, and refract out at $\theta_4$. The geometry of
+the triangle formed by the ray and the two normals gives one clean relation:
+
+$$\theta_2 + \theta_3 = A$$
+
+and the total turning of the ray, its **deviation**, is the sum of what each
+face did:
+
+$$D = (\theta_1 - \theta_2) + (\theta_4 - \theta_3) = \theta_1 + \theta_4 - A$$
+
+<Figure caption={<><b>Figure 3.</b> A ray traced through a prism, face by face. Drag the incidence angle and watch the deviation readout fall and then rise again. At the bottom of that dip the path is symmetric. Push the apex angle up and the ray gets trapped at the second face.</>}>
+  <Sim id="reflection-refraction-prism" />
+</Figure>
+
+### Worked example 3: through an equilateral prism, and the minimum
+
+Take $A = 60.0°$, $n = 1.52$, and a ray in at $\theta_1 = 40.0°$.
+
+First face: $\sin\theta_2 = \sin 40.0°/1.52 = 0.6428/1.52 = 0.4229$, so
+$\theta_2 = 25.0°$.
+
+Inside the glass: $\theta_3 = A - \theta_2 = 60.0° - 25.0° = 35.0°$.
+
+Second face, going glass to air: $\sin\theta_4 = 1.52\sin 35.0° =
+1.52 \times 0.5736 = 0.8719$, so $\theta_4 = 60.6°$. That is the answer, and
+the deviation is $40.0 + 60.6 - 60.0 = 40.6°$.
+
+Now the thing the figure shows. Sweep $\theta_1$ and $D$ falls, bottoms out,
+and climbs. At the bottom the path is symmetric, $\theta_1 = \theta_4$ and
+$\theta_2 = \theta_3 = A/2$. Call the deviation there $D_m$. Then
+$\theta_1 = (A + D_m)/2$, and Snell at the first face reads
+
+$$n = \frac{\sin\!\big((A + D_m)/2\big)}{\sin(A/2)}$$
+
+For $A = 60.0°$ and $n = 1.50$: $\sin((60 + D_m)/2) = 1.50\sin 30.0° = 0.750$,
+so $(60 + D_m)/2 = 48.6°$ and $D_m = 37.2°$. Run it backwards to measure an
+index: a measured $D_m = 40.0°$ gives
+$n = \sin 50.0°/\sin 30.0° = 0.766/0.500 = 1.53$.
+
+Two more things fall out of the prism relations. Because $\theta_3 = A -
+\theta_2$ and $\theta_2$ can never exceed $\arcsin(1/n)$, a large enough apex
+angle traps every ray: light emerges only if $A \le 2\arcsin(1/n)$. And
+because $n$ is slightly larger for violet light than for red — **dispersion** —
+each colour gets its own deviation, which is what spreads white light into a
+band.
+
+## Curved surfaces, and why rainbows sit at 42 degrees
+
+Refraction at a *curved* surface is still just Snell's law, but with a normal
+that points along the radius. For paraxial rays — rays close to the axis and
+nearly parallel to it — the algebra collapses to
+
+$$\frac{n_1}{s} + \frac{n_2}{s'} = \frac{n_2 - n_1}{R}$$
+
+with $s$ the object distance, $s'$ the image distance, and $R$ positive when
+the surface bulges toward the incoming light. Try it on a solid glass sphere of
+radius $2.00$ cm, $n = 1.50$, lit from infinity. Front surface: $s = \infty$
+kills the first term, so $1.50/s' = 0.50/2.00 = 0.250$ and $s' = 6.00$ cm past
+the front. That is $6.00 - 4.00 = 2.00$ cm past the *back*, so for the back
+surface the light is already converging and the object distance is $-2.00$ cm,
+with $R = -2.00$ cm as the surface now curves away:
+
+$$\frac{1.50}{-2.00} + \frac{1.00}{s'} = \frac{1.00 - 1.50}{-2.00} = 0.250$$
+
+$$\frac{1.00}{s'} = 0.250 + 0.750 = 1.00 \quad\Rightarrow\quad s' = 1.00 \text{ cm}$$
+
+The sphere focuses one centimetre beyond its own back surface.
+
+The rainbow needs no such approximation, only careful angle counting. A ray
+enters a spherical drop at incidence $\theta_1$, refracts to $\theta_2$,
+reflects once off the back, and refracts out. Each refraction turns it by
+$\theta_1 - \theta_2$ and the internal reflection turns it by $180° -
+2\theta_2$. Total:
+
+$$D = 2(\theta_1 - \theta_2) + 180° - 2\theta_2 = 180° + 2\theta_1 - 4\theta_2$$
+
+Rays arrive across the whole face of the drop, so every $\theta_1$ is
+represented. Light piles up where $D$ barely changes as $\theta_1$ varies —
+that is why there is a bright arc rather than a smear. Set $dD/d\theta_1 = 0$.
+With $\sin\theta_1 = n\sin\theta_2$, differentiating gives
+$\cos\theta_1 = n\cos\theta_2 \, d\theta_2/d\theta_1$, and the stationary
+condition $d\theta_2/d\theta_1 = 1/2$ turns into
+
+$$\cos\theta_1 = \sqrt{\frac{n^2 - 1}{3}}$$
+
+For water, $n = 1.333$: $\cos\theta_1 = \sqrt{(1.777 - 1)/3} = \sqrt{0.2590} =
+0.5089$, so $\theta_1 = 59.4°$. Then $\sin\theta_2 = 0.8609/1.333 = 0.6458$ and
+$\theta_2 = 40.2°$. Put them in:
+
+$$D = 180° + 2(59.4°) - 4(40.2°) = 180° + 118.8° - 160.8° = 138.0°$$
+
+The light comes back $138°$ from its original direction, which is $180° - 138°
+= 42.0°$ away from the direction pointing straight back at the sun. That is the
+radius of the rainbow. The secondary bow is the same calculation with two
+internal reflections, $D = 360° + 2\theta_1 - 6\theta_2$, and lands at $50.9°$.
+
+## Recognising which tool the problem wants
+
+- **The word "angle" plus two materials.** Write $n_1\sin\theta_1 =
+  n_2\sin\theta_2$ and check that you measured from the normal.
+- **Stacked parallel layers.** Do not chain Snell's law layer by layer. Use
+  $n\sin\theta$ constant and ignore everything in the middle.
+- **"Above what angle", "just barely escapes", "is guided", "trapped", a
+  fiber, a periscope prism.** That is a critical angle: $\sin\theta_c = n_2/n_1$
+  with $n_1$ the medium the light is *in*.
+- **"Looks like", "appears to be", straight down into water.** Apparent depth,
+  $h' = h/n$, one layer at a time.
+- **Two flat faces at an angle.** Prism relations: $\theta_2 + \theta_3 = A$
+  and $D = \theta_1 + \theta_4 - A$. If the word "minimum" appears, jump
+  straight to the symmetric path.
+- **Two indices quoted for one piece of glass.** Dispersion: run the whole
+  calculation twice and subtract the two answers.
+- **"Brightest", "stationary", "the rainbow angle".** Write the deviation as a
+  function of the entry angle and set its derivative to zero.
+- **A mirror that moves or turns.** Angles double. A rotation $\alpha$ swings
+  the beam $2\alpha$; approaching at $v$ closes the gap at $2v$.
+
+Every one of these is the same law used with care about which angle is which.
+Draw the normal before you draw the ray, and most of the difficulty goes away.
+
+Next you take the curved-surface result and let the two surfaces of a piece of
+glass work together, which is how a lens forms an image you can put on a
+screen: [Thin Lenses and Mirrors](/guide/lenses-mirrors).

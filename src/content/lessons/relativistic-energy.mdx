@@ -1,62 +1,365 @@
-## Energy that does not vanish at rest
+## A stationary object with energy in it
 
-In mechanics a stationary object has no kinetic energy and that is the end of
-it. Relativity says a stationary object still has energy, proportional to its
-mass, and that this rest energy is the floor everything else sits on.
+In the last lesson you pushed clocks and rulers around: [moving clocks run
+slow, moving rulers are short](/guide/sr-kinematics), and every frame disagrees
+about when and where. Nothing there said anything about energy. But something
+has to give. If you push a particle with a constant force forever, Newton says
+its speed grows without limit, and relativity says it can never reach $c$. The
+force is still doing work the whole time. Where is that work going?
 
-$$E = \gamma mc^2, \qquad E_0 = mc^2, \qquad K = (\gamma - 1)mc^2$$
+The answer is that energy and momentum have to be rebuilt from scratch, and
+when you do the rebuilding you find something nobody expected: an object that
+is not moving at all still has energy, and the amount is fixed by its mass. A
+gram of anything, sitting on a table, holds about $9 \times 10^{13}$ joules.
+That is the fact this lesson is built around, and the rest of it is learning to
+compute with it.
 
-Kinetic energy is total energy minus rest energy — nothing more exotic than
-that. Expand $\gamma$ for small $v$ and $K$ collapses to $\tfrac{1}{2}mv^2$, as
-it must.
+## Total energy, rest energy, kinetic energy
 
-Momentum picks up the same factor:
+Write $\gamma$ for the Lorentz factor you already know,
+
+$$\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$$
+
+where $v$ is the object's speed and $c = 3.00 \times 10^8$ m/s. At rest
+$\gamma = 1$; at $v = 0.866c$, $\gamma = 2$; as $v \to c$, $\gamma \to \infty$.
+
+The **total energy** of a free particle of mass $m$ turns out to be
+
+$$E = \gamma m c^2$$
+
+and the reason to believe it is this. Set the particle at rest, so $\gamma = 1$,
+and you get $E_0 = mc^2$, the **rest energy** — the energy the thing has just
+for existing. Anything above that floor is energy of motion, so define the
+**kinetic energy** as the excess:
+
+$$K = E - E_0 = (\gamma - 1)mc^2$$
+
+That is a definition, not a new law, and it has to agree with $\tfrac12 mv^2$
+when the particle is slow or the whole of mechanics you already learned would
+be wrong. Check it. For small $v/c$ the binomial expansion gives
+$\gamma \approx 1 + \tfrac12 v^2/c^2$, so
+
+$$K \approx \left(1 + \tfrac{1}{2}\frac{v^2}{c^2} - 1\right)mc^2 = \tfrac{1}{2}mv^2$$
+
+The $c^2$ cancels and Newton reappears. The classical formula was never a
+different theory; it was the first term of this one.
+
+Notice what $K = (\gamma - 1)mc^2$ says about that constant force. As
+$v \to c$, $\gamma \to \infty$, so the kinetic energy runs off to infinity while
+the speed creeps towards a wall. The work you do is not lost. It goes into
+$\gamma$, not into $v$.
+
+<Figure caption={<><b>Figure 1.</b> The classical parabola and the true curve. Drag the speed slider up from a crawl: below about a tenth of light speed the two dots sit on top of each other, and past half light speed the classical formula is not even close. Find the speed where the readout says the classical value is 90 percent of the true one.</>}>
+  <Sim id="relativistic-energy-curves" />
+</Figure>
+
+<Aside label="Worth remembering">
+  Three numbers cover most of this topic. An electron's rest energy is
+  $0.511$ MeV, a proton's is $938.3$ MeV, and a neutral pion's is $135.0$ MeV.
+  A 1 MeV electron is wildly relativistic. A 1 MeV proton is barely moving.
+</Aside>
+
+## Momentum with no ceiling
+
+Momentum gets the same treatment. The relativistic momentum of a particle is
 
 $$p = \gamma m v$$
 
-Written this way, momentum has no ceiling even though $v$ does. Push a particle
-forever and $v \to c$ while $p \to \infty$. That is why accelerators are rated
-in energy, not speed: past a few MeV the speed stops being interesting.
+Again the low-speed limit is the check: $\gamma \to 1$ and you recover $p = mv$.
+And again the factor $\gamma$ is what removes the ceiling. Speed is capped at
+$c$, but $\gamma$ is not capped at anything, so momentum has no maximum. This
+is why an accelerator is rated in GeV and never in metres per second — past a
+few MeV every electron in the machine is moving at essentially $c$ and the speed
+stops carrying information.
 
-## The invariant
+<Aside label="Where this goes wrong" warn>
+  Do not write $K = \tfrac12 \gamma m v^2$, and do not invent a
+  "relativistic mass" $\gamma m$ that grows with speed. Both survive in old
+  books and both will cost you points, because mass is the one quantity every
+  observer agrees on. Whenever $\gamma$ appears it belongs to the energy or the
+  momentum, never to $m$.
+</Aside>
 
-Combining the two definitions eliminates $\gamma$ and $v$ entirely:
+## The relation that does the real work
+
+You now have two equations, $E = \gamma mc^2$ and $p = \gamma mv$, each carrying
+the unknowns $\gamma$ and $v$. In a problem you usually know neither. So get rid
+of them. Divide the second by the first:
+
+$$\frac{pc}{E} = \frac{\gamma m v c}{\gamma m c^2} = \frac{v}{c}$$
+
+That is already useful: the ratio $pc/E$ *is* the speed in units of $c$. Now
+square both originals and subtract:
+
+$$E^2 - (pc)^2 = \gamma^2 m^2 c^4 - \gamma^2 m^2 v^2 c^2 = \gamma^2 m^2 c^4 \left(1 - \frac{v^2}{c^2}\right)$$
+
+The bracket is exactly $1/\gamma^2$, so the $\gamma$'s cancel and you are left
+with
 
 $$E^2 = (pc)^2 + (mc^2)^2$$
 
-Every observer computes a different $E$ and a different $p$, but the
-combination $E^2 - (pc)^2$ comes out the same for all of them. It equals
-$(mc^2)^2$, and mass is frame-independent. Treat this as a right triangle with
-legs $pc$ and $mc^2$ and hypotenuse $E$; the whole subject fits in that picture.
+No $\gamma$, no $v$. This is the single most useful equation in the subject.
+Read it as a right triangle: the legs are $pc$ and $mc^2$, the hypotenuse is
+$E$. Different observers see different $E$ and different $p$ — the triangle
+changes shape — but the leg $mc^2$ is the same for all of them. The combination
+$E^2 - (pc)^2$ is an **invariant**.
 
-Set $m = 0$ and the triangle degenerates:
+Set $m = 0$ and the triangle collapses onto one leg:
 
 $$E = pc$$
 
-A photon has momentum despite having no mass. It cannot be slowed, only
-absorbed or redshifted, and $p = E/c = h/\lambda$ is what lets light push on a
-solar sail.
+A photon has momentum even though it has no mass, and its speed is
+$pc/E = c$ exactly, as it must be. Combined with $E = hc/\lambda$, this is what
+lets light push on a solar sail.
 
-<Aside label="Where this goes wrong" warn>
-  Do not write $K = \tfrac{1}{2}\gamma m v^2$ or define a velocity-dependent
-  "relativistic mass." Both give wrong answers in collisions. Mass is a fixed
-  property; the $\gamma$ belongs to energy and momentum, not to $m$.
-</Aside>
-
-## Using it
-
-In a collision or decay, conserve total $E$ and total $\vec{p}$ separately —
-they are conserved even when kinetic energy is not, and even when particle
-count changes. Mass is not conserved: a pion at rest decaying into two photons
-turns $mc^2$ entirely into photon energy.
-
-Work in units of eV and eV/c and the arithmetic gets short. An electron's rest
-energy is 0.511 MeV, a proton's 938 MeV. A 1 MeV electron is therefore mostly
-kinetic and comfortably relativistic; a 1 MeV proton is barely moving.
+<Figure caption={<><b>Figure 2.</b> The energy-momentum triangle. Drag the Lorentz factor from 1 upward. At gamma equal to 1 the triangle is flat and all the energy is rest energy; by gamma of 8 the horizontal leg is a stub and the particle is nearly a photon.</>}>
+  <Sim id="relativistic-energy-triangle" />
+</Figure>
 
 <QuickCheck
   question="A particle's total energy is exactly twice its rest energy. Its momentum is:"
   options={["Zero", "mc", "Square root of 3 times mc", "2mc"]}
   answer={2}
-  explanation="With E = 2mc squared, the invariant gives (pc) squared = 4(mc squared) squared minus (mc squared) squared = 3(mc squared) squared, so p = root-3 mc."
+  explanation="With E = 2mc squared, the invariant gives (pc) squared = 4(mc squared) squared minus (mc squared) squared = 3(mc squared) squared, so p = root three times mc. Answer 4 forgets to subtract the rest energy."
 />
+
+## Units that keep the arithmetic short
+
+Never put joules and kilograms into these formulas unless a problem forces you.
+Use the electronvolt: $1$ eV is the energy an electron picks up crossing $1$
+volt. Then measure mass in MeV/$c^2$ and momentum in MeV/$c$. The point of
+those odd units is that the $c$'s cancel wherever they appear. The invariant
+becomes a statement about three numbers all in MeV:
+
+$$E^2 = (pc)^2 + (mc^2)^2 \quad \longrightarrow \quad E^2 = p^2 + m^2 \ \text{(all in MeV)}$$
+
+**Worked example 1.** An electron has kinetic energy $2.00$ MeV. Find its total
+energy, its momentum, and its speed.
+
+Start from the definition of kinetic energy. Total energy is rest energy plus
+kinetic energy:
+
+$$E = mc^2 + K = 0.511 + 2.00 = 2.511 \ \text{MeV}$$
+
+For the momentum use the invariant, rearranged:
+
+$$(pc)^2 = E^2 - (mc^2)^2 = (2.511)^2 - (0.511)^2 = 6.305 - 0.261 = 6.044$$
+
+so $pc = \sqrt{6.044} = 2.459$ MeV, that is $p = 2.459$ MeV/$c$. For the speed,
+use $v/c = pc/E$:
+
+$$\frac{v}{c} = \frac{2.459}{2.511} = 0.979$$
+
+Three questions, one triangle, no $\gamma$ anywhere. If you had wanted $\gamma$
+it is $E/mc^2 = 2.511/0.511 = 4.91$.
+
+## Collisions and decays: what is conserved and what is not
+
+In any reaction — a collision, a decay, a particle absorbing a photon — two
+things are conserved:
+
+- total energy $E$, summed over all particles before and after;
+- total momentum $\vec{p}$, each component separately.
+
+Mass is **not** conserved. Kinetic energy is **not** conserved. A pion at rest
+vanishes into two photons: $135.0$ MeV of mass before, zero mass after, with
+every bit of it now carried as photon energy. This is not mass "turning into"
+some other substance. Rest energy and kinetic energy are the same currency, and
+a reaction is free to move the total between the two columns as long as the sum
+stays fixed.
+
+That also explains the Sun. It radiates $3.85 \times 10^{26}$ W, and by
+$E = mc^2$ that outflow of energy is an outflow of mass at
+$P/c^2 = 3.85 \times 10^{26} / 9.00 \times 10^{16} = 4.28 \times 10^9$ kg every
+second.
+
+**Worked example 2.** A charged pion at rest ($139.6$ MeV) decays into a muon
+($105.7$ MeV) and a neutrino you may treat as massless. Find the muon's kinetic
+energy.
+
+Write down conservation first, before touching any numbers. The pion is at
+rest, so total momentum before is zero, so the muon and neutrino come out
+back-to-back with equal momentum magnitudes $p$. Energy conservation says
+
+$$m_\pi c^2 = E_\mu + E_\nu$$
+
+The neutrino is massless, so $E_\nu = pc$. The muon obeys the invariant, so
+$E_\mu = \sqrt{(pc)^2 + (m_\mu c^2)^2}$. One unknown, one equation. Isolate the
+root and square:
+
+$$m_\pi c^2 - pc = \sqrt{(pc)^2 + (m_\mu c^2)^2}$$
+
+$$(m_\pi c^2)^2 - 2 m_\pi c^2 \, (pc) + (pc)^2 = (pc)^2 + (m_\mu c^2)^2$$
+
+The $(pc)^2$ cancels on both sides — that cancellation is the whole trick and it
+happens every time one product is massless. Solve:
+
+$$pc = \frac{(m_\pi c^2)^2 - (m_\mu c^2)^2}{2 m_\pi c^2} = \frac{139.6^2 - 105.7^2}{2(139.6)} = \frac{19488 - 11172}{279.2} = \frac{8316}{279.2} = 29.78 \ \text{MeV}$$
+
+Then the muon's total energy is $E_\mu = 139.6 - 29.78 = 109.8$ MeV, and its
+kinetic energy is what is left after you take out its rest energy:
+
+$$K_\mu = 109.8 - 105.7 = 4.1 \ \text{MeV}$$
+
+Small, because the muon is nearly as heavy as the pion and there was not much
+spare mass to convert. The same method handles any two-body decay from rest,
+including one where both products have mass: you would just carry two square
+roots instead of one.
+
+<QuickCheck
+  question="A neutral pion of rest energy 135.0 MeV decays at rest into two photons. Each photon has energy:"
+  options={["33.75 MeV", "67.5 MeV", "135.0 MeV", "Cannot be found without the pion's speed"]}
+  answer={1}
+  explanation="Zero momentum before means the photons go opposite ways with equal energies, and the two must add to the 135.0 MeV of rest energy, so each gets half."
+/>
+
+## Invariant mass, thresholds and colliders
+
+Here is the technique that cracks the hard problems. Take a whole system of
+particles, add up their energies to get $E_{\rm tot}$ and add up their momentum
+vectors to get $\vec{p}_{\rm tot}$. Then the quantity
+
+$$s = E_{\rm tot}^2 - (p_{\rm tot}c)^2$$
+
+is invariant: every observer computes the same number for it, because energy
+and momentum transform together exactly the way $E$ and $p$ of a single
+particle do. And $\sqrt{s}$ has a plain meaning — it is the total energy the
+system would have in the frame where its net momentum is zero, the
+**centre-of-momentum frame**. That is the energy budget genuinely available for
+making new particles, because anything left over as bulk motion is momentum you
+are still required to conserve.
+
+A reaction is **at threshold** when the products are made with nothing to
+spare: in the centre-of-momentum frame they all come out at rest, moving
+together. So the threshold condition is
+
+$$\sqrt{s} = \sum (\text{rest energies of the products})$$
+
+**Worked example 3.** A proton beam hits protons at rest to make neutral pions,
+$p + p \to p + p + \pi^0$. With $m_p c^2 = 938.3$ MeV and
+$m_\pi c^2 = 135.0$ MeV, find the minimum kinetic energy of the beam proton.
+
+Compute $s$ twice — once after, once before.
+
+*After*, at threshold, in the centre-of-momentum frame the three products sit
+still, so $\sqrt{s}$ is just their rest energies added:
+
+$$\sqrt{s} = 2(938.3) + 135.0 = 2011.6 \ \text{MeV}$$
+
+*Before*, work in the lab. The beam proton has energy $E$ and momentum $p$; the
+target has energy $938.3$ and no momentum. So
+
+$$s = (E + m_p c^2)^2 - (pc)^2 = E^2 - (pc)^2 + 2E\,m_p c^2 + (m_p c^2)^2$$
+
+and $E^2 - (pc)^2 = (m_p c^2)^2$ for the beam proton, leaving the tidy result
+
+$$s = 2(m_p c^2)^2 + 2 E \, m_p c^2$$
+
+Set the two expressions for $s$ equal:
+
+$$2011.6^2 = 2(938.3)^2 + 2E(938.3)$$
+
+$$4.0465 \times 10^6 = 1.7608 \times 10^6 + 1876.6\,E$$
+
+$$E = \frac{2.2857 \times 10^6}{1876.6} = 1218 \ \text{MeV}$$
+
+That is total energy, so subtract the rest energy for the kinetic energy the
+question asked for:
+
+$$K = 1218 - 938.3 = 280 \ \text{MeV}$$
+
+You had to supply $280$ MeV of motion to make $135$ MeV of pion. The surplus is
+not waste — it is the kinetic energy the products are forced to keep, because
+momentum going in was not zero and cannot come out zero.
+
+That surplus is why colliders exist. Fire two beams of energy $E$ head-on and
+the total momentum is zero already, so $\sqrt{s} = 2E$: every joule counts. In a
+fixed-target machine $s$ only grows like $2E m c^2$, so $\sqrt{s}$ grows like
+$\sqrt{E}$ — doubling the reach costs four times the beam energy. Two $7.00$ GeV
+electron beams give $\sqrt{s} = 14.0$ GeV, and matching that with a fixed target
+would take a beam of roughly $s/(2m_e c^2) = (14000)^2/(2 \times 0.511)$ MeV,
+which is about $1.9 \times 10^{5}$ GeV. No one is building that.
+
+<Aside label="Where this goes wrong" warn>
+  At threshold the products are at rest in the centre-of-momentum frame, not in
+  the lab. Setting the lab kinetic energy of the products to zero is the most
+  common wrong move in this whole topic, and it gives $135$ MeV instead of
+  $280$ MeV above. Also watch the conserved quantum numbers: you cannot make a
+  lone antiproton, so the cheapest reaction is
+  $p + p \to p + p + p + \bar p$, and the products' rest energy in the threshold
+  condition is $4 m_p c^2$, not $3 m_p c^2$.
+</Aside>
+
+## Boosting a decay: the opening angle
+
+One more manoeuvre, because the hardest problems use it. Solve the decay in the
+frame where it is simple — usually the parent's rest frame — then transform the
+answers to the lab.
+
+A neutral pion at rest sends out two photons of $67.5$ MeV each, back to back,
+at some angle $\theta^\*$ to whatever axis you like. Now let the pion fly with
+Lorentz factor $\gamma$ and speed $\beta c$. The photons' directions swing
+forward. The angle each one makes with the flight direction in the lab comes
+from transforming its momentum components:
+
+$$\tan\theta = \frac{\sin\theta^\*}{\gamma(\cos\theta^\* + \beta)}$$
+
+The denominator carries the $\gamma$, so every lab angle is squeezed towards
+zero as $\gamma$ grows. The two photons are still opposite in the pion's frame
+but they are no longer opposite in yours.
+
+**Worked example 4.** A neutral pion with total energy $10.0$ GeV decays into
+two photons. Find the smallest possible angle between them in the lab.
+
+First get $\gamma$, which is total energy over rest energy:
+
+$$\gamma = \frac{10000}{135.0} = 74.07$$
+
+The opening angle $\Theta$ turns out to be smallest for the symmetric case,
+$\theta^\* = 90^\circ$, where both photons make the same lab angle with the
+axis. Put $\theta^\* = 90^\circ$ into the formula: $\tan\theta = 1/(\gamma\beta)$
+for each photon, so $\Theta = 2\theta$ and, tidying the trigonometry,
+$\sin(\Theta/2) = 1/\gamma$. Then
+
+$$\sin(\Theta/2) = \frac{1}{74.07} = 0.01350 \quad \Rightarrow \quad \Theta/2 = 0.774^\circ$$
+
+$$\Theta = 1.55^\circ$$
+
+At high energy the two photons arrive almost on top of each other — which is
+exactly the problem detector builders have to solve.
+
+<Figure caption={<><b>Figure 3.</b> A pion flies in from the left and decays. Drag the emission angle first, with gamma fixed, and watch the opening angle in the readout dip to its lowest value when the photons come out sideways in the pion frame. Then push gamma up and watch that minimum shrink towards nothing.</>}>
+  <Sim id="relativistic-energy-decay" />
+</Figure>
+
+## Recognising when this is the tool
+
+Some signals, roughly in order of how reliable they are.
+
+**Rest energies are quoted in MeV or GeV.** If a problem hands you $938.3$ MeV
+instead of a mass in kilograms, it wants relativistic energy accounting and
+almost certainly wants the invariant $E^2 = (pc)^2 + (mc^2)^2$.
+
+**Speeds near $c$, or a $\gamma$, or an accelerating voltage in megavolts.** An
+electron through $5.00$ MV has picked up $5.00$ MeV, ten times its own rest
+energy, so $\gamma = (0.511 + 5.00)/0.511 = 10.8$ and any classical formula is
+useless.
+
+**Particles appear or disappear.** Decay, annihilation, pair production,
+fusion. Conserve $E$ and $\vec p$, never mass and never kinetic energy. Compute
+the mass difference and multiply by $c^2$ — four hydrogen nuclei losing
+$0.0287$ u becomes $0.0287 \times 931.5 = 26.7$ MeV.
+
+**The words "minimum", "threshold", or "just barely enough".** That is the
+invariant-mass method: set $\sqrt{s}$ before equal to the sum of product rest
+energies.
+
+**Anything asking for an angle or an energy in a different frame.** Solve it in
+the frame where momentum is zero, then boost.
+
+The habit worth building is to stop reaching for $\gamma$ and $v$ at all.
+Compute in $E$ and $p$, use the triangle to convert between them, and pull out
+$v/c = pc/E$ only at the very end if a problem insists on a speed. Next you will
+meet the photon acting on something solid: [the photoelectric
+effect](/guide/photoelectric), where the $E = pc$ you just derived stops being a
+formal curiosity and starts knocking electrons out of metal.

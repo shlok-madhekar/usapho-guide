@@ -1,69 +1,179 @@
+Hang a grocery bag from a bathroom scale's hook and the needle moves a little. Add another tin and it moves a little more, by the same amount again. Keep going and the marks stay evenly spaced right up until the moment the spring inside gives up and the scale is ruined. That even spacing is the whole reason springs are useful, and it is the reason a spring problem can be solved on paper at all.
+
+In the [last lesson](/guide/tension-pulleys) a rope transmitted whatever force the rest of the system demanded. A rope is an ideal that never stretches, so its tension is unknown until you solve for it. A spring is the opposite kind of object. Its force is not an unknown at all: it is fixed by how far the spring has been deformed, and you can read it off before you write a single equation of motion. That swap — from "unknown force, known length" to "known force, changing length" — is what this lesson is about.
+
 ## The restoring force
 
-Stretch a spring and it pulls back; compress it and it pushes back. For small
-enough deformations the force is proportional to how far you moved the end from
-its natural length:
+Take a spring at its natural length, the length it sits at with nothing pulling on it. Call the amount you have stretched or squashed the end away from that length $x$. Stretch it a bit and it pulls back. Stretch it twice as far and, as the grocery bag showed, it pulls back twice as hard. Squash it instead and it pushes out, again in proportion. One line covers both cases:
 
 $$F = -kx$$
 
-Here $x$ is measured **from the relaxed length**, not from the floor or from
-wherever the mass happens to sit, and the minus sign says the force opposes the
-displacement. The constant $k$ is the stiffness in newtons per metre; a large
-$k$ is a stiff spring.
+$k$ is the **spring constant** or stiffness, measured in newtons per metre. A spring with $k = 400\;\mathrm{N/m}$ needs 400 newtons to hold it stretched one metre, or 4 newtons to hold it stretched a centimetre. The minus sign says the force points back towards the natural length: stretched, it pulls in; compressed, it pushes out. A force like that is called a **restoring force**, because it always acts to restore the relaxed state.
 
-Hooke's law is an approximation, good while the material stays elastic. Pull
-hard enough and a real spring yields, after which it neither returns its energy
-nor its original length.
+The first real skill is measuring $x$ from the right place. $x$ is the deformation of the spring — its current length minus its natural length — not the position of the block in whatever coordinate system you drew. Get that wrong and every number afterwards is wrong.
+
+Two immediate consequences. First, if you know the stretch you know the force: a spring with $k = 250\;\mathrm{N/m}$ stretched $0.12\;\mathrm{m}$ pulls with $250 \times 0.12 = 30\;\mathrm{N}$, no free body diagram required. Second, you can run it backwards to measure $k$. Hang a $2.0\;\mathrm{kg}$ mass and let it settle; if it stretches $0.080\;\mathrm{m}$, then at rest the spring force equals the weight, so $k(0.080) = (2.0)(9.8) = 19.6\;\mathrm{N}$ and $k = 19.6 / 0.080 = 245\;\mathrm{N/m}$.
 
 <Aside label="Where this goes wrong" warn>
-  Measuring $x$ from the wrong origin. In $F = -kx$, $x$ is the extension of the
-  spring, not the position of the block in your coordinate system. When a block
-  hangs at rest and you then displace it, it is usually cleaner to redefine the
-  origin at the hanging equilibrium — see below for why that works.
+  Using the block's height, or the spring's total length, as $x$. If a spring of natural length $0.40\;\mathrm{m}$ now measures $0.46\;\mathrm{m}$, then $x = 0.06\;\mathrm{m}$, not $0.46\;\mathrm{m}$. And a spring that has gone slack — a rope-like spring you pushed on, or one whose block has flown off — exerts nothing at all, so check that the deformation you computed is physically possible before trusting it.
 </Aside>
 
-## Series and parallel
+Because the force grows steadily from zero, the work you do stretching a spring is not $Fx$. The force at the start is nothing and at the end is $kx$, and since it grows linearly, the average force over the stretch is $\tfrac{1}{2}kx$. Multiply by the distance:
 
-Two springs side by side, both attached to the same block, are in **parallel**.
-They share the displacement and their forces add:
+$$U = \tfrac{1}{2}kx^2$$
+
+That is the **elastic potential energy**, the energy the spring hands back when it relaxes. A spring with $k = 800\;\mathrm{N/m}$ compressed $0.050\;\mathrm{m}$ stores $\tfrac{1}{2}(800)(0.050)^2 = 400 \times 0.0025 = 1.0\;\mathrm{J}$. Note the square: double the compression and you store four times as much.
+
+## Hanging a mass: gravity just moves the origin
+
+Hang a mass $m$ from a vertical spring and let it settle. At rest the upward spring force balances the downward weight, so $kx_0 = mg$ and the **equilibrium extension** is
+
+$$x_0 = \frac{mg}{k}$$
+
+A $5.0\;\mathrm{kg}$ mass on a $400\;\mathrm{N/m}$ spring sags $x_0 = (5.0)(9.8)/400 = 49/400 = 0.1225\;\mathrm{m}$.
+
+Now push the mass down a further distance $y$ below that resting point. The spring is stretched $x_0 + y$, so it pulls up with $k(x_0 + y)$, and gravity still pulls down with $mg$. The net force is
+
+$$F_{\text{net}} = k(x_0 + y) - mg = kx_0 + ky - mg = ky$$
+
+upward, because $kx_0$ and $mg$ were equal and cancelled. Gravity has vanished from the problem. Measured from the hanging equilibrium, a vertical spring behaves exactly like a horizontal one with the same $k$ — same restoring law, same everything. That is worth holding on to: a constant force added to a spring force shifts the equilibrium point and changes nothing else.
+
+<Figure caption={<><b>Figure 1.</b> The hanging spring. Notice that the block always oscillates about the equilibrium line, never about the natural length. Turn the stiffness down and watch the sag grow while the arrows stay balanced at the centre; set the amplitude to zero to see the two forces match exactly.</>}>
+  <Sim id="springs-hooke-hanging" />
+</Figure>
+
+<QuickCheck
+  question="A block hangs at rest on a vertical spring, then is pulled down 3 cm and released. Compared with the same block on a horizontal frictionless spring pulled 3 cm and released, the vertical oscillation is:"
+  options={["slower, because gravity fights the upward motion", "identical in period and amplitude", "faster, because gravity adds to the restoring force", "not an oscillation at all"]}
+  answer={1}
+  explanation="Measured from the hanging equilibrium the net force is ky, exactly the horizontal law. Gravity shifts where the centre of the motion sits; it does not change the period or the amplitude."
+/>
+
+## Combining springs
+
+Two springs attached side by side to the same block, both anchored to the same wall, are in **parallel**. Move the block by $x$ and you have stretched both by $x$, so each pulls back and their forces add: $F = k_1x + k_2x = (k_1 + k_2)x$. The pair acts as one spring with
 
 $$k_{\text{par}} = k_1 + k_2$$
 
-Two springs end to end are in **series**. Now they share the force — the same
-tension runs through the chain — and the extensions add:
+Springs of $200$ and $300\;\mathrm{N/m}$ in parallel give $500\;\mathrm{N/m}$.
+
+Two springs joined end to end are in **series**. Now the shared quantity is the force, not the stretch: whatever pulls the bottom of the chain must be transmitted through the junction, so both springs feel the same $F$ (the springs are taken as massless, which is what lets the junction be force-balanced). The stretches add: $x = F/k_1 + F/k_2$. Since $x = F/k_{\text{ser}}$ by definition,
 
 $$\frac{1}{k_{\text{ser}}} = \frac{1}{k_1} + \frac{1}{k_2}$$
 
-Series is always softer than either spring alone. The reason is that the same
-pull stretches both, so you collect two extensions for the price of one force.
-Cutting a spring in half doubles its stiffness, which is the same fact read
-backwards: the original was two half-springs in series.
+The same $200$ and $300\;\mathrm{N/m}$ in series give $1/k = 1/200 + 1/300 = 0.005 + 0.003333 = 0.008333$, so $k = 120\;\mathrm{N/m}$ — softer than either spring on its own, which makes sense because you are collecting two stretches for the price of one force.
 
-Note the arithmetic is opposite to resistors, so do not pattern-match. Decide
-by asking which quantity is shared: shared displacement means add the $k$'s,
-shared force means add the compliances $1/k$.
+<Figure caption={<><b>Figure 2.</b> The same two springs wired both ways under the same applied force. Watch which block moves further. Drag k1 down towards 50 N/m: the parallel stiffness barely changes, but the series stiffness collapses, because in series the floppiest spring dominates.</>}>
+  <Sim id="springs-hooke-combos" />
+</Figure>
+
+This also tells you what happens when you cut a spring. A spring of stiffness $k$ and length $L$ is two half-springs in series, each of stiffness $k'$, and series gives $1/k = 1/k' + 1/k'$, so $k' = 2k$. **Halving a spring doubles its stiffness**, and in general the stiffness of a piece is inversely proportional to its length: cut a $120\;\mathrm{N/m}$ spring into three equal pieces and each piece has $k = 360\;\mathrm{N/m}$.
+
+<Aside label="Worth remembering">
+  Do not pattern-match to resistors; the arithmetic is reversed. Decide from scratch every time by asking which quantity the two springs share. Same displacement means the forces add, so add the $k$'s. Same force means the displacements add, so add the $1/k$'s.
+</Aside>
+
+## Oscillation: period, frequency and speed
+
+Put the restoring law into Newton's second law for a block of mass $m$ free to move. With $x$ measured from equilibrium, $ma = -kx$, so
+
+$$a = -\frac{k}{m}\,x$$
+
+The acceleration is proportional to the displacement and points the other way. That is the defining equation of **simple harmonic motion**, and its solution is a cosine, $x(t) = A\cos(\omega t)$, with the **angular frequency**
+
+$$\omega = \sqrt{\frac{k}{m}}, \qquad T = 2\pi\sqrt{\frac{m}{k}}, \qquad f = \frac{1}{T} = \frac{1}{2\pi}\sqrt{\frac{k}{m}}$$
+
+$A$ is the **amplitude**, the largest displacement reached. $T$ is the period in seconds, $f$ the frequency in hertz. Nothing in $T$ depends on $A$: a big swing and a small swing take the same time, because a bigger pull comes with a longer trip. A $4.0\;\mathrm{kg}$ block on a $100\;\mathrm{N/m}$ spring has $T = 2\pi\sqrt{4.0/100} = 2\pi (0.2) = 1.257\;\mathrm{s}$.
+
+Two shortcuts fall out. Because $x_0 = mg/k$ for a hanging mass, $m/k = x_0/g$, so $T = 2\pi\sqrt{x_0/g}$: measure the static sag and you know the period without knowing either $m$ or $k$. A sag of $0.050\;\mathrm{m}$ gives $T = 2\pi\sqrt{0.050/9.8} = 2\pi\sqrt{0.005102} = 2\pi(0.07143) = 0.4488\;\mathrm{s}$.
+
+And because the cosine's derivative brings down a factor $\omega$, the extreme values of speed and acceleration are
+
+$$v_{\max} = A\omega, \qquad a_{\max} = A\omega^2$$
+
+You can get $v_{\max}$ without any of that, straight from energy: at the turning point all the energy is $\tfrac{1}{2}kA^2$, and at the centre all of it is $\tfrac{1}{2}mv_{\max}^2$, so $v_{\max} = A\sqrt{k/m}$, the same thing. A $2.0\;\mathrm{kg}$ block pulled $0.10\;\mathrm{m}$ on a $500\;\mathrm{N/m}$ spring reaches $v_{\max} = 0.10\sqrt{500/2.0} = 0.10\sqrt{250} = 0.10(15.81) = 1.581\;\mathrm{m/s}$.
 
 <QuickCheck
-  question="Two identical springs of stiffness k are joined end to end and a mass hangs from the bottom. The effective stiffness is:"
-  options={["2k", "k", "k/2", "k squared"]}
-  answer={2}
-  explanation="End to end is series: the same force stretches both, so the total extension doubles and the effective stiffness is halved."
+  question="A block oscillates on a spring with amplitude 4 cm. You restart it with amplitude 8 cm. The period and the maximum speed become:"
+  options={["period doubles, max speed doubles", "period unchanged, max speed doubles", "period doubles, max speed unchanged", "both unchanged"]}
+  answer={1}
+  explanation="The period depends only on k and m. The maximum speed is A times omega, so it scales directly with amplitude."
 />
 
-## A hanging spring
+## Worked example: two springs and a load
 
-Hang a mass $m$ from a vertical spring. At rest, the spring force balances
-gravity:
+A $5.0\;\mathrm{kg}$ mass hangs from a $300\;\mathrm{N/m}$ spring, which itself hangs from a $200\;\mathrm{N/m}$ spring fixed to the ceiling. Find the total extension.
 
-$$k x_0 = mg \;\Longrightarrow\; x_0 = \frac{mg}{k}$$
+Start by asking what each spring carries. Both springs are massless and hang in a single chain, so the same force runs through both, and that force is the weight of the load: $F = (5.0)(9.8) = 49\;\mathrm{N}$. Series, therefore, and you can do it either way.
 
-Now displace the mass a further distance $y$ below that point. The spring force
-is $k(x_0 + y)$ upward, gravity is $mg$ downward, and the net force is
+The direct way: each spring stretches by its own $F/k$. The lower one gives $49/300 = 0.16333\;\mathrm{m}$, the upper one $49/200 = 0.2450\;\mathrm{m}$, and the extensions add to $0.16333 + 0.2450 = 0.4083\;\mathrm{m}$.
 
-$$k(x_0 + y) - mg = ky$$
+The combination way: $1/k = 1/300 + 1/200 = 0.003333 + 0.005 = 0.008333$, so $k = 120\;\mathrm{N/m}$ and $x = 49/120 = 0.4083\;\mathrm{m}$. Same answer, and the agreement is the check that you picked series rather than parallel.
 
-Gravity has cancelled completely. Measured from the hanging equilibrium, a
-vertical spring behaves exactly like a horizontal one — same restoring law,
-same $k$. Constant gravity shifts the equilibrium and changes nothing else,
-which is why you can drop $mg$ from these problems the moment you put your
-origin in the right place.
+## Worked example: dropped onto a spring
+
+A $1.5\;\mathrm{kg}$ block is released from rest $0.30\;\mathrm{m}$ above the top of a vertical spring with $k = 1200\;\mathrm{N/m}$. How far does the spring compress at most?
+
+At the lowest point the block is instantaneously at rest, so both the start and the end have zero kinetic energy. That makes energy conservation the clean route. Call the maximum compression $d$. From release to the lowest point the block falls a total of $h + d = 0.30 + d$, losing gravitational energy $mg(h+d)$, and all of it ends up in the spring:
+
+$$mg(h + d) = \tfrac{1}{2}kd^2$$
+
+Put the numbers in, with $mg = (1.5)(9.8) = 14.7\;\mathrm{N}$:
+
+$$14.7(0.30 + d) = 600\,d^2 \;\Longrightarrow\; 600d^2 - 14.7d - 4.41 = 0$$
+
+The quadratic formula gives $d = \dfrac{14.7 + \sqrt{14.7^2 + 4(600)(4.41)}}{1200}$. Inside the root: $216.09 + 10584 = 10800.09$, whose square root is $103.923$. So $d = (14.7 + 103.923)/1200 = 118.623/1200 = 0.09885\;\mathrm{m}$.
+
+The negative root is discarded: it corresponds to the spring being stretched upward, which cannot happen here. And notice the sanity check — the static sag is only $14.7/1200 = 0.01225\;\mathrm{m}$, so a $0.30\;\mathrm{m}$ drop buys you about eight times the resting compression, not thirty times. Energy goes as $d^2$, so compression grows slowly.
+
+The same equation with $h = 0$ answers "a block is attached to a spring at its natural length and released": then $mgd = \tfrac{1}{2}kd^2$ gives $d = 2mg/k$, exactly **twice** the equilibrium sag. For a $2.0\;\mathrm{kg}$ block on a $400\;\mathrm{N/m}$ spring, $d = 2(2.0)(9.8)/400 = 39.2/400 = 0.098\;\mathrm{m}$. Read that as an oscillation instead and the reasoning is even shorter: the block starts at rest a distance $x_0$ above equilibrium, so the amplitude is $x_0$, so it swings down to $x_0$ below equilibrium, a total of $2x_0$.
+
+<Figure caption={<><b>Figure 3.</b> The drop. Compare the dashed "lowest point" line with the static sag in the readout — the sag is tiny next to the dynamic compression. Now set the drop height to zero and watch the block still fall to exactly twice the sag before coming back.</>}>
+  <Sim id="springs-hooke-drop" />
+</Figure>
+
+<Aside label="Where this goes wrong" warn>
+  Forgetting that the block keeps falling once it touches the spring. The drop in height is $h + d$, not $h$. Leaving out the $d$ gives $\tfrac{1}{2}kd^2 = mgh$ and an answer that is too small — here it would give $0.0857\;\mathrm{m}$ instead of $0.0989\;\mathrm{m}$.
+</Aside>
+
+## Worked example: a block riding on an oscillator
+
+A $2.0\;\mathrm{kg}$ block sits on top of a $3.0\;\mathrm{kg}$ block attached to a $200\;\mathrm{N/m}$ spring, and the pair slides back and forth horizontally. The static friction coefficient between the two blocks is $0.40$. What is the largest amplitude for which the top block does not slip?
+
+Nothing here is about energy. Ask instead what force the top block needs. As long as the two move together, the top block has the same acceleration as everything else, and the only horizontal force available to give it that acceleration is friction from the block beneath. So
+
+$$f = m_{\text{top}}\,a$$
+
+Friction can supply at most $f_{\max} = \mu N = \mu m_{\text{top}} g$, since the top block's normal force is just its own weight. Setting the demand equal to the supply:
+
+$$m_{\text{top}}\,a_{\max} \le \mu m_{\text{top}} g \;\Longrightarrow\; a_{\max} \le \mu g$$
+
+The mass cancels, which is why the answer will not involve the 2.0 kg at all. Now the oscillation's peak acceleration is $a_{\max} = A\omega^2$, and $\omega^2 = k/M$ with $M$ the **total** mass being oscillated, $2.0 + 3.0 = 5.0\;\mathrm{kg}$: $\omega^2 = 200/5.0 = 40\;\mathrm{s^{-2}}$. So
+
+$$A \le \frac{\mu g}{\omega^2} = \frac{(0.40)(9.8)}{40} = \frac{3.92}{40} = 0.098\;\mathrm{m}$$
+
+Push it past $9.8\;\mathrm{cm}$ and the top block slides at the ends of the swing, where the acceleration is largest.
+
+## Springs in a hurry: cut strings and free blocks
+
+Two more situations turn up constantly, and both lean on the fact that a spring's force depends on its length, which cannot change instantly.
+
+A $2.0\;\mathrm{kg}$ block hangs from a spring, and a $3.0\;\mathrm{kg}$ block hangs from it by a string. Cut the string. The spring was holding $5.0\;\mathrm{kg}$, so it was stretched enough to pull with $(5.0)(9.8) = 49\;\mathrm{N}$, and one instant after the cut the spring has not had time to shorten, so it still pulls with $49\;\mathrm{N}$. On the upper block: $49\;\mathrm{N}$ up, its own weight $(2.0)(9.8) = 19.6\;\mathrm{N}$ down, net $29.4\;\mathrm{N}$ up, so $a = 29.4/2.0 = 14.7\;\mathrm{m/s^2}$ upward. A string's tension can jump instantly; a spring's force cannot.
+
+And when a compressed spring throws two free blocks apart on a frictionless floor, use momentum and energy together. The pair starts at rest, so the momenta stay equal and opposite: $m_1v_1 = m_2v_2$. The stored energy $\tfrac{1}{2}kx^2$ becomes the two kinetic energies. With $k = 800\;\mathrm{N/m}$, $x = 0.050\;\mathrm{m}$, $m_1 = 2.0\;\mathrm{kg}$ and $m_2 = 3.0\;\mathrm{kg}$, the energy is $\tfrac{1}{2}(800)(0.0025) = 1.0\;\mathrm{J}$. Substituting $v_2 = m_1v_1/m_2$ into the energy equation and solving gives $v_1 = \sqrt{2E\,m_2 / (m_1(m_1+m_2))} = \sqrt{2(1.0)(3.0)/(2.0 \times 5.0)} = \sqrt{0.6} = 0.7746\;\mathrm{m/s}$. The lighter block comes off faster, as it must to carry equal momentum.
+
+## Recognising a spring problem
+
+The giveaway is a force that is stated as a stiffness rather than a number. The moment a problem hands you a $k$ in N/m, it is telling you that you can compute the force from a length, so your first move is always the same: find the deformation measured from the natural length.
+
+After that, three questions sort out the method.
+
+Does the problem ask for a position where something is at rest or moving steadily? Then it is a balance problem: set $kx$ equal to whatever else pulls, and solve for $x$. That covers equilibrium sag, finding $k$ from a hanging mass, and the whole of series-parallel.
+
+Does it ask for a maximum extension, a maximum compression, or a speed at a particular place, with no mention of time? Then it is energy: $\tfrac{1}{2}kx^2$ on one side, gravity and kinetic energy on the other, and remember to include the extra drop $d$ while the spring squashes. If two objects fly apart, add momentum conservation alongside it.
+
+Does it ask for a period, a frequency, a maximum acceleration, or whether something slips? Then it is oscillation: find the effective $k$ and the total oscillating $m$, get $\omega = \sqrt{k/m}$, and use $A\omega$ and $A\omega^2$. The word "small oscillations" is a direct instruction to do this.
+
+One warning about that effective $k$: work it out for the actual geometry rather than copying the number off the page. If a spring acts through a movable pulley so that the mass moving a distance $y$ stretches the spring by $2y$ while the spring's pull reaches the mass twice over, the restoring force is $4ky$ and the effective stiffness is $4k$. A spring with $k = 800\;\mathrm{N/m}$ rigged that way and loaded with $2.0\;\mathrm{kg}$ gives $\omega = \sqrt{3200/2.0} = 40\;\mathrm{rad/s}$ and $T = 2\pi/40 = 0.157\;\mathrm{s}$. Always ask how far the spring stretches when the mass moves by one unit.
+
+Next comes [Circular Motion](/guide/circular-motion), where the force again points back towards a centre — but this time its size stays fixed while its direction turns, which produces a completely different kind of path.

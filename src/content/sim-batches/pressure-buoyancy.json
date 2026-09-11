@@ -1,0 +1,91 @@
+[
+  {
+    "id": "pressure-buoyancy-depth",
+    "title": "Pressure with depth",
+    "caption": "Drag the depth and the fluid density and watch the gauge pressure climb in a straight line.",
+    "height": 260,
+    "params": [
+      {
+        "key": "depth",
+        "label": "Depth",
+        "unit": "m",
+        "min": 0,
+        "max": 30,
+        "step": 0.5,
+        "value": 10
+      },
+      {
+        "key": "rho",
+        "label": "Fluid density",
+        "unit": "kg/m^3",
+        "min": 700,
+        "max": 13600,
+        "step": 100,
+        "value": 1000
+      }
+    ],
+    "draw": "var pad = 34;\nvar top = 26;\nvar floorY = H - 22;\nvar tankX = pad, tankW = (W - pad * 2) * 0.52;\nvar depthMax = 30;\nvar sy = (floorY - top) / depthMax;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\n\n// tank walls and water\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(tankX, top - 8);\nctx.lineTo(tankX, floorY);\nctx.lineTo(tankX + tankW, floorY);\nctx.lineTo(tankX + tankW, top - 8);\nctx.stroke();\n\n// wavy surface\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.5;\nctx.beginPath();\nfor (var i = 0; i <= 40; i++) {\n  var x = tankX + tankW * i / 40;\n  var y = top + 2.0 * Math.sin(i * 0.55 + t * 1.6);\n  i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);\n}\nctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"surface, p = p0\", tankX + 6, top - 14);\n\n// depth marker\nvar d = p.depth;\nvar dy = top + d * sy;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.5;\nctx.setLineDash([4, 4]);\nctx.beginPath();\nctx.moveTo(tankX, dy);\nctx.lineTo(tankX + tankW, dy);\nctx.stroke();\nctx.setLineDash([]);\n\n// the column of fluid above the point\nctx.fillStyle = C.faint;\nctx.globalAlpha = 0.25;\nctx.fillRect(tankX + tankW * 0.30, top, tankW * 0.16, d * sy);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.figure;\nctx.strokeRect(tankX + tankW * 0.30, top, tankW * 0.16, d * sy);\n\nvar cx = tankX + tankW * 0.38;\n// weight arrow of the column\nctx.strokeStyle = C.ink;\nctx.beginPath();\nctx.moveTo(cx, top + d * sy * 0.35);\nctx.lineTo(cx, top + d * sy * 0.35 + 22);\nctx.lineTo(cx - 3.5, top + d * sy * 0.35 + 16);\nctx.moveTo(cx, top + d * sy * 0.35 + 22);\nctx.lineTo(cx + 3.5, top + d * sy * 0.35 + 16);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"weight of column\", cx + 8, top + d * sy * 0.35 + 12);\n\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.arc(cx, dy, 4, 0, Math.PI * 2);\nctx.fill();\nctx.fillText(\"depth h = \" + d.toFixed(1) + \" m\", tankX + 6, dy + 14);\n\n// graph of pressure vs depth on the right\nvar gx0 = tankX + tankW + 46, gx1 = W - 14;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(gx0, top);\nctx.lineTo(gx0, floorY);\nctx.lineTo(gx1, floorY);\nctx.stroke();\n\nvar pAtm = 101000;\nvar pMax = pAtm + p.rho * 9.8 * depthMax;\nvar gw = gx1 - gx0;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var k = 0; k <= 60; k++) {\n  var hh = depthMax * k / 60;\n  var pp = pAtm + p.rho * 9.8 * hh;\n  var X = gx0 + gw * pp / pMax;\n  var Y = top + hh * sy;\n  k === 0 ? ctx.moveTo(X, Y) : ctx.lineTo(X, Y);\n}\nctx.stroke();\n\nvar pAbs = pAtm + p.rho * 9.8 * d;\nvar mx = gx0 + gw * pAbs / pMax;\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.arc(mx, dy, 4, 0, Math.PI * 2);\nctx.fill();\nctx.strokeStyle = C.accent;\nctx.setLineDash([3, 3]);\nctx.beginPath();\nctx.moveTo(gx0, dy);\nctx.lineTo(mx, dy);\nctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.faint;\nctx.fillText(\"pressure\", gx0 + 4, floorY + 12);\nctx.save();\nctx.translate(gx0 - 12, (top + floorY) / 2);\nctx.rotate(-Math.PI / 2);\nctx.textAlign = \"center\";\nctx.fillText(\"depth\", 0, 0);\nctx.restore();\nctx.textAlign = \"left\";\n\nout.note = \"gauge \" + (p.rho * 9.8 * d / 1000).toFixed(1) + \" kPa, absolute \" +\n  (pAbs / 1000).toFixed(1) + \" kPa (\" + (pAbs / pAtm).toFixed(2) + \" atmospheres)\";"
+  },
+  {
+    "id": "pressure-buoyancy-arrows",
+    "title": "Where the buoyant force comes from",
+    "caption": "The pressure arrows on the bottom face are longer than the ones on the top. That difference, and nothing else, is buoyancy.",
+    "height": 250,
+    "params": [],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\n\nvar cx = W * 0.40;\nvar top = H * 0.28, bot = H * 0.74;\nvar bw = Math.min(W * 0.26, 150);\nvar left = cx - bw / 2, right = cx + bw / 2;\n\n// water surface\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.5;\nctx.beginPath();\nfor (var i = 0; i <= 60; i++) {\n  var x = W * i / 60;\n  ctx.lineTo(x, 18 + 1.5 * Math.sin(i * 0.4));\n}\nctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"water surface\", 8, 30);\n\n// block\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1.5;\nctx.strokeRect(left, top, bw, bot - top);\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"block\", cx, (top + bot) / 2);\nctx.textAlign = \"left\";\n\nfunction arrow(x0, y0, x1, y1) {\n  var a = Math.atan2(y1 - y0, x1 - x0);\n  ctx.beginPath();\n  ctx.moveTo(x0, y0);\n  ctx.lineTo(x1, y1);\n  ctx.lineTo(x1 - 5 * Math.cos(a - 0.4), y1 - 5 * Math.sin(a - 0.4));\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 5 * Math.cos(a + 0.4), y1 - 5 * Math.sin(a + 0.4));\n  ctx.stroke();\n}\n\n// short arrows pushing down on the top face\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.4;\nfor (var j = 0; j < 4; j++) {\n  var x = left + bw * (j + 0.5) / 4;\n  arrow(x, top - 20, x, top - 2);\n}\nctx.fillStyle = C.figure;\nctx.fillText(\"small push down: p at the top face\", right + 10, top - 12);\n\n// long arrows pushing up on the bottom face\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.4;\nfor (var j2 = 0; j2 < 4; j2++) {\n  var x2 = left + bw * (j2 + 0.5) / 4;\n  arrow(x2, bot + 34, x2, bot + 2);\n}\nctx.fillStyle = C.accent;\nctx.fillText(\"bigger push up: p is larger deeper down\", right + 10, bot + 18);\n\n// sideways arrows cancel\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.2;\nfor (var k = 0; k < 3; k++) {\n  var y = top + (bot - top) * (k + 0.5) / 3;\n  arrow(left - 22, y, left - 3, y);\n  arrow(right + 22, y, right + 3, y);\n}\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"sides cancel\", cx, bot + 44);\nctx.textAlign = \"left\";\n\n// net buoyant force\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2.2;\narrow(W * 0.83, (top + bot) / 2 + 34, W * 0.83, (top + bot) / 2 - 34);\nctx.fillStyle = C.accent;\nctx.textAlign = \"center\";\nctx.fillText(\"net = buoyant force\", W * 0.83, (top + bot) / 2 - 46);\nctx.fillText(\"= weight of displaced water\", W * 0.83, (top + bot) / 2 + 48);\nctx.textAlign = \"left\";"
+  },
+  {
+    "id": "pressure-buoyancy-float",
+    "title": "Float, sink, hover",
+    "caption": "Set the object density and the fluid density and read off the fraction submerged.",
+    "height": 260,
+    "params": [
+      {
+        "key": "rhoObj",
+        "label": "Object density",
+        "unit": "kg/m^3",
+        "min": 100,
+        "max": 3000,
+        "step": 10,
+        "value": 700
+      },
+      {
+        "key": "rhoFluid",
+        "label": "Fluid density",
+        "unit": "kg/m^3",
+        "min": 600,
+        "max": 1400,
+        "step": 5,
+        "value": 1000
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\n\nvar surf = H * 0.36;\nvar ratio = p.rhoObj / p.rhoFluid;\nvar floats = ratio < 1;\nvar frac = floats ? ratio : 1;\n\nvar bw = Math.min(W * 0.22, 120);\nvar bh = H * 0.30;\nvar cx = W * 0.42;\n\n// water body\nctx.fillStyle = C.faint;\nctx.globalAlpha = 0.18;\nctx.fillRect(0, surf, W, H - surf - 14);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(0, H - 14);\nctx.lineTo(W, H - 14);\nctx.stroke();\n\n// equilibrium position: top of block sits (1-frac)*bh above the surface\nvar yEqTop = surf - (1 - frac) * bh;\n\n// bobbing: only if it floats, small damped-free oscillation about equilibrium\nvar amp = floats ? Math.min(bh * 0.18, 16) : 0;\nvar omega = floats ? Math.sqrt(9.8 / Math.max(ratio * bh / 40, 0.05)) : 0;\nvar bobPix = amp * Math.cos(t * (floats ? 2.2 + 2.0 * (1 - ratio) : 0));\nvar sinkPix = floats ? 0 : Math.min((H - 26 - bh - surf), 26 + 14 * Math.sin(t));\nvar yTop = yEqTop + bobPix + sinkPix;\n\n// wavy surface line\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.5;\nctx.beginPath();\nfor (var i = 0; i <= 60; i++) {\n  var x = W * i / 60;\n  ctx.lineTo(x, surf + 1.6 * Math.sin(i * 0.45 + t * 1.4));\n}\nctx.stroke();\n\n// block\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1.6;\nctx.strokeRect(cx - bw / 2, yTop, bw, bh);\n// shade submerged part\nvar subTop = Math.max(yTop, surf);\nvar subH = Math.max(0, yTop + bh - subTop);\nctx.fillStyle = C.accent;\nctx.globalAlpha = 0.22;\nctx.fillRect(cx - bw / 2, subTop, bw, subH);\nctx.globalAlpha = 1;\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"rho = \" + p.rhoObj.toFixed(0), cx, yTop + bh / 2);\nctx.textAlign = \"left\";\n\nfunction arrow(x0, y0, x1, y1) {\n  var a = Math.atan2(y1 - y0, x1 - x0);\n  ctx.beginPath();\n  ctx.moveTo(x0, y0);\n  ctx.lineTo(x1, y1);\n  ctx.lineTo(x1 - 6 * Math.cos(a - 0.4), y1 - 6 * Math.sin(a - 0.4));\n  ctx.moveTo(x1, y1);\n  ctx.lineTo(x1 - 6 * Math.cos(a + 0.4), y1 - 6 * Math.sin(a + 0.4));\n  ctx.stroke();\n}\n\n// force arrows, scaled to the ratio of buoyancy to weight\nvar wLen = 46;\nvar bLen = wLen * (floats ? 1 : p.rhoFluid / p.rhoObj);\nvar ax = cx + bw / 2 + 34;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\narrow(ax, yTop + bh / 2, ax, yTop + bh / 2 - bLen);\nctx.fillStyle = C.accent;\nctx.fillText(\"buoyant force\", ax + 8, yTop + bh / 2 - bLen);\n\nctx.strokeStyle = C.ink;\narrow(ax, yTop + bh / 2, ax, yTop + bh / 2 + wLen);\nctx.fillStyle = C.ink;\nctx.fillText(\"weight\", ax + 8, yTop + bh / 2 + wLen);\n\nctx.fillStyle = C.faint;\nctx.fillText(\"fluid rho = \" + p.rhoFluid.toFixed(0) + \" kg/m3\", 10, surf + 20);\n\nif (floats) {\n  out.note = \"floats with \" + (frac * 100).toFixed(1) + \"% of its volume under water\" +\n    \" (V_sub / V = \" + ratio.toFixed(3) + \")\";\n} else {\n  out.note = \"sinks: buoyancy is only \" + (100 * p.rhoFluid / p.rhoObj).toFixed(1) +\n    \"% of the weight, apparent weight is \" + (100 * (1 - p.rhoFluid / p.rhoObj)).toFixed(1) + \"% of the real one\";\n}"
+  },
+  {
+    "id": "pressure-buoyancy-utube",
+    "title": "U-tube with two liquids",
+    "caption": "Pour more oil in, or make it lighter, and see how far the water in the far arm rises above the interface.",
+    "height": 270,
+    "params": [
+      {
+        "key": "hOil",
+        "label": "Height of oil column",
+        "unit": "m",
+        "min": 0.05,
+        "max": 0.4,
+        "step": 0.01,
+        "value": 0.25
+      },
+      {
+        "key": "rhoOil",
+        "label": "Oil density",
+        "unit": "kg/m^3",
+        "min": 500,
+        "max": 990,
+        "step": 10,
+        "value": 800
+      }
+    ],
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\n\nvar scale = (H - 60) / 0.9;   // pixels per metre of liquid\nvar bottomY = H - 26;\nvar tubeW = Math.min(W * 0.13, 52);\nvar gapW = Math.min(W * 0.22, 110);\nvar midX = W * 0.45;\nvar lx = midX - gapW / 2 - tubeW, rx = midX + gapW / 2;\n\nvar hOil = p.hOil;\nvar rhoOil = p.rhoOil;\nvar rhoW = 1000;\n// water in right arm stands above the interface by rhoOil*hOil/rhoW\nvar rise = rhoOil * hOil / rhoW;\n\nvar interfaceY = bottomY - 0.22 * scale;      // interface in the left arm\nvar oilTopY = interfaceY - hOil * scale;\nvar rightY = interfaceY - rise * scale;\n\n// tube outline\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(lx, 20); ctx.lineTo(lx, bottomY); ctx.lineTo(rx + tubeW, bottomY); ctx.lineTo(rx + tubeW, 20);\nctx.moveTo(lx + tubeW, 20); ctx.lineTo(lx + tubeW, bottomY - 16); ctx.lineTo(rx, bottomY - 16); ctx.lineTo(rx, 20);\nctx.stroke();\n\n// water fill\nctx.fillStyle = C.accent;\nctx.globalAlpha = 0.20;\nctx.fillRect(lx + 1, interfaceY, tubeW - 2, bottomY - interfaceY - 1);\nctx.fillRect(rx + 1, rightY, tubeW - 2, bottomY - rightY - 1);\nctx.fillRect(lx + tubeW, bottomY - 16, rx - lx - tubeW, 15);\nctx.globalAlpha = 1;\n\n// oil fill\nctx.fillStyle = C.figure;\nctx.globalAlpha = 0.35;\nctx.fillRect(lx + 1, oilTopY, tubeW - 2, hOil * scale);\nctx.globalAlpha = 1;\n\n// level lines\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1.4;\nctx.beginPath(); ctx.moveTo(lx, interfaceY); ctx.lineTo(lx + tubeW, interfaceY); ctx.stroke();\nctx.beginPath(); ctx.moveTo(lx, oilTopY); ctx.lineTo(lx + tubeW, oilTopY); ctx.stroke();\nctx.beginPath(); ctx.moveTo(rx, rightY); ctx.lineTo(rx + tubeW, rightY); ctx.stroke();\n\n// the matching-level line through the interface\nctx.strokeStyle = C.accent;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(lx, interfaceY); ctx.lineTo(rx + tubeW + 6, interfaceY); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.accent;\nctx.fillText(\"same level, same pressure\", lx - 4, interfaceY + 14);\n\nctx.fillStyle = C.figure;\nctx.fillText(\"oil\", lx + tubeW / 2 - 8, (oilTopY + interfaceY) / 2);\nctx.fillStyle = C.ink;\nctx.fillText(\"water\", rx + tubeW + 6, (rightY + bottomY) / 2);\n\n// height annotations\nfunction dim(x, y0, y1, label) {\n  ctx.strokeStyle = C.faint;\n  ctx.lineWidth = 1;\n  ctx.beginPath(); ctx.moveTo(x, y0); ctx.lineTo(x, y1); ctx.stroke();\n  ctx.beginPath(); ctx.moveTo(x - 4, y0); ctx.lineTo(x + 4, y0);\n  ctx.moveTo(x - 4, y1); ctx.lineTo(x + 4, y1); ctx.stroke();\n  ctx.fillStyle = C.faint;\n  ctx.fillText(label, x + 6, (y0 + y1) / 2);\n}\ndim(lx - 16, oilTopY, interfaceY, hOil.toFixed(2) + \" m oil\");\ndim(rx + tubeW + 40, rightY, interfaceY, rise.toFixed(3) + \" m\");\n\nout.note = \"rho_oil h_oil = rho_water h_water, so the water stands \" +\n  rise.toFixed(3) + \" m above the interface\";"
+  }
+]

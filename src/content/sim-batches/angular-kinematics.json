@@ -1,0 +1,101 @@
+[
+  {
+    "id": "angular-kinematics-spinup",
+    "title": "Spin-up lab",
+    "caption": "Set the starting angular velocity and the angular acceleration, then watch the angle pile up.",
+    "height": 250,
+    "params": [
+      {
+        "key": "omega0",
+        "label": "Initial angular velocity",
+        "unit": "rad/s",
+        "min": -6,
+        "max": 6,
+        "step": 0.5,
+        "value": 0
+      },
+      {
+        "key": "alpha",
+        "label": "Angular acceleration",
+        "unit": "rad/s^2",
+        "min": -3,
+        "max": 3,
+        "step": 0.1,
+        "value": 1.2
+      }
+    ],
+    "draw": "var cyc = 8;\nvar tc = t % cyc;\nvar w0 = p.omega0, al = p.alpha;\nvar th = w0 * tc + 0.5 * al * tc * tc;\nvar w = w0 + al * tc;\nvar R = Math.min(W * 0.30, H * 0.38);\nvar cx = W * 0.30, cy = H * 0.52;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.arc(cx, cy, R, 0, Math.PI * 2);\nctx.stroke();\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([4, 4]);\nctx.beginPath();\nctx.moveTo(cx, cy);\nctx.lineTo(cx + R * 1.22, cy);\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"theta = 0\", cx + R * 0.62, cy - 6);\n\nvar k;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nfor (k = 0; k < 4; k++) {\n  var a = th + k * Math.PI / 2;\n  ctx.beginPath();\n  ctx.moveTo(cx, cy);\n  ctx.lineTo(cx + R * Math.cos(a), cy - R * Math.sin(a));\n  ctx.stroke();\n}\n\nvar tha = Math.min(Math.abs(th), Math.PI * 2);\nvar end = th > 0 ? -tha : tha;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2.5;\nctx.beginPath();\nctx.arc(cx, cy, R * 0.42, 0, end, th > 0);\nctx.stroke();\nctx.fillStyle = C.figure;\nvar mid = th > 0 ? tha / 2 : -tha / 2;\nctx.fillText(\"theta\", cx + R * 0.55 * Math.cos(mid) - 8, cy - R * 0.55 * Math.sin(mid) + 4);\n\nvar mx = cx + R * Math.cos(th), my = cy - R * Math.sin(th);\nvar vlen = Math.min(Math.abs(w) * R * 0.075, R * 0.75);\nvar sgn = w >= 0 ? 1 : -1;\nvar tx = -Math.sin(th) * sgn, ty = -Math.cos(th) * sgn;\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(mx, my);\nctx.lineTo(mx + tx * vlen, my + ty * vlen);\nctx.stroke();\nvar hx = mx + tx * vlen, hy = my + ty * vlen;\nctx.beginPath();\nctx.moveTo(hx, hy);\nctx.lineTo(hx - tx * 7 - ty * 4, hy - ty * 7 + tx * 4);\nctx.lineTo(hx - tx * 7 + ty * 4, hy - ty * 7 - tx * 4);\nctx.closePath();\nctx.fill();\nctx.fillStyle = C.accent;\nctx.fillText(\"v = omega r\", hx + 6, hy - 4);\n\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.arc(mx, my, 5, 0, Math.PI * 2);\nctx.fill();\n\nvar bx = W * 0.63;\nvar by = H * 0.26;\nvar lh = Math.min(22, H * 0.13);\nctx.fillStyle = C.ink;\nctx.fillText(\"t     = \" + tc.toFixed(2) + \" s\", bx, by);\nctx.fillText(\"omega = \" + w.toFixed(2) + \" rad/s\", bx, by + lh);\nctx.fillText(\"alpha = \" + al.toFixed(2) + \" rad/s^2\", bx, by + 2 * lh);\nctx.fillStyle = C.figure;\nctx.fillText(\"theta = \" + th.toFixed(2) + \" rad\", bx, by + 3 * lh);\nctx.fillStyle = C.faint;\nctx.fillText(\"      = \" + (th / (2 * Math.PI)).toFixed(2) + \" rev\", bx, by + 4 * lh);\n\nout.note = \"theta = \" + th.toFixed(2) + \" rad (\" + (th / (2 * Math.PI)).toFixed(2) +\n  \" rev), omega = \" + w.toFixed(2) + \" rad/s at t = \" + tc.toFixed(2) + \" s\";"
+  },
+  {
+    "id": "angular-kinematics-rim",
+    "title": "Rim point acceleration",
+    "caption": "The two pieces of a rim point's acceleration, and the angle the total makes with the velocity.",
+    "height": 260,
+    "params": [
+      {
+        "key": "radius",
+        "label": "Radius",
+        "unit": "m",
+        "min": 0.05,
+        "max": 0.6,
+        "step": 0.01,
+        "value": 0.25
+      },
+      {
+        "key": "omega",
+        "label": "Angular velocity",
+        "unit": "rad/s",
+        "min": 0,
+        "max": 8,
+        "step": 0.1,
+        "value": 4
+      },
+      {
+        "key": "alpha",
+        "label": "Angular acceleration",
+        "unit": "rad/s^2",
+        "min": 0.2,
+        "max": 16,
+        "step": 0.2,
+        "value": 8
+      }
+    ],
+    "draw": "var r = p.radius, w = p.omega, al = p.alpha;\nvar v = w * r, ac = w * w * r, at = al * r;\nvar atot = Math.sqrt(ac * ac + at * at);\nvar phi = Math.atan2(ac, at) * 180 / Math.PI;\n\nvar R = Math.min(W * 0.22, H * 0.33);\nvar cx = W * 0.34, cy = H * 0.55;\nvar th = 0.35 * t + 0.9;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.arc(cx, cy, R, 0, Math.PI * 2);\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.beginPath();\nctx.arc(cx, cy, 3, 0, Math.PI * 2);\nctx.fill();\n\nvar px = cx + R * Math.cos(th), py = cy - R * Math.sin(th);\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 3]);\nctx.beginPath();\nctx.moveTo(cx, cy);\nctx.lineTo(px, py);\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"r = \" + r.toFixed(2) + \" m\", cx + R * 0.35 * Math.cos(th) + 4,\n  cy - R * 0.35 * Math.sin(th) - 5);\n\nvar ux = -Math.sin(th), uy = -Math.cos(th);\nvar nx = -Math.cos(th), ny = Math.sin(th);\n\nvar vs = Math.min(R * 0.9 / Math.max(v, 0.001), 60);\nvar as = Math.min(R * 1.05 / Math.max(atot, 0.001), 60);\n\nfunction arrow(x0, y0, dx, dy, col, lab) {\n  var L = Math.sqrt(dx * dx + dy * dy);\n  if (L < 1) return;\n  var ex = dx / L, ey = dy / L;\n  ctx.strokeStyle = col;\n  ctx.fillStyle = col;\n  ctx.lineWidth = 2;\n  ctx.beginPath();\n  ctx.moveTo(x0, y0);\n  ctx.lineTo(x0 + dx, y0 + dy);\n  ctx.stroke();\n  ctx.beginPath();\n  ctx.moveTo(x0 + dx, y0 + dy);\n  ctx.lineTo(x0 + dx - ex * 8 - ey * 4.5, y0 + dy - ey * 8 + ex * 4.5);\n  ctx.lineTo(x0 + dx - ex * 8 + ey * 4.5, y0 + dy - ey * 8 - ex * 4.5);\n  ctx.closePath();\n  ctx.fill();\n  ctx.fillText(lab, x0 + dx + ex * 6 - 4, y0 + dy + ey * 6 + 4);\n}\n\narrow(px, py, ux * v * vs, uy * v * vs, C.accent, \"v = \" + v.toFixed(2) + \" m/s\");\narrow(px, py, nx * ac * as, ny * ac * as, C.figure, \"a_c = \" + ac.toFixed(1));\narrow(px, py, ux * at * as, uy * at * as, C.figure, \"a_t = \" + at.toFixed(1));\n\nctx.setLineDash([2, 3]);\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(px + ux * at * as, py + uy * at * as);\nctx.lineTo(px + ux * at * as + nx * ac * as, py + uy * at * as + ny * ac * as);\nctx.moveTo(px + nx * ac * as, py + ny * ac * as);\nctx.lineTo(px + ux * at * as + nx * ac * as, py + uy * at * as + ny * ac * as);\nctx.stroke();\nctx.setLineDash([]);\n\narrow(px, py, (ux * at + nx * ac) * as, (uy * at + ny * ac) * as, C.ink,\n  \"a = \" + atot.toFixed(1) + \" m/s^2\");\n\nvar bx = W * 0.68;\nvar by = H * 0.20;\nvar lh = Math.min(20, H * 0.12);\nctx.fillStyle = C.ink;\nctx.fillText(\"v   = omega r  = \" + v.toFixed(2) + \" m/s\", bx, by);\nctx.fillText(\"a_t = alpha r  = \" + at.toFixed(2), bx, by + lh);\nctx.fillText(\"a_c = omega^2 r = \" + ac.toFixed(2), bx, by + 2 * lh);\nctx.fillStyle = C.accent;\nctx.fillText(\"angle(a, v) = \" + phi.toFixed(1) + \" deg\", bx, by + 3 * lh);\n\nout.note = \"|a| = \" + atot.toFixed(2) + \" m/s^2, tilted \" + phi.toFixed(1) +\n  \" deg from the velocity (tan = a_c / a_t = \" + (ac / Math.max(at, 1e-9)).toFixed(2) + \")\";"
+  },
+  {
+    "id": "angular-kinematics-rolling",
+    "title": "Rolling without slipping",
+    "caption": "Every point on a rolling wheel has a different speed. Drag the probe around the rim to find it.",
+    "height": 250,
+    "params": [
+      {
+        "key": "speed",
+        "label": "Axle speed",
+        "unit": "m/s",
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "value": 4
+      },
+      {
+        "key": "radius",
+        "label": "Wheel radius",
+        "unit": "m",
+        "min": 0.15,
+        "max": 0.6,
+        "step": 0.01,
+        "value": 0.3
+      },
+      {
+        "key": "probe",
+        "label": "Probe angle from contact",
+        "unit": "deg",
+        "min": 0,
+        "max": 360,
+        "step": 5,
+        "value": 90
+      }
+    ],
+    "draw": "var v = p.speed, r = p.radius, ps0 = p.probe * Math.PI / 180;\nvar w = v / r;\nvar pad = W * 0.06;\nvar R = Math.min(H * 0.30, W * 0.13);\nvar ppm = R / r;\nvar L = (W - 2 * pad) / ppm;\nvar xc = (v * t) % L;\nvar psi = ps0 + xc / r;\n\nvar gy = H * 0.82;\nvar X = function (x) { return pad + x * ppm; };\nvar Y = function (y) { return gy - y * ppm; };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(0, gy);\nctx.lineTo(W, gy);\nctx.stroke();\n\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.lineWidth = 1.5;\nctx.beginPath();\nvar s;\nfor (s = 0; s <= L; s += L / 300) {\n  var q = ps0 + s / r;\n  var x = s - r * Math.sin(q), y = r - r * Math.cos(q);\n  s === 0 ? ctx.moveTo(X(x), Y(y)) : ctx.lineTo(X(x), Y(y));\n}\nctx.stroke();\nctx.setLineDash([]);\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.arc(X(xc), Y(r), R, 0, Math.PI * 2);\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.beginPath();\nctx.arc(X(xc), Y(r), 3, 0, Math.PI * 2);\nctx.fill();\n\nfunction arrow(x0, y0, dx, dy, col, lab, dlab) {\n  var Lm = Math.sqrt(dx * dx + dy * dy);\n  ctx.strokeStyle = col;\n  ctx.fillStyle = col;\n  ctx.lineWidth = 2;\n  if (Lm > 1.5) {\n    var ex = dx / Lm, ey = dy / Lm;\n    ctx.beginPath();\n    ctx.moveTo(x0, y0);\n    ctx.lineTo(x0 + dx, y0 + dy);\n    ctx.stroke();\n    ctx.beginPath();\n    ctx.moveTo(x0 + dx, y0 + dy);\n    ctx.lineTo(x0 + dx - ex * 8 - ey * 4.5, y0 + dy - ey * 8 + ex * 4.5);\n    ctx.lineTo(x0 + dx - ex * 8 + ey * 4.5, y0 + dy - ey * 8 - ex * 4.5);\n    ctx.closePath();\n    ctx.fill();\n  }\n  ctx.fillText(lab, x0 + dx + 6, y0 + dy + dlab);\n}\n\nvar vs = R * 0.55 / Math.max(v, 0.001);\n\narrow(X(xc), Y(2 * r), 2 * v * vs, 0, C.figure, \"top: 2v = \" + (2 * v).toFixed(1) + \" m/s\", -6);\narrow(X(xc), Y(r), v * vs, 0, C.figure, \"axle: v = \" + v.toFixed(1), -6);\narrow(X(xc) + R, Y(r), v * vs, -v * vs, C.figure,\n  \"side: 1.41v = \" + (Math.SQRT2 * v).toFixed(1), 0);\nctx.fillStyle = C.figure;\nctx.fillText(\"contact: v = 0\", X(xc) + 8, Y(0) - 6);\nctx.beginPath();\nctx.arc(X(xc), Y(0), 4, 0, Math.PI * 2);\nctx.fill();\n\nvar pxm = xc - r * Math.sin(psi), pym = r - r * Math.cos(psi);\nvar vxp = v * (1 - Math.cos(psi)), vyp = v * Math.sin(psi);\nvar sp = Math.sqrt(vxp * vxp + vyp * vyp);\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(X(xc), Y(r));\nctx.lineTo(X(pxm), Y(pym));\nctx.stroke();\n\narrow(X(pxm), Y(pym), vxp * vs, -vyp * vs, C.accent, \"probe \" + sp.toFixed(2) + \" m/s\", 0);\n\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.arc(X(pxm), Y(pym), 5, 0, Math.PI * 2);\nctx.fill();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"omega = v / r = \" + w.toFixed(2) + \" rad/s\", pad, H * 0.12);\n\nout.note = \"probe point speed \" + sp.toFixed(2) + \" m/s = 2v sin(psi/2), with psi = \" +\n  ((psi % (2 * Math.PI)) * 180 / Math.PI).toFixed(0) + \" deg measured from the contact point\";"
+  }
+]

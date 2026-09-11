@@ -1,44 +1,331 @@
-## Components do the work
+## A rower who cannot win
 
-Olympiad problems are almost never solved with vectors as arrows; they are
-solved by picking axes and writing components. Any vector splits as
-$A_x = A\cos\theta$, $A_y = A\sin\theta$, and two products cover essentially
-every use:
+A river is 150 m wide and flows at 3.0 m/s. A rower can only manage 2.0 m/s
+relative to the water. She is slower than the river, so no matter which way she
+points the bow, she is going downstream. The question is not whether she drifts.
+It is how little she can drift if she chooses her heading well.
 
-$$\vec A \cdot \vec B = AB\cos\theta, \qquad |\vec A \times \vec B| = AB\sin\theta$$
+You cannot answer that by thinking about speeds alone. Speed is one number, and
+this problem has two independent directions in it: across the river and along
+it. The whole trick is to stop treating the motion as one thing and start
+treating it as two numbers that evolve separately. That is what a vector is —
+not an arrow you draw, but a small bundle of independent numbers, one per
+direction. The previous lesson had you [checking that the units of an
+expression made sense](/guide/units-estimation) before trusting it. This one
+gives you the other habit that runs under every later unit: when a quantity has
+a direction, break it into pieces along axes you chose on purpose.
 
-The dot product answers "how much of this is along that": work, flux, and
-checking perpendicularity. The cross product answers "how much of this is
-perpendicular to that": torque, angular momentum, magnetic force. If the dot
-product vanishes the vectors are perpendicular; if the cross product vanishes
-they are parallel.
+## Splitting a vector into components
 
-## Choosing axes
+Put down a pair of perpendicular axes, $x$ and $y$. Draw your vector $\vec A$
+starting at the origin, at an angle $\theta$ measured counterclockwise from the
+$+x$ axis. Now drop a perpendicular line from the tip of $\vec A$ down to the
+$x$ axis. You have made a right triangle whose hypotenuse is $\vec A$, whose
+horizontal leg runs along $x$, and whose vertical leg runs along $y$.
 
-The single highest-return decision in a mechanics problem is where to point
-the axes. On an incline, tilt them along the slope so the acceleration lies on
-one axis and only gravity needs splitting. In circular motion, point one axis
-at the center. Good axes turn two coupled equations into one.
+That triangle is the whole story. The hypotenuse has length $A$ (the
+*magnitude*, a plain positive number with units). Right-triangle trigonometry
+says the side adjacent to $\theta$ is $A\cos\theta$ and the side opposite is
+$A\sin\theta$. So
 
-## The calculus you actually need
+$$A_x = A\cos\theta, \qquad A_y = A\sin\theta.$$
 
-F=ma is written to be solvable without calculus, but calculus shortens
-half of it. Derivatives of polynomials and trig functions, the chain rule, and
-simple integrals are enough. The one approximation you will use everywhere:
+$A_x$ is the *$x$-component*: how far the vector reaches in the $x$ direction.
+It can be negative, and a negative component just means the vector reaches
+backwards along that axis. Going the other way, the two components rebuild the
+magnitude and the angle by Pythagoras:
 
-$$\sin\theta \approx \theta, \qquad \cos\theta \approx 1 - \frac{\theta^2}{2}, \qquad (1+x)^n \approx 1 + nx$$
+$$A = \sqrt{A_x^2 + A_y^2}, \qquad \tan\theta = \frac{A_y}{A_x}.$$
 
-valid for small $\theta$ and small $x$.
+Which function goes with which leg depends on where the angle is measured from,
+not on some rule that sine is always vertical. If a problem gives you the angle
+from the *vertical*, then the vertical piece is the adjacent one and gets the
+cosine. Draw the triangle every single time and read it off. That habit costs
+five seconds and removes an entire category of mistake.
 
-<Aside label="Reading the problem">
-  "Small oscillations", "slightly displaced", "to first order": all of these
-  are instructions to expand and throw away the higher terms. Recognizing the
-  phrasing is most of the work.
+<Figure caption={<><b>Figure 1.</b> Drag the angle and watch the two dashed legs trade length while the arrow keeps its length. Notice that past 90 degrees the x-component goes negative, and that the readout's Pythagoras check always returns the magnitude you set.</>}>
+  <Sim id="vectors-components" />
+</Figure>
+
+<Aside label="Worth remembering">
+  A vector equation is shorthand for one ordinary equation per axis. When you
+  write $\vec F_{\text{net}} = m\vec a$ in two dimensions you have written two
+  separate scalar equations, and you are allowed to solve them one at a time.
 </Aside>
 
+**Worked example 1.** A child pulls a sled with a rope at $35^\circ$ above the
+horizontal. The tension is $240$ N. How big is the horizontal pull?
+
+The angle is measured from the horizontal, so the horizontal leg is adjacent,
+and it gets the cosine:
+
+$$F_x = (240\ \text{N})\cos 35^\circ = (240)(0.8192) = 197\ \text{N}.$$
+
+The vertical piece comes along free: $F_y = (240)(\sin 35^\circ) = (240)(0.5736)
+= 138$ N, upward. That vertical piece is doing nothing to move the sled forward,
+but it is lifting some weight off the ground, which is exactly why pulling at an
+angle reduces friction. One vector, two jobs, and you only see both once you
+split it.
+
+## Adding vectors means adding components
+
+Two vectors add tip to tail: slide the second one so its tail sits at the first
+one's tip, and the sum runs from the first tail to the last tip. Geometrically
+that is a triangle. In components it is even simpler, because the $x$ journeys
+and the $y$ journeys never interfere:
+
+$$\vec A + \vec B = (A_x + B_x,\; A_y + B_y).$$
+
+A hiker who walks 4.0 km east then 3.0 km north has displacement $(4.0, 3.0)$
+km, and the net distance from the start is $\sqrt{4.0^2 + 3.0^2} = 5.0$ km — not
+7.0 km, because the two legs were never pointing the same way. Magnitudes do not
+add. Components do.
+
+Subtraction works the same way with a sign flip, and this is where people slip.
+A car going 12 m/s east turns and ends up going 12 m/s north at the same speed.
+Its change in velocity is $\Delta\vec v = \vec v_f - \vec v_i = (0, 12) - (12,
+0) = (-12, 12)$ m/s, whose magnitude is $12\sqrt2 = 17$ m/s. The speed never
+changed, and yet the velocity changed by a lot. That difference is the seed of
+everything in circular motion.
+
 <QuickCheck
-  question="Two vectors have a dot product of zero and neither one is the zero vector. What does that tell you?"
-  options={["They are parallel", "They are perpendicular", "They are equal in magnitude", "One of them points backwards"]}
+  question="A car travels at a constant 12 m/s but goes around a curve. Which statement is true?"
+  options={["Its velocity is constant because its speed is", "Its velocity changes even though its speed does not", "Its change in velocity is zero because the magnitudes match", "Speed and velocity are the same thing here"]}
   answer={1}
-  explanation="The dot product carries a factor of cos of the angle between them, so it vanishes only at 90 degrees. A vanishing cross product would be the parallel case instead."
+  explanation="Velocity carries a direction, so turning changes it even at fixed speed. Subtracting two 12 m/s vectors at right angles leaves a change of 12 times root 2, about 17 m/s, not zero."
 />
+
+Relative velocity is just this addition applied to two observers. The rule is
+that velocities add through the middle man: your velocity relative to the ground
+equals your velocity relative to the water plus the water's velocity relative to
+the ground. For the rower, with $x$ downstream and $y$ across:
+
+$$\vec v_{\text{ground}} = \vec v_{\text{water}} + \vec v_{\text{current}}.$$
+
+Here is the key structural fact. The across-river component decides *how long*
+the crossing takes, and the downstream component decides *how far* she drifts
+during that time. They are independent. If a swimmer moving at 1.6 m/s points
+straight across a 40 m river, her crossing time is set by the 1.6 alone, $t =
+40/1.6 = 25$ s, and the 1.2 m/s current carries her $(1.2)(25) = 30$ m
+downstream. The current never slows the crossing.
+
+<Figure caption={<><b>Figure 2.</b> Set the boat to 2.0 m/s and the current to 3.0 m/s, then sweep the heading. At zero the drift is large; push the heading upstream and the drift drops, bottoms out, then climbs again as the crossing takes forever. Find the heading that minimises drift and compare it with the worked example below.</>}>
+  <Sim id="vectors-river" />
+</Figure>
+
+**Worked example 2.** The rower from the opening: $v_b = 2.0$ m/s, current $v_c
+= 3.0$ m/s, width $L = 150$ m. Point the bow at an angle $\theta$ upstream of
+straight across. What is the smallest possible drift?
+
+Write the two components of her ground velocity. Across: $v_y = v_b\cos\theta$.
+Downstream: $v_x = v_c - v_b\sin\theta$. The crossing time is $t =
+L/(v_b\cos\theta)$, so the drift is
+
+$$d = v_x t = \frac{L\,(v_c - v_b\sin\theta)}{v_b\cos\theta}.$$
+
+Minimise it by setting $dd/d\theta = 0$. Differentiating the quotient and
+clearing the common $\cos^2\theta$ gives $-v_b\cos^2\theta + (v_c -
+v_b\sin\theta)\sin\theta = 0$, which expands to $-v_b\cos^2\theta - v_b\sin^2
+\theta + v_c\sin\theta = 0$, and since $\cos^2 + \sin^2 = 1$,
+
+$$\sin\theta = \frac{v_b}{v_c} = \frac{2.0}{3.0} = 0.6667.$$
+
+So $\theta = 41.8^\circ$ and $\cos\theta = \sqrt{1 - 0.4444} = 0.7454$. Now put
+the numbers in. Across-speed $v_y = (2.0)(0.7454) = 1.491$ m/s, so $t = 150/1.491
+= 100.6$ s. Downstream speed $v_x = 3.0 - (2.0)(0.6667) = 3.0 - 1.333 = 1.667$
+m/s. Drift $d = (1.667)(100.6) = 168$ m.
+
+Notice what made this tractable: never once did you think about the resultant
+arrow. You wrote two components, built the time out of one and the distance out
+of the other, and then did ordinary one-variable calculus.
+
+<Aside label="Where this goes wrong" warn>
+  Do not set up the crossing by pointing the *resultant* straight across unless
+  the problem says she lands directly opposite. Heading and course are different
+  vectors. "She aims across" fixes $\vec v_{\text{water}}$; "she lands opposite"
+  fixes $\vec v_{\text{ground}}$. Read which one the problem pins down, and note
+  that when $v_c > v_b$ the second is impossible.
+</Aside>
+
+## The dot product: how much of this lies along that
+
+Often you do not want a whole vector, only the part of it pointing some
+particular way. The horizontal pull on the sled was exactly that: the part of
+$\vec F$ along the direction of motion. Generalise it. Take any two vectors
+$\vec A$ and $\vec B$ with angle $\theta$ between them. The length of $\vec A$'s
+shadow on the line of $\vec B$ is $A\cos\theta$. Multiply that shadow by the
+length of $\vec B$ and you have defined the *dot product*:
+
+$$\vec A\cdot\vec B = AB\cos\theta.$$
+
+It is a plain number, not a vector. It is positive when the two roughly agree in
+direction, zero at exactly $90^\circ$, and negative when they oppose. In
+components it is even easier to compute, because each axis contributes
+separately:
+
+$$\vec A\cdot\vec B = A_xB_x + A_yB_y + A_zB_z.$$
+
+Having both forms is the point. The component form gets you a number from raw
+coordinates; the $AB\cos\theta$ form turns that number into an angle. Set them
+equal and you can find the angle between any two vectors:
+$\cos\theta = (\vec A\cdot\vec B)/(AB)$.
+
+<Figure caption={<><b>Figure 3.</b> The thick bar is the shadow of A on B. Drag the angle to 90 degrees and watch the shadow and the dot product vanish together; push past 90 and the dot product goes negative because the shadow now points backwards along B.</>}>
+  <Sim id="vectors-dot" />
+</Figure>
+
+Three things it buys you. Work: $W = \vec F\cdot\vec d$, since only the part of
+the force along the displacement does anything. For $\vec F = (12, -5)$ N and
+$\vec d = (3, 4)$ m, $W = (12)(3) + (-5)(4) = 36 - 20 = 16$ J. A
+perpendicularity test: $\vec A\cdot\vec B = 0$ with neither vector zero means
+they are at right angles, which is how you find the $k$ that makes $(3, k, -2)$
+perpendicular to $(4, 5, 1)$ — set $12 + 5k - 2 = 0$, so $k = -2$. And
+projection: the component of $\vec F$ along a direction is $\vec F\cdot\hat u$,
+where $\hat u$ is a *unit vector*, meaning a vector of length exactly 1 pointing
+that way. You build one by dividing any vector by its own magnitude: $\hat u =
+\vec d/|\vec d|$.
+
+<QuickCheck
+  question="A force of 10 N acts on a box that slides 5 m, and the force is at 120 degrees to the displacement. What is the work done?"
+  options={["50 J", "25 J", "-25 J", "Zero, because the angle is over 90 degrees"]}
+  answer={2}
+  explanation="Work is F d cos of the angle, and cos 120 degrees is -0.5, so the work is 10 times 5 times -0.5, which is -25 J. The force has a component opposing the motion, so it takes energy out rather than putting it in."
+/>
+
+**Worked example 3.** A bead is threaded on a straight rod pointing along $\vec
+d = (1, 2, 2)$. A force $\vec F = (3, 4, 0)$ N acts on the bead. How large is the
+part of $\vec F$ perpendicular to the rod?
+
+The direct route — finding the perpendicular piece geometrically — is painful in
+three dimensions. The cheap route is to find the *parallel* piece with a dot
+product and let Pythagoras give you the rest, since the parallel and
+perpendicular parts are the two legs of a right triangle with $\vec F$ as
+hypotenuse.
+
+First make the unit vector along the rod. $|\vec d| = \sqrt{1 + 4 + 4} =
+\sqrt9 = 3$, so $\hat d = (1/3,\, 2/3,\, 2/3)$. Then
+
+$$F_\parallel = \vec F\cdot\hat d = (3)\tfrac13 + (4)\tfrac23 + (0)\tfrac23 = 1 + 2.667 = 3.667\ \text{N}.$$
+
+The full magnitude is $|\vec F| = \sqrt{9 + 16} = 5$ N. So
+
+$$F_\perp = \sqrt{5^2 - 3.667^2} = \sqrt{25 - 13.44} = \sqrt{11.56} = 3.40\ \text{N}.$$
+
+That 3.40 N is what the rod has to supply to keep the bead on it. Splitting a
+vector into "along" and "across" some awkward direction, rather than along $x$
+and $y$, is one of the most reusable moves you will learn.
+
+## The cross product: how much of this lies across that
+
+The dot product throws away the perpendicular part. Sometimes the perpendicular
+part is the whole point. A wrench does nothing if you push along the handle;
+only the sideways push turns the bolt. That calls for a second product, built
+from $\sin\theta$ instead of $\cos\theta$:
+
+$$|\vec A\times\vec B| = AB\sin\theta.$$
+
+Unlike the dot product, this one is itself a vector. Its magnitude is the area
+of the parallelogram with $\vec A$ and $\vec B$ as sides — base $A$, height $B
+\sin\theta$. Its direction is perpendicular to both, given by the right-hand
+rule: point your fingers along $\vec A$, curl them toward $\vec B$, and your
+thumb points along $\vec A\times\vec B$. Swapping the order reverses it, so
+$\vec B\times\vec A = -\vec A\times\vec B$. The cross product of a vector with
+itself, or with any parallel vector, is zero, because $\sin 0 = 0$.
+
+<Figure caption={<><b>Figure 4.</b> The shaded parallelogram is the magnitude of the cross product. Drag the angle toward 0 or 180 degrees and watch the area collapse to nothing; drag it through zero the other way and the circled symbol flips from a dot (out of the page) to a cross (into the page).</>}>
+  <Sim id="vectors-cross" />
+</Figure>
+
+In components, with $\hat\imath$, $\hat\jmath$, $\hat k$ the unit vectors along
+$x$, $y$, $z$:
+
+$$\vec A\times\vec B = (A_yB_z - A_zB_y,\; A_zB_x - A_xB_z,\; A_xB_y - A_yB_x).$$
+
+The pattern is cyclic: the $x$ entry uses $y$ and $z$, the $y$ entry uses $z$ and
+$x$, the $z$ entry uses $x$ and $y$. Write the cycle $x \to y \to z \to x$ in the
+margin and you will never misremember a sign.
+
+A wrench pushed with 80 N at 0.25 m from the bolt, at $60^\circ$ to the handle,
+gives torque $\tau = rF\sin\theta = (0.25)(80)(0.866) = 17.3$ N·m. Same formula,
+different name: torque is $\vec r\times\vec F$, angular momentum is $\vec r
+\times \vec p$, and magnetic force is $q\vec v\times\vec B$.
+
+**Worked example 4.** A proton, $q = 1.6\times10^{-19}$ C, moves with $\vec v =
+(2.0, -1.0, 3.0)\times10^6$ m/s through $\vec B = (0.050, 0.10, -0.020)$ T. Find
+the magnitude of the magnetic force.
+
+Nothing here is perpendicular to anything, so the angle route is hopeless and you
+go straight to components. Drop the $10^6$ and restore it at the end. Taking the
+three entries of $\vec v\times\vec B$ in turn:
+
+$$x: (-1.0)(-0.020) - (3.0)(0.10) = 0.020 - 0.300 = -0.280$$
+$$y: (3.0)(0.050) - (2.0)(-0.020) = 0.150 + 0.040 = 0.190$$
+
+Careful here: the middle entry of the cyclic formula is $A_zB_x - A_xB_z$, which
+is what was computed, so $y = +0.190$.
+
+$$z: (2.0)(0.10) - (-1.0)(0.050) = 0.200 + 0.050 = 0.250$$
+
+Magnitude: $\sqrt{0.280^2 + 0.190^2 + 0.250^2} = \sqrt{0.0784 + 0.0361 + 0.0625}
+= \sqrt{0.1770} = 0.4207$, so $|\vec v\times\vec B| = 4.207\times10^5$ T·m/s.
+Then
+
+$$F = q|\vec v\times\vec B| = (1.6\times10^{-19})(4.207\times10^5) = 6.73\times10^{-14}\ \text{N}.$$
+
+<Aside label="Where this goes wrong" warn>
+  $\vec A\cdot\vec B$ is a number; $\vec A\times\vec B$ is a vector. Writing
+  $\vec A\cdot\vec B$ with an arrow on top, or taking the magnitude of a dot
+  product and expecting a direction, will wreck a problem quietly. Also
+  remember $\sin$ and $\cos$ are not interchangeable here: the dot product peaks
+  when the vectors are parallel, the cross product peaks when they are at right
+  angles.
+</Aside>
+
+## Choosing the axes
+
+Nothing forces $x$ to be horizontal. Axes are yours to place, and the single
+highest-return decision in a mechanics problem is where to point them. On a
+ramp, tilt the axes so one runs along the slope. Then the acceleration lies
+entirely on one axis, the normal force entirely on the other, and only gravity
+needs splitting — into $mg\sin\alpha$ down the slope and $mg\cos\alpha$ into it.
+
+Try it. A 40 kg crate sits on a frictionless $25^\circ$ ramp while a worker
+pushes horizontally into the hill with 200 N. Along the slope, gravity pulls
+down-slope with $mg\sin 25^\circ = (40)(9.8)(0.4226) = 165.6$ N. The horizontal
+push makes angle $25^\circ$ with the slope surface, so its along-slope
+(up-slope) component is $(200)\cos 25^\circ = (200)(0.9063) = 181.3$ N. The net
+along-slope force is $181.3 - 165.6 = 15.6$ N up the slope. Two lines, because
+the axes were chosen to make the normal force irrelevant.
+
+## Recognising when this is the tool
+
+Some signals to watch for in a problem statement.
+
+Any mention of an angle with a force, a velocity, or a displacement means
+components. Write $A\cos\theta$ and $A\sin\theta$ before you do anything else.
+
+Two motions combining — a boat and a current, a plane and a wind, a passenger
+walking on a moving train — means relative velocity, which means adding vectors
+in components. Ask which component controls the *time* and which controls the
+*distance*; they are usually different, and that observation is the solution.
+
+The words "component along", "how much of the force does work", "perpendicular
+to", "at what angle", or "for what value of $k$ are these at right angles" are
+all dot product. So is finding the perpendicular leftover: get the parallel part
+with a dot product, then use Pythagoras.
+
+Torque, angular momentum, magnetic force, the area of a parallelogram or
+triangle, the perpendicular distance from a point to a line, and any phrase like
+"lever arm" or "impact parameter" are cross product. That last one is worth
+keeping: the closest approach of a particle travelling in a straight line, with
+position $\vec r$ and velocity $\vec v$, is $|\vec r\times\vec v|/|\vec v|$,
+because the cross product already contains the perpendicular distance times the
+speed. Two ships on straight courses, an alpha particle flying past a nucleus —
+same formula both times. And when a problem hands you three cables or three
+supports in 3D, you are being asked for three component equations in three
+unknown tensions, each cable's pull written as its tension times a unit vector
+along the cable.
+
+Once a quantity can be split into pieces this way, the next natural question is
+how each piece *changes* over time. That is where
+[derivatives](/guide/derivatives) come in.

@@ -1,72 +1,367 @@
+## The Moon is falling and never lands
+
+A banked curve works because the track can tilt and push sideways. The previous
+lesson was about finding which force, in a real contraption, happens to point at
+the centre of the circle. Gravity is the case where you do not have to hunt: the
+force points at the centre because the centre is where the other mass sits.
+
+Here is the question that took Newton twenty years. Drop a stone and it hits the
+ground in under a second. The Moon is also falling toward Earth — it has to be,
+or it would fly off in a straight line — and it has been falling for four
+billion years without arriving. Why does one land and the other not? The answer
+is not that the Moon is different. It is that the Moon is going sideways fast
+enough that the ground curves away underneath it exactly as fast as it drops.
+Get that idea and the rest of this lesson is arithmetic.
+
 ## The inverse square law
 
-Any two point masses attract each other along the line joining them:
+Every pair of masses attracts. Newton's guess, checked against the Moon's
+motion, was that the pull weakens as the square of the distance:
 
-$$F = \frac{Gm_1m_2}{r^2}, \qquad G = 6.674\times10^{-11}\ \mathrm{N\,m^2/kg^2}$$
+$$F = \frac{Gm_1m_2}{r^2}$$
 
-Here $r$ is the distance between the centres, not between the surfaces. That
-matters because of a result Newton had to invent calculus to prove: a uniform
-spherical shell attracts an outside body exactly as if all its mass sat at the
-centre. So a solid sphere — a planet, a star — can be replaced by a point at its
-centre for anything outside it. Inside a shell, the pull is exactly zero.
+$m_1$ and $m_2$ are the two masses in kilograms, $r$ is the distance between
+their **centres** in metres, and $G = 6.67\times10^{-11}\ \mathrm{N\,m^2/kg^2}$
+is a constant of nature. The force on each mass has the same size and points
+along the line joining them, toward the other mass. Double the distance and the
+force drops to a quarter. Triple it and the force drops to a ninth.
 
-Near the surface of a planet of mass $M$ and radius $R$, this reproduces the
-familiar constant:
+Why centres and not surfaces? Because of a result Newton needed calculus to
+prove: a uniform spherical shell pulls on anything outside it exactly as though
+all of its mass were squeezed into a point at its centre. Stack shells and you
+get a solid sphere, so a planet or a star can be replaced by a point at its
+centre for any calculation done outside it. The same proof gives a second fact
+that looks strange the first time: inside a hollow shell, the pull is exactly
+zero everywhere, not just at the middle. You will use that one at the end.
 
-$$g = \frac{GM}{R^2}$$
+Start with the smallest case. Two 100 kg people stand 2.0 m apart, centre to
+centre. Then
+
+$$
+
+F = \frac{(6.67\times10^{-11})(100)(100)}{2.0^2}
+    = \frac{6.67\times10^{-11}\times 10^4}{4.0}
+    = \frac{6.67\times10^{-7}}{4.0}
+    = 1.67\times10^{-7}\ \mathrm{N}
+
+$$
+
+That is about the weight of a grain of dust. Gravity is by far the weakest force
+in physics, and it only runs the universe because it never cancels: there is no
+negative mass to shield it, so pile up enough and it wins.
+
+<Aside label="Worth remembering">
+  $G$ is not $g$. $G$ is a universal constant, the same in every lab in the
+  cosmos. $g$ is a local number that depends on which planet you are standing
+  on and how high up you are. They differ by 12 orders of magnitude, so if an
+  answer comes out absurdly small or large, check which one you typed.
+</Aside>
+
+## Field: dividing the mass out
+
+Carrying the test mass around is a nuisance. Divide the force by the mass being
+pulled and you get the pull per kilogram, which is a property of the source
+alone. That is the **gravitational field** $g$, measured in
+$\mathrm{N/kg}$, which is the same thing as $\mathrm{m/s^2}$:
+
+$$g = \frac{F}{m} = \frac{GM}{r^2}$$
+
+At the surface of a planet, $r$ is the planet's radius $R$, and this is where
+the familiar 9.81 comes from. For Earth, $M = 5.97\times10^{24}$ kg and
+$R = 6.37\times10^6$ m:
+
+$$
+
+g = \frac{(6.67\times10^{-11})(5.97\times10^{24})}{(6.37\times10^6)^2}
+    = \frac{3.982\times10^{14}}{4.058\times10^{13}} = 9.81\ \mathrm{m/s^2}
+
+$$
+
+The whole "objects fall at the same rate" fact sits in that division: the mass
+being pulled cancelled out. A feather and an anvil get the same $g$ because both
+the pull and the resistance to being pulled scale with the same $m$.
+
+Because $g$ falls off as $1/r^2$, you rarely need $G$ and $M$ separately. If you
+already know the surface value $g_0$, then at distance $r$ from the centre
+
+$$g(r) = g_0\left(\frac{R}{r}\right)^2$$
+
+At two Earth radii, $g = 9.81/4 = 2.45\ \mathrm{m/s^2}$. Not zero, not close to
+zero. Astronauts at 400 km are at $r = 6.77\times10^6$ m, where $g$ is still
+about 89 per cent of its surface value.
 
 <Aside label="Where this goes wrong" warn>
-  Saying an astronaut in orbit is weightless because gravity is absent. At
-  400 km up, $g$ is about 89% of its surface value. What is absent is the
-  normal force: the station and everything in it are in free fall together,
-  accelerating toward Earth at the same rate. Weightlessness is a statement
-  about the FBD of a body in free fall, not about gravity switching off.
+  "Astronauts float because there is no gravity up there." There is almost as
+  much gravity up there as down here. What is missing is the floor. The station
+  and everything inside it are in free fall together, all accelerating toward
+  Earth at the same $8.7\ \mathrm{m/s^2}$, so nothing presses on anything else.
+  Weightlessness is a statement about the normal force, not about gravity
+  switching off.
 </Aside>
+
+For a small change in height, do not subtract two nearly equal big numbers —
+you will lose all your significant figures. Expand instead. With $h \ll R$,
+
+$$
+
+g(R+h) = \frac{GM}{R^2}\left(1+\frac{h}{R}\right)^{-2}
+         \approx g_0\left(1-\frac{2h}{R}\right)
+\quad\Longrightarrow\quad
+\Delta g \approx -\,\frac{2 g_0 h}{R}
+
+$$
+
+The $(1+x)^{-2}\approx 1-2x$ step is the binomial approximation, good whenever
+$x$ is small. For $h = 10$ km:
+$\Delta g = 2(9.81)(1.0\times10^4)/(6.37\times10^6) = 0.0308\ \mathrm{m/s^2}$.
+Climbing a 10 km mountain costs you three parts in a thousand of your weight.
+
+<QuickCheck
+  question="A planet has twice Earth's mass and twice Earth's radius. Its surface gravity is:"
+  options={["Four times Earth's", "Twice Earth's", "Half of Earth's", "The same as Earth's"]}
+  answer={2}
+  explanation="g = GM over R squared. Doubling M doubles the top, doubling R multiplies the bottom by four, so g is halved. Only the combination M over R squared matters, not either one alone."
+/>
+
+Fields from several sources add as **vectors**, one per source, each pointing at
+its own source. Two cases come up constantly. On the line between two masses
+there is a **neutral point** where the two fields cancel. Set the magnitudes
+equal: with the masses a distance $d$ apart and the point a distance $x$ from
+$M_1$,
+
+$$
+
+\frac{GM_1}{x^2} = \frac{GM_2}{(d-x)^2}
+\quad\Longrightarrow\quad
+\frac{d-x}{x} = \sqrt{\frac{M_2}{M_1}}
+\quad\Longrightarrow\quad
+x = \frac{d}{1+\sqrt{M_2/M_1}}
+
+$$
+
+For Earth and Moon, $\sqrt{M_2/M_1} = \sqrt{7.35\times10^{22}/5.97\times10^{24}}
+= \sqrt{0.01231} = 0.1110$, so
+$x = 3.84\times10^8/1.1110 = 3.456\times10^8$ m from Earth's centre — about
+90 per cent of the way to the Moon.
+
+Off the line, you must break the fields into components. Two equal masses, so
+the fields have equal size, and the point sits on the perpendicular bisector, so
+the components along the line cancel and the ones toward the line add.
+
+<Figure caption={<><b>Figure 1.</b> Field along the line joining two bodies. The arrows show which way a dropped stone would accelerate; they flip direction at the null point marked on the axis. Drag the mass ratio down toward 1 and watch the null slide to the middle.</>}>
+  <Sim id="gravitation-null-point" />
+</Figure>
 
 ## Circular orbits
 
-A satellite in a circular orbit of radius $r$ has gravity supplying exactly the
-centripetal force it needs:
+Now put the Moon back in. A satellite of mass $m$ going in a circle of radius
+$r$ needs a centripetal force $mv^2/r$ pointing at the centre, and gravity is
+the only force available. So set them equal:
 
-$$\frac{GMm}{r^2} = \frac{mv^2}{r} \;\Longrightarrow\; v = \sqrt{\frac{GM}{r}}$$
+$$\frac{GMm}{r^2} = \frac{mv^2}{r}$$
 
-The satellite's own mass cancels — a bolt and a space station in the same orbit
-move identically. The period follows from $v = 2\pi r / T$:
+Cancel one $m$ and one $r$:
 
-$$T^2 = \frac{4\pi^2}{GM}\,r^3$$
+$$v = \sqrt{\frac{GM}{r}}$$
 
-Two consequences worth internalizing. Higher orbits are *slower*, since
-$v \propto r^{-1/2}$. And to catch up with something ahead of you in the same
-orbit, you must fire your engine to drop lower, speed up, and come back — the
-counterintuitive fact at the heart of orbital rendezvous.
+The satellite's own mass vanished. A loose bolt and a 400-tonne station in the
+same orbit move identically, which is why they stay side by side. And notice the
+sign of the dependence: higher orbits are **slower**. That is the opposite of
+what most people guess.
+
+The period comes from the fact that one lap is $2\pi r$ at speed $v$:
+
+$$
+
+T = \frac{2\pi r}{v} = 2\pi r\sqrt{\frac{r}{GM}}
+\quad\Longrightarrow\quad
+T^2 = \frac{4\pi^2}{GM}r^3
+
+$$
+
+Square it because the square root is awkward; what you get is clean.
+$T^2 \propto r^3$ for every satellite of the same central body.
+
+**Worked example: the geostationary radius.** A satellite must have
+$T = 86164$ s so that it hangs over one spot on the equator. Solve the boxed
+result for $r$:
+
+$$r = \left(\frac{GMT^2}{4\pi^2}\right)^{1/3}$$
+
+Numerator: $GM = 3.982\times10^{14}$ and $T^2 = (8.6164\times10^4)^2
+= 7.424\times10^9$, so $GMT^2 = 2.956\times10^{24}$. Divide by
+$4\pi^2 = 39.48$ to get $7.488\times10^{22}$. Now the cube root. Write it as
+$74.88\times10^{21}$ so the exponent divides by three cleanly:
+$\sqrt[3]{74.88} = 4.215$ and $\sqrt[3]{10^{21}} = 10^7$. So
+
+$$r = 4.215\times10^7\ \mathrm{m}$$
+
+That is 6.6 Earth radii, about 36 000 km above the surface. Rewriting a power of
+ten so its exponent is divisible by three is the trick that makes cube roots
+doable without a calculator, and it is worth practising.
+
+<Figure caption={<><b>Figure 2.</b> An orbit lab. Drag the radius out and watch two things at once: the satellite slows down, and it takes far longer per lap, because $v\propto r^{-1/2}$ while $T\propto r^{3/2}$. The readout gives both, plus the escape speed at that height.</>}>
+  <Sim id="gravitation-orbit-lab" />
+</Figure>
 
 <QuickCheck
-  question="Satellite A orbits at radius r, satellite B at radius 4r. Compared to A, satellite B has:"
-  options={["Twice the speed and half the period", "Half the speed and eight times the period", "The same speed and four times the period", "A quarter of the speed and sixteen times the period"]}
+  question="Satellite A orbits at radius r, satellite B at radius 4r. Compared with A, satellite B has:"
+  options={["Twice the speed and half the period", "Half the speed and eight times the period", "The same speed and four times the period", "A quarter the speed and sixteen times the period"]}
   answer={1}
-  explanation="Speed scales as one over the square root of r, so it halves. Period scales as r to the three-halves, so it grows by a factor of eight."
+  explanation="Speed goes as one over the square root of r, so it halves. Period goes as r to the three halves, and 4 to the three halves is 8."
 />
 
-## Energy and binding
+## Energy, escape, and why drag speeds you up
 
-Take the potential energy to be zero at infinite separation. Then
+Force gets you circles. Energy gets you everything else — anything where the
+distance changes. Since $F$ falls off as $1/r^2$, the work done pulling two
+masses apart gives a potential energy that falls off as $1/r$, and the standard
+choice is to call $U$ zero when the bodies are infinitely far apart:
 
 $$U = -\frac{GMm}{r}$$
 
-is negative everywhere: you must do positive work to pull the two apart. To
-escape, a body launched from radius $r$ needs enough kinetic energy to reach
-infinity with nothing to spare, so $\tfrac12 mv^2 = GMm/r$:
+The minus sign is not decoration. It says a bound pair sits in a hole, and you
+must supply energy to climb out. Bringing a mass in from infinity releases
+energy; separating them costs it.
 
-$$v_{\text{esc}} = \sqrt{\frac{2GM}{r}} = \sqrt{2}\; v_{\text{orb}}$$
+**Escape speed.** To just barely get away, a body must reach $r = \infty$ with
+nothing left over, so its total energy must be zero:
 
-Escape speed is just $\sqrt{2}$ times circular orbital speed at the same
-radius, and it does not depend on the launch direction — only on the speed —
-since energy is a scalar.
+$$
 
-For a circular orbit, $\tfrac12 mv^2 = GMm/2r$, so
+\tfrac12 mv^2 - \frac{GMm}{r} = 0
+\quad\Longrightarrow\quad
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}} = \sqrt{2}\,v_{\text{orb}}
+
+$$
+
+Escape speed is $\sqrt2$ times the circular speed at the same radius — always,
+for any body. At Earth's surface,
+$v_{\text{esc}} = \sqrt{2(3.982\times10^{14})/6.37\times10^6}
+= \sqrt{1.250\times10^8} = 1.118\times10^4$ m/s. Energy is a scalar, so the
+direction of launch does not matter, only the speed.
+
+**Worked example: falling from two Earth radii.** An object is released from
+rest at $r_i = 2R = 1.274\times10^7$ m and falls to the surface,
+$r_f = 6.37\times10^6$ m. Energy is conserved, and the starting kinetic energy
+is zero:
+
+$$0 - \frac{GMm}{r_i} = \tfrac12 mv^2 - \frac{GMm}{r_f}$$
+
+Every term carries $m$, so divide it out — the answer cannot depend on what you
+dropped:
+
+$$
+
+\tfrac12 v^2 = GM\left(\frac{1}{r_f} - \frac{1}{r_i}\right)
+ = GM\left(\frac{1}{R} - \frac{1}{2R}\right) = \frac{GM}{2R}
+
+$$
+
+So $v = \sqrt{GM/R}$, which is exactly the circular orbital speed at the
+surface. Numerically
+$v = \sqrt{3.982\times10^{14}/6.37\times10^6} = \sqrt{6.251\times10^7}
+= 7.91\times10^3$ m/s. Notice how much cheaper that was than integrating the
+varying force over the fall.
+
+**The total energy of an orbit.** In a circular orbit, $v^2 = GM/r$, so
+$K = \tfrac12 m v^2 = GMm/2r$. Add the potential:
 
 $$E = K + U = \frac{GMm}{2r} - \frac{GMm}{r} = -\frac{GMm}{2r}$$
 
-The total energy is negative, which is what "bound" means. It also equals
-$-K$, and equals $U/2$. Drag lowers $E$ by making $r$ smaller, and the kinetic
-energy *rises* as the orbit decays: friction speeds a satellite up.
+Three things worth keeping. $E$ is negative, and negative total energy is what
+"bound" means. $E = -K$, so the kinetic energy alone tells you the binding.
+And $E$ depends only on $r$.
+
+That last point has a consequence people find perverse. Air drag removes energy,
+making $E$ more negative, which means $r$ gets smaller. But
+$K = +GMm/2r$ **rises** as $r$ shrinks. Friction makes a satellite go faster.
+The energy lost to heat comes out of the potential term, which falls twice as
+fast as the kinetic term rises.
+
+To get the increase in speed as an orbit decays from 300 km to 200 km altitude,
+just take the difference of $\sqrt{GM/r}$ at the two radii:
+$r_1 = 6.67\times10^6$ gives 7726 m/s, $r_2 = 6.57\times10^6$ gives 7785 m/s, a
+gain of about 59 m/s.
+
+<Figure caption={<><b>Figure 3.</b> The energy picture. The curve is $U(r)=-GMm/r$; the flat line is the total energy, fixed once you launch. Where they cross, the body stops and falls back. Push the launch speed to $\sqrt2$ times circular and the line reaches zero — the body just barely escapes.</>}>
+  <Sim id="gravitation-energy-well" />
+</Figure>
+
+<QuickCheck
+  question="A satellite in a circular orbit has kinetic energy K. Its total mechanical energy is:"
+  options={["K", "2K", "minus K", "minus 2K"]}
+  answer={2}
+  explanation="U is minus 2K for a circular orbit, so E = K - 2K = -K. A common wrong move is to forget the minus sign in U and report 3K."
+/>
+
+## Two situations that look different and are not
+
+**Binary stars.** Two stars of equal mass $M$ separated by $d$ orbit their
+common centre of mass, which for equal masses is the midpoint. So each star
+moves in a circle of radius $d/2$, not $d$ — but the force between them still
+uses the full separation $d$. That is the only trap here. For one star,
+
+$$
+
+\frac{GM^2}{d^2} = \frac{M v^2}{d/2}
+\quad\Longrightarrow\quad
+v^2 = \frac{GM}{2d}
+
+$$
+
+With $T = 2\pi(d/2)/v = \pi d/v$ and $M = 2.0\times10^{30}$ kg,
+$d = 1.0\times10^{12}$ m:
+$v^2 = (6.67\times10^{-11})(2.0\times10^{30})/(2\times10^{12}) = 6.67\times10^7$,
+so $v = 8.17\times10^3$ m/s and
+$T = \pi(1.0\times10^{12})/8.17\times10^3 = 3.85\times10^8$ s, roughly 12 years.
+
+**A tunnel through the Earth.** Drop something down a hole bored clean through
+the centre. Here the shell theorem earns its keep: at radius $r$ from the
+centre, every shell outside you pulls with zero net force, and the sphere inside
+you pulls as a point mass. A uniform Earth has inside-mass
+$M(r) = M(r/R)^3$, so
+
+$$g(r) = \frac{GM(r)}{r^2} = \frac{GM r}{R^3} = \frac{g_0}{R}\,r$$
+
+The pull grows straight out of the centre, always pointing back to it. A force
+proportional to displacement and directed back toward the origin is simple
+harmonic motion with $\omega^2 = g_0/R$. So
+
+$$
+
+T = 2\pi\sqrt{\frac{R}{g_0}}
+ = 2\pi\sqrt{\frac{6.37\times10^6}{9.81}}
+ = 2\pi\sqrt{6.493\times10^5} = 2\pi(805.8) = 5063\ \mathrm{s}
+
+$$
+
+About 84 minutes for a round trip — the same as the period of a satellite
+skimming the surface, which is not a coincidence.
+
+## Recognising the technique
+
+Three questions sort almost every gravitation problem.
+
+**Is the distance changing?** If the body moves in a circle at fixed $r$, use
+force: $GMm/r^2 = mv^2/r$, and everything about speed, period and radius follows
+from it. If $r$ changes — falling, launching, escaping, hopping between orbits —
+use energy: $\tfrac12 mv^2 - GMm/r$ is conserved.
+
+**How many sources?** One source means plug into $GM/r^2$. Two or more means add
+fields as vectors: on the line, set magnitudes equal for a null point; off the
+line, resolve into components first.
+
+**Are you inside or outside?** Outside a sphere, treat it as a point at the
+centre. Inside, only the mass closer to the centre than you counts, which turns
+the inverse square into a straight line in $r$.
+
+Two small habits save a lot of time. Group $GM$ into a single number for each
+body — $3.98\times10^{14}$ for Earth — because it appears in every formula and
+is often known better than $M$ alone. And if the problem gives you surface $g$
+rather than $M$, use $GM = g_0R^2$ and skip $G$ entirely.
+
+What you have so far only handles circles. Real orbits are ellipses, comets swing
+in and back out, and the same energy bookkeeping tells you how. That is
+[Kepler's laws](/guide/keplers-laws), where $T^2 \propto r^3$ turns out to be
+the special case of something more general.

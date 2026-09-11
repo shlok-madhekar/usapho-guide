@@ -1,0 +1,73 @@
+[
+ {
+  "id": "dielectrics-polarization",
+  "title": "Polarization lab",
+  "caption": "Bound charge on the slab faces cancels part of the free charge, so fewer field lines survive inside.",
+  "height": 260,
+  "params": [
+   {
+    "key": "kappa",
+    "label": "Dielectric constant",
+    "unit": "",
+    "min": 1,
+    "max": 10,
+    "step": 0.1,
+    "value": 2.5
+   },
+   {
+    "key": "sigma",
+    "label": "Free surface charge density",
+    "unit": "uC/m^2",
+    "min": 1,
+    "max": 20,
+    "step": 0.5,
+    "value": 4
+   }
+  ],
+  "draw": "var kap = p.kappa;\nvar sig = p.sigma;            // uC/m^2 free surface charge\nvar eps0 = 8.854e-12;\nvar E0 = sig * 1e-6 / eps0;   // V/m\nvar Ein = E0 / kap;\nvar sigb = sig * (1 - 1 / kap);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\n\nvar L = W * 0.60, x0 = (W - L) / 2;\nvar yTop = H * 0.26, yBot = H * 0.80;\nvar gap = yBot - yTop;\nvar sTop = yTop + gap * 0.22, sBot = yBot - gap * 0.22;\n\n// plates\nctx.fillStyle = C.figure;\nctx.fillRect(x0, yTop - 9, L, 9);\nctx.fillRect(x0, yBot, L, 9);\nctx.fillStyle = C.ink;\nctx.fillText(\"free charge  +Q  on the top plate\", x0, yTop - 16);\nctx.fillText(\"free charge  -Q  on the bottom plate\", x0, yBot + 24);\n\n// slab\nctx.globalAlpha = 0.35;\nctx.fillStyle = C.faint;\nctx.fillRect(x0, sTop, L, sBot - sTop);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.strokeRect(x0, sTop, L, sBot - sTop);\nctx.fillStyle = C.ink;\nctx.fillText(\"dielectric, kappa = \" + kap.toFixed(1), x0 + 6, (sTop + sBot) / 2 + 4);\n\n// bound charge marks, fading with (1 - 1/kappa)\nvar frac = 1 - 1 / kap;\nctx.globalAlpha = 0.25 + 0.75 * frac;\nctx.fillStyle = C.accent;\nvar nb = 9;\nfor (var i = 0; i < nb; i++) {\n  var bx = x0 + L * (i + 0.5) / nb;\n  ctx.fillText(\"-\", bx - 2, sTop - 4);\n  ctx.fillText(\"+\", bx - 3, sBot + 12);\n}\nctx.globalAlpha = 1;\nctx.fillStyle = C.accent;\nctx.fillText(\"bound  -\", x0 + L + 6, sTop + 2);\nctx.fillText(\"bound  +\", x0 + L + 6, sBot + 4);\n\n// field lines: n outside, fewer inside by 1/kappa\nvar n = 8;\nvar inside = Math.max(1, Math.round(n / kap));\nctx.lineWidth = 1.6;\nfor (var j = 0; j < n; j++) {\n  var fx = x0 + L * (j + 0.5) / n;\n  ctx.strokeStyle = C.figure;\n  ctx.beginPath(); ctx.moveTo(fx, yTop); ctx.lineTo(fx, sTop); ctx.stroke();\n  ctx.beginPath(); ctx.moveTo(fx, sBot); ctx.lineTo(fx, yBot); ctx.stroke();\n  if (j < inside) {\n    ctx.strokeStyle = C.accent;\n    ctx.beginPath(); ctx.moveTo(fx, sTop); ctx.lineTo(fx, sBot); ctx.stroke();\n    // arrowhead\n    var my = (sTop + sBot) / 2;\n    ctx.beginPath(); ctx.moveTo(fx, my + 5); ctx.lineTo(fx - 3, my - 1); ctx.lineTo(fx + 3, my - 1); ctx.closePath();\n    ctx.fillStyle = C.accent; ctx.fill();\n  }\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"E0 in the vacuum gaps\", x0, yTop + gap * 0.14);\n\nout.note = \"E0 = \" + (E0 / 1e6).toFixed(2) + \" MV/m,  E inside = \" + (Ein / 1e6).toFixed(2) +\n  \" MV/m,  bound sigma = \" + sigb.toFixed(2) + \" uC/m^2 of the \" + sig.toFixed(1) + \" uC/m^2 free\";"
+ },
+ {
+  "id": "dielectrics-geometry",
+  "title": "Series and parallel slabs",
+  "caption": "The two ways a slab can fill part of a gap, and the rule for each.",
+  "height": 250,
+  "params": [],
+  "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\nctx.lineWidth = 1.5;\n\nvar pad = W * 0.06;\nvar panelW = (W - 3 * pad) / 2;\nvar top = H * 0.22, bot = H * 0.68;\n\n// ---- left panel: stacked layers (series) ----\nvar ax = pad;\nctx.fillStyle = C.ink;\nctx.fillText(\"Stacked layers: same Q, voltages add\", ax, H * 0.13);\nctx.fillStyle = C.figure;\nctx.fillRect(ax, top - 8, panelW, 8);\nctx.fillRect(ax, bot, panelW, 8);\nvar mid = top + (bot - top) * 0.45;\nctx.globalAlpha = 0.35; ctx.fillStyle = C.faint;\nctx.fillRect(ax, top, panelW, mid - top);\nctx.globalAlpha = 0.18;\nctx.fillRect(ax, mid, panelW, bot - mid);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.rule;\nctx.strokeRect(ax, top, panelW, mid - top);\nctx.strokeRect(ax, mid, panelW, bot - mid);\nctx.fillStyle = C.ink;\nctx.fillText(\"k1, thickness d1\", ax + 6, (top + mid) / 2 + 4);\nctx.fillText(\"k2, thickness d2\", ax + 6, (mid + bot) / 2 + 4);\nctx.strokeStyle = C.accent;\nctx.beginPath(); ctx.moveTo(ax + panelW + 10, top); ctx.lineTo(ax + panelW + 10, bot); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"V = V1 + V2\", ax + panelW - 4, bot + 22);\nctx.fillStyle = C.ink;\nctx.fillText(\"1/C = d1/(k1 e0 A) + d2/(k2 e0 A)\", ax, bot + 40);\n\n// ---- right panel: side by side (parallel) ----\nvar bx = 2 * pad + panelW;\nctx.fillStyle = C.ink;\nctx.fillText(\"Side by side: same V, charges add\", bx, H * 0.13);\nctx.fillStyle = C.figure;\nctx.fillRect(bx, top - 8, panelW, 8);\nctx.fillRect(bx, bot, panelW, 8);\nvar split = bx + panelW * 0.5;\nctx.globalAlpha = 0.35; ctx.fillStyle = C.faint;\nctx.fillRect(bx, top, panelW * 0.5, bot - top);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.rule;\nctx.strokeRect(bx, top, panelW * 0.5, bot - top);\nctx.strokeRect(split, top, panelW * 0.5, bot - top);\nctx.fillStyle = C.ink;\nctx.fillText(\"k, area A1\", bx + 4, (top + bot) / 2 + 4);\nctx.fillText(\"air, A2\", split + 4, (top + bot) / 2 + 4);\nctx.strokeStyle = C.accent;\nctx.beginPath(); ctx.moveTo(bx + 12, top); ctx.lineTo(bx + 12, bot); ctx.stroke();\nctx.beginPath(); ctx.moveTo(split + 12, top); ctx.lineTo(split + 12, bot); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"same V across both\", bx, bot + 22);\nctx.fillStyle = C.ink;\nctx.fillText(\"C = k e0 A1/d + e0 A2/d\", bx, bot + 40);\n\nout.note = \"Cut along the field lines and the pieces are in parallel; cut across them and the pieces are in series.\";"
+ },
+ {
+  "id": "dielectrics-slab-force",
+  "title": "Slab force lab",
+  "caption": "A slab part way into a capacitor held at fixed voltage. The force does not depend on how far in it already is.",
+  "height": 300,
+  "params": [
+   {
+    "key": "kappa",
+    "label": "Dielectric constant",
+    "unit": "",
+    "min": 1,
+    "max": 8,
+    "step": 0.1,
+    "value": 4
+   },
+   {
+    "key": "volts",
+    "label": "Battery voltage",
+    "unit": "V",
+    "min": 50,
+    "max": 1000,
+    "step": 10,
+    "value": 500
+   },
+   {
+    "key": "x",
+    "label": "Insertion depth",
+    "unit": "cm",
+    "min": 0,
+    "max": 10,
+    "step": 0.1,
+    "value": 4
+   }
+  ],
+  "draw": "var eps0 = 8.854e-12;\nvar kap = p.kappa, V = p.volts, xcm = p.x;\nvar Lcm = 10.0, wcm = 8.0, dmm = 0.50;\nvar Lm = Lcm / 100, wm = wcm / 100, dm = dmm / 1000;\nvar xm = xcm / 100;\nvar Cx = eps0 * wm * (Lm - xm + kap * xm) / dm;   // farads\nvar F = eps0 * wm * (kap - 1) * V * V / (2 * dm); // newtons, constant in x\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textAlign = \"left\";\nctx.lineWidth = 1.5;\n\nvar px0 = W * 0.10, plateL = W * 0.62;\nvar yTop = H * 0.20, yBot = H * 0.40;\n\n// plates\nctx.fillStyle = C.figure;\nctx.fillRect(px0, yTop - 7, plateL, 7);\nctx.fillRect(px0, yBot, plateL, 7);\n\n// slab, inserted a fraction x/L from the left\nvar frac = xm / Lm;\nvar slabW = plateL * frac;\nctx.globalAlpha = 0.35; ctx.fillStyle = C.faint;\nctx.fillRect(px0, yTop, slabW, yBot - yTop);\nctx.globalAlpha = 1;\nctx.strokeStyle = C.rule;\nctx.strokeRect(px0 - plateL * 0.34, yTop, plateL * 0.34 + slabW, yBot - yTop);\nctx.fillStyle = C.ink;\nctx.fillText(\"slab, kappa = \" + kap.toFixed(1), px0 - plateL * 0.30, (yTop + yBot) / 2 + 4);\n\n// pulling force arrow, dashes crawl with t\nctx.strokeStyle = C.accent;\nctx.setLineDash([6, 4]);\nctx.lineDashOffset = -(t * 30) % 10;\nvar ay = (yTop + yBot) / 2;\nctx.beginPath(); ctx.moveTo(px0 + slabW + 8, ay); ctx.lineTo(px0 + slabW + 54, ay); ctx.stroke();\nctx.setLineDash([]);\nctx.beginPath();\nctx.moveTo(px0 + slabW + 4, ay); ctx.lineTo(px0 + slabW + 16, ay - 5); ctx.lineTo(px0 + slabW + 16, ay + 5);\nctx.closePath(); ctx.fillStyle = C.accent; ctx.fill();\nctx.fillText(\"F pulls the slab in\", px0 + slabW + 20, ay - 10);\n\n// fringing note + edge marker\nctx.fillStyle = C.ink;\nctx.fillText(\"x\", px0 + slabW / 2 - 3, yTop - 12);\nctx.strokeStyle = C.rule;\nctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(px0 + slabW, yTop - 20); ctx.lineTo(px0 + slabW, yBot + 20); ctx.stroke();\nctx.setLineDash([]);\n\n// battery symbol\nctx.strokeStyle = C.figure;\nvar bx = px0 + plateL + 24;\nctx.beginPath(); ctx.moveTo(px0 + plateL, yTop - 4); ctx.lineTo(bx, yTop - 4);\nctx.lineTo(bx, (yTop + yBot) / 2 - 8); ctx.stroke();\nctx.beginPath(); ctx.moveTo(bx - 9, (yTop + yBot) / 2 - 8); ctx.lineTo(bx + 9, (yTop + yBot) / 2 - 8); ctx.stroke();\nctx.beginPath(); ctx.moveTo(bx - 4, (yTop + yBot) / 2); ctx.lineTo(bx + 4, (yTop + yBot) / 2); ctx.stroke();\nctx.beginPath(); ctx.moveTo(bx, (yTop + yBot) / 2); ctx.lineTo(bx, yBot + 4); ctx.lineTo(px0 + plateL, yBot + 4); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(V.toFixed(0) + \" V\", bx + 12, (yTop + yBot) / 2 + 4);\n\n// C(x) graph\nvar gx0 = W * 0.12, gx1 = W * 0.80, gy0 = H * 0.92, gy1 = H * 0.56;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(gx0, gy0); ctx.lineTo(gx1, gy0); ctx.stroke();\nctx.beginPath(); ctx.moveTo(gx0, gy0); ctx.lineTo(gx0, gy1); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"x (cm)\", gx1 - 34, gy0 + 16);\nctx.fillText(\"C\", gx0 - 12, gy1 + 2);\n\nvar Cmin = eps0 * wm * Lm / dm;\nvar Cmax = eps0 * wm * kap * Lm / dm;\nctx.strokeStyle = C.figure;\nctx.beginPath();\nfor (var i = 0; i <= 40; i++) {\n  var xx = Lm * i / 40;\n  var cc = eps0 * wm * (Lm - xx + kap * xx) / dm;\n  var gx = gx0 + (gx1 - gx0) * (i / 40);\n  var gy = gy0 - (gy0 - gy1) * (cc - Cmin) / (Cmax - Cmin + 1e-18);\n  i === 0 ? ctx.moveTo(gx, gy) : ctx.lineTo(gx, gy);\n}\nctx.stroke();\nvar mx = gx0 + (gx1 - gx0) * frac;\nvar my2 = gy0 - (gy0 - gy1) * (Cx - Cmin) / (Cmax - Cmin + 1e-18);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(mx, my2, 4, 0, 6.2832); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"C rises in a straight line with x, so dC/dx is the same everywhere\", gx0, gy1 - 8);\n\nout.note = \"C = \" + (Cx * 1e12).toFixed(1) + \" pF,  dC/dx = \" +\n  (eps0 * wm * (kap - 1) / dm * 1e12 / 100).toFixed(2) + \" pF/cm,  F = \" + (F * 1000).toFixed(3) + \" mN (same at every x)\";"
+ }
+]

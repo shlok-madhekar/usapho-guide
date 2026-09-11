@@ -1,43 +1,293 @@
-## Relativity
+Muons are made about 15 km up, when a cosmic ray smashes into the top of the
+atmosphere. A muon at rest survives about 2.2 microseconds before it decays.
+Even moving at almost the speed of light, 2.2 microseconds buys it about 660 m.
+It should never get anywhere near the ground. Detectors at sea level catch them
+by the thousand.
 
-Two postulates: the laws of physics are the same in every inertial frame, and
-light travels at $c$ for every observer. Everything strange follows from
-insisting on both at once.
+Something in that accounting is wrong, and it is not the muon. The last unit
+ended with light behaving in ways that only made sense if you took the wave
+picture seriously. This one starts with light behaving in a way that only makes
+sense if you give up something you have never questioned: that a second is a
+second and a metre is a metre for everybody.
 
-$$\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}, \qquad \Delta t = \gamma\Delta t_0, \qquad L = \frac{L_0}{\gamma}$$
+## The two things you are asked to believe
 
-Moving clocks run slow and moving objects contract along the direction of
-motion. The subscript zero always marks the frame where the measurement is
-simplest: proper time is measured where the events happen at one place, proper
-length where the object is at rest.
+Einstein's whole argument rests on two statements, and everything strange that
+follows is forced by them.
 
-Energy and momentum get corrected too:
+The first is the **principle of relativity**: the laws of physics are identical
+in every inertial frame. An inertial frame is one where a free object moves in
+a straight line at constant speed — a coasting spaceship, a train on smooth
+track, not a car going round a bend. There is no experiment you can do inside a
+sealed box that tells you how fast the box is moving, only whether it is
+accelerating.
 
-$$E = \gamma mc^2, \qquad p = \gamma mv, \qquad E^2 = (pc)^2 + (mc^2)^2$$
+The second is harder to swallow: **light travels at $c = 3.00 \times 10^8$ m/s
+in every inertial frame**, no matter how the source moves and no matter how the
+measurer moves. Chase a light pulse at $0.9c$ and it still retreats from you at
+$c$, not at $0.1c$.
 
-That last relation is the useful one, because it holds for massless particles
-as well, giving $E = pc$ for a photon.
+Hold both at once and something has to give. Speed is distance over time. If
+everyone gets the same speed for light while moving at different speeds through
+the same room, then they cannot be agreeing about distances and times. The
+disagreement is the physics.
 
-<Aside label="Worth remembering">
-  Muons created high in the atmosphere reach the ground even though their
-  lifetime should not permit it. In our frame their clocks run slow; in their
-  frame the atmosphere is contracted. Both descriptions give the same answer,
-  which is the point.
+## A clock made of light
+
+Here is the cleanest way to see what the second postulate costs you. Build a
+clock out of two parallel mirrors a distance $d$ apart, with a pulse of light
+bouncing between them. One tick is one round trip. In the frame where the clock
+sits still, the light goes straight up and straight back, so a tick takes
+
+$$\Delta t_0 = \frac{2d}{c}.$$
+
+Now watch the same clock from a frame it is moving through, sideways at speed
+$v$, perpendicular to the mirror separation. The mirrors drift while the light
+is in flight, so the pulse has to travel along a slanted path to catch the top
+mirror where it will be, not where it was. The slant is longer than $d$. But
+the second postulate says that light still covers this longer path at $c$, not
+faster. A longer path at the same speed takes more time. The moving clock ticks
+slower.
+
+Put numbers on it. Let the tick take $\Delta t$ in this frame. In that time the
+clock moves sideways by $v\Delta t$, and the light covers $c\Delta t$ along the
+slant, in two equal legs. Each leg is the hypotenuse of a right triangle with
+vertical side $d$ and horizontal side $v\Delta t/2$:
+
+$$\left(\frac{c\Delta t}{2}\right)^2 = d^2 + \left(\frac{v\Delta t}{2}\right)^2.$$
+
+Multiply out and gather the $\Delta t$ terms: $c^2\Delta t^2 - v^2\Delta t^2 =
+4d^2$, so $\Delta t^2 (1 - v^2/c^2) = 4d^2/c^2$. Take the square root and
+recognise $2d/c$ as $\Delta t_0$:
+
+$$\Delta t = \frac{\Delta t_0}{\sqrt{1 - v^2/c^2}} = \gamma \, \Delta t_0 .$$
+
+That factor gets its own name. The **Lorentz factor** is
+
+$$\gamma = \frac{1}{\sqrt{1 - v^2/c^2}} = \frac{1}{\sqrt{1-\beta^2}}, \qquad \beta \equiv \frac{v}{c}.$$
+
+It is 1 when $v = 0$, and it grows without limit as $v \to c$. At $0.6c$ it is
+1.25; at $0.8c$ it is 1.667; at $0.995c$ it is 10.0. Nothing about the argument
+used the fact that the clock was made of mirrors. Any clock carried alongside
+it — a pendulum, a decaying muon, a heartbeat — must agree with it, or the crew
+could tell they were moving by watching their two clocks drift apart, and the
+first postulate forbids that.
+
+<Figure caption={<><b>Figure 1.</b> The light clock. The dashed zigzag is the path the pulse takes in the frame the clock moves through; the short vertical line is the path the clock's own frame sees. Drag the speed up and watch the slant get longer while the vertical leg stays the same length.</>}>
+  <Sim id="sr-kinematics-light-clock" />
+</Figure>
+
+<Aside label="Proper time">
+  $\Delta t_0$ is called the **proper time** between two events. It is the time
+  read by a single clock that is present at both events — the clock that sees
+  them happen in the same place. Every other frame reads a longer time. Proper
+  time is the smallest time any frame assigns to a pair of events, which is a
+  useful check on your answer.
 </Aside>
 
-## What comes next
+**Example 1.** A muon's mean lifetime at rest is $2.20\ \mu$s. It moves through
+the lab at $0.980c$. What lifetime does the lab measure?
 
-Relativity is only half of what "modern physics" means on the exam. The other
-half is quantisation, and it gets four lessons of its own in this unit:
-[the photoelectric effect](/guide/photoelectric),
-[the Bohr model](/guide/bohr-model),
-[de Broglie waves](/guide/de-broglie), and
-[relativistic energy and momentum](/guide/relativistic-energy), which is where
-the kinematics above turns into the energy bookkeeping you will actually use.
+Birth and decay happen at the same place in the muon's frame, so $2.20\ \mu$s
+is proper time. First $\gamma$: $\beta^2 = 0.980^2 = 0.9604$, so
+$1 - \beta^2 = 0.0396$, and $\sqrt{0.0396} = 0.1990$. Then
+$\gamma = 1/0.1990 = 5.03$. So $\Delta t = 5.03 \times 2.20\ \mu\text{s}
+= 11.1\ \mu$s. The lab sees the muon live five times longer than it does.
 
 <QuickCheck
-  question="An observer watches a spaceship fly past at high speed. Compared with the ship's own clock, the clock on the ship appears to the observer to:"
-  options={["Run slow", "Run fast", "Keep the same rate", "Stop entirely"]}
-  answer={0}
-  explanation="Moving clocks run slow in the frame that watches them move. The crew notice nothing unusual about their own clock; it is only the comparison between frames that shows the difference."
+  question="A ship flies past Earth at 0.600c. A clock on the ship ticks off exactly 1.00 s between two events. How much Earth time passes between those two events?"
+  options={["0.80 s", "1.00 s", "1.25 s", "1.67 s"]}
+  answer={2}
+  explanation="Both events happen at the same place on the ship, so 1.00 s is the proper time and Earth's reading is the longer one: gamma times 1.00 s, with gamma = 1.25 at 0.600c. Dividing by gamma gives 0.80 s, which is the standard trap — that would make the moving clock the slow-reading one in the wrong direction."
 />
+
+## Lengths shrink along the motion
+
+Now go back to the muon, and insist that both frames get the same answer for
+the one thing they cannot disagree about: whether the muon reaches the ground.
+
+In the ground frame, the muon covers 15 km because its clock is slowed by
+$\gamma$. In the muon's own frame its clock is perfectly normal and it really
+does only live 2.2 microseconds. The only way it still arrives is if the
+distance from creation point to ground is shorter in its frame. It has to be
+shorter by exactly the factor that saves the accounting, which is $\gamma$:
+
+$$L = \frac{L_0}{\gamma}.$$
+
+$L_0$ is the **proper length**: the length measured in the frame where the
+object is at rest. Every frame that sees the object move measures something
+shorter, and only along the direction of motion. Transverse dimensions are
+untouched — the light clock's mirror separation was perpendicular to $v$ and
+never entered the contraction.
+
+Note the asymmetry in where the zero subscript goes. Proper time is the
+*shortest*; proper length is the *longest*. If you remember one of them by
+"multiply by gamma", you will get the other one backwards. Better to think
+about which frame is the simple one each time.
+
+<Aside label="Where this goes wrong" warn>
+  You cannot mix a proper time from one pair of events with a proper length
+  measured in a different frame and expect the numbers to work. The muon's
+  $2.20\ \mu$s and the ground's 15 km live in different frames. Speed equals
+  distance over time only when both are measured in the *same* frame: 15 km
+  with the dilated time, or the contracted 1.5 km with the proper time. Both
+  give $0.995c$. One of each gives nonsense.
+</Aside>
+
+**Example 2.** A ship of proper length 100 m flies at $0.800c$ past a platform
+of proper length 50.0 m that is at rest in the lab. In the lab frame, how long
+between the nose reaching the near end of the platform and the tail clearing
+the far end?
+
+Work entirely in the lab frame, and be careful about which lengths are proper
+there. The platform is at rest in the lab, so its lab length is the full
+50.0 m. The ship is moving, so its lab length is contracted:
+$\gamma = 1.667$ at $0.800c$, giving $L = 100/1.667 = 60.0$ m.
+
+Track the nose. At the start it is at the near end. At the finish the *tail* is
+at the far end, so the nose is 60.0 m past the far end. The nose has therefore
+travelled $50.0 + 60.0 = 110$ m at $v = 0.800 \times 3.00\times10^8 =
+2.40\times10^8$ m/s:
+
+$$\Delta t = \frac{110}{2.40\times10^8} = 4.58\times10^{-7}\ \text{s} = 458\ \text{ns}.$$
+
+## Two frames cannot agree on "at the same time"
+
+The strangest consequence is the one that dissolves most of the paradoxes.
+Put a lamp at the exact middle of a train and flash it once. In the train's own
+frame the two ends are equally far away, the light goes both ways at $c$, and
+it hits both ends at the same instant.
+
+Watch from the ground. The light still goes both ways at $c$ — that is the
+postulate, and it does not care that the source is moving. But now the rear of
+the train is rushing toward the leftgoing pulse while the front is running away
+from the rightgoing one. The rear gets hit first. Two events that are
+simultaneous in one frame are not simultaneous in the other.
+
+<Figure caption={<><b>Figure 2.</b> The flash leaves the middle of the train and the rear wall runs into it while the front wall runs away. Turn the speed down toward zero and watch the two hits close up on each other.</>}>
+  <Sim id="sr-kinematics-simultaneity" />
+</Figure>
+
+How big is the effect? Take a train of proper length $L_0$ whose clocks are
+synchronised in the train frame. Seen from the ground, those clocks are not
+synchronised: the rear clock reads ahead of the front clock by
+
+$$\Delta t = \frac{v L_0}{c^2} = \frac{\beta L_0}{c}.$$
+
+Memorise the shape of that, and memorise that $L_0$ is the *proper* length of
+the moving object, with no $\gamma$ attached. The rule of thumb for the sign:
+**the rear clock is ahead**, where "rear" means the trailing end. For a 1.00 km
+train at $0.600c$, the offset is $0.600 \times 1000 / (3.00\times10^8) =
+2.00\ \mu$s.
+
+<QuickCheck
+  question="A pole of proper length 20.0 m passes through a barn of proper length 10.0 m at 0.866c. In the barn frame both doors shut at the same instant with the pole inside. In the pole's frame, are the closings simultaneous?"
+  options={["Yes, simultaneity is absolute", "No, and the far door shuts first", "No, and the near door shuts first", "The question is meaningless"]}
+  answer={1}
+  explanation="Simultaneity is frame dependent, so the two closings are separated in the pole's frame. In the pole's frame the barn rushes past, its far door reaches the pole's nose and shuts before the near door shuts behind the tail, which is how the 20 m pole gets through a 5 m barn without being cut. The separation is the proper barn length times beta over c, giving 57.7 ns."
+/>
+
+## The transformation, and adding velocities
+
+The three results above are all consequences of one pair of equations. If frame
+$S'$ moves at speed $v$ along the $+x$ axis of $S$, with origins coinciding at
+$t = t' = 0$, then an event at $(x, t)$ in $S$ sits at
+
+$$x' = \gamma(x - vt), \qquad t' = \gamma\left(t - \frac{vx}{c^2}\right).$$
+
+The $y$ and $z$ coordinates are unchanged. Set $\Delta x = 0$ and the second
+equation gives time dilation. Set $\Delta t' = 0$ and the pair gives length
+contraction. Set $\Delta t = 0$ and the $vx/c^2$ term gives the simultaneity
+offset. That term is the whole of relativity's weirdness in four symbols.
+
+Differentiate the pair and you get the velocity addition rule. If an object
+moves at $u$ in $S$ along $x$, its speed in $S'$ is
+
+$$u' = \frac{u - v}{1 - uv/c^2}.$$
+
+Run it the other way — a missile fired at $u'$ from a ship moving at $v$ —
+and the sign flips: $u = (u' + v)/(1 + u'v/c^2)$. A ship at $0.600c$ firing
+forward at $0.500c$ gives $(1.100)/(1 + 0.300) = 0.846c$, not $1.1c$. The
+denominator is what keeps you under $c$ no matter how many boosts you stack.
+Do three boosts of $0.500c$: first $0.500 \oplus 0.500 = 1.000/1.250 = 0.800$,
+then $0.800 \oplus 0.500 = 1.300/1.400 = 0.929$.
+
+For a velocity with a transverse part, the perpendicular component transforms
+too, because the time interval changed even though $y$ did not:
+
+$$u'_y = \frac{u_y}{\gamma\left(1 - u_x v / c^2\right)}.$$
+
+One more result worth carrying: a source receding at $\beta$ stretches the
+wavelength of its light by the **relativistic Doppler factor**
+$\lambda_{obs} = \lambda_0\sqrt{(1+\beta)/(1-\beta)}$, with the sign inside
+flipped for approach.
+
+## The twins, and where the missing years go
+
+A traveller flies to a star 8.00 light-years away (Earth frame) at $0.800c$,
+turns around instantly, and comes back. Earth clocks say the round trip takes
+$16.0/0.800 = 20.0$ yr. The traveller's own clock reads $20.0/1.667 = 12.0$ yr.
+They meet again and the traveller is 8.0 years younger. That much is not
+controversial: only one of them is present at both the departure and the
+reunion, so only their clock reads proper time.
+
+The confusion comes from the traveller's point of view. On each leg the
+traveller is in an inertial frame and judges the Earth clock to be the moving
+one, ticking slow. Each leg lasts 6.0 yr of traveller time, during which they
+judge Earth to age $6.0/1.667 = 3.6$ yr, so 7.2 yr over both legs. But Earth
+actually aged 20.0 yr. Where did the other 12.8 years go?
+
+Into the turnaround. At the moment the traveller reverses, they switch from one
+inertial frame to another, and the two frames disagree about what "now" means
+8.00 light-years away. That is the simultaneity offset, applied over the
+distance to Earth, twice — once for each direction:
+
+$$\Delta t_{jump} = \frac{2 v L_0}{c^2} = 2 \times 0.800 \times 8.00 = 12.8\ \text{yr}.$$
+
+Check: $7.2 + 12.8 = 20.0$ yr, which is what Earth read. The accounting closes.
+The asymmetry between the twins is real and it lives entirely in the fact that
+one of them changed frames.
+
+<Figure caption={<><b>Figure 3.</b> Survival of muons falling from a given altitude. The dashed curve is what you get with no time dilation; the solid one uses the dilated lifetime. Drag the speed from 0.99 to 0.999 and watch the solid curve swing from almost none arriving to most of them arriving.</>}>
+  <Sim id="sr-kinematics-muons" />
+</Figure>
+
+The muon numbers follow the same pattern. At $0.995c$, $\gamma = 10.0$, so the
+lab lifetime is $22.0\ \mu$s and the mean travel distance is
+$0.995 \times 3.00\times10^8 \times 22.0\times10^{-6} = 6570$ m. Surviving from
+15 km down to the ground means surviving $15000/6570 = 2.28$ mean distances, so
+the fraction is $e^{-2.28} = 0.102$. Roughly one in ten arrives, against
+$e^{-22.8} \approx 10^{-10}$ without dilation.
+
+## Recognising the technique
+
+A problem is asking for relativistic kinematics when a speed is quoted as a
+multiple of $c$, or when a lifetime, a length, or a trip time is given in one
+frame and wanted in another. Once you are sure, the work is almost always the
+same four steps.
+
+Compute $\gamma$ first, from $\beta$, before anything else. Then name your two
+frames and write down, for each quantity in the problem, which frame it was
+measured in. Most wrong answers in this topic are a $\gamma$ that should have
+been a $1/\gamma$, and naming the frames is what prevents that.
+
+Then ask what kind of question it is. If two events happen at the same place in
+some frame, that frame reads the proper time and every other frame reads more:
+lifetimes, trip times, and light-clock ticks are all this. If an object has a
+rest length and you want its length in a frame it moves through, divide by
+$\gamma$. If the problem says "at the same time" in one frame and asks about
+another, you need $vL_0/c^2$, and the pole-and-barn, lightning-on-the-train and
+twin-turnaround problems are all that one formula wearing different hats. If
+two speeds are being combined, never add them: use the denominator.
+
+And if a problem seems to contain a contradiction — a 20 m pole inside a 10 m
+barn, a twin younger than their twin — the resolution is almost always
+simultaneity rather than dilation. Ask which events the two frames are being
+asked to call simultaneous, and the paradox usually evaporates before you have
+done any arithmetic.
+
+All of this was about where and when. None of it touched mass, force or energy,
+and those need repairs of their own: momentum is no longer $mv$ and kinetic
+energy is no longer $\tfrac{1}{2}mv^2$. That is
+[relativistic energy and momentum](/guide/relativistic-energy), where $\gamma$
+shows up again and finally earns the most famous equation in physics.

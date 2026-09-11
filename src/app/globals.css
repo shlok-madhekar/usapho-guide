@@ -120,24 +120,38 @@ a { color: inherit; }
 .prose {
   max-width: var(--measure);
 }
-.prose > * + * { margin-top: 1.05em; }
-.prose p { margin: 0; }
+/*
+ * The gap between paragraphs has to beat the 1.62 line-height inside one, or a
+ * paragraph break reads as tighter than an ordinary line wrap and the page
+ * turns into a wall.
+ *
+ * Both rules are written on `> *` so they carry the same specificity and the
+ * later one wins. A `.prose p` reset here would outrank `> * + *` and silently
+ * zero every paragraph gap, which is exactly what used to happen.
+ */
+.prose > * { margin: 0; }
+.prose > * + * { margin-top: 1.8em; }
+
+/* a heading belongs to the text under it: lots of air above, little below */
 .prose h2 {
   font-family: var(--serif);
   font-size: 1.45rem;
   font-weight: 600;
   line-height: 1.25;
   color: var(--ink-strong);
-  margin-top: 2.4em;
-  margin-bottom: 0.1em;
+  margin-top: 2.9em;
+  margin-bottom: 0;
 }
 .prose h3 {
   font-size: 1.12rem;
   font-weight: 600;
   color: var(--ink-strong);
-  margin-top: 1.9em;
-  margin-bottom: 0.1em;
+  margin-top: 2.1em;
+  margin-bottom: 0;
 }
+.prose h2 + *,
+.prose h3 + * { margin-top: 0.6em; }
+.prose > :first-child { margin-top: 0; }
 /* running section numbers, like a real textbook */
 .prose { counter-reset: section figure; }
 .prose h2 { counter-increment: section; }

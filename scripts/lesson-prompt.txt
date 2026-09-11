@@ -1,0 +1,47 @@
+Rewrite ONE lesson for the USAPhO Guide, from scratch, to a much higher standard than what is there now, and write the interactive figures that go with it.
+
+THE BAR: a motivated 15-year-old who has never seen this topic reads only your page, and can then solve most of the 30 practice problems attached to it. The current lesson is ~400 words with no pictures and fails that badly.
+
+All paths below are relative to /Users/shlok/Projects/usapho-guide — cd there first.
+
+READ FIRST, in this order:
+1. src/content/lessons/STYLE.md — the full spec, including the "Figures and labs" section at the end. Follow it exactly.
+2. .lesson-briefs/SLUG.txt — your brief: the unit, what comes before and after, and the actual problems your lesson must prepare the reader to solve.
+3. src/content/lessons/SLUG.mdx — the existing thin version. Replace it entirely.
+4. src/content/sim-seed.json — four existing simulations. Read one `draw` body to see exactly what good canvas code looks like here.
+
+YOU WRITE EXACTLY TWO FILES:
+- src/content/lessons/SLUG.mdx
+- src/content/sim-batches/SLUG.json
+
+Touch nothing else. Other agents are writing other lessons at the same time; editing a shared file will collide with them.
+
+THE LESSON:
+- 1500-2500 words. Five to eight `##` sections.
+- At least THREE fully worked examples with real numbers and units, increasing in difficulty, every arithmetic step shown.
+- At least two <Aside> (one `warn`) and at least two <QuickCheck>, spread through, each right after the idea it tests.
+- Derive results, do not assert them. The equation arrives as the conclusion of a paragraph.
+- Warm, plain, direct. Say "you", never "we". No filler ("it is important to note", "simply", "obviously", "let's dive in"), no cheerleading, no exclamation marks.
+- Continuity: connect to the previous lesson where it helps, close by pointing at the next with a [link](/guide/next-slug).
+- A final short section on how to RECOGNISE that this technique is the one a problem wants.
+- NO braces inside JSX attribute strings (breaks the build). NO markdown tables. No `#` title, no frontmatter.
+- A multi-line $$ display block must have each $$ ALONE on its own line, blank line above and below, or it renders as a red KaTeX error.
+- Do not invent new practice problems.
+
+THE FIGURES (this is not optional and is half the job):
+- Write 2-4 simulations into src/content/sim-batches/SLUG.json as a JSON array, in the exact shape documented in STYLE.md.
+- At least one must be a real interactive LAB: sliders that change the physics, animation over `t`, and an `out.note` readout showing the number that matters as the reader drags.
+- At least one more figure: often a clear labelled DIAGRAM (free body diagram, ray diagram, circuit, PV cycle, graph) that makes the central idea visible. Static is fine.
+- Every sim id must start with your slug, e.g. "SLUG-ramp".
+- Colours ONLY from `C.ink`, `C.rule`, `C.accent`, `C.figure`, `C.faint`, `C.paper`. A literal hex string fails the checker and breaks dark mode.
+- Label axes, forces and quantities with ctx.fillText. Scale everything to W and H. Plain ES5 JavaScript, deterministic, no Math.random.
+- A <Figure> caption is JSX, not markdown: no $math$ and no *emphasis* inside it. Plain words, <b> for the figure number.
+- Embed each one in the lesson at the point in the argument where it helps, with a caption that tells the reader what to notice and what to try.
+
+VERIFY before finishing:
+  cd /Users/shlok/Projects/usapho-guide
+  python3 -c "import json;json.load(open('src/content/sim-batches/SLUG.json'))" && echo "json ok"
+  python3 scripts/check-lessons.py 2>&1 | grep -A6 "^SLUG.mdx" || echo "lesson clean"
+  node -e "const s=require('./src/content/sim-batches/SLUG.json');for(const x of s){new Function('ctx','p','t','W','H','C','out',x.draw);console.log('compiles:',x.id)}"
+
+Fix anything those report. Report the word count and the sim ids when done.

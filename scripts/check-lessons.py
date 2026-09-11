@@ -36,6 +36,24 @@ def slugs() -> set[str]:
     }
 
 
+def known_sims() -> set[str]:
+    """
+    Simulations live in the merged file plus the un-merged per-lesson batches,
+    so a lesson written alongside its own figures checks out before a merge.
+    """
+    ids: set[str] = set()
+    paths = [ROOT / "src/content/sims.json", ROOT / "src/content/sim-seed.json"]
+    paths += sorted((ROOT / "src/content/sim-batches").glob("*.json"))
+    for p in paths:
+        if not p.exists():
+            continue
+        try:
+            ids |= {s["id"] for s in json.loads(p.read_text())}
+        except (json.JSONDecodeError, KeyError, TypeError):
+            pass
+    return ids
+
+
 def check(path: pathlib.Path, valid: set[str]) -> list[str]:
     name = path.stem
     text = path.read_text()
@@ -49,6 +67,14 @@ def check(path: pathlib.Path, valid: set[str]) -> list[str]:
         for m in re.finditer(rf'{attr}="([^"]*)"', text):
             if "{" in m.group(1) or "}" in m.group(1):
                 problems.append(f'{attr}="..." contains a brace, which breaks MDX')
+
+    # remark-math only reads a multi-line $$ block when each delimiter is alone
+    # on its line; inline delimiters silently become a KaTeX error on the page
+    for m in re.finditer(r"\$\$(.+?)\$\$", text, re.S):
+        body = m.group(1)
+        if "\n" in body and not (body.startswith("\n") and body.endswith("\n")):
+            line = text[: m.start()].count("\n") + 1
+            problems.append(f"line {line}: multi-line $$ needs $$ alone on its own line")
 
     if text.lstrip().startswith("# "):
         problems.append("has a top-level '# ' title (the page renders one already)")
@@ -65,17 +91,22 @@ def check(path: pathlib.Path, valid: set[str]) -> list[str]:
     if "<QuickCheck" not in text:
         problems.append("no <QuickCheck>")
 
-    # simulations must exist
-    for sim in re.findall(r'<Sim id="([^"]+)"', text):
-        known = {s["id"] for s in json.loads((ROOT / "src/content/sims.json").read_text())}
+    # a lesson with no picture has failed the brief
+    sims = re.findall(r'<Sim id="([^"]+)"', text)
+    if text.count("<Figure") < 2:
+        problems.append(f"only {text.count('<Figure')} <Figure> (two is the minimum)")
+    if not sims:
+        problems.append("no <Sim>: every lesson needs at least one interactive lab")
+    known = known_sims()
+    for sim in sims:
         if sim not in known:
             problems.append(f"unknown simulation id: {sim}")
 
     words = len(re.sub(r"<[^>]+>", " ", text).split())
-    if words < 150:
-        problems.append(f"very short ({words} words)")
-    if words > 900:
-        problems.append(f"very long ({words} words)")
+    if words < 1200:
+        problems.append(f"too short ({words} words, the spec asks for 1500-2500)")
+    if words > 3200:
+        problems.append(f"too long ({words} words)")
 
     return problems
 

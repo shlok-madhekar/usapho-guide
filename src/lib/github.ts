@@ -56,6 +56,26 @@ interface RepoInfo {
   permissions?: { push?: boolean };
 }
 
+/**
+ * Star the guide's repository as the contributor.
+ *
+ * Only ever called from an explicit opt-in: starring somebody's behalf without
+ * asking is both a surprise on their account and the kind of inauthentic
+ * engagement GitHub suspends repositories for.
+ */
+export const starRepo = (token: string, repo = REPO) =>
+  gh<null>(token, `/user/starred/${repo}`, { method: "PUT" });
+
+/** Whether this contributor has already starred it. */
+export const hasStarred = async (token: string, repo = REPO) => {
+  try {
+    await gh<null>(token, `/user/starred/${repo}`);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 export const getRepo = (token: string, repo = REPO) =>
   gh<RepoInfo>(token, `/repos/${repo}`);
 

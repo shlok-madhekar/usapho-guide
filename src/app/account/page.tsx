@@ -4,6 +4,7 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import { useAuth } from "@/lib/auth";
 import { useGitHub } from "@/lib/github-auth";
+import StarPrompt from "@/components/StarPrompt";
 import { ROLE_LABEL } from "@/lib/roles";
 
 export default function AccountPage() {
@@ -89,6 +90,10 @@ export default function AccountPage() {
             </p>
           </div>
 
+          <p className="sans mt-4 text-sm text-[var(--ink-soft)]">
+            Proposing a change requires starring the repository.
+          </p>
+
           <div className="mt-5 flex flex-wrap items-center gap-3">
             {gh.connected ? (
               <>
@@ -98,6 +103,7 @@ export default function AccountPage() {
                 <button onClick={gh.disconnect} className="btn-plain">
                   Disconnect
                 </button>
+                <StarPrompt api={gh.api} />
               </>
             ) : (
               <Link href="/edit" className="btn">

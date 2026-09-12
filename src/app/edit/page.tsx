@@ -92,6 +92,16 @@ export default function EditPage() {
           </p>
         </div>
 
+        <div className="aside mt-5">
+          <span className="aside-label">Before you connect</span>
+          <p className="text-sm">
+            Contributing to the guide requires starring the repository. The
+            connect step asks GitHub for permission to open pull requests as
+            you; once you are connected there is a button to star, and saving a
+            change checks for it. You can unstar whenever you like.
+          </p>
+        </div>
+
         {gh.device ? (
           <div className="aside mt-6">
             <span className="aside-label">Two steps</span>

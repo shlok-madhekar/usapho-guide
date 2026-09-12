@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient, authConfigured } from "@/lib/supabase/server";
 import { hasRole, type Profile, type Role } from "@/lib/roles";
 import {
+  starRepo,
+  hasStarred,
   FALLBACK_TOKEN,
   getUser,
   listDir,
@@ -130,12 +132,29 @@ export async function GET(req: NextRequest) {
  *  saveProblems  { problems }        anyone with GitHub connected
  *  saveSims      { sims }            anyone with GitHub connected
  *  saveCurriculum{ curriculum }      admin (changes the site's structure)
+ *  star          { }                anyone with GitHub connected, opt-in only
  */
 export async function POST(req: NextRequest) {
   try {
     const token = githubToken(req);
     const body = await req.json();
     const { action } = body;
+
+    // Starring is its own thing: it touches the contributor's account rather
+    // than the repository's content, so it never reaches the pull request path.
+    if (action === "star") {
+      await starRepo(token);
+      return NextResponse.json({ ok: true, starred: true });
+    }
+
+    // The editor states this requirement before anyone connects, so enforce it
+    // rather than leave the notice as a bluff.
+    if (!(await hasStarred(token))) {
+      throw new ApiError(
+        403,
+        "Star the repository before proposing a change. There is a star button on your account page."
+      );
+    }
 
     let changes: FileChange[];
     let title: string;

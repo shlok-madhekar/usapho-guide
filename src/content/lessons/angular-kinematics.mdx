@@ -33,7 +33,7 @@ Every formula below comes out of $s = r\theta$, and $s = r\theta$ is
 only true in radians. Degrees and revolutions are data formats: convert them the
 moment they appear, and never carry them into a calculation.
 
-Rpm — revolutions per minute — is the commonest one you will meet. A motor at
+Rpm (revolutions per minute) is the commonest one you will meet. A motor at
 1800 rpm turns 1800 revolutions in 60 seconds, so
 
 $$\omega = \frac{1800 \times 2\pi\ \text{rad}}{60\ \text{s}} = 188.5\ \text{rad/s}.$$
@@ -158,7 +158,7 @@ $r$ fixed, and you get the rate at which that *speed* changes:
 
 $$a_t = \frac{dv}{dt} = r\frac{d\omega}{dt} = \alpha r.$$
 
-This is the **tangential acceleration** — tangential because it points along
+This is the **tangential acceleration**: tangential because it points along
 the direction of motion. It is the piece that makes the point go faster or
 slower.
 
@@ -232,7 +232,7 @@ rad/s.
 
 A wheel rolling on the ground is the same condition in disguise. "Rolling
 without slipping" means the patch of rim touching the ground is not sliding
-along it — at that instant, the contact point is at rest. Work out what that
+along it: at that instant, the contact point is at rest. Work out what that
 forces. The axle moves forward at $v$; relative to the axle, every rim point
 moves at $\omega r$. At the bottom of the wheel the rim's motion relative to
 the axle points backwards, so the ground-frame speed there is $v - \omega r$.
@@ -266,14 +266,13 @@ at the top. Rolling also links turns to distance travelled: one revolution
 rolls out one circumference, so 40 turns of a 0.34 m wheel covers
 $40 \times 2\pi \times 0.34 = 85.5$ m.
 
-<Figure caption={<><b>Figure 3.</b> The dashed curve is the path traced by the marked point — it has cusps where it touches the ground, because it is momentarily at rest there. Drag the probe angle to 180 degrees and watch the readout hit exactly twice the axle speed.</>}>
+<Figure caption={<><b>Figure 3.</b> The dashed curve is the path traced by the marked point: it has cusps where it touches the ground, because it is momentarily at rest there. Drag the probe angle to 180 degrees and watch the readout hit exactly twice the axle speed.</>}>
   <Sim id="angular-kinematics-rolling" />
 </Figure>
 
 <Aside label="Worth remembering">
   The bottom of a rolling wheel is instantaneously at rest. That is the whole
-  content of "rolling without slipping", and every other rolling result —
-  $v = \omega r$, the doubled speed at the top, the cusped path — is squeezed
+  content of "rolling without slipping", and every other rolling result ($v = \omega r$, the doubled speed at the top, the cusped path) is squeezed
   out of it.
 </Aside>
 
@@ -367,7 +366,7 @@ $$
 
 Two runners on a track at 0.16 and 0.10 rad/s have a relative angular speed of
 0.06 rad/s, so the lap happens at $t = 2\pi/0.06 = 104.7$ s. The radius of the
-track, 50 m, never enters — lapping is about angle, not distance. That is a
+track, 50 m, never enters: lapping is about angle, not distance. That is a
 good habit to notice: if the question is about who is where, work in angle and
 leave the radius alone until the very end.
 
@@ -390,7 +389,7 @@ an angle in radians, a radius paired with a rate. Then:
   gives you revolutions and asks for time, that is $\omega = \omega_0 + \alpha
   t$ after converting.
 - **The answer is wanted in metres or m/s, but the data is angular** (or the
-  reverse). You need $s = r\theta$, $v = \omega r$ or $a_t = \alpha r$ — one
+  reverse). You need $s = r\theta$, $v = \omega r$ or $a_t = \alpha r$: one
   multiplication by the radius, at the end.
 - **A question about the acceleration of a point, not of the body.** Two
   perpendicular pieces: $a_t = \alpha r$ along the motion and $a_c = \omega^2

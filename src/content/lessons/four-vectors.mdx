@@ -1,4 +1,4 @@
-A proton in the LHC carries 7 TeV of energy. Fire it at a bottle of liquid hydrogen sitting on a bench and the collision has about 115 GeV to spend on making new particles — less than two percent of what you paid for. Turn the machine around so two 7 TeV beams meet head-on and suddenly you have 14 TeV to spend. Same protons, same energy per proton, a hundred-fold difference in what the collision can create.
+A proton in the LHC carries 7 TeV of energy. Fire it at a bottle of liquid hydrogen sitting on a bench and the collision has about 115 GeV to spend on making new particles: less than two percent of what you paid for. Turn the machine around so two 7 TeV beams meet head-on and suddenly you have 14 TeV to spend. Same protons, same energy per proton, a hundred-fold difference in what the collision can create.
 
 That factor is not a detail of accelerator engineering. It falls out of one number you can compute in a line, once you stop treating energy and momentum as two separate bookkeeping problems and start treating them as one object. This lesson is about that object, about the single invariant it carries, and about what the same idea says when the particle you are tracking is a photon and the thing you measure is its colour.
 
@@ -30,7 +30,7 @@ Work that out for a single particle of mass $m$. Its energy is $E = \gamma mc^2$
 
 $$\frac{E^2}{c^2} - p^2 = \gamma^2 m^2 c^2 - \gamma^2 m^2 v^2 = \gamma^2 m^2 c^2 \left(1 - \frac{v^2}{c^2}\right) = m^2c^2$$
 
-since $\gamma^2(1-\beta^2) = 1$ exactly. Every $\gamma$ cancelled. What is left contains nothing but the rest mass, which is a property of the particle and not of your motion — so every observer computes the same number. Rearranged, that is the relation you will use more than any other:
+since $\gamma^2(1-\beta^2) = 1$ exactly. Every $\gamma$ cancelled. What is left contains nothing but the rest mass, which is a property of the particle and not of your motion, so every observer computes the same number. Rearranged, that is the relation you will use more than any other:
 
 $$E^2 = (pc)^2 + (mc^2)^2$$
 
@@ -60,7 +60,7 @@ $$s \equiv P_{\text{tot}} \cdot P_{\text{tot}} \, c^2 = \left(\sum E\right)^2 - 
 
 This is called the **Mandelstam $s$**, and $\sqrt{s}$ has units of energy. Because it came from squaring a four-vector, it is the same in every frame. And because the total four-vector is conserved, it is also the same before and after the collision.
 
-$\sqrt{s}$ has a physical meaning worth holding onto. Go to the frame where the total momentum is zero — the **centre-of-momentum frame**, the natural one for any collision. There $\sum \vec{p} = 0$, so $\sqrt{s}$ is nothing but the total energy in that frame. That is the energy genuinely available to make new things.
+$\sqrt{s}$ has a physical meaning worth holding onto. Go to the frame where the total momentum is zero: the **centre-of-momentum frame**, the natural one for any collision. There $\sum \vec{p} = 0$, so $\sqrt{s}$ is nothing but the total energy in that frame. That is the energy genuinely available to make new things.
 
 **Example 2.** A 7.00 TeV proton hits a proton at rest. Find $\sqrt{s}$.
 
@@ -89,7 +89,7 @@ Compare the collider: two 7 TeV beams head-on have $\sum \vec{p} = 0$ already, s
 
 Here is where the invariant earns its keep. A threshold problem asks for the minimum beam energy to produce some set of products. In the lab that final state is several particles with unknown momenta, which looks hopeless. But you never have to touch the lab-frame final state.
 
-At threshold, the products have just barely enough energy to exist and none left over for motion — in the centre-of-momentum frame they all come out **at rest**, moving together. So in that frame $\sqrt{s}$ after the collision is exactly the sum of the product rest energies. Set that equal to $\sqrt{s}$ computed before the collision in the lab, where you know everything.
+At threshold, the products have just barely enough energy to exist and none left over for motion: in the centre-of-momentum frame they all come out **at rest**, moving together. So in that frame $\sqrt{s}$ after the collision is exactly the sum of the product rest energies. Set that equal to $\sqrt{s}$ computed before the collision in the lab, where you know everything.
 
 **Example 3.** Protons strike protons at rest to make an antiproton: $p + p \to p + p + p + \bar{p}$. Find the minimum beam kinetic energy.
 
@@ -101,7 +101,7 @@ $$E_1 + m_pc^2 = 8m_pc^2 \quad\Longrightarrow\quad E_1 = 7m_pc^2$$
 
 That is total energy, so the kinetic energy is $K = E_1 - m_pc^2 = 6m_pc^2 = 6(938.3) = 5630$ MeV, or $5.63$ GeV. You need six proton masses of kinetic energy to make one antiproton, and five of those six are wasted on forward motion.
 
-The same three lines handle every threshold. Only two things change: what $\sqrt{s}$ is before, and what the products weigh. If the incoming particle is a photon, put $E_\gamma$ and $p_\gamma c = E_\gamma$ into the sum. If the two incoming particles collide head-on rather than one being at rest, the momenta subtract instead of vanishing, and for a head-on collision of a high-energy proton with a low-energy photon you get $s \approx (m_pc^2)^2 + 4E_pE_\gamma$ — which is the whole of the GZK cutoff problem.
+The same three lines handle every threshold. Only two things change: what $\sqrt{s}$ is before, and what the products weigh. If the incoming particle is a photon, put $E_\gamma$ and $p_\gamma c = E_\gamma$ into the sum. If the two incoming particles collide head-on rather than one being at rest, the momenta subtract instead of vanishing, and for a head-on collision of a high-energy proton with a low-energy photon you get $s \approx (m_pc^2)^2 + 4E_pE_\gamma$, which is the whole of the GZK cutoff problem.
 
 <Aside label="Where this goes wrong" warn>
   "At rest at threshold" is true in the centre-of-momentum frame and false in the lab. If you write the products as stationary in the lab you will violate momentum conservation and get an answer that is too small. The safe habit: compute $s$ on the left in the lab, compute $s$ on the right in the centre-of-momentum frame, never mix a lab momentum with a centre-of-momentum energy inside one equation.
@@ -148,7 +148,7 @@ For the **Doppler shift**, transform the photon's four-vector instead. A source 
 
 $$\frac{f}{f_0} = \frac{1}{\gamma\left(1 - \beta\cos\theta\right)}$$
 
-Three cases matter. Straight toward you, $\theta = 0$, and this simplifies to $f = f_0\sqrt{(1+\beta)/(1-\beta)}$ — a blueshift. Straight away, flip the sign of $\beta$: a redshift. And sideways, $\theta = 90^\circ$, where the classical prediction is no shift at all but you get $f = f_0/\gamma$. That transverse shift is pure time dilation, and measuring it is direct evidence that moving clocks run slow.
+Three cases matter. Straight toward you, $\theta = 0$, and this simplifies to $f = f_0\sqrt{(1+\beta)/(1-\beta)}$: a blueshift. Straight away, flip the sign of $\beta$: a redshift. And sideways, $\theta = 90^\circ$, where the classical prediction is no shift at all but you get $f = f_0/\gamma$. That transverse shift is pure time dilation, and measuring it is direct evidence that moving clocks run slow.
 
 <Figure caption={<><b>Figure 3.</b> Wavefronts pile up ahead of the source and spread out behind. Set the detector angle to 90 degrees and watch the readout: the shift does not go to one, it goes to one over gamma.</>}>
   <Sim id="four-vectors-doppler" />
@@ -159,22 +159,22 @@ Redshift is usually quoted as $z = \Delta\lambda/\lambda_0$, so $1 + z = \lambda
 The same $\gamma(1-\beta\cos\theta)$ factor bends directions as well as frequencies. Light emitted at $90^\circ$ in the source frame arrives at $\cos\theta = \beta$ in the lab, so a fast source beams half its light into a narrow forward cone of half-angle $\arccos\beta \approx 1/\gamma$. That is the **headlight effect**, and running it with $\beta$ tiny gives stellar aberration, $\Delta\theta \approx \beta$ radians.
 
 <Aside label="Worth remembering">
-  Rapidity $\eta = \tanh^{-1}\beta$ turns velocity addition into ordinary addition: boosts along a line just add their rapidities. Two successive boosts at $\beta = 0.800$ give $\eta_{\text{tot}} = 2\tanh^{-1}(0.800) = 2(1.0986) = 2.197$, so $\beta = \tanh(2.197) = 0.9756$. It is also why $\beta$ can never reach 1 — you would need infinite rapidity.
+  Rapidity $\eta = \tanh^{-1}\beta$ turns velocity addition into ordinary addition: boosts along a line just add their rapidities. Two successive boosts at $\beta = 0.800$ give $\eta_{\text{tot}} = 2\tanh^{-1}(0.800) = 2(1.0986) = 2.197$, so $\beta = \tanh(2.197) = 0.9756$. It is also why $\beta$ can never reach 1: you would need infinite rapidity.
 </Aside>
 
 ## Recognising the method
 
 Reach for four-vectors and invariants when you see any of these:
 
-**"Find the minimum energy to produce..."** — a threshold. Compute $s$ in the lab before, set $\sqrt{s}$ equal to the sum of product masses after, solve.
+**"Find the minimum energy to produce..."**: a threshold. Compute $s$ in the lab before, set $\sqrt{s}$ equal to the sum of product masses after, solve.
 
-**"A particle at rest decays into..."** — isolate one product, square, use the two-body energy formula. The answer depends only on the three masses.
+**"A particle at rest decays into..."**: isolate one product, square, use the two-body energy formula. The answer depends only on the three masses.
 
 **A final state with more than two unknown momenta.** Component equations will drown you. Squaring a four-vector deletes exactly the unknowns you do not care about, which is why you always isolate the particle you were not asked about before squaring.
 
-**Any question about a photon's measured colour, frequency, wavelength or redshift when something is moving** — Doppler, with $\theta$ measured in the observer's frame. Check whether the problem means approach, recession or transverse before you pick a sign.
+**Any question about a photon's measured colour, frequency, wavelength or redshift when something is moving**: Doppler, with $\theta$ measured in the observer's frame. Check whether the problem means approach, recession or transverse before you pick a sign.
 
-**"As measured in the rest frame of..."** with two velocities given — either a Lorentz transformation of a four-velocity, or the invariant $P_1 \cdot P_2 = \gamma_{\text{rel}} m_1m_2c^2$, which hands you the relative $\gamma$ in one step.
+**"As measured in the rest frame of..."** with two velocities given: either a Lorentz transformation of a four-velocity, or the invariant $P_1 \cdot P_2 = \gamma_{\text{rel}} m_1m_2c^2$, which hands you the relative $\gamma$ in one step.
 
 The habit that makes all of this fast: before writing a single number, write the conservation statement as four-vectors, decide which particle you want to eliminate, move it to one side alone, and square. The frame you evaluate in is then yours to choose, and you should always choose the lazy one.
 

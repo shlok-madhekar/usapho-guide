@@ -2299,7 +2299,7 @@
     "statement": "A boat moving at $5.0\\ \\mathrm{m/s}$ relative to the water crosses a $100\\ \\mathrm{m}$ wide river with a $3.0\\ \\mathrm{m/s}$ current, aimed so that it lands directly opposite. How long does the crossing take, in s?",
     "answer": 25.0,
     "unit": "s",
-    "solution": "After cancelling the current, the across-river component is $\\sqrt{5^2-3^2} = 4.0\\ \\mathrm{m/s}$, so $t = \\frac{100}{4} = 25\\ \\mathrm{s}$ — longer than the $20\\ \\mathrm{s}$ minimum crossing time."
+    "solution": "After cancelling the current, the across-river component is $\\sqrt{5^2-3^2} = 4.0\\ \\mathrm{m/s}$, so $t = \\frac{100}{4} = 25\\ \\mathrm{s}$: longer than the $20\\ \\mathrm{s}$ minimum crossing time."
   },
   {
     "id": "kin-rel-13",

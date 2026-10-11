@@ -1780,7 +1780,7 @@
   "statement": "A $1200\\ \\mathrm{kg}$ car accelerates uniformly from rest to $24\\ \\mathrm{m/s}$ in $10\\ \\mathrm{s}$ on a level frictionless road. What is the instantaneous power at $t = 10\\ \\mathrm{s}$, in W?",
   "answer": 69120.0,
   "unit": "W",
-  "solution": "The acceleration is $a = 2.4\\ \\mathrm{m/s^2}$, so the force is $F = ma = 2880\\ \\mathrm{N}$ and at $t=10\\ \\mathrm{s}$, $v = 24\\ \\mathrm{m/s}$. Then $P = Fv = 6.91\\times10^4\\ \\mathrm{W}$ — exactly twice the average power, as it must be for uniform acceleration."
+  "solution": "The acceleration is $a = 2.4\\ \\mathrm{m/s^2}$, so the force is $F = ma = 2880\\ \\mathrm{N}$ and at $t=10\\ \\mathrm{s}$, $v = 24\\ \\mathrm{m/s}$. Then $P = Fv = 6.91\\times10^4\\ \\mathrm{W}$: exactly twice the average power, as it must be for uniform acceleration."
  },
  {
   "id": "we-power-12",
@@ -2182,7 +2182,7 @@
   "statement": "A $0.20\\ \\mathrm{kg}$ ball hits a wall at $8.0\\ \\mathrm{m/s}$ and rebounds at $6.0\\ \\mathrm{m/s}$. What is the magnitude of the impulse on the ball, in N·s?",
   "answer": 2.8,
   "unit": "N s",
-  "solution": "The velocity reverses direction, so the change is $6.0-(-8.0) = 14\\ \\mathrm{m/s}$ in magnitude. Then $|J| = (0.20)(14) = 2.8\\ \\mathrm{N\\,s}$ — much larger than for a ball that simply stops."
+  "solution": "The velocity reverses direction, so the change is $6.0-(-8.0) = 14\\ \\mathrm{m/s}$ in magnitude. Then $|J| = (0.20)(14) = 2.8\\ \\mathrm{N\\,s}$: much larger than for a ball that simply stops."
  },
  {
   "id": "we-imp-05",
@@ -2548,7 +2548,7 @@
   "statement": "A jet of water, $6.0\\ \\mathrm{kg/s}$ at $10\\ \\mathrm{m/s}$, strikes a curved vane that turns it around completely so it leaves at $10\\ \\mathrm{m/s}$ in the opposite direction. What force does the water exert on the vane, in N?",
   "answer": 120.0,
   "unit": "N",
-  "solution": "The momentum change rate is $\\dot m(v - (-v)) = 2\\dot m v = 2(6.0)(10) = 120\\ \\mathrm{N}$ — twice the force of a jet that simply stops."
+  "solution": "The momentum change rate is $\\dot m(v - (-v)) = 2\\dot m v = 2(6.0)(10) = 120\\ \\mathrm{N}$: twice the force of a jet that simply stops."
  },
  {
   "id": "we-imp-26",
@@ -3034,7 +3034,7 @@
   "statement": "A tiny superball sits on top of a basketball. Both are dropped from $1.0\\ \\mathrm{m}$ and the basketball bounces elastically off the floor, then collides elastically with the much lighter superball. In the limit that the superball's mass is negligible, how high does the superball rise, in m?",
   "answer": 9.0,
   "unit": "m",
-  "solution": "Both hit the floor at $v = \\sqrt{2gh}$. The basketball rebounds at $+v$ while the superball is still moving at $-v$. In the basketball's frame the superball approaches at $2v$ and, in an elastic bounce off a much heavier body, leaves at $+2v$ in that frame — i.e. $3v$ in the lab. Height goes as $v^2$, so it rises $9h = 9.0\\ \\mathrm{m}$."
+  "solution": "Both hit the floor at $v = \\sqrt{2gh}$. The basketball rebounds at $+v$ while the superball is still moving at $-v$. In the basketball's frame the superball approaches at $2v$ and, in an elastic bounce off a much heavier body, leaves at $+2v$ in that frame: i.e. $3v$ in the lab. Height goes as $v^2$, so it rises $9h = 9.0\\ \\mathrm{m}$."
  },
  {
   "id": "we-coll-24",
@@ -3261,7 +3261,7 @@
   "statement": "Earth has mass $5.97\\times10^{24}\\ \\mathrm{kg}$ and the Moon $7.35\\times10^{22}\\ \\mathrm{kg}$, separated by $3.84\\times10^{8}\\ \\mathrm{m}$. How far from Earth's center is the system's center of mass, in m?",
   "answer": 4670141.4743,
   "unit": "m",
-  "solution": "$x_{\\rm cm} = \\frac{m_M d}{m_E+m_M} = \\frac{(7.35\\times10^{22})(3.84\\times10^{8})}{6.043\\times10^{24}} = 4.67\\times10^{6}\\ \\mathrm{m}$ — inside Earth, whose radius is $6.37\\times10^6\\ \\mathrm{m}$."
+  "solution": "$x_{\\rm cm} = \\frac{m_M d}{m_E+m_M} = \\frac{(7.35\\times10^{22})(3.84\\times10^{8})}{6.043\\times10^{24}} = 4.67\\times10^{6}\\ \\mathrm{m}$: inside Earth, whose radius is $6.37\\times10^6\\ \\mathrm{m}$."
  },
  {
   "id": "we-com-07",
@@ -3560,7 +3560,7 @@
   "statement": "A uniform semicircular plate (half-disk) has radius $0.60\\ \\mathrm{m}$. How far from the center of the straight edge is its center of mass, in m?",
   "answer": 0.2546,
   "unit": "m",
-  "solution": "Integrating strips of a half-disk gives $y_{\\rm cm} = \\frac{4R}{3\\pi} = \\frac{4(0.60)}{3\\pi} = 0.255\\ \\mathrm{m}$ — closer in than the $2R/\\pi$ of a semicircular wire, since a disk has more area near the flat edge."
+  "solution": "Integrating strips of a half-disk gives $y_{\\rm cm} = \\frac{4R}{3\\pi} = \\frac{4(0.60)}{3\\pi} = 0.255\\ \\mathrm{m}$: closer in than the $2R/\\pi$ of a semicircular wire, since a disk has more area near the flat edge."
  },
  {
   "id": "we-com-24",
@@ -4674,7 +4674,7 @@
   "statement": "A $40\\ \\mathrm{N}$ picture hangs from two wires attached to its top corners; each makes $25^\\circ$ with the horizontal. What is the tension in each wire, in N?",
   "answer": 47.324,
   "unit": "N",
-  "solution": "Vertical equilibrium: $2T\\sin25^\\circ = 40\\ \\mathrm{N}$, so $T = 40/(2\\times0.4226) = 47.3\\ \\mathrm{N}$ — more than half the weight, because the wires are nearly horizontal."
+  "solution": "Vertical equilibrium: $2T\\sin25^\\circ = 40\\ \\mathrm{N}$, so $T = 40/(2\\times0.4226) = 47.3\\ \\mathrm{N}$: more than half the weight, because the wires are nearly horizontal."
  },
  {
   "id": "rot-torque-28",
@@ -4728,7 +4728,7 @@
   "statement": "Four identical uniform bricks of length $0.20\\ \\mathrm{m}$ are stacked at a table edge for maximum overhang. What is the total overhang beyond the edge, in m?",
   "answer": 0.2083,
   "unit": "m",
-  "solution": "The classic harmonic-stack result: the $k$-th brick from the top can extend $L/(2k)$ beyond the one below. Total is $\\frac{L}{2}(1+\\tfrac12+\\tfrac13+\\tfrac14) = 0.10(2.0833) = 0.208\\ \\mathrm{m}$ — already more than one brick length."
+  "solution": "The classic harmonic-stack result: the $k$-th brick from the top can extend $L/(2k)$ beyond the one below. Total is $\\frac{L}{2}(1+\\tfrac12+\\tfrac13+\\tfrac14) = 0.10(2.0833) = 0.208\\ \\mathrm{m}$: already more than one brick length."
  },
  {
   "id": "rot-inertia-01",
@@ -5158,7 +5158,7 @@
   "statement": "A uniform rod of length $1.0\\ \\mathrm{m}$ swings as a pendulum about one end. What is the period of small oscillations, in s? ($T = 2\\pi\\sqrt{I/(Mgd)}$ with $d$ the pivot-to-center distance.)",
   "answer": 1.6388,
   "unit": "s",
-  "solution": "For a rod about its end, $I = \\tfrac13ML^2$ and $d = L/2$. Then $T = 2\\pi\\sqrt{\\frac{ML^2/3}{Mg L/2}} = 2\\pi\\sqrt{\\frac{2L}{3g}} = 1.64\\ \\mathrm{s}$ — the mass cancels."
+  "solution": "For a rod about its end, $I = \\tfrac13ML^2$ and $d = L/2$. Then $T = 2\\pi\\sqrt{\\frac{ML^2/3}{Mg L/2}} = 2\\pi\\sqrt{\\frac{2L}{3g}} = 1.64\\ \\mathrm{s}$: the mass cancels."
  },
  {
   "id": "rot-inertia-26",
@@ -5753,7 +5753,7 @@
   "statement": "A uniform rod of length $1.0\\ \\mathrm{m}$ hinged at one end is struck perpendicular by an impulsive force. At what distance from the hinge must the blow land so the hinge feels no impulsive reaction, in m?",
   "answer": 0.6667,
   "unit": "m",
-  "solution": "Let the blow be $J$ at distance $d$. Angular: $Jd = \\tfrac13ML^2\\omega$. Linear (no hinge impulse): $J = Mv_{\\rm cm} = M\\omega L/2$. Dividing, $d = \\tfrac23 L = 0.667\\ \\mathrm{m}$ — the 'sweet spot' of a bat."
+  "solution": "Let the blow be $J$ at distance $d$. Angular: $Jd = \\tfrac13ML^2\\omega$. Linear (no hinge impulse): $J = Mv_{\\rm cm} = M\\omega L/2$. Dividing, $d = \\tfrac23 L = 0.667\\ \\mathrm{m}$: the 'sweet spot' of a bat."
  },
  {
   "id": "rot-dyn-30",
@@ -5771,7 +5771,7 @@
   "statement": "A tall uniform chimney of height $30\\ \\mathrm{m}$ topples, pivoting about its base. What is the tangential acceleration of its very top when it has fallen to $60^\\circ$ from the vertical (i.e. $30^\\circ$ above horizontal), in m/s²?",
   "answer": 12.7306,
   "unit": "m/s^2",
-  "solution": "Torque about the base is $Mg\\tfrac{L}{2}\\cos\\theta$ with $\\theta$ measured from horizontal, and $I = \\tfrac13ML^2$, so $\\alpha = \\frac{3g\\cos\\theta}{2L} = 0.4244\\ \\mathrm{rad/s^2}$. The top's tangential acceleration is $\\alpha L = 12.7\\ \\mathrm{m/s^2}$, greater than $g$ — which is why tall chimneys snap partway up."
+  "solution": "Torque about the base is $Mg\\tfrac{L}{2}\\cos\\theta$ with $\\theta$ measured from horizontal, and $I = \\tfrac13ML^2$, so $\\alpha = \\frac{3g\\cos\\theta}{2L} = 0.4244\\ \\mathrm{rad/s^2}$. The top's tangential acceleration is $\\alpha L = 12.7\\ \\mathrm{m/s^2}$, greater than $g$, which is why tall chimneys snap partway up."
  },
  {
   "id": "rot-angmom-01",
@@ -5840,7 +5840,7 @@
   "statement": "For the skater above ($I$ from $4.0$ to $1.6\\ \\mathrm{kg\\,m^2}$, $\\omega$ from $2.0$ to $5.0\\ \\mathrm{rad/s}$), how much did her kinetic energy change, in J?",
   "answer": 12.0,
   "unit": "J",
-  "solution": "$K_i = \\tfrac12(4.0)(4.0) = 8.0\\ \\mathrm{J}$; $K_f = \\tfrac12(1.6)(25) = 20\\ \\mathrm{J}$. She gained $12\\ \\mathrm{J}$ — supplied by the muscular work of pulling her arms inward."
+  "solution": "$K_i = \\tfrac12(4.0)(4.0) = 8.0\\ \\mathrm{J}$; $K_f = \\tfrac12(1.6)(25) = 20\\ \\mathrm{J}$. She gained $12\\ \\mathrm{J}$: supplied by the muscular work of pulling her arms inward."
  },
  {
   "id": "rot-angmom-05",
@@ -6013,7 +6013,7 @@
   "statement": "For the two coupled disks above ($1.2$ and $0.80\\ \\mathrm{kg\\,m^2}$, initially $10$ and $0\\ \\mathrm{rad/s}$), how much kinetic energy is lost, in J?",
   "answer": 24.0,
   "unit": "J",
-  "solution": "$K_i = \\tfrac12(1.2)(100) = 60\\ \\mathrm{J}$; $K_f = \\tfrac12(2.0)(36) = 36\\ \\mathrm{J}$. The $24\\ \\mathrm{J}$ difference is dissipated by friction as they mesh — the rotational version of a perfectly inelastic collision."
+  "solution": "$K_i = \\tfrac12(1.2)(100) = 60\\ \\mathrm{J}$; $K_f = \\tfrac12(2.0)(36) = 36\\ \\mathrm{J}$. The $24\\ \\mathrm{J}$ difference is dissipated by friction as they mesh: the rotational version of a perfectly inelastic collision."
  },
  {
   "id": "rot-angmom-15",
@@ -6276,7 +6276,7 @@
   "statement": "A star of radius $7.0\\times10^{8}\\ \\mathrm{m}$ rotating once per $25$ days collapses to a uniform sphere of radius $1.2\\times10^{4}\\ \\mathrm{m}$ with no mass loss. What is the new rotation period, in s?",
   "answer": 0.0006,
   "unit": "s",
-  "solution": "For a uniform sphere $I \\propto R^2$, and $L = I\\omega$ is conserved, so $T \\propto R^2$. Then $T_2 = (25)(86400)(1.2\\times10^4/7.0\\times10^8)^2 = 6.35\\times10^{-4}\\ \\mathrm{s}$ — a millisecond pulsar."
+  "solution": "For a uniform sphere $I \\propto R^2$, and $L = I\\omega$ is conserved, so $T \\propto R^2$. Then $T_2 = (25)(86400)(1.2\\times10^4/7.0\\times10^8)^2 = 6.35\\times10^{-4}\\ \\mathrm{s}$: a millisecond pulsar."
  },
  {
   "id": "rot-angmom-30",
@@ -6327,7 +6327,7 @@
   "statement": "A ball rolls without slipping at $5.0\\ \\mathrm{m/s}$. What is the speed of the point touching the ground, in m/s?",
   "answer": 0.0,
   "unit": "m/s",
-  "solution": "Rolling without slipping means the contact point is instantaneously at rest — that is the definition. Its speed is $0$."
+  "solution": "Rolling without slipping means the contact point is instantaneously at rest: that is the definition. Its speed is $0$."
  },
  {
   "id": "rot-roll-03",
@@ -6552,7 +6552,7 @@
   "statement": "A solid sphere rolling at $6.0\\ \\mathrm{m/s}$ rolls without slipping up a hill. How high does it get, in m?",
   "answer": 2.5714,
   "unit": "m",
-  "solution": "$\\tfrac{7}{10}Mv^2 = Mgh$, so $h = 0.7(36)/9.8 = 2.57\\ \\mathrm{m}$ — higher than the $v^2/2g = 1.84\\ \\mathrm{m}$ a sliding block would reach, because it also carries rotational energy."
+  "solution": "$\\tfrac{7}{10}Mv^2 = Mgh$, so $h = 0.7(36)/9.8 = 2.57\\ \\mathrm{m}$: higher than the $v^2/2g = 1.84\\ \\mathrm{m}$ a sliding block would reach, because it also carries rotational energy."
  },
  {
   "id": "rot-roll-16",

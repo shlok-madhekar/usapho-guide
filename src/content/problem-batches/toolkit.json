@@ -2058,7 +2058,7 @@
     "statement": "A flat disk of radius $0.50$ m and total mass $2.0$ kg has an areal density that grows with radius as $\\sigma(r) = \\sigma_0 r$. Find its moment of inertia about the central axis perpendicular to the disk, in kg$\\cdot$m$^2$.",
     "answer": 0.3,
     "unit": "kg*m^2",
-    "solution": "KEY IDEA: use rings, $dm = \\sigma_0 r(2\\pi r\\,dr)$. Then $M = 2\\pi\\sigma_0 R^3/3$ and $I = \\int r^2 dm = 2\\pi\\sigma_0 R^5/5$. Dividing, $I = \\tfrac35 MR^2 = 0.6(2.0)(0.25) = 0.30$ kg$\\cdot$m$^2$ — larger than $\\tfrac12 MR^2$ because mass sits farther out."
+    "solution": "KEY IDEA: use rings, $dm = \\sigma_0 r(2\\pi r\\,dr)$. Then $M = 2\\pi\\sigma_0 R^3/3$ and $I = \\int r^2 dm = 2\\pi\\sigma_0 R^5/5$. Dividing, $I = \\tfrac35 MR^2 = 0.6(2.0)(0.25) = 0.30$ kg$\\cdot$m$^2$: larger than $\\tfrac12 MR^2$ because mass sits farther out."
   },
   {
     "id": "tk-int-28",
@@ -2328,7 +2328,7 @@
     "statement": "The Moon ($M = 7.35\\times10^{22}$ kg) is $d = 3.84\\times10^{8}$ m from Earth's center. Expanding $GM/(d\\mp R)^2$ to first order in $R/d$, the tidal acceleration at the sublunar point relative to Earth's center is $2GMR/d^3$. Compute it, with $R = 6.37\\times10^{6}$ m and $G = 6.674\\times10^{-11}$, in $\\mathrm{m/s^2}$.",
     "answer": 1.1e-06,
     "unit": "m/s^2",
-    "solution": "KEY IDEA: the tide comes from the *difference* in field across Earth, and that difference is the derivative $\\frac{d}{dr}(GM/r^2)\\,\\Delta r = -2GM R/d^3$ — a binomial expansion in disguise. Numerically $2(6.674\\times10^{-11})(7.35\\times10^{22})(6.37\\times10^{6})/(3.84\\times10^{8})^3 = 1.10\\times10^{-6}\\ \\mathrm{m/s^2}$, about $10^{-7}$ of $g$."
+    "solution": "KEY IDEA: the tide comes from the *difference* in field across Earth, and that difference is the derivative $\\frac{d}{dr}(GM/r^2)\\,\\Delta r = -2GM R/d^3$: a binomial expansion in disguise. Numerically $2(6.674\\times10^{-11})(7.35\\times10^{22})(6.37\\times10^{6})/(3.84\\times10^{8})^3 = 1.10\\times10^{-6}\\ \\mathrm{m/s^2}$, about $10^{-7}$ of $g$."
   },
   {
     "id": "tk-approx-13",
@@ -2364,7 +2364,7 @@
     "statement": "A student finds $g$ from $g = 4\\pi^2 L/T^2$. The length is known to $\\pm 0.20\\%$ and the period to $\\pm 0.10\\%$. Using a first-order Taylor expansion to propagate the errors (worst case, adding magnitudes), what is the percent uncertainty in $g$?",
     "answer": 0.4,
     "unit": "%",
-    "solution": "KEY IDEA: for a product of powers, $\\frac{\\delta g}{g} = \\frac{\\delta L}{L} + 2\\frac{\\delta T}{T}$ — each exponent multiplies its fractional error. That gives $0.20\\% + 2(0.10\\%) = 0.40\\%$. The period matters twice as much per percent, which is why one times many swings at once."
+    "solution": "KEY IDEA: for a product of powers, $\\frac{\\delta g}{g} = \\frac{\\delta L}{L} + 2\\frac{\\delta T}{T}$: each exponent multiplies its fractional error. That gives $0.20\\% + 2(0.10\\%) = 0.40\\%$. The period matters twice as much per percent, which is why one times many swings at once."
   },
   {
     "id": "tk-approx-15",
@@ -2454,7 +2454,7 @@
     "statement": "An airliner of proper length $60.0$ m flies at $250$ m/s. Using $\\sqrt{1-v^2/c^2} \\approx 1-\\frac{v^2}{2c^2}$, find how much shorter it is in the ground frame, in meters. Take $c = 3.00\\times10^{8}$ m/s.",
     "answer": 2.08e-11,
     "unit": "m",
-    "solution": "KEY IDEA: the contraction is $\\Delta L = L\\left(1-\\sqrt{1-\\beta^2}\\right) \\approx L\\beta^2/2$. With $\\beta^2 = (250/3.00\\times10^8)^2 = 6.94\\times10^{-13}$, $\\Delta L = (60.0)(3.47\\times10^{-13}) = 2.08\\times10^{-11}$ m — smaller than an atom. Trying to evaluate $\\sqrt{1-\\beta^2}$ on a calculator directly would return exactly 1."
+    "solution": "KEY IDEA: the contraction is $\\Delta L = L\\left(1-\\sqrt{1-\\beta^2}\\right) \\approx L\\beta^2/2$. With $\\beta^2 = (250/3.00\\times10^8)^2 = 6.94\\times10^{-13}$, $\\Delta L = (60.0)(3.47\\times10^{-13}) = 2.08\\times10^{-11}$ m: smaller than an atom. Trying to evaluate $\\sqrt{1-\\beta^2}$ on a calculator directly would return exactly 1."
   },
   {
     "id": "tk-approx-20",
@@ -2527,7 +2527,7 @@
     "statement": "The period of a pendulum swung to amplitude $\\theta_0$ is $T = T_0\\left(1+\\frac{\\theta_0^2}{16}+\\dots\\right)$, where $T_0 = 2\\pi\\sqrt{L/g}$ is the small-angle result. A clock is regulated assuming $T_0$ but actually swings to $\\theta_0 = 20^\\circ$. How many seconds does it lose per day?",
     "answer": 658.0,
     "unit": "s",
-    "solution": "KEY IDEA: the leading correction is quadratic in amplitude, so it comes from the $\\theta^3$ term of $\\sin\\theta$ that the small-angle approximation throws away. With $\\theta_0 = 0.3491$ rad, $\\theta_0^2/16 = 7.615\\times10^{-3}$. Over $86400$ s that is $(7.615\\times10^{-3})(86400) = 658$ s, about eleven minutes — small-angle errors are not always small."
+    "solution": "KEY IDEA: the leading correction is quadratic in amplitude, so it comes from the $\\theta^3$ term of $\\sin\\theta$ that the small-angle approximation throws away. With $\\theta_0 = 0.3491$ rad, $\\theta_0^2/16 = 7.615\\times10^{-3}$. Over $86400$ s that is $(7.615\\times10^{-3})(86400) = 658$ s, about eleven minutes: small-angle errors are not always small."
   },
   {
     "id": "tk-approx-24",
@@ -2637,7 +2637,7 @@
     "statement": "A GPS satellite orbits at $r = 2.656\\times10^{7}$ m. Two first-order effects shift its clock rate relative to a clock on Earth's surface ($R = 6.37\\times10^{6}$ m): the gravitational shift $\\frac{GM_E}{c^2}\\left(\\frac{1}{R}-\\frac{1}{r}\\right)$ makes it run fast, and the kinematic shift $\\frac{v^2}{2c^2}$ with $v^2 = GM_E/r$ makes it run slow. Find the net time the satellite clock gains per day, in microseconds. Use $GM_E = 3.986\\times10^{14}\\ \\mathrm{m^3/s^2}$ and $c = 3.00\\times10^{8}$ m/s.",
     "answer": 38.5,
     "unit": "us",
-    "solution": "KEY IDEA: both effects are first-order expansions of square roots in $\\Phi/c^2$ and $v^2/c^2$, so they simply add. The gravitational term is $5.285\\times10^{-10}$ and the kinematic term is $8.34\\times10^{-11}$, giving a net fractional rate of $4.45\\times10^{-10}$. Over $86400$ s that is $(4.45\\times10^{-10})(86400) = 38.5\\ \\mu$s — uncorrected, this would push GPS positions off by more than $10$ km per day."
+    "solution": "KEY IDEA: both effects are first-order expansions of square roots in $\\Phi/c^2$ and $v^2/c^2$, so they simply add. The gravitational term is $5.285\\times10^{-10}$ and the kinematic term is $8.34\\times10^{-11}$, giving a net fractional rate of $4.45\\times10^{-10}$. Over $86400$ s that is $(4.45\\times10^{-10})(86400) = 38.5\\ \\mu$s: uncorrected, this would push GPS positions off by more than $10$ km per day."
   },
   {
     "id": "tk-approx-30",
@@ -2656,7 +2656,7 @@
     "statement": "Because Earth rotates, a plumb bob at latitude $\\lambda$ hangs slightly off the true radial direction. The centrifugal acceleration $\\omega^2R\\cos\\lambda$ has a horizontal component $\\omega^2R\\cos\\lambda\\sin\\lambda$, and for a small deflection $\\tan\\delta \\approx \\delta$. Find the deflection at $\\lambda = 45^\\circ$, in degrees. Take $\\omega = 7.292\\times10^{-5}$ rad/s, $R = 6.37\\times10^{6}$ m, $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.099,
     "unit": "deg",
-    "solution": "KEY IDEA: the deflection satisfies $\\tan\\delta = \\frac{\\omega^2R\\sin\\lambda\\cos\\lambda}{g}$, and at $45^\\circ$ the product $\\sin\\lambda\\cos\\lambda = 1/2$. Then $\\delta \\approx \\omega^2R/(2g) = (5.317\\times10^{-9})(6.37\\times10^{6})/19.6 = 1.728\\times10^{-3}$ rad. Converting, $\\delta = 0.099^\\circ$, or about $6$ arcminutes — the maximum anywhere on Earth."
+    "solution": "KEY IDEA: the deflection satisfies $\\tan\\delta = \\frac{\\omega^2R\\sin\\lambda\\cos\\lambda}{g}$, and at $45^\\circ$ the product $\\sin\\lambda\\cos\\lambda = 1/2$. Then $\\delta \\approx \\omega^2R/(2g) = (5.317\\times10^{-9})(6.37\\times10^{6})/19.6 = 1.728\\times10^{-3}$ rad. Converting, $\\delta = 0.099^\\circ$, or about $6$ arcminutes: the maximum anywhere on Earth."
   },
   {
     "id": "tk-strat-01",

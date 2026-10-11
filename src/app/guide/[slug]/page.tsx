@@ -49,7 +49,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
           </p>
 
           <div className="mt-3 flex items-start justify-between gap-6">
-            <h1 className="max-w-[19ch] text-[clamp(1.7rem,1.15rem+1.7vw,2.6rem)] font-semibold leading-[1.12] tracking-tight text-[var(--ink-strong)]">
+            <h1 className="text-[clamp(1.7rem,1.15rem+1.7vw,2.5rem)] font-bold leading-[1.15] text-[var(--ink-strong)]">
               {mod.title}
             </h1>
             <div className="no-print pt-2">
@@ -91,7 +91,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
 
           {solvable.length > 0 && (
             <section className="mt-14">
-              <h2 className="text-xl font-semibold text-[var(--ink-strong)]">
+              <h2 className="text-xl font-bold text-[var(--ink-strong)]">
                 Problems
               </h2>
               <p className="mt-1 text-sm text-[var(--ink-soft)]">
@@ -107,7 +107,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
 
           {references.length > 0 && (
             <section className="mt-12">
-              <h2 className="label">Also worth doing</h2>
+              <h2 className="text-xl font-bold text-[var(--ink-strong)]">Also worth doing</h2>
               <p className="mt-2 text-sm text-[var(--ink-soft)]">
                 Problems from past exams and textbooks, cited rather than
                 reproduced.

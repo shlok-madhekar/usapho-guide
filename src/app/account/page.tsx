@@ -47,8 +47,7 @@ export default function AccountPage() {
     <>
       <Nav />
       <main className="mx-auto max-w-2xl px-6 pb-24 pt-10">
-        <p className="label">Account</p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--ink-strong)]">
+        <h1 className="text-3xl font-bold text-[var(--ink-strong)]">
           {profile?.display_name || profile?.email?.split("@")[0] || "Your account"}
         </h1>
 

@@ -1,4 +1,4 @@
-Push a heavy crate across a floor. Nothing happens. Push harder — still nothing.
+Push a heavy crate across a floor. Nothing happens. Push harder: still nothing.
 Push harder again and suddenly it breaks loose and slides more easily than it
 took to start it. Somewhere in there the floor was pushing back on the crate
 with exactly the force you were applying, and then it stopped being able to.
@@ -21,7 +21,7 @@ a fixed magnitude set by how hard they are pressed together:
 $$f_k = \mu_k N$$
 
 Here $N$ is the normal force, the perpendicular push of the surface on the
-object, and $\mu_k$ is the coefficient of kinetic friction — a dimensionless
+object, and $\mu_k$ is the coefficient of kinetic friction: a dimensionless
 number, usually between 0.05 and 1, that depends on what the two materials are.
 Notice what is *not* in that formula: the speed, the area of contact, the
 weight. Only $N$ and the materials. A brick lying flat and the same brick
@@ -32,14 +32,14 @@ supplies whatever force is needed to prevent sliding, up to a limit:
 
 $$f_s \le \mu_s N$$
 
-Read that as a budget. Push the crate with 20 N and it stays put — static
-friction is 20 N, not $\mu_s N$. Push with 50 N and it stays put — static
+Read that as a budget. Push the crate with 20 N and it stays put: static
+friction is 20 N, not $\mu_s N$. Push with 50 N and it stays put: static
 friction is 50 N. The number $\mu_s N$ is the largest cheque the surface can
 write. Only at the instant the crate is about to slip does the inequality
 become an equality, and that is the only moment you are allowed to write
 $f_s = \mu_s N$.
 
-<Figure caption={<><b>Figure 1.</b> The bar at the top is the static budget. Raise the push slowly and watch the friction arrow grow to match it exactly. Once the bar fills, the crate breaks loose and friction drops to the smaller kinetic value — which is why a stuck crate lurches when it finally moves.</>}>
+<Figure caption={<><b>Figure 1.</b> The bar at the top is the static budget. Raise the push slowly and watch the friction arrow grow to match it exactly. Once the bar fills, the crate breaks loose and friction drops to the smaller kinetic value, which is why a stuck crate lurches when it finally moves.</>}>
   <Sim id="friction-budget" />
 </Figure>
 
@@ -78,7 +78,7 @@ level table, then $\mu_k = a/g = 2.5/9.8 = 0.255$.
 
 Tilt a plank with a block on it and raise the angle $\theta$ slowly. Set up
 axes along the slope and perpendicular to it, rather than horizontal and
-vertical — that way the acceleration, if there is any, lies along one axis.
+vertical: that way the acceleration, if there is any, lies along one axis.
 Gravity $mg$ points straight down, which splits into $mg\sin\theta$ down the
 slope and $mg\cos\theta$ into it. Perpendicular to the surface nothing
 accelerates, so
@@ -106,7 +106,7 @@ For a 20° slope with $\mu_k = 0.25$: $a = 9.8(0.342 - 0.25 \times 0.940)
 = 9.8(0.342 - 0.235) = 1.05\ \mathrm{m/s^2}$.
 
 One sign trap hides here. If the block is launched *up* the slope, it is still
-moving, so friction still has magnitude $\mu_k mg\cos\theta$ — but it now
+moving, so friction still has magnitude $\mu_k mg\cos\theta$, but it now
 points *down* the slope, because it opposes the motion, not gravity. The two
 effects add:
 
@@ -120,7 +120,7 @@ much harder than it would accelerate coming back down.
   question="A block rests on an incline well below the angle of repose. Doubling its mass will:"
   options={["Make it slip, since gravity doubled", "Leave it in place, since mass cancels out of the slip condition", "Halve the friction force", "Depend on whether the slope is rough"]}
   answer={1}
-  explanation="Both the driving component mg sin θ and the budget μs mg cos θ scale with m, so the condition tan θ ≤ μs is unchanged. The friction force itself does double — but so does the budget."
+  explanation="Both the driving component mg sin θ and the budget μs mg cos θ scale with m, so the condition tan θ ≤ μs is unchanged. The friction force itself does double, but so does the budget."
 />
 
 ## The friction cone
@@ -134,7 +134,7 @@ out a cone.
 The rule is then: **if the other forces on the object point into the cone, the
 surface can hold it; if they point outside, nothing can.** The angle of repose
 is the moment gravity leaves the cone. It also explains why shoving a crate
-downward at a steep angle never helps you start it moving — pushing at an angle
+downward at a steep angle never helps you start it moving: pushing at an angle
 outside the cone adds to the driving component and to $N$ in exactly the ratio
 that keeps you outside it.
 
@@ -168,9 +168,9 @@ Check it on an easier case first. A 20 kg trunk, $\mu_k = 0.30$, rope at 30°:
 $T = (0.30)(20)(9.8) / (0.866 + 0.30 \times 0.500) = 58.8/1.016 = 57.9$ N.
 
 To minimise $T$ you maximise the denominator. Write
-$\cos\theta + \mu\sin\theta = \sqrt{1+\mu^2}\,\cos(\theta - \arctan\mu)$ — that
+$\cos\theta + \mu\sin\theta = \sqrt{1+\mu^2}\,\cos(\theta - \arctan\mu)$ (that
 is the standard trick for turning $a\cos\theta + b\sin\theta$ into a single
-cosine — and the largest it can be is $\sqrt{1+\mu^2}$, reached when
+cosine) and the largest it can be is $\sqrt{1+\mu^2}$, reached when
 $\theta = \arctan\mu$. So the best rope angle is the friction cone angle, and
 
 $$T_{\min} = \frac{\mu_k mg}{\sqrt{1+\mu_k^2}} = \frac{(0.50)(25)(9.8)}{\sqrt{1.25}} = \frac{122.5}{1.118} = 110\ \mathrm{N}.$$
@@ -188,7 +188,7 @@ $\mu_s = 0.30$, and now $F$ has a component into the surface (raising $N$) and a
 component up the slope. Perpendicular: $N = mg\cos\theta + F\sin\theta$. Along
 the slope, on the verge of sliding down, friction acts up at full budget:
 $F\cos\theta + \mu_s N = mg\sin\theta$. Solving for the minimum $F$ gives
-42.2 N. The structure is identical — resolve, note that $N$ now depends on the
+42.2 N. The structure is identical: resolve, note that $N$ now depends on the
 unknown, then solve.
 
 <Aside label="Worth remembering">
@@ -249,7 +249,7 @@ larger coefficient.
   question="Two blocks slide together down a rough slope, connected by a taut string, with the low-friction block in front. The string tension is:"
   options={["Zero, because they have the same acceleration", "Nonzero, because each block alone would accelerate differently", "Equal to the weight of the rear block", "Equal to the friction on the front block"]}
   answer={1}
-  explanation="Alone, the low-friction block would accelerate faster. Tying them forces a compromise acceleration, and the string carries whatever force is needed to enforce it — holding the front block back and dragging the rear one forward."
+  explanation="Alone, the low-friction block would accelerate faster. Tying them forces a compromise acceleration, and the string carries whatever force is needed to enforce it: holding the front block back and dragging the rear one forward."
 />
 
 That last check is a real problem type. A 2.0 kg block with $\mu_k = 0.10$ is
@@ -328,7 +328,7 @@ solve for a common acceleration, and check every contact against its own budget.
 Whichever fails first is where the motion begins.
 
 And if only an **angle** appears with no masses at all, the answer is almost
-certainly $\tan\theta = \mu$ in some disguise — the angle of repose, the best
+certainly $\tan\theta = \mu$ in some disguise: the angle of repose, the best
 rope angle, or the ladder condition $\tan\theta \ge 1/(2\mu_s)$, which is the
 same friction budget argument run through a torque balance instead of a force
 balance. For $\mu_s = 0.40$ that gives $\arctan(1.25) = 51.3°$.

@@ -2,14 +2,14 @@
   {
     "id": "fma",
     "label": "I",
-    "name": "F=MA",
-    "tagline": "Algebra- and calculus-based mechanics: everything you need to walk into the qualifying exam knowing the tricks, not just the topic names",
+    "name": "F=ma",
+    "tagline": "Mechanics for the F=ma exam, from vectors to oscillations",
     "accent": "var(--accent)",
     "sections": [
       {
         "id": "fma-u1",
         "title": "Toolkit: Before You Start",
-        "blurb": "Not tested on its own, but every later unit quietly assumes it.",
+        "blurb": "Units, vectors and the calculus you'll use in every unit after this.",
         "modules": [
           {
             "slug": "units-estimation",
@@ -47,7 +47,7 @@
           {
             "slug": "approximations",
             "title": "Approximations & Small-Angle Expansions",
-            "description": "Taylor series, sin \u03b8 \u2248 \u03b8, and the binomial approximation: one shortcut that shows up in half of all oscillation and orbit problems.",
+            "description": "Taylor series, sin θ ≈ θ, and the binomial approximation: one shortcut that shows up in half of all oscillation and orbit problems.",
             "frequency": 3,
             "minutes": 30,
             "problemTarget": 30
@@ -73,7 +73,7 @@
       {
         "id": "fma-u2",
         "title": "Kinematics",
-        "blurb": "Describing motion before worrying about what causes it.",
+        "blurb": "Position, velocity and acceleration in one and two dimensions.",
         "modules": [
           {
             "slug": "motion-1d",
@@ -122,7 +122,7 @@
       {
         "id": "fma-u3",
         "title": "Newton's Laws & Forces",
-        "blurb": "What makes things accelerate, and how to account for every push and pull.",
+        "blurb": "Free body diagrams, friction, pulleys, circular motion and gravity.",
         "modules": [
           {
             "slug": "newtons-laws-fbd",
@@ -195,7 +195,7 @@
       {
         "id": "fma-u4",
         "title": "Work, Energy & Momentum",
-        "blurb": "Two conservation laws that answer questions forces alone make painful.",
+        "blurb": "Energy and momentum conservation, collisions, center of mass.",
         "modules": [
           {
             "slug": "work-energy-theorem",
@@ -259,7 +259,7 @@
       {
         "id": "fma-u5",
         "title": "Rotational Motion",
-        "blurb": "Everything from the last two units, rewritten for things that spin.",
+        "blurb": "Torque, moment of inertia, angular momentum and rolling.",
         "modules": [
           {
             "slug": "angular-kinematics",
@@ -287,7 +287,7 @@
           },
           {
             "slug": "rotational-dynamics",
-            "title": "Rotational Dynamics: \u03c4 = I\u03b1",
+            "title": "Rotational Dynamics: τ = Iα",
             "description": "Newton's second law for rotation, applied to pulleys with real mass and to rotating rigid bodies.",
             "frequency": 4,
             "minutes": 45,
@@ -315,7 +315,7 @@
       {
         "id": "fma-u6",
         "title": "Oscillations",
-        "blurb": "Systems that get pushed back toward where they started.",
+        "blurb": "Springs, pendulums and simple harmonic motion.",
         "modules": [
           {
             "slug": "shm",
@@ -355,7 +355,7 @@
       {
         "id": "fma-u7",
         "title": "Fluids & Extra Mechanics",
-        "blurb": "The two mechanics topics that do not fit anywhere else.",
+        "blurb": "Fluids, and accelerating reference frames.",
         "modules": [
           {
             "slug": "pressure-buoyancy",
@@ -381,13 +381,13 @@
     "id": "usapho",
     "label": "II",
     "name": "USAPhO",
-    "tagline": "Free-response mastery across the full syllabus, at the depth the actual exam expects",
+    "tagline": "Everything past mechanics for the USAPhO free response: E&M, thermo, waves, optics, modern",
     "accent": "var(--accent)",
     "sections": [
       {
         "id": "usapho-u1",
         "title": "Electrostatics",
-        "blurb": "Charges at rest, and the two tools that make them tractable.",
+        "blurb": "Coulomb, Gauss, potential and capacitors.",
         "modules": [
           {
             "slug": "coulomb-superposition",
@@ -443,7 +443,7 @@
       {
         "id": "usapho-u2",
         "title": "Circuits",
-        "blurb": "Getting current and voltage out of a network without guessing.",
+        "blurb": "Ohm, Kirchhoff, RC circuits and the networks that look impossible.",
         "modules": [
           {
             "slug": "current-resistance",
@@ -483,7 +483,7 @@
       {
         "id": "usapho-u3",
         "title": "Magnetism & Induction",
-        "blurb": "Moving charge makes fields, and changing fields push charge back.",
+        "blurb": "Magnetic force, Biot-Savart, Ampere, Faraday and inductors.",
         "modules": [
           {
             "slug": "magnetic-force",
@@ -539,7 +539,7 @@
       {
         "id": "usapho-u4",
         "title": "Thermodynamics",
-        "blurb": "Heat, work and the bookkeeping that connects them.",
+        "blurb": "The laws of thermodynamics, gases, engines and entropy.",
         "modules": [
           {
             "slug": "first-law",
@@ -596,7 +596,7 @@
       {
         "id": "usapho-u5",
         "title": "Waves & Sound",
-        "blurb": "Disturbances that carry energy without carrying matter.",
+        "blurb": "Standing waves, beats, interference and Doppler.",
         "modules": [
           {
             "slug": "wave-basics",
@@ -636,7 +636,7 @@
       {
         "id": "usapho-u6",
         "title": "Optics",
-        "blurb": "Light as rays when it can be, as waves when it must be.",
+        "blurb": "Mirrors, lenses, diffraction and thin films.",
         "modules": [
           {
             "slug": "reflection-refraction",
@@ -676,7 +676,7 @@
       {
         "id": "usapho-u7",
         "title": "Modern Physics",
-        "blurb": "Where classical physics stops giving the right answer.",
+        "blurb": "Relativity, photons, Bohr and de Broglie.",
         "modules": [
           {
             "slug": "sr-kinematics",
@@ -724,7 +724,7 @@
       {
         "id": "usapho-u8",
         "title": "Nuclear & Particle Physics",
-        "blurb": "Inside the nucleus, and the particles below it.",
+        "blurb": "Decay, binding energy and particles.",
         "modules": [
           {
             "slug": "radioactivity",
@@ -755,7 +755,7 @@
       {
         "id": "usapho-u9",
         "title": "Data Analysis & Advanced Techniques",
-        "blurb": "The techniques that separate a good score from a medal.",
+        "blurb": "Data analysis, plus Lagrangians, normal modes and other medal-level tools.",
         "modules": [
           {
             "slug": "data-uncertainty",

@@ -22,7 +22,7 @@ repeated until they are automatic.
 Start with position. Call it $x$, measured in metres from some origin you chose,
 and plot it against time $t$. If the object is at $x = 5$ m at $t = 0$ and at
 $x = 29$ m at $t = 8$ s, it covered 24 m in 8 s. That rate, 24 m divided by 8 s,
-is 3 m/s — and it is exactly the slope of the line joining those two points,
+is 3 m/s, and it is exactly the slope of the line joining those two points,
 rise over run.
 
 That is not a coincidence or an analogy. Velocity is *defined* as the rate at
@@ -89,7 +89,7 @@ the area of a triangle, and nothing more.
 
 <Aside label="What area cannot tell you" warn>
   Area gives you the *change*, never the value. The area under a $v$-$t$ graph
-  is $\Delta x$, the displacement — to get an actual position you must add the
+  is $\Delta x$, the displacement: to get an actual position you must add the
   starting position $x_0$, which the graph does not know. Same for $a$-$t$:
   the area is $\Delta v$, so you need $v_0$ too. Problems that say "starts from
   rest at the origin" are handing you $v_0 = 0$ and $x_0 = 0$ so you can skip
@@ -112,7 +112,7 @@ straight up and caught again has zero displacement and a very nonzero distance.
 So whenever a $v$-$t$ line crosses the axis, you must handle the two pieces
 separately. Find the crossing time first: that is the instant the object stops
 and turns round. It is also, for the same reason, the instant of maximum
-displacement — up to then you were adding area, after it you start subtracting.
+displacement: up to then you were adding area, after it you start subtracting.
 
 <Figure caption={<><b>Figure 1.</b> The shaded area is the displacement so far, and the sweep line carries the running total. Drag the slope negative so the line dips below the axis, then watch displacement and distance stop agreeing at exactly the moment the line crosses zero.</>}>
   <Sim id="motion-graphs-signed-area" />
@@ -125,8 +125,8 @@ the links become visible at once. Take a cart that starts from rest at the
 origin, is pushed at $+4.0$ m/s² for 2.0 s, coasts with zero acceleration until
 5.0 s, then is braked at $-4.0$ m/s² until 8.0 s.
 
-The $a$-$t$ graph is three flat steps. Integrating it — that is, accumulating
-area — gives a $v$-$t$ graph that ramps up to $4.0 \times 2.0 = 8.0$ m/s, holds
+The $a$-$t$ graph is three flat steps. Integrating it (that is, accumulating
+area) gives a $v$-$t$ graph that ramps up to $4.0 \times 2.0 = 8.0$ m/s, holds
 flat at 8.0 m/s, then ramps back down to zero. Integrating *that* gives an
 $x$-$t$ graph that curves upward, then runs straight, then flattens out.
 
@@ -151,7 +151,7 @@ rectangle. Triangle: $\tfrac12 \times 4.0 \times 12 = 24$ m. Rectangle: the
 flat stretch runs from 4.0 s to 10 s, so its width is 6.0 s, and its area is
 $6.0 \times 12 = 72$ m. Total: $24 + 72 = 96$ m.
 
-The general shape here — ramp up, hold, ramp down — is a trapezoid, and it is
+The general shape here (ramp up, hold, ramp down) is a trapezoid, and it is
 the single most common figure in this topic. Split it into a triangle, a
 rectangle and a triangle every time.
 
@@ -259,7 +259,7 @@ five words of the question again before you write the number down.
 ## How to recognise this technique
 
 Reach for slopes and areas whenever the problem hands you a *graph* instead of a
-list of numbers, or describes motion in *pieces* — "for the first 3 seconds...
+list of numbers, or describes motion in *pieces*: "for the first 3 seconds...
 then... then". The word "then" is the signal. A single formula cannot span a
 "then"; a sum of areas can.
 

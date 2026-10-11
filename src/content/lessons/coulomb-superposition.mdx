@@ -1,12 +1,12 @@
 Rub a balloon on your sleeve and hold it near a thin stream of water from a tap. The stream bends toward the balloon. Nothing touches it, nothing blows on it, and the balloon is not a magnet. Something is reaching across the gap.
 
-That reach is the subject of this unit. In the last lesson you were working in rotating and accelerating frames, inventing pseudo-forces to keep $\vec F = m\vec a$ looking right. Here the frame is boring — everything is at rest, or nearly — and the whole difficulty moves into the force itself. You need two things: a rule for the force between one pair of charges, and a rule for what happens when there are more than two. The second rule is short, and it is the one that does all the work.
+That reach is the subject of this unit. In the last lesson you were working in rotating and accelerating frames, inventing pseudo-forces to keep $\vec F = m\vec a$ looking right. Here the frame is boring (everything is at rest, or nearly) and the whole difficulty moves into the force itself. You need two things: a rule for the force between one pair of charges, and a rule for what happens when there are more than two. The second rule is short, and it is the one that does all the work.
 
 ## The force between one pair of charges
 
 Charge comes in two kinds. Call one positive and the other negative; the names are arbitrary labels Franklin picked, and nothing physical depends on which is which. The unit is the coulomb, C. A single electron carries $-1.6\times10^{-19}$ C, which tells you a coulomb is an enormous amount of charge: one coulomb is about $6\times10^{18}$ electrons' worth.
 
-Experiment says the force between two small charged objects does three things. It lies along the line joining them. It is proportional to each charge. And it weakens as the square of the distance — double the separation and the force drops to a quarter. Put those together and the only formula that fits is
+Experiment says the force between two small charged objects does three things. It lies along the line joining them. It is proportional to each charge. And it weakens as the square of the distance: double the separation and the force drops to a quarter. Put those together and the only formula that fits is
 
 $$F = k\frac{|q_1 q_2|}{r^2}, \qquad k = 8.99\times10^{9}\ \mathrm{N\,m^2/C^2}$$
 
@@ -14,7 +14,7 @@ $q_1$ and $q_2$ are the two charges in coulombs, $r$ is the distance between the
 
 $k$ is often written $1/(4\pi\varepsilon_0)$, where $\varepsilon_0 = 8.85\times10^{-12}$ C$^2$/(N·m$^2$) is called the permittivity of free space. The two forms are the same number. Use whichever the problem hands you.
 
-This is Newton's law of gravitation with the masses swapped for charges — same inverse square, same along-the-line direction. The one new feature is the sign, and it changes everything, because charges can cancel. Gravity only ever adds up.
+This is Newton's law of gravitation with the masses swapped for charges: same inverse square, same along-the-line direction. The one new feature is the sign, and it changes everything, because charges can cancel. Gravity only ever adds up.
 
 <Figure caption={<><b>Figure 1.</b> Two point charges. Drag one charge through zero and watch the arrows flip from apart to together, and notice the two arrows always stay the same length. Then halve the separation and watch the force quadruple.</>}>
   <Sim id="coulomb-superposition-pair" />
@@ -57,7 +57,7 @@ $$F_y = 0 - 5.62\sin 60^\circ = -4.87\ \mathrm{N}$$
 
 $$F = \sqrt{8.43^2 + 4.87^2} = \sqrt{71.1 + 23.7} = \sqrt{94.8} = 9.73\ \mathrm{N}$$
 
-Notice the shortcut hiding in there. The two forces are equal in size with $60^\circ$ between them, so their resultant bisects that angle and has magnitude $2F_1\cos 30^\circ = \sqrt3\,F_1 = 1.732 \times 5.62 = 9.73$ N. Whenever two equal contributions meet at an angle $2\alpha$, the sum is $2F_1\cos\alpha$ along the bisector. That saves you the component work in symmetric layouts — squares, triangles, hexagons — which is most of them.
+Notice the shortcut hiding in there. The two forces are equal in size with $60^\circ$ between them, so their resultant bisects that angle and has magnitude $2F_1\cos 30^\circ = \sqrt3\,F_1 = 1.732 \times 5.62 = 9.73$ N. Whenever two equal contributions meet at an angle $2\alpha$, the sum is $2F_1\cos\alpha$ along the bisector. That saves you the component work in symmetric layouts (squares, triangles, hexagons) which is most of them.
 
 <Aside label="Where this goes wrong" warn>
   Superposition adds the vectors, not the numbers. Two equal forces at right
@@ -83,9 +83,9 @@ $\vec E$ is the **electric field**, measured in newtons per coulomb. For a singl
 
 $$E = \frac{k|Q|}{r^2}$$
 
-pointing away from $Q$ if $Q$ is positive and toward it if $Q$ is negative. Fields superpose exactly as forces do, for the same reason — you just divided every term of the sum by the same $q$.
+pointing away from $Q$ if $Q$ is positive and toward it if $Q$ is negative. Fields superpose exactly as forces do, for the same reason: you just divided every term of the sum by the same $q$.
 
-Two consequences are worth stating plainly. First, a positive charge is pushed along $\vec E$ and a negative charge is pushed against it. Second, if you are handed a uniform field of $2.0\times10^4$ N/C and a grain carrying $3.0$ nC, the force is $qE = (3.0\times10^{-9})(2.0\times10^{4}) = 6.0\times10^{-5}$ N — no distances needed at all.
+Two consequences are worth stating plainly. First, a positive charge is pushed along $\vec E$ and a negative charge is pushed against it. Second, if you are handed a uniform field of $2.0\times10^4$ N/C and a grain carrying $3.0$ nC, the force is $qE = (3.0\times10^{-9})(2.0\times10^{4}) = 6.0\times10^{-5}$ N: no distances needed at all.
 
 <Figure caption={<><b>Figure 2.</b> Two equal positive charges, and the field at a point P on their bisector. Slide P inward and outward. The two slanted arrows are the separate fields, the bold one is their sum. The vertical parts always cancel, which is why the answer is smaller than twice one arrow.</>}>
   <Sim id="coulomb-superposition-bisector" />
@@ -107,7 +107,7 @@ $$\frac{kQ_1}{x^2} = \frac{kQ_2}{(L-x)^2} \quad\Longrightarrow\quad \frac{L-x}{x
 
 so $x = L/(1+\sqrt{Q_2/Q_1})$. The null point sits closer to the smaller charge, and it depends on the square root of the ratio, never the ratio itself. With $Q_2 = 4Q_1$ and $L = 0.60$ m you get $x = 0.60/(1+2) = 0.20$ m.
 
-For unlike charges the same equation has no solution between them — the fields there point the same way and cannot cancel — so the null point moves outside, beyond the weaker charge.
+For unlike charges the same equation has no solution between them (the fields there point the same way and cannot cancel) so the null point moves outside, beyond the weaker charge.
 
 <Figure caption={<><b>Figure 3.</b> The net field along the line between two positive charges, with the zero crossing marked. Drag the second charge up and down and watch the null point slide, but far more slowly than the charge ratio changes, because only the square root of the ratio matters.</>}>
   <Sim id="coulomb-superposition-null" />
@@ -128,7 +128,7 @@ Look at one ball. Three forces act: gravity $mg$ down, tension $T$ along the thr
 
 $$T\cos\theta = mg, \qquad T\sin\theta = F$$
 
-Divide the second by the first and the tension — the quantity you care least about — disappears:
+Divide the second by the first and the tension (the quantity you care least about) disappears:
 
 $$\tan\theta = \frac{F}{mg} = \frac{kq^2}{mgr^2}$$
 
@@ -148,7 +148,7 @@ $$r^3 = \frac{2(3.236\times10^{-5})(0.75)}{1.96\times10^{-2}} = \frac{4.855\time
 
 $$r = (2.477\times10^{-3})^{1/3} = 0.135\ \mathrm{m}$$
 
-Check the assumption: $\sin\theta = (r/2)/L = 0.0675/0.75 = 0.090$, so $\theta \approx 5.2^\circ$, and $\tan 5.2^\circ = 0.091$ against $\sin 5.2^\circ = 0.090$. The approximation is good to one per cent. If the balls had unequal masses, the angles would differ, and you would need $\tan\theta_1 = F/m_1g$ and $\tan\theta_2 = F/m_2g$ separately with $r = L\sin\theta_1 + L\sin\theta_2$ — the same $F$ in both, because the third law does not care about mass.
+Check the assumption: $\sin\theta = (r/2)/L = 0.0675/0.75 = 0.090$, so $\theta \approx 5.2^\circ$, and $\tan 5.2^\circ = 0.091$ against $\sin 5.2^\circ = 0.090$. The approximation is good to one per cent. If the balls had unequal masses, the angles would differ, and you would need $\tan\theta_1 = F/m_1g$ and $\tan\theta_2 = F/m_2g$ separately with $r = L\sin\theta_1 + L\sin\theta_2$: the same $F$ in both, because the third law does not care about mass.
 
 <Figure caption={<><b>Figure 4.</b> The thread lab. Raise the charge and the balls swing apart, but slowly, because separation goes as charge to the two-thirds power. Quadruple the charge and check that the separation only goes up by a factor near 2.5.</>}>
   <Sim id="coulomb-superposition-threads" />
@@ -162,7 +162,7 @@ Check the assumption: $\sin\theta = (r/2)/L = 0.0675/0.75 = 0.090$, so $\theta \
 
 ## Dipoles
 
-A pair of equal and opposite charges $\pm q$ a small distance $d$ apart is a **dipole**, and it is how neutral matter — a water molecule, a stretched atom — shows up electrically. Its strength is the **dipole moment** $p = qd$, a vector pointing from the negative charge to the positive one, measured in C·m.
+A pair of equal and opposite charges $\pm q$ a small distance $d$ apart is a **dipole**, and it is how neutral matter (a water molecule, a stretched atom) shows up electrically. Its strength is the **dipole moment** $p = qd$, a vector pointing from the negative charge to the positive one, measured in C·m.
 
 Far away, the two charges nearly hide each other, so the field falls off faster than $1/r^2$. On the axis, a distance $r$ from the centre, the near charge is at $r - d/2$ and the far one at $r + d/2$, and the difference of the two inverse squares works out to
 
@@ -221,4 +221,4 @@ The giveaways are reliable.
 
 **A small separation $d$ with $\pm q$, observed from far away.** A dipole. Use $p = qd$ and reach for $2kp/r^3$ on the axis, $kp/r^3$ on the bisector, $pE\sin\theta$ for the torque.
 
-What none of this handles is a charged rod, ring, or sheet, where there is no "the distance" to put in $r^2$ because different parts of the object are at different distances. The fix is to chop the object into pieces small enough to be points and add the pieces up — superposition again, now with an integral. That is [continuous charge distributions](/guide/charge-distributions), and everything you did by hand here is about to become the thing inside the integral sign.
+What none of this handles is a charged rod, ring, or sheet, where there is no "the distance" to put in $r^2$ because different parts of the object are at different distances. The fix is to chop the object into pieces small enough to be points and add the pieces up: superposition again, now with an integral. That is [continuous charge distributions](/guide/charge-distributions), and everything you did by hand here is about to become the thing inside the integral sign.

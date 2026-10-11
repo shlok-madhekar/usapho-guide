@@ -56,7 +56,7 @@ long-term output, which is why stacking shelves all day is tiring but possible.
 
 <Aside label="Worth remembering">
   Average power is always total energy divided by total time. It does not care
-  what happened in the middle — whether the box went up smoothly or in jerks,
+  what happened in the middle: whether the box went up smoothly or in jerks,
   whether the car accelerated evenly or not. If a problem gives you a start
   state, an end state, and a duration, you can get average power without
   knowing a single force.
@@ -64,7 +64,7 @@ long-term output, which is why stacking shelves all day is tiring but possible.
 
 ## Power equals force times velocity
 
-The definition above needs a work value, and often you do not have one — you
+The definition above needs a work value, and often you do not have one: you
 have a force and a speed. So convert.
 
 Over a tiny time $dt$, an object moving with velocity $\vec v$ shifts by
@@ -81,13 +81,13 @@ A force delivers power in proportion to how fast its point of application is
 moving. Push on a wall with 500 N and you deliver zero power, because $v = 0$;
 you get tired, but you do no work on the wall. Push a cart with 500 N while it
 rolls at 3 m/s and you deliver 1500 W. And a force perpendicular to the motion
-delivers no power at all, since $\cos 90^\circ = 0$ — the same reason the normal
+delivers no power at all, since $\cos 90^\circ = 0$: the same reason the normal
 force and the tension in a circular-motion problem never change the speed.
 
 Two instant applications. A locomotive delivering 1.2 MW at 30 m/s is pushing
 with $F = P/v = 1.2\times 10^6/30 = 40{,}000\ \text{N}$. A cyclist holding a
 steady 8.0 m/s against 25 N of resistance must supply $P = 25 \times 8.0 =
-200\ \text{W}$ — steady, because at steady speed her driving force exactly
+200\ \text{W}$: steady, because at steady speed her driving force exactly
 matches the resistance.
 
 <QuickCheck
@@ -100,7 +100,7 @@ matches the resistance.
 ## Steady speed: the engine pays for the losses
 
 At constant speed the kinetic energy is not changing, so every joule the engine
-puts in must be leaving somewhere else — into gravitational potential energy if
+puts in must be leaving somewhere else: into gravitational potential energy if
 you are climbing, into heat and churned air if you are fighting drag. That makes
 constant-speed problems short: find the total force the engine must supply to
 hold equilibrium, then multiply by $v$.
@@ -111,7 +111,7 @@ $9800 \times 2.5 = 24{,}500\ \text{W}$.
 
 Adding a slope changes only the force bookkeeping.
 
-<Figure caption={<><b>Figure 1.</b> At steady speed the driving force is exactly the sum of the gravity component along the slope and the drag. Drag the angle from 2 to 20 degrees and watch the power climb far faster than the height gained — most of a hill's cost is the gravity term.</>}>
+<Figure caption={<><b>Figure 1.</b> At steady speed the driving force is exactly the sum of the gravity component along the slope and the drag. Drag the angle from 2 to 20 degrees and watch the power climb far faster than the height gained: most of a hill's cost is the gravity term.</>}>
   <Sim id="power-hill-diagram" />
 </Figure>
 
@@ -147,7 +147,7 @@ the end. That is typical.
   Do not use $mgh/t$ and $Fv$ at the same time and add them. They are two ways
   of counting the same energy. In Example 2, the rate of gain of potential
   energy is $mgv\sin\theta = 1434.1 \times 22 = 31.6\ \text{kW}$, and the drag
-  eats $700 \times 22 = 15.4\ \text{kW}$. Those two add to 47 kW — they are the
+  eats $700 \times 22 = 15.4\ \text{kW}$. Those two add to 47 kW: they are the
   breakdown of the answer, not extras to be tacked on.
 </Aside>
 
@@ -192,8 +192,8 @@ $$
 And run it backwards to find a speed from a power. If $P = bv^3$ and you double
 the power by adding a second identical rower, the speed goes up by $2^{1/3} =
 1.2599$, so a 3.0 m/s boat reaches $3.0 \times 1.2599 = 3.78\ \text{m/s}$. Twice
-the effort buys 26% more speed. Scaling arguments like that — same $b$, so take
-the ratio and the constant cancels — save you from ever finding $b$.
+the effort buys 26% more speed. Scaling arguments like that (same $b$, so take
+the ratio and the constant cancels) save you from ever finding $b$.
 
 <QuickCheck
   question="A boat needs P proportional to v cubed. To go 10 percent faster, roughly how much more power does it need?"
@@ -299,12 +299,11 @@ t = \frac{m}{2}\int_0^{v^2}\frac{du}{P - cu}
 
 $$
 
-<Figure caption={<><b>Figure 3.</b> The solid curve is the real speed, the faint dotted one is the drag-free square-root law, and the short arrow is the leftover accelerating force. Push the drag slider up and watch the two curves part company early — and note in the readout how enormous the driving force P/v is in the first instant.</>}>
+<Figure caption={<><b>Figure 3.</b> The solid curve is the real speed, the faint dotted one is the drag-free square-root law, and the short arrow is the leftover accelerating force. Push the drag slider up and watch the two curves part company early, and note in the readout how enormous the driving force P/v is in the first instant.</>}>
   <Sim id="power-limited-car" />
 </Figure>
 
-**Example 4.** That same car — 1000 kg, 30 kW, $F = 12v$, top speed 50 m/s —
-starts from rest. How long to reach 45 m/s, which is 90% of top speed?
+**Example 4.** That same car (1000 kg, 30 kW, $F = 12v$, top speed 50 m/s) starts from rest. How long to reach 45 m/s, which is 90% of top speed?
 
 Prefactor first:
 
@@ -324,7 +323,7 @@ So
 
 $$t = 41.667 \times 1.6607 = 69.2\ \text{s}$$
 
-Over a minute to reach nine tenths of top speed — and the formula says the last
+Over a minute to reach nine tenths of top speed, and the formula says the last
 tenth takes forever, since $v \to v_{\text{top}}$ sends the logarithm to
 infinity. Top speed is an asymptote, never an arrival.
 
@@ -360,7 +359,7 @@ $$
 
 The motor supplies 75 W and only 37.5 W lands in kinetic energy. The missing
 37.5 W is rubbed away as heat while the grain skids on the belt. Exactly half,
-always, whatever the numbers — because the belt moves at $v$ while the grain's
+always, whatever the numbers, because the belt moves at $v$ while the grain's
 average speed during the skid is only $v/2$.
 
 <Figure caption={<><b>Figure 4.</b> Try any combination of rate and belt speed and compare the two numbers in the readout: the kinetic energy rate is always exactly half the motor power. The other half is friction heat, and no amount of engineering removes it.</>}>
@@ -416,7 +415,7 @@ Reach for $\tfrac12 mv^2 = Pt$ if there is no drag, or write
 $mv\,dv/dt = P - F_{\text{drag}}(v)$ and separate variables if there is.
 
 **"Top speed" with a drag law.** Set the driving force equal to the drag and
-solve. No calculus needed — top speed is an equilibrium, not a limit process.
+solve. No calculus needed: top speed is an equilibrium, not a limit process.
 
 **A drag law plus two speeds, or two powers.** Take the ratio. With
 $P \propto v^3$ the unknown constant cancels and you avoid a whole calculation.

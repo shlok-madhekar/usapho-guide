@@ -25,12 +25,12 @@ $$\frac{Q_C}{Q_H} = \frac{T_C}{T_H}$$
 Rearrange that into $Q_H/T_H = Q_C/T_C$. Count heat going *into* the working
 substance as positive and heat leaving as negative, and the two terms cancel:
 the sum of $Q/T$ around the whole cycle is zero. Heat itself does not come back
-to zero over a cycle — the engine absorbed more than it rejected, that was the
+to zero over a cycle: the engine absorbed more than it rejected, that was the
 point. But heat divided by the temperature at which it crossed does.
 
 A quantity whose total change around any closed loop is zero is a *state
 function*: its value depends only on which state you are in, not on how you got
-there. You have met one before — potential energy has exactly this property,
+there. You have met one before: potential energy has exactly this property,
 which is why $\Delta U$ between two points does not care about the path. So
 define entropy $S$ by its changes along a reversible path:
 
@@ -60,7 +60,7 @@ Almost every entropy calculation in a problem set is one of three shapes.
 
 **A reservoir, or anything at fixed temperature.** If $T$ never changes, it
 comes out of the integral and $\Delta S = Q/T$. A "large bath", a "huge
-reservoir", a furnace wall "held at 400 K" — these are all telling you that the
+reservoir", a furnace wall "held at 400 K": these are all telling you that the
 body is big enough that the heat you give it does not shift its temperature.
 Melting and boiling are in this family too, because a phase change happens at
 one fixed temperature: $\Delta S = mL/T$.
@@ -72,8 +72,7 @@ $$\Delta S = \int_{T_i}^{T_f} \frac{C\,dT}{T} = C\ln\frac{T_f}{T_i}$$
 
 That is the whole of the calculus you need here: the integral of $1/T$ is
 $\ln T$. If you have not met logarithms in this role, all you need is that
-$\ln(a/b) = \ln a - \ln b$ and that $\ln$ of a number less than 1 is negative —
-so cooling gives negative entropy change, as it should.
+$\ln(a/b) = \ln a - \ln b$ and that $\ln$ of a number less than 1 is negative, so cooling gives negative entropy change, as it should.
 
 **An ideal gas going anywhere.** Put the first law inside the definition. For
 $n$ moles, $dQ_{rev} = nC_V\,dT + P\,dV$, and $P = nRT/V$, so
@@ -96,7 +95,7 @@ volume ratio equals the temperature ratio anyway.
   question="A gas in an insulated cylinder is compressed slowly and reversibly by a piston. What is its entropy change?"
   options={["Zero, because no heat crosses the walls", "Negative, because the volume went down", "Positive, because work was done on it", "It cannot be determined without the compression ratio"]}
   answer={0}
-  explanation="Reversible plus adiabatic means dQ is zero at every step along a path that the definition accepts, so the integral is zero. The volume log is negative but the temperature log rises by exactly as much: that cancellation is what an adiabat is. Note that adiabatic alone is not enough — a free expansion is adiabatic and has positive entropy change."
+  explanation="Reversible plus adiabatic means dQ is zero at every step along a path that the definition accepts, so the integral is zero. The volume log is negative but the temperature log rises by exactly as much: that cancellation is what an adiabat is. Note that adiabatic alone is not enough: a free expansion is adiabatic and has positive entropy change."
 />
 
 ## Invent a path
@@ -135,7 +134,7 @@ J/K. That is the answer for the free expansion too.
 ## Entropy of the universe, and why it only goes up
 
 The system is never the whole story. Add up the entropy change of everything
-involved — the system plus every reservoir it touched — and call it
+involved (the system plus every reservoir it touched) and call it
 $\Delta S_{univ}$. The second law, in its most usable form, says this total is
 zero for a reversible process and strictly positive for a real one. It never
 goes down.
@@ -156,7 +155,7 @@ A real engine is the same bookkeeping. The working substance returns to its
 initial state each cycle, so its own $\Delta S$ is zero; all the entropy shows
 up in the reservoirs, $-Q_H/T_H + Q_C/T_C$. Carnot's engine makes that exactly
 zero. Every worse engine rejects more heat than Carnot's and makes it positive.
-So Carnot's limit is not a separate law — it is what $\Delta S_{univ} \ge 0$
+So Carnot's limit is not a separate law: it is what $\Delta S_{univ} \ge 0$
 looks like when you apply it to an engine.
 
 <Figure caption={<><b>Figure 2.</b> Two finite blocks reaching a common temperature. The dashed curves are the two blocks separately; the solid one is their sum. Slide the starting temperatures further apart and watch the total climb faster.</>}>
@@ -174,7 +173,7 @@ $$\Delta S = 8372 \ln\frac{353}{293} = 8372 \times \ln(1.2048) = 8372 \times 0.1
 
 Positive, because heat went in. If you had used $Q/T$ with $Q = 8372 \times 60
 = 5.02\times10^5$ J you would have had to pick a $T$, and there is no single
-right one to pick — that is the signal that the log is required.
+right one to pick: that is the signal that the log is required.
 
 **Two. A hot ball in a cold bath.** A 0.50 kg lead ball, $c = 128$ J/kg·K, at
 $100^\circ$C, dropped into a very large water bath held at $20^\circ$C. Find
@@ -232,8 +231,8 @@ $$W = Q_H - Q_C = 7.72\times10^4 - 5.916\times10^4 = 1.80\times10^4 \text{ J}$$
 
 About 18.0 kJ, out of 77.2 kJ available: an overall efficiency of 23%, below
 the 40% a Carnot engine gets at a fixed 500 K, because the source spends most
-of its life cooler than that. The same move — set $\Delta S_{univ} = 0$ and
-solve — handles two finite bodies driven to a common temperature, where the
+of its life cooler than that. The same move (set $\Delta S_{univ} = 0$ and
+solve) handles two finite bodies driven to a common temperature, where the
 condition $C\ln(T_f/T_1) + C\ln(T_f/T_2) = 0$ collapses to
 $T_f = \sqrt{T_1T_2}$, the geometric mean rather than the average.
 
@@ -286,7 +285,7 @@ get a negative total, you have made a sign error.
 
 The word "reversible" appears and a temperature is changing. Then
 $\Delta S_{univ} = 0$ is an equation you can solve, and it is usually the only
-one that gives you the unknown — the maximum work, or the final common
+one that gives you the unknown: the maximum work, or the final common
 temperature. This is the pattern that turns a very hard problem into two lines.
 
 A problem gives you a complicated or unspecified path between two known states.

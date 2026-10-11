@@ -6,15 +6,15 @@ integral is genuinely unpleasant.
 Now picture a ball of plastic, 5 cm across, with charge spread evenly through
 it. You want the field 15 cm from the centre. The honest way is a triple
 integral over the volume. The answer, when it finally comes out, is
-$kQ/r^2$ — exactly what you would get if all the charge sat at a single point
+$kQ/r^2$: exactly what you would get if all the charge sat at a single point
 in the middle. That is too clean to be a coincidence. Something is making the
 details of the distribution irrelevant, and if you can find out what, you can
 skip the integral entirely.
 
 ## Flux: counting how much field crosses a surface
 
-Start with something simpler than a ball. Take a uniform field $\vec E$ — every
-arrow the same length, all pointing the same way — and hold a flat panel of
+Start with something simpler than a ball. Take a uniform field $\vec E$ (every
+arrow the same length, all pointing the same way) and hold a flat panel of
 area $A$ in it. Define the **electric flux** through the panel as
 
 $$\Phi_E = E A \cos\theta$$
@@ -22,7 +22,7 @@ $$\Phi_E = E A \cos\theta$$
 where $\theta$ is the angle between the field and the **normal** to the panel,
 the direction sticking straight out of its face. If you hold the panel square-on
 to the field, $\theta = 0$, $\cos\theta = 1$, and the flux is $EA$: the maximum.
-Turn it edge-on and $\theta = 90^\circ$, so the flux is zero — the field slides
+Turn it edge-on and $\theta = 90^\circ$, so the flux is zero: the field slides
 past without crossing. The units are $\mathrm{N\cdot m^2/C}$.
 
 The picture to keep is field lines threading a hoop. Flux counts lines through
@@ -41,7 +41,7 @@ then add:
 
 $$\Phi_E = \oint \vec E \cdot d\vec A$$
 
-The circle on the integral means the surface is **closed** — it seals off a
+The circle on the integral means the surface is **closed**: it seals off a
 volume, like a balloon, with no edges. For a closed surface everyone agrees to
 point the normal outward, so flux going out counts positive and flux coming in
 counts negative.
@@ -75,7 +75,7 @@ $$\oint \vec E \cdot d\vec A = \frac{Q_{\text{enc}}}{\varepsilon_0}$$
 
 This is **Gauss's law**. $\varepsilon_0 = 8.85\times10^{-12}\ \mathrm{F/m}$ is
 the permittivity of free space. $Q_{\text{enc}}$ is the total charge sealed
-inside the surface — inside, nothing else.
+inside the surface: inside, nothing else.
 
 Two extensions turn this from a statement about spheres into a general law.
 First, the sphere was not special: distort it into any shape you like and the
@@ -83,7 +83,7 @@ field lines that left through the sphere still have to leave through the new
 surface, since lines from a point charge do not stop or turn around in empty
 space. Second, fields add, so flux adds. A collection of charges gives the sum
 of their individual fluxes, and any charge sitting *outside* the surface
-contributes zero — its lines go in one side and out the other, cancelling.
+contributes zero: its lines go in one side and out the other, cancelling.
 
 That last point is the one to hold on to. The flux depends only on the enclosed
 charge. The field $\vec E$ in the integral is the field of *everything*, near
@@ -140,8 +140,7 @@ a hemispherical dome over a charge on a table passes $q/(2\varepsilon_0)$.
 
 Gauss's law is always true and usually useless for finding $E$, because $E$ sits
 inside an integral you cannot undo. It becomes a tool only when you can choose a
-closed surface — a **Gaussian surface**, imaginary, drawn wherever you please —
-on which two conditions hold: $E$ has the same magnitude everywhere on it, and
+closed surface (a **Gaussian surface**, imaginary, drawn wherever you please) on which two conditions hold: $E$ has the same magnitude everywhere on it, and
 $\vec E$ is either perpendicular to it (so $\cos\theta = 1$) or parallel to it
 (so the flux through that part is zero). Then $\oint \vec E \cdot d\vec A = EA$
 and you can divide.
@@ -155,16 +154,16 @@ why only one area ever appears in the algebra.</>}>
   <Sim id="gauss-law-surfaces" />
 </Figure>
 
-**Spherical symmetry** — a ball, a shell, or any charge density that depends
+**Spherical symmetry**: a ball, a shell, or any charge density that depends
 only on distance from a centre. Use a concentric sphere of radius $r$, area
 $4\pi r^2$:
 
 $$E \cdot 4\pi r^2 = \frac{Q_{\text{enc}}}{\varepsilon_0} \quad\Longrightarrow\quad E = \frac{Q_{\text{enc}}}{4\pi\varepsilon_0 r^2} = \frac{k Q_{\text{enc}}}{r^2}$$
 
 Outside everything, $Q_{\text{enc}}$ is the whole charge and the field is that of
-a point charge at the centre — the coincidence from the opening, explained.
+a point charge at the centre: the coincidence from the opening, explained.
 
-**Cylindrical symmetry** — a long straight line, rod, or beam. Use a coaxial can
+**Cylindrical symmetry**: a long straight line, rod, or beam. Use a coaxial can
 of radius $r$ and length $L$. The flat ends are parallel to the field so they
 contribute nothing, and the curved side has area $2\pi r L$:
 
@@ -173,7 +172,7 @@ $$E \cdot 2\pi r L = \frac{\lambda L}{\varepsilon_0} \quad\Longrightarrow\quad E
 where $\lambda$ is charge per unit length. The $L$ cancels, as it must, since an
 infinite wire has no special place along it. Note the $1/r$, not $1/r^2$.
 
-**Planar symmetry** — a large flat sheet. Use a **pillbox**: a short cylinder
+**Planar symmetry**: a large flat sheet. Use a **pillbox**: a short cylinder
 poking through the sheet with one flat face on each side. The curved side is
 parallel to the field and carries nothing; each flat face of area $A$ carries
 $EA$, so the total is $2EA$, and the enclosed charge is $\sigma A$ where $\sigma$
@@ -205,7 +204,7 @@ $8.0\ \mathrm{nC}$:
 $$E = \frac{kQ}{r^2} = \frac{(8.99\times10^{9})(8.0\times10^{-9})}{(0.15)^2} = \frac{71.9}{0.0225} = 3.2\times10^{3}\ \mathrm{N/C}$$
 
 Inside is where the thinking is. A Gaussian sphere at $r = 0.020\ \mathrm{m}$ does
-not enclose all the charge — only the part within $0.020\ \mathrm{m}$ of the
+not enclose all the charge, only the part within $0.020\ \mathrm{m}$ of the
 centre. Because the density is uniform, the enclosed charge is the total times
 the fraction of the volume you have grabbed:
 
@@ -221,7 +220,7 @@ $Q_{\text{enc}} = 8.0 \times 0.064 = 0.512\ \mathrm{nC}$, and
 
 $$E = \frac{(8.99\times10^{9})(0.512\times10^{-9})}{(0.020)^2} = \frac{4.60}{4.0\times10^{-4}} = 1.15\times10^{4}\ \mathrm{N/C}$$
 
-Stronger inside than at 15 cm, even though less charge is doing the work — you
+Stronger inside than at 15 cm, even though less charge is doing the work: you
 are much closer. The two formulas agree at $r = R$, as they must.
 
 <Figure caption={<><b>Figure 3.</b> A uniformly charged ball. Drag the radius of the
@@ -233,7 +232,7 @@ whole lesson in one picture.</>}>
 
 This linear inside-field has a famous consequence. Bore a tunnel through a
 diameter and drop a charge $-e$ into it. The force is
-$F = -eE = -(keQ/R^3)\,r$ — proportional to displacement and pointing back to
+$F = -eE = -(keQ/R^3)\,r$: proportional to displacement and pointing back to
 the centre. That is Hooke's law, so the charge oscillates with
 $\omega = \sqrt{keQ/(m R^3)}$ and frequency $f = \omega/2\pi$. The rule from
 springs transfers unchanged; only the meaning of the stiffness has changed.
@@ -296,7 +295,7 @@ To maximise, differentiate and set to zero:
 
 $$\frac{dE}{dr} = \frac{\rho_0}{\varepsilon_0}\left(\frac{1}{3} - \frac{r}{2R}\right) = 0 \quad\Longrightarrow\quad r = \frac{2R}{3}$$
 
-With $R = 0.15\ \mathrm{m}$ that is $r = 0.10\ \mathrm{m}$ — inside the sphere,
+With $R = 0.15\ \mathrm{m}$ that is $r = 0.10\ \mathrm{m}$: inside the sphere,
 not at its surface. Whenever the density falls off fast enough, the outer shells
 add less charge than the growing $r^2$ costs you, and the field turns over early.
 
@@ -314,7 +313,7 @@ surface helps. Superposition does. A ball with a spherical cavity is the same
 thing as a full ball of density $+\rho$ plus a smaller ball of density $-\rho$
 filling the hole. Each piece is spherically symmetric about its own centre, and
 inside a uniform ball the field at displacement $\vec r$ from its centre is
-$\vec E = \rho\vec r/(3\varepsilon_0)$ — just rewrite $kQ r/R^3$ using
+$\vec E = \rho\vec r/(3\varepsilon_0)$, just rewrite $kQ r/R^3$ using
 $Q = \tfrac{4}{3}\pi R^3\rho$ and watch $R$ cancel.
 
 Add the two at a point in the cavity, with $\vec d$ the vector from the big

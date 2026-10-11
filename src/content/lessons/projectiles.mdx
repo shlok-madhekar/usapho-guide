@@ -3,7 +3,7 @@
 Roll a ball off the edge of a table and watch it. It keeps moving forward while
 it falls, and the path it traces is a smooth curve. Now hold a second ball at
 the table edge and drop it at the exact moment the first one leaves. They hit
-the floor together. Not roughly together — together, every time, no matter how
+the floor together. Not roughly together: together, every time, no matter how
 fast you rolled the first one.
 
 That is the whole subject in one experiment. Moving sideways does nothing to
@@ -12,7 +12,7 @@ problem that looks two-dimensional and frightening is really two
 one-dimensional problems you already solved in the last lesson, running side by
 side and sharing a single clock.
 
-<Figure caption={<><b>Figure 1.</b> Drop one ball, launch the other sideways at the same instant. The dashed tie line joins them: they are at the same height at every moment. Slide the launch speed all the way to 30 m/s and watch the readout — the height column does not change.</>}>
+<Figure caption={<><b>Figure 1.</b> Drop one ball, launch the other sideways at the same instant. The dashed tie line joins them: they are at the same height at every moment. Slide the launch speed all the way to 30 m/s and watch the readout: the height column does not change.</>}>
   <Sim id="projectiles-independence" />
 </Figure>
 
@@ -37,7 +37,7 @@ $$x(t) = v_0\cos\theta\; t, \qquad y(t) = v_0\sin\theta\; t - \tfrac{1}{2}gt^2$$
 $$v_x(t) = v_0\cos\theta, \qquad v_y(t) = v_0\sin\theta - gt$$
 
 Read those in words. The horizontal position climbs steadily and the horizontal
-velocity never changes — not at the top, not on the way down, not ever. The
+velocity never changes, not at the top, not on the way down, not ever. The
 vertical velocity starts positive, shrinks at $9.8\ \mathrm{m/s}$ every second,
 passes through zero at the top of the flight, then goes negative as the
 projectile comes back down. The two lines never refer to each other. The only
@@ -134,7 +134,7 @@ is the top.
 <Aside label="Where this goes wrong" warn>
   $R$, $H$ and $T$ above assume the projectile lands at exactly its launch
   height. A cliff, a slope, a wall or a raised target breaks that assumption,
-  and the range formula does not fail loudly — it hands you a confident wrong
+  and the range formula does not fail loudly: it hands you a confident wrong
   number. The moment the landing height differs from the launch height, throw
   the formulas away and go back to $x(t)$ and $y(t)$.
 </Aside>
@@ -160,8 +160,8 @@ $$14.79^2 + 4(4.9)(15) = 218.7 + 294 = 512.7, \qquad \sqrt{512.7} = 22.64$$
 
 $$t = \frac{14.79 + 22.64}{9.8} = \frac{37.43}{9.8} = 3.820\ \mathrm{s}$$
 
-The other root is negative — it is the time the projectile *would* have left the
-ground had it been launched from there — so discard it. Then
+The other root is negative (it is the time the projectile *would* have left the
+ground had it been launched from there) so discard it. Then
 
 $$x = 31.72 \times 3.820 = 121.2\ \mathrm{m}$$
 
@@ -192,7 +192,7 @@ perpendicular to it. Gravity then has components $-g\sin\phi$ along the slope
 and $-g\cos\phi$ perpendicular to it. Landing is now "perpendicular displacement
 returns to zero", which is the level-ground problem again with $g\cos\phi$ in
 place of $g$ and the launch angle measured from the slope. Tilted axes are the
-faster route when the launch is described relative to the slope — "fired
+faster route when the launch is described relative to the slope: "fired
 perpendicular to the surface", for instance.
 
 <Figure caption={<><b>Figure 3.</b> Set the slope to 20° and the launch to 50° and the readout gives 46.4 m along the slope. Now drag the slope to −25° and the launch to 0° for a rock thrown horizontally down a hillside. Then hold the speed fixed and hunt for the launch angle that maximises L: it lands at 45° + half the slope angle.</>}>
@@ -219,8 +219,8 @@ And along the slope:
 $$L = \frac{43.62}{\cos 20^\circ} = \frac{43.62}{0.9397} = 46.4\ \mathrm{m}$$
 
 If you want the best launch angle for a given slope, maximise that expression.
-It works out to $\theta = 45^\circ + \phi/2$ — split the difference between
-straight up the slope and the horizontal — and the maximum distance along the
+It works out to $\theta = 45^\circ + \phi/2$ (split the difference between
+straight up the slope and the horizontal) and the maximum distance along the
 slope is
 
 $$L_{\max} = \frac{v_0^2}{g\left(1 + \sin\phi\right)}$$
@@ -233,7 +233,7 @@ denominator shrinks and you aim flatter.
 ## Two optimisation results worth knowing
 
 **Greatest distance when you launch from a height.** Throw from height $h$ with
-speed $v_0$ and the best angle is no longer $45^\circ$ — the extra fall time
+speed $v_0$ and the best angle is no longer $45^\circ$: the extra fall time
 rewards a flatter, faster throw. Maximising the landing $x$ over $\theta$ gives
 
 $$R_{\max} = \frac{v_0}{g}\sqrt{v_0^2 + 2gh}$$
@@ -251,7 +251,7 @@ For a target $30\ \mathrm{m}$ away and $10\ \mathrm{m}$ up,
 $\sqrt{900 + 100} = 31.62$, so $v_{\min}^2 = 9.8(41.62) = 407.9$ and
 $v_{\min} = 20.2\ \mathrm{m/s}$. The aiming angle that achieves it bisects the
 angle between straight up and the line to the target, which is the same
-"split the difference" rule as the slope result — a target on a slope *is* a
+"split the difference" rule as the slope result: a target on a slope *is* a
 slope problem.
 
 <Aside label="Worth remembering">
@@ -293,7 +293,7 @@ speed quadruples the range.
 ## How to recognise it
 
 You are looking at a projectile problem when something is released or launched
-and then nothing but gravity acts on it — no thrust, no friction, no rope, no
+and then nothing but gravity acts on it: no thrust, no friction, no rope, no
 contact. The giveaways in the wording: "thrown", "kicked", "fired", "launched",
 "neglect air resistance", "leaves the edge".
 

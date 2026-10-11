@@ -6,7 +6,7 @@ expect those three to be independent. They are not. Squeeze the gas without
 letting heat out and it gets hotter. Warm a sealed can and the pressure climbs.
 Two of the three are free; the third is then fixed for you.
 
-The relation that fixes it is the ideal gas law — not a law of nature in the
+The relation that fixes it is the ideal gas law, not a law of nature in the
 sense that $F = ma$ is, but an *equation of state*, a statement about how one
 particular kind of stuff behaves. Real gases obey it well when they are dilute
 and far from condensing, which covers nearly every gas in a problem. This
@@ -60,15 +60,14 @@ The two versions are the same statement divided by Avogadro's number. Use $n$
 and $R$ when the problem talks about moles or grams, $N$ and $k_B$ when it
 talks about individual molecules.
 
-Read it in words. At fixed temperature, pressure and volume trade off inversely
-— halve the volume and the pressure doubles. At fixed volume, pressure rises in
+Read it in words. At fixed temperature, pressure and volume trade off inversely: halve the volume and the pressure doubles. At fixed volume, pressure rises in
 direct proportion to *absolute* temperature. And $T$ is always in kelvin, never
 celsius, because the derivation ran through $\overline{K} = \tfrac32 k_B T$ and
 kinetic energy cannot be negative.
 
 <Aside label="Where this goes wrong" warn>
   Putting celsius into $PV = nRT$ is the single most common error in this
-  topic, and it does not announce itself — you get a plausible-looking number
+  topic, and it does not announce itself: you get a plausible-looking number
   that is wrong by a factor of a few. Convert first, every time: $T(\text{K}) =
   T(^\circ\text{C}) + 273$. The same goes for gauge pressure. A tyre gauge
   reading $2.00\times10^5$ Pa means the gas is at $2.00\times10^5 +
@@ -90,7 +89,7 @@ Cross out whatever is held fixed. Rigid container: $V$ cancels, so $P \propto
 T$. Fixed temperature: $PV$ is constant, which is Boyle's law. Fixed pressure:
 $V \propto T$.
 
-**Example 1 — a tyre after a highway run.** A tyre of essentially fixed volume
+**Example 1: a tyre after a highway run.** A tyre of essentially fixed volume
 reads a gauge pressure of $2.00\times10^5$ Pa at $280$ K. Driving warms the air
 to $310$ K. Atmospheric pressure is $1.013\times10^5$ Pa. Find the new gauge
 pressure.
@@ -105,7 +104,7 @@ $$
 
 The question asks for gauge, so subtract the atmosphere back off:
 $3.336\times10^5 - 1.013\times10^5 = 2.32\times10^5$ Pa. Had you used gauge
-pressure throughout you would have got $2.21\times10^5$ Pa — close enough to
+pressure throughout you would have got $2.21\times10^5$ Pa: close enough to
 look right, and wrong.
 
 <QuickCheck
@@ -136,7 +135,7 @@ to or subtracts from the atmospheric pressure holding the gas in.
   <Sim id="ideal-gas-mercury" />
 </Figure>
 
-**Example 2 — inverting a mercury-sealed tube.** A tube closed at the bottom
+**Example 2: inverting a mercury-sealed tube.** A tube closed at the bottom
 stands upright. It traps a $20.0$ cm air column, capped by $10.0$ cm of
 mercury, open to an atmosphere of $75.0$ cmHg. Turn the tube over, closed end
 now up, and find the new air column length at unchanged temperature.
@@ -188,10 +187,10 @@ $$
 
 At fixed pressure, density is inversely proportional to absolute temperature.
 That line explains hot-air balloons. Heat the air in an open-bottomed envelope
-and it stays at atmospheric pressure — the bottom is open, so it must — but its
+and it stays at atmospheric pressure (the bottom is open, so it must) but its
 density falls by the factor $T_{\text{out}}/T_{\text{in}}$.
 
-**Example 3 — how hot must the balloon air be?** An envelope encloses
+**Example 3: how hot must the balloon air be?** An envelope encloses
 $V = 1500$ m³. Fabric, basket and passengers come to $300$ kg, not counting the
 air inside. Outside air is $1.25$ kg/m³ at $288$ K. Find the lowest inside
 temperature that lifts the balloon.
@@ -227,7 +226,7 @@ molecule's energy that is *quadratic* in some coordinate or velocity carries an
 average of $\tfrac12 k_B T$: each $\tfrac12 m v_x^2$, each
 $\tfrac12 I\omega^2$, each $\tfrac12 k x^2$ of a vibrating bond. Call the
 number of such terms $f$, the degrees of freedom. Note what a degree of freedom
-is — not a way of moving, but a quadratic energy term.
+is, not a way of moving, but a quadratic energy term.
 
 A single atom has three, one for motion along each of $x$, $y$, $z$. So $f = 3$
 and $\overline{K} = \tfrac32 k_B T$, which is the definition of temperature you
@@ -331,7 +330,7 @@ it.
   <Sim id="ideal-gas-adiabat" />
 </Figure>
 
-**Example 4 — work done in an adiabatic expansion.** Two moles of a monatomic
+**Example 4: work done in an adiabatic expansion.** Two moles of a monatomic
 gas expand adiabatically, cooling from $500$ K to $300$ K. How much work does
 the gas do?
 
@@ -344,7 +343,7 @@ $$
 
 Work through it: $\tfrac32 \times 8.31 = 12.465$ J/(mol·K), times $2.00$ mol is
 $24.93$ J/K, times $200$ K is $4986$ J. The gas does about $4.99$ kJ of work.
-Notice you never needed the volumes, the pressures, or $\gamma$ — just the
+Notice you never needed the volumes, the pressures, or $\gamma$, just the
 temperature drop.
 
 For a temperature question instead, use $TV^{\gamma-1}$. Air at $300$ K
@@ -391,7 +390,7 @@ $$
 -\frac{dT}{dz} = \frac{Mg}{C_P}.
 $$
 
-Everything cancelled — no temperature, no pressure, just a constant. With
+Everything cancelled: no temperature, no pressure, just a constant. With
 $C_P = \tfrac72 R = 3.5 \times 8.31 = 29.085$ J/(mol·K),
 
 $$
@@ -402,7 +401,7 @@ $$
 Climb a kilometre of mountain and expect about ten degrees colder. That number
 comes out of a gas law and a force balance, with no meteorology at all.
 
-**Example 5 — the heated half of an insulated cylinder.** This one is harder.
+**Example 5: the heated half of an insulated cylinder.** This one is harder.
 An insulated cylinder of total volume $2V_0$ is split into equal halves by a
 frictionless insulating piston. Each half holds $1.00$ mol of monatomic gas at
 $300$ K. A heater in the left half runs slowly until the left gas fills
@@ -457,6 +456,5 @@ temperature. Temperature against height is the lapse rate $Mg/C_P$. They use
 the same hydrostatic equation and are otherwise unrelated.
 
 The next lesson takes $\gamma$, the adiabat and the first law and strings them
-into closed loops on a $PV$ diagram, which is how you get work out of heat —
-and how much you are forbidden from getting. That is
+into closed loops on a $PV$ diagram, which is how you get work out of heat, and how much you are forbidden from getting. That is
 [heat engines and the second law](/guide/heat-engines).

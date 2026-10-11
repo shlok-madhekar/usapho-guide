@@ -2671,7 +2671,7 @@
     "statement": "A $1200\\ \\mathrm{kg}$ car accelerates uniformly from rest to $24\\ \\mathrm{m/s}$ in $10\\ \\mathrm{s}$ on a level frictionless road. What is the instantaneous power at $t = 10\\ \\mathrm{s}$, in W?",
     "answer": 69120.0,
     "unit": "W",
-    "solution": "The acceleration is $a = 2.4\\ \\mathrm{m/s^2}$, so the force is $F = ma = 2880\\ \\mathrm{N}$ and at $t=10\\ \\mathrm{s}$, $v = 24\\ \\mathrm{m/s}$. Then $P = Fv = 6.91\\times10^4\\ \\mathrm{W}$ \u2014 exactly twice the average power, as it must be for uniform acceleration."
+    "solution": "The acceleration is $a = 2.4\\ \\mathrm{m/s^2}$, so the force is $F = ma = 2880\\ \\mathrm{N}$ and at $t=10\\ \\mathrm{s}$, $v = 24\\ \\mathrm{m/s}$. Then $P = Fv = 6.91\\times10^4\\ \\mathrm{W}$: exactly twice the average power, as it must be for uniform acceleration."
   },
   {
     "id": "we-power-12",
@@ -3073,7 +3073,7 @@
     "statement": "A $0.20\\ \\mathrm{kg}$ ball hits a wall at $8.0\\ \\mathrm{m/s}$ and rebounds at $6.0\\ \\mathrm{m/s}$. What is the magnitude of the impulse on the ball, in N\u00b7s?",
     "answer": 2.8,
     "unit": "N s",
-    "solution": "The velocity reverses direction, so the change is $6.0-(-8.0) = 14\\ \\mathrm{m/s}$ in magnitude. Then $|J| = (0.20)(14) = 2.8\\ \\mathrm{N\\,s}$ \u2014 much larger than for a ball that simply stops."
+    "solution": "The velocity reverses direction, so the change is $6.0-(-8.0) = 14\\ \\mathrm{m/s}$ in magnitude. Then $|J| = (0.20)(14) = 2.8\\ \\mathrm{N\\,s}$: much larger than for a ball that simply stops."
   },
   {
     "id": "we-imp-05",
@@ -3439,7 +3439,7 @@
     "statement": "A jet of water, $6.0\\ \\mathrm{kg/s}$ at $10\\ \\mathrm{m/s}$, strikes a curved vane that turns it around completely so it leaves at $10\\ \\mathrm{m/s}$ in the opposite direction. What force does the water exert on the vane, in N?",
     "answer": 120.0,
     "unit": "N",
-    "solution": "The momentum change rate is $\\dot m(v - (-v)) = 2\\dot m v = 2(6.0)(10) = 120\\ \\mathrm{N}$ \u2014 twice the force of a jet that simply stops."
+    "solution": "The momentum change rate is $\\dot m(v - (-v)) = 2\\dot m v = 2(6.0)(10) = 120\\ \\mathrm{N}$: twice the force of a jet that simply stops."
   },
   {
     "id": "we-imp-26",
@@ -3925,7 +3925,7 @@
     "statement": "A tiny superball sits on top of a basketball. Both are dropped from $1.0\\ \\mathrm{m}$ and the basketball bounces elastically off the floor, then collides elastically with the much lighter superball. In the limit that the superball's mass is negligible, how high does the superball rise, in m?",
     "answer": 9.0,
     "unit": "m",
-    "solution": "Both hit the floor at $v = \\sqrt{2gh}$. The basketball rebounds at $+v$ while the superball is still moving at $-v$. In the basketball's frame the superball approaches at $2v$ and, in an elastic bounce off a much heavier body, leaves at $+2v$ in that frame \u2014 i.e. $3v$ in the lab. Height goes as $v^2$, so it rises $9h = 9.0\\ \\mathrm{m}$."
+    "solution": "Both hit the floor at $v = \\sqrt{2gh}$. The basketball rebounds at $+v$ while the superball is still moving at $-v$. In the basketball's frame the superball approaches at $2v$ and, in an elastic bounce off a much heavier body, leaves at $+2v$ in that frame: i.e. $3v$ in the lab. Height goes as $v^2$, so it rises $9h = 9.0\\ \\mathrm{m}$."
   },
   {
     "id": "we-coll-24",
@@ -4152,7 +4152,7 @@
     "statement": "Earth has mass $5.97\\times10^{24}\\ \\mathrm{kg}$ and the Moon $7.35\\times10^{22}\\ \\mathrm{kg}$, separated by $3.84\\times10^{8}\\ \\mathrm{m}$. How far from Earth's center is the system's center of mass, in m?",
     "answer": 4670141.4743,
     "unit": "m",
-    "solution": "$x_{\\rm cm} = \\frac{m_M d}{m_E+m_M} = \\frac{(7.35\\times10^{22})(3.84\\times10^{8})}{6.043\\times10^{24}} = 4.67\\times10^{6}\\ \\mathrm{m}$ \u2014 inside Earth, whose radius is $6.37\\times10^6\\ \\mathrm{m}$."
+    "solution": "$x_{\\rm cm} = \\frac{m_M d}{m_E+m_M} = \\frac{(7.35\\times10^{22})(3.84\\times10^{8})}{6.043\\times10^{24}} = 4.67\\times10^{6}\\ \\mathrm{m}$: inside Earth, whose radius is $6.37\\times10^6\\ \\mathrm{m}$."
   },
   {
     "id": "we-com-07",
@@ -4451,7 +4451,7 @@
     "statement": "A uniform semicircular plate (half-disk) has radius $0.60\\ \\mathrm{m}$. How far from the center of the straight edge is its center of mass, in m?",
     "answer": 0.2546,
     "unit": "m",
-    "solution": "Integrating strips of a half-disk gives $y_{\\rm cm} = \\frac{4R}{3\\pi} = \\frac{4(0.60)}{3\\pi} = 0.255\\ \\mathrm{m}$ \u2014 closer in than the $2R/\\pi$ of a semicircular wire, since a disk has more area near the flat edge."
+    "solution": "Integrating strips of a half-disk gives $y_{\\rm cm} = \\frac{4R}{3\\pi} = \\frac{4(0.60)}{3\\pi} = 0.255\\ \\mathrm{m}$: closer in than the $2R/\\pi$ of a semicircular wire, since a disk has more area near the flat edge."
   },
   {
     "id": "we-com-24",
@@ -5565,7 +5565,7 @@
     "statement": "A $40\\ \\mathrm{N}$ picture hangs from two wires attached to its top corners; each makes $25^\\circ$ with the horizontal. What is the tension in each wire, in N?",
     "answer": 47.324,
     "unit": "N",
-    "solution": "Vertical equilibrium: $2T\\sin25^\\circ = 40\\ \\mathrm{N}$, so $T = 40/(2\\times0.4226) = 47.3\\ \\mathrm{N}$ \u2014 more than half the weight, because the wires are nearly horizontal."
+    "solution": "Vertical equilibrium: $2T\\sin25^\\circ = 40\\ \\mathrm{N}$, so $T = 40/(2\\times0.4226) = 47.3\\ \\mathrm{N}$: more than half the weight, because the wires are nearly horizontal."
   },
   {
     "id": "rot-torque-28",
@@ -5619,7 +5619,7 @@
     "statement": "Four identical uniform bricks of length $0.20\\ \\mathrm{m}$ are stacked at a table edge for maximum overhang. What is the total overhang beyond the edge, in m?",
     "answer": 0.2083,
     "unit": "m",
-    "solution": "The classic harmonic-stack result: the $k$-th brick from the top can extend $L/(2k)$ beyond the one below. Total is $\\frac{L}{2}(1+\\tfrac12+\\tfrac13+\\tfrac14) = 0.10(2.0833) = 0.208\\ \\mathrm{m}$ \u2014 already more than one brick length."
+    "solution": "The classic harmonic-stack result: the $k$-th brick from the top can extend $L/(2k)$ beyond the one below. Total is $\\frac{L}{2}(1+\\tfrac12+\\tfrac13+\\tfrac14) = 0.10(2.0833) = 0.208\\ \\mathrm{m}$: already more than one brick length."
   },
   {
     "id": "rot-inertia-01",
@@ -6049,7 +6049,7 @@
     "statement": "A uniform rod of length $1.0\\ \\mathrm{m}$ swings as a pendulum about one end. What is the period of small oscillations, in s? ($T = 2\\pi\\sqrt{I/(Mgd)}$ with $d$ the pivot-to-center distance.)",
     "answer": 1.6388,
     "unit": "s",
-    "solution": "For a rod about its end, $I = \\tfrac13ML^2$ and $d = L/2$. Then $T = 2\\pi\\sqrt{\\frac{ML^2/3}{Mg L/2}} = 2\\pi\\sqrt{\\frac{2L}{3g}} = 1.64\\ \\mathrm{s}$ \u2014 the mass cancels."
+    "solution": "For a rod about its end, $I = \\tfrac13ML^2$ and $d = L/2$. Then $T = 2\\pi\\sqrt{\\frac{ML^2/3}{Mg L/2}} = 2\\pi\\sqrt{\\frac{2L}{3g}} = 1.64\\ \\mathrm{s}$: the mass cancels."
   },
   {
     "id": "rot-inertia-26",
@@ -6644,7 +6644,7 @@
     "statement": "A uniform rod of length $1.0\\ \\mathrm{m}$ hinged at one end is struck perpendicular by an impulsive force. At what distance from the hinge must the blow land so the hinge feels no impulsive reaction, in m?",
     "answer": 0.6667,
     "unit": "m",
-    "solution": "Let the blow be $J$ at distance $d$. Angular: $Jd = \\tfrac13ML^2\\omega$. Linear (no hinge impulse): $J = Mv_{\\rm cm} = M\\omega L/2$. Dividing, $d = \\tfrac23 L = 0.667\\ \\mathrm{m}$ \u2014 the 'sweet spot' of a bat."
+    "solution": "Let the blow be $J$ at distance $d$. Angular: $Jd = \\tfrac13ML^2\\omega$. Linear (no hinge impulse): $J = Mv_{\\rm cm} = M\\omega L/2$. Dividing, $d = \\tfrac23 L = 0.667\\ \\mathrm{m}$: the 'sweet spot' of a bat."
   },
   {
     "id": "rot-dyn-30",
@@ -6662,7 +6662,7 @@
     "statement": "A tall uniform chimney of height $30\\ \\mathrm{m}$ topples, pivoting about its base. What is the tangential acceleration of its very top when it has fallen to $60^\\circ$ from the vertical (i.e. $30^\\circ$ above horizontal), in m/s\u00b2?",
     "answer": 12.7306,
     "unit": "m/s^2",
-    "solution": "Torque about the base is $Mg\\tfrac{L}{2}\\cos\\theta$ with $\\theta$ measured from horizontal, and $I = \\tfrac13ML^2$, so $\\alpha = \\frac{3g\\cos\\theta}{2L} = 0.4244\\ \\mathrm{rad/s^2}$. The top's tangential acceleration is $\\alpha L = 12.7\\ \\mathrm{m/s^2}$, greater than $g$ \u2014 which is why tall chimneys snap partway up."
+    "solution": "Torque about the base is $Mg\\tfrac{L}{2}\\cos\\theta$ with $\\theta$ measured from horizontal, and $I = \\tfrac13ML^2$, so $\\alpha = \\frac{3g\\cos\\theta}{2L} = 0.4244\\ \\mathrm{rad/s^2}$. The top's tangential acceleration is $\\alpha L = 12.7\\ \\mathrm{m/s^2}$, greater than $g$, which is why tall chimneys snap partway up."
   },
   {
     "id": "rot-angmom-01",
@@ -6731,7 +6731,7 @@
     "statement": "For the skater above ($I$ from $4.0$ to $1.6\\ \\mathrm{kg\\,m^2}$, $\\omega$ from $2.0$ to $5.0\\ \\mathrm{rad/s}$), how much did her kinetic energy change, in J?",
     "answer": 12.0,
     "unit": "J",
-    "solution": "$K_i = \\tfrac12(4.0)(4.0) = 8.0\\ \\mathrm{J}$; $K_f = \\tfrac12(1.6)(25) = 20\\ \\mathrm{J}$. She gained $12\\ \\mathrm{J}$ \u2014 supplied by the muscular work of pulling her arms inward."
+    "solution": "$K_i = \\tfrac12(4.0)(4.0) = 8.0\\ \\mathrm{J}$; $K_f = \\tfrac12(1.6)(25) = 20\\ \\mathrm{J}$. She gained $12\\ \\mathrm{J}$: supplied by the muscular work of pulling her arms inward."
   },
   {
     "id": "rot-angmom-05",
@@ -6904,7 +6904,7 @@
     "statement": "For the two coupled disks above ($1.2$ and $0.80\\ \\mathrm{kg\\,m^2}$, initially $10$ and $0\\ \\mathrm{rad/s}$), how much kinetic energy is lost, in J?",
     "answer": 24.0,
     "unit": "J",
-    "solution": "$K_i = \\tfrac12(1.2)(100) = 60\\ \\mathrm{J}$; $K_f = \\tfrac12(2.0)(36) = 36\\ \\mathrm{J}$. The $24\\ \\mathrm{J}$ difference is dissipated by friction as they mesh \u2014 the rotational version of a perfectly inelastic collision."
+    "solution": "$K_i = \\tfrac12(1.2)(100) = 60\\ \\mathrm{J}$; $K_f = \\tfrac12(2.0)(36) = 36\\ \\mathrm{J}$. The $24\\ \\mathrm{J}$ difference is dissipated by friction as they mesh: the rotational version of a perfectly inelastic collision."
   },
   {
     "id": "rot-angmom-15",
@@ -7167,7 +7167,7 @@
     "statement": "A star of radius $7.0\\times10^{8}\\ \\mathrm{m}$ rotating once per $25$ days collapses to a uniform sphere of radius $1.2\\times10^{4}\\ \\mathrm{m}$ with no mass loss. What is the new rotation period, in s?",
     "answer": 0.0006,
     "unit": "s",
-    "solution": "For a uniform sphere $I \\propto R^2$, and $L = I\\omega$ is conserved, so $T \\propto R^2$. Then $T_2 = (25)(86400)(1.2\\times10^4/7.0\\times10^8)^2 = 6.35\\times10^{-4}\\ \\mathrm{s}$ \u2014 a millisecond pulsar."
+    "solution": "For a uniform sphere $I \\propto R^2$, and $L = I\\omega$ is conserved, so $T \\propto R^2$. Then $T_2 = (25)(86400)(1.2\\times10^4/7.0\\times10^8)^2 = 6.35\\times10^{-4}\\ \\mathrm{s}$: a millisecond pulsar."
   },
   {
     "id": "rot-angmom-30",
@@ -7218,7 +7218,7 @@
     "statement": "A ball rolls without slipping at $5.0\\ \\mathrm{m/s}$. What is the speed of the point touching the ground, in m/s?",
     "answer": 0.0,
     "unit": "m/s",
-    "solution": "Rolling without slipping means the contact point is instantaneously at rest \u2014 that is the definition. Its speed is $0$."
+    "solution": "Rolling without slipping means the contact point is instantaneously at rest: that is the definition. Its speed is $0$."
   },
   {
     "id": "rot-roll-03",
@@ -7443,7 +7443,7 @@
     "statement": "A solid sphere rolling at $6.0\\ \\mathrm{m/s}$ rolls without slipping up a hill. How high does it get, in m?",
     "answer": 2.5714,
     "unit": "m",
-    "solution": "$\\tfrac{7}{10}Mv^2 = Mgh$, so $h = 0.7(36)/9.8 = 2.57\\ \\mathrm{m}$ \u2014 higher than the $v^2/2g = 1.84\\ \\mathrm{m}$ a sliding block would reach, because it also carries rotational energy."
+    "solution": "$\\tfrac{7}{10}Mv^2 = Mgh$, so $h = 0.7(36)/9.8 = 2.57\\ \\mathrm{m}$: higher than the $v^2/2g = 1.84\\ \\mathrm{m}$ a sliding block would reach, because it also carries rotational energy."
   },
   {
     "id": "rot-roll-16",
@@ -10008,7 +10008,7 @@
     "statement": "A boat moving at $5.0\\ \\mathrm{m/s}$ relative to the water crosses a $100\\ \\mathrm{m}$ wide river with a $3.0\\ \\mathrm{m/s}$ current, aimed so that it lands directly opposite. How long does the crossing take, in s?",
     "answer": 25.0,
     "unit": "s",
-    "solution": "After cancelling the current, the across-river component is $\\sqrt{5^2-3^2} = 4.0\\ \\mathrm{m/s}$, so $t = \\frac{100}{4} = 25\\ \\mathrm{s}$ \u2014 longer than the $20\\ \\mathrm{s}$ minimum crossing time."
+    "solution": "After cancelling the current, the across-river component is $\\sqrt{5^2-3^2} = 4.0\\ \\mathrm{m/s}$, so $t = \\frac{100}{4} = 25\\ \\mathrm{s}$: longer than the $20\\ \\mathrm{s}$ minimum crossing time."
   },
   {
     "id": "kin-rel-13",
@@ -12176,7 +12176,7 @@
     "statement": "A $120$-turn coil of area $0.0040$ m\u00b2 sits perpendicular to a $0.25$ T field and is flipped through $180^\\circ$. The circuit resistance is $8.0$ $\\Omega$. Find the total charge that flows, in C.",
     "answer": 0.03,
     "unit": "C",
-    "solution": "The flux per turn reverses sign, so $|\\Delta\\Phi| = 2BA$, not $BA$ \u2014 this factor of two is the whole point of a flip coil. $$q = \\frac{2NBA}{R} = \\frac{2(120)(0.25)(0.0040)}{8.0} = 0.030\\ \\text{C}.$$"
+    "solution": "The flux per turn reverses sign, so $|\\Delta\\Phi| = 2BA$, not $BA$: this factor of two is the whole point of a flip coil. $$q = \\frac{2NBA}{R} = \\frac{2(120)(0.25)(0.0040)}{8.0} = 0.030\\ \\text{C}.$$"
   },
   {
     "id": "mag-far-17",
@@ -12408,7 +12408,7 @@
     "statement": "A conducting loop of mass $50$ g falls at its terminal speed through a horizontal field boundary, descending $0.80$ m while the drag force acts. Using $g = 9.8$ m/s\u00b2, find the energy dissipated in the loop's resistance, in J.",
     "answer": 0.392,
     "unit": "J",
-    "solution": "At terminal speed the kinetic energy never changes, so every joule of gravitational potential energy released must go into resistive heat: $$Q = mgh = (0.050)(9.8)(0.80) = 0.392\\ \\text{J}.$$ Neither $B$, $L$, nor $R$ is needed \u2014 they only set the speed, not the energy budget."
+    "solution": "At terminal speed the kinetic energy never changes, so every joule of gravitational potential energy released must go into resistive heat: $$Q = mgh = (0.050)(9.8)(0.80) = 0.392\\ \\text{J}.$$ Neither $B$, $L$, nor $R$ is needed: they only set the speed, not the energy budget."
   },
   {
     "id": "mag-far-30",
@@ -13854,7 +13854,7 @@
     "statement": "Air ($\\gamma = 1.40$) in a diesel cylinder starts at 310 K and is compressed adiabatically by a factor of 18 in volume. Find the final temperature in K.",
     "answer": 985.1,
     "unit": "K",
-    "solution": "$T_2 = T_1(V_1/V_2)^{\\gamma-1} = 310\\cdot 18^{0.40} \\approx 985.1$ K \u2014 hot enough to ignite the injected fuel without a spark."
+    "solution": "$T_2 = T_1(V_1/V_2)^{\\gamma-1} = 310\\cdot 18^{0.40} \\approx 985.1$ K: hot enough to ignite the injected fuel without a spark."
   },
   {
     "id": "th-first-22",
@@ -14085,7 +14085,7 @@
     "statement": "A gas has density 1.25 kg/m\u00b3 and its molecules have rms speed 493 m/s. Use $P = \\frac{1}{3}\\rho \\bar v^2$. Find the pressure in Pa.",
     "answer": 101300.0,
     "unit": "Pa",
-    "solution": "$P = \\frac{1}{3}\\rho v_{rms}^2 = \\frac{1}{3}(1.25)(493)^2 \\approx 1.013\\times10^{5}$ Pa \u2014 about one atmosphere, as expected for air at room temperature."
+    "solution": "$P = \\frac{1}{3}\\rho v_{rms}^2 = \\frac{1}{3}(1.25)(493)^2 \\approx 1.013\\times10^{5}$ Pa: about one atmosphere, as expected for air at room temperature."
   },
   {
     "id": "th-kin-05",
@@ -14292,7 +14292,7 @@
     "statement": "A vacuum chamber at 300 K is pumped to $1.00\\times10^{-3}$ Pa. The molecules have diameter $3.00\\times10^{-10}$ m. Use $k_B = 1.38\\times10^{-23}$ J/K and $\\lambda = k_BT/(\\sqrt{2}\\pi d^2 P)$. Find the mean free path in m.",
     "answer": 10.35,
     "unit": "m",
-    "solution": "Substituting $n = P/(k_BT)$ into $\\lambda = 1/(\\sqrt{2}\\pi d^2n)$ gives $\\lambda = k_BT/(\\sqrt{2}\\pi d^2P) = (1.38\\times10^{-23})(300)/(1.414\\pi(9.0\\times10^{-20})(10^{-3})) \\approx 10.35$ m \u2014 longer than the chamber, so molecules fly wall to wall."
+    "solution": "Substituting $n = P/(k_BT)$ into $\\lambda = 1/(\\sqrt{2}\\pi d^2n)$ gives $\\lambda = k_BT/(\\sqrt{2}\\pi d^2P) = (1.38\\times10^{-23})(300)/(1.414\\pi(9.0\\times10^{-20})(10^{-3})) \\approx 10.35$ m: longer than the chamber, so molecules fly wall to wall."
   },
   {
     "id": "th-kin-17",
@@ -14430,7 +14430,7 @@
     "statement": "The Moon's escape speed is 2380 m/s. Hydrogen has molar mass 0.00200 kg/mol; use $R = 8.31$ J/mol\u00b7K. Find the temperature at which the rms speed of H\u2082 equals the Moon's escape speed, in K.",
     "answer": 454.4,
     "unit": "K",
-    "solution": "Set $\\sqrt{3RT/M} = v_{esc}$, so $T = Mv_{esc}^2/(3R) = (0.00200)(2380)^2/(3\\times8.31) \\approx 454.4$ K. Even well below this, the fast tail of the distribution escapes \u2014 which is why the Moon has no hydrogen atmosphere."
+    "solution": "Set $\\sqrt{3RT/M} = v_{esc}$, so $T = Mv_{esc}^2/(3R) = (0.00200)(2380)^2/(3\\times8.31) \\approx 454.4$ K. Even well below this, the fast tail of the distribution escapes, which is why the Moon has no hydrogen atmosphere."
   },
   {
     "id": "th-kin-25",
@@ -18755,7 +18755,7 @@
     "statement": "A bat flies toward a cave wall at 5.00 m/s while emitting a steady 50.0 kHz call. The speed of sound is 343 m/s. What beat frequency does the bat detect between its own call and the returning echo, in Hz?",
     "answer": 1479.0,
     "unit": "Hz",
-    "solution": "The echo comes back double-shifted: $f''=f(v+u)/(v-u)=50000(348)/338=51479$ Hz. Beating against the emitted 50000 Hz gives $1.48\\times10^3$ Hz \u2014 bats use exactly this to judge closing speed."
+    "solution": "The echo comes back double-shifted: $f''=f(v+u)/(v-u)=50000(348)/338=51479$ Hz. Beating against the emitted 50000 Hz gives $1.48\\times10^3$ Hz: bats use exactly this to judge closing speed."
   },
   {
     "id": "wv-dopp-27",
@@ -37795,7 +37795,7 @@
     "statement": "Dry air breaks down at about $3.0\\times10^{6}\\,\\mathrm{V/m}$. Use $\\varepsilon_0=8.85\\times10^{-12}\\,\\mathrm{F/m}$. What is the electrostatic energy density of an air gap just at that field, in $\\mathrm{J/m^3}$?",
     "answer": 39.83,
     "unit": "J/m^3",
-    "solution": "The field energy density is $u=\\tfrac12\\varepsilon_0E^2$. So $u=\\tfrac12(8.85\\times10^{-12})(3.0\\times10^{6})^2=39.83\\,\\mathrm{J/m^3}$ \u2014 a reminder that air capacitors store very little energy per unit volume."
+    "solution": "The field energy density is $u=\\tfrac12\\varepsilon_0E^2$. So $u=\\tfrac12(8.85\\times10^{-12})(3.0\\times10^{6})^2=39.83\\,\\mathrm{J/m^3}$: a reminder that air capacitors store very little energy per unit volume."
   },
   {
     "id": "es-cond-29",
@@ -38205,7 +38205,7 @@
     "statement": "A slab of $\\kappa=6.0$ fills exactly half the thickness of a parallel-plate gap, with vacuum in the other half. By what factor is the capacitance increased over the empty value (dimensionless)?",
     "answer": 1.714,
     "unit": "",
-    "solution": "The two halves are in series: $\\dfrac{1}{C}=\\dfrac{d/2}{\\kappa\\varepsilon_0A}+\\dfrac{d/2}{\\varepsilon_0A}$, so $C/C_0=\\dfrac{2\\kappa}{1+\\kappa}$. With $\\kappa=6.0$ the factor is $12/7=1.714$ \u2014 far less than $\\kappa$, because the vacuum half dominates the series."
+    "solution": "The two halves are in series: $\\dfrac{1}{C}=\\dfrac{d/2}{\\kappa\\varepsilon_0A}+\\dfrac{d/2}{\\varepsilon_0A}$, so $C/C_0=\\dfrac{2\\kappa}{1+\\kappa}$. With $\\kappa=6.0$ the factor is $12/7=1.714$: far less than $\\kappa$, because the vacuum half dominates the series."
   },
   {
     "id": "es-diel-22",
@@ -38241,7 +38241,7 @@
     "statement": "A parallel-plate capacitor is held at $500\\,\\mathrm{V}$ by a battery. Its plates are $8.0\\,\\mathrm{cm}$ wide with a $0.50\\,\\mathrm{mm}$ gap, and a slab with $\\kappa=4.0$ is partly inserted. What is the magnitude of the force pulling the slab further in, in mN?",
     "answer": 0.531,
     "unit": "mN",
-    "solution": "At constant $V$ the force is $F=\\tfrac12V^2\\,dC/dx$ with $C(x)=\\dfrac{\\varepsilon_0w}{d}[L+(\\kappa-1)x]$, so $F=\\dfrac{(\\kappa-1)\\varepsilon_0wV^2}{2d}$ \u2014 independent of how far the slab is in. Numerically $F=(3)(8.85\\times10^{-12})(0.080)(2.5\\times10^{5})/(10^{-3})=5.310\\times10^{-4}\\,\\mathrm{N}=0.5310\\,\\mathrm{mN}$."
+    "solution": "At constant $V$ the force is $F=\\tfrac12V^2\\,dC/dx$ with $C(x)=\\dfrac{\\varepsilon_0w}{d}[L+(\\kappa-1)x]$, so $F=\\dfrac{(\\kappa-1)\\varepsilon_0wV^2}{2d}$: independent of how far the slab is in. Numerically $F=(3)(8.85\\times10^{-12})(0.080)(2.5\\times10^{5})/(10^{-3})=5.310\\times10^{-4}\\,\\mathrm{N}=0.5310\\,\\mathrm{mN}$."
   },
   {
     "id": "es-diel-24",
@@ -38277,7 +38277,7 @@
     "statement": "A cable insulation stack has $0.20\\,\\mathrm{mm}$ of material A ($\\kappa=3.0$, strength $20\\,\\mathrm{MV/m}$) on top of $0.30\\,\\mathrm{mm}$ of material B ($\\kappa=6.0$, strength $10\\,\\mathrm{MV/m}$). What is the maximum voltage across the stack before either layer breaks down, in V?",
     "answer": 7000.0,
     "unit": "V",
-    "solution": "$D=\\kappa\\varepsilon_0E$ is common to both layers, so the allowed $D$ is $\\min(\\kappa_1\\varepsilon_0E_1,\\kappa_2\\varepsilon_0E_2)$: A allows $D=5.31\\times10^{-4}$ and B allows $D=5.31\\times10^{-4}\\,\\mathrm{C/m^2}$ \u2014 they fail simultaneously. Then $V=E_1t_1+E_2t_2=(2.0\\times10^{7})(2.0\\times10^{-4})+(1.0\\times10^{7})(3.0\\times10^{-4})=7000\\,\\mathrm{V}$."
+    "solution": "$D=\\kappa\\varepsilon_0E$ is common to both layers, so the allowed $D$ is $\\min(\\kappa_1\\varepsilon_0E_1,\\kappa_2\\varepsilon_0E_2)$: A allows $D=5.31\\times10^{-4}$ and B allows $D=5.31\\times10^{-4}\\,\\mathrm{C/m^2}$: they fail simultaneously. Then $V=E_1t_1+E_2t_2=(2.0\\times10^{7})(2.0\\times10^{-4})+(1.0\\times10^{7})(3.0\\times10^{-4})=7000\\,\\mathrm{V}$."
   },
   {
     "id": "es-diel-26",
@@ -39880,7 +39880,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "In the same network \u2014 a $12\\ \\mathrm{V}$ battery with a left branch $R_1 = 1.0\\ \\mathrm{k\\Omega}$ to node $A$ then $R_2 = 1.0\\ \\mathrm{k\\Omega}$ to the negative terminal, a right branch $R_3 = 2.0\\ \\mathrm{k\\Omega}$ to node $B$ then $R_4 = 3.0\\ \\mathrm{k\\Omega}$ to the negative terminal, and a $47\\ \\mu\\mathrm{F}$ capacitor between $A$ and $B$ \u2014 find the time constant of the capacitor transient, in seconds.",
+    "statement": "In the same network: a $12\\ \\mathrm{V}$ battery with a left branch $R_1 = 1.0\\ \\mathrm{k\\Omega}$ to node $A$ then $R_2 = 1.0\\ \\mathrm{k\\Omega}$ to the negative terminal, a right branch $R_3 = 2.0\\ \\mathrm{k\\Omega}$ to node $B$ then $R_4 = 3.0\\ \\mathrm{k\\Omega}$ to the negative terminal, and a $47\\ \\mu\\mathrm{F}$ capacitor between $A$ and $B$: find the time constant of the capacitor transient, in seconds.",
     "answer": 0.0799,
     "unit": "s",
     "solution": "Replace the battery by a wire; then the two terminals merge, so from $A$ the pair $R_1\\|R_2 = 500\\ \\Omega$ is seen, and from $B$ the pair $R_3\\|R_4 = 1200\\ \\Omega$, in series through the capacitor. Thus $R_{th} = 1700\\ \\Omega$ and $\\tau = (1700)(4.7\\times10^{-5}) = 0.0799\\ \\mathrm{s}$."
@@ -39972,7 +39972,7 @@
     "statement": "A Wheatstone bridge runs from node $P$ to node $Q$. Arm $PA = 100\\ \\Omega$, arm $AQ = 200\\ \\Omega$, arm $PB = 300\\ \\Omega$, arm $BQ = 600\\ \\Omega$, and a galvanometer of $50\\ \\Omega$ connects $A$ to $B$. Find the resistance between $P$ and $Q$, in ohms.",
     "answer": 225.0,
     "unit": "ohm",
-    "solution": "The bridge is balanced because $100/200 = 300/600$, so $A$ and $B$ are at the same potential and the galvanometer carries no current \u2014 remove it. The two arms $300\\ \\Omega$ and $900\\ \\Omega$ are then in parallel: $R = (300)(900)/1200 = 225\\ \\Omega$."
+    "solution": "The bridge is balanced because $100/200 = 300/600$, so $A$ and $B$ are at the same potential and the galvanometer carries no current: remove it. The two arms $300\\ \\Omega$ and $900\\ \\Omega$ are then in parallel: $R = (300)(900)/1200 = 225\\ \\Omega$."
   },
   {
     "id": "ci-net-02",
@@ -42548,7 +42548,7 @@
     "statement": "A flat disk of radius $0.50$ m and total mass $2.0$ kg has an areal density that grows with radius as $\\sigma(r) = \\sigma_0 r$. Find its moment of inertia about the central axis perpendicular to the disk, in kg$\\cdot$m$^2$.",
     "answer": 0.3,
     "unit": "kg*m^2",
-    "solution": "Use rings, $dm = \\sigma_0 r(2\\pi r\\,dr)$. Then $M = 2\\pi\\sigma_0 R^3/3$ and $I = \\int r^2 dm = 2\\pi\\sigma_0 R^5/5$. Dividing, $I = \\tfrac35 MR^2 = 0.6(2.0)(0.25) = 0.30$ kg$\\cdot$m$^2$ \u2014 larger than $\\tfrac12 MR^2$ because mass sits farther out."
+    "solution": "Use rings, $dm = \\sigma_0 r(2\\pi r\\,dr)$. Then $M = 2\\pi\\sigma_0 R^3/3$ and $I = \\int r^2 dm = 2\\pi\\sigma_0 R^5/5$. Dividing, $I = \\tfrac35 MR^2 = 0.6(2.0)(0.25) = 0.30$ kg$\\cdot$m$^2$: larger than $\\tfrac12 MR^2$ because mass sits farther out."
   },
   {
     "id": "tk-int-28",
@@ -42818,7 +42818,7 @@
     "statement": "The Moon ($M = 7.35\\times10^{22}$ kg) is $d = 3.84\\times10^{8}$ m from Earth's center. Expanding $GM/(d\\mp R)^2$ to first order in $R/d$, the tidal acceleration at the sublunar point relative to Earth's center is $2GMR/d^3$. Compute it, with $R = 6.37\\times10^{6}$ m and $G = 6.674\\times10^{-11}$, in $\\mathrm{m/s^2}$.",
     "answer": 1.1e-06,
     "unit": "m/s^2",
-    "solution": "The tide comes from the *difference* in field across Earth, and that difference is the derivative $\\frac{d}{dr}(GM/r^2)\\,\\Delta r = -2GM R/d^3$ \u2014 a binomial expansion in disguise. Numerically $2(6.674\\times10^{-11})(7.35\\times10^{22})(6.37\\times10^{6})/(3.84\\times10^{8})^3 = 1.10\\times10^{-6}\\ \\mathrm{m/s^2}$, about $10^{-7}$ of $g$."
+    "solution": "The tide comes from the *difference* in field across Earth, and that difference is the derivative $\\frac{d}{dr}(GM/r^2)\\,\\Delta r = -2GM R/d^3$: a binomial expansion in disguise. Numerically $2(6.674\\times10^{-11})(7.35\\times10^{22})(6.37\\times10^{6})/(3.84\\times10^{8})^3 = 1.10\\times10^{-6}\\ \\mathrm{m/s^2}$, about $10^{-7}$ of $g$."
   },
   {
     "id": "tk-approx-13",
@@ -42854,7 +42854,7 @@
     "statement": "A student finds $g$ from $g = 4\\pi^2 L/T^2$. The length is known to $\\pm 0.20\\%$ and the period to $\\pm 0.10\\%$. Using a first-order Taylor expansion to propagate the errors (worst case, adding magnitudes), what is the percent uncertainty in $g$?",
     "answer": 0.4,
     "unit": "%",
-    "solution": "For a product of powers, $\\frac{\\delta g}{g} = \\frac{\\delta L}{L} + 2\\frac{\\delta T}{T}$ \u2014 each exponent multiplies its fractional error. That gives $0.20\\% + 2(0.10\\%) = 0.40\\%$. The period matters twice as much per percent, which is why one times many swings at once."
+    "solution": "For a product of powers, $\\frac{\\delta g}{g} = \\frac{\\delta L}{L} + 2\\frac{\\delta T}{T}$: each exponent multiplies its fractional error. That gives $0.20\\% + 2(0.10\\%) = 0.40\\%$. The period matters twice as much per percent, which is why one times many swings at once."
   },
   {
     "id": "tk-approx-15",
@@ -42944,7 +42944,7 @@
     "statement": "An airliner of proper length $60.0$ m flies at $250$ m/s. Using $\\sqrt{1-v^2/c^2} \\approx 1-\\frac{v^2}{2c^2}$, find how much shorter it is in the ground frame, in meters. Take $c = 3.00\\times10^{8}$ m/s.",
     "answer": 2.08e-11,
     "unit": "m",
-    "solution": "The contraction is $\\Delta L = L\\left(1-\\sqrt{1-\\beta^2}\\right) \\approx L\\beta^2/2$. With $\\beta^2 = (250/3.00\\times10^8)^2 = 6.94\\times10^{-13}$, $\\Delta L = (60.0)(3.47\\times10^{-13}) = 2.08\\times10^{-11}$ m \u2014 smaller than an atom. Trying to evaluate $\\sqrt{1-\\beta^2}$ on a calculator directly would return exactly 1."
+    "solution": "The contraction is $\\Delta L = L\\left(1-\\sqrt{1-\\beta^2}\\right) \\approx L\\beta^2/2$. With $\\beta^2 = (250/3.00\\times10^8)^2 = 6.94\\times10^{-13}$, $\\Delta L = (60.0)(3.47\\times10^{-13}) = 2.08\\times10^{-11}$ m: smaller than an atom. Trying to evaluate $\\sqrt{1-\\beta^2}$ on a calculator directly would return exactly 1."
   },
   {
     "id": "tk-approx-20",
@@ -43017,7 +43017,7 @@
     "statement": "The period of a pendulum swung to amplitude $\\theta_0$ is $T = T_0\\left(1+\\frac{\\theta_0^2}{16}+\\dots\\right)$, where $T_0 = 2\\pi\\sqrt{L/g}$ is the small-angle result. A clock is regulated assuming $T_0$ but actually swings to $\\theta_0 = 20^\\circ$. How many seconds does it lose per day?",
     "answer": 658.0,
     "unit": "s",
-    "solution": "The leading correction is quadratic in amplitude, so it comes from the $\\theta^3$ term of $\\sin\\theta$ that the small-angle approximation throws away. With $\\theta_0 = 0.3491$ rad, $\\theta_0^2/16 = 7.615\\times10^{-3}$. Over $86400$ s that is $(7.615\\times10^{-3})(86400) = 658$ s, about eleven minutes \u2014 small-angle errors are not always small."
+    "solution": "The leading correction is quadratic in amplitude, so it comes from the $\\theta^3$ term of $\\sin\\theta$ that the small-angle approximation throws away. With $\\theta_0 = 0.3491$ rad, $\\theta_0^2/16 = 7.615\\times10^{-3}$. Over $86400$ s that is $(7.615\\times10^{-3})(86400) = 658$ s, about eleven minutes: small-angle errors are not always small."
   },
   {
     "id": "tk-approx-24",
@@ -43127,7 +43127,7 @@
     "statement": "A GPS satellite orbits at $r = 2.656\\times10^{7}$ m. Two first-order effects shift its clock rate relative to a clock on Earth's surface ($R = 6.37\\times10^{6}$ m): the gravitational shift $\\frac{GM_E}{c^2}\\left(\\frac{1}{R}-\\frac{1}{r}\\right)$ makes it run fast, and the kinematic shift $\\frac{v^2}{2c^2}$ with $v^2 = GM_E/r$ makes it run slow. Find the net time the satellite clock gains per day, in microseconds. Use $GM_E = 3.986\\times10^{14}\\ \\mathrm{m^3/s^2}$ and $c = 3.00\\times10^{8}$ m/s.",
     "answer": 38.5,
     "unit": "us",
-    "solution": "Both effects are first-order expansions of square roots in $\\Phi/c^2$ and $v^2/c^2$, so they simply add. The gravitational term is $5.285\\times10^{-10}$ and the kinematic term is $8.34\\times10^{-11}$, giving a net fractional rate of $4.45\\times10^{-10}$. Over $86400$ s that is $(4.45\\times10^{-10})(86400) = 38.5\\ \\mu$s \u2014 uncorrected, this would push GPS positions off by more than $10$ km per day."
+    "solution": "Both effects are first-order expansions of square roots in $\\Phi/c^2$ and $v^2/c^2$, so they simply add. The gravitational term is $5.285\\times10^{-10}$ and the kinematic term is $8.34\\times10^{-11}$, giving a net fractional rate of $4.45\\times10^{-10}$. Over $86400$ s that is $(4.45\\times10^{-10})(86400) = 38.5\\ \\mu$s: uncorrected, this would push GPS positions off by more than $10$ km per day."
   },
   {
     "id": "tk-approx-30",
@@ -43146,7 +43146,7 @@
     "statement": "Because Earth rotates, a plumb bob at latitude $\\lambda$ hangs slightly off the true radial direction. The centrifugal acceleration $\\omega^2R\\cos\\lambda$ has a horizontal component $\\omega^2R\\cos\\lambda\\sin\\lambda$, and for a small deflection $\\tan\\delta \\approx \\delta$. Find the deflection at $\\lambda = 45^\\circ$, in degrees. Take $\\omega = 7.292\\times10^{-5}$ rad/s, $R = 6.37\\times10^{6}$ m, $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.099,
     "unit": "deg",
-    "solution": "The deflection satisfies $\\tan\\delta = \\frac{\\omega^2R\\sin\\lambda\\cos\\lambda}{g}$, and at $45^\\circ$ the product $\\sin\\lambda\\cos\\lambda = 1/2$. Then $\\delta \\approx \\omega^2R/(2g) = (5.317\\times10^{-9})(6.37\\times10^{6})/19.6 = 1.728\\times10^{-3}$ rad. Converting, $\\delta = 0.099^\\circ$, or about $6$ arcminutes \u2014 the maximum anywhere on Earth."
+    "solution": "The deflection satisfies $\\tan\\delta = \\frac{\\omega^2R\\sin\\lambda\\cos\\lambda}{g}$, and at $45^\\circ$ the product $\\sin\\lambda\\cos\\lambda = 1/2$. Then $\\delta \\approx \\omega^2R/(2g) = (5.317\\times10^{-9})(6.37\\times10^{6})/19.6 = 1.728\\times10^{-3}$ rad. Converting, $\\delta = 0.099^\\circ$, or about $6$ arcminutes: the maximum anywhere on Earth."
   },
   {
     "id": "tk-strat-01",

@@ -6,9 +6,9 @@ That pull is the whole topic. To explain it you need to know what an insulator d
 
 ## What an insulator does in a field
 
-A conductor in a field moves charge until the interior field is zero. An insulator cannot do that — its electrons are bound to their molecules. But they can shift *a little*. Each molecule stretches, positive charge leaning one way and negative the other, or, if the molecule is already lopsided like water, it rotates to line up. Either way, every molecule becomes a tiny dipole pointing along the applied field. This lining-up is called **polarization**, and a material that does it is a **dielectric**.
+A conductor in a field moves charge until the interior field is zero. An insulator cannot do that: its electrons are bound to their molecules. But they can shift *a little*. Each molecule stretches, positive charge leaning one way and negative the other, or, if the molecule is already lopsided like water, it rotates to line up. Either way, every molecule becomes a tiny dipole pointing along the applied field. This lining-up is called **polarization**, and a material that does it is a **dielectric**.
 
-Now look at a slab of them stacked head to tail. Inside the slab, the positive end of one molecule sits right next to the negative end of the next, and they cancel. Only the two faces are left uncancelled: a sheet of negative charge on the face nearest the positive plate, and a sheet of positive charge on the far face. That leftover is called **bound charge** — bound because you cannot scrape it off and carry it away, unlike the **free charge** you put on the plates with a battery.
+Now look at a slab of them stacked head to tail. Inside the slab, the positive end of one molecule sits right next to the negative end of the next, and they cancel. Only the two faces are left uncancelled: a sheet of negative charge on the face nearest the positive plate, and a sheet of positive charge on the far face. That leftover is called **bound charge**: bound because you cannot scrape it off and carry it away, unlike the **free charge** you put on the plates with a battery.
 
 Those two sheets are a parallel-plate pair of their own, and they point the wrong way: their field opposes the applied field. So the net field inside the slab is smaller than it would be in vacuum. How much smaller is a property of the material, and it gets a name. Define the **dielectric constant** $\kappa$ (kappa, sometimes written $\varepsilon_r$) by
 
@@ -38,7 +38,7 @@ $$C = \frac{Q}{V} = \frac{\kappa Q}{V_0} = \kappa C_0 = \frac{\kappa \varepsilon
 
 A dielectric multiplies capacitance by $\kappa$. That is one reason real capacitors are not built with air gaps. The other reason is **dielectric strength**: the field at which the material gives up, ionizes, and conducts. Air breaks down around $3\,\mathrm{MV/m}$; a good polymer film holds ten or twenty times that, so it survives a much larger voltage in a much thinner gap.
 
-**Example 1 — a film capacitor.** Plates of area $A = 0.012\,\mathrm{m^2}$ separated by $d = 0.20\,\mathrm{mm}$ of Mylar, $\kappa = 3.4$.
+**Example 1: a film capacitor.** Plates of area $A = 0.012\,\mathrm{m^2}$ separated by $d = 0.20\,\mathrm{mm}$ of Mylar, $\kappa = 3.4$.
 
 $$C = \frac{(3.4)(8.85\times10^{-12}\,\mathrm{F/m})(0.012\,\mathrm{m^2})}{2.0\times10^{-4}\,\mathrm{m}}$$
 
@@ -57,7 +57,7 @@ If the free surface charge density on those plates were $4.0\,\mu\mathrm{C/m^2}$
 
 Most problems do not hand you a gap that is uniformly filled, and there are exactly two ways to slice it.
 
-**Slabs stacked across the gap** (one layer on top of another, each spanning the full area). The same field lines pass through both layers, so the same free charge $Q$ sits on both sides of every layer. Same charge, and the voltages add up to the total — that is the definition of capacitors in **series**. Treat each layer as its own capacitor of gap $d_i$:
+**Slabs stacked across the gap** (one layer on top of another, each spanning the full area). The same field lines pass through both layers, so the same free charge $Q$ sits on both sides of every layer. Same charge, and the voltages add up to the total: that is the definition of capacitors in **series**. Treat each layer as its own capacitor of gap $d_i$:
 
 $$\frac{1}{C} = \frac{d_1}{\kappa_1\varepsilon_0 A} + \frac{d_2}{\kappa_2\varepsilon_0 A} + \cdots$$
 
@@ -75,7 +75,7 @@ If $\kappa$ varies smoothly instead of in steps, the series rule becomes an inte
 
 $$\frac{1}{C} = \int_0^d \frac{dx}{\kappa(x)\,\varepsilon_0 A}$$
 
-**Example 2 — which layer breaks down first.** A cable has $0.20\,\mathrm{mm}$ of material A ($\kappa = 3.0$, strength $20\,\mathrm{MV/m}$) on $0.30\,\mathrm{mm}$ of material B ($\kappa = 6.0$, strength $10\,\mathrm{MV/m}$). Find the largest voltage across the stack.
+**Example 2, which layer breaks down first.** A cable has $0.20\,\mathrm{mm}$ of material A ($\kappa = 3.0$, strength $20\,\mathrm{MV/m}$) on $0.30\,\mathrm{mm}$ of material B ($\kappa = 6.0$, strength $10\,\mathrm{MV/m}$). Find the largest voltage across the stack.
 
 Start from what is shared. These layers are in series, so the free charge density $\sigma_f$ is the same through both. The field in a layer is $\sigma_f/(\kappa\varepsilon_0)$, so
 
@@ -138,7 +138,7 @@ positive, meaning inward, and independent of $x$.
 
 *Battery disconnected, $Q$ fixed.* Nothing supplies energy, so $F = -dU/dx$ with $U = Q^2/2C$. Since $C$ grows with $x$, $U$ falls, and $F = (Q^2/2C^2)(dC/dx)$ is again positive and inward. The slab is pulled in either way. Only the size differs, and it differs because at fixed $Q$ the voltage sags as the slab enters.
 
-**Example 3 — the force at fixed voltage.** $V = 500\,\mathrm{V}$, $w = 8.0\,\mathrm{cm}$, $d = 0.50\,\mathrm{mm}$, $\kappa = 4.0$.
+**Example 3: the force at fixed voltage.** $V = 500\,\mathrm{V}$, $w = 8.0\,\mathrm{cm}$, $d = 0.50\,\mathrm{mm}$, $\kappa = 4.0$.
 
 $$F = \frac{(8.85\times10^{-12})(0.080)(4.0 - 1)(500)^2}{2(5.0\times10^{-4})}$$
 
@@ -148,9 +148,9 @@ Numerator: $8.85\times10^{-12} \times 0.080 = 7.08\times10^{-13}$; times $3.0$ i
   <Sim id="dielectrics-slab-force" />
 </Figure>
 
-**Example 4 — water climbing between plates.** Two vertical plates $0.50\,\mathrm{mm}$ apart dip into water ($\kappa = 80$, $\rho = 1000\,\mathrm{kg/m^3}$) and are held at $300\,\mathrm{V}$. How high does the water rise?
+**Example 4: water climbing between plates.** Two vertical plates $0.50\,\mathrm{mm}$ apart dip into water ($\kappa = 80$, $\rho = 1000\,\mathrm{kg/m^3}$) and are held at $300\,\mathrm{V}$. How high does the water rise?
 
-The water is the slab, and the same inward force acts on it — here that means upward. It stops rising when the electrical force balances the weight of the raised column. With the column a height $h$ up, its weight is $\rho g (w d h)$, where $wdh$ is the volume between the plates. Set that equal to the force, with $w$ cancelling from both sides:
+The water is the slab, and the same inward force acts on it: here that means upward. It stops rising when the electrical force balances the weight of the raised column. With the column a height $h$ up, its weight is $\rho g (w d h)$, where $wdh$ is the volume between the plates. Set that equal to the force, with $w$ cancelling from both sides:
 
 $$\frac{\varepsilon_0(\kappa - 1)V^2}{2d} = \rho g d h \quad\Longrightarrow\quad h = \frac{\varepsilon_0(\kappa - 1)V^2}{2\rho g d^2}$$
 
@@ -166,7 +166,7 @@ A last consequence of the same bookkeeping: release a frictionless slab into a l
 
 Reach for this lesson when a problem does any of the following.
 
-It names a material in a gap — plastic, oil, oxide, water — or gives you a number called $\kappa$ or $\varepsilon_r$. Then the first move is $C = \kappa \varepsilon_0 A/d$, or the series or parallel rule if the filling is partial.
+It names a material in a gap (plastic, oil, oxide, water) or gives you a number called $\kappa$ or $\varepsilon_r$. Then the first move is $C = \kappa \varepsilon_0 A/d$, or the series or parallel rule if the filling is partial.
 
 It gives more than one material, or a $\kappa$ that varies. Then draw the field lines and ask whether your slices are cut across them (series, add $1/C$, shared $Q$) or along them (parallel, add $C$, shared $V$). A varying $\kappa$ means the series integral.
 

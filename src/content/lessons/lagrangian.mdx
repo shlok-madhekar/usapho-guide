@@ -4,11 +4,11 @@ Now notice something. The normal force between block and wedge is the only thing
 
 ## Generalized coordinates
 
-Start by counting. A system's **degrees of freedom** is the number of numbers you need to pin down where everything is. A pendulum on a rigid rod: one number, the angle $\theta$. A bead threaded on a fixed parabolic wire: one, because $x$ determines $y = cx^2$. The block-and-wedge: two — how far the wedge has slid, and how far the block has slid along its face.
+Start by counting. A system's **degrees of freedom** is the number of numbers you need to pin down where everything is. A pendulum on a rigid rod: one number, the angle $\theta$. A bead threaded on a fixed parabolic wire: one, because $x$ determines $y = cx^2$. The block-and-wedge: two: how far the wedge has slid, and how far the block has slid along its face.
 
 Any set of independent numbers that does the job is a set of **generalized coordinates**, written $q_1, q_2, \dots$ They need not be lengths. An angle is fine, an arc length is fine, a mixture is fine.
 
-The whole trick is in the choice. If you describe the bead on the wire by $x$ and $y$ separately, you need an extra equation, $y = cx^2$, and the wire has to push on the bead to enforce it — so a normal force enters your equations. If you describe it by $x$ alone, the constraint is already true by construction and there is nothing left for the wire to enforce. The constraint force has been absorbed into the choice of coordinate.
+The whole trick is in the choice. If you describe the bead on the wire by $x$ and $y$ separately, you need an extra equation, $y = cx^2$, and the wire has to push on the bead to enforce it, so a normal force enters your equations. If you describe it by $x$ alone, the constraint is already true by construction and there is nothing left for the wire to enforce. The constraint force has been absorbed into the choice of coordinate.
 
 This works because ideal constraint forces do no work. A normal force is perpendicular to the surface, and the allowed motion is along the surface. A rod's tension is along the rod, and the bob moves perpendicular to it. A rolling contact point is instantaneously at rest. None of them transfers energy, so none of them shows up in an energy-based formulation.
 
@@ -81,7 +81,7 @@ There is the cross term. The kinetic energy is $T = \tfrac12 M\dot X^2 + \tfrac1
 
 $$L = \tfrac12(M+m)\dot X^2 + m\dot X\dot s\cos\alpha + \tfrac12 m\dot s^2 + mgs\sin\alpha$$
 
-Coordinate $X$ does not appear in $L$ — only $\dot X$ does. So $\partial L/\partial X = 0$ and the Euler–Lagrange equation says $(M+m)\dot X + m\dot s\cos\alpha$ stays constant. That is just horizontal momentum conservation, handed to you for free. Differentiating once,
+Coordinate $X$ does not appear in $L$, only $\dot X$ does. So $\partial L/\partial X = 0$ and the Euler–Lagrange equation says $(M+m)\dot X + m\dot s\cos\alpha$ stays constant. That is just horizontal momentum conservation, handed to you for free. Differentiating once,
 
 $$(M+m)\ddot X + m\ddot s\cos\alpha = 0$$
 
@@ -104,7 +104,7 @@ $$|\ddot X| = \frac{mg\sin\alpha\cos\alpha}{M + m\sin^2\alpha}$$
 Numbers: $\sin 30^\circ = 0.500$, $\cos 30^\circ = 0.866$. Top: $2.0 \times 9.80 \times 0.500 \times 0.866 = 8.49$. Bottom: $5.0 + 2.0(0.250) = 5.50$. So $|\ddot X| = 8.49/5.50 = 1.54$ m/s². Figure 1 lets you check the limits: make $M$ huge and the wedge acceleration goes to zero, as it must.
 
 <Aside label="Worth remembering">
-  A coordinate that appears in $L$ only through its derivative is called **ignorable** or **cyclic**, and its conjugate momentum $\partial L/\partial\dot q$ is conserved. An ignorable position gives conservation of linear momentum. An ignorable angle gives conservation of angular momentum — that is why a puck on a string pulled through a hole in a table obeys $vr = \text{constant}$, so shrinking the radius from 0.50 m to 0.20 m multiplies a 2.0 m/s speed by 2.5.
+  A coordinate that appears in $L$ only through its derivative is called **ignorable** or **cyclic**, and its conjugate momentum $\partial L/\partial\dot q$ is conserved. An ignorable position gives conservation of linear momentum. An ignorable angle gives conservation of angular momentum: that is why a puck on a string pulled through a hole in a table obeys $vr = \text{constant}$, so shrinking the radius from 0.50 m to 0.20 m multiplies a 2.0 m/s speed by 2.5.
 </Aside>
 
 ## Rigid bodies and rolling
@@ -182,7 +182,7 @@ When two coordinates are both small, expand to quadratic order and you get
 
 $$L \approx \tfrac12\left(a_{11}\dot u_1^2 + 2a_{12}\dot u_1\dot u_2 + a_{22}\dot u_2^2\right) - \tfrac12\left(b_{11}u_1^2 + 2b_{12}u_1u_2 + b_{22}u_2^2\right)$$
 
-Assume both coordinates oscillate at the same frequency, $u_i \propto \cos\omega t$, substitute, and you are left with a pair of linear equations that have a non-zero solution only when the determinant vanishes. The condition is $\det(B - \omega^2 A) = 0$ — a quadratic in $\omega^2$ giving two roots, the two **normal mode** frequencies.
+Assume both coordinates oscillate at the same frequency, $u_i \propto \cos\omega t$, substitute, and you are left with a pair of linear equations that have a non-zero solution only when the determinant vanishes. The condition is $\det(B - \omega^2 A) = 0$: a quadratic in $\omega^2$ giving two roots, the two **normal mode** frequencies.
 
 Take a pendulum of length $L = 0.80$ m, bob $m = 0.50$ kg, hanging from a cart of mass $M = 2.0$ kg that is free to slide. The bob's position is $x + L\sin\theta$ and $-L\cos\theta$, so
 
@@ -192,7 +192,7 @@ $x$ is ignorable, so $(M+m)\dot x + mL\dot\theta\cos\theta$ is conserved; starti
 
 $$mL^2\ddot\theta\left(1 - \frac{m}{M+m}\right) = -mgL\theta \quad\Longrightarrow\quad \omega^2 = \frac{g(M+m)}{ML}$$
 
-Numbers: $9.80(2.5)/(2.0 \times 0.80) = 24.5/1.60 = 15.3$, so $\omega = 3.91$ rad/s — faster than the $3.50$ rad/s a fixed pivot would give, because the recoiling cart lets the bob take a shorter path. One of the two modes here is the free sliding of the whole system, at $\omega = 0$. Put a spring on the cart and that zero mode becomes a real frequency, and you must solve the full determinant.
+Numbers: $9.80(2.5)/(2.0 \times 0.80) = 24.5/1.60 = 15.3$, so $\omega = 3.91$ rad/s: faster than the $3.50$ rad/s a fixed pivot would give, because the recoiling cart lets the bob take a shorter path. One of the two modes here is the free sliding of the whole system, at $\omega = 0$. Put a spring on the cart and that zero mode becomes a real frequency, and you must solve the full determinant.
 
 <Figure caption={<><b>Figure 3.</b> Watch the cart recoil as the bob swings. The readout compares the coupled frequency with what a nailed-down pivot would give. Make the cart heavy and the difference disappears.</>}>
   <Sim id="lagrangian-cart-pendulum" />
@@ -212,6 +212,6 @@ Four signals, any one of which is enough:
 
 **Something rotates or is forced at a fixed rate.** A spinning hoop, a rotating rod, a turntable groove. Fold the imposed motion into $T$, sweep the $\theta$-only terms into an effective potential, and read equilibria off its minima.
 
-The counter-signal matters too. If a problem asks for a constraint force — the tension in the rod, the normal force from the sphere, the angle where a block leaves a surface — the Lagrangian will not hand it to you directly, because you deliberately threw it away. Get the motion from the Lagrangian, then go back to $F = ma$ in the radial direction for that one force. That is exactly how the block-leaving-a-sphere problem goes: energy conservation gives $v^2$ as a function of angle, then $mg\cos\theta - N = mv^2/R$ with $N = 0$ gives $\cos\theta = 2/3$, so $\theta = 48.2^\circ$.
+The counter-signal matters too. If a problem asks for a constraint force (the tension in the rod, the normal force from the sphere, the angle where a block leaves a surface) the Lagrangian will not hand it to you directly, because you deliberately threw it away. Get the motion from the Lagrangian, then go back to $F = ma$ in the radial direction for that one force. That is exactly how the block-leaving-a-sphere problem goes: energy conservation gives $v^2$ as a function of angle, then $mg\cos\theta - N = mv^2/R$ with $N = 0$ gives $\cos\theta = 2/3$, so $\theta = 48.2^\circ$.
 
 The effective-potential idea you met with the spinning hoop is the same machinery that governs orbits, and the two-coordinate determinant is the engine behind [coupled oscillators and normal modes](/guide/coupled-oscillators), which is where this goes next.

@@ -5837,7 +5837,7 @@
     "statement": "Dry air breaks down at about $3.0\\times10^{6}\\,\\mathrm{V/m}$. Use $\\varepsilon_0=8.85\\times10^{-12}\\,\\mathrm{F/m}$. What is the electrostatic energy density of an air gap just at that field, in $\\mathrm{J/m^3}$?",
     "answer": 39.83,
     "unit": "J/m^3",
-    "solution": "The field energy density is $u=\\tfrac12\\varepsilon_0E^2$. So $u=\\tfrac12(8.85\\times10^{-12})(3.0\\times10^{6})^2=39.83\\,\\mathrm{J/m^3}$ — a reminder that air capacitors store very little energy per unit volume."
+    "solution": "The field energy density is $u=\\tfrac12\\varepsilon_0E^2$. So $u=\\tfrac12(8.85\\times10^{-12})(3.0\\times10^{6})^2=39.83\\,\\mathrm{J/m^3}$: a reminder that air capacitors store very little energy per unit volume."
   },
   {
     "id": "es-cond-29",
@@ -6247,7 +6247,7 @@
     "statement": "A slab of $\\kappa=6.0$ fills exactly half the thickness of a parallel-plate gap, with vacuum in the other half. By what factor is the capacitance increased over the empty value (dimensionless)?",
     "answer": 1.714,
     "unit": "",
-    "solution": "The two halves are in series: $\\dfrac{1}{C}=\\dfrac{d/2}{\\kappa\\varepsilon_0A}+\\dfrac{d/2}{\\varepsilon_0A}$, so $C/C_0=\\dfrac{2\\kappa}{1+\\kappa}$. With $\\kappa=6.0$ the factor is $12/7=1.714$ — far less than $\\kappa$, because the vacuum half dominates the series."
+    "solution": "The two halves are in series: $\\dfrac{1}{C}=\\dfrac{d/2}{\\kappa\\varepsilon_0A}+\\dfrac{d/2}{\\varepsilon_0A}$, so $C/C_0=\\dfrac{2\\kappa}{1+\\kappa}$. With $\\kappa=6.0$ the factor is $12/7=1.714$: far less than $\\kappa$, because the vacuum half dominates the series."
   },
   {
     "id": "es-diel-22",
@@ -6283,7 +6283,7 @@
     "statement": "A parallel-plate capacitor is held at $500\\,\\mathrm{V}$ by a battery. Its plates are $8.0\\,\\mathrm{cm}$ wide with a $0.50\\,\\mathrm{mm}$ gap, and a slab with $\\kappa=4.0$ is partly inserted. What is the magnitude of the force pulling the slab further in, in mN?",
     "answer": 0.531,
     "unit": "mN",
-    "solution": "At constant $V$ the force is $F=\\tfrac12V^2\\,dC/dx$ with $C(x)=\\dfrac{\\varepsilon_0w}{d}[L+(\\kappa-1)x]$, so $F=\\dfrac{(\\kappa-1)\\varepsilon_0wV^2}{2d}$ — independent of how far the slab is in. Numerically $F=(3)(8.85\\times10^{-12})(0.080)(2.5\\times10^{5})/(10^{-3})=5.310\\times10^{-4}\\,\\mathrm{N}=0.5310\\,\\mathrm{mN}$."
+    "solution": "At constant $V$ the force is $F=\\tfrac12V^2\\,dC/dx$ with $C(x)=\\dfrac{\\varepsilon_0w}{d}[L+(\\kappa-1)x]$, so $F=\\dfrac{(\\kappa-1)\\varepsilon_0wV^2}{2d}$: independent of how far the slab is in. Numerically $F=(3)(8.85\\times10^{-12})(0.080)(2.5\\times10^{5})/(10^{-3})=5.310\\times10^{-4}\\,\\mathrm{N}=0.5310\\,\\mathrm{mN}$."
   },
   {
     "id": "es-diel-24",
@@ -6319,7 +6319,7 @@
     "statement": "A cable insulation stack has $0.20\\,\\mathrm{mm}$ of material A ($\\kappa=3.0$, strength $20\\,\\mathrm{MV/m}$) on top of $0.30\\,\\mathrm{mm}$ of material B ($\\kappa=6.0$, strength $10\\,\\mathrm{MV/m}$). What is the maximum voltage across the stack before either layer breaks down, in V?",
     "answer": 7000.0,
     "unit": "V",
-    "solution": "$D=\\kappa\\varepsilon_0E$ is common to both layers, so the allowed $D$ is $\\min(\\kappa_1\\varepsilon_0E_1,\\kappa_2\\varepsilon_0E_2)$: A allows $D=5.31\\times10^{-4}$ and B allows $D=5.31\\times10^{-4}\\,\\mathrm{C/m^2}$ — they fail simultaneously. Then $V=E_1t_1+E_2t_2=(2.0\\times10^{7})(2.0\\times10^{-4})+(1.0\\times10^{7})(3.0\\times10^{-4})=7000\\,\\mathrm{V}$."
+    "solution": "$D=\\kappa\\varepsilon_0E$ is common to both layers, so the allowed $D$ is $\\min(\\kappa_1\\varepsilon_0E_1,\\kappa_2\\varepsilon_0E_2)$: A allows $D=5.31\\times10^{-4}$ and B allows $D=5.31\\times10^{-4}\\,\\mathrm{C/m^2}$: they fail simultaneously. Then $V=E_1t_1+E_2t_2=(2.0\\times10^{7})(2.0\\times10^{-4})+(1.0\\times10^{7})(3.0\\times10^{-4})=7000\\,\\mathrm{V}$."
   },
   {
     "id": "es-diel-26",
@@ -7922,7 +7922,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "In the same network — a $12\\ \\mathrm{V}$ battery with a left branch $R_1 = 1.0\\ \\mathrm{k\\Omega}$ to node $A$ then $R_2 = 1.0\\ \\mathrm{k\\Omega}$ to the negative terminal, a right branch $R_3 = 2.0\\ \\mathrm{k\\Omega}$ to node $B$ then $R_4 = 3.0\\ \\mathrm{k\\Omega}$ to the negative terminal, and a $47\\ \\mu\\mathrm{F}$ capacitor between $A$ and $B$ — find the time constant of the capacitor transient, in seconds.",
+    "statement": "In the same network: a $12\\ \\mathrm{V}$ battery with a left branch $R_1 = 1.0\\ \\mathrm{k\\Omega}$ to node $A$ then $R_2 = 1.0\\ \\mathrm{k\\Omega}$ to the negative terminal, a right branch $R_3 = 2.0\\ \\mathrm{k\\Omega}$ to node $B$ then $R_4 = 3.0\\ \\mathrm{k\\Omega}$ to the negative terminal, and a $47\\ \\mu\\mathrm{F}$ capacitor between $A$ and $B$: find the time constant of the capacitor transient, in seconds.",
     "answer": 0.0799,
     "unit": "s",
     "solution": "Replace the battery by a wire; then the two terminals merge, so from $A$ the pair $R_1\\|R_2 = 500\\ \\Omega$ is seen, and from $B$ the pair $R_3\\|R_4 = 1200\\ \\Omega$, in series through the capacitor. Thus $R_{th} = 1700\\ \\Omega$ and $\\tau = (1700)(4.7\\times10^{-5}) = 0.0799\\ \\mathrm{s}$."
@@ -8014,7 +8014,7 @@
     "statement": "A Wheatstone bridge runs from node $P$ to node $Q$. Arm $PA = 100\\ \\Omega$, arm $AQ = 200\\ \\Omega$, arm $PB = 300\\ \\Omega$, arm $BQ = 600\\ \\Omega$, and a galvanometer of $50\\ \\Omega$ connects $A$ to $B$. Find the resistance between $P$ and $Q$, in ohms.",
     "answer": 225.0,
     "unit": "ohm",
-    "solution": "The bridge is balanced because $100/200 = 300/600$, so $A$ and $B$ are at the same potential and the galvanometer carries no current — remove it. The two arms $300\\ \\Omega$ and $900\\ \\Omega$ are then in parallel: $R = (300)(900)/1200 = 225\\ \\Omega$."
+    "solution": "The bridge is balanced because $100/200 = 300/600$, so $A$ and $B$ are at the same potential and the galvanometer carries no current: remove it. The two arms $300\\ \\Omega$ and $900\\ \\Omega$ are then in parallel: $R = (300)(900)/1200 = 225\\ \\Omega$."
   },
   {
     "id": "ci-net-02",

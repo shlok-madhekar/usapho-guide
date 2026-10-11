@@ -1,5 +1,5 @@
 Physics is the habit of asking how big something is. Before you can ask that,
-you have to agree on what "big" means — and that agreement is the whole content
+you have to agree on what "big" means, and that agreement is the whole content
 of units. It sounds like bookkeeping. It isn't. Units carry real information
 about how the world is put together, and if you learn to listen to them they
 will hand you the shape of an answer before you have written a single line of
@@ -57,16 +57,15 @@ you put dimensions in, and if the two sides disagree you have found a mistake
 without checking a single algebraic step.
 
 Suppose you produce $T = 2\pi\sqrt{g/L}$ for a pendulum period. Check:
-$g/L$ has dimensions $LT^{-2}/L = T^{-2}$, so the square root is $T^{-1}$ —
-a per-second, not a second. The fraction is upside down. Ten seconds of work,
+$g/L$ has dimensions $LT^{-2}/L = T^{-2}$, so the square root is $T^{-1}$: a per-second, not a second. The fraction is upside down. Ten seconds of work,
 and you caught it.
 
-<Figure caption={<><b>Figure 1.</b> The right way up — period equals two pi times the
-square root of length over gravity — running live.
+<Figure caption={<><b>Figure 1.</b> The right way up (period equals two pi times the
+square root of length over gravity) running live.
 Notice what the readout does: quadruple the length and the period only doubles, because
 of the square root. Then drag gravity down to lunar values near 1.6 and watch the same
 pendulum take about two and a half times as long. There is no mass slider, because mass
-cannot appear — it is the only quantity carrying the mass dimension, so its exponent has
+cannot appear: it is the only quantity carrying the mass dimension, so its exponent has
 to be zero.</>}>
   <Sim id="units-estimation-pendulum" />
 </Figure>
@@ -90,7 +89,7 @@ dimensions often pin down the answer up to a pure number.
 
 The recipe: write the unknown as a product of powers of the given quantities
 with unknown exponents, demand that the dimensions match, and solve the
-resulting small linear system — one equation for $M$, one for $L$, one for $T$.
+resulting small linear system: one equation for $M$, one for $L$, one for $T$.
 
 Take a wave on a guitar string. Physically its speed can only be set by the
 tension $T_s$ in the string and the mass per unit length $\mu$. (Calling
@@ -105,7 +104,7 @@ $$LT^{-1} = (MLT^{-2})^a (ML^{-1})^b = M^{a+b}\,L^{a-b}\,T^{-2a}$$
 
 Now read off one equation per dimension. Mass: $0 = a+b$. Length: $1 = a-b$.
 Time: $-1 = -2a$, so $a = 1/2$ immediately. Then $b = -1/2$ from the mass
-equation, and the length equation $1 = 1/2 - (-1/2) = 1$ checks out — a free
+equation, and the length equation $1 = 1/2 - (-1/2) = 1$ checks out: a free
 consistency test that the answer exists at all. So
 
 $$v = C\sqrt{T_s/\mu}$$
@@ -198,7 +197,7 @@ $$
 
 $$
 
-The factor is $10^3$, not $10^2$ — cubing the length conversion is exactly
+The factor is $10^3$, not $10^2$: cubing the length conversion is exactly
 where people lose it.
 
 <QuickCheck
@@ -210,7 +209,7 @@ where people lose it.
 
 ## Scaling arguments
 
-Often you don't want a number — you want a ratio. Then you don't need any
+Often you don't want a number: you want a ratio. Then you don't need any
 constants at all, because they cancel.
 
 Two hailstones have the same shape and density, but one is eight times heavier.
@@ -287,8 +286,7 @@ v^c$ and asks for an exponent, or hands you a dimensionless factor
 factor is the tell: the problem is telling you it knows you can only get the
 answer up to a pure number.
 
-Reach for a scaling argument when the problem gives a ratio instead of a value
-— "eight times the mass", "four times the radius" — and asks by what factor
+Reach for a scaling argument when the problem gives a ratio instead of a value ("eight times the mass", "four times the radius") and asks by what factor
 something changes. Never compute both cases; divide.
 
 Reach for estimation when the problem supplies a pile of everyday facts with no

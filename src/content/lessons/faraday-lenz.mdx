@@ -15,7 +15,7 @@ grid are the same problem.
 ## Flux: how much field goes through the loop
 
 The first thing to build is a number that says how much magnetic field is
-threading a loop of wire. Field strength alone is not enough — a strong field
+threading a loop of wire. Field strength alone is not enough: a strong field
 sliding past the *edge* of a loop does nothing, and a loop twice as big catches
 twice as much of the same field. So the quantity has to involve the field, the
 area, and the angle between them.
@@ -25,7 +25,7 @@ That quantity is the **magnetic flux**:
 $$\Phi_B = \int \vec B \cdot d\vec A = BA\cos\theta \ \ \text{(uniform field, flat loop)}$$
 
 Here $A$ is the area of the loop in square metres, $B$ is the field in tesla,
-and $\theta$ is the angle between $\vec B$ and the *normal* to the loop — the
+and $\theta$ is the angle between $\vec B$ and the *normal* to the loop: the
 direction sticking straight out of the loop's face, perpendicular to it. When
 the field runs straight through the face, $\theta = 0$ and $\Phi_B = BA$. When
 the field lies in the plane of the loop, skimming past it, $\theta = 90^\circ$
@@ -48,7 +48,7 @@ current. Careful measurement gives the law exactly:
 
 $$\mathcal{E} = -N\frac{d\Phi_B}{dt}$$
 
-$\mathcal{E}$ is the **EMF** — electromotive force, which is not a force at all
+$\mathcal{E}$ is the **EMF**: electromotive force, which is not a force at all
 but a voltage, measured in volts. It is the push per unit charge that the loop
 supplies, the same role a battery plays in a circuit. $N$ is the number of
 turns, because each turn is its own loop in series with the rest and the pushes
@@ -91,7 +91,7 @@ you could not feel. That is why pickup coils have many turns.
 ## Lenz's law: getting the direction right
 
 The minus sign says: **the induced current flows in whatever direction fights
-the change that produced it.** Not the field — the *change*.
+the change that produced it.** Not the field: the *change*.
 
 That is a statement about energy, not about sign conventions. If the induced
 current helped the change along, the change would drive more current, which
@@ -175,7 +175,7 @@ $d\Phi/dt = \frac{\mu_0 I L}{2\pi}\left(\frac{1}{b} - \frac{1}{a}\right)v$.
   the area. Because $1/r$ is curved, the average of the field is not the field
   at the average position, and you will be off by several percent or more. The
   shortcut is legitimate only when the loop is small compared with its distance
-  from the source — a small loop at the centre of a big one, for example, where
+  from the source: a small loop at the centre of a big one, for example, where
   you may treat $B = \mu_0 I / 2R$ as uniform across the little loop.
 </Aside>
 
@@ -191,7 +191,7 @@ and the current is $I = BLv/R$. But that current is sitting in the field, so
 the rod feels a force $F = BIL = B^2L^2v/R$, and by Lenz's law it points
 backwards, against the motion. To hold the rod at constant speed you must push
 with that force, doing work at a rate $Fv = B^2L^2v^2/R$, which is exactly
-$\mathcal{E}^2/R$ — the power appearing as heat in the resistor. Nothing is
+$\mathcal{E}^2/R$: the power appearing as heat in the resistor. Nothing is
 free, and nothing is lost.
 
 <Figure caption={<><b>Figure 3.</b> Slide the speed up and watch four numbers move together. The drag grows as the square of the speed while the EMF grows linearly, which is what makes a terminal speed exist. Set the resistance low and see the drag get much larger.</>}>
@@ -220,8 +220,7 @@ gravity delivers goes into the resistor:
 
 $$Q = mgh = (0.020)(9.8)(0.80) = 0.157\ \text{J}$$
 
-That trick — energy in equals heat out, whenever the speed is constant —
-turns several genuinely hard problems into one line.
+That trick (energy in equals heat out, whenever the speed is constant) turns several genuinely hard problems into one line.
 
 Two relatives of the sliding rod are worth knowing. A flat coil of $N$ turns
 and area $A$ spinning at angular frequency $\omega$ in a field $B$ has
@@ -237,7 +236,7 @@ from the force-on-a-charge side and shows why both pictures agree.
 
 Sometimes a problem asks not for a current but for the total charge that flows
 during some change. The current is changing throughout, so you have to
-integrate — and the integral collapses:
+integrate, and the integral collapses:
 
 $$q = \int I\,dt = \int \frac{N}{R}\frac{d\Phi}{dt}dt = \frac{N\,\Delta\Phi}{R}$$
 
@@ -263,7 +262,7 @@ Written for the field itself, Faraday's law is
 
 $$\oint \vec E \cdot d\vec\ell = -\frac{d\Phi_B}{dt}$$
 
-For a region of circular symmetry — inside a long solenoid, say — the induced
+For a region of circular symmetry (inside a long solenoid, say) the induced
 $\vec E$ runs in circles, so the integral around a circle of radius $r$ is
 $E(2\pi r)$ and you can solve for $E$ the way Ampère's law gives you $B$.
 
@@ -293,7 +292,7 @@ Then sort it by what is changing, because that decides the algebra:
   a current in another wire, find $B$ from Ampère or Biot-Savart first, then
   differentiate.
 - **Area changes.** Sliding rod, collapsing loop, shrinking radius. Write $A(t)$
-  and differentiate — for a circle of shrinking radius, $d(\pi r^2)/dt =
+  and differentiate: for a circle of shrinking radius, $d(\pi r^2)/dt =
   2\pi r\,\dot r$.
 - **Orientation changes.** Spinning coil, coil flipped over. $\cos\omega t$, a
   sinusoidal EMF, and a factor of two on a full flip.
@@ -303,5 +302,5 @@ Then sort it by what is changing, because that decides the algebra:
 Finally, watch what is being asked for. If it is a charge, use $q = N\Delta\Phi/R$
 and do not touch the timing. If it is a force or a terminal speed, go in order:
 EMF, then current, then $F = BIL$, then balance. If it is heat, ask whether the
-kinetic energy is constant — if it is, the work done against the drag is the
+kinetic energy is constant: if it is, the work done against the drag is the
 heat, and you never need the current at all.

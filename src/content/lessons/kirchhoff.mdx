@@ -8,7 +8,7 @@ Ohm's law finishes the job.
 Now picture five resistors wired like a ladder with one rung: a source feeds
 node S, two resistors run from S down to two middle nodes A and B, two more run
 from A and B down to ground, and a fifth resistor bridges A straight across to
-B. Look for a series pair. There isn't one — every resistor has a third wire
+B. Look for a series pair. There isn't one: every resistor has a third wire
 landing on one of its ends. Look for a parallel pair. There isn't one of those
 either. The network is perfectly ordinary and it cannot be simplified by
 inspection at all.
@@ -20,7 +20,7 @@ marks get lost.
 
 ## Charge does not pile up: the junction rule
 
-Take any point where wires meet — call it a junction, or a node. Charge is
+Take any point where wires meet: call it a junction, or a node. Charge is
 conserved, and a wire junction is a tiny piece of metal with essentially no
 capacity to store charge. If more charge arrived per second than left, the node
 would build up charge without limit, and its potential would climb without
@@ -72,7 +72,7 @@ above its negative plate, no matter which way the current runs through it. Walk
 in at the minus plate and out at the plus plate and you have climbed, so the
 term is $+\mathcal{E}$. Walk in at the plus and out at the minus and the term
 is $-\mathcal{E}$. Notice that this has nothing to do with the current
-direction — only with which plate you meet first.
+direction, only with which plate you meet first.
 
 <Figure caption={<><b>Figure 1.</b> The only four terms that ever appear in a loop equation. The blue arrow is the direction you chose to walk. For the resistors, the sign depends on the current; for the batteries it depends on which plate you meet first.</>}>
   <Sim id="kirchhoff-signs" />
@@ -138,7 +138,7 @@ $$6.00 - 1.00I - 3.00I - 4.50 - 0.500I = 0$$
 $$1.50 = 4.50\,I \quad\Longrightarrow\quad I = 0.333\ \mathrm{A}$$
 
 The total resistance was just the sum of all three, and the net driving emf was
-the difference of the two. That pattern — net emf over total resistance — is
+the difference of the two. That pattern (net emf over total resistance) is
 what a single loop always collapses to.
 
 <Aside label="Where this goes wrong" warn>
@@ -191,8 +191,8 @@ One equation, one unknown, no loops drawn at all. Check the branches if you
 like: battery 1 gives $(12.00-11.333)/0.200 = 3.33\ \mathrm{A}$ and battery 2
 gives $(12.60-11.333)/0.300 = 4.22\ \mathrm{A}$, which add to
 $7.56\ \mathrm{A}$ as they must. If the numbers had been less kind, one of
-those could easily have come out negative — meaning the stronger battery is
-charging the weaker one — and that is a real, physical answer, not an error.
+those could easily have come out negative (meaning the stronger battery is
+charging the weaker one) and that is a real, physical answer, not an error.
 
 <QuickCheck
   question="In the node-voltage method, what makes a node an unknown?"
@@ -216,7 +216,7 @@ to B. What current does it carry?
 **Worked example 3.** Ground G, so $V_G = 0$ and $V_S = 6.00\ \mathrm{V}$. Two
 unknowns left, $V_A$ and $V_B$.
 
-Junction rule at A — in from S, out to G, out to B:
+Junction rule at A: in from S, out to G, out to B:
 
 $$\frac{6.00 - V_A}{100} = \frac{V_A}{200} + \frac{V_A - V_B}{50}$$
 
@@ -225,7 +225,7 @@ $12.0 - 2V_A = 5V_A - 4V_B$, which tidies to
 
 $$7V_A - 4V_B = 12.0$$
 
-Junction rule at B — in from S, in from A, out to G:
+Junction rule at B: in from S, in from A, out to G:
 
 $$\frac{6.00 - V_B}{150} + \frac{V_A - V_B}{50} = \frac{V_B}{250}$$
 
@@ -269,7 +269,7 @@ $I/6$. Walk a path from one corner to the other: $\tfrac{I}{3}(1) +
 
 $$R = \tfrac{5}{6}\ \Omega \approx 0.833\ \Omega$$
 
-No simultaneous equations at all. Symmetry is not a different law — it is
+No simultaneous equations at all. Symmetry is not a different law: it is
 Kirchhoff's rules plus the observation that identical branches must carry
 identical currents.
 
@@ -307,6 +307,6 @@ and write the loop rule for each.
 
 Next you'll let the currents change with time. Put a capacitor into one of
 these branches and the junction and loop rules still hold at every instant,
-but one of the terms now depends on how much charge has already arrived — which
+but one of the terms now depends on how much charge has already arrived, which
 turns an algebraic equation into an exponential. That is
 [RC circuits and transients](/guide/rc-circuits).

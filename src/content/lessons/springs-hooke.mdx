@@ -1,6 +1,6 @@
 Hang a grocery bag from a bathroom scale's hook and the needle moves a little. Add another tin and it moves a little more, by the same amount again. Keep going and the marks stay evenly spaced right up until the moment the spring inside gives up and the scale is ruined. That even spacing is the whole reason springs are useful, and it is the reason a spring problem can be solved on paper at all.
 
-In the [last lesson](/guide/tension-pulleys) a rope transmitted whatever force the rest of the system demanded. A rope is an ideal that never stretches, so its tension is unknown until you solve for it. A spring is the opposite kind of object. Its force is not an unknown at all: it is fixed by how far the spring has been deformed, and you can read it off before you write a single equation of motion. That swap — from "unknown force, known length" to "known force, changing length" — is what this lesson is about.
+In the [last lesson](/guide/tension-pulleys) a rope transmitted whatever force the rest of the system demanded. A rope is an ideal that never stretches, so its tension is unknown until you solve for it. A spring is the opposite kind of object. Its force is not an unknown at all: it is fixed by how far the spring has been deformed, and you can read it off before you write a single equation of motion. That swap (from "unknown force, known length" to "known force, changing length") is what this lesson is about.
 
 ## The restoring force
 
@@ -10,12 +10,12 @@ $$F = -kx$$
 
 $k$ is the **spring constant** or stiffness, measured in newtons per metre. A spring with $k = 400\;\mathrm{N/m}$ needs 400 newtons to hold it stretched one metre, or 4 newtons to hold it stretched a centimetre. The minus sign says the force points back towards the natural length: stretched, it pulls in; compressed, it pushes out. A force like that is called a **restoring force**, because it always acts to restore the relaxed state.
 
-The first real skill is measuring $x$ from the right place. $x$ is the deformation of the spring — its current length minus its natural length — not the position of the block in whatever coordinate system you drew. Get that wrong and every number afterwards is wrong.
+The first real skill is measuring $x$ from the right place. $x$ is the deformation of the spring (its current length minus its natural length) not the position of the block in whatever coordinate system you drew. Get that wrong and every number afterwards is wrong.
 
 Two immediate consequences. First, if you know the stretch you know the force: a spring with $k = 250\;\mathrm{N/m}$ stretched $0.12\;\mathrm{m}$ pulls with $250 \times 0.12 = 30\;\mathrm{N}$, no free body diagram required. Second, you can run it backwards to measure $k$. Hang a $2.0\;\mathrm{kg}$ mass and let it settle; if it stretches $0.080\;\mathrm{m}$, then at rest the spring force equals the weight, so $k(0.080) = (2.0)(9.8) = 19.6\;\mathrm{N}$ and $k = 19.6 / 0.080 = 245\;\mathrm{N/m}$.
 
 <Aside label="Where this goes wrong" warn>
-  Using the block's height, or the spring's total length, as $x$. If a spring of natural length $0.40\;\mathrm{m}$ now measures $0.46\;\mathrm{m}$, then $x = 0.06\;\mathrm{m}$, not $0.46\;\mathrm{m}$. And a spring that has gone slack — a rope-like spring you pushed on, or one whose block has flown off — exerts nothing at all, so check that the deformation you computed is physically possible before trusting it.
+  Using the block's height, or the spring's total length, as $x$. If a spring of natural length $0.40\;\mathrm{m}$ now measures $0.46\;\mathrm{m}$, then $x = 0.06\;\mathrm{m}$, not $0.46\;\mathrm{m}$. And a spring that has gone slack (a rope-like spring you pushed on, or one whose block has flown off) exerts nothing at all, so check that the deformation you computed is physically possible before trusting it.
 </Aside>
 
 Because the force grows steadily from zero, the work you do stretching a spring is not $Fx$. The force at the start is nothing and at the end is $kx$, and since it grows linearly, the average force over the stretch is $\tfrac{1}{2}kx$. Multiply by the distance:
@@ -36,7 +36,7 @@ Now push the mass down a further distance $y$ below that resting point. The spri
 
 $$F_{\text{net}} = k(x_0 + y) - mg = kx_0 + ky - mg = ky$$
 
-upward, because $kx_0$ and $mg$ were equal and cancelled. Gravity has vanished from the problem. Measured from the hanging equilibrium, a vertical spring behaves exactly like a horizontal one with the same $k$ — same restoring law, same everything. That is worth holding on to: a constant force added to a spring force shifts the equilibrium point and changes nothing else.
+upward, because $kx_0$ and $mg$ were equal and cancelled. Gravity has vanished from the problem. Measured from the hanging equilibrium, a vertical spring behaves exactly like a horizontal one with the same $k$: same restoring law, same everything. That is worth holding on to: a constant force added to a spring force shifts the equilibrium point and changes nothing else.
 
 <Figure caption={<><b>Figure 1.</b> The hanging spring. Notice that the block always oscillates about the equilibrium line, never about the natural length. Turn the stiffness down and watch the sag grow while the arrows stay balanced at the centre; set the amplitude to zero to see the two forces match exactly.</>}>
   <Sim id="springs-hooke-hanging" />
@@ -61,7 +61,7 @@ Two springs joined end to end are in **series**. Now the shared quantity is the 
 
 $$\frac{1}{k_{\text{ser}}} = \frac{1}{k_1} + \frac{1}{k_2}$$
 
-The same $200$ and $300\;\mathrm{N/m}$ in series give $1/k = 1/200 + 1/300 = 0.005 + 0.003333 = 0.008333$, so $k = 120\;\mathrm{N/m}$ — softer than either spring on its own, which makes sense because you are collecting two stretches for the price of one force.
+The same $200$ and $300\;\mathrm{N/m}$ in series give $1/k = 1/200 + 1/300 = 0.005 + 0.003333 = 0.008333$, so $k = 120\;\mathrm{N/m}$: softer than either spring on its own, which makes sense because you are collecting two stretches for the price of one force.
 
 <Figure caption={<><b>Figure 2.</b> The same two springs wired both ways under the same applied force. Watch which block moves further. Drag k1 down towards 50 N/m: the parallel stiffness barely changes, but the series stiffness collapses, because in series the floppiest spring dominates.</>}>
   <Sim id="springs-hooke-combos" />
@@ -124,16 +124,16 @@ $$14.7(0.30 + d) = 600\,d^2 \;\Longrightarrow\; 600d^2 - 14.7d - 4.41 = 0$$
 
 The quadratic formula gives $d = \dfrac{14.7 + \sqrt{14.7^2 + 4(600)(4.41)}}{1200}$. Inside the root: $216.09 + 10584 = 10800.09$, whose square root is $103.923$. So $d = (14.7 + 103.923)/1200 = 118.623/1200 = 0.09885\;\mathrm{m}$.
 
-The negative root is discarded: it corresponds to the spring being stretched upward, which cannot happen here. And notice the sanity check — the static sag is only $14.7/1200 = 0.01225\;\mathrm{m}$, so a $0.30\;\mathrm{m}$ drop buys you about eight times the resting compression, not thirty times. Energy goes as $d^2$, so compression grows slowly.
+The negative root is discarded: it corresponds to the spring being stretched upward, which cannot happen here. And notice the sanity check: the static sag is only $14.7/1200 = 0.01225\;\mathrm{m}$, so a $0.30\;\mathrm{m}$ drop buys you about eight times the resting compression, not thirty times. Energy goes as $d^2$, so compression grows slowly.
 
 The same equation with $h = 0$ answers "a block is attached to a spring at its natural length and released": then $mgd = \tfrac{1}{2}kd^2$ gives $d = 2mg/k$, exactly **twice** the equilibrium sag. For a $2.0\;\mathrm{kg}$ block on a $400\;\mathrm{N/m}$ spring, $d = 2(2.0)(9.8)/400 = 39.2/400 = 0.098\;\mathrm{m}$. Read that as an oscillation instead and the reasoning is even shorter: the block starts at rest a distance $x_0$ above equilibrium, so the amplitude is $x_0$, so it swings down to $x_0$ below equilibrium, a total of $2x_0$.
 
-<Figure caption={<><b>Figure 3.</b> The drop. Compare the dashed "lowest point" line with the static sag in the readout — the sag is tiny next to the dynamic compression. Now set the drop height to zero and watch the block still fall to exactly twice the sag before coming back.</>}>
+<Figure caption={<><b>Figure 3.</b> The drop. Compare the dashed "lowest point" line with the static sag in the readout: the sag is tiny next to the dynamic compression. Now set the drop height to zero and watch the block still fall to exactly twice the sag before coming back.</>}>
   <Sim id="springs-hooke-drop" />
 </Figure>
 
 <Aside label="Where this goes wrong" warn>
-  Forgetting that the block keeps falling once it touches the spring. The drop in height is $h + d$, not $h$. Leaving out the $d$ gives $\tfrac{1}{2}kd^2 = mgh$ and an answer that is too small — here it would give $0.0857\;\mathrm{m}$ instead of $0.0989\;\mathrm{m}$.
+  Forgetting that the block keeps falling once it touches the spring. The drop in height is $h + d$, not $h$. Leaving out the $d$ gives $\tfrac{1}{2}kd^2 = mgh$ and an answer that is too small: here it would give $0.0857\;\mathrm{m}$ instead of $0.0989\;\mathrm{m}$.
 </Aside>
 
 ## Worked example: a block riding on an oscillator
@@ -176,4 +176,4 @@ Does it ask for a period, a frequency, a maximum acceleration, or whether someth
 
 One warning about that effective $k$: work it out for the actual geometry rather than copying the number off the page. If a spring acts through a movable pulley so that the mass moving a distance $y$ stretches the spring by $2y$ while the spring's pull reaches the mass twice over, the restoring force is $4ky$ and the effective stiffness is $4k$. A spring with $k = 800\;\mathrm{N/m}$ rigged that way and loaded with $2.0\;\mathrm{kg}$ gives $\omega = \sqrt{3200/2.0} = 40\;\mathrm{rad/s}$ and $T = 2\pi/40 = 0.157\;\mathrm{s}$. Always ask how far the spring stretches when the mass moves by one unit.
 
-Next comes [Circular Motion](/guide/circular-motion), where the force again points back towards a centre — but this time its size stays fixed while its direction turns, which produces a completely different kind of path.
+Next comes [Circular Motion](/guide/circular-motion), where the force again points back towards a centre, but this time its size stays fixed while its direction turns, which produces a completely different kind of path.

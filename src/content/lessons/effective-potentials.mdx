@@ -6,7 +6,7 @@ knew the potential: $U = \tfrac12 kx^2$, a parabola, and a parabola gives simple
 harmonic motion.
 
 Most systems are not springs. An atom bound to another atom, a bead threaded on
-a bent wire, a marble in a bowl, a satellite in an elliptical orbit — none of
+a bent wire, a marble in a bowl, a satellite in an elliptical orbit: none of
 them has an obvious spring in it. And yet all of them oscillate, and all of them
 oscillate at a frequency you can write down in about three lines. The reason is
 that the potential energy curve, whatever its shape, looks like a parabola if
@@ -27,8 +27,7 @@ $F\,dx = -dU$. Divide by $dx$:
 $$F(x) = -\frac{dU}{dx}$$
 
 Read this as a picture. Plot $U$ against $x$. Where the curve slopes up to the
-right, $dU/dx$ is positive, so $F$ is negative and the particle is pushed left —
-downhill. Where the curve slopes down to the right, the particle is pushed
+right, $dU/dx$ is positive, so $F$ is negative and the particle is pushed left: downhill. Where the curve slopes down to the right, the particle is pushed
 right. Also downhill. A particle on a potential energy graph behaves exactly
 like a ball rolling on that graph under gravity. That analogy is not a
 coincidence, and it is worth trusting.
@@ -39,7 +38,7 @@ $$\frac{dU}{dx} = 0$$
 
 Flat spots on the graph. Nothing more.
 
-<Figure caption={<><b>Figure 1.</b> The cubic potential U = 2x³ − 9x² + 12x. Notice the two flat spots, and notice that the force arrows below the axis point downhill on both sides — away from the hump at x = 1 and toward the dip at x = 2.</>}>
+<Figure caption={<><b>Figure 1.</b> The cubic potential U = 2x³ − 9x² + 12x. Notice the two flat spots, and notice that the force arrows below the axis point downhill on both sides: away from the hump at x = 1 and toward the dip at x = 2.</>}>
   <Sim id="effective-potentials-curve" />
 </Figure>
 
@@ -47,7 +46,7 @@ Flat spots on the graph. Nothing more.
 
 A flat spot alone does not tell you whether a system will sit there. A marble
 balanced on top of a hill has zero net force too. What separates the hilltop
-from the valley is the curvature — the second derivative.
+from the valley is the curvature: the second derivative.
 
 Suppose $U'(x_0) = 0$ and you push the particle a small distance $\delta$ to the
 right. The slope there is approximately $U'(x_0 + \delta) \approx U''(x_0)\,\delta$,
@@ -76,8 +75,7 @@ So $U' = 0$ at $x = 1$ m and $x = 2$ m. Now the second derivative:
 
 $$U''(x) = 12x - 18$$
 
-At $x = 1$: $U'' = 12 - 18 = -6$ J/m², negative, so that is the hilltop —
-unstable. At $x = 2$: $U'' = 24 - 18 = +6$ J/m², positive, so $x = 2$ m is the
+At $x = 1$: $U'' = 12 - 18 = -6$ J/m², negative, so that is the hilltop: unstable. At $x = 2$: $U'' = 24 - 18 = +6$ J/m², positive, so $x = 2$ m is the
 stable one. Figure 1 is this exact potential, so you can check the algebra
 against the picture.
 
@@ -91,7 +89,7 @@ against the picture.
 ## The frequency hiding in the curvature
 
 Now the payoff. Near a stable point, write $U$ as a Taylor expansion about
-$x_0$ — this is the tool that says any smooth curve equals its value, plus its
+$x_0$: this is the tool that says any smooth curve equals its value, plus its
 slope times the offset, plus half its curvature times the offset squared:
 
 $$U(x) \approx U(x_0) + U'(x_0)(x-x_0) + \tfrac12 U''(x_0)(x-x_0)^2$$
@@ -106,7 +104,7 @@ is the same expression with the displacement measured from $x_0$ and with
 
 $$k_{\text{eff}} = U''(x_0)$$
 
-So the particle does not merely return — it does simple harmonic motion, with
+So the particle does not merely return: it does simple harmonic motion, with
 the frequency you already know:
 
 $$\omega = \sqrt{\frac{U''(x_0)}{m}}$$
@@ -194,7 +192,7 @@ ball carries extra inertia in its spin, so it is lazier.
 <Aside label="Where this goes wrong" warn>
   Do not mix coordinates. If $U$ is written in terms of the angle $\theta$, then
   $U''$ must be $d^2U/d\theta^2$ and the effective mass must be the thing
-  multiplying $\tfrac12\dot\theta^2$ — a moment of inertia, with units of
+  multiplying $\tfrac12\dot\theta^2$: a moment of inertia, with units of
   kg·m². Differentiating $U(\theta)$ but dividing by a plain mass $m$ gives an
   answer that is wrong by a factor with units of metres, and the error hides
   because nothing in the final number looks obviously broken. Check units at the
@@ -272,7 +270,7 @@ is perigee. Closest approach is $6.99\times10^{6}$ m.
 
 There is a useful check built into that answer. Two real roots means bound. One
 root, where the discriminant vanishes, means the energy sits exactly at the
-minimum of $U_{\text{eff}}$ — a circular orbit. No real roots would mean that
+minimum of $U_{\text{eff}}$: a circular orbit. No real roots would mean that
 energy is not available at that angular momentum at all.
 
 ## How far the parabola can be trusted
@@ -297,7 +295,7 @@ steeper than a parabola, so the oscillation is faster. That sign is worth
 remembering as a sanity check.
 
 One more thing the higher derivatives are good for. The force is $-U'$, so the
-force is largest in magnitude where $U'' = 0$ — the inflection point. For the
+force is largest in magnitude where $U'' = 0$: the inflection point. For the
 Lennard-Jones potential
 
 $$U(r) = 4\varepsilon\left[\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^{6}\right]$$
@@ -325,7 +323,7 @@ tells:
 - You are asked for a **turning point**, a closest approach, or the range of
   motion at a given energy. Set $E = U_{\text{eff}}$ and solve; the number of
   real roots tells you whether the motion is bound.
-- The system is not a particle on a line — a rolling ball, a bead on a wire, a
+- The system is not a particle on a line: a rolling ball, a bead on a wire, a
   rigid body on a pivot. Write $K$ in your coordinate, read off $m_{\text{eff}}$,
   and carry on.
 

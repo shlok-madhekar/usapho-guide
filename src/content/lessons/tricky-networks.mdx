@@ -28,7 +28,7 @@ voltage elsewhere untouched, and one of them usually breaks the deadlock.
 
 The question is how to spot equal potentials without solving the circuit first,
 and the answer is symmetry. Suppose some relabelling of the nodes maps the
-network onto itself — every resistor lands on an identical resistor — while
+network onto itself (every resistor lands on an identical resistor) while
 leaving both terminals where they are. The relabelled circuit is the same
 circuit, driven the same way, so it has the same solution. Any node and its image
 therefore share a potential.
@@ -141,7 +141,7 @@ $300/450 = 120/BQ$, so $BQ = 120 \times 450 / 300 = 180\ \Omega$.
   $100, 200, 300, 400$ are not balanced even though both branches step up by
   $100\ \Omega$: the ratios are $0.500$ and $0.750$. Students also routinely
   write the condition as $R_1 R_2 = R_3 R_4$. Cross-multiply
-  $R_1/R_2 = R_3/R_4$ carefully and you get $R_1 R_4 = R_2 R_3$ — the products of
+  $R_1/R_2 = R_3/R_4$ carefully and you get $R_1 R_4 = R_2 R_3$: the products of
   <i>opposite</i> arms, not adjacent ones.
 </Aside>
 
@@ -304,7 +304,7 @@ A finite ladder is easier: start at the far end, where you can see what is there
 and work backwards. Three sections of $4.0\ \Omega$ series and $6.0\ \Omega$
 shunt: last shunt $6$, add the series in front for $10$, parallel with the next
 shunt for $6 \parallel 10 = 3.75$, add $4$ for $7.75$, parallel with $6$ for
-$3.382$, add $4$ for $7.382\ \Omega$ — already within $1.2\%$ of the infinite
+$3.382$, add $4$ for $7.382\ \Omega$: already within $1.2\%$ of the infinite
 answer.
 
 For currents down a ladder you want a slightly different quantity. Let $X$ be the
@@ -363,7 +363,7 @@ from infinity: by the same symmetry that edge again carries $I/4$, in the same
 direction.
 
 Both are linear problems, so you may add them. Superposed, current $I$ enters at
-$A$ and leaves at $B$ with nothing at infinity — the measurement you want. Edge
+$A$ and leaves at $B$ with nothing at infinity: the measurement you want. Edge
 $AB$ now carries $I/2$, so the voltage across it, and hence between $A$ and $B$,
 is $IR/2$:
 
@@ -381,8 +381,8 @@ here, is $R_{\text{diag}} = 2R/\pi$; for $10\ \Omega$ that is $6.366\ \Omega$.
 Count the resistors and look at the junctions. If every junction has exactly two
 wires, reduce as usual and stop reading.
 
-**Reach for symmetry** when the network is named after a shape — cube, square,
-hexagon, octahedron, tetrahedron — or when the resistors are all identical. Ask
+**Reach for symmetry** when the network is named after a shape (cube, square,
+hexagon, octahedron, tetrahedron) or when the resistors are all identical. Ask
 what rigid motion of the shape leaves both terminals alone, then find the nodes
 it swaps. Those are your equipotentials.
 

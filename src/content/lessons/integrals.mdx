@@ -10,8 +10,8 @@ $v = dx/dt$ told you the speed at an instant, by zooming in until the curve
 looked straight. Now you have the speed at every instant and you want the
 distance back. Differentiation chopped a curve into slopes; integration is the
 machine that glues slopes back into a curve. Almost every physics quantity you
-will meet — work, impulse, charge, moment of inertia, the centre of mass of a
-lopsided object — is a product where one factor refuses to hold still, and
+will meet (work, impulse, charge, moment of inertia, the centre of mass of a
+lopsided object) is a product where one factor refuses to hold still, and
 every one of them is solved the same way.
 
 ## Slice it, add it, shrink it
@@ -52,7 +52,7 @@ You do not need any calculus to integrate a triangle. A great many problems
 hand you a graph built from straight segments and expect you to break it into
 rectangles and triangles and add.
 
-<Figure caption={<><b>Figure 2.</b> A train speeding up, cruising, then stopping. Notice that you never needed a formula — three areas, added. The triangle areas are one half base times height.</>}>
+<Figure caption={<><b>Figure 2.</b> A train speeding up, cruising, then stopping. Notice that you never needed a formula: three areas, added. The triangle areas are one half base times height.</>}>
   <Sim id="integrals-trapezoid" />
 </Figure>
 
@@ -141,7 +141,7 @@ $\int_0^{x} kx'\,dx' = \tfrac12 kx^2$. That is not a formula to memorise; it is
 the area of a triangle of base $x$ and height $kx$. With $k = 250$ N/m and
 $x = 0.12$ m: $\tfrac12(250)(0.12)^2 = \tfrac12(250)(0.0144) = 1.8$ J.
 
-<Figure caption={<><b>Figure 3.</b> The block stretches the spring while the shaded area fills in. Push the spring constant up and watch the work grow with the square of the stretch — double the stretch, four times the area.</>}>
+<Figure caption={<><b>Figure 3.</b> The block stretches the spring while the shaded area fills in. Push the spring constant up and watch the work grow with the square of the stretch: double the stretch, four times the area.</>}>
   <Sim id="integrals-work" />
 </Figure>
 
@@ -165,7 +165,7 @@ worth writing down as steps because the setup is where people lose the marks.
 
 1. Draw one representative slice and give its position a symbol.
 2. Write the slice's mass (or charge, or volume) in terms of that symbol and
-   its thickness — this is your $dm$.
+   its thickness: this is your $dm$.
 3. Write what you want for that one slice.
 4. Integrate over the range the slices actually cover.
 
@@ -193,7 +193,7 @@ constantly.
 
 The same recipe handles a chain being lifted off the floor. When a length $y$
 already hangs vertically, its mass is $\lambda y$ and its centre of mass is at
-height $y/2$, so raising the next bit costs $dW = \lambda g y\,dy$ — and
+height $y/2$, so raising the next bit costs $dW = \lambda g y\,dy$, and
 $W = \tfrac12 \lambda g L^2$. With $\lambda = 2.0$ kg/m, $L = 8.0$ m:
 $\tfrac12(2.0)(9.8)(64) = 627$ J.
 
@@ -267,6 +267,6 @@ is extended or non-uniform, do not integrate. The kinematic equations already
 did it for you.
 
 Derivatives and integrals are now both in hand. The next tool is the one that
-makes hard integrals and hard equations survivable at all — knowing when a
+makes hard integrals and hard equations survivable at all: knowing when a
 term is small enough to throw away. That is
 [approximations and small-angle expansions](/guide/approximations).

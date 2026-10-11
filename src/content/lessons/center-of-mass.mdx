@@ -47,11 +47,11 @@ two-dimensional center-of-mass problems into two easy one-dimensional ones.
 
 Two things to notice about the formula. Each mass is weighted by its *share*
 of the total, $m_i/M$, and those shares add to one, so $\vec R_{\text{cm}}$
-always lands somewhere between the extremes — never outside the spread of the
+always lands somewhere between the extremes: never outside the spread of the
 particles. And the origin is yours to choose. Put it wherever makes the
 arithmetic easiest; the physical point you find won't move.
 
-<Figure caption={<><b>Figure 1.</b> The balance point of two masses. Drag the right mass outward and watch the pivot chase it, but slowly — doubling the distance only shifts the pivot by that mass's share of the total. Notice that the two products m times d stay equal no matter what you set.</>}>
+<Figure caption={<><b>Figure 1.</b> The balance point of two masses. Drag the right mass outward and watch the pivot chase it, but slowly: doubling the distance only shifts the pivot by that mass's share of the total. Notice that the two products m times d stay equal no matter what you set.</>}>
   <Sim id="center-of-mass-balance" />
 </Figure>
 
@@ -80,7 +80,7 @@ $\vec R_{\text{cm}} = \frac{1}{M}\int \vec r \, dm$. You will need that
 sometimes. Reach for it last, because two shortcuts handle most problems.
 
 **Symmetry.** If an object is uniform and has a plane of symmetry, its center
-of mass lies on that plane — every bit of mass on one side is matched by an
+of mass lies on that plane: every bit of mass on one side is matched by an
 equal bit mirrored on the other, and the two contributions to the average
 cancel around the plane. A uniform rod of length 2.4 m has its center of mass
 at 1.2 m. A uniform disk, sphere, or rectangular plate has it at the geometric
@@ -134,7 +134,7 @@ $$x_{\text{cm}} = \frac{\int_0^L x\,\lambda(x)\,dx}{\int_0^L \lambda(x)\,dx}.$$
 **Worked example 3.** A rod of length 4.0 m has $\lambda(x) = \lambda_0(1 +
 x/L)$ with $L = 4.0$ m. Find its center of mass.
 
-The constant $\lambda_0$ appears in both integrals, so it will cancel — drop it
+The constant $\lambda_0$ appears in both integrals, so it will cancel: drop it
 now and carry it in your head. Denominator:
 
 $$\int_0^L \left(1 + \frac{x}{L}\right)dx = \left[x + \frac{x^2}{2L}\right]_0^L = L + \frac{L}{2} = \frac{3L}{2}.$$
@@ -147,7 +147,7 @@ Divide: $x_{\text{cm}} = \frac{5L^2/6}{3L/2} = \frac{5L^2}{6}\cdot\frac{2}{3L} =
 \frac{5L}{9}$. With $L = 4.0$ m that is $20/9 = 2.22$ m. Past the midpoint,
 because the far end is denser. If instead $\lambda = 2x$ on a rod of length
 3.0 m, the same method gives numerator $\int_0^3 2x^2 dx = 18$ and denominator
-$\int_0^3 2x\,dx = 9$, so $x_{\text{cm}} = 2.0$ m — exactly $2L/3$, which is
+$\int_0^3 2x\,dx = 9$, so $x_{\text{cm}} = 2.0$ m: exactly $2L/3$, which is
 where any $\lambda \propto x$ rod balances.
 
 For curved uniform solids the integrals are standard and worth memorising
@@ -249,7 +249,7 @@ to be thrown forward.
   The instant one fragment touches the ground, the normal force is external and
   the center of mass stops following the curve. Air drag breaks it too. So the
   equation above is really a statement about where the pieces land *if they
-  land together* — say so when you use it.
+  land together*: say so when you use it.
 </Aside>
 
 ## Toppling: where the center of mass sits over the support
@@ -271,7 +271,7 @@ Now the pair. The lower block's center is at its own midpoint; the top block's
 center is $L/2$ further out. Their combined center, equal masses, is halfway
 between: $L/4$ ahead of the lower block's midpoint. The pair tips when that
 combined center passes the table edge, so the lower block's midpoint can be at
-most $L/4$ back from the edge — meaning the lower block sticks out $L/2 - L/4 =
+most $L/4$ back from the edge: meaning the lower block sticks out $L/2 - L/4 =
 L/4$ past the table.
 
 Total overhang $= L/2 + L/4 = 3L/4 = 0.75 \times 0.30 = 0.225$ m.
@@ -284,7 +284,7 @@ $5.0 \times 1.4/2.0 = 3.5$ kg and $5.0 \times 0.6/2.0 = 1.5$ kg. Then
 
 $$y_{\text{cm}} = \frac{(3.5)(0.70) + (1.5)(0.30)}{5.0} = \frac{2.45 + 0.45}{5.0} = \frac{2.90}{5.0} = 0.58\ \text{m}$$
 
-below the pulley. Composite bodies again — nothing new, just a careful splitting.
+below the pulley. Composite bodies again: nothing new, just a careful splitting.
 
 <Figure caption={<><b>Figure 4.</b> Two conditions must hold at once: the top block's own center over the block beneath, and the pair's combined center over the table. Push either slider past its limit and the readout calls it unstable. The best you can do is one quarter plus one half.</>}>
   <Sim id="center-of-mass-blocks" />

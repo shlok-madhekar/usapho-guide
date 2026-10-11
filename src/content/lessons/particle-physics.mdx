@@ -2,7 +2,7 @@
 
 In the [last lesson](/guide/binding-energy) you treated a nucleus as a bag of protons and neutrons, and you got a long way with nothing more than mass differences and $E = mc^2$. But a free neutron, left alone, turns into a proton in about fifteen minutes. Something inside it changed. A bag of two fixed ingredients cannot do that.
 
-Push a proton hard enough into another proton and you do not get proton fragments. You get a spray of particles that were not there beforehand: pions, kaons, lambdas, muons, things that live for a hundredth of a billionth of a second and then vanish. Hundreds of them have been catalogued. The question this lesson answers is how anyone makes sense of that list, and how you decide — on paper, before any experiment — whether a proposed reaction can happen at all.
+Push a proton hard enough into another proton and you do not get proton fragments. You get a spray of particles that were not there beforehand: pions, kaons, lambdas, muons, things that live for a hundredth of a billionth of a second and then vanish. Hundreds of them have been catalogued. The question this lesson answers is how anyone makes sense of that list, and how you decide (on paper, before any experiment) whether a proposed reaction can happen at all.
 
 The answer has two halves. One half is bookkeeping: a small set of numbers that every particle carries and that must balance on both sides of a reaction. The other half is energy and momentum, done relativistically, which decides whether you can afford the products even when the bookkeeping works out. Almost every problem in this unit is one of those two, or both.
 
@@ -10,7 +10,7 @@ The answer has two halves. One half is bookkeeping: a small set of numbers that 
 
 Start with the matter particles. There are twelve of them, in two families of six.
 
-**Quarks** come in six *flavours*, arranged in three pairs of increasing mass: up and down, charm and strange, top and bottom. Each pair is a *generation*. The first member of each pair — up, charm, top — carries electric charge $+\tfrac{2}{3}e$, where $e$ is the elementary charge. The second — down, strange, bottom — carries $-\tfrac{1}{3}e$. Those thirds are the whole reason the quark model was believed before anyone saw a quark: they explain the charges of everything else exactly.
+**Quarks** come in six *flavours*, arranged in three pairs of increasing mass: up and down, charm and strange, top and bottom. Each pair is a *generation*. The first member of each pair (up, charm, top) carries electric charge $+\tfrac{2}{3}e$, where $e$ is the elementary charge. The second (down, strange, bottom) carries $-\tfrac{1}{3}e$. Those thirds are the whole reason the quark model was believed before anyone saw a quark: they explain the charges of everything else exactly.
 
 **Leptons** also come in three generations: the electron, the muon and the tau, each paired with its own neutrino. The charged leptons have charge $-1$ in units of $e$; the neutrinos have zero. A muon is an electron that happens to be 207 times heavier, identical in every other respect.
 
@@ -20,7 +20,7 @@ Six quarks plus six leptons is twelve fundamental fermions. Every one has an ant
   <Sim id="particle-physics-zoo" />
 </Figure>
 
-Four forces act between them, each carried by an exchanged boson. The **strong** force is carried by gluons, acts only on quarks, and reaches about $10^{-15}$ m — one nucleus wide. **Electromagnetism** is carried by the photon, acts on electric charge, and has infinite range. The **weak** force is carried by the massive W and Z bosons, acts on every fermion including neutrinos, and reaches only about $10^{-18}$ m. **Gravity** is about $10^{-38}$ times the strong force between two protons and you can ignore it entirely here.
+Four forces act between them, each carried by an exchanged boson. The **strong** force is carried by gluons, acts only on quarks, and reaches about $10^{-15}$ m: one nucleus wide. **Electromagnetism** is carried by the photon, acts on electric charge, and has infinite range. The **weak** force is carried by the massive W and Z bosons, acts on every fermion including neutrinos, and reaches only about $10^{-18}$ m. **Gravity** is about $10^{-38}$ times the strong force between two protons and you can ignore it entirely here.
 
 The pattern to hold onto: a massless carrier gives infinite range, a heavy carrier gives short range and a slow reaction. Beta decay is weak, and that is exactly why a free neutron takes minutes rather than nanoseconds.
 
@@ -53,9 +53,9 @@ Charge, energy and momentum you already conserve out of habit. Three more quantu
 
 **Baryon number** $B$. Every quark counts $+\tfrac{1}{3}$ and every antiquark $-\tfrac{1}{3}$. So any baryon has $B = +1$, any antibaryon $B = -1$, and every meson $B = 0$. No process has ever been seen to change $B$. That single fact is why the proton appears to be stable: it is the lightest particle with $B = 1$, so there is nothing lighter for it to turn into without violating the rule. The proposed decay $p \to e^+ + \gamma$ balances charge perfectly and is still never seen, because it would change $B$ from $1$ to $0$, a change of magnitude $1$.
 
-**Lepton number** $L$. Each lepton counts $+1$, each antilepton $-1$ — and it is conserved *separately* for each generation, so there are really three numbers $L_e$, $L_\mu$, $L_\tau$. This is what forces the antineutrino into beta decay. Write $n \to p + e^-$ and the left side has $L_e = 0$ while the right has $L_e = +1$. Add an electron antineutrino, $L_e = -1$, and it balances: $n \to p + e^- + \bar{\nu}_e$. The same rule kills $\mu^- \to e^- + \gamma$, which is fine on charge and energy but takes $L_\mu$ from $1$ to $0$ and $L_e$ from $0$ to $1$.
+**Lepton number** $L$. Each lepton counts $+1$, each antilepton $-1$, and it is conserved *separately* for each generation, so there are really three numbers $L_e$, $L_\mu$, $L_\tau$. This is what forces the antineutrino into beta decay. Write $n \to p + e^-$ and the left side has $L_e = 0$ while the right has $L_e = +1$. Add an electron antineutrino, $L_e = -1$, and it balances: $n \to p + e^- + \bar{\nu}_e$. The same rule kills $\mu^- \to e^- + \gamma$, which is fine on charge and energy but takes $L_\mu$ from $1$ to $0$ and $L_e$ from $0$ to $1$.
 
-**Strangeness** $S$. Each strange quark counts $-1$ and each anti-strange $+1$ (the sign is a historical accident, but it is the convention). So $\Lambda^0 = uds$ has $S = -1$, $K^- = s\bar{u}$ has $S = -1$, and $K^+ = u\bar{s}$ has $S = +1$. Here is the twist: strangeness is conserved by the strong and electromagnetic forces but **not** by the weak force, which can change it by one unit. That asymmetry explains the whole behaviour of strange particles. They are made in pairs by the strong force, fast, with $\Delta S = 0$ overall; then each one has to decay weakly, slowly, because only the weak force can get rid of the strangeness. In $\Lambda^0 \to p + \pi^-$, strangeness goes from $-1$ to $0$, so $\Delta S = +1$ and the decay must be weak — which is why it takes $2.6 \times 10^{-10}$ s instead of $10^{-23}$ s.
+**Strangeness** $S$. Each strange quark counts $-1$ and each anti-strange $+1$ (the sign is a historical accident, but it is the convention). So $\Lambda^0 = uds$ has $S = -1$, $K^- = s\bar{u}$ has $S = -1$, and $K^+ = u\bar{s}$ has $S = +1$. Here is the twist: strangeness is conserved by the strong and electromagnetic forces but **not** by the weak force, which can change it by one unit. That asymmetry explains the whole behaviour of strange particles. They are made in pairs by the strong force, fast, with $\Delta S = 0$ overall; then each one has to decay weakly, slowly, because only the weak force can get rid of the strangeness. In $\Lambda^0 \to p + \pi^-$, strangeness goes from $-1$ to $0$, so $\Delta S = +1$ and the decay must be weak, which is why it takes $2.6 \times 10^{-10}$ s instead of $10^{-23}$ s.
 
 <Aside label="Where this goes wrong" warn>
   Passing every conservation law does not make a reaction happen. You must check the energy budget separately: a free proton cannot do $p \to n + e^+ + \nu_e$ even though charge, $B$ and $L_e$ all balance, because the neutron is heavier than the proton and there is no energy to pay for the difference. Inside a nucleus, where binding energy is available, that same decay is common. Quantum numbers first, then the mass ledger.
@@ -71,7 +71,7 @@ Baryon number: the proton is a baryon, $B = +1$; the pion is a meson, $B = 0$. S
 
 Strangeness: the left side has no strange quarks, $S = 0$. The $K^+$ is $u\bar{s}$, so $S = +1$, and the pion contributes nothing. The right side has $S = +1$. Not conserved.
 
-Two of the three fail. The baryon number failure alone is fatal — no amount of energy fixes it.
+Two of the three fail. The baryon number failure alone is fatal: no amount of energy fixes it.
 
 <QuickCheck
   question="Which of these is forbidden by a conservation law rather than by a lack of energy?"
@@ -92,9 +92,9 @@ $$
 s = \left(\sum E_i\right)^2 - \left(\sum \vec{p}_i c\right)^2
 $$
 
-This quantity $s$ has a property that makes it the most useful number in the subject: it is the same in every reference frame. Different observers disagree about the individual energies and momenta, but they all compute the same $s$. And because momentum is zero in the centre-of-mass frame, $\sqrt{s}$ is exactly the total energy available there — the energy you can actually spend on making new particles. Everything else is locked up in the motion of the system as a whole.
+This quantity $s$ has a property that makes it the most useful number in the subject: it is the same in every reference frame. Different observers disagree about the individual energies and momenta, but they all compute the same $s$. And because momentum is zero in the centre-of-mass frame, $\sqrt{s}$ is exactly the total energy available there: the energy you can actually spend on making new particles. Everything else is locked up in the motion of the system as a whole.
 
-Two consequences. First, $s$ is conserved through a reaction, because energy and momentum are. So you can compute it from the incoming particles and then demand something of the outgoing ones. Second, at *threshold* — the minimum energy for which a reaction is possible — the products come out at rest relative to one another, so $\sqrt{s}$ is just the sum of their rest energies.
+Two consequences. First, $s$ is conserved through a reaction, because energy and momentum are. So you can compute it from the incoming particles and then demand something of the outgoing ones. Second, at *threshold* (the minimum energy for which a reaction is possible) the products come out at rest relative to one another, so $\sqrt{s}$ is just the sum of their rest energies.
 
 ### Worked example 2: the momentum in a lambda decay
 
@@ -124,7 +124,7 @@ So the first bracket is $1244786 - 1161869 = 82917$ and the second is $1244786 -
 
 $$pc = \frac{2.243\times 10^{5}}{2231.4} = 100.5 \text{ MeV}$$
 
-So each product carries about $101$ MeV/c. Sanity check: the mass released is $1115.7 - 1077.9 = 37.8$ MeV, and a momentum of $100$ MeV/c is comfortably larger than that, which is right — the pion is light, so most of the released energy goes into its kinetic energy rather than the heavy proton's.
+So each product carries about $101$ MeV/c. Sanity check: the mass released is $1115.7 - 1077.9 = 37.8$ MeV, and a momentum of $100$ MeV/c is comfortably larger than that, which is right: the pion is light, so most of the released energy goes into its kinetic energy rather than the heavy proton's.
 
 The same formula handles a photon by setting one mass to zero. For $\Sigma^0 \to \Lambda^0 + \gamma$, with $M = 1192.6$ and $m_1 = 1115.7$, both brackets collapse to $M^2 - m_1^2$, so
 
@@ -146,7 +146,7 @@ $$
 s = (E + m_Tc^2)^2 - \left(E^2 - (m_bc^2)^2\right) = (m_bc^2)^2 + (m_Tc^2)^2 + 2m_Tc^2E
 $$
 
-The beam energy enters only *linearly*, and it is multiplied by the target's rest energy — which is small. At high energy $\sqrt{s} \approx \sqrt{2m_Tc^2E}$: quadruple the beam energy and you only double what you can spend.
+The beam energy enters only *linearly*, and it is multiplied by the target's rest energy, which is small. At high energy $\sqrt{s} \approx \sqrt{2m_Tc^2E}$: quadruple the beam energy and you only double what you can spend.
 
 Now collide two beams of energy $E$ head-on instead. The momenta cancel, so $s = (2E)^2$ and $\sqrt{s} = 2E$. Every joule you paid for is available. That is the whole argument for building colliders, and the gap is enormous: a $7.00$ TeV beam on stationary hydrogen gives
 
@@ -160,7 +160,7 @@ while two $6.50$ TeV beams meeting head-on give $\sqrt{s} = 13.0$ TeV. More than
 
 ### Worked example 3: making antiprotons
 
-Antiprotons are produced by firing protons at stationary hydrogen: $p + p \to p + p + p + \bar{p}$. Baryon number forces this — you cannot make an antiproton ($B = -1$) alone, so a proton must come with it, and the three final protons plus one antiproton give $B = 3 - 1 = 2$, matching the two you started with. What beam energy do you need?
+Antiprotons are produced by firing protons at stationary hydrogen: $p + p \to p + p + p + \bar{p}$. Baryon number forces this: you cannot make an antiproton ($B = -1$) alone, so a proton must come with it, and the three final protons plus one antiproton give $B = 3 - 1 = 2$, matching the two you started with. What beam energy do you need?
 
 At threshold all four products sit at rest together, so $\sqrt{s} = 4m_pc^2$ and $s = 16(m_pc^2)^2$. From the fixed-target formula with $m_b = m_T = m_p$:
 
@@ -211,7 +211,7 @@ Then $c\tau = (3.00\times 10^8)(0.895\times 10^{-10}) = 2.685\times 10^{-2}$ m, 
 
 $$L = 10.05 \times 2.685\times 10^{-2} = 0.270 \text{ m}$$
 
-Twenty-seven centimetres — far enough to leave a visible gap between the production point and the decay point in a detector, which is exactly how these particles are identified.
+Twenty-seven centimetres: far enough to leave a visible gap between the production point and the decay point in a detector, which is exactly how these particles are identified.
 
 ## Recognising which tool a problem wants
 
@@ -221,10 +221,10 @@ Four signatures, and nearly every problem in this unit shows one of them.
 
 **A single particle at rest turning into two** means the two-body decay formula. You have no choices to make: the momenta are equal and opposite, and the answer is fixed by the three masses. If one product is a photon, set its mass to zero and the formula shortens to $(M^2 - m^2)/2M$.
 
-**The words "threshold", "minimum energy", "stationary target" or "centre of mass"** mean compute $s$ before and set $\sqrt{s}$ equal to the sum of final rest energies. Watch which energy the question wants at the end — total or kinetic — because that off-by-one-rest-mass is the most common lost mark in the whole unit.
+**The words "threshold", "minimum energy", "stationary target" or "centre of mass"** mean compute $s$ before and set $\sqrt{s}$ equal to the sum of final rest energies. Watch which energy the question wants at the end (total or kinetic) because that off-by-one-rest-mass is the most common lost mark in the whole unit.
 
 **A lifetime, a width, or a distance travelled** means $\Gamma\tau = \hbar$ or $L = (pc/mc^2)c\tau$. If you are given a momentum and asked for a distance, you are being asked about time dilation, whether or not the problem says so.
 
 The one habit that pays everywhere: keep every energy in MeV and every momentum in MeV/c, so that $c$ never appears in your arithmetic and factors of $10^8$ never get squared by accident. Convert at the very end if the answer is wanted in joules or metres.
 
-Next comes [data analysis and uncertainty](/guide/data-uncertainty), which is how you decide whether a bump in a histogram is a new particle or a statistical accident — the question that stands behind every number quoted above.
+Next comes [data analysis and uncertainty](/guide/data-uncertainty), which is how you decide whether a bump in a histogram is a new particle or a statistical accident: the question that stands behind every number quoted above.

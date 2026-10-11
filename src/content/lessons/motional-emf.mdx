@@ -31,7 +31,7 @@ $$\mathcal{E} = BLv$$
 Each symbol: $B$ in teslas, $L$ the length of rod actually *between the rails*
 in metres (not the whole rod, only the part carrying the circuit), $v$ the speed
 in metres per second, and $\mathcal{E}$ the emf in volts. Double any one of them
-and the emf doubles. If the rod stops, the emf is zero — a static circuit in a
+and the emf doubles. If the rod stops, the emf is zero: a static circuit in a
 static field produces nothing, no matter how strong $B$ is.
 
 <Figure caption={<><b>Figure 1.</b> The rod, the rails and the resistor. Push the speed slider up and watch the emf, the current and the braking force all rise together. Then halve the resistance and notice that only the emf stays put.</>}>
@@ -119,7 +119,7 @@ velocity, exponential decay, the lot.
 
 <Aside label="Where this goes wrong" warn>
   Do not put the magnetic force into your energy ledger as a source or a sink.
-  A magnetic force never does net work — it only redirects work done by
+  A magnetic force never does net work: it only redirects work done by
   whatever is moving the rod. The correct accounting has exactly two entries:
   mechanical work in, resistive heat out. Adding a third term for "work done by
   the field" double counts and typically produces a factor-of-two error.
@@ -127,8 +127,7 @@ velocity, exponential decay, the lot.
 
 ## Terminal speed
 
-If something steady drives the rod — gravity, a hanging mass, a constant pull —
-then since the braking force grows with $v$, sooner or later it matches the
+If something steady drives the rod (gravity, a hanging mass, a constant pull) then since the braking force grows with $v$, sooner or later it matches the
 drive and the acceleration goes to zero. That speed is the terminal speed, and
 you find it by setting the two forces equal. You never have to solve a
 differential equation for it.
@@ -156,7 +155,7 @@ $$v_t = \frac{0.098}{0.0225} = 4.36\ \text{m/s}$$
 Two variations show up constantly. If the rails are *vertical* and the field is
 horizontal, it is the same problem with $\sin\theta = 1$. If there is friction
 between rod and rails, the normal force is $mg\cos\theta$ and you subtract
-$\mu mg\cos\theta$ from the driving force before balancing — the magnetic part
+$\mu mg\cos\theta$ from the driving force before balancing: the magnetic part
 is untouched. And if a hanging block of mass $M$ pulls the rod over a pulley,
 the drive is $Mg$ and the balance is $Mg = B^2L^2v_t/R$.
 
@@ -222,7 +221,7 @@ $I = \mathcal{E}/R = (B L v)/R$ and $v\,dt = dx$,
 $$q = \frac{BL\,\Delta x}{R} = \frac{\Delta\Phi}{R}$$
 
 Use this one when you are told the distance and the resistance. Remember to
-include the rod's own resistance in $R$ when the problem gives it — the rod and
+include the rod's own resistance in $R$ when the problem gives it: the rod and
 the external element are in series.
 
 ## Rotating rods, disks and generators
@@ -239,7 +238,7 @@ $$\mathcal{E} = \int_0^L B\omega r\,dr = \tfrac12 B\omega L^2$$
 
 The factor of a half is the average of $\omega r$ over the rod. A spinning metal
 disk with brushes at its axle and rim gives the same expression with $L$ the
-radius — each radial line of the disk is one of these rods, all in parallel.
+radius: each radial line of the disk is one of these rods, all in parallel.
 For a disk of radius $0.10$ m spinning at $30$ revolutions per second,
 $\omega = 2\pi(30) = 188.5$ rad/s and in a $0.20$ T field the emf is
 $\tfrac12(0.20)(188.5)(0.10)^2 = 0.188$ V.
@@ -255,8 +254,8 @@ $BA\cos\omega t$, and Faraday's law differentiates it, so
 $$\mathcal{E} = NBA\omega \sin\omega t$$
 
 The peak value is $\mathcal{E}_0 = NBA\omega$. Because the output is a sine
-wave, the rms value — the steady voltage that would heat a resistor at the same
-average rate — is $\mathcal{E}_0/\sqrt2$, and the average power into a resistor
+wave, the rms value (the steady voltage that would heat a resistor at the same
+average rate) is $\mathcal{E}_0/\sqrt2$, and the average power into a resistor
 $R$ is $\mathcal{E}_0^2/2R$. Watch the units on the spin rate: $1500$ rpm is
 $1500 \times 2\pi/60 = 157.1$ rad/s.
 
@@ -271,7 +270,7 @@ $1500 \times 2\pi/60 = 157.1$ rad/s.
 ## When the load is not a resistor
 
 Replace the resistor with a capacitor or an inductor and the force law
-$F = BIL$ still holds — only the relation between emf and current changes.
+$F = BIL$ still holds, only the relation between emf and current changes.
 
 With a **capacitor** $C$ across the rails, the charge is $q = C\mathcal{E} =
 CBLv$, so the current is $I = dq/dt = CBL\,a$ where $a$ is the rod's
@@ -286,7 +285,7 @@ uniformly accelerated. No energy is lost.
 
 With an **inductor** $L_{\text{ind}}$ across resistanceless rails, the loop
 equation is $BLv = L_{\text{ind}}\,di/dt$. Integrating from the start,
-$i = BL(x)/L_{\text{ind}}$ where $x$ is the distance travelled — current is
+$i = BL(x)/L_{\text{ind}}$ where $x$ is the distance travelled: current is
 proportional to *displacement*. Then $m\,dv/dt = -B^2L^2x/L_{\text{ind}}$,
 which is Hooke's law in disguise: the rod oscillates with
 $\omega = BL/\sqrt{mL_{\text{ind}}}$ and the farthest it gets is

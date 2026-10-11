@@ -120,14 +120,12 @@ export default function ProblemsPage() {
     <>
       <Nav />
       <main className="mx-auto max-w-3xl px-6 pb-24 pt-10">
-        <p className="label">Problem bank</p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--ink-strong)]">
-          Every problem in the guide
+        <h1 className="text-3xl font-bold text-[var(--ink-strong)]">
+          Problems
         </h1>
         <p className="mt-3 max-w-[34rem] text-[var(--ink-soft)]">
-          {TOTAL_SOLVABLE} problems written for this guide are solvable right
-          here, answer-checked as you go. Past-exam problems are listed with
-          their citation so you can find them in the official archive.
+          {TOTAL_SOLVABLE.toLocaleString("en-US")} problems you can check here, plus past exam
+          problems with links to the official archive.
         </p>
         <p className="sans mt-3 text-sm text-[var(--ink-faint)]">
           {solvedCount} of {TOTAL_PROBLEMS} solved

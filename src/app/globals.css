@@ -3,71 +3,71 @@
 @tailwind utilities;
 
 /*
-  Print/textbook typography. Paper-white ground, serif body set at a real
-  reading measure, numbered sections and figures, rules instead of cards.
+  Looks like a physics handout: Computer Modern (KaTeX's own text face, so
+  prose and maths match), white paper, black ink, blue links. Interface bits
+  use the system font so they read as controls, not as part of the text.
   Theme is switched by data-theme on <html>.
 */
 :root {
-  --paper: #fbfaf7;
-  --paper-2: #f4f2ec;
+  --paper: #ffffff;
+  --paper-2: #f5f5f4;
   --panel: #ffffff;
-  --rule: #ded9cf;
-  --rule-strong: #b9b2a4;
+  --rule: #e4e4e2;
+  --rule-strong: #c9c9c6;
 
-  --ink: #1f1d1a;
-  --ink-strong: #100f0d;
-  --ink-soft: #56514a;
-  --ink-faint: #8d8779;
+  --ink: #1b1b1b;
+  --ink-strong: #000000;
+  --ink-soft: #545454;
+  --ink-faint: #8a8a8a;
 
-  --accent: #7b2d26;        /* oxblood, used for links and marginal marks */
-  --accent-soft: #a8463c;
-  --figure: #2f4858;
+  --accent: #1f4fbf;
+  --accent-soft: #3b6ad6;
+  --figure: #1f4fbf;
 
-  --ok: #2f6b3f;
-  --warn: #9a5b12;
-  --bad: #9b2c2c;
+  --ok: #1d7a3a;
+  --warn: #b25b00;
+  --bad: #c0262d;
 
-  --diff-1: #2f6b3f;
-  --diff-2: #2f4858;
-  --diff-3: #9a5b12;
-  --diff-4: #a8463c;
-  --diff-5: #7a1f4d;
+  --diff-1: #1d7a3a;
+  --diff-2: #1f4fbf;
+  --diff-3: #b25b00;
+  --diff-4: #c0262d;
+  --diff-5: #7a2a8c;
 
-  --ok-bg: #eef4ee;
-  --bad-bg: #f8eeee;
-  --selection: #f0e3c2;
-
+  --ok-bg: #edf7ef;
+  --bad-bg: #fcefef;
+  --selection: #cfdcff;
 }
 
 [data-theme="dark"] {
-  --paper: #14140f;
-  --paper-2: #1b1b16;
-  --panel: #191914;
-  --rule: #33322a;
-  --rule-strong: #4d4b40;
+  --paper: #121212;
+  --paper-2: #1c1c1c;
+  --panel: #181818;
+  --rule: #2c2c2c;
+  --rule-strong: #444444;
 
-  --ink: #ddd8cc;
-  --ink-strong: #f3efe4;
-  --ink-soft: #a8a294;
-  --ink-faint: #79736a;
+  --ink: #dcdcdc;
+  --ink-strong: #f5f5f5;
+  --ink-soft: #a3a3a3;
+  --ink-faint: #767676;
 
-  --accent: #d98b7f;
-  --accent-soft: #e5a99e;
-  --figure: #8fb3c7;
+  --accent: #8ab0ff;
+  --accent-soft: #a9c3ff;
+  --figure: #8ab0ff;
 
-  --ok: #7fb587;
-  --warn: #d6a15c;
-  --bad: #e08585;
+  --ok: #6fcf8a;
+  --warn: #f0a548;
+  --bad: #ff7b7b;
 
-  --diff-1: #7fb587;
-  --diff-2: #8fb3c7;
-  --diff-3: #d6a15c;
-  --diff-4: #e08585;
-  --diff-5: #d98bb5;
+  --diff-1: #6fcf8a;
+  --diff-2: #8ab0ff;
+  --diff-3: #f0a548;
+  --diff-4: #ff7b7b;
+  --diff-5: #d79bea;
 
-  --ok-bg: #16201a;
-  --bad-bg: #241618;
-  --selection: #3a3320;
+  --ok-bg: #13251a;
+  --bad-bg: #2a1515;
+  --selection: #2b3d66;
 
   color-scheme: dark;
 }
@@ -75,26 +75,19 @@
 html { -webkit-text-size-adjust: 100%; }
 
 body {
-  /* font tokens must be defined where next/font injects --font-*, which is
-     body, not :root: a var() chain with an undefined link is discarded */
-  --serif: var(--font-serif), Georgia, "Times New Roman", serif;
-  --sans: var(--font-sans), -apple-system, "Segoe UI", sans-serif;
-  --mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --serif: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", "Computer Modern", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   background: var(--paper);
   color: var(--ink);
   font-family: var(--serif);
 
-  /*
-   * Type scales with the display instead of sitting at one size. A fixed 18px
-   * gave 36 characters a line on a phone (far too narrow) and left the column
-   * looking lost on a 2560px monitor. The measure is in ch, so the column
-   * tracks the type and the line length stays near 66 characters everywhere.
-   */
-  font-size: clamp(1.015rem, 0.94rem + 0.32vw, 1.3rem);
-  line-height: 1.72;
-  --measure: 66ch;
-  font-feature-settings: "kern", "liga", "onum";
+  /* Computer Modern runs small and thin, so it gets a little more size than a
+     typical web serif; the measure is in ch so line length follows the type */
+  font-size: clamp(1.06rem, 0.98rem + 0.3vw, 1.28rem);
+  line-height: 1.6;
+  --measure: 72ch;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -103,14 +96,12 @@ body {
 .sans { font-family: var(--sans); }
 .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
-/* small-caps label, the workhorse of the textbook look */
+/* quiet metadata text: small, grey, no shouting */
 .label {
   font-family: var(--sans);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ink-soft);
 }
 
 a { color: inherit; }
@@ -128,30 +119,26 @@ a { color: inherit; }
   max-width: var(--measure);
 }
 /*
- * The gap between paragraphs has to beat the 1.62 line-height inside one, or a
- * paragraph break reads as tighter than an ordinary line wrap and the page
- * turns into a wall.
- *
  * Both rules are written on `> *` so they carry the same specificity and the
  * later one wins. A `.prose p` reset here would outrank `> * + *` and silently
  * zero every paragraph gap, which is exactly what used to happen.
  */
 .prose > * { margin: 0; }
-.prose > * + * { margin-top: 1.8em; }
+.prose > * + * { margin-top: 1em; }
 
 /* a heading belongs to the text under it: lots of air above, little below */
 .prose h2 {
   font-family: var(--serif);
-  font-size: 1.42em;
-  font-weight: 600;
+  font-size: 1.32em;
+  font-weight: 700;
   line-height: 1.25;
   color: var(--ink-strong);
-  margin-top: 2.9em;
+  margin-top: 1.9em;
   margin-bottom: 0;
 }
 .prose h3 {
-  font-size: 1.1em;
-  font-weight: 600;
+  font-size: 1.08em;
+  font-weight: 700;
   color: var(--ink-strong);
   margin-top: 2.1em;
   margin-bottom: 0;
@@ -163,12 +150,11 @@ a { color: inherit; }
 .prose { counter-reset: section figure; }
 .prose h2 { counter-increment: section; }
 .prose h2::before {
-  content: counter(section) ". ";
-  color: var(--ink-faint);
-  font-variant-numeric: lining-nums;
+  content: counter(section);
+  margin-right: 0.9em;
 }
 .prose em { font-style: italic; }
-.prose strong { font-weight: 600; color: var(--ink-strong); }
+.prose strong { font-weight: 700; color: var(--ink-strong); }
 .prose ul, .prose ol {
   margin-left: 1.15em;
   padding-left: 0.4em;
@@ -176,13 +162,13 @@ a { color: inherit; }
 .prose ul { list-style: disc; }
 .prose ol { list-style: decimal; }
 .prose li { margin-top: 0.28em; }
-.prose li::marker { color: var(--ink-faint); }
+.prose li::marker { color: var(--ink); }
 .prose code {
   font-family: var(--mono);
   font-size: 0.86em;
   background: var(--paper-2);
   padding: 0.1em 0.32em;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 .prose blockquote {
   border-left: 2px solid var(--rule-strong);
@@ -193,50 +179,42 @@ a { color: inherit; }
 
 /* display math sits centered on the page like a numbered equation */
 .prose .katex-display {
-  margin: 1.5em 0;
+  margin: 1em 0;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0.2em 0;
 }
-.katex { font-size: 1.03em; }
+.katex { font-size: 1em; }
 
 /* ---------------- figures & asides ---------------- */
 .figure {
-  margin: 1.9em 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  padding: 1.1em 0 0.9em;
+  margin: 1.6em 0;
 }
 .figure-caption {
-  font-family: var(--sans);
-  font-size: 0.8em;
-  color: var(--ink-soft);
-  margin-top: 0.75em;
-  line-height: 1.5;
+  font-size: 0.88em;
+  color: var(--ink);
+  margin: 0.6em auto 0;
+  max-width: 62ch;
+  line-height: 1.45;
 }
 .figure-caption b {
   color: var(--ink-strong);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .aside {
-  margin: 1.7em 0;
-  padding-left: 1.05em;
-  border-left: 2px solid var(--rule-strong);
-  font-size: 0.95em;
-  color: var(--ink-soft);
+  margin: 1.4em 0;
+  padding: 0.75em 1em;
+  border: 1px solid var(--rule-strong);
+  color: var(--ink);
 }
 .aside-label {
-  font-family: var(--sans);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
+  font-weight: 700;
+  color: var(--ink-strong);
   display: block;
-  margin-bottom: 0.35em;
+  margin-bottom: 0.2em;
 }
-.aside.warn { border-left-color: var(--warn); }
+.aside.warn { border-color: color-mix(in srgb, var(--warn) 55%, var(--rule-strong)); }
 .aside.warn .aside-label { color: var(--warn); }
 .aside > * + * { margin-top: 0.7em; }
 
@@ -252,10 +230,8 @@ table.data {
 table.data thead th {
   text-align: left;
   font-weight: 600;
-  font-size: 0.7rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
   padding: 0 0.75rem 0.5rem 0;
   border-bottom: 1px solid var(--rule-strong);
 }
@@ -271,11 +247,11 @@ table.data tbody tr:hover { background: var(--paper-2); }
   font-family: var(--sans);
   font-size: 0.9rem;
   font-weight: 500;
-  padding: 0.45rem 0.9rem;
+  padding: 0.5rem 1rem;
   border: 1px solid var(--ink-strong);
   background: var(--ink-strong);
   color: var(--paper);
-  border-radius: 2px;
+  border-radius: 4px;
   transition: opacity 120ms;
 }
 .btn:hover { opacity: 0.85; }
@@ -287,7 +263,7 @@ table.data tbody tr:hover { background: var(--paper-2); }
   border: 1px solid var(--rule-strong);
   background: transparent;
   color: var(--ink);
-  border-radius: 2px;
+  border-radius: 4px;
 }
 .btn-plain:hover { background: var(--paper-2); }
 
@@ -298,7 +274,7 @@ input[type="number"], textarea, select {
   background: var(--panel);
   color: var(--ink);
   border: 1px solid var(--rule-strong);
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 0.4rem 0.6rem;
 }
 input:focus, textarea:focus, select:focus {

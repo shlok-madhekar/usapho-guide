@@ -1,7 +1,7 @@
 ## The lie that makes physics solvable
 
 A pendulum swinging through a small arc keeps almost perfect time. That fact
-runs every grandfather clock ever built, and it is not obvious — the equation
+runs every grandfather clock ever built, and it is not obvious: the equation
 that governs a pendulum, written honestly, cannot be solved with any function
 you know. Write down Newton's second law along the arc and you get
 $\ddot\theta = -(g/L)\sin\theta$. That $\sin$ is fatal. There is no formula
@@ -10,8 +10,8 @@ name.
 
 So physicists tell a lie. For small $\theta$, they write $\sin\theta \approx
 \theta$, the equation becomes $\ddot\theta = -(g/L)\theta$, and out drops
-$T = 2\pi\sqrt{L/g}$. The lie is tiny — at $10^\circ$ it is wrong by less than
-a fifth of a percent — and without it there is no pendulum formula at all.
+$T = 2\pi\sqrt{L/g}$. The lie is tiny (at $10^\circ$ it is wrong by less than
+a fifth of a percent) and without it there is no pendulum formula at all.
 
 This lesson is about telling that kind of lie on purpose, and knowing exactly
 how big it is. You have just spent two lessons on derivatives and integrals.
@@ -123,7 +123,7 @@ almost nothing. The error grows like $x^2$, so halving $x$ quarters it.</>}>
   $\left|\frac{\Delta L}{L}\right| + 2\left|\frac{\Delta T}{T}\right|$. With
   $L$ known to $0.20\%$ and $T$ to $0.10\%$, that is
   $0.20\% + 2(0.10\%) = 0.40\%$. This is where error propagation formulas come
-  from — they are first-order Taylor expansions wearing a lab coat.
+  from: they are first-order Taylor expansions wearing a lab coat.
 </Aside>
 
 ## Worked example 1: how much weaker is gravity in orbit
@@ -203,7 +203,7 @@ About one ten-millionth of $g$, and it moves the oceans.
 
 <Figure caption={<><b>Figure 3.</b> Why the tide is a difference, not a pull.
 The three long arrows are the Moon's pull at the near point, the center, and
-the far point — nearly identical. Subtract the middle one from each and what
+the far point: nearly identical. Subtract the middle one from each and what
 survives is the small stretching pair below. The scale factor tells you how
 much the residual arrows have been magnified to be visible at all.</>}>
   <Sim id="approximations-tide" />
@@ -244,7 +244,7 @@ $86400$ s that is
 $$86400 \times 0.007615 = 658\ \text{s}$$
 
 The clock loses about eleven minutes a day. Note that $L$ and $g$ never
-appeared — the fractional error does not care how long the pendulum is, which
+appeared: the fractional error does not care how long the pendulum is, which
 is exactly the kind of thing an expansion is good at telling you.
 
 **Second: run it backwards.** What amplitude keeps the simple formula accurate
@@ -277,7 +277,7 @@ The algebra is easy. The judgement is the hard part, and it comes down to one
 question you must answer before writing anything: **small compared with what?**
 
 An expansion parameter has to be dimensionless. "The height is small" is
-meaningless — small next to what? In the orbit problem, the answer was $h/R$.
+meaningless: small next to what? In the orbit problem, the answer was $h/R$.
 In the tide problem, $R/d$. In relativity, $v/c$. In a decay problem,
 $t/\tau$. Find the ratio, confirm it is much less than one, and expand in it.
 If you cannot name a dimensionless small quantity, you do not yet have an
@@ -294,7 +294,7 @@ $0.10/17.31 = 0.00578$. The small parameter is $t/\tau$, not $t$.
 **Slow relativity.** $\gamma = (1 - v^2/c^2)^{-1/2} \approx 1 + \tfrac{1}{2}v^2/c^2$.
 At $v = 0.010c$ this gives $\gamma - 1 = \tfrac{1}{2}(10^{-4}) = 5\times10^{-5}$.
 The small parameter is $v^2/c^2$, which is already tiny when $v/c$ is merely
-small — that is why Newtonian mechanics survives so well.
+small: that is why Newtonian mechanics survives so well.
 
 **Sagging a curve into a parabola.** A circle of radius $R$ dips below its own
 tangent by $R - \sqrt{R^2 - r^2} = R\left(1 - \sqrt{1 - r^2/R^2}\right)
@@ -315,16 +315,16 @@ sections of spheres act like parabolas. Small parameter: $r^2/R^2$.
 The cue is almost always a word, not an equation. Reach for an expansion when
 a problem says:
 
-- "small oscillations", "small amplitude", "slightly displaced" — expand the
+- "small oscillations", "small amplitude", "slightly displaced" (expand the
   potential or the force about the equilibrium point, and you will land on
   simple harmonic motion.
-- "to first order in", "estimate", "approximately" — the problem is telling
+- "to first order in", "estimate", "approximately") the problem is telling
   you outright.
-- "for $r \gg d$", "far from", "thin", "shallow" — form the ratio of the small
+- "for $r \gg d$", "far from", "thin", "shallow" (form the ratio of the small
   length to the big one and expand in it.
-- a percent change, or an uncertainty, in a formula built from powers — use
+- a percent change, or an uncertainty, in a formula built from powers) use
   the exponent rule and skip the calculus entirely.
-- a **difference of two nearly equal quantities** — tides, dipoles, beat
+- a **difference of two nearly equal quantities**: tides, dipoles, beat
   frequencies, clock corrections. Here the expansion is not a convenience, it
   is the only way to get a nonzero answer without twelve digits of precision.
 

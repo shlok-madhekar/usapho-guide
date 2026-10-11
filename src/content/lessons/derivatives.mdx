@@ -22,9 +22,9 @@ Now look at what happens as the interval shrinks. The $3h$ term is the only plac
 
 $$v(t) = \frac{dx}{dt} = \lim_{h \to 0}\frac{x(t+h) - x(t)}{h} = 6t - 4$$
 
-On a graph of $x$ against $t$, the ratio you just computed is the slope of the straight line through two points on the curve — a *secant*. As the two points slide together, the secant tips over into the **tangent** at a single point. So the derivative is the slope of the tangent line, and the velocity at an instant is the steepness of the position graph there.
+On a graph of $x$ against $t$, the ratio you just computed is the slope of the straight line through two points on the curve: a *secant*. As the two points slide together, the secant tips over into the **tangent** at a single point. So the derivative is the slope of the tangent line, and the velocity at an instant is the steepness of the position graph there.
 
-<Figure caption={<><b>Figure 1.</b> The dashed line is the true tangent at t0; the solid line is the secant through t0 and t0 + h. Drag h down toward 0.02 s and watch the gap in the readout collapse — that collapse is the whole definition of a derivative.</>}>
+<Figure caption={<><b>Figure 1.</b> The dashed line is the true tangent at t0; the solid line is the secant through t0 and t0 + h. Drag h down toward 0.02 s and watch the gap in the readout collapse: that collapse is the whole definition of a derivative.</>}>
   <Sim id="derivatives-tangent" />
 </Figure>
 
@@ -73,7 +73,7 @@ $$v(3) = 6(3) - 4 = 18 - 4 = 14\ \mathrm{m/s}$$
 
 Speed is the magnitude, $|v| = 14$ m/s. Here $v$ was already positive so the two agree, but keep the distinction. If the question had asked about $t = 0$, you would get $v = -4$ m/s and a speed of $4$ m/s.
 
-A cousin of this problem: a bead has $x(t) = 5t^3 - 2t$. Then $v = 15t^2 - 2$ and $a = 30t$, so $a(2) = 60\ \mathrm{m/s^2}$. Differentiate twice, then substitute — never substitute first. Plugging $t = 2$ into $x$ gives a number, and the derivative of a number is zero.
+A cousin of this problem: a bead has $x(t) = 5t^3 - 2t$. Then $v = 15t^2 - 2$ and $a = 30t$, so $a(2) = 60\ \mathrm{m/s^2}$. Differentiate twice, then substitute: never substitute first. Plugging $t = 2$ into $x$ gives a number, and the derivative of a number is zero.
 
 <Aside label="Where this goes wrong" warn>
   Speed is $|\vec{v}|$, and the derivative of speed is not the acceleration in general. A car going round a circle at a steady 20 m/s has zero rate of change of speed and a very real acceleration pointed at the center. Differentiate the vector first, then take the magnitude. Never the other way round.
@@ -83,7 +83,7 @@ A cousin of this problem: a bead has $x(t) = 5t^3 - 2t$. Then $v = 15t^2 - 2$ an
 
 Here is the second job derivatives do, and in olympiad problems it is the more common one. At a smooth peak, the curve is momentarily flat: coming up it had positive slope, going down it has negative slope, so right at the top the slope is zero. Same at a trough. So to find where a quantity is largest, differentiate it and set the derivative to zero.
 
-Which one you found — peak or trough — you settle by checking the second derivative, or more cheaply by evaluating the function just either side.
+Which one you found (peak or trough) you settle by checking the second derivative, or more cheaply by evaluating the function just either side.
 
 <Figure caption={<><b>Figure 2.</b> The top panel is position, the bottom is its derivative. Notice what lines up: the peak of x sits exactly above the zero crossing of v, not above the peak of v. The maximum of a thing is a zero of its rate of change.</>}>
   <Sim id="derivatives-extremum" />
@@ -97,7 +97,7 @@ $$x(2) = 12(2) - 2^3 = 24 - 8 = 16\ \mathrm{m}$$
 
 Check it is a maximum: $a = dv/dt = -6t$, which is $-12\ \mathrm{m/s^2}$ at $t = 2$. Negative, so the curve is bending downward. A peak.
 
-This is also how "what angle gives the longest range" problems work. For a level launch, $R(\theta) = v_0^2\sin 2\theta / g$, and $dR/d\theta = 2v_0^2\cos 2\theta / g$, which vanishes when $2\theta = 90^\circ$, giving $\theta = 45^\circ$. When the ground is not level — a cliff edge, a hillside — the range formula is messier but the method is unchanged: write the distance as a function of one variable, differentiate, set to zero.
+This is also how "what angle gives the longest range" problems work. For a level launch, $R(\theta) = v_0^2\sin 2\theta / g$, and $dR/d\theta = 2v_0^2\cos 2\theta / g$, which vanishes when $2\theta = 90^\circ$, giving $\theta = 45^\circ$. When the ground is not level (a cliff edge, a hillside) the range formula is messier but the method is unchanged: write the distance as a function of one variable, differentiate, set to zero.
 
 <QuickCheck
   question="A particle's position-time graph has a horizontal tangent at t = 3 s. What is true at that instant?"
@@ -190,7 +190,7 @@ $$a = \frac{dv}{dt} = \frac{dv}{dx}\cdot\frac{dx}{dt} = v\,\frac{dv}{dx}$$
 
 Here $dv/dx = 2.0\cdot\tfrac{1}{2}x^{-1/2} = 1/\sqrt{x}$, so $a = 2.0\sqrt{x}\cdot 1/\sqrt{x} = 2.0\ \mathrm{m/s^2}$, the same everywhere. This $a = v\,dv/dx$ form will come back constantly once you meet energy.
 
-**Circular motion.** If a particle moves on a circle of radius $r$ with angle $\theta(t)$, the arc travelled is $s = r\theta$, so its speed is $v = r\,d\theta/dt$. For $\theta = 0.50t^2$ on $r = 3.0$ m, $d\theta/dt = 1.0t$, so $v = 3.0t$ and $v(4.0) = 12\ \mathrm{m/s}$. Its acceleration has two perpendicular pieces: $a_t = dv/dt$ along the path, and $a_c = v^2/r$ toward the center. The total magnitude is $\sqrt{a_t^2 + a_c^2}$, because they are perpendicular vectors — that is the dot-product machinery from the previous lesson doing its job.
+**Circular motion.** If a particle moves on a circle of radius $r$ with angle $\theta(t)$, the arc travelled is $s = r\theta$, so its speed is $v = r\,d\theta/dt$. For $\theta = 0.50t^2$ on $r = 3.0$ m, $d\theta/dt = 1.0t$, so $v = 3.0t$ and $v(4.0) = 12\ \mathrm{m/s}$. Its acceleration has two perpendicular pieces: $a_t = dv/dt$ along the path, and $a_c = v^2/r$ toward the center. The total magnitude is $\sqrt{a_t^2 + a_c^2}$, because they are perpendicular vectors: that is the dot-product machinery from the previous lesson doing its job.
 
 ## How to recognise a derivative problem
 
@@ -198,12 +198,12 @@ Four phrasings should make you reach for $d/dt$ before you read the rest of the 
 
 **"At the instant..." or "at $t = $..."** paired with a formula for position or velocity. Differentiate, then substitute, in that order.
 
-**"Maximum", "minimum", "largest", "farthest", "smallest speed that will..."** — anything asking for the best value of something. Write the quantity as a function of one variable, set the derivative to zero, solve. If the problem gives you two variables, use a constraint to kill one first.
+**"Maximum", "minimum", "largest", "farthest", "smallest speed that will..."**: anything asking for the best value of something. Write the quantity as a function of one variable, set the derivative to zero, solve. If the problem gives you two variables, use a constraint to kill one first.
 
-**"Stops increasing", "turns around", "reaches its highest point", "changes direction"** — all of these say a derivative crosses zero. The height is greatest when $dy/dt = 0$; a distance stops growing when the rate of change of that distance is zero; the acceleration is momentarily zero when $dv/dt = 0$.
+**"Stops increasing", "turns around", "reaches its highest point", "changes direction"**: all of these say a derivative crosses zero. The height is greatest when $dy/dt = 0$; a distance stops growing when the rate of change of that distance is zero; the acceleration is momentarily zero when $dv/dt = 0$.
 
 **Two changing quantities and one given rate.** Ladders, shadows, balloons, ropes being winched in, radar tracking. These are related rates: find the geometric relation, differentiate it in time, substitute last.
 
-The one habit that will save you most often is the ordering. Set up symbolically, differentiate symbolically, and only put numbers in at the final line. It is faster, it is less error-prone, and the symbolic answer usually tells you something — like that $-u^2L^2/y^3$, which explained the ladder better than $-0.141$ ever could.
+The one habit that will save you most often is the ordering. Set up symbolically, differentiate symbolically, and only put numbers in at the final line. It is faster, it is less error-prone, and the symbolic answer usually tells you something: like that $-u^2L^2/y^3$, which explained the ladder better than $-0.141$ ever could.
 
 Derivatives take a rule and give you the motion. The [next lesson](/guide/integrals) runs the machine backwards: given the acceleration, recover the velocity and the position.

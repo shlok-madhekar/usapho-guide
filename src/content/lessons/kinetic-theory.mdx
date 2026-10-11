@@ -1,12 +1,12 @@
 In the [previous lesson](/guide/first-law) you tracked heat and work going in and out of a gas without ever asking what the gas was made of. A cylinder of air was a black box with a pressure, a volume and a temperature painted on the side. The first law told you how those three bookkeeping numbers had to balance, and that was enough to solve a great many problems.
 
-Now open the box. Inside are something like $10^{25}$ molecules per cubic metre, each one flying in a straight line until it hits something, each one obeying nothing more exotic than $F = ma$ and conservation of momentum. Nothing in there knows what "pressure" or "temperature" means. So where do those quantities come from? If you can answer that — if you can get from bouncing billiard balls to $PV = Nk_BT$ using only mechanics you already have — then temperature stops being a reading on a thermometer and becomes something you can picture.
+Now open the box. Inside are something like $10^{25}$ molecules per cubic metre, each one flying in a straight line until it hits something, each one obeying nothing more exotic than $F = ma$ and conservation of momentum. Nothing in there knows what "pressure" or "temperature" means. So where do those quantities come from? If you can answer that (if you can get from bouncing billiard balls to $PV = Nk_BT$ using only mechanics you already have) then temperature stops being a reading on a thermometer and becomes something you can picture.
 
 ## Pressure is a rain of impacts
 
 Hold your palm out. Air pushes on it with about $10^5$ newtons per square metre, roughly the weight of a small car spread over the palm, and you feel nothing because the same push acts on the other side. That push is not a fluid leaning on you. It is roughly $10^{27}$ separate collisions per second, each one far too small and far too brief to notice individually. Averaged over any time you can perceive, the hail of impacts is perfectly steady, and you call the average force per unit area *pressure*.
 
-The word *average* is doing the real work there. Individual molecules arrive at all speeds and all angles. What you want is the mean rate at which they deliver momentum to a wall, and momentum delivery per unit time is force — that is Newton's second law written as $F = \Delta p / \Delta t$, and it is the single tool this whole derivation runs on.
+The word *average* is doing the real work there. Individual molecules arrive at all speeds and all angles. What you want is the mean rate at which they deliver momentum to a wall, and momentum delivery per unit time is force: that is Newton's second law written as $F = \Delta p / \Delta t$, and it is the single tool this whole derivation runs on.
 
 <Figure caption={<><b>Figure 1.</b> A box of gas. Drag the temperature up and watch the molecules speed up; drag the molar mass up and watch them slow down at the same temperature. The readout gives the rms speed, and molecules currently touching the right wall are highlighted.</>}>
   <Sim id="kinetic-theory-box" />
@@ -50,7 +50,7 @@ $$
 P = \tfrac13 \rho \overline{v^2}
 $$
 
-That is a real result and it is worth pausing on. Pressure rises if you pack in more mass per unit volume, and rises with the *square* of the molecular speed — one factor because each impact is harder, one because impacts come more often.
+That is a real result and it is worth pausing on. Pressure rises if you pack in more mass per unit volume, and rises with the *square* of the molecular speed: one factor because each impact is harder, one because impacts come more often.
 
 <Aside label="Worth remembering">
   The factor of one third is not a fudge. It is the three dimensions: only the $x$ motion pushes on an $x$-facing wall, and on average a molecule puts one third of its squared speed into each axis.
@@ -81,13 +81,13 @@ $$
 
 Temperature *is* average translational kinetic energy per molecule, in different units. That is the whole content of the word. A thermometer is an energy meter with an awkward scale.
 
-Solve for the speed. The square root of $\overline{v^2}$ is called the **root-mean-square speed**, written $v_{\text{rms}}$ — square the speeds, take the mean, take the root, in that order:
+Solve for the speed. The square root of $\overline{v^2}$ is called the **root-mean-square speed**, written $v_{\text{rms}}$: square the speeds, take the mean, take the root, in that order:
 
 $$
 v_{\text{rms}} = \sqrt{\frac{3k_BT}{m}} = \sqrt{\frac{3RT}{M}}
 $$
 
-The second form uses per-mole quantities: $M$ is the molar mass in kg/mol and $R = 8.31$ J/mol·K. Both forms give the same number, because $R = N_A k_B$ and $M = N_A m$. Use whichever matches the data you were given, and never mix them — putting a molar mass into the $k_B$ formula is the most common way to be off by $10^{23}$.
+The second form uses per-mole quantities: $M$ is the molar mass in kg/mol and $R = 8.31$ J/mol·K. Both forms give the same number, because $R = N_A k_B$ and $M = N_A m$. Use whichever matches the data you were given, and never mix them: putting a molar mass into the $k_B$ formula is the most common way to be off by $10^{23}$.
 
 <Aside label="Where this goes wrong" warn>
   Equal temperature means equal average kinetic energy per molecule, not equal speed. In a helium–oxygen mixture at one temperature, every atom of helium and every molecule of oxygen has the same $\bar K$, but helium is eight times lighter and so moves $\sqrt{8} \approx 2.8$ times faster. If a problem asks you to compare kinetic energies of two gases at one temperature, the answer is 1 and you do not need any numbers.
@@ -110,7 +110,7 @@ $$
 
 The numerator is $3 \times 8.31 \times 300 = 7479$. Divide by 0.0280 to get $2.671 \times 10^5$. The square root is 517, so $v_{\text{rms}} = 517$ m/s.
 
-Carry that number. Air molecules move at roughly 500 m/s, a little faster than the 343 m/s speed of sound — which is exactly as it should be, since sound is carried by those molecules and cannot outrun them.
+Carry that number. Air molecules move at roughly 500 m/s, a little faster than the 343 m/s speed of sound, which is exactly as it should be, since sound is carried by those molecules and cannot outrun them.
 
 ### Example 2: a molecular beam that sticks
 
@@ -134,15 +134,15 @@ $$
 P = \frac{9.00\times10^{-3}}{2.00\times10^{-4}} = 45.0\ \text{Pa}
 $$
 
-Note what did *not* appear: no temperature, no $k_B$, no $\tfrac13$. The one third came from averaging over random directions, and a beam is not random — it all goes one way. When a problem gives you a rate of arrival, go back to $F = \Delta p/\Delta t$ and build the answer from scratch.
+Note what did *not* appear: no temperature, no $k_B$, no $\tfrac13$. The one third came from averaging over random directions, and a beam is not random: it all goes one way. When a problem gives you a rate of arrival, go back to $F = \Delta p/\Delta t$ and build the answer from scratch.
 
 ## Three different average speeds
 
 Molecules do not all move at $v_{\text{rms}}$. Their speeds are spread out in the Maxwell distribution, and three different averages of that spread get used, all within a few percent of each other:
 
-- the most probable speed, $\sqrt{2RT/M}$ — the peak of the curve,
-- the mean speed $\bar v = \sqrt{8RT/(\pi M)}$ — used for effusion and mean free path,
-- the rms speed $\sqrt{3RT/M}$ — the one tied to energy, since energy needs $\overline{v^2}$.
+- the most probable speed, $\sqrt{2RT/M}$ (the peak of the curve,
+- the mean speed $\bar v = \sqrt{8RT/(\pi M)}$) used for effusion and mean free path,
+- the rms speed $\sqrt{3RT/M}$: the one tied to energy, since energy needs $\overline{v^2}$.
 
 They are in the ratio $\sqrt{2} : \sqrt{8/\pi} : \sqrt{3}$, that is $1.41 : 1.60 : 1.73$. The rms speed is always the largest, because squaring weights the fast molecules more heavily before you average.
 
@@ -158,7 +158,7 @@ $$
 \lambda = \frac{1}{\sqrt{2}\,\pi d^2 n}
 $$
 
-Since $P = nk_BT$, you can swap $n$ for $P/k_BT$ and get $\lambda = k_BT/(\sqrt{2}\pi d^2 P)$ — the same statement, useful when a problem hands you a pressure instead of a density. The collision rate follows immediately: distance per second divided by distance per collision,
+Since $P = nk_BT$, you can swap $n$ for $P/k_BT$ and get $\lambda = k_BT/(\sqrt{2}\pi d^2 P)$: the same statement, useful when a problem hands you a pressure instead of a density. The collision rate follows immediately: distance per second divided by distance per collision,
 
 $$
 f = \frac{\bar v}{\lambda}
@@ -217,7 +217,7 @@ and since a fixed amount of gas takes a time inversely proportional to the rate,
 
 ## Recognising when this is the technique
 
-Reach for kinetic theory when a problem mentions anything on the molecular scale — a molecule's mass, a number density in per cubic metre, a molecular diameter, a count of impacts per second, a hole gas leaks through. Thermodynamics alone can never produce those; only a molecular picture can.
+Reach for kinetic theory when a problem mentions anything on the molecular scale: a molecule's mass, a number density in per cubic metre, a molecular diameter, a count of impacts per second, a hole gas leaks through. Thermodynamics alone can never produce those; only a molecular picture can.
 
 Three more specific signals:
 
@@ -225,8 +225,8 @@ If the problem gives a **temperature and asks for a speed** (or the reverse), yo
 
 If it gives a **rate of molecules arriving** and asks for force or pressure, do not use any formula from this lesson. Go back to $F = \Delta p/\Delta t$ and decide whether each molecule delivers $mv$ (sticks) or $2mv$ (bounces).
 
-If it compares **two gases at the same temperature**, the answer is almost always a square root of a mass ratio — for speeds, for effusion rates, for leak times. Equal kinetic energies, unequal speeds. And if it asks about kinetic energy rather than speed, the ratio is 1.
+If it compares **two gases at the same temperature**, the answer is almost always a square root of a mass ratio: for speeds, for effusion rates, for leak times. Equal kinetic energies, unequal speeds. And if it asks about kinetic energy rather than speed, the ratio is 1.
 
 The one trap that catches good students is dimensional carelessness: $M$ in kg/mol, not g/mol, and $T$ in kelvin, always. Nitrogen is 0.0280 kg/mol, not 28.
 
-You now have the microscopic machinery. Next you will see what happens when molecules can store energy in ways other than flying in a straight line — rotating, vibrating — and how the equipartition theorem turns that count of degrees of freedom into heat capacities you can measure. That is [Ideal Gas Law and Equipartition](/guide/ideal-gas).
+You now have the microscopic machinery. Next you will see what happens when molecules can store energy in ways other than flying in a straight line (rotating, vibrating) and how the equipartition theorem turns that count of degrees of freedom into heat capacities you can measure. That is [Ideal Gas Law and Equipartition](/guide/ideal-gas).

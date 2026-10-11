@@ -72,7 +72,7 @@ average of the parallel sides times the base, so
 $$\Delta x = \frac{v_0 + v}{2}\,t.$$
 
 That is worth a name. The bracket is the **average velocity**, and for constant
-acceleration — and only for constant acceleration — it equals the plain average
+acceleration (and only for constant acceleration) it equals the plain average
 of the starting and ending velocities.
 
 Substitute $v = v_0 + at$ into it and the trapezoid splits into a rectangle plus
@@ -94,7 +94,7 @@ distance and never mentions seconds, it is asking for that equation. It is also
 the answer to the puzzle at the top: stopping from $v_0$ to rest takes
 $\Delta x = v_0^2/(2|a|)$, which goes as the square of the speed.
 
-<Figure caption={<><b>Figure 2.</b> The trapezoid the three equations come from. The sloped top has rise a t over base t. Drag the acceleration negative and watch part of the area drop below the axis — that is the displacement going backwards, which is exactly why signed area is the right idea.</>}>
+<Figure caption={<><b>Figure 2.</b> The trapezoid the three equations come from. The sloped top has rise a t over base t. Drag the acceleration negative and watch part of the area drop below the axis: that is the displacement going backwards, which is exactly why signed area is the right idea.</>}>
   <Sim id="motion-1d-trapezoid" />
 </Figure>
 
@@ -119,7 +119,7 @@ moving forward and speeding up, so the negative root is not physical here.
 
 ## Averages, and the trap in them
 
-Average velocity is always $\Delta x/\Delta t$ — total displacement over total
+Average velocity is always $\Delta x/\Delta t$: total displacement over total
 time. Average speed is total distance over total time. Neither is the average
 of the speeds you held, unless you held each one for the same *time*.
 
@@ -136,7 +136,7 @@ $0.5 + 1.0 = 1.5$ h for 80 km, giving 53.3 km/h.
 
 <Aside label="Where this goes wrong" warn>
   Averaging the speeds is the single most common error in this topic. Equal
-  distances at different speeds never give the plain average — the answer is
+  distances at different speeds never give the plain average: the answer is
   always lower. Equal *times* at different speeds do give the plain average.
   Read which one the problem specifies before you write anything down.
 </Aside>
@@ -156,7 +156,7 @@ so. Mass does not appear. A bowling ball and a marble released together land
 together.
 
 The acceleration is almost never the hard part. The initial condition is. An
-object released from a moving platform leaves with the platform's velocity — it
+object released from a moving platform leaves with the platform's velocity: it
 does not start at rest just because you let go of it.
 
 **Worked example 2.** A balloon rises at a steady 5 m/s. At a height of 60 m a
@@ -226,8 +226,8 @@ trapezoid: accelerate to the limit, cruise, then brake, and the cruise distance
 is whatever is left over after the two ramps.
 
 <Aside label="Two objects, one clock" warn>
-  When two objects are involved — a police car chasing a speeder, one ball
-  thrown after another — write a position function for each using the *same*
+  When two objects are involved (a police car chasing a speeder, one ball
+  thrown after another) write a position function for each using the *same*
   origin and the *same* $t = 0$, then set them equal. Absorb any head start into
   the formula rather than into your head. A speeder at 30 m/s with a 5.0 s lead
   is at $x_1 = 30(t+5)$ when the cruiser, starting from rest at 4.0 m/s², is at
@@ -240,8 +240,8 @@ is whatever is left over after the two ramps.
 The four boxed equations are worthless the moment $a$ changes with time. The
 definitions still hold, though, and they are all you need.
 
-If you are given $v(t)$ directly, displacement is the integral — the signed area
-under the curve — and distance is the area with every piece counted positive.
+If you are given $v(t)$ directly, displacement is the integral (the signed area
+under the curve) and distance is the area with every piece counted positive.
 Take a cart with $v(t) = 12 - 3t$ m/s over the first 8.0 s. It reverses at
 $t = 4.0$ s. Forward leg: a triangle of base 4 and height 12, area
 $\tfrac12(4)(12) = 24$ m. Backward leg: from 4 s to 8 s the velocity runs from 0
@@ -273,22 +273,21 @@ Before you write any equation, list the five constant-acceleration symbols and
 mark which you know: $v_0$, $v$, $a$, $t$, $\Delta x$. Three knowns pick the
 equation for you.
 
-- **No time mentioned, and none wanted** — use $v^2 = v_0^2 + 2a\Delta x$.
+- **No time mentioned, and none wanted** (use $v^2 = v_0^2 + 2a\Delta x$.
   "Stopping distance", "final speed over this stretch", "how high does it go".
-- **Time is given or asked for, and one velocity is missing** — use
+- **Time is given or asked for, and one velocity is missing**) use
   $\Delta x = v_0t + \tfrac12 at^2$ or, more cheaply, the trapezoid form.
-- **Total distance with no way to find the individual stages** — look for the
+- **Total distance with no way to find the individual stages**: look for the
   area of the velocity-time graph as a whole shape. Triangle and trapezoid areas
   solve a surprising number of problems in one line.
-- **The word "maximum" or "minimum" with two acceleration limits** — the answer
+- **The word "maximum" or "minimum" with two acceleration limits** (the answer
   is the bang-bang trip: full acceleration, then full braking, possibly with a
   cruise if there is a speed limit.
-- **Two moving objects, or a head start, or a delay** — one origin, one clock,
+- **Two moving objects, or a head start, or a delay**) one origin, one clock,
   two position functions, set equal.
-- **Acceleration given as a formula in $t$ or $v$** — the equations do not
+- **Acceleration given as a formula in $t$ or $v$**: the equations do not
   apply. Integrate, or use $a = v\,dv/dx$ if $a$ depends on $v$.
-- **"Distance" rather than "displacement", or anything that turns around** —
-  find where $v = 0$ and split the calculation there.
+- **"Distance" rather than "displacement", or anything that turns around**: find where $v = 0$ and split the calculation there.
 
 Almost every one of these is easier if you sketch the velocity-time graph first.
 That is the subject of the next lesson, [Motion Graphs](/guide/motion-graphs),

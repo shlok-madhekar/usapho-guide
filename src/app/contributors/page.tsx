@@ -20,9 +20,8 @@ export default async function ContributorsPage() {
     <>
       <Nav />
       <main className="mx-auto max-w-3xl px-6 pb-24 pt-10">
-        <p className="label">Contributors</p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--ink-strong)]">
-          Who builds the guide
+        <h1 className="text-3xl font-bold text-[var(--ink-strong)]">
+          Contributors
         </h1>
         <p className="sans mt-3 text-sm text-[var(--ink-soft)]">
           Everyone with a merged change on{" "}

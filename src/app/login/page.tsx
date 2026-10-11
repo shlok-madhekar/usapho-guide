@@ -71,7 +71,7 @@ function LoginForm() {
 
   return (
     <main className="mx-auto max-w-md px-6 pb-24 pt-16">
-      <h1 className="text-3xl font-semibold tracking-tight text-[var(--ink-strong)]">
+      <h1 className="text-3xl font-bold text-[var(--ink-strong)]">
         {TITLE[mode]}
       </h1>
       <p className="mt-2 text-[var(--ink-soft)]">

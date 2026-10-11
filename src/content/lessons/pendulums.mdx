@@ -6,7 +6,7 @@ You met that behaviour in [the previous lesson](/guide/shm): whenever the restor
 
 Hang a small bob of mass $m$ on a light string of length $L$. Pull it aside so the string makes an angle $\theta$ with the vertical, and look at what gravity is doing.
 
-Two forces act on the bob: the tension $T_{\text{s}}$ along the string, and the weight $mg$ straight down. The tension points exactly at the pivot, so it can never speed the bob up or slow it down along its arc — it only keeps the bob on the circle. Split the weight into a piece along the string and a piece perpendicular to it. The along-string piece is $mg\cos\theta$, and the tension deals with that. The perpendicular piece is
+Two forces act on the bob: the tension $T_{\text{s}}$ along the string, and the weight $mg$ straight down. The tension points exactly at the pivot, so it can never speed the bob up or slow it down along its arc: it only keeps the bob on the circle. Split the weight into a piece along the string and a piece perpendicular to it. The along-string piece is $mg\cos\theta$, and the tension deals with that. The perpendicular piece is
 
 $$F_{\text{tan}} = -mg\sin\theta$$
 
@@ -186,9 +186,9 @@ A problem wants the pendulum machinery when something is pivoted and allowed to 
 
 Once you know that, the decision tree is short.
 
-If all the mass is effectively at one distance from the pivot — a bob on a string, a small mass on a light rod — use $T = 2\pi\sqrt{L/g}$, where $L$ reaches to the center of the bob.
+If all the mass is effectively at one distance from the pivot (a bob on a string, a small mass on a light rod) use $T = 2\pi\sqrt{L/g}$, where $L$ reaches to the center of the bob.
 
-If the swinging thing is an extended rigid body — a rod, a stick, a disk on a nail, a rod with something bolted to it — use $T = 2\pi\sqrt{I/mgd}$. Write down $d$ first, from the pivot to the center of mass of the whole assembly, then build $I$ about the pivot with the parallel axis theorem, adding the pieces if there is more than one. If several bodies are joined, sum both $I$ and the $m_i d_i$ terms, using $d = \sum m_i d_i / \sum m_i$ for the combined center of mass.
+If the swinging thing is an extended rigid body (a rod, a stick, a disk on a nail, a rod with something bolted to it) use $T = 2\pi\sqrt{I/mgd}$. Write down $d$ first, from the pivot to the center of mass of the whole assembly, then build $I$ about the pivot with the parallel axis theorem, adding the pieces if there is more than one. If several bodies are joined, sum both $I$ and the $m_i d_i$ terms, using $d = \sum m_i d_i / \sum m_i$ for the combined center of mass.
 
 If the restoring torque comes from a twisted wire or a spiral spring rather than from gravity, it is torsional: $T = 2\pi\sqrt{I/\kappa}$, and $g$ never appears. Two different bodies on the same wire give you $I_2/I_1 = T_2^2/T_1^2$, which is how you weigh a moment of inertia you cannot calculate.
 

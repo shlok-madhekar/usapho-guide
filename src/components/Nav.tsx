@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import Logo from "@/components/Logo";
 import { allModules } from "@/lib/curriculum";
 import { useProgress } from "@/lib/progress";
 import { useAuth } from "@/lib/auth";
@@ -140,16 +139,18 @@ export default function Nav() {
     { href: "/edit", label: "Contribute" },
     { href: "/contributors", label: "Contributors" },
   ];
+  const external = [
+    { href: "https://github.com/shlok-madhekar/usapho-guide", label: "GitHub" },
+  ];
 
   return (
     <header className="no-print sticky top-0 z-40 border-b border-[var(--rule)] bg-[color:var(--paper)]/95 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
         <Link
           href="/"
-          className="flex items-center gap-2.5 text-[17px] font-semibold tracking-tight text-[var(--ink-strong)]"
+          className="sans text-[15px] font-semibold text-[var(--ink-strong)]"
         >
-          <Logo />
-          USAPhO <span className="-ml-1 font-normal italic text-[var(--ink-soft)]">Guide</span>
+          USAPhO Guide
         </Link>
 
         <nav className="flex items-center gap-4 text-sm sm:gap-5">
@@ -165,6 +166,17 @@ export default function Nav() {
             >
               {l.label}
             </Link>
+          ))}
+          {external.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sans hidden text-sm text-[var(--ink-soft)] hover:text-[var(--ink)] lg:inline"
+            >
+              {l.label}
+            </a>
           ))}
           {ready && done > 0 && (
             <span className="tabular sans hidden text-xs text-[var(--ink-faint)] md:inline">

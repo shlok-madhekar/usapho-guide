@@ -30,7 +30,7 @@ $$
 
 Read that in words: the rate at which the pile shrinks is proportional to how
 much pile is left. Twice the sample, twice the decays per second. The minus sign
-is just bookkeeping — $N$ is falling.
+is just bookkeeping: $N$ is falling.
 
 That equation says the rate of change of something is proportional to the thing
 itself, and the only function that does that is the exponential. Separate and
@@ -137,7 +137,7 @@ Long-lived means feeble; short-lived means fierce but brief.
   question="A sample of 1.00e12 nuclei has a half-life of 1.00 hour. How many nuclei decay during the first hour?"
   options={["5.00e11", "1.00e12", "6.93e11", "2.50e11"]}
   answer={0}
-  explanation="Half of them go, so 5.00e11 decay and 5.00e11 remain. The tempting wrong move is to use the initial rate lambda times N times one hour, which would give 6.93e11 — but that assumes the rate stays at its initial value for the whole hour, and it does not."
+  explanation="Half of them go, so 5.00e11 decay and 5.00e11 remain. The tempting wrong move is to use the initial rate lambda times N times one hour, which would give 6.93e11, but that assumes the rate stays at its initial value for the whole hour, and it does not."
 />
 
 ### Worked example 1: half-life from two readings
@@ -200,8 +200,8 @@ n \to p + e^- + \bar\nu_e,
 $$
 
 $A$ is unchanged, $Z$ goes up by one. Neutron-rich nuclei do this. **Beta-plus
-decay** runs the other way — a proton becomes a neutron plus a positron and a
-neutrino, so $Z$ drops by one — and **electron capture** achieves the same
+decay** runs the other way (a proton becomes a neutron plus a positron and a
+neutrino, so $Z$ drops by one) and **electron capture** achieves the same
 thing by swallowing an inner atomic electron instead of emitting a positron.
 
 **Gamma decay** emits a photon from a nucleus left in an excited state. Neither
@@ -290,8 +290,8 @@ $$
 t = \frac{0.2624}{1.5513\times10^{-10}} = 1.69\times10^{9}\ \text{yr}.
 $$
 
-Roughly 1.7 billion years. The same trick — reconstruct $N_0$ from what is left
-plus what it turned into — handles any parent-daughter dating problem, and it
+Roughly 1.7 billion years. The same trick (reconstruct $N_0$ from what is left
+plus what it turned into) handles any parent-daughter dating problem, and it
 handles the two-isotope version too. If two isotopes were made in equal numbers
 and you know their ratio now, write
 $N_1/N_2 = e^{(\lambda_2 - \lambda_1)t}$ and solve for $t$.
@@ -367,7 +367,7 @@ $$
 t = \frac{2.3962}{0.10483} = 22.9\ \text{h}.
 $$
 
-Just under a day — which is why hospitals milk these generators daily. The
+Just under a day, which is why hospitals milk these generators daily. The
 result makes sense as a rough check: it is a few daughter half-lives, long
 enough for the daughter to build up, short enough that the parent has hardly
 faded.
@@ -399,7 +399,7 @@ way: potassium-40 at 1000 Bq with 10.7% electron capture gives 107 captures per
 second.
 
 **Two isotopes mixed in one vial.** Activities add, but each falls with its own
-$\lambda$. Decay them separately and sum at the end — never average the
+$\lambda$. Decay them separately and sum at the end: never average the
 half-lives.
 
 **Steady production.** A cyclotron making nuclei at a constant rate $R$ while
@@ -433,7 +433,7 @@ are given to $\lambda$ immediately. If the elapsed time is a whole number of
 half-lives, use $(1/2)^n$; otherwise use $e^{-\lambda t}$ and take logs.
 
 **Two measurements of the same sample at different times.** You are being asked
-for $T_{1/2}$ or for the elapsed time. Form the ratio $A/A_0$ first — the
+for $T_{1/2}$ or for the elapsed time. Form the ratio $A/A_0$ first: the
 absolute numbers almost never matter.
 
 **A daughter product is mentioned and you are asked for an age.** This is a
@@ -453,7 +453,7 @@ same nuclei; add the activities if they are separate populations.
 number and the charge across the arrow and you are done.
 
 What none of this touches is *why* a particular decay releases the energy it
-does, or how much. That comes from the masses — the daughter plus the emitted
+does, or how much. That comes from the masses: the daughter plus the emitted
 particle weigh slightly less than the parent, and the difference is the energy
 budget $Q$. Next up:
 [nuclear binding energy and reactions](/guide/binding-energy).

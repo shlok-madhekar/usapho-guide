@@ -30,7 +30,7 @@ $$\frac{dQ}{dt} = \frac{1}{RC}\left(C\mathcal{E} - Q\right)$$
 
 Look at what that says before you solve it. The final charge, once nothing is changing, is $Q_\infty = C\mathcal{E}$. The bracket is how far the capacitor still has to go. So the rate of change is proportional to the remaining gap: far from done, fast; nearly done, slow. A quantity whose rate of approach is proportional to its remaining distance is an exponential approach, always. Nothing else has that property.
 
-Solving it — separate and integrate, $\int dQ/(C\mathcal{E}-Q) = \int dt/RC$ — gives
+Solving it (separate and integrate, $\int dQ/(C\mathcal{E}-Q) = \int dt/RC$) gives
 
 $$Q(t) = C\mathcal{E}\left(1 - e^{-t/RC}\right), \qquad V_C(t) = \mathcal{E}\left(1 - e^{-t/RC}\right)$$
 
@@ -56,7 +56,7 @@ The product
 
 $$\tau = RC$$
 
-has units of seconds — check it: ohms times farads is (volts per amp) times (coulombs per volt), which is coulombs per amp, which is seconds. It is the only timescale in the problem, and it is the number to compute first in any transient question.
+has units of seconds. Check it: ohms times farads is (volts per amp) times (coulombs per volt), which is coulombs per amp, which is seconds. It is the only timescale in the problem, and it is the number to compute first in any transient question.
 
 Why the product, rather than a ratio? Bigger $R$ means less current for the same voltage, so charge arrives more slowly. Bigger $C$ means more charge is needed to reach a given voltage. Both stretch the process, so both belong upstairs.
 
@@ -93,7 +93,7 @@ Notice the starting voltage never entered. Every exponential decay halves in the
 
 ## The two limits answer most questions
 
-Before you reach for $e^{-t/\tau}$, check whether the question only asks about $t = 0^+$ or $t \to \infty$. It usually does, and those two cases need no calculus at all — just two resistive circuits you already know how to solve.
+Before you reach for $e^{-t/\tau}$, check whether the question only asks about $t = 0^+$ or $t \to \infty$. It usually does, and those two cases need no calculus at all, just two resistive circuits you already know how to solve.
 
 **Immediately after the switch closes**, the capacitor's voltage is still whatever it was a moment earlier. If it started empty, that voltage is zero, and a component with zero volts across it is a plain wire. Redraw the circuit with the capacitor replaced by a **short** and solve.
 
@@ -106,7 +106,7 @@ Everything in between slides exponentially from the first answer to the second.
 </Figure>
 
 <Aside label="Where this goes wrong" warn>
-  The short-circuit replacement is only valid for a capacitor that starts <i>uncharged</i>. A capacitor that already sits at 6 V still sits at 6 V one microsecond after you flip a switch — at $t = 0^+$ you replace it with a 6 V battery, not a wire. Getting this wrong is the single most common error in transient problems.
+  The short-circuit replacement is only valid for a capacitor that starts <i>uncharged</i>. A capacitor that already sits at 6 V still sits at 6 V one microsecond after you flip a switch: at $t = 0^+$ you replace it with a 6 V battery, not a wire. Getting this wrong is the single most common error in transient problems.
 </Aside>
 
 **Worked example 2.** A $12\ \mathrm{V}$ battery feeds node $A$ through $R_1 = 6.0\ \mathrm{k\Omega}$. A resistor $R_2 = 3.0\ \mathrm{k\Omega}$ runs from $A$ to ground, and an uncharged $100\ \mu\mathrm{F}$ capacitor also runs from $A$ to ground. Find the battery current just after the switch closes, the capacitor voltage long after, and the time constant.
@@ -121,7 +121,7 @@ $$V_A = 12\,\frac{3.0}{6.0 + 3.0} = 4.0\ \mathrm{V}$$
 
 and the capacitor, sitting from $A$ to ground, holds that same 4.0 V.
 
-*The time constant.* This is where people slip. The resistance in $\tau$ is not $R_1$, and it is not $R_2$. It is the resistance the capacitor **sees** looking back into the circuit from its own two terminals, with the sources killed — batteries replaced by wires, since an ideal battery holds its terminals at a fixed difference and so offers no resistance.
+*The time constant.* This is where people slip. The resistance in $\tau$ is not $R_1$, and it is not $R_2$. It is the resistance the capacitor **sees** looking back into the circuit from its own two terminals, with the sources killed: batteries replaced by wires, since an ideal battery holds its terminals at a fixed difference and so offers no resistance.
 
 Kill the 12 V source and the top of $R_1$ is connected straight to ground. Now $R_1$ and $R_2$ both run from node $A$ to ground: they are in parallel.
 
@@ -207,7 +207,7 @@ So 86 percent of the waste heat appears in the first time constant. The resistan
 
 Connect a charged capacitor $C_1$ at $V_0$ through a resistor to an uncharged $C_2$ in a single loop. Current flows until the loop has no net driving voltage left.
 
-For the time constant, treat the two capacitors as being in series around that loop — the same current passes through both, delivering the same charge to each — so
+For the time constant, treat the two capacitors as being in series around that loop (the same current passes through both, delivering the same charge to each) so
 
 $$\tau = R\,\frac{C_1C_2}{C_1 + C_2}$$
 
@@ -241,7 +241,7 @@ Reach for this machinery when you see any of these.
 
 **A capacitor plus the words "switch", "at $t=0$", "just after", or "a long time".** That is a transient question, and the two-limit sketches come first. If the question only asks about one of those two moments, you are done without an exponential.
 
-**A number that is a fraction of a final value** — 90 percent charged, down to a tenth, within 1 percent — means you want $t = -\tau\ln(1-f)$ or $t = \tau\ln(1/f)$. Settling to 1 percent of final takes $-\ln(0.01) = 4.6$ time constants.
+**A number that is a fraction of a final value** (90 percent charged, down to a tenth, within 1 percent) means you want $t = -\tau\ln(1-f)$ or $t = \tau\ln(1/f)$. Settling to 1 percent of final takes $-\ln(0.01) = 4.6$ time constants.
 
 **More than one resistor around a capacitor.** Do not guess which one sets $\tau$. Kill the sources and find the resistance across the capacitor's terminals. If a question gives you a network and asks for a time constant, that is the whole point of the question.
 
@@ -249,4 +249,4 @@ Reach for this machinery when you see any of these.
 
 **Two capacitors connected to each other.** Conserve charge, find the final common state, and use $\tfrac12C_s\Delta V^2$ for the heat. The resistor's value will not matter, and a question that omits it is telling you so.
 
-A capacitor turns an algebra problem into the same algebra problem plus a clock. Solve the circuit at the start, solve it at the end, and $\tau$ fills in the middle. Next you will meet networks where even the steady-state algebra fights back — bridges, ladders, and symmetry tricks — in [Tricky Networks](/guide/tricky-networks).
+A capacitor turns an algebra problem into the same algebra problem plus a clock. Solve the circuit at the start, solve it at the end, and $\tau$ fills in the middle. Next you will meet networks where even the steady-state algebra fights back (bridges, ladders, and symmetry tricks) in [Tricky Networks](/guide/tricky-networks).

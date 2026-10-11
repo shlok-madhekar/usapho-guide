@@ -22,7 +22,7 @@ Kinetic energy gets no such protection. Bending metal, heating rubber, and makin
 
 Sort a collision before you solve it, because the sorting decides your equations.
 
-**Perfectly inelastic.** The bodies leave with one common velocity — they stick, embed, couple, or crumple into a single lump. Momentum alone fixes the answer. This is the most energy a collision can lose while still conserving momentum.
+**Perfectly inelastic.** The bodies leave with one common velocity: they stick, embed, couple, or crumple into a single lump. Momentum alone fixes the answer. This is the most energy a collision can lose while still conserving momentum.
 
 **Elastic.** Kinetic energy is conserved as well. Steel balls, billiard balls, atoms, subatomic particles.
 
@@ -79,7 +79,7 @@ $$\tfrac12 m_1u_1^2 + \tfrac12 m_2u_2^2 = \tfrac12 m_1v_1^2 + \tfrac12 m_2v_2^2$
 
 where $u$ means before and $v$ means after. Solving a quadratic simultaneously with a linear equation is slow and invites sign errors. There is a much better route.
 
-Move all the $m_1$ terms to one side of each equation. Momentum gives $m_1(u_1 - v_1) = m_2(v_2 - u_2)$. Energy, after cancelling the halves and factoring each difference of squares, gives $m_1(u_1 - v_1)(u_1 + v_1) = m_2(v_2 - u_2)(v_2 + u_2)$. Divide the second by the first — legal as long as the collision actually changed something — and everything with a mass in it cancels:
+Move all the $m_1$ terms to one side of each equation. Momentum gives $m_1(u_1 - v_1) = m_2(v_2 - u_2)$. Energy, after cancelling the halves and factoring each difference of squares, gives $m_1(u_1 - v_1)(u_1 + v_1) = m_2(v_2 - u_2)(v_2 + u_2)$. Divide the second by the first (legal as long as the collision actually changed something) and everything with a mass in it cancels:
 
 $$u_1 + v_1 = v_2 + u_2 \quad\Longrightarrow\quad u_1 - u_2 = -(v_1 - v_2)$$
 
@@ -118,7 +118,7 @@ The general version is worth carrying. The fraction of kinetic energy transferre
 
 $$\frac{\Delta K}{K_i} = \frac{4m_1m_2}{(m_1+m_2)^2}$$
 
-which equals $1$ only when $m_1 = m_2$. Check it here: $4(1)(12)/169 = 48/169 = 0.284$. Matched. And it explains why reactors moderate with hydrogen or deuterium rather than lead — you want the target to weigh about what the neutron weighs.
+which equals $1$ only when $m_1 = m_2$. Check it here: $4(1)(12)/169 = 48/169 = 0.284$. Matched. And it explains why reactors moderate with hydrogen or deuterium rather than lead: you want the target to weigh about what the neutron weighs.
 
 ## Bouncing, and the coefficient of restitution
 
@@ -140,7 +140,7 @@ For $h = 2.0\ \mathrm{m}$ and $e = 0.75$: $e^2 = 0.5625$, so $d = 2.0 \times 1.5
 
 ## Two dimensions: split into components, always
 
-Off-centre collisions stay in a plane. Conserve $p_x$ and $p_y$ separately — two independent equations — and if the collision is elastic you get a third from kinetic energy. There are four unknown final components, so a 2D problem must hand you one more fact, usually one outgoing angle.
+Off-centre collisions stay in a plane. Conserve $p_x$ and $p_y$ separately (two independent equations) and if the collision is elastic you get a third from kinetic energy. There are four unknown final components, so a 2D problem must hand you one more fact, usually one outgoing angle.
 
 The standard setup: point the $x$ axis along the incoming velocity, so the initial $y$ momentum is zero. Then
 
@@ -149,12 +149,12 @@ $$m_1u_1 = m_1v_1\cos\theta_1 + m_2v_2\cos\theta_2, \qquad 0 = m_1v_1\sin\theta_
 with the two bodies going to opposite sides of the axis.
 
 <Aside label="Where this goes wrong" warn>
-  Never write a conservation law for speeds. In two dimensions $m_1u_1 = m_1v_1 + m_2v_2$ is meaningless — those are magnitudes and magnitudes do not add. Resolve into components first, every single time. The same trap appears with impulse: a puck striking a smooth wall at $30^\circ$ from the normal keeps its tangential velocity component and reverses only the normal one, so the impulse magnitude is $2mu\cos 30^\circ$, not $2mu$.
+  Never write a conservation law for speeds. In two dimensions $m_1u_1 = m_1v_1 + m_2v_2$ is meaningless: those are magnitudes and magnitudes do not add. Resolve into components first, every single time. The same trap appears with impulse: a puck striking a smooth wall at $30^\circ$ from the normal keeps its tangential velocity component and reverses only the normal one, so the impulse magnitude is $2mu\cos 30^\circ$, not $2mu$.
 </Aside>
 
 One result deserves memorising. **Equal masses, one at rest, elastic: the two leave at exactly 90° to each other.** Momentum says $\vec u = \vec v_1 + \vec v_2$. Square both sides as vectors: $u^2 = v_1^2 + v_2^2 + 2\vec v_1\cdot\vec v_2$. Energy says $u^2 = v_1^2 + v_2^2$. Subtract and $\vec v_1 \cdot \vec v_2 = 0$, so the velocities are perpendicular. Pool players live by this. If you see an angle that is not 90° between equal masses, energy was lost.
 
-When the masses are unequal, the incoming body can only be deflected so far. For $m_1 > m_2$ the maximum deflection angle satisfies $\sin\theta_{\max} = m_2/m_1$. A $5.0\ \mathrm{kg}$ ball on a $2.0\ \mathrm{kg}$ ball can turn at most $\arcsin(0.40) = 23.6^\circ$ — a heavy thing cannot be knocked sideways by a light one, no matter how you aim.
+When the masses are unequal, the incoming body can only be deflected so far. For $m_1 > m_2$ the maximum deflection angle satisfies $\sin\theta_{\max} = m_2/m_1$. A $5.0\ \mathrm{kg}$ ball on a $2.0\ \mathrm{kg}$ ball can turn at most $\arcsin(0.40) = 23.6^\circ$: a heavy thing cannot be knocked sideways by a light one, no matter how you aim.
 
 <Figure caption={<><b>Figure 4.</b> An elastic collision in a plane, with the momentum triangle drawn beside it. Change the mass ratio and the scattering angle and watch the triangle close. With m1 heavier than m2 the angle slider refuses to go past the maximum deflection, which is the geometric fact behind that arcsine.</>}>
   <Sim id="collisions-2d" />
@@ -196,13 +196,13 @@ $$h' = \frac{(3v)^2}{2g} = 9\frac{v^2}{2g} = 9h = 9.0\ \mathrm{m}$$
 
 This is what "shift to the frame of the heavy body" buys you. In that frame the light ball simply reverses, and coming back to the ground frame adds the heavy body's velocity twice over.
 
-The same manoeuvre solves the spring problem. A $1.0\ \mathrm{kg}$ block at $6.0\ \mathrm{m/s}$ hits a $2.0\ \mathrm{kg}$ block carrying a spring. The spring stores the most energy at the instant of maximum compression, and that is the instant the two blocks move at the same speed — otherwise the gap is still closing or already opening. Common speed is $v = (1.0)(6.0)/3.0 = 2.0\ \mathrm{m/s}$. Energy before is $\tfrac12(1.0)(36) = 18\ \mathrm{J}$; kinetic energy at that instant is $\tfrac12(3.0)(2.0)^2 = 6.0\ \mathrm{J}$; the missing $12\ \mathrm{J}$ is in the spring.
+The same manoeuvre solves the spring problem. A $1.0\ \mathrm{kg}$ block at $6.0\ \mathrm{m/s}$ hits a $2.0\ \mathrm{kg}$ block carrying a spring. The spring stores the most energy at the instant of maximum compression, and that is the instant the two blocks move at the same speed: otherwise the gap is still closing or already opening. Common speed is $v = (1.0)(6.0)/3.0 = 2.0\ \mathrm{m/s}$. Energy before is $\tfrac12(1.0)(36) = 18\ \mathrm{J}$; kinetic energy at that instant is $\tfrac12(3.0)(2.0)^2 = 6.0\ \mathrm{J}$; the missing $12\ \mathrm{J}$ is in the spring.
 
 ## Recognising a collision problem
 
 Some signals are obvious: "collide", "strike", "explode", "bounce", "embeds". The useful skill is spotting the ones that do not say so.
 
-**Reach for momentum conservation when** the problem gives you masses and velocities on both sides of a short, violent event and tells you nothing about the force or the duration. If you find yourself wishing you knew the force, that is the signal — the fact that you cannot know it is exactly why momentum is the tool.
+**Reach for momentum conservation when** the problem gives you masses and velocities on both sides of a short, violent event and tells you nothing about the force or the duration. If you find yourself wishing you knew the force, that is the signal: the fact that you cannot know it is exactly why momentum is the tool.
 
 **Look for the second equation in the wording.** "Stick together", "embed", "couple", "come to rest relative to each other" all mean one common final velocity. "Elastic", "billiard balls", "no energy lost" mean the relative velocity reverses. A number given for restitution, or a pair of drop and rebound heights, means partially inelastic.
 
@@ -212,4 +212,4 @@ Some signals are obvious: "collide", "strike", "explode", "bounce", "embeds". Th
 
 **"Maximum compression", "maximum stored energy", "closest approach"** all mean the same thing: the moment the two bodies move at a common velocity. Compute that velocity from momentum and put the missing kinetic energy where the problem says it went.
 
-One idea runs under all of this: a system of colliding bodies has a velocity that never changes, no matter what the bodies do to each other. That velocity belongs to a point, and the next lesson gives it a name and a set of tools — [center of mass and systems of particles](/guide/center-of-mass).
+One idea runs under all of this: a system of colliding bodies has a velocity that never changes, no matter what the bodies do to each other. That velocity belongs to a point, and the next lesson gives it a name and a set of tools: [center of mass and systems of particles](/guide/center-of-mass).

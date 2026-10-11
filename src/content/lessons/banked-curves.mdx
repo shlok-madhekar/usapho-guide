@@ -7,7 +7,7 @@ far faster than anything could manage on level ground.
 
 A flat road turns a car using friction between the tyres and the tarmac. Wet the
 road, ice it, or wear the tyres smooth, and the turn stops working. A banked road
-turns the car using the road's own push — the force that would be there even if
+turns the car using the road's own push: the force that would be there even if
 the surface were polished glass. Get the angle right for the speed and you can
 round the corner with no friction whatsoever. That is a strange claim, so this
 lesson earns it.
@@ -26,7 +26,7 @@ off to the side at the same height as the car, so that acceleration is
 **horizontal**.
 
 Now list the forces. The road pushes on the tyres perpendicular to the road
-surface — that is the *normal force* $N$, where "normal" is the geometry word for
+surface: that is the *normal force* $N$, where "normal" is the geometry word for
 perpendicular. Gravity pulls down with $mg$. Leave friction out for now.
 
 Here is the move that decides everything. When you did blocks on ramps you tilted
@@ -44,8 +44,7 @@ must supply the whole $mv^2/r$:
 $$N\cos\theta = mg, \qquad N\sin\theta = \frac{mv^2}{r}$$
 
 <Figure caption={<><b>Figure 1.</b> Drag the bank angle. Notice that $N$ always
-points perpendicular to the surface, and that its vertical part never changes —
-it is always exactly $mg$ — while its inward part grows with the angle. That
+points perpendicular to the surface, and that its vertical part never changes (it is always exactly $mg$) while its inward part grows with the angle. That
 inward part is the entire reason a banked curve works.</>}>
   <Sim id="banked-curves-fbd" />
 </Figure>
@@ -74,7 +73,7 @@ $$
 
 There is no mass in it. A motorcycle and a loaded truck behave identically on the
 same bank, which is why engineers can post one number for everyone. And for a
-given track — given $\theta$ and $r$ — exactly one speed satisfies it:
+given track (given $\theta$ and $r$) exactly one speed satisfies it:
 
 $$v_{\text{design}} = \sqrt{rg\tan\theta}$$
 
@@ -184,7 +183,7 @@ around a curve of radius $70\;\mathrm{m}$ banked at $18^\circ$. How large is the
 friction force on it, and which way does it point?
 
 This one is different in kind. Nothing is on the verge of sliding, so $f \ne \mu_s
-N$ — the friction is whatever it needs to be, and you have to solve for it. First
+N$: the friction is whatever it needs to be, and you have to solve for it. First
 decide the direction. The design speed is $\sqrt{(70)(9.8)\tan 18^\circ} =
 \sqrt{686 \times 0.3249} = 14.9\;\mathrm{m/s}$. The car is slower than that, so it
 tends to slide down the bank and friction points up the slope.
@@ -219,13 +218,13 @@ under $\mu_s N$ for any ordinary road, so the car holds.
 
 Tie a ball to a string, whirl it so it travels a horizontal circle while the
 string sweeps out a cone at angle $\theta$ from the vertical. Two forces act:
-gravity $mg$ down, and tension $T$ along the string — one vertical, one tilted by
+gravity $mg$ down, and tension $T$ along the string: one vertical, one tilted by
 $\theta$ from the vertical. It is the banked curve's free body diagram with $T$
 written where $N$ was, so the equations copy across with no new thinking:
 
 $$T\cos\theta = mg, \qquad T\sin\theta = \frac{mv^2}{r}$$
 
-with one extra piece of geometry — the radius is not given to you, it is set by
+with one extra piece of geometry: the radius is not given to you, it is set by
 the string. If the string has length $L$, the ball is a horizontal distance
 $r = L\sin\theta$ from the axis, and hangs a vertical distance $h = L\cos\theta$
 below the pivot.
@@ -258,7 +257,7 @@ together.
 <Figure caption={<><b>Figure 3.</b> Push the angle out toward 80 degrees and
 watch the readout: the speed climbs, the tension climbs faster, and the period
 falls. Then change the mass and confirm that the speed and period do not move at
-all — only the tension does.</>}>
+all, only the tension does.</>}>
   <Sim id="banked-curves-cone" />
 </Figure>
 
@@ -294,7 +293,7 @@ that three-step chain in some order.
 <Aside label="Which angle did they give you" warn>
   Half the mistakes in this topic are about the angle, not the physics. The
   $\theta$ in $\tan\theta = v^2/(rg)$ is measured from the horizontal for a
-  surface and from the vertical for a string — and those are the same $\theta$,
+  surface and from the vertical for a string, and those are the same $\theta$,
   because a surface tilted $\theta$ from horizontal has its normal tilted $\theta$
   from vertical. Cones and funnels are where this bites. If a problem describes a
   cone by its half-angle at the apex, measured from the vertical axis, the surface
@@ -326,7 +325,7 @@ $$
 
 which is why airliners need a great deal of sky to turn around in.
 
-A bead on the inside of a smooth cone, a motorcyclist leaning into a corner — all
+A bead on the inside of a smooth cone, a motorcyclist leaning into a corner: all
 the same. Two forces, one vertical, one tilted, and a horizontal acceleration.
 
 ## How to recognise this kind of problem
@@ -336,7 +335,7 @@ Reach for the banked-curve method when all of these are true:
 - Something moves in a **horizontal circle** at constant speed. Horizontal is the
   key word. A ball on a vertical circle is a different lesson, because there the
   acceleration is not horizontal.
-- Exactly one force is **tilted** out of the vertical — a normal force from a
+- Exactly one force is **tilted** out of the vertical: a normal force from a
   sloped surface, a string tension, an aerodynamic lift. Everything else is
   gravity.
 - The problem hands you an angle, or asks for one.
@@ -352,12 +351,12 @@ else:
 Then decide which of the four quantities $\theta$, $v$, $r$, $T$ or $N$ you were
 given and which you want, and divide or substitute accordingly. If friction is
 mentioned, ask first whether the problem says "maximum", "minimum" or "on the
-verge" — those mean $f = \mu_s N$ and you use the $v_{\max}$ or $v_{\min}$
+verge": those mean $f = \mu_s N$ and you use the $v_{\max}$ or $v_{\min}$
 formula. If it gives you an actual speed and asks for the friction force, friction
 is an unknown you solve for, as in worked example 3.
 
 Everything here came from one idea: a force tilted out of the vertical does two
 jobs at once, holding the weight up and bending the path. In the [next
 lesson](/guide/gravitation) that tilted force is replaced by gravity itself, and
-the circle becomes an orbit — but the two equations you write down first will look
+the circle becomes an orbit, but the two equations you write down first will look
 very familiar.

@@ -1850,7 +1850,7 @@
     "statement": "A $120$-turn coil of area $0.0040$ m² sits perpendicular to a $0.25$ T field and is flipped through $180^\\circ$. The circuit resistance is $8.0$ $\\Omega$. Find the total charge that flows, in C.",
     "answer": 0.03,
     "unit": "C",
-    "solution": "The flux per turn reverses sign, so $|\\Delta\\Phi| = 2BA$, not $BA$ — this factor of two is the whole point of a flip coil. $$q = \\frac{2NBA}{R} = \\frac{2(120)(0.25)(0.0040)}{8.0} = 0.030\\ \\text{C}.$$"
+    "solution": "The flux per turn reverses sign, so $|\\Delta\\Phi| = 2BA$, not $BA$: this factor of two is the whole point of a flip coil. $$q = \\frac{2NBA}{R} = \\frac{2(120)(0.25)(0.0040)}{8.0} = 0.030\\ \\text{C}.$$"
   },
   {
     "id": "mag-far-17",
@@ -2082,7 +2082,7 @@
     "statement": "A conducting loop of mass $50$ g falls at its terminal speed through a horizontal field boundary, descending $0.80$ m while the drag force acts. Using $g = 9.8$ m/s², find the energy dissipated in the loop's resistance, in J.",
     "answer": 0.392,
     "unit": "J",
-    "solution": "At terminal speed the kinetic energy never changes, so every joule of gravitational potential energy released must go into resistive heat: $$Q = mgh = (0.050)(9.8)(0.80) = 0.392\\ \\text{J}.$$ Neither $B$, $L$, nor $R$ is needed — they only set the speed, not the energy budget."
+    "solution": "At terminal speed the kinetic energy never changes, so every joule of gravitational potential energy released must go into resistive heat: $$Q = mgh = (0.050)(9.8)(0.80) = 0.392\\ \\text{J}.$$ Neither $B$, $L$, nor $R$ is needed: they only set the speed, not the energy budget."
   },
   {
     "id": "mag-far-30",
@@ -3528,7 +3528,7 @@
     "statement": "Air ($\\gamma = 1.40$) in a diesel cylinder starts at 310 K and is compressed adiabatically by a factor of 18 in volume. Find the final temperature in K.",
     "answer": 985.1,
     "unit": "K",
-    "solution": "$T_2 = T_1(V_1/V_2)^{\\gamma-1} = 310\\cdot 18^{0.40} \\approx 985.1$ K — hot enough to ignite the injected fuel without a spark."
+    "solution": "$T_2 = T_1(V_1/V_2)^{\\gamma-1} = 310\\cdot 18^{0.40} \\approx 985.1$ K: hot enough to ignite the injected fuel without a spark."
   },
   {
     "id": "th-first-22",
@@ -3759,7 +3759,7 @@
     "statement": "A gas has density 1.25 kg/m³ and its molecules have rms speed 493 m/s. Use $P = \\frac{1}{3}\\rho \\bar v^2$. Find the pressure in Pa.",
     "answer": 101300.0,
     "unit": "Pa",
-    "solution": "$P = \\frac{1}{3}\\rho v_{rms}^2 = \\frac{1}{3}(1.25)(493)^2 \\approx 1.013\\times10^{5}$ Pa — about one atmosphere, as expected for air at room temperature."
+    "solution": "$P = \\frac{1}{3}\\rho v_{rms}^2 = \\frac{1}{3}(1.25)(493)^2 \\approx 1.013\\times10^{5}$ Pa: about one atmosphere, as expected for air at room temperature."
   },
   {
     "id": "th-kin-05",
@@ -3966,7 +3966,7 @@
     "statement": "A vacuum chamber at 300 K is pumped to $1.00\\times10^{-3}$ Pa. The molecules have diameter $3.00\\times10^{-10}$ m. Use $k_B = 1.38\\times10^{-23}$ J/K and $\\lambda = k_BT/(\\sqrt{2}\\pi d^2 P)$. Find the mean free path in m.",
     "answer": 10.35,
     "unit": "m",
-    "solution": "Substituting $n = P/(k_BT)$ into $\\lambda = 1/(\\sqrt{2}\\pi d^2n)$ gives $\\lambda = k_BT/(\\sqrt{2}\\pi d^2P) = (1.38\\times10^{-23})(300)/(1.414\\pi(9.0\\times10^{-20})(10^{-3})) \\approx 10.35$ m — longer than the chamber, so molecules fly wall to wall."
+    "solution": "Substituting $n = P/(k_BT)$ into $\\lambda = 1/(\\sqrt{2}\\pi d^2n)$ gives $\\lambda = k_BT/(\\sqrt{2}\\pi d^2P) = (1.38\\times10^{-23})(300)/(1.414\\pi(9.0\\times10^{-20})(10^{-3})) \\approx 10.35$ m: longer than the chamber, so molecules fly wall to wall."
   },
   {
     "id": "th-kin-17",
@@ -4104,7 +4104,7 @@
     "statement": "The Moon's escape speed is 2380 m/s. Hydrogen has molar mass 0.00200 kg/mol; use $R = 8.31$ J/mol·K. Find the temperature at which the rms speed of H₂ equals the Moon's escape speed, in K.",
     "answer": 454.4,
     "unit": "K",
-    "solution": "Set $\\sqrt{3RT/M} = v_{esc}$, so $T = Mv_{esc}^2/(3R) = (0.00200)(2380)^2/(3\\times8.31) \\approx 454.4$ K. Even well below this, the fast tail of the distribution escapes — which is why the Moon has no hydrogen atmosphere."
+    "solution": "Set $\\sqrt{3RT/M} = v_{esc}$, so $T = Mv_{esc}^2/(3R) = (0.00200)(2380)^2/(3\\times8.31) \\approx 454.4$ K. Even well below this, the fast tail of the distribution escapes, which is why the Moon has no hydrogen atmosphere."
   },
   {
     "id": "th-kin-25",
@@ -8429,7 +8429,7 @@
     "statement": "A bat flies toward a cave wall at 5.00 m/s while emitting a steady 50.0 kHz call. The speed of sound is 343 m/s. What beat frequency does the bat detect between its own call and the returning echo, in Hz?",
     "answer": 1479.0,
     "unit": "Hz",
-    "solution": "The echo comes back double-shifted: $f''=f(v+u)/(v-u)=50000(348)/338=51479$ Hz. Beating against the emitted 50000 Hz gives $1.48\\times10^3$ Hz — bats use exactly this to judge closing speed."
+    "solution": "The echo comes back double-shifted: $f''=f(v+u)/(v-u)=50000(348)/338=51479$ Hz. Beating against the emitted 50000 Hz gives $1.48\\times10^3$ Hz: bats use exactly this to judge closing speed."
   },
   {
     "id": "wv-dopp-27",

@@ -1,6 +1,6 @@
 A piano tuner sits down with one tuning fork and no electronics. She strikes the
 fork, plays the string, and listens. What she hears is not two notes. It is one
-note that throbs — loud, soft, loud, soft, a couple of times a second. She turns
+note that throbs: loud, soft, loud, soft, a couple of times a second. She turns
 the pin a little. The throbbing slows. She turns it further until the throbbing
 stops, and the string is in tune to better than a tenth of a hertz.
 
@@ -34,7 +34,7 @@ $$
 
 Read the two factors separately, because they do completely different jobs. The
 right-hand factor oscillates at the *average* frequency $(f_1+f_2)/2$. If the
-tones are 440 Hz and 443 Hz, that is 441.5 Hz — a fast wiggle, and it is the
+tones are 440 Hz and 443 Hz, that is 441.5 Hz: a fast wiggle, and it is the
 pitch you actually hear. The left-hand factor oscillates at
 $(f_1-f_2)/2$, which for those numbers is 1.5 Hz. That is far too slow to be a
 pitch. Instead it acts as a slowly changing amplitude for the fast wiggle: an
@@ -78,7 +78,7 @@ were already sharp. If they slow down, you were flat.
 
 That square root is worth working with numerically, because problems lean on it.
 
-**Example 1 — two percent more tension.** A string sounds exactly 440 Hz. Its
+**Example 1: two percent more tension.** A string sounds exactly 440 Hz. Its
 tension is raised by 2.00%, then it is sounded against a 440 Hz fork. What beat
 rate do you hear?
 
@@ -88,7 +88,7 @@ $\sqrt{1.0200} = 1.009950$. The new frequency is
 $$f' = 440 \times 1.009950 = 444.378\ \text{Hz}$$
 
 and the beat rate is $|444.378 - 440| = 4.378$ Hz. A 2% change in tension gave
-roughly a 1% change in frequency — the square root halves it — and 1% of 440 is
+roughly a 1% change in frequency (the square root halves it) and 1% of 440 is
 about 4.4.
 
 Run that backwards and you get the tuner's question. Suppose the string beats at
@@ -109,10 +109,10 @@ so tighten by 1.378%.
 
 Beats do not care where the frequency difference comes from. Two organ pipes of
 slightly different length, two identical pipes in air at different temperatures,
-a string against a fork — the recipe is always the same. Work out each
+a string against a fork: the recipe is always the same. Work out each
 frequency on its own, to four or five figures, then subtract.
 
-**Example 2 — two organ pipes.** Open pipes of length 0.500 m and 0.510 m each
+**Example 2: two organ pipes.** Open pipes of length 0.500 m and 0.510 m each
 sound their fundamental, $f = v/2L$, with $v = 343$ m/s. What beat frequency do
 you hear?
 
@@ -165,7 +165,7 @@ distance.
   explanation="One and a half wavelengths of extra path is three pi radians of phase, which is equivalent to pi: crest meets trough and the waves cancel. Whole numbers of wavelengths give maxima."
 />
 
-**Example 3 — walking to the first quiet spot.** Two speakers 3.00 m apart on a
+**Example 3: walking to the first quiet spot.** Two speakers 3.00 m apart on a
 wall are driven in phase at 500 Hz. You start on the perpendicular bisector, on
 a line 4.00 m from the wall and parallel to it, and walk. How far until the
 first place where the sound drops out?
@@ -205,7 +205,7 @@ first quiet spot is 0.491 m from the centre line.
 
 Two habits from that problem carry everywhere. First, convert to a wavelength
 before you touch the geometry. Second, if the algebra fights you, bracket the
-answer with two guesses and interpolate — that is a legitimate method, not a
+answer with two guesses and interpolate: that is a legitimate method, not a
 retreat.
 
 <Aside label="Where this goes wrong" warn>
@@ -259,7 +259,7 @@ already said, which is a sign the formula is the general version of them.
   <Sim id="beats-interference-phasor" />
 </Figure>
 
-**Example 4 — an odd point with reversed wiring.** Two speakers emit 343 Hz but
+**Example 4: an odd point with reversed wiring.** Two speakers emit 343 Hz but
 are driven exactly out of phase. Each alone would give displacement amplitude
 1.00 mm at your ear, and your two path lengths differ by 0.750 m. What is the
 resultant amplitude?
@@ -286,7 +286,7 @@ copy of a sound will do, and motion is the usual one. That is the
 its results on loan here. A source moving away from a listener at speed $v_s$ is
 heard at $f\,v/(v+v_s)$, and moving toward at $f\,v/(v-v_s)$.
 
-**Example 5 — a buzzer approaching a wall.** A 500 Hz buzzer moves toward a flat
+**Example 5: a buzzer approaching a wall.** A 500 Hz buzzer moves toward a flat
 wall at 3.00 m/s. You stand well behind the buzzer, in line with its motion, and
 hear both the direct sound and the echo. Take $v = 343$ m/s. What beat frequency
 do you hear?
@@ -312,7 +312,7 @@ $$f_{\text{beat}} = 504.412 - 495.665 = 8.747\ \text{Hz}$$
 
 The structure is what to take from this. A beat problem never has a trick in the
 subtraction. The work is always in getting the two frequencies right, and a
-reflector is best treated as two events — a listener, then a fresh source.
+reflector is best treated as two events: a listener, then a fresh source.
 
 ## Recognising the technique
 
@@ -342,5 +342,4 @@ $2A|\cos(\Delta\phi/2)|$, which means you need the phase difference itself, not
 only whether it is loud or quiet.
 
 Both halves of this lesson are one idea. Beats are interference in time; two
-speakers are interference in space. The next lesson takes the remaining piece —
-what motion does to a frequency — and makes it exact.
+speakers are interference in space. The next lesson takes the remaining piece (what motion does to a frequency) and makes it exact.

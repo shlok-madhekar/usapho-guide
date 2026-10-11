@@ -79,9 +79,8 @@ export default function EditPage() {
   if (!gh.connected)
     return (
       <Shell>
-        <p className="label">Editor</p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--ink-strong)]">
-          Write the guide
+        <h1 className="text-3xl font-bold text-[var(--ink-strong)]">
+          Contribute
         </h1>
         <div className="prose mt-4">
           <p>
@@ -153,9 +152,8 @@ export default function EditPage() {
     <Shell wide>
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <div>
-          <p className="label">Editor</p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--ink-strong)]">
-            Write the guide
+          <h1 className="text-3xl font-bold text-[var(--ink-strong)]">
+            Contribute
           </h1>
         </div>
         <p className="sans text-sm text-[var(--ink-soft)]">

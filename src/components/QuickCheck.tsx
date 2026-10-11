@@ -55,8 +55,15 @@ export default function QuickCheck({
           );
         })}
       </ol>
+      {/* on paper nothing can be clicked, so the answer is printed instead */}
+      <p className="sans mt-3 hidden text-[0.85rem] text-[var(--ink-soft)] print:block">
+        <span className="font-medium text-[var(--ink-strong)]">
+          Answer: {String.fromCharCode(97 + answer)}.
+        </span>{" "}
+        {explanation}
+      </p>
       {revealed && (
-        <div className="mt-4 border-l-2 border-[var(--rule-strong)] pl-4 text-[0.93rem] text-[var(--ink-soft)]">
+        <div className="mt-4 border-l-2 print:hidden border-[var(--rule-strong)] pl-4 text-[0.93rem] text-[var(--ink-soft)]">
           {explanation}
           <button
             onClick={() => setPicked(null)}

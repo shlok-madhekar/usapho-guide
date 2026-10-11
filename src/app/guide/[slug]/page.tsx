@@ -4,6 +4,8 @@ import Nav from "@/components/Nav";
 import BankProblem from "@/components/BankProblem";
 import { FreqMeter, StatusPicker } from "@/components/ModuleBits";
 import ModuleSidebar from "@/components/ModuleSidebar";
+import ExportPdfButton from "@/components/ExportPdfButton";
+import { Markish } from "@/components/Katex";
 import { allModules, findModule } from "@/lib/curriculum";
 import { LESSONS } from "@/content/lessons";
 import { problemsForModule, isSolvable } from "@/lib/problems";
@@ -33,7 +35,11 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
       <div className="mx-auto flex max-w-[calc(var(--measure)_+_22rem)] gap-12 px-6">
         <ModuleSidebar activeSlug={mod.slug} divisionId={division.id} />
 
-        <main className="min-w-0 max-w-[var(--measure)] flex-1 pb-24 pt-10">
+        <main className="lesson-print min-w-0 max-w-[var(--measure)] flex-1 pb-24 pt-10">
+          <p className="print-masthead">
+            <span>USAPhO Guide</span>
+            <span>usapho.one/guide/{mod.slug}</span>
+          </p>
           <p className="label">
             <Link href="/guide" className="hover:text-[var(--ink)]">
               {division.name}
@@ -46,7 +52,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
             <h1 className="max-w-[19ch] text-[clamp(1.7rem,1.15rem+1.7vw,2.6rem)] font-semibold leading-[1.12] tracking-tight text-[var(--ink-strong)]">
               {mod.title}
             </h1>
-            <div className="pt-2">
+            <div className="no-print pt-2">
               <StatusPicker slug={mod.slug} />
             </div>
           </div>
@@ -67,6 +73,9 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
                 ))}
               </span>
             ) : null}
+            <span className="ml-auto">
+              <ExportPdfButton title={mod.title} />
+            </span>
           </div>
 
           <article className="prose mt-8">
@@ -111,7 +120,31 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
             </section>
           )}
 
-          <nav className="mt-16 flex justify-between gap-6 border-t border-[var(--rule)] pt-5 text-sm">
+          {solvable.length > 0 && (
+            <section className="print-only print-solutions">
+              <h2 className="text-xl font-semibold text-[var(--ink-strong)]">
+                Solutions
+              </h2>
+              {solvable.map((p, i) => (
+                <div key={p.id} className="print-solution">
+                  <p className="sans text-sm">
+                    <span className="font-semibold text-[var(--ink-strong)]">
+                      {i + 1}. {p.name}
+                    </span>
+                    <span className="text-[var(--ink-soft)]">
+                      {"  "}Answer: {formatAnswer(p.answer)}
+                      {p.unit && p.unit !== "dimensionless" ? ` ${p.unit}` : ""}
+                    </span>
+                  </p>
+                  <div className="prose mt-1 max-w-none text-[0.95rem]">
+                    <Markish text={p.solution} />
+                  </div>
+                </div>
+              ))}
+            </section>
+          )}
+
+          <nav className="no-print mt-16 flex justify-between gap-6 border-t border-[var(--rule)] pt-5 text-sm">
             {prev ? (
               <Link href={`/guide/${prev.slug}`} className="group">
                 <span className="label block">Previous</span>
@@ -135,4 +168,15 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
       </div>
     </>
   );
+}
+
+/** Plain numbers stay as written; very large or small ones get an exponent. */
+function formatAnswer(n: number | null) {
+  if (n === null) return "";
+  const a = Math.abs(n);
+  if (a !== 0 && (a >= 1e6 || a < 1e-3)) {
+    const [m, e] = n.toExponential(3).split("e");
+    return `${Number(m)} × 10^${Number(e)}`;
+  }
+  return String(Number(n.toPrecision(6)));
 }

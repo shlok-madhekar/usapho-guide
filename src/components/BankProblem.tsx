@@ -116,7 +116,7 @@ function BankProblemInner({
             <Markish text={p.statement} />
           </div>
 
-          <div className="mt-4 flex flex-wrap items-center gap-2">
+          <div className="mt-4 flex flex-wrap items-center gap-2 print:hidden">
             <input
               type="text"
               inputMode="decimal"
@@ -160,7 +160,7 @@ function BankProblemInner({
           </div>
 
           {showSolution && (
-            <div className="aside mt-4">
+            <div className="aside mt-4 print:hidden">
               <span className="aside-label">Solution</span>
               <div className="prose max-w-none text-[0.95rem]">
                 <Markish text={p.solution} />
@@ -197,7 +197,7 @@ function BankProblemInner({
             onClick={() =>
               setProblem(p.id, solved ? "none" : "solved")
             }
-            className="btn-plain sans ml-auto text-xs"
+            className="btn-plain sans ml-auto text-xs print:hidden"
           >
             {solved ? "Unmark" : "Mark solved"}
           </button>

@@ -16,7 +16,7 @@ export default function ModuleSidebar({
   if (!division) return null;
 
   return (
-    <aside className="sticky top-14 hidden max-h-[calc(100vh-3.5rem)] w-52 shrink-0 overflow-y-auto py-10 lg:block">
+    <aside className="no-print sticky top-14 hidden max-h-[calc(100vh-3.5rem)] w-52 shrink-0 overflow-y-auto py-10 lg:block">
       <p className="label">{division.name}</p>
       {division.sections.map((s, si) => (
         <div key={s.id} className="mt-5">

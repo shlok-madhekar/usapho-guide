@@ -335,3 +335,111 @@ input[type="range"]::-webkit-slider-thumb {
   border: 3px solid var(--paper);
   border-radius: 6px;
 }
+
+/* ---------------- print / Export PDF ----------------
+ * A lesson printed (or saved as PDF from the Export button) reads as a
+ * document: no site chrome, light paper whatever the screen theme, the
+ * checks answered inline and the problem solutions gathered at the end.
+ */
+.print-only,
+.print-masthead { display: none; }
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0.75in 0.8in 0.8in;
+    @bottom-center {
+      content: counter(page) " / " counter(pages);
+      font-family: -apple-system, "Segoe UI", sans-serif;
+      font-size: 8.5pt;
+      color: #8d8779;
+    }
+  }
+
+  :root,
+  [data-theme="dark"] {
+    --paper: #ffffff;
+    --paper-2: #f4f2ec;
+    --panel: #ffffff;
+    --rule: #ded9cf;
+    --rule-strong: #b9b2a4;
+    --ink: #1f1d1a;
+    --ink-strong: #100f0d;
+    --ink-soft: #56514a;
+    --ink-faint: #8d8779;
+    --accent: #7b2d26;
+    --accent-soft: #a8463c;
+    --figure: #2f4858;
+    --ok: #2f6b3f;
+    --warn: #9a5b12;
+    --bad: #9b2c2c;
+    --ok-bg: #eef4ee;
+    --bad-bg: #f8eeee;
+    color-scheme: light;
+  }
+
+  html, body { background: #fff !important; }
+  body {
+    font-size: 10.5pt;
+    line-height: 1.55;
+    --measure: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+
+  /* the lesson column takes the whole page */
+  .lesson-print {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  .lesson-print .prose { max-width: none; }
+  .lesson-print h1 { max-width: none; font-size: 22pt; }
+
+  .print-masthead {
+    display: flex !important;
+    justify-content: space-between;
+    font-family: var(--sans);
+    font-size: 8pt;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.4em;
+    margin-bottom: 1.6em;
+  }
+
+  /* links read as text on paper */
+  a, .link { color: inherit !important; text-decoration: none !important; }
+
+  /* keep things whole across page breaks */
+  h1, h2, h3 { break-after: avoid; }
+  p { orphans: 3; widows: 3; }
+  .figure, .aside, pre, canvas, svg, table,
+  .print-solution { break-inside: avoid; }
+  /* a display equation is one picture: never split it across pages */
+  .prose .katex-display {
+    display: block;
+    overflow: visible;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .katex-display > .katex,
+  .katex-display .katex-html {
+    display: block;
+    break-inside: avoid;
+  }
+
+  canvas { max-width: 100%; }
+
+  .print-solutions {
+    break-before: page;
+    margin-top: 0;
+  }
+  .print-solution {
+    border-top: 1px solid var(--rule);
+    padding: 0.8em 0;
+  }
+  .print-solution:first-of-type { margin-top: 0.8em; }
+}

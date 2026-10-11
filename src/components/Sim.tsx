@@ -67,7 +67,7 @@ export function SimRunner({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const C = simColors();
+    let C = simColors();
     let raf = 0;
     let start = performance.now();
     let failed = false;
@@ -115,9 +115,22 @@ export function SimRunner({
     };
     document.addEventListener("visibilitychange", onVisible);
 
+    // The palette is read from CSS variables, so pick it up again when the
+    // theme changes (a toggle, or printing, which switches to light). Paint
+    // straight away: printing snapshots the canvas before the next frame.
+    const themeWatch = new MutationObserver(() => {
+      C = simColors();
+      if (!failed) paint(performance.now());
+    });
+    themeWatch.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
     return () => {
       cancelAnimationFrame(raf);
       document.removeEventListener("visibilitychange", onVisible);
+      themeWatch.disconnect();
     };
   }, [fn]);
 
@@ -143,7 +156,7 @@ export function SimRunner({
       )}
 
       {def.params.length > 0 && (
-        <div className="mt-3 grid gap-x-8 gap-y-3 sm:grid-cols-3">
+        <div className="mt-3 grid gap-x-8 gap-y-3 sm:grid-cols-3 print:hidden">
           {def.params.map((param) => (
             <label key={param.key} className="block">
               <span className="sans flex justify-between text-xs text-[var(--ink-soft)]">

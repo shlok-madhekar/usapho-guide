@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Logo from "@/components/Logo";
 import { useEffect, useRef, useState } from "react";
 import { allModules } from "@/lib/curriculum";
 import { useProgress } from "@/lib/progress";
@@ -148,8 +149,9 @@ export default function Nav() {
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
         <Link
           href="/"
-          className="sans text-[15px] font-semibold text-[var(--ink-strong)]"
+          className="sans flex items-center gap-2 text-[16px] font-semibold text-[var(--ink-strong)]"
         >
+          <Logo />
           USAPhO Guide
         </Link>
 

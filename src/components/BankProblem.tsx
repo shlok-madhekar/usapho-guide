@@ -187,7 +187,9 @@ function BankProblemInner({
                 rel="noopener noreferrer"
                 className="link"
               >
-                Read it on the official exam archive
+                {p.url.toLowerCase().endsWith(".pdf")
+                  ? `Open the ${p.source} exam (PDF)`
+                  : `Find ${p.source} on the AAPT past exams page`}
               </a>
             ) : (
               <>Find it in {p.source}.</>

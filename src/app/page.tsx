@@ -115,7 +115,11 @@ export default function Home() {
             >
               GitHub
             </a>{" "}
-            work just as well. Structured after the{" "}
+            work just as well. See{" "}
+            <Link href="/contributors" className="link">
+              who has contributed
+            </Link>
+            . Structured after the{" "}
             <a href="https://usaco.guide" className="link">
               USACO Guide
             </a>

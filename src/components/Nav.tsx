@@ -138,6 +138,7 @@ export default function Nav() {
     { href: "/problems", label: "Problems" },
     { href: "/progress", label: "Progress" },
     { href: "/edit", label: "Contribute" },
+    { href: "/contributors", label: "Contributors" },
   ];
 
   return (

@@ -35,6 +35,7 @@ const dmMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://usapho.one"),
   title: "USAPhO Guide",
   description:
     "Notes and problems for the F=ma exam and the US Physics Olympiad.",

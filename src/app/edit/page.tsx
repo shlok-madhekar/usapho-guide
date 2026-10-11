@@ -102,6 +102,8 @@ export default function EditPage() {
           </p>
         </div>
 
+        <LicenseNote className="mt-5" />
+
         {gh.device ? (
           <div className="aside mt-6">
             <span className="aside-label">Two steps</span>
@@ -171,6 +173,7 @@ export default function EditPage() {
         live until it is merged, and the same files can be edited by a plain git
         push.
       </p>
+      <LicenseNote className="mt-5 max-w-[36rem]" />
 
       <div className="mt-7 flex gap-5 border-b border-[var(--rule-strong)]">
         {tabs
@@ -197,6 +200,30 @@ export default function EditPage() {
         {tab === "courses" && mayCourses && <Courses api={gh.api} />}
       </div>
     </Shell>
+  );
+}
+
+/** Shown before and after connecting: every contribution joins the license. */
+function LicenseNote({ className = "" }: { className?: string }) {
+  return (
+    <div className={`aside ${className}`}>
+      <span className="aside-label">License</span>
+      <p className="text-sm">
+        The whole guide is licensed under{" "}
+        <a
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link"
+        >
+          CC BY-NC-SA 4.0
+        </a>
+        . By proposing a change you agree that your contribution is released
+        under the same license. Anyone reusing the guide must credit it as the
+        USAPhO Guide (usapho.one), may not use it commercially, and must share
+        adaptations under the same license.
+      </p>
+    </div>
   );
 }
 

@@ -96,7 +96,17 @@ export default async function ContributorsPage() {
             <a href={repoUrl} className="link" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
-            . You show up once your change is merged.
+            . You show up once your change is merged. Contributions are released
+            under the guide&apos;s license,{" "}
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+              className="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CC BY-NC-SA 4.0
+            </a>
+            .
           </p>
         </section>
       </main>

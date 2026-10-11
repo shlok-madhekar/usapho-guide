@@ -38,7 +38,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
         <main className="lesson-print min-w-0 max-w-[var(--measure)] flex-1 pb-24 pt-10">
           <p className="print-masthead">
             <span>USAPhO Guide</span>
-            <span>usapho.one/guide/{mod.slug}</span>
+            <span>usapho.one/guide/{mod.slug} · CC BY-NC-SA 4.0</span>
           </p>
           <p className="label">
             <Link href="/guide" className="hover:text-[var(--ink)]">

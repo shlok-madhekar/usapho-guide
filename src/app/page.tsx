@@ -100,7 +100,7 @@ export default function Home() {
 
         <footer className="mt-6 text-sm text-[var(--ink-soft)]">
           <p>
-            Free and open source. Anyone can write a lesson, add a problem or
+            Free, and built in the open. Anyone can write a lesson, add a problem or
             build a simulation from{" "}
             <Link href="/edit" className="link">
               the editor
@@ -123,7 +123,18 @@ export default function Home() {
             <a href="https://usaco.guide" className="link">
               USACO Guide
             </a>
-            . Not affiliated with AAPT.
+            . Licensed under{" "}
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+              className="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CC BY-NC-SA 4.0
+            </a>
+            : share and adapt it non-commercially, credit the USAPhO Guide
+            (usapho.one), and keep adaptations under the same license. Not
+            affiliated with AAPT.
           </p>
         </footer>
       </main>

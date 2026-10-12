@@ -2,6 +2,43 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SimDef, paramValues } from "@/lib/sim-types";
+import { loadMathFonts, mathContext, setSansFamily, typesetRuns } from "@/lib/canvas-math";
+
+/** A slider name with its symbols set as maths, the way the page sets them. */
+function TypesetLabel({ text }: { text: string }) {
+  return (
+    <>
+      {typesetRuns(text).map((r, i) =>
+        r.sub ? (
+          <sub key={i} style={{ fontFamily: "KaTeX_Math", fontSize: "0.7em" }}>{r.text}</sub>
+        ) : r.sup ? (
+          <sup key={i} style={{ fontSize: "0.7em" }}>{r.text}</sup>
+        ) : r.math ? (
+          <i key={i} style={{ fontFamily: "KaTeX_Math" }}>{r.text}</i>
+        ) : (
+          <span key={i}>{r.text}</span>
+        ),
+      )}
+    </>
+  );
+}
+
+/**
+ * Reads the site's sans family from a real element, once. Canvas cannot read
+ * CSS variables, so the family name has to be resolved here.
+ */
+let sansResolved = false;
+function resolveSans() {
+  if (sansResolved || typeof document === "undefined") return;
+  sansResolved = true;
+  const probe = document.createElement("span");
+  probe.className = "sans";
+  probe.style.position = "absolute";
+  probe.style.visibility = "hidden";
+  document.body.appendChild(probe);
+  setSansFamily(getComputedStyle(probe).fontFamily);
+  probe.remove();
+}
 
 /** Theme colours handed to a sim's draw body. */
 function simColors() {
@@ -68,6 +105,13 @@ export function SimRunner({
     if (!ctx) return;
 
     let C = simColors();
+    // labels are typeset through a wrapper; repaint once the maths faces load
+    const math = mathContext(ctx);
+    resolveSans();
+    let loaded = true;
+    loadMathFonts().then(() => {
+      if (loaded) paint(performance.now());
+    });
     let raf = 0;
     let start = performance.now();
     let failed = false;
@@ -85,7 +129,7 @@ export function SimRunner({
 
       const out = { note: "" };
       try {
-        fn(ctx, valuesRef.current, (now - start) / 1000, W, H, C, out);
+        fn(math, valuesRef.current, (now - start) / 1000, W, H, C, out);
       } catch (e) {
         // a broken sim should report itself, not spin at 60fps forever
         failed = true;
@@ -128,6 +172,7 @@ export function SimRunner({
     });
 
     return () => {
+      loaded = false;
       cancelAnimationFrame(raf);
       document.removeEventListener("visibilitychange", onVisible);
       themeWatch.disconnect();
@@ -139,7 +184,7 @@ export function SimRunner({
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <span className="label">{def.title}</span>
         {note && !error && (
-          <span className="tabular sans text-xs text-[var(--ink-soft)]">{note}</span>
+          <span className="tabular sans text-xs text-[var(--ink-soft)]"><TypesetLabel text={note} /></span>
         )}
       </div>
 
@@ -160,7 +205,7 @@ export function SimRunner({
           {def.params.map((param) => (
             <label key={param.key} className="block">
               <span className="sans flex justify-between text-xs text-[var(--ink-soft)]">
-                {param.label}
+                <span><TypesetLabel text={param.label} /></span>
                 <span className="tabular text-[var(--ink-strong)]">
                   {values[param.key]} {param.unit}
                 </span>

@@ -135,35 +135,30 @@ from nothing but bookkeeping.
   you exactly one quantity per dimension you need, the combination is unique.
 </Aside>
 
-## Worked example: the Planck length
+## Worked example: a ball dropped from height
 
-Three constants, three dimensions, one length. Take $\hbar = 1.0546\times
-10^{-34}$ J·s, $G = 6.674\times10^{-11}$ m³kg⁻¹s⁻², and $c = 2.998\times10^{8}$
-m/s.
+Drop a ball from a height $h$. Its speed when it lands should come out of
+$g$ and $h$ alone, so start from those two and try to build a speed.
 
-First, dimensions. A joule is $ML^2T^{-2}$, so $[\hbar] = ML^2T^{-1}$. From the
-units given, $[G] = L^3M^{-1}T^{-2}$. And $[c] = LT^{-1}$. Write
-$\ell = \hbar^{a}G^{b}c^{d}$ and match:
+Dimensions first: $[g] = LT^{-2}$ and $[h] = L$. A speed has dimensions
+$LT^{-1}$, so we need a combination that brings the time power from $-2$ to
+$-1$. Taking a square root does that:
 
-$$L = (ML^2T^{-1})^a (L^3M^{-1}T^{-2})^b (LT^{-1})^d$$
+$$[\sqrt{gh}] = \sqrt{LT^{-2}\cdot L} = \sqrt{L^{2}T^{-2}} = LT^{-1}$$
 
-Mass: $0 = a - b$. Length: $1 = 2a + 3b + d$. Time: $0 = -a - 2b - d$.
+So a speed of the form $\sqrt{gh}$ passes the check. A tempting wrong answer,
+$v = gh$, fails straight away: its dimensions are $L^{2}T^{-2}$, which is not
+a speed.
 
-From the mass equation $b = a$. Put that into the time equation:
-$0 = -a - 2a - d$, so $d = -3a$. Put both into the length equation:
-$1 = 2a + 3a - 3a = 2a$, so $a = 1/2$, hence $b = 1/2$ and $d = -3/2$.
+The energy argument gives the number in front. Energy is conserved, so the
+height the ball loses becomes kinetic energy: $mgh = \tfrac12 mv^2$. The mass
+cancels, and
 
-$$\ell_P = \sqrt{\frac{\hbar G}{c^3}}$$
+$$v = \sqrt{2gh}$$
 
-Numbers. The top is $(1.0546\times10^{-34})(6.674\times10^{-11}) =
-7.038\times10^{-45}$. The bottom is $(2.998\times10^{8})^3 = 2.694\times10^{25}$.
-The ratio is $2.612\times10^{-70}$, and its square root is
-$1.62\times10^{-35}$ m.
-
-When taking a square root of a power of ten, make the exponent even first:
-$2.612\times10^{-70} = 26.12\times10^{-71}$ is awkward, but $-70$ is already
-even, so $\sqrt{2.612}\times10^{-35} = 1.616\times10^{-35}$. Do that and you
-will stop losing factors of ten here.
+With $h = 5.0$ m and $g = 10$ m/s$^2$, $v = \sqrt{100} = 10$ m/s. The
+dimension check fixed the form of the answer. The energy argument fixed the
+$\sqrt{2}$.
 
 ## Converting units without guessing
 

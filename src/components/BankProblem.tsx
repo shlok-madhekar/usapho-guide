@@ -138,7 +138,7 @@ function BankProblemInner({
               }
             />
             {p.unit && (
-              <span className="sans text-sm text-[var(--ink-soft)]">{p.unit}</span>
+              <span className="sans text-[0.9rem] text-[var(--ink)]">{p.unit}</span>
             )}
             <button onClick={check} className="btn">
               Check

@@ -4,7 +4,12 @@ import { useState } from "react";
 
 /**
  * A single multiple-choice check. Plain strings so lesson MDX stays readable,
- * with no JSX in the attributes.
+ * with no JSX in the attributes. Props are unchanged from the original, so
+ * lessons and the editor's Question button work as before.
+ *
+ * Flow: pick an option, press Check, read the result. Nothing is revealed
+ * until Check is pressed, so the reader cannot see the answer just by
+ * clicking through the options.
  */
 export default function QuickCheck({
   question,
@@ -18,61 +23,111 @@ export default function QuickCheck({
   explanation: string;
 }) {
   const [picked, setPicked] = useState<number | null>(null);
-  const revealed = picked !== null;
+  const [checked, setChecked] = useState(false);
+
+  const correct = checked && picked === answer;
+  const letter = (i: number) => String.fromCharCode(65 + i);
 
   return (
-    <div className="my-8 border-y border-[var(--rule)] py-5">
-      <p className="label">Check yourself</p>
+    <section className="my-8 border border-[var(--rule-strong)] p-4 sm:p-5">
+      <p className="sans text-sm font-semibold text-[var(--ink-strong)]">Quick check</p>
       <p className="mt-2 text-[var(--ink)]">{question}</p>
-      <ol className="mt-3 space-y-1.5">
+
+      <div role="radiogroup" aria-label="Answers" className="mt-4 grid gap-2">
         {options.map((opt, i) => {
-          const correct = i === answer;
-          const wrongPick = revealed && picked === i && !correct;
+          const isPicked = picked === i;
+          const isAnswer = checked && i === answer;
+          const isWrongPick = checked && isPicked && i !== answer;
+          const border = isAnswer
+            ? "var(--ok)"
+            : isWrongPick
+            ? "var(--bad)"
+            : isPicked
+            ? "var(--ink-strong)"
+            : "var(--rule-strong)";
           return (
-            <li key={i}>
-              <button
-                onClick={() => setPicked(i)}
-                disabled={revealed}
-                className="sans flex w-full items-baseline gap-2.5 text-left text-[0.92rem] disabled:cursor-default"
+            <button
+              key={i}
+              type="button"
+              role="radio"
+              aria-checked={isPicked}
+              disabled={checked}
+              onClick={() => setPicked(i)}
+              className="sans flex w-full items-center gap-3 border bg-transparent px-3 py-2.5 text-left text-[0.95rem] text-[var(--ink)] transition-colors hover:bg-[var(--paper-2)] disabled:cursor-default disabled:hover:bg-transparent"
+              style={{ borderColor: border }}
+            >
+              <span
+                className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-semibold"
                 style={{
-                  color: revealed && correct
-                    ? "var(--ok)"
-                    : wrongPick
-                    ? "var(--bad)"
-                    : "var(--ink-soft)",
+                  borderColor: border,
+                  background: isPicked ? border : "transparent",
+                  color: isPicked ? "var(--paper)" : "var(--ink-soft)",
                 }}
+                aria-hidden
               >
-                <span className="tabular w-4 shrink-0 text-[var(--ink-faint)]">
-                  {String.fromCharCode(97 + i)}.
-                </span>
-                <span className={revealed && correct ? "font-medium" : ""}>
-                  {opt}
-                </span>
-                {revealed && correct && <span aria-hidden>✓</span>}
-                {wrongPick && <span aria-hidden>✕</span>}
-              </button>
-            </li>
+                {letter(i)}
+              </span>
+              <span className="min-w-0 flex-1">{opt}</span>
+              {isAnswer && (
+                <span className="sans text-sm font-semibold text-[var(--ok)]">Correct</span>
+              )}
+              {isWrongPick && (
+                <span className="sans text-sm font-semibold text-[var(--bad)]">Not this one</span>
+              )}
+            </button>
           );
         })}
-      </ol>
-      {/* on paper nothing can be clicked, so the answer is printed instead */}
-      <p className="sans mt-3 hidden text-[0.85rem] text-[var(--ink-soft)] print:block">
-        <span className="font-medium text-[var(--ink-strong)]">
-          Answer: {String.fromCharCode(97 + answer)}.
-        </span>{" "}
-        {explanation}
-      </p>
-      {revealed && (
-        <div className="mt-4 border-l-2 print:hidden border-[var(--rule-strong)] pl-4 text-[0.93rem] text-[var(--ink-soft)]">
-          {explanation}
+      </div>
+
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        {!checked ? (
+          <>
+            <button
+              type="button"
+              className="btn sans"
+              disabled={picked === null}
+              onClick={() => setChecked(true)}
+            >
+              Check answer
+            </button>
+            {picked === null && (
+              <span className="sans text-sm text-[var(--ink-soft)]">Pick one option first.</span>
+            )}
+          </>
+        ) : (
           <button
-            onClick={() => setPicked(null)}
-            className="sans ml-2 text-[var(--accent)] underline underline-offset-2"
+            type="button"
+            className="btn-plain sans"
+            onClick={() => {
+              setChecked(false);
+              setPicked(null);
+            }}
           >
-            reset
+            Try again
           </button>
+        )}
+      </div>
+
+      {checked && (
+        <div
+          className="mt-4 border-l-2 pl-4 text-[0.95rem] text-[var(--ink-soft)]"
+          style={{ borderColor: correct ? "var(--ok)" : "var(--bad)" }}
+        >
+          <p
+            className="sans mb-1 text-sm font-semibold"
+            style={{ color: correct ? "var(--ok)" : "var(--bad)" }}
+          >
+            {correct ? "That's right." : `Not quite. The answer is ${letter(answer)}.`}
+          </p>
+          {explanation}
         </div>
       )}
-    </div>
+
+      {/* on paper nothing can be clicked, so the answer is printed instead */}
+      <p className="sans mt-3 hidden text-[0.85rem] text-[var(--ink-soft)] print:block">
+        <span className="font-medium text-[var(--ink-strong)]">Answer: {letter(answer)}.</span>{" "}
+        {explanation}
+      </p>
+    </section>
   );
 }

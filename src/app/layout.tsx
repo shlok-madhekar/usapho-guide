@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import localFont from "next/font/local";
 import "katex/dist/katex.min.css";
 import "./globals.css";
@@ -37,6 +38,7 @@ export default function RootLayout({
             <ProgressProvider>{children}</ProgressProvider>
           </AuthProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

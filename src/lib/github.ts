@@ -79,12 +79,34 @@ export const hasStarred = async (token: string, repo = REPO) => {
 export const getRepo = (token: string, repo = REPO) =>
   gh<RepoInfo>(token, `/repos/${repo}`);
 
+/**
+ * Read a file's text from the default branch.
+ *
+ * Asks for the raw media type: the JSON form of the contents API leaves
+ * `content` empty for anything over 1 MB, and problems.json is well past that,
+ * which surfaced in the editor as "Unexpected end of JSON input". Raw works up
+ * to 100 MB.
+ */
 export async function readFile(token: string, path: string): Promise<string> {
-  const file = await gh<{ content: string }>(
-    token,
-    `/repos/${REPO}/contents/${encodeURIComponent(path)}`
-  );
-  return dec(file.content.replace(/\n/g, ""));
+  const url = `${API}/repos/${REPO}/contents/${path
+    .split("/")
+    .map(encodeURIComponent)
+    .join("/")}`;
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github.raw+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    const detail = await res.text();
+    throw new Error(
+      `GitHub GET ${path} failed (${res.status}): ${detail.slice(0, 300)}`
+    );
+  }
+  return res.text();
 }
 
 export async function listDir(token: string, path: string): Promise<string[]> {

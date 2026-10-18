@@ -64,7 +64,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Water has density $1.00\\ \\text{g/cm}^3$. Express this in kg/m$^3$.",
-    "answer": 1000.0,
+    "answer": 1000,
     "unit": "kg/m^3",
     "solution": "KEY IDEA: $1\\ \\text{g}=10^{-3}$ kg and $1\\ \\text{cm}^3=10^{-6}\\ \\text{m}^3$, so the conversion factor is $10^{-3}/10^{-6}=10^{3}$. Hence $1.00\\ \\text{g/cm}^3=1000\\ \\text{kg/m}^3$."
   },
@@ -151,7 +151,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Electric utilities bill energy in kilowatt-hours. How many joules are in $1.00$ kWh?",
-    "answer": 3600000.0,
+    "answer": 3600000,
     "unit": "J",
     "solution": "KEY IDEA: energy is power times time, so $1\\ \\text{kWh}=1000\\ \\text{W}\\times3600\\ \\text{s}=3.6\\times10^{6}$ J. A watt is one joule per second, which makes the whole conversion one multiplication."
   },
@@ -169,7 +169,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Light travels at $2.998\\times10^{8}$ m/s. Using a year of $365.25$ days, how many meters are in one light-year?",
-    "answer": 9460000000000000.0,
+    "answer": 9460000000000000,
     "unit": "m",
     "solution": "KEY IDEA: a light-year is a distance, not a time: multiply speed by elapsed time. $2.998\\times10^{8}\\times3.156\\times10^{7}=9.46\\times10^{15}$ m."
   },
@@ -187,7 +187,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "At high speed the drag force on a car depends only on the air density $\\rho$, the frontal area $A$, and the speed $v$: $F=C\\rho^{a}A^{b}v^{c}$ with $C$ dimensionless. Find the exponent $c$.",
-    "answer": 2.0,
+    "answer": 2,
     "unit": "",
     "solution": "KEY IDEA: match powers of mass, length and time. $[\\rho]=\\text{kg}\\,\\text{m}^{-3}$, $[A]=\\text{m}^2$, $[v]=\\text{m}\\,\\text{s}^{-1}$, and $[F]=\\text{kg}\\,\\text{m}\\,\\text{s}^{-2}$. Mass gives $a=1$; time gives $c=2$; length then gives $-3+2b+2=1$, so $b=1$. Drag therefore grows as the square of the speed, which is why highway fuel economy falls off so fast."
   },
@@ -205,7 +205,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A wave on a string travels at a speed set only by the tension $T$ and the mass per unit length $\\mu$, with a dimensionless constant equal to $1$. A string is under $80.0$ N of tension and has $\\mu=5.00\\times10^{-3}$ kg/m. Find the wave speed.",
-    "answer": 126.0,
+    "answer": 126,
     "unit": "m/s",
     "solution": "KEY IDEA: $[T/\\mu]=(\\text{kg}\\,\\text{m}\\,\\text{s}^{-2})/(\\text{kg}\\,\\text{m}^{-1})=\\text{m}^2\\text{s}^{-2}$, so $v=\\sqrt{T/\\mu}$ is the only speed you can build. Numerically $\\sqrt{80.0/5.00\\times10^{-3}}=\\sqrt{1.60\\times10^{4}}=126$ m/s."
   },
@@ -223,7 +223,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "For circular orbits around the Sun, the period satisfies $T^2\\propto r^3$. A comet orbits in a circle of radius four times the Earth's orbital radius. What is its period in years?",
-    "answer": 8.0,
+    "answer": 8,
     "unit": "yr",
     "solution": "KEY IDEA: $T\\propto r^{3/2}$, so scaling $r$ by $4$ scales $T$ by $4^{3/2}=8$. The Earth's period is $1$ yr, so the comet takes $8$ yr. No constants are needed because you are taking a ratio."
   },
@@ -240,7 +240,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Estimate the number of full-time piano tuners in Chicago. Assume: population $2.7\\times10^{6}$; $2.5$ people per household; one household in $20$ owns a piano; each piano is tuned once a year; a tuner services $4$ pianos a day for $250$ working days a year. How many tuners does the city support?",
-    "answer": 54.0,
+    "answer": 54,
     "unit": "",
     "solution": "KEY IDEA: compute the annual demand for tunings and divide by the annual output of one tuner. Households: $2.7\\times10^{6}/2.5=1.08\\times10^{6}$; pianos: $1.08\\times10^{6}/20=5.4\\times10^{4}$, so $5.4\\times10^{4}$ tunings per year. One tuner does $4\\times250=1000$ per year, giving $54$ tuners."
   },
@@ -257,7 +257,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A storm drops $2.5$ cm of rain on a $1.00\\ \\text{m}^2$ patch of ground. Model each raindrop as a sphere of radius $1.0$ mm. How many drops landed on that patch?",
-    "answer": 6000000.0,
+    "answer": 6000000,
     "unit": "",
     "solution": "KEY IDEA: total water volume divided by the volume of one drop. The rain volume is $1.00\\ \\text{m}^2\\times0.025\\ \\text{m}=0.025\\ \\text{m}^3$, and one drop holds $\\tfrac{4}{3}\\pi(10^{-3})^3=4.19\\times10^{-9}\\ \\text{m}^3$. The ratio is about $6.0\\times10^{6}$ drops."
   },
@@ -310,7 +310,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Assume the United States has $2.5\\times10^{8}$ cars, each driven $12{,}000$ miles a year at an average of $25$ miles per gallon. How many gallons of gasoline do they burn in a year?",
-    "answer": 120000000000.0,
+    "answer": 120000000000,
     "unit": "gal",
     "solution": "KEY IDEA: gallons per car per year is miles driven divided by miles per gallon. That is $12{,}000/25=480$ gallons per car, and $2.5\\times10^{8}\\times480=1.2\\times10^{11}$ gallons a year."
   },
@@ -328,7 +328,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Newton's law of gravitation is $F=Gm_1m_2/r^2$. Write the SI unit of $G$ as $\\text{m}^{\\alpha}\\,\\text{kg}^{\\beta}\\,\\text{s}^{\\gamma}$. What is $\\beta$?",
-    "answer": -1.0,
+    "answer": -1,
     "unit": "",
     "solution": "KEY IDEA: solve for $G$ and read off the units. $G=Fr^2/(m_1m_2)$, so $[G]=(\\text{kg}\\,\\text{m}\\,\\text{s}^{-2})(\\text{m}^2)/\\text{kg}^2=\\text{m}^3\\text{kg}^{-1}\\text{s}^{-2}$. Hence $\\beta=-1$."
   },
@@ -363,7 +363,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "The Reynolds number is $\\mathrm{Re}=\\rho v D/\\mu$, where $\\mu$ is the dynamic viscosity in $\\text{Pa}\\cdot\\text{s}$. For air take $\\rho=1.2\\ \\text{kg/m}^3$ and $\\mu=1.8\\times10^{-5}\\ \\text{Pa}\\cdot\\text{s}$. Compute $\\mathrm{Re}$ for a cylinder of diameter $0.10$ m moving at $10$ m/s.",
-    "answer": 67000.0,
+    "answer": 67000,
     "unit": "",
     "solution": "KEY IDEA: $\\mathrm{Re}$ is dimensionless, so the units must cancel; check that $\\text{Pa}\\cdot\\text{s}=\\text{kg}\\,\\text{m}^{-1}\\text{s}^{-1}$ before trusting the number. Then $\\mathrm{Re}=1.2\\times10\\times0.10/1.8\\times10^{-5}=6.7\\times10^{4}$, far above the value where flow becomes turbulent, which is why drag here scales as $v^2$ rather than $v$."
   },
@@ -399,7 +399,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Sound in air travels at a speed built only from the ambient pressure $P$ and the density $\\rho$, times a dimensionless factor. For an ideal gas that factor is $\\sqrt{\\gamma}$ with $\\gamma=1.4$. Using $P=1.013\\times10^{5}$ Pa and $\\rho=1.29\\ \\text{kg/m}^3$, find the speed of sound.",
-    "answer": 332.0,
+    "answer": 332,
     "unit": "m/s",
     "solution": "KEY IDEA: $[P/\\rho]=(\\text{kg}\\,\\text{m}^{-1}\\text{s}^{-2})/(\\text{kg}\\,\\text{m}^{-3})=\\text{m}^2\\text{s}^{-2}$, so $\\sqrt{P/\\rho}$ is the only available speed. With the factor $\\sqrt{\\gamma}$, $v=\\sqrt{1.4\\times1.013\\times10^{5}/1.29}=332$ m/s, matching the measured value near $340$ m/s at room temperature."
   },
@@ -417,7 +417,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "The radius $R$ of a strong blast wave at time $t$ depends only on the released energy $E$ and the ambient air density $\\rho$. Taking the dimensionless constant to be $1$, high-speed film shows a fireball of radius $100$ m at $t=15$ ms in air of density $1.25\\ \\text{kg/m}^3$. Estimate $E$.",
-    "answer": 56000000000000.0,
+    "answer": 56000000000000,
     "unit": "J",
     "solution": "KEY IDEA: the only combination with units of length is $R=(Et^2/\\rho)^{1/5}$, so $E=\\rho R^5/t^2$. Substituting, $E=1.25\\times(100)^5/(0.015)^2=5.6\\times10^{13}$ J, roughly $13$ kilotons of TNT. G. I. Taylor famously used exactly this argument on published photographs to deduce the Trinity yield."
   },
@@ -435,7 +435,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A hurricane rains $1.5$ cm of water per day over a circular region of radius $300$ km. Condensing water releases latent heat $L=2.26\\times10^{6}$ J/kg, and water has density $1000\\ \\text{kg/m}^3$. How much energy does the storm release in one day?",
-    "answer": 9.6e+18,
+    "answer": 9600000000000000000,
     "unit": "J",
     "solution": "KEY IDEA: every kilogram of rain that reaches the ground was first condensed from vapor, so the rainfall mass times $L$ is the heat released. Volume $=\\pi(3.0\\times10^{5})^2(0.015)=4.24\\times10^{9}\\ \\text{m}^3$, mass $=4.24\\times10^{12}$ kg, and $E=9.6\\times10^{18}$ J. That is a few hundred times the daily electricity consumption of the entire world."
   },
@@ -489,7 +489,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A blackbody radiates power per unit area $\\sigma T^4$, where $\\sigma$ is built from $k_B$, $\\hbar$, and $c$ alone: $\\sigma=A\\,k_B^{p}\\hbar^{q}c^{r}$ with $A$ dimensionless. Find $p$.",
-    "answer": 4.0,
+    "answer": 4,
     "unit": "",
     "solution": "KEY IDEA: $\\sigma T^4$ must have units of $\\text{W/m}^2$, and $T$ enters only through $k_BT$, an energy. So $\\sigma T^4=A(k_BT)^4/(\\hbar^3c^2)$ is forced, since $[\\hbar^3c^2]$ carries exactly the leftover $\\text{J}^4\\text{m}^2/\\text{W}$. Therefore $p=4$ (and $q=-3$, $r=-2$); the exact theory gives $A=\\pi^2/60$."
   },
@@ -525,7 +525,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "For waves on deep water, the speed can depend only on $g$ and the wavelength $\\lambda$ (surface tension and depth are negligible here). The exact result carries a factor $1/\\sqrt{2\\pi}$: $v=\\sqrt{g\\lambda/2\\pi}$. A swell is observed to travel at $15.0$ m/s. What is its wavelength? Use $g=9.8\\ \\text{m/s}^2$.",
-    "answer": 144.0,
+    "answer": 144,
     "unit": "m",
     "solution": "KEY IDEA: $\\sqrt{g\\lambda}$ is the only speed you can form from $g$ and $\\lambda$, so the wavelength must scale as $v^2/g$. Solving, $\\lambda=2\\pi v^2/g=2\\pi(15.0)^2/9.8=144$ m. Long swells outrun short ones, which is why storm swell arrives sorted by wavelength."
   },
@@ -542,7 +542,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A child pulls a sled with a rope that makes an angle of $35^\\circ$ above the horizontal. The tension in the rope is $240$ N. How large is the horizontal component of the rope's force, in newtons?",
-    "answer": 197.0,
+    "answer": 197,
     "unit": "N",
     "solution": "KEY IDEA: the component along an axis is the magnitude times the cosine of the angle to that axis. Here $F_x = F\\cos\\theta = (240\\ \\text{N})\\cos 35^\\circ = 197$ N. The vertical component, $240\\sin 35^\\circ = 138$ N, plays no role in this question."
   },
@@ -560,7 +560,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A hiker walks $4.0$ km due east, then $3.0$ km due north. What is the magnitude of her net displacement, in kilometres?",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "km",
     "solution": "KEY IDEA: displacements add as vectors, so add components and then take the magnitude. The net displacement is $(4.0\\,\\hat{\\imath} + 3.0\\,\\hat{\\jmath})$ km, whose magnitude is $\\sqrt{4.0^2+3.0^2} = 5.0$ km. Note that this is less than the $7.0$ km of path length walked."
   },
@@ -578,7 +578,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A constant force $\\vec{F} = (12\\,\\hat{\\imath} - 5\\,\\hat{\\jmath})$ N acts on a box while the box undergoes a displacement $\\vec{d} = (3\\,\\hat{\\imath} + 4\\,\\hat{\\jmath})$ m. How much work does the force do, in joules?",
-    "answer": 16.0,
+    "answer": 16,
     "unit": "J",
     "solution": "KEY IDEA: work is the dot product $W = \\vec{F}\\cdot\\vec{d}$, computed component by component. $W = (12)(3) + (-5)(4) = 36 - 20 = 16$ J. The force has a component opposing part of the motion, which is why the answer is much smaller than $|\\vec F||\\vec d| = 65$ J."
   },
@@ -614,7 +614,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A drone flies from the origin to the point $(2, 3, 6)$ m. How far is it from the origin, in metres?",
-    "answer": 7.0,
+    "answer": 7,
     "unit": "m",
     "solution": "KEY IDEA: the magnitude of a three-dimensional vector is $\\sqrt{x^2+y^2+z^2}$. $\\sqrt{4+9+36} = \\sqrt{49} = 7.0$ m."
   },
@@ -667,7 +667,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "For what value of $k$ are the vectors $\\vec{A} = 3\\,\\hat{\\imath} + k\\,\\hat{\\jmath} - 2\\,\\hat{k}$ and $\\vec{B} = 4\\,\\hat{\\imath} + 5\\,\\hat{\\jmath} + 1\\,\\hat{k}$ perpendicular? Give the value of $k$ (dimensionless).",
-    "answer": -2.0,
+    "answer": -2,
     "unit": "",
     "solution": "KEY IDEA: two vectors are perpendicular exactly when their dot product vanishes. $\\vec A\\cdot\\vec B = 12 + 5k - 2 = 0$, so $5k = -10$ and $k = -2$."
   },
@@ -685,7 +685,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A boat points straight across a river and moves at $4.0$ m/s relative to the water. The river current is $3.0$ m/s downstream. What is the boat's speed relative to the bank, in m/s?",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "m/s",
     "solution": "KEY IDEA: velocities add as vectors: $\\vec v_{bank} = \\vec v_{water} + \\vec v_{current}$. The two are perpendicular, so the speed is $\\sqrt{4.0^2 + 3.0^2} = 5.0$ m/s."
   },
@@ -702,7 +702,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A car travelling at $12$ m/s due east turns and ends up travelling at $12$ m/s due north, without changing speed. What is the magnitude of its change in velocity, in m/s?",
-    "answer": 17.0,
+    "answer": 17,
     "unit": "m/s",
     "solution": "KEY IDEA: $\\Delta\\vec v = \\vec v_f - \\vec v_i$ is a vector difference, not a difference of speeds. With $\\vec v_i = 12\\,\\hat{\\imath}$ and $\\vec v_f = 12\\,\\hat{\\jmath}$, $\\Delta\\vec v = (-12\\,\\hat{\\imath} + 12\\,\\hat{\\jmath})$ m/s, of magnitude $12\\sqrt2 = 17$ m/s. The speed is unchanged but the velocity certainly is not."
   },
@@ -720,7 +720,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A force $\\vec{F} = (5\\,\\hat{\\imath} + 12\\,\\hat{\\jmath})$ N acts on a bead that is constrained to slide along a wire pointing in the direction $\\hat{\\imath} + \\hat{\\jmath}$. What is the component of $\\vec F$ along the wire, in newtons?",
-    "answer": 12.0,
+    "answer": 12,
     "unit": "N",
     "solution": "KEY IDEA: the component of $\\vec F$ along a direction is $\\vec F\\cdot\\hat u$, where $\\hat u$ is a unit vector. Here $\\hat u = (\\hat{\\imath}+\\hat{\\jmath})/\\sqrt2$, so $\\vec F\\cdot\\hat u = (5+12)/\\sqrt2 = 17/\\sqrt2 = 12.0$ N. Forgetting to normalise $\\hat u$ is the usual mistake."
   },
@@ -756,7 +756,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A small plane holds a heading due north with an airspeed of $180$ km/h. A steady wind of $50$ km/h blows from the west toward the east. What is the plane's ground speed, in km/h?",
-    "answer": 187.0,
+    "answer": 187,
     "unit": "km/h",
     "solution": "KEY IDEA: ground velocity = air velocity + wind velocity, and here the two are perpendicular. The ground velocity is $(50\\,\\hat{\\imath} + 180\\,\\hat{\\jmath})$ km/h, so the ground speed is $\\sqrt{50^2+180^2} = 187$ km/h. The plane is also blown $50$ km/h off course to the east."
   },
@@ -811,7 +811,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A force $\\vec F = 50\\,\\hat{k}$ N is applied at the point $\\vec r = (0.30\\,\\hat{\\imath} + 0.20\\,\\hat{\\jmath})$ m relative to a pivot. What is the magnitude of the torque about the pivot, in N$\\cdot$m?",
-    "answer": 18.0,
+    "answer": 18,
     "unit": "N*m",
     "solution": "KEY IDEA: compute $\\vec\\tau = \\vec r\\times\\vec F$ component by component. $\\vec\\tau = (0.20)(50)\\,\\hat{\\imath} - (0.30)(50)\\,\\hat{\\jmath} = (10\\,\\hat{\\imath} - 15\\,\\hat{\\jmath})$ N$\\cdot$m, whose magnitude is $\\sqrt{10^2+15^2} = 18.0$ N$\\cdot$m."
   },
@@ -865,7 +865,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A parallelepiped is spanned by the edge vectors $\\vec a = (2,1,0)$ m, $\\vec b = (0,3,1)$ m and $\\vec c = (1,0,4)$ m. What is its volume, in m$^3$?",
-    "answer": 25.0,
+    "answer": 25,
     "unit": "m^3",
     "solution": "KEY IDEA: the volume is the absolute value of the scalar triple product $\\vec a\\cdot(\\vec b\\times\\vec c)$. Here $\\vec b\\times\\vec c = (12, 1, -3)$, so $\\vec a\\cdot(\\vec b\\times\\vec c) = 24 + 1 + 0 = 25$, giving $25$ m$^3$."
   },
@@ -902,7 +902,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $25$ kg crate slides $8.0$ m down a ramp inclined at $30^\\circ$ to the horizontal. How much work does gravity do on the crate, in joules?",
-    "answer": 980.0,
+    "answer": 980,
     "unit": "J",
     "solution": "KEY IDEA: $W = \\vec F\\cdot\\vec d = mgd\\cos\\phi$, where $\\phi = 60^\\circ$ is the angle between the downward weight and the displacement along the ramp. Equivalently, only the drop in height matters: $W = mgd\\sin 30^\\circ = (25)(9.8)(8.0)(0.50) = 980$ J."
   },
@@ -939,7 +939,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A river $150$ m wide flows at $3.0$ m/s. A rower can row at only $2.0$ m/s relative to the water, so she cannot avoid being carried downstream. If she chooses her heading to make the downstream drift as small as possible, how far downstream does she land, in metres?",
-    "answer": 168.0,
+    "answer": 168,
     "unit": "m",
     "solution": "KEY IDEA: with the boat slower than the current, minimise the drift-to-width ratio rather than the drift itself. If she aims at angle $\\theta$ upstream of straight across, the crossing time is $w/(v\\cos\\theta)$ and the drift is $x = w\\dfrac{u - v\\sin\\theta}{v\\cos\\theta}$. Setting $dx/d\\theta = 0$ gives $\\sin\\theta = v/u = 2/3$, and substituting back gives $x = w\\sqrt{u^2 - v^2}/v = 150\\sqrt{5}/2 = 168$ m."
   },
@@ -1069,7 +1069,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $500$ N lamp hangs at the point $P = (0,0,0)$ and is held up by three straight cables running to ceiling anchors at $A = (2, 0, 3)$ m, $B = (-1, 2, 3)$ m and $C = (-1, -2, 3)$ m. What is the tension in cable $PA$, in newtons?",
-    "answer": 200.0,
+    "answer": 200,
     "unit": "N",
     "solution": "KEY IDEA: each cable pulls along its own unit vector, and the three tensions plus the weight must sum to zero. Writing $\\hat u_A = (2,0,3)/\\sqrt{13}$, $\\hat u_B = (-1,2,3)/\\sqrt{14}$, $\\hat u_C = (-1,-2,3)/\\sqrt{14}$, the condition $T_A\\hat u_A + T_B\\hat u_B + T_C\\hat u_C = 500\\,\\hat k$ gives three equations. Symmetry in $y$ forces $T_B = T_C$, and solving the remaining $x$ and $z$ equations gives $T_A = 200$ N (with $T_B = T_C = 208$ N)."
   },
@@ -1086,7 +1086,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A cart moves along a straight track. Its position in meters is $x(t) = 3t^2 - 4t + 2$, with $t$ in seconds. Find the speed of the cart at $t = 3\\,\\mathrm{s}$, in m/s.",
-    "answer": 14.0,
+    "answer": 14,
     "unit": "m/s",
     "solution": "KEY IDEA: velocity is the time derivative of position. $v = \\frac{dx}{dt} = 6t - 4$. At $t = 3\\,\\mathrm{s}$, $v = 18 - 4 = 14\\,\\mathrm{m/s}$."
   },
@@ -1103,7 +1103,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A bead slides on a wire with position $x(t) = 5t^3 - 2t$ (meters, seconds). Find its acceleration at $t = 2\\,\\mathrm{s}$, in $\\mathrm{m/s^2}$.",
-    "answer": 60.0,
+    "answer": 60,
     "unit": "m/s^2",
     "solution": "KEY IDEA: acceleration is the second derivative of position. $v = 15t^2 - 2$ and $a = 30t$. At $t = 2\\,\\mathrm{s}$, $a = 60\\,\\mathrm{m/s^2}$."
   },
@@ -1154,7 +1154,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A mass on a spring oscillates with $x(t) = 0.50\\sin(4.0t)$, where $x$ is in meters and $t$ in seconds. Find its maximum speed, in m/s.",
-    "answer": 2.0,
+    "answer": 2,
     "unit": "m/s",
     "solution": "KEY IDEA: differentiate and read off the amplitude of the result. $v = (0.50)(4.0)\\cos(4.0t) = 2.0\\cos(4.0t)$, so the largest speed is $2.0\\,\\mathrm{m/s}$, reached whenever the mass passes through $x = 0$."
   },
@@ -1171,7 +1171,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A trolley moves with $x(t) = 12t - t^3$ (meters, seconds), starting at the origin at $t=0$. Find the largest positive value of $x$ it reaches, in meters.",
-    "answer": 16.0,
+    "answer": 16,
     "unit": "m",
     "solution": "KEY IDEA: the turning point is where $v = 0$. $v = 12 - 3t^2 = 0$ gives $t = 2\\,\\mathrm{s}$. Then $x = 12(2) - 2^3 = 16\\,\\mathrm{m}$."
   },
@@ -1188,7 +1188,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A boat's engine is cut and its speed decays as $v(t) = 30e^{-t/5}$ m/s, with $t$ in seconds. Find its acceleration at $t = 0$, in $\\mathrm{m/s^2}$ (report the signed value).",
-    "answer": -6.0,
+    "answer": -6,
     "unit": "m/s^2",
     "solution": "KEY IDEA: differentiate the exponential using the chain rule. $a = \\frac{dv}{dt} = 30\\left(-\\tfrac{1}{5}\\right)e^{-t/5} = -6e^{-t/5}$. At $t = 0$ this is $-6.0\\,\\mathrm{m/s^2}$."
   },
@@ -1205,7 +1205,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A stone is whirled on a string of radius $3.0\\,\\mathrm{m}$. Its angle from the $x$-axis is $\\theta(t) = 0.50t^2$ radians. Find the stone's speed at $t = 4.0\\,\\mathrm{s}$, in m/s.",
-    "answer": 12.0,
+    "answer": 12,
     "unit": "m/s",
     "solution": "KEY IDEA: for circular motion $v = R\\,\\frac{d\\theta}{dt}$. Here $\\dot\\theta = t$, so at $t = 4.0\\,\\mathrm{s}$, $\\dot\\theta = 4.0\\,\\mathrm{rad/s}$ and $v = (3.0)(4.0) = 12\\,\\mathrm{m/s}$."
   },
@@ -1273,7 +1273,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A puck slides so that its speed depends on position as $v = 2.0\\sqrt{x}$, with $v$ in m/s and $x$ in meters. Find its acceleration, in $\\mathrm{m/s^2}$.",
-    "answer": 2.0,
+    "answer": 2,
     "unit": "m/s^2",
     "solution": "KEY IDEA: when speed is known as a function of position, use $a = v\\frac{dv}{dx}$. Here $\\frac{dv}{dx} = \\frac{1.0}{\\sqrt{x}}$, so $a = 2.0\\sqrt{x}\\cdot\\frac{1.0}{\\sqrt{x}} = 2.0\\,\\mathrm{m/s^2}$. The motion is uniformly accelerated, which matches $v^2 = 2ax$."
   },
@@ -1290,7 +1290,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A small rocket rises with velocity $v(t) = 500\\ln\\!\\left(1 + \\frac{t}{20}\\right) - 9.8t$ m/s, where $t$ is in seconds. At what time is its acceleration zero, in seconds?",
-    "answer": 31.0,
+    "answer": 31,
     "unit": "s",
     "solution": "KEY IDEA: differentiate with the chain rule and set the result to zero. $a = \\frac{500}{20+t} - 9.8 = 0$ gives $20 + t = \\frac{500}{9.8} = 51.0$, so $t = 31.0\\,\\mathrm{s}$. This is when the rocket is moving fastest."
   },
@@ -1341,7 +1341,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "At $t = 0$ a car leaves an intersection heading east at a constant $20\\,\\mathrm{m/s}$. At the same moment a second car is $100\\,\\mathrm{m}$ north of the intersection, heading south toward it at a constant $15\\,\\mathrm{m/s}$. Find the smallest distance between the two cars, in meters.",
-    "answer": 80.0,
+    "answer": 80,
     "unit": "m",
     "solution": "KEY IDEA: minimize the squared separation, which avoids differentiating a square root. $D^2 = (20t)^2 + (100-15t)^2$; setting $\\frac{d(D^2)}{dt} = 1250t - 3000 = 0$ gives $t = 2.4\\,\\mathrm{s}$. Then the separations are $48\\,\\mathrm{m}$ east and $64\\,\\mathrm{m}$ north, so $D = 80\\,\\mathrm{m}$."
   },
@@ -1358,7 +1358,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A motor pushes a sled with a force that drops with speed: $F = 4000 - 20v$ newtons, with $v$ in m/s. Find the maximum mechanical power the motor can deliver, in watts.",
-    "answer": 200000.0,
+    "answer": 200000,
     "unit": "W",
     "solution": "KEY IDEA: $P = Fv$, so maximize $P(v) = 4000v - 20v^2$. Setting $\\frac{dP}{dv} = 4000 - 40v = 0$ gives $v = 100\\,\\mathrm{m/s}$, and $P = (4000-2000)(100) = 2.0\\times 10^5\\,\\mathrm{W}$."
   },
@@ -1375,7 +1375,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two atoms interact with potential energy $U(x) = \\frac{6.0}{x^2} - \\frac{4.0}{x}$, where $U$ is in joules and $x$ is the separation in meters. Find the separation at which the atoms are in equilibrium, in meters.",
-    "answer": 3.0,
+    "answer": 3,
     "unit": "m",
     "solution": "KEY IDEA: the force is $F = -\\frac{dU}{dx}$, and equilibrium means $\\frac{dU}{dx} = 0$. Here $\\frac{dU}{dx} = -\\frac{12}{x^3} + \\frac{4.0}{x^2} = 0$, so $x = 12/4.0 = 3.0\\,\\mathrm{m}$. Since $U$ has a minimum there, the equilibrium is stable."
   },
@@ -1426,7 +1426,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A bicycle wheel rolls without slipping along a road while the bicycle moves at $8.0\\,\\mathrm{m/s}$. Consider a small pebble stuck in the tread. Find the largest speed the pebble ever has relative to the road, in m/s.",
-    "answer": 16.0,
+    "answer": 16,
     "unit": "m/s",
     "solution": "KEY IDEA: superpose translation and rotation. A tread point has position $x = v t + R\\sin(\\ldots)$ type terms; differentiating the cycloid gives speed $2v\\left|\\sin\\frac{\\phi}{2}\\right|$, where $\\phi$ is the angle turned since the point touched the road. The maximum is $2v = 16\\,\\mathrm{m/s}$, at the top of the wheel; the bottom point is instantaneously at rest."
   },
@@ -1597,7 +1597,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A train starts from rest. Its velocity rises linearly from $0$ to $12$ m/s during the first $4$ s, stays at $12$ m/s until $t = 10$ s, then falls linearly to zero at $t = 14$ s. How far does the train travel in the full $14$ s? Give the answer in meters.",
-    "answer": 120.0,
+    "answer": 120,
     "unit": "m",
     "solution": "KEY IDEA: displacement is the area under the $v$-$t$ curve, $x = \\int v\\,dt$. The shape is a trapezoid: two triangles and a rectangle. $\\tfrac12(4)(12) + (6)(12) + \\tfrac12(4)(12) = 24 + 72 + 24 = 120$ m."
   },
@@ -1615,7 +1615,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A cart starts from rest. Its acceleration is $+3.0$ m/s$^2$ from $t = 0$ to $t = 5.0$ s, then $-2.0$ m/s$^2$ from $t = 5.0$ s to $t = 11.0$ s. What is the cart's velocity at $t = 11.0$ s, in m/s?",
-    "answer": 3.0,
+    "answer": 3,
     "unit": "m/s",
     "solution": "KEY IDEA: $\\Delta v = \\int a\\,dt$, the signed area under the $a$-$t$ graph. First segment: $(3.0)(5.0) = 15$ m/s. Second: $(-2.0)(6.0) = -12$ m/s. Starting from rest, $v = 15 - 12 = 3.0$ m/s."
   },
@@ -1633,7 +1633,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A block is pushed along a straight track. The applied force is along the motion and rises linearly from $0$ to $20$ N over the first $3.0$ m, then stays at $20$ N until $x = 8.0$ m. How much work does the force do over the $8.0$ m? Give the answer in joules.",
-    "answer": 130.0,
+    "answer": 130,
     "unit": "J",
     "solution": "KEY IDEA: $W = \\int F\\,dx$ is the area under the $F$-$x$ graph. Triangle: $\\tfrac12(3.0)(20) = 30$ J. Rectangle: $(5.0)(20) = 100$ J. Total $W = 130$ J."
   },
@@ -1668,7 +1668,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A particle starts from rest at $t = 0$ with acceleration $a(t) = 6t$ (SI units, $t$ in seconds). What is its speed at $t = 4.0$ s, in m/s?",
-    "answer": 48.0,
+    "answer": 48,
     "unit": "m/s",
     "solution": "KEY IDEA: $v(t) = v_0 + \\int_0^t a\\,dt'$. Here $v(t) = \\int_0^t 6t'\\,dt' = 3t^2$, so $v(4) = 3(16) = 48$ m/s."
   },
@@ -1686,7 +1686,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "The current through a wire grows as $i(t) = 0.40t$ amperes, with $t$ in seconds. How much total charge passes a cross-section between $t = 0$ and $t = 10$ s? Give the answer in coulombs.",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "C",
     "solution": "KEY IDEA: charge is the integral of current, $q = \\int i\\,dt$. $q = \\int_0^{10} 0.40t\\,dt = 0.20t^2\\big|_0^{10} = 20$ C."
   },
@@ -1703,7 +1703,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "During a collision the force on a ball grows linearly as $F(t) = 50t$ newtons for $0 \\le t \\le 0.20$ s, then drops to zero. What is the magnitude of the impulse delivered, in N$\\cdot$s?",
-    "answer": 1.0,
+    "answer": 1,
     "unit": "N*s",
     "solution": "KEY IDEA: impulse $J = \\int F\\,dt$. $J = \\int_0^{0.2} 50t\\,dt = 25t^2\\big|_0^{0.2} = 25(0.04) = 1.0$ N$\\cdot$s."
   },
@@ -1721,7 +1721,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A force along the $x$-axis has magnitude $F(x) = 8.0x^2$ newtons, with $x$ in meters. How much work does it do on an object moved from $x = 0$ to $x = 3.0$ m? Give the answer in joules.",
-    "answer": 72.0,
+    "answer": 72,
     "unit": "J",
     "solution": "KEY IDEA: $W = \\int_0^{3} 8x^2\\,dx = \\tfrac{8}{3}x^3\\big|_0^{3} = \\tfrac{8}{3}(27) = 72$ J."
   },
@@ -1756,7 +1756,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A household voltage varies as $V(t) = 170\\sin(\\omega t)$ volts. The RMS value is defined by $V_{rms}^2 = \\dfrac{1}{T}\\int_0^{T} V^2\\,dt$ over one full period $T$. What is $V_{rms}$, in volts?",
-    "answer": 120.0,
+    "answer": 120,
     "unit": "V",
     "solution": "KEY IDEA: the average of $\\sin^2$ over a whole cycle is exactly $\\tfrac12$. So $V_{rms}^2 = \\tfrac12(170)^2$ and $V_{rms} = 170/\\sqrt{2} = 120$ V."
   },
@@ -1773,7 +1773,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A cart starts from rest at the origin at $t = 0$ with acceleration $a(t) = 12 - 4t$ (SI units). How far from the origin is it at $t = 3.0$ s? Give the answer in meters.",
-    "answer": 36.0,
+    "answer": 36,
     "unit": "m",
     "solution": "KEY IDEA: integrate twice. $v(t) = \\int_0^t (12 - 4t')dt' = 12t - 2t^2$, then $x(t) = \\int_0^t v\\,dt' = 6t^2 - \\tfrac23 t^3$. At $t = 3$: $x = 54 - 18 = 36$ m."
   },
@@ -1791,7 +1791,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $1200$ kg satellite is moved from the Earth's surface ($R = 6.37\\times10^{6}$ m) out to a radius of $2R$. Using $GM_E = 3.986\\times10^{14}$ m$^3$/s$^2$, how much work must be done against gravity? Ignore the Earth's rotation and any kinetic energy. Give the answer in joules.",
-    "answer": 37500000000.0,
+    "answer": 37500000000,
     "unit": "J",
     "solution": "KEY IDEA: gravity weakens with distance, so $W = \\int_R^{2R}\\dfrac{GMm}{r^2}dr = GMm\\left(\\dfrac{1}{R} - \\dfrac{1}{2R}\\right) = \\dfrac{GMm}{2R}$. That gives $\\dfrac{(3.986\\times10^{14})(1200)}{2(6.37\\times10^{6})} = 3.75\\times10^{10}$ J."
   },
@@ -1827,7 +1827,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A uniform chain of length $8.0$ m and mass per length $2.0$ kg/m lies coiled on the floor. You lift one end straight up until the whole chain hangs vertically, with its lower end just touching the floor. How much work do you do? Use $g = 9.8$ m/s$^2$. Give the answer in joules.",
-    "answer": 627.0,
+    "answer": 627,
     "unit": "J",
     "solution": "KEY IDEA: the piece of chain that ends up at height $x$ has mass $\\lambda\\,dx$ and needs work $\\lambda g x\\,dx$. So $W = \\int_0^{L}\\lambda g x\\,dx = \\tfrac12 \\lambda g L^2 = \\tfrac12(2.0)(9.8)(64) = 627$ J. Equivalently, the center of mass rises to $L/2$."
   },
@@ -1845,7 +1845,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An open cylindrical tank of radius $1.5$ m is filled with water to a depth of $3.0$ m, right up to the rim. Water has density $1000$ kg/m$^3$. How much work is needed to pump all of it out over the rim? Use $g = 9.8$ m/s$^2$. Give the answer in joules.",
-    "answer": 312000.0,
+    "answer": 312000,
     "unit": "J",
     "solution": "KEY IDEA: a slab at height $y$ above the bottom has mass $\\rho \\pi r^2\\,dy$ and must be raised $(3 - y)$. $W = \\rho g \\pi r^2 \\int_0^{3}(3-y)\\,dy = \\rho g \\pi r^2 (4.5)$. With $r = 1.5$ m this is $(1000)(9.8)\\pi(2.25)(4.5) = 3.12\\times10^{5}$ J."
   },
@@ -1897,7 +1897,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $1200$ kg boat moving at $6.0$ m/s cuts its engine. The water exerts a drag force $F = -bv$ with $b = 90$ N$\\cdot$s/m. How far does the boat coast before (asymptotically) stopping? Give the answer in meters.",
-    "answer": 80.0,
+    "answer": 80,
     "unit": "m",
     "solution": "KEY IDEA: write $m v\\dfrac{dv}{dx} = -bv$, so $m\\,dv = -b\\,dx$. Integrating from $v_0$ to $0$ gives $x = \\dfrac{m v_0}{b} = \\dfrac{(1200)(6.0)}{90} = 80$ m. The boat never truly stops, but the total distance is finite."
   },
@@ -1915,7 +1915,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A rocket sled starts from rest. Its acceleration rises linearly from $0$ to $6.0$ m/s$^2$ over $0 \\le t \\le 3.0$ s, then falls linearly back to zero at $t = 5.0$ s. What is its speed at $t = 5.0$ s, in m/s?",
-    "answer": 15.0,
+    "answer": 15,
     "unit": "m/s",
     "solution": "KEY IDEA: $\\Delta v$ is the area under the $a$-$t$ graph, here two triangles. $\\tfrac12(3.0)(6.0) + \\tfrac12(2.0)(6.0) = 9.0 + 6.0 = 15$ m/s."
   },
@@ -1933,7 +1933,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A repulsive force along the $x$-axis has magnitude $F(x) = \\dfrac{200}{(1 + x)^2}$ newtons, with $x$ in meters. How much work does it do on a bead pushed from $x = 0$ to $x = 3.0$ m? Give the answer in joules.",
-    "answer": 150.0,
+    "answer": 150,
     "unit": "J",
     "solution": "KEY IDEA: $W = \\int_0^{3}\\dfrac{200\\,dx}{(1+x)^2} = -\\dfrac{200}{1+x}\\Big|_0^{3} = 200\\left(1 - \\tfrac14\\right) = 150$ J."
   },
@@ -1985,7 +1985,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A rocket in deep space (ignore gravity) has initial mass $3000$ kg and burns fuel at a steady $15$ kg/s while its engine produces a constant thrust of $45{,}000$ N. Starting from rest, what is its speed after a $60$ s burn? Give the answer in m/s.",
-    "answer": 1070.0,
+    "answer": 1070,
     "unit": "m/s",
     "solution": "KEY IDEA: the acceleration is not constant because the mass shrinks: $a(t) = \\dfrac{F}{m_0 - kt}$. Then $v = \\int_0^{t_b}\\dfrac{F\\,dt}{m_0 - kt} = \\dfrac{F}{k}\\ln\\!\\dfrac{m_0}{m_0 - kt_b}$. With $m_0 - kt_b = 3000 - 900 = 2100$ kg, $v = 3000\\ln(3000/2100) = 1.07\\times10^{3}$ m/s."
   },
@@ -2021,7 +2021,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A tank is a cone with its apex pointing down, height $4.0$ m and top radius $2.0$ m. It is full of water ($1000$ kg/m$^3$). How much work is required to pump all the water out over the top rim? Use $g = 9.8$ m/s$^2$. Give the answer in joules.",
-    "answer": 164000.0,
+    "answer": 164000,
     "unit": "J",
     "solution": "KEY IDEA: at height $y$ above the apex, the cross-section has radius $r = y/2$, so a slab has volume $\\pi y^2/4\\,dy$ and must rise $(4-y)$. $W = \\rho g \\dfrac{\\pi}{4}\\int_0^{4} y^2(4-y)\\,dy = \\rho g \\dfrac{\\pi}{4}\\left(\\dfrac{4\\cdot 64}{3} - \\dfrac{256}{4}\\right) = \\rho g (16.76)$, giving $1.64\\times10^{5}$ J."
   },
@@ -2039,7 +2039,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "How much work must be done against gravity to raise a $500$ kg payload from the Earth's surface ($R = 6.37\\times10^{6}$ m) to an altitude of $500$ km? Use $GM_E = 3.986\\times10^{14}$ m$^3$/s$^2$ and neglect kinetic energy and air resistance. Give the answer in joules.",
-    "answer": 2280000000.0,
+    "answer": 2280000000,
     "unit": "J",
     "solution": "KEY IDEA: $W = \\int_{R}^{R+h}\\dfrac{GMm}{r^2}dr = GMm\\left(\\dfrac1R - \\dfrac{1}{R+h}\\right)$. With $R+h = 6.87\\times10^{6}$ m, $W = (3.986\\times10^{14})(500)(1.5699\\times10^{-7} - 1.4556\\times10^{-7}) = 2.28\\times10^{9}$ J. Note $mgh$ would give $2.45\\times10^{9}$ J, about 8% high."
   },
@@ -2074,7 +2074,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A skydiver of mass $80$ kg moving horizontally at high speed feels only a drag force $F = -cv^2$ with $c = 0.25$ kg/m (ignore gravity for this horizontal glide). Over what distance does the speed drop to half its initial value? Give the answer in meters.",
-    "answer": 222.0,
+    "answer": 222,
     "unit": "m",
     "solution": "KEY IDEA: $m v\\dfrac{dv}{dx} = -cv^2$ gives $\\dfrac{dv}{v} = -\\dfrac{c}{m}dx$. Integrating, $x = \\dfrac{m}{c}\\ln\\!\\dfrac{v_0}{v} = \\dfrac{80}{0.25}\\ln 2 = 222$ m. Notice the answer does not depend on $v_0$."
   },
@@ -2092,7 +2092,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A rocket lifts off vertically from rest with initial mass $6000$ kg, exhaust speed $u = 2500$ m/s, and a steady burn rate of $40$ kg/s for $100$ s. Its speed obeys $v(t) = u\\ln\\!\\dfrac{m_0}{m_0 - kt} - gt$. Ignoring air resistance and taking $g = 9.8$ m/s$^2$ constant, what altitude does it reach at burnout? Give the answer in meters.",
-    "answer": 63700.0,
+    "answer": 63700,
     "unit": "m",
     "solution": "KEY IDEA: altitude is $\\int_0^{t_b} v\\,dt$, and the logarithm integrates to $\\int_0^{t_b}\\ln\\frac{m_0}{m_0-kt}dt = t_b + \\dfrac{m_f}{k}\\ln\\dfrac{m_f}{m_0}$ with $m_f = 2000$ kg. That gives $u\\left(100 + 50\\ln\\tfrac{2000}{6000}\\right) - \\tfrac12 g t_b^2 = 2500(45.07) - 49000 \\approx 6.37\\times10^{4}$ m."
   },
@@ -2110,7 +2110,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A small object is released from rest at a distance $3R$ from the Earth's center, where $R = 6.37\\times10^{6}$ m. Neglecting air resistance and the Moon, how fast is it moving when it reaches the Earth's surface? Use $GM_E = 3.986\\times10^{14}$ m$^3$/s$^2$. Give the answer in m/s.",
-    "answer": 9130.0,
+    "answer": 9130,
     "unit": "m/s",
     "solution": "KEY IDEA: gravity is not constant over this distance, so integrate the force: $\\tfrac12 mv^2 = \\int_{R}^{3R}\\dfrac{GMm}{r^2}dr = GMm\\left(\\dfrac1R - \\dfrac{1}{3R}\\right) = \\dfrac{2GMm}{3R}$. Then $v = \\sqrt{\\dfrac{4GM}{3R}} = \\sqrt{8.34\\times10^{7}} = 9.13\\times10^{3}$ m/s, just below escape speed."
   },
@@ -2218,7 +2218,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An electron moves at $v = 0.010c$. Use the binomial approximation on $\\gamma = (1-v^2/c^2)^{-1/2}$ to estimate $\\gamma - 1$. Give a dimensionless number.",
-    "answer": 5e-05,
+    "answer": 0.00005,
     "unit": "",
     "solution": "KEY IDEA: with $x = -v^2/c^2$ and $n = -1/2$, $\\gamma \\approx 1 + \\frac{1}{2}\\frac{v^2}{c^2}$. So $\\gamma - 1 \\approx \\frac{1}{2}(0.010)^2 = 5.0\\times10^{-5}$. The exact value agrees to four digits."
   },
@@ -2326,7 +2326,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "The Moon ($M = 7.35\\times10^{22}$ kg) is $d = 3.84\\times10^{8}$ m from Earth's center. Expanding $GM/(d\\mp R)^2$ to first order in $R/d$, the tidal acceleration at the sublunar point relative to Earth's center is $2GMR/d^3$. Compute it, with $R = 6.37\\times10^{6}$ m and $G = 6.674\\times10^{-11}$, in $\\mathrm{m/s^2}$.",
-    "answer": 1.1e-06,
+    "answer": 0.0000011,
     "unit": "m/s^2",
     "solution": "KEY IDEA: the tide comes from the *difference* in field across Earth, and that difference is the derivative $\\frac{d}{dr}(GM/r^2)\\,\\Delta r = -2GM R/d^3$: a binomial expansion in disguise. Numerically $2(6.674\\times10^{-11})(7.35\\times10^{22})(6.37\\times10^{6})/(3.84\\times10^{8})^3 = 1.10\\times10^{-6}\\ \\mathrm{m/s^2}$, about $10^{-7}$ of $g$."
   },
@@ -2525,7 +2525,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "The period of a pendulum swung to amplitude $\\theta_0$ is $T = T_0\\left(1+\\frac{\\theta_0^2}{16}+\\dots\\right)$, where $T_0 = 2\\pi\\sqrt{L/g}$ is the small-angle result. A clock is regulated assuming $T_0$ but actually swings to $\\theta_0 = 20^\\circ$. How many seconds does it lose per day?",
-    "answer": 658.0,
+    "answer": 658,
     "unit": "s",
     "solution": "KEY IDEA: the leading correction is quadratic in amplitude, so it comes from the $\\theta^3$ term of $\\sin\\theta$ that the small-angle approximation throws away. With $\\theta_0 = 0.3491$ rad, $\\theta_0^2/16 = 7.615\\times10^{-3}$. Over $86400$ s that is $(7.615\\times10^{-3})(86400) = 658$ s, about eleven minutes: small-angle errors are not always small."
   },
@@ -2543,7 +2543,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two atoms interact through $U(r) = U_0\\left[\\left(\\frac{a}{r}\\right)^{12}-2\\left(\\frac{a}{r}\\right)^{6}\\right]$, which has its minimum at $r = a$. Expanding $U$ to second order about $r = a$ gives an effective spring constant $k = 72U_0/a^2$. For $U_0 = 1.6\\times10^{-19}$ J, $a = 3.0\\times10^{-10}$ m, and reduced mass $m = 1.0\\times10^{-26}$ kg, find the angular frequency of small vibrations, in rad/s.",
-    "answer": 113000000000000.0,
+    "answer": 113000000000000,
     "unit": "rad/s",
     "solution": "KEY IDEA: near a minimum every potential looks like a parabola: $U \\approx U_{\\min} + \\frac{1}{2}U''(a)(r-a)^2$, so $k = U''(a)$. Differentiating twice gives $U''(a) = 72U_0/a^2 = 72(1.6\\times10^{-19})/(9.0\\times10^{-20}) = 128$ N/m. Then $\\omega = \\sqrt{k/m} = \\sqrt{128/1.0\\times10^{-26}} = 1.13\\times10^{14}$ rad/s, an infrared vibration."
   },
@@ -2579,7 +2579,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An astronaut of height $1.8$ m floats in a spacecraft at orbital radius $r = 6.77\\times10^{6}$ m, oriented radially. Using the first-order expansion of $GM_E/r^2$, find the difference in gravitational acceleration between the astronaut's head and feet, in $\\mathrm{m/s^2}$. Take $GM_E = 3.986\\times10^{14}\\ \\mathrm{m^3/s^2}$.",
-    "answer": 4.6e-06,
+    "answer": 0.0000046,
     "unit": "m/s^2",
     "solution": "KEY IDEA: differentiate the field rather than subtracting two nearly equal numbers: $|\\Delta a| = \\frac{2GM_E}{r^3}\\Delta r$. With $\\Delta r = 1.8$ m, $|\\Delta a| = 2(3.986\\times10^{14})(1.8)/(3.10\\times10^{20}) = 4.6\\times10^{-6}\\ \\mathrm{m/s^2}$. Subtracting the two accelerations directly would lose all significant figures on a calculator."
   },
@@ -2690,7 +2690,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "The same $2.0\\,\\text{kg}$ block sits on a frictionless $30^\\circ$ incline. Using axes along and perpendicular to the surface, find the normal force in $\\text{N}$.",
-    "answer": 17.0,
+    "answer": 17,
     "unit": "N",
     "solution": "KEY IDEA: perpendicular to the incline there is no acceleration, because the block moves along the surface. So $N - mg\\cos\\theta = 0$, giving $N = (2.0)(9.8)\\cos 30^\\circ = 17\\,\\text{N}$. With horizontal-vertical axes you would need both components of $\\vec a$ and get the same answer with more algebra."
   },
@@ -2780,7 +2780,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two identical point charges $q = +4.0\\,\\text{nC}$ are held $6.0\\,\\text{cm}$ apart. Find the magnitude of the electric field at the midpoint of the line joining them, in $\\text{N/C}$.",
-    "answer": 0.0,
+    "answer": 0,
     "unit": "N/C",
     "solution": "KEY IDEA: the setup is unchanged if you reflect it through the midpoint, but that reflection reverses any field vector there. A vector equal to its own negative is zero, so $E = 0$. No calculation is needed."
   },
@@ -2798,7 +2798,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $60\\,\\text{kg}$ person stands on a bathroom scale in an elevator accelerating upward at $2.0\\,\\text{m/s}^2$. Find the scale reading in $\\text{N}$.",
-    "answer": 708.0,
+    "answer": 708,
     "unit": "N",
     "solution": "KEY IDEA: work in the ground frame with $+y$ up and isolate the person. Then $N - mg = ma$, so $N = 60(9.8+2.0) = 708\\,\\text{N}$. Limiting check: with $a=0$ this returns $588\\,\\text{N}$, the person's weight."
   },
@@ -2816,7 +2816,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A bridge has $10\\,\\Omega$ and $20\\,\\Omega$ in series on the left branch, $10\\,\\Omega$ and $20\\,\\Omega$ in series on the right branch, and a $50\\,\\Omega$ resistor connecting the two midpoints. A $12\\,\\text{V}$ battery is across the outer terminals. Find the current in the $50\\,\\Omega$ bridge resistor, in $\\text{A}$.",
-    "answer": 0.0,
+    "answer": 0,
     "unit": "A",
     "solution": "KEY IDEA: the two branches are identical, so the two midpoints divide the same voltage in the same ratio and sit at equal potential. With no potential difference across it, the bridge resistor carries zero current."
   },
@@ -2834,7 +2834,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A uniform $20\\,\\text{kg}$ plank of length $4.0\\,\\text{m}$ rests on supports at its two ends. A $50\\,\\text{kg}$ person stands $1.0\\,\\text{m}$ from the left end. Find the upward force from the right support, in $\\text{N}$.",
-    "answer": 220.0,
+    "answer": 220,
     "unit": "N",
     "solution": "KEY IDEA: take torques about the left support, which kills the unknown left reaction. Then $N_R(4.0) = (20)(9.8)(2.0) + (50)(9.8)(1.0) = 882\\,\\text{N}\\cdot\\text{m}$, so $N_R = 220\\,\\text{N}$. The person is nearer the left support, so the right support should carry less than half the total weight of $686\\,\\text{N}$; it does."
   },
@@ -2852,7 +2852,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A thin ring of radius $R = 0.10\\,\\text{m}$ carries a uniformly distributed charge $Q = 5.0\\,\\text{nC}$. Find the magnitude of the electric field on the axis at distance $z = 0.10\\,\\text{m}$ from the center, in $\\text{N/C}$. Use $k = 8.99\\times 10^9\\,\\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 1590.0,
+    "answer": 1590,
     "unit": "N/C",
     "solution": "KEY IDEA: rotational symmetry about the axis means the components perpendicular to the axis from opposite bits of the ring cancel, so only the axial component survives. Each element contributes $k\\,dq/(z^2+R^2)$ times the factor $z/\\sqrt{z^2+R^2}$, and every element has the same distance, so $$E = \\frac{kQz}{(z^2+R^2)^{3/2}} = 1.59\\times 10^3\\,\\text{N/C}.$$"
   },
@@ -2924,7 +2924,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "For the setup above ($4.0\\,\\text{kg}$ on the table with $\\mu_k = 0.25$, $3.0\\,\\text{kg}$ hanging), find the string tension in $\\text{N}$.",
-    "answer": 21.0,
+    "answer": 21,
     "unit": "N",
     "solution": "KEY IDEA: isolate the hanging block. Then $m_2 g - T = m_2 a$, so $T = 3.0(9.8-2.8) = 21\\,\\text{N}$. Isolating the table block gives $T - \\mu m_1 g = m_1 a$, i.e. $9.8 + 11.2 = 21\\,\\text{N}$, a useful cross-check."
   },
@@ -2942,7 +2942,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Twelve identical $6.0\\,\\Omega$ resistors form the edges of a cube. Find the resistance between two opposite corners of the cube (a body diagonal), in $\\Omega$.",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "Ω",
     "solution": "KEY IDEA: symmetry about the body diagonal makes the three corners next to the input equipotential, and likewise the three next to the output. Merging equipotential nodes turns the cube into three resistors in parallel, then six, then three: $$R = \\frac{R_0}{3}+\\frac{R_0}{6}+\\frac{R_0}{3} = \\frac{5R_0}{6} = 5.0\\,\\Omega.$$"
   },
@@ -2978,7 +2978,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $2.0\\,\\text{kg}$ ball moving at $+5.0\\,\\text{m/s}$ collides head-on and elastically with a stationary $3.0\\,\\text{kg}$ ball. Find the velocity of the $2.0\\,\\text{kg}$ ball afterward, in $\\text{m/s}$ (sign included, with $+$ along the initial motion).",
-    "answer": -1.0,
+    "answer": -1,
     "unit": "m/s",
     "solution": "KEY IDEA: in the center-of-mass frame an elastic head-on collision simply reverses each velocity. Here $v_{cm} = (2)(5)/5 = 2.0\\,\\text{m/s}$, so the light ball approaches the CM at $+3.0$ and leaves at $-3.0$; back in the lab frame that is $2.0-3.0 = -1.0\\,\\text{m/s}$. It rebounds because the target is heavier."
   },
@@ -3068,7 +3068,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Twelve identical $8.0\\,\\Omega$ resistors form the edges of a cube. Find the resistance between two corners on the same face that are diagonally opposite (a face diagonal), in $\\Omega$.",
-    "answer": 6.0,
+    "answer": 6,
     "unit": "Ω",
     "solution": "KEY IDEA: the mirror plane containing the two chosen corners forces symmetric pairs of nodes to sit at equal potential. Merging those pairs collapses the cube to a simple series-parallel network with $R = \\tfrac{3}{4}R_0 = 6.0\\,\\Omega$. Sanity check: this is less than the body-diagonal value $\\tfrac{5}{6}R_0 = 6.7\\,\\Omega$, as it should be for corners that are closer together."
   },
@@ -3086,7 +3086,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A sphere of radius $R = 0.10\\,\\text{m}$ carries uniform charge density $\\rho = 2.0\\times10^{-6}\\,\\text{C/m}^3$, except for an empty spherical cavity of radius $R/2$ whose center is $d = 0.050\\,\\text{m}$ from the sphere's center. Find the magnitude of the electric field inside the cavity, in $\\text{N/C}$. Use $\\varepsilon_0 = 8.854\\times10^{-12}\\,\\text{F/m}$.",
-    "answer": 3760.0,
+    "answer": 3760,
     "unit": "N/C",
     "solution": "KEY IDEA: superpose a full sphere of density $+\\rho$ with a small sphere of density $-\\rho$ at the cavity's center. Inside a uniform sphere $\\vec E = \\rho\\vec r/(3\\varepsilon_0)$ measured from its own center, so the two position-dependent terms cancel and leave the constant field $$E = \\frac{\\rho d}{3\\varepsilon_0} = 3.76\\times10^3\\,\\text{N/C}.$$ The field in the cavity is uniform, which no direct integration would reveal so cheaply."
   },
@@ -3122,7 +3122,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $1.0\\,\\text{kg}$ block slides down the frictionless $30^\\circ$ face of a $4.0\\,\\text{kg}$ wedge that is itself free to slide on a frictionless floor. Find the magnitude of the wedge's acceleration, in $\\text{m/s}^2$.",
-    "answer": 1.0,
+    "answer": 1,
     "unit": "m/s^2",
     "solution": "KEY IDEA: horizontal momentum of the block-plus-wedge system is conserved, so work with the system horizontally and with the block in the wedge frame along the incline. The standard result is $$A = \\frac{mg\\sin\\theta\\cos\\theta}{M+m\\sin^2\\theta} = \\frac{(1.0)(9.8)(0.5)(0.866)}{4.0+0.25} = 1.0\\,\\text{m/s}^2.$$ Limiting check: $M\\to\\infty$ gives $A\\to 0$, the fixed-wedge case."
   },
@@ -3140,7 +3140,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $2.0\\,\\text{kg}$ cart moving at $6.0\\,\\text{m/s}$ strikes and sticks to a stationary $4.0\\,\\text{kg}$ cart on a frictionless track. Find the kinetic energy converted to other forms, in $\\text{J}$.",
-    "answer": 24.0,
+    "answer": 24,
     "unit": "J",
     "solution": "KEY IDEA: in the CM frame the final state is at rest, so exactly the CM-frame kinetic energy is lost. That energy is $\\tfrac12 \\mu v_{\\text{rel}}^2$ with reduced mass $\\mu = m_1m_2/(m_1+m_2) = 4/3\\,\\text{kg}$: $$\\Delta E = \\tfrac12(4/3)(6.0)^2 = 24\\,\\text{J}.$$ Note that only the relative velocity matters, never the frame you happen to watch from."
   },
@@ -3158,7 +3158,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A point charge $q = 6.0\\,\\mu\\text{C}$ sits at one corner of a cube. Find the electric flux through one of the three faces that do not touch that corner, in $\\text{N}\\cdot\\text{m}^2/\\text{C}$. Use $\\varepsilon_0 = 8.854\\times10^{-12}\\,\\text{F/m}$.",
-    "answer": 28200.0,
+    "answer": 28200,
     "unit": "N·m^2/C",
     "solution": "KEY IDEA: build a big cube of eight copies with the charge at its center. By symmetry each of the six big faces takes $q/(6\\varepsilon_0)$, and each big face is made of four of the small faces in question, so one small face gets $q/(24\\varepsilon_0) = 2.82\\times10^4\\,\\text{N}\\cdot\\text{m}^2/\\text{C}$. The three faces touching the charge get zero flux, since the field is parallel to them."
   },
@@ -3214,7 +3214,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A glider on an air track is tracked by a motion sensor. Its velocity-time graph is a straight line rising from $2.0$ m/s at $t = 0$ to $14.0$ m/s at $t = 4.0$ s. What is the acceleration of the glider, in m/s$^2$?",
-    "answer": 3.0,
+    "answer": 3,
     "unit": "m/s^2",
     "solution": "KEY IDEA: on a $v$-$t$ graph the slope is the acceleration. $$a = \\frac{\\Delta v}{\\Delta t} = \\frac{14.0 - 2.0}{4.0 - 0} = 3.0\\ \\text{m/s}^2.$$ The nonzero intercept ($2.0$ m/s) is the initial velocity and does not affect the slope."
   },
@@ -3232,7 +3232,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A cart's velocity-time graph has three straight segments: it rises from $0$ to $6.0$ m/s between $t = 0$ and $t = 3.0$ s, stays at $6.0$ m/s until $t = 7.0$ s, then falls linearly back to $0$ at $t = 9.0$ s. How far does the cart travel in the $9.0$ s, in metres?",
-    "answer": 39.0,
+    "answer": 39,
     "unit": "m",
     "solution": "KEY IDEA: displacement is the area under the $v$-$t$ curve. Triangle: $\\tfrac12(3.0)(6.0) = 9.0$ m. Rectangle: $(4.0)(6.0) = 24$ m. Second triangle: $\\tfrac12(2.0)(6.0) = 6.0$ m. Total $= 39$ m."
   },
@@ -3250,7 +3250,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A student hangs masses from a spring and records the extension $x$ and the applied force $F$: $(0.050\\ \\text{m},\\ 2.0\\ \\text{N})$, $(0.100\\ \\text{m},\\ 4.0\\ \\text{N})$, $(0.150\\ \\text{m},\\ 6.0\\ \\text{N})$, $(0.200\\ \\text{m},\\ 8.0\\ \\text{N})$. What is the spring constant, in N/m?",
-    "answer": 40.0,
+    "answer": 40,
     "unit": "N/m",
     "solution": "KEY IDEA: Hooke's law $F = kx$ means a graph of $F$ against $x$ is a line through the origin with slope $k$. Using the end points, $$k = \\frac{8.0 - 2.0}{0.200 - 0.050} = \\frac{6.0}{0.150} = 40\\ \\text{N/m}.$$ The points are exactly collinear, so any pair gives the same slope."
   },
@@ -3357,7 +3357,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Hot water cools and its temperature falls linearly over the first few minutes. Readings are $(2.0\\ \\text{min},\\ 68.0\\ ^\\circ\\text{C})$, $(4.0\\ \\text{min},\\ 64.0\\ ^\\circ\\text{C})$, $(6.0\\ \\text{min},\\ 60.0\\ ^\\circ\\text{C})$, $(8.0\\ \\text{min},\\ 56.0\\ ^\\circ\\text{C})$. Extrapolating the straight line back, what was the temperature at $t = 0$, in $^\\circ$C?",
-    "answer": 72.0,
+    "answer": 72,
     "unit": "degC",
     "solution": "KEY IDEA: the intercept is the fitted line evaluated at $x = 0$, found by extrapolation. The slope is $(56.0-68.0)/(8.0-2.0) = -2.0\\ ^\\circ$C/min, so $$T(0) = 68.0 - (-2.0)(2.0) = 72.0\\ ^\\circ\\text{C}.$$"
   },
@@ -3375,7 +3375,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A resistor obeys Ohm's law. Measurements give $(0.15\\ \\text{A},\\ 1.8\\ \\text{V})$, $(0.30\\ \\text{A},\\ 3.6\\ \\text{V})$, $(0.45\\ \\text{A},\\ 5.4\\ \\text{V})$, $(0.60\\ \\text{A},\\ 7.2\\ \\text{V})$. What is the resistance, in ohms?",
-    "answer": 12.0,
+    "answer": 12,
     "unit": "ohm",
     "solution": "KEY IDEA: $V = IR$, so a plot of $V$ against $I$ is a line through the origin with slope $R$. $$R = \\frac{7.2 - 1.8}{0.60 - 0.15} = \\frac{5.4}{0.45} = 12\\ \\Omega.$$"
   },
@@ -3430,7 +3430,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A capacitor discharges through a $200$ k$\\Omega$ resistor. The voltage across it is $(0\\ \\text{s},\\ 12.00\\ \\text{V})$, $(2\\ \\text{s},\\ 7.28\\ \\text{V})$, $(4\\ \\text{s},\\ 4.41\\ \\text{V})$, $(6\\ \\text{s},\\ 2.68\\ \\text{V})$, $(8\\ \\text{s},\\ 1.62\\ \\text{V})$. What is the capacitance, in microfarads?",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "uF",
     "solution": "KEY IDEA: $V = V_0 e^{-t/RC}$, so $\\ln V = \\ln V_0 - t/(RC)$: plot $\\ln V$ against $t$ and the slope is $-1/(RC)$. Here $\\ln(1.62/12.00)/8 = -0.2502$ s$^{-1}$, so $RC = 4.00$ s and $$C = \\frac{4.00}{2.00\\times 10^{5}} = 2.0\\times10^{-5}\\ \\text{F} = 20\\ \\mu\\text{F}.$$"
   },
@@ -3448,7 +3448,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A radioactive source gives activities (in counts per second) $(0\\ \\text{h},\\ 800)$, $(1.5\\ \\text{h},\\ 566)$, $(3.0\\ \\text{h},\\ 400)$, $(4.5\\ \\text{h},\\ 283)$, $(6.0\\ \\text{h},\\ 200)$. What is the half-life, in hours?",
-    "answer": 3.0,
+    "answer": 3,
     "unit": "h",
     "solution": "KEY IDEA: $A = A_0 e^{-\\lambda t}$, so $\\ln A$ versus $t$ is a straight line of slope $-\\lambda$. From $t = 0$ to $t = 6.0$ h, $\\ln(200/800) = -1.386$, so $\\lambda = 0.2310$ h$^{-1}$ and $$t_{1/2} = \\frac{\\ln 2}{\\lambda} = \\frac{0.693}{0.2310} = 3.0\\ \\text{h}.$$ You can also read it straight off: the activity halves from $800$ to $400$ in $3.0$ h."
   },
@@ -3466,7 +3466,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A student measures the voltage across a length of resistance wire while varying the current, but the voltmeter leads also pick up a constant contact voltage. The data are $(0.10\\ \\text{A},\\ 0.70\\ \\text{V})$, $(0.20\\ \\text{A},\\ 1.10\\ \\text{V})$, $(0.30\\ \\text{A},\\ 1.50\\ \\text{V})$, $(0.40\\ \\text{A},\\ 1.90\\ \\text{V})$, $(0.50\\ \\text{A},\\ 2.30\\ \\text{V})$. What is the resistance of the wire, in ohms?",
-    "answer": 4.0,
+    "answer": 4,
     "unit": "ohm",
     "solution": "KEY IDEA: the systematic offset shifts the intercept but not the slope, so take the slope and ignore the intercept. $$R = \\frac{2.30 - 0.70}{0.50 - 0.10} = \\frac{1.60}{0.40} = 4.0\\ \\Omega.$$ The $0.30$ V intercept is the spurious contact voltage; dividing $V/I$ at a single point would wrongly give $7.0\\ \\Omega$ at $0.10$ A."
   },
@@ -3574,7 +3574,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A force acting along the direction of motion rises linearly from $0$ to $20$ N as an object moves from $x = 0$ to $x = 0.40$ m, then stays at $20$ N until $x = 1.00$ m. How much work is done over the full $1.00$ m, in joules?",
-    "answer": 16.0,
+    "answer": 16,
     "unit": "J",
     "solution": "KEY IDEA: work is the area under the $F$-$x$ graph. Triangle: $\\tfrac12(0.40)(20) = 4.0$ J. Rectangle: $(0.60)(20) = 12.0$ J. Total $W = 16$ J."
   },
@@ -3592,7 +3592,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A best-fit line through calibration data is $y = 2.00x + 1.00$ (with $x$ in metres and $y$ in newtons). A new measurement at $x = 3.00$ m gives $y = 7.60 \\pm 0.30$ N. By how many standard deviations does this point differ from the fitted line?",
-    "answer": 2.0,
+    "answer": 2,
     "unit": "",
     "solution": "KEY IDEA: compare the discrepancy to the error bar, not to the value itself. The fit predicts $y = 2.00(3.00) + 1.00 = 7.00$ N, so the discrepancy is $0.60$ N and $$\\frac{0.60}{0.30} = 2.0\\ \\text{standard deviations}.$$ A $2\\sigma$ disagreement is marginal: about a $5\\%$ chance of occurring by luck alone, so the point is suspicious but not decisive."
   },
@@ -3685,7 +3685,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A detector records total count rates from a decaying source: $(0\\ \\text{min},\\ 525\\ \\text{s}^{-1})$, $(2\\ \\text{min},\\ 379\\ \\text{s}^{-1})$, $(4\\ \\text{min},\\ 275\\ \\text{s}^{-1})$, $(6\\ \\text{min},\\ 202\\ \\text{s}^{-1})$, $(8\\ \\text{min},\\ 150\\ \\text{s}^{-1})$. With the source removed, the detector reads a steady background of $25\\ \\text{s}^{-1}$. What is the half-life of the source, in minutes?",
-    "answer": 4.0,
+    "answer": 4,
     "unit": "min",
     "solution": "KEY IDEA: only the source decays exponentially, so subtract the background before taking logs; otherwise $\\ln(\\text{total})$ curves and gives a wrong slope. The net rates are $500, 354, 250, 177, 125$ s$^{-1}$, which halve every $4$ min. Formally $\\ln(125/500) = -1.386$ over $8$ min gives $\\lambda = 0.1733$ min$^{-1}$ and $t_{1/2} = \\ln 2/\\lambda = 4.0$ min. Fitting the raw totals would give about $4.6$ min."
   },

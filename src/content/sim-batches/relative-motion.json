@@ -12,7 +12,7 @@
         "min": 0.5,
         "max": 6,
         "step": 0.1,
-        "value": 4.0
+        "value": 4
       },
       {
         "key": "current",
@@ -21,7 +21,7 @@
         "min": 0,
         "max": 5,
         "step": 0.1,
-        "value": 3.0
+        "value": 3
       },
       {
         "key": "heading",
@@ -57,7 +57,7 @@
         "min": 0.6,
         "max": 6,
         "step": 0.1,
-        "value": 4.0
+        "value": 4
       },
       {
         "key": "current",
@@ -66,7 +66,7 @@
         "min": 0,
         "max": 5,
         "step": 0.1,
-        "value": 3.0
+        "value": 3
       },
       {
         "key": "heading",

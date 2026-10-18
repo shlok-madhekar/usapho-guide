@@ -27,7 +27,7 @@
         "key": "z",
         "label": "Distance along axis",
         "unit": "m",
-        "min": 0.0,
+        "min": 0,
         "max": 0.45,
         "step": 0.005,
         "value": 0.1

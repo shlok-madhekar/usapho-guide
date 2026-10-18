@@ -12,7 +12,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A car starts from rest and accelerates uniformly at $2.5\\ \\mathrm{m/s^2}$ for $8.0\\ \\mathrm{s}$. What is its speed at the end of that interval, in m/s?",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "m/s",
     "solution": "With constant acceleration and $v_0 = 0$, $v = at$. So $v = (2.5)(8.0) = 20\\ \\mathrm{m/s}$."
   },
@@ -29,7 +29,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A train moving at $30\\ \\mathrm{m/s}$ slows uniformly to rest in $25\\ \\mathrm{s}$. How far does it travel while stopping, in m?",
-    "answer": 375.0,
+    "answer": 375,
     "unit": "m",
     "solution": "For constant acceleration the average velocity is $\\frac{v_0+v}{2} = 15\\ \\mathrm{m/s}$. Then $\\Delta x = (15)(25) = 375\\ \\mathrm{m}$."
   },
@@ -114,7 +114,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A cart moves along a track with position $x(t) = 3 + 4t - t^2$ (metres, seconds). What is its velocity at $t = 3.0\\ \\mathrm{s}$, in m/s?",
-    "answer": -2.0,
+    "answer": -2,
     "unit": "m/s",
     "solution": "Differentiate: $v = \\frac{dx}{dt} = 4 - 2t$. At $t=3$, $v = 4 - 6 = -2\\ \\mathrm{m/s}$, so the cart is moving in the $-x$ direction."
   },
@@ -148,7 +148,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A ball rolls across a carpet at $6.0\\ \\mathrm{m/s}$ and decelerates uniformly at $0.40\\ \\mathrm{m/s^2}$. How long until it stops, in s?",
-    "answer": 15.0,
+    "answer": 15,
     "unit": "s",
     "solution": "$t = v_0/a = 6.0/0.40 = 15\\ \\mathrm{s}$."
   },
@@ -200,7 +200,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A car waits at a light. At the instant the light turns green a van moving at a steady $18\\ \\mathrm{m/s}$ passes it, and the car starts from rest with constant acceleration $3.0\\ \\mathrm{m/s^2}$. How long after the light turns green does the car draw level with the van, in s?",
-    "answer": 12.0,
+    "answer": 12,
     "unit": "s",
     "solution": "Set the positions equal: $\\tfrac{1}{2}(3)t^2 = 18t$. Discarding the trivial root $t=0$, $t = \\frac{2(18)}{3} = 12\\ \\mathrm{s}$."
   },
@@ -217,7 +217,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A particle moves with $x(t) = 2t^3 - 9t^2 + 12t$ (metres, seconds). Its velocity vanishes twice. At what later of these two times does this happen, in s?",
-    "answer": 2.0,
+    "answer": 2,
     "unit": "s",
     "solution": "$v = \\frac{dx}{dt} = 6t^2 - 18t + 12 = 6(t-1)(t-2)$, which is zero at $t = 1\\ \\mathrm{s}$ and $t = 2\\ \\mathrm{s}$. The later time is $2\\ \\mathrm{s}$."
   },
@@ -286,7 +286,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A car decelerating uniformly travels $60\\ \\mathrm{m}$ in the $4.0\\ \\mathrm{s}$ before it comes to rest. What was its speed at the start of that interval, in m/s?",
-    "answer": 30.0,
+    "answer": 30,
     "unit": "m/s",
     "solution": "The average velocity over the interval is $60/4 = 15\\ \\mathrm{m/s}$, and for constant acceleration that equals $\\frac{v_0 + 0}{2}$. So $v_0 = 30\\ \\mathrm{m/s}$."
   },
@@ -320,7 +320,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A trolley's velocity is $v(t) = 6 + 4t$ in m/s. What is its displacement between $t = 2.0\\ \\mathrm{s}$ and $t = 5.0\\ \\mathrm{s}$, in m?",
-    "answer": 60.0,
+    "answer": 60,
     "unit": "m",
     "solution": "Displacement is the area under the velocity curve: $\\Delta x = \\int_2^5 (6+4t)\\,dt = \\left[6t + 2t^2\\right]_2^5 = 80 - 20 = 60\\ \\mathrm{m}$."
   },
@@ -337,7 +337,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A bus covers the first third of a route at $10\\ \\mathrm{m/s}$ and the remaining two thirds at $20\\ \\mathrm{m/s}$. What is its average speed for the route, in m/s?",
-    "answer": 15.0,
+    "answer": 15,
     "unit": "m/s",
     "solution": "Let the route length be $D$. The total time is $\\frac{D/3}{10} + \\frac{2D/3}{20} = \\frac{D}{30} + \\frac{D}{30} = \\frac{D}{15}$, so $\\bar v = 15\\ \\mathrm{m/s}$."
   },
@@ -354,7 +354,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A bus travelling at $20\\ \\mathrm{m/s}$ brakes uniformly at $2.0\\ \\mathrm{m/s^2}$. How far does it travel during the fifth second of braking, in m?",
-    "answer": 11.0,
+    "answer": 11,
     "unit": "m",
     "solution": "The distance in the $n$th second is $v_0 - \\frac{a(2n-1)}{2}$. For $n=5$: $20 - \\frac{2(9)}{2} = 11\\ \\mathrm{m}$. The bus does not stop until $10\\ \\mathrm{s}$, so the formula is valid here."
   },
@@ -372,7 +372,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A test sled starts from rest with acceleration $a(t) = 6t$ in $\\mathrm{m/s^2}$, with $t$ in seconds. What is its speed at $t = 4.0\\ \\mathrm{s}$, in m/s?",
-    "answer": 48.0,
+    "answer": 48,
     "unit": "m/s",
     "solution": "The suvat formulas do not apply because $a$ is not constant. Integrate instead: $v = \\int_0^t 6t'\\,dt' = 3t^2$, so $v(4) = 48\\ \\mathrm{m/s}$."
   },
@@ -389,7 +389,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A rocket sled starts from rest, accelerates at $8.0\\ \\mathrm{m/s^2}$ for $10\\ \\mathrm{s}$, then decelerates uniformly at $4.0\\ \\mathrm{m/s^2}$ until it stops. What is the total distance travelled, in m?",
-    "answer": 1200.0,
+    "answer": 1200,
     "unit": "m",
     "solution": "After $10\\ \\mathrm{s}$ the speed is $80\\ \\mathrm{m/s}$ and the sled has gone $400\\ \\mathrm{m}$. Braking from $80\\ \\mathrm{m/s}$ adds $\\frac{80^2}{2(4)} = 800\\ \\mathrm{m}$, giving $1200\\ \\mathrm{m}$."
   },
@@ -423,7 +423,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A tram starts from rest, accelerates uniformly, then decelerates uniformly to rest. The whole trip takes $20\\ \\mathrm{s}$ and covers $200\\ \\mathrm{m}$. What is its maximum speed, in m/s?",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "m/s",
     "solution": "Whatever the split between the two phases, the velocity-time graph is a triangle of base $20\\ \\mathrm{s}$ and height $v_{\\max}$, and its area is the distance travelled: $\\tfrac{1}{2}(20)v_{\\max} = 200$, so $v_{\\max} = 20\\ \\mathrm{m/s}$."
   },
@@ -474,7 +474,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A cart on a track has velocity $v(t) = 12 - 3t$ in m/s. What total distance (not displacement) does it cover in the first $8.0\\ \\mathrm{s}$, in m?",
-    "answer": 48.0,
+    "answer": 48,
     "unit": "m",
     "solution": "The velocity changes sign at $t = 4.0\\ \\mathrm{s}$, so integrate $|v|$ in two pieces. Each piece is a triangle of base $4\\ \\mathrm{s}$ and height $12\\ \\mathrm{m/s}$, giving $24 + 24 = 48\\ \\mathrm{m}$. The displacement, by contrast, is zero."
   },
@@ -492,7 +492,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A boat's engine is cut while it moves at $20\\ \\mathrm{m/s}$, after which its acceleration is $a = -kv$ with $k = 0.50\\ \\mathrm{s^{-1}}$. How far does it coast before stopping (in the limit $t \\to \\infty$), in m?",
-    "answer": 40.0,
+    "answer": 40,
     "unit": "m",
     "solution": "The trick is to change variable: $a = v\\frac{dv}{dx} = -kv$, so $\\frac{dv}{dx} = -k$ and velocity falls linearly with distance. Integrating from $v_0$ to $0$ gives $x = \\frac{v_0}{k} = \\frac{20}{0.5} = 40\\ \\mathrm{m}$. The boat never quite stops in finite time, yet the distance is finite."
   },
@@ -527,7 +527,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A velocity-time graph for a golf cart rises linearly from $0$ to $12\\ \\mathrm{m/s}$ over the first $4.0\\ \\mathrm{s}$, then stays flat at $12\\ \\mathrm{m/s}$ until $t = 10\\ \\mathrm{s}$. What is the total displacement over the $10\\ \\mathrm{s}$, in m?",
-    "answer": 96.0,
+    "answer": 96,
     "unit": "m",
     "solution": "Displacement is the area under a $v$-$t$ graph. The triangle contributes $\\tfrac{1}{2}(4)(12) = 24\\ \\mathrm{m}$ and the rectangle $(12)(6) = 72\\ \\mathrm{m}$, for $96\\ \\mathrm{m}$."
   },
@@ -545,7 +545,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A velocity-time graph rises linearly from $0$ to $12\\ \\mathrm{m/s}$ over the first $4.0\\ \\mathrm{s}$, then stays flat at $12\\ \\mathrm{m/s}$. What is the acceleration during the first $4.0\\ \\mathrm{s}$, in $\\mathrm{m/s^2}$?",
-    "answer": 3.0,
+    "answer": 3,
     "unit": "m/s^2",
     "solution": "Acceleration is the slope of the $v$-$t$ graph: $a = \\frac{12 - 0}{4 - 0} = 3.0\\ \\mathrm{m/s^2}$."
   },
@@ -563,7 +563,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A position-time graph is a straight line passing through $(0\\ \\mathrm{s},\\ 5\\ \\mathrm{m})$ and $(8\\ \\mathrm{s},\\ 29\\ \\mathrm{m})$. What is the velocity, in m/s?",
-    "answer": 3.0,
+    "answer": 3,
     "unit": "m/s",
     "solution": "Velocity is the slope of the $x$-$t$ graph: $v = \\frac{29-5}{8-0} = 3.0\\ \\mathrm{m/s}$."
   },
@@ -581,7 +581,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A velocity-time graph is flat at $8.0\\ \\mathrm{m/s}$ from $t=0$ to $t=5.0\\ \\mathrm{s}$, then falls linearly to zero at $t = 9.0\\ \\mathrm{s}$. What total distance does the object cover, in m?",
-    "answer": 56.0,
+    "answer": 56,
     "unit": "m",
     "solution": "Add the two areas: the rectangle gives $(8)(5) = 40\\ \\mathrm{m}$ and the triangle gives $\\tfrac{1}{2}(4)(8) = 16\\ \\mathrm{m}$, so $56\\ \\mathrm{m}$."
   },
@@ -599,7 +599,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An object starts from rest. Its acceleration-time graph is flat at $2.5\\ \\mathrm{m/s^2}$ from $t = 0$ to $t = 6.0\\ \\mathrm{s}$. What is its speed at $t = 6.0\\ \\mathrm{s}$, in m/s?",
-    "answer": 15.0,
+    "answer": 15,
     "unit": "m/s",
     "solution": "The area under an $a$-$t$ graph is the change in velocity: $\\Delta v = (2.5)(6.0) = 15\\ \\mathrm{m/s}$, and the object started at rest."
   },
@@ -617,7 +617,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A velocity-time graph is a straight line from $+10\\ \\mathrm{m/s}$ at $t = 0$ through zero at $t = 5.0\\ \\mathrm{s}$ to $-10\\ \\mathrm{m/s}$ at $t = 10\\ \\mathrm{s}$. What total distance does the object travel in these $10\\ \\mathrm{s}$, in m?",
-    "answer": 50.0,
+    "answer": 50,
     "unit": "m",
     "solution": "Distance uses the areas without regard to sign. Each triangle has area $\\tfrac{1}{2}(5)(10) = 25\\ \\mathrm{m}$, so the distance is $50\\ \\mathrm{m}$ even though the displacement is zero."
   },
@@ -635,7 +635,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A velocity-time graph rises linearly from $0$ at $t = 0$ to $20\\ \\mathrm{m/s}$ at $t = 3.0\\ \\mathrm{s}$, then falls linearly back to $0$ at $t = 8.0\\ \\mathrm{s}$. What is the displacement, in m?",
-    "answer": 80.0,
+    "answer": 80,
     "unit": "m",
     "solution": "The graph is a triangle of base $8.0\\ \\mathrm{s}$ and height $20\\ \\mathrm{m/s}$, so the area is $\\tfrac{1}{2}(8)(20) = 80\\ \\mathrm{m}$."
   },
@@ -653,7 +653,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A cart starts from rest. Its acceleration is $+4.0\\ \\mathrm{m/s^2}$ for the first $3.0\\ \\mathrm{s}$ and $-2.0\\ \\mathrm{m/s^2}$ for the next $3.0\\ \\mathrm{s}$. What is its velocity at $t = 6.0\\ \\mathrm{s}$, in m/s?",
-    "answer": 6.0,
+    "answer": 6,
     "unit": "m/s",
     "solution": "Add the signed areas under the $a$-$t$ graph: $\\Delta v = (4)(3) + (-2)(3) = 12 - 6 = 6.0\\ \\mathrm{m/s}$."
   },
@@ -671,7 +671,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A position-time graph rises linearly from $0$ at $t = 0$ to $20\\ \\mathrm{m}$ at $t = 4.0\\ \\mathrm{s}$, then stays flat at $20\\ \\mathrm{m}$ until $t = 10\\ \\mathrm{s}$. What is the average velocity over the full $10\\ \\mathrm{s}$, in m/s?",
-    "answer": 2.0,
+    "answer": 2,
     "unit": "m/s",
     "solution": "Average velocity is the total displacement divided by total time, that is, the slope of the straight line joining the endpoints: $\\frac{20}{10} = 2.0\\ \\mathrm{m/s}$."
   },
@@ -689,7 +689,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A velocity-time graph is flat at $-6.0\\ \\mathrm{m/s}$ from $t = 0$ to $t = 7.0\\ \\mathrm{s}$. What is the displacement over that interval, in m?",
-    "answer": -42.0,
+    "answer": -42,
     "unit": "m",
     "solution": "The area lies below the axis, so it counts as negative: $\\Delta x = (-6.0)(7.0) = -42\\ \\mathrm{m}$."
   },
@@ -707,7 +707,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A bus's velocity-time graph rises linearly from $0$ to $15\\ \\mathrm{m/s}$ over $0 \\le t \\le 3.0\\ \\mathrm{s}$, holds $15\\ \\mathrm{m/s}$ until $t = 9.0\\ \\mathrm{s}$, then falls linearly to zero at $t = 12\\ \\mathrm{s}$. What total distance does the bus cover, in m?",
-    "answer": 135.0,
+    "answer": 135,
     "unit": "m",
     "solution": "The graph is a trapezoid. The two triangles give $22.5\\ \\mathrm{m}$ each and the rectangle gives $90\\ \\mathrm{m}$, so the distance is $135\\ \\mathrm{m}$."
   },
@@ -743,7 +743,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A trolley's velocity-time graph is a single straight line running from $-8.0\\ \\mathrm{m/s}$ at $t = 0$ to $+12\\ \\mathrm{m/s}$ at $t = 10\\ \\mathrm{s}$. What is its displacement over the $10\\ \\mathrm{s}$, in m?",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "m",
     "solution": "The slope is $2.0\\ \\mathrm{m/s^2}$, so the velocity crosses zero at $t = 4.0\\ \\mathrm{s}$. The area below the axis is $-\\tfrac{1}{2}(4)(8) = -16\\ \\mathrm{m}$ and above it is $+\\tfrac{1}{2}(6)(12) = +36\\ \\mathrm{m}$, giving $+20\\ \\mathrm{m}$."
   },
@@ -761,7 +761,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A trolley's velocity-time graph is a single straight line running from $-8.0\\ \\mathrm{m/s}$ at $t = 0$ to $+12\\ \\mathrm{m/s}$ at $t = 10\\ \\mathrm{s}$. What total distance does it travel in the $10\\ \\mathrm{s}$, in m?",
-    "answer": 52.0,
+    "answer": 52,
     "unit": "m",
     "solution": "Take the magnitudes of the two triangular areas: $16\\ \\mathrm{m}$ moving backwards plus $36\\ \\mathrm{m}$ moving forwards gives $52\\ \\mathrm{m}$."
   },
@@ -779,7 +779,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A position-time graph is a parabola through the origin passing through $(2\\ \\mathrm{s},\\ 16\\ \\mathrm{m})$ and $(4\\ \\mathrm{s},\\ 64\\ \\mathrm{m})$, consistent with $x = 4t^2$. What is the instantaneous velocity at $t = 3.0\\ \\mathrm{s}$, in m/s?",
-    "answer": 24.0,
+    "answer": 24,
     "unit": "m/s",
     "solution": "The instantaneous velocity is the slope of the tangent, $v = \\frac{dx}{dt} = 8t$. At $t = 3.0\\ \\mathrm{s}$ this is $24\\ \\mathrm{m/s}$."
   },
@@ -797,7 +797,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A cart starts from rest and its acceleration-time graph rises linearly from $0$ to $6.0\\ \\mathrm{m/s^2}$ over $0 \\le t \\le 4.0\\ \\mathrm{s}$. What is its speed at $t = 4.0\\ \\mathrm{s}$, in m/s?",
-    "answer": 12.0,
+    "answer": 12,
     "unit": "m/s",
     "solution": "The change in velocity is the area under the $a$-$t$ graph, here a triangle: $\\Delta v = \\tfrac{1}{2}(4.0)(6.0) = 12\\ \\mathrm{m/s}$."
   },
@@ -815,7 +815,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A velocity-time graph rises linearly from $0$ to $10\\ \\mathrm{m/s}$ over $0 \\le t \\le 2.0\\ \\mathrm{s}$, holds $10\\ \\mathrm{m/s}$ until $t = 6.0\\ \\mathrm{s}$, then falls linearly to $4.0\\ \\mathrm{m/s}$ at $t = 8.0\\ \\mathrm{s}$. What is the total displacement, in m?",
-    "answer": 64.0,
+    "answer": 64,
     "unit": "m",
     "solution": "Sum the three areas: $\\tfrac{1}{2}(2)(10) = 10\\ \\mathrm{m}$, $(10)(4) = 40\\ \\mathrm{m}$, and the trapezoid $\\tfrac{1}{2}(10+4)(2) = 14\\ \\mathrm{m}$. The total is $64\\ \\mathrm{m}$."
   },
@@ -851,7 +851,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A position-time graph runs in a straight line from $(5\\ \\mathrm{s},\\ 30\\ \\mathrm{m})$ to $(9\\ \\mathrm{s},\\ 10\\ \\mathrm{m})$. What is the object's speed during that segment, in m/s?",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "m/s",
     "solution": "The slope is $\\frac{10-30}{9-5} = -5.0\\ \\mathrm{m/s}$; the speed is its magnitude, $5.0\\ \\mathrm{m/s}$."
   },
@@ -869,7 +869,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An elevator's velocity-time graph rises linearly from $0$ to $3.0\\ \\mathrm{m/s}$ over $0 \\le t \\le 2.0\\ \\mathrm{s}$, holds $3.0\\ \\mathrm{m/s}$ until $t = 10\\ \\mathrm{s}$, then falls linearly to zero at $t = 12\\ \\mathrm{s}$. How high does the elevator rise, in m?",
-    "answer": 30.0,
+    "answer": 30,
     "unit": "m",
     "solution": "The height gained is the area: $3.0 + 24 + 3.0 = 30\\ \\mathrm{m}$."
   },
@@ -887,7 +887,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A velocity-time graph is a downward parabola with $v = 0$ at $t = 0$ and at $t = 6.0\\ \\mathrm{s}$, peaking at $9.0\\ \\mathrm{m/s}$ at $t = 3.0\\ \\mathrm{s}$. What is the total displacement, in m?",
-    "answer": 36.0,
+    "answer": 36,
     "unit": "m",
     "solution": "The area under a parabolic arch is $\\tfrac{2}{3}$ of the enclosing rectangle: $\\tfrac{2}{3}(6.0)(9.0) = 36\\ \\mathrm{m}$. Equivalently, integrate $v = t(6-t)$ over $0$ to $6$."
   },
@@ -905,7 +905,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two cars leave the same point at $t=0$ and are plotted on the same velocity-time axes. Car A's graph is flat at $20\\ \\mathrm{m/s}$; car B's graph is a straight line from $0$ rising to $40\\ \\mathrm{m/s}$ at $t = 10\\ \\mathrm{s}$ and continuing with the same slope. At what time do the two cars again have the same position, in s?",
-    "answer": 10.0,
+    "answer": 10,
     "unit": "s",
     "solution": "Equal position means equal area under the two graphs. Car A gives $20t$, car B gives $\\tfrac{1}{2}(4t)(t) = 2t^2$. Setting $2t^2 = 20t$ gives $t = 10\\ \\mathrm{s}$, which is also where car B's graph crosses A's."
   },
@@ -923,7 +923,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A velocity-time graph is a straight line from $+12\\ \\mathrm{m/s}$ at $t = 0$ down to $-6.0\\ \\mathrm{m/s}$ at $t = 9.0\\ \\mathrm{s}$. What is the object's maximum displacement from its starting point, in m?",
-    "answer": 36.0,
+    "answer": 36,
     "unit": "m",
     "solution": "The displacement grows while $v > 0$ and shrinks afterwards, so it peaks where the graph crosses zero. The slope is $-2.0\\ \\mathrm{m/s^2}$, so that happens at $t = 6.0\\ \\mathrm{s}$, and the area up to then is $\\tfrac{1}{2}(6)(12) = 36\\ \\mathrm{m}$."
   },
@@ -941,7 +941,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A velocity-time graph is a straight line from $+12\\ \\mathrm{m/s}$ at $t = 0$ down to $-6.0\\ \\mathrm{m/s}$ at $t = 9.0\\ \\mathrm{s}$. What is the displacement over the full $9.0\\ \\mathrm{s}$, in m?",
-    "answer": 27.0,
+    "answer": 27,
     "unit": "m",
     "solution": "The positive area to $t = 6.0\\ \\mathrm{s}$ is $36\\ \\mathrm{m}$; the negative area from $6.0$ to $9.0\\ \\mathrm{s}$ is $-\\tfrac{1}{2}(3)(6) = -9\\ \\mathrm{m}$. The net displacement is $27\\ \\mathrm{m}$."
   },
@@ -959,7 +959,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A cart starts from rest at the origin. Its acceleration is $+4.0\\ \\mathrm{m/s^2}$ for $0 \\le t < 2.0\\ \\mathrm{s}$, zero for $2.0 \\le t < 5.0\\ \\mathrm{s}$, and $-4.0\\ \\mathrm{m/s^2}$ for $5.0 \\le t \\le 8.0\\ \\mathrm{s}$. What is its position at $t = 8.0\\ \\mathrm{s}$, in m?",
-    "answer": 38.0,
+    "answer": 38,
     "unit": "m",
     "solution": "Integrate phase by phase. Phase 1: $8\\ \\mathrm{m}$, ending at $8\\ \\mathrm{m/s}$. Phase 2: $(8)(3) = 24\\ \\mathrm{m}$ at constant speed. Phase 3: $8(3) - \\tfrac{1}{2}(4)(3)^2 = 24 - 18 = 6\\ \\mathrm{m}$. Total: $38\\ \\mathrm{m}$."
   },
@@ -1031,7 +1031,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A car starts from rest at the origin. Its acceleration-time graph is a triangle: $a$ rises linearly from $0$ to $6.0\\ \\mathrm{m/s^2}$ over $0 \\le t \\le 3.0\\ \\mathrm{s}$, then falls linearly back to $0$ at $t = 6.0\\ \\mathrm{s}$. How far has the car travelled at $t = 6.0\\ \\mathrm{s}$, in m?",
-    "answer": 54.0,
+    "answer": 54,
     "unit": "m",
     "solution": "Integrate twice. For $0 \\le t \\le 3$, $a = 2t$ gives $v = t^2$ and $x = t^3/3$, so at $t=3$: $v = 9\\ \\mathrm{m/s}$, $x = 9\\ \\mathrm{m}$. For $3 \\le t \\le 6$, $a = 12 - 2t$ gives $v = 12t - t^2 - 18$; integrating from $3$ to $6$ adds $45\\ \\mathrm{m}$. The total is $54\\ \\mathrm{m}$ (and $v(6) = 18\\ \\mathrm{m/s}$, matching the triangle's area)."
   },
@@ -1049,7 +1049,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A drone's velocity-time graph is a single straight line passing through $(2.0\\ \\mathrm{s},\\ 14\\ \\mathrm{m/s})$ and $(7.0\\ \\mathrm{s},\\ -6.0\\ \\mathrm{m/s})$. At what time does the drone return to its starting position, in s?",
-    "answer": 11.0,
+    "answer": 11,
     "unit": "s",
     "solution": "The slope is $\\frac{-6-14}{5} = -4.0\\ \\mathrm{m/s^2}$, so $v(t) = 22 - 4t$. The displacement is $x = 22t - 2t^2$, which returns to zero at $t = 11\\ \\mathrm{s}$. Equivalently, the positive and negative areas balance when the second triangle matches the first."
   },
@@ -1558,7 +1558,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A ball is dropped from rest from a height of $80\\ \\mathrm{m}$. At the same instant a second ball is thrown straight up from the ground with exactly the speed needed to just reach $80\\ \\mathrm{m}$. At what height above the ground do the two balls pass each other, in m?",
-    "answer": 60.0,
+    "answer": 60,
     "unit": "m",
     "solution": "The launch speed is $u = \\sqrt{2g(80)} = 39.60\\ \\mathrm{m/s}$. Since both balls share the same acceleration, their separation closes at the constant rate $u$, so they meet at $t = 80/u = 2.020\\ \\mathrm{s}$. The dropped ball has then fallen $\\tfrac{1}{2}gt^2 = 20\\ \\mathrm{m}$, so they meet at $60\\ \\mathrm{m}$, three quarters of the way up."
   },
@@ -1730,7 +1730,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A ball is launched at $18\\ \\mathrm{m/s}$ at $60^\\circ$ above the horizontal. What is the horizontal component of its velocity while in flight, in m/s?",
-    "answer": 9.0,
+    "answer": 9,
     "unit": "m/s",
     "solution": "There is no horizontal acceleration, so $v_x = v_0\\cos\\theta = 18\\cos 60^\\circ = 9.0\\ \\mathrm{m/s}$ throughout the flight."
   },
@@ -1920,7 +1920,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A projectile launched at $45^\\circ$ from level ground lands $80\\ \\mathrm{m}$ away. What was its maximum height, in m?",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "m",
     "solution": "At $45^\\circ$ the trajectory is a parabola with $h = R/4$, since $h = \\frac{v_0^2\\sin^2\\theta}{2g}$ and $R = \\frac{v_0^2 \\sin 2\\theta}{g}$. So $h = 20\\ \\mathrm{m}$."
   },
@@ -2006,7 +2006,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A rock is thrown horizontally at $20\\ \\mathrm{m/s}$ from a point on a hillside that descends at $25^\\circ$ below the horizontal. How far down the slope does it land, measured along the slope, in m?",
-    "answer": 42.0,
+    "answer": 42,
     "unit": "m",
     "solution": "Landing on the slope requires $\\frac{y}{x} = \\tan 25^\\circ$, i.e. $4.9t^2 = 20t\\tan 25^\\circ$, so $t = 1.903\\ \\mathrm{s}$ and $x = 38.07\\ \\mathrm{m}$. The distance along the slope is $x/\\cos 25^\\circ = 42.0\\ \\mathrm{m}$."
   },
@@ -2110,7 +2110,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two cars travel in the same direction on a straight highway at $30\\ \\mathrm{m/s}$ and $22\\ \\mathrm{m/s}$. What is the speed of the faster car relative to the slower one, in m/s?",
-    "answer": 8.0,
+    "answer": 8,
     "unit": "m/s",
     "solution": "For motion along one line, subtract the velocities: $30 - 22 = 8.0\\ \\mathrm{m/s}$."
   },
@@ -2127,7 +2127,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two cars approach each other head-on at $25\\ \\mathrm{m/s}$ and $18\\ \\mathrm{m/s}$ along a straight road. What is their relative speed, in m/s?",
-    "answer": 43.0,
+    "answer": 43,
     "unit": "m/s",
     "solution": "The velocities have opposite signs, so subtracting them gives $25 - (-18) = 43\\ \\mathrm{m/s}$."
   },
@@ -2144,7 +2144,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A boat that moves at $4.0\\ \\mathrm{m/s}$ in still water is aimed straight across a river whose current is $3.0\\ \\mathrm{m/s}$. What is its speed relative to the bank, in m/s?",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "m/s",
     "solution": "The two velocities are perpendicular, so add them as vectors: $\\sqrt{4^2+3^2} = 5.0\\ \\mathrm{m/s}$."
   },
@@ -2161,7 +2161,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A river is $80\\ \\mathrm{m}$ wide. A boat aimed straight across moves at $4.0\\ \\mathrm{m/s}$ relative to the water. How long does the crossing take, in s?",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "s",
     "solution": "Only the component across the river matters for the crossing time: $t = \\frac{80}{4.0} = 20\\ \\mathrm{s}$. The current does not change this."
   },
@@ -2178,7 +2178,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A boat aimed straight across an $80\\ \\mathrm{m}$ wide river moves at $4.0\\ \\mathrm{m/s}$ relative to the water, and the current is $3.0\\ \\mathrm{m/s}$. How far downstream of its starting point does it land, in m?",
-    "answer": 60.0,
+    "answer": 60,
     "unit": "m",
     "solution": "The crossing takes $20\\ \\mathrm{s}$, during which the current carries the boat $(3.0)(20) = 60\\ \\mathrm{m}$ downstream."
   },
@@ -2263,7 +2263,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A moving walkway runs at $3.0\\ \\mathrm{m/s}$. A traveller walks along the ground beside it, in the opposite direction to the walkway, at $1.5\\ \\mathrm{m/s}$. How long does he take to walk $30\\ \\mathrm{m}$ along the ground, in s?",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "s",
     "solution": "His motion is measured relative to the ground, and the walkway is irrelevant: $t = \\frac{30}{1.5} = 20\\ \\mathrm{s}$. Reference frames only matter when the object actually rides the moving surface."
   },
@@ -2297,7 +2297,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A boat moving at $5.0\\ \\mathrm{m/s}$ relative to the water crosses a $100\\ \\mathrm{m}$ wide river with a $3.0\\ \\mathrm{m/s}$ current, aimed so that it lands directly opposite. How long does the crossing take, in s?",
-    "answer": 25.0,
+    "answer": 25,
     "unit": "s",
     "solution": "After cancelling the current, the across-river component is $\\sqrt{5^2-3^2} = 4.0\\ \\mathrm{m/s}$, so $t = \\frac{100}{4} = 25\\ \\mathrm{s}$: longer than the $20\\ \\mathrm{s}$ minimum crossing time."
   },
@@ -2315,7 +2315,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A river $120\\ \\mathrm{m}$ wide flows at $1.5\\ \\mathrm{m/s}$. A boat can do $2.5\\ \\mathrm{m/s}$ relative to the water. What is the shortest possible time to reach the far bank, in s?",
-    "answer": 48.0,
+    "answer": 48,
     "unit": "s",
     "solution": "The crossing time depends only on the across-river velocity component, which is largest when the boat is aimed straight across. Then $t = \\frac{120}{2.5} = 48\\ \\mathrm{s}$."
   },
@@ -2332,7 +2332,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A river $120\\ \\mathrm{m}$ wide flows at $1.5\\ \\mathrm{m/s}$. A boat capable of $2.5\\ \\mathrm{m/s}$ relative to the water is aimed straight across for the quickest crossing. How far downstream does it land, in m?",
-    "answer": 72.0,
+    "answer": 72,
     "unit": "m",
     "solution": "The crossing takes $48\\ \\mathrm{s}$ and the current carries the boat $(1.5)(48) = 72\\ \\mathrm{m}$ downstream."
   },
@@ -2350,7 +2350,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Car A travels east at $15\\ \\mathrm{m/s}$ and car B travels north at $20\\ \\mathrm{m/s}$. What is the speed of B relative to A, in m/s?",
-    "answer": 25.0,
+    "answer": 25,
     "unit": "m/s",
     "solution": "$\\vec v_{B/A} = \\vec v_B - \\vec v_A = (-15, 20)\\ \\mathrm{m/s}$, whose magnitude is $\\sqrt{225+400} = 25\\ \\mathrm{m/s}$."
   },
@@ -2368,7 +2368,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Car A moves due east at $20\\ \\mathrm{m/s}$ and car B moves at $20\\ \\mathrm{m/s}$ in a direction $60^\\circ$ north of east. What is the speed of B relative to A, in m/s?",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "m/s",
     "solution": "For two equal speeds $v$ separated by angle $\\phi$, the relative speed is $2v\\sin(\\phi/2) = 2(20)\\sin 30^\\circ = 20\\ \\mathrm{m/s}$. The velocity triangle is equilateral."
   },
@@ -2421,7 +2421,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two ships leave the same harbour at the same moment: one sails due north at $12\\ \\mathrm{km/h}$, the other due east at $16\\ \\mathrm{km/h}$. How far apart are they after $2.0\\ \\mathrm{h}$, in km?",
-    "answer": 40.0,
+    "answer": 40,
     "unit": "km",
     "solution": "The relative speed is $\\sqrt{12^2+16^2} = 20\\ \\mathrm{km/h}$ and it is constant, so after $2.0\\ \\mathrm{h}$ the separation is $40\\ \\mathrm{km}$."
   },
@@ -2456,7 +2456,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A motorboat covers $12\\ \\mathrm{km}$ downstream in $40\\ \\mathrm{min}$ and the same $12\\ \\mathrm{km}$ upstream in $60\\ \\mathrm{min}$. What is the speed of the current, in km/h?",
-    "answer": 3.0,
+    "answer": 3,
     "unit": "km/h",
     "solution": "Downstream the ground speed is $18\\ \\mathrm{km/h}$ and upstream $12\\ \\mathrm{km/h}$. These are $v_b + v_c$ and $v_b - v_c$, so $v_c = \\frac{18-12}{2} = 3.0\\ \\mathrm{km/h}$."
   },
@@ -2473,7 +2473,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A person walking up a stationary escalator takes $30\\ \\mathrm{s}$. Standing still on the moving escalator takes $45\\ \\mathrm{s}$. How long does it take if he walks up the moving escalator, in s?",
-    "answer": 18.0,
+    "answer": 18,
     "unit": "s",
     "solution": "Speeds add, so the rates add: $\\frac{1}{t} = \\frac{1}{30} + \\frac{1}{45} = \\frac{1}{18}$, giving $t = 18\\ \\mathrm{s}$."
   },
@@ -2560,7 +2560,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A man walking east at $3.0\\ \\mathrm{m/s}$ finds that the rain appears to fall exactly vertically. When he speeds up to $6.0\\ \\mathrm{m/s}$ east, it appears to come from ahead at $30^\\circ$ from the vertical. What is the rain's actual speed relative to the ground, in m/s?",
-    "answer": 6.0,
+    "answer": 6,
     "unit": "m/s",
     "solution": "Rain appearing vertical at $3.0\\ \\mathrm{m/s}$ means the rain has a $3.0\\ \\mathrm{m/s}$ eastward component. At $6.0\\ \\mathrm{m/s}$ the apparent horizontal component is $3.0\\ \\mathrm{m/s}$ backwards, so $\\tan 30^\\circ = \\frac{3.0}{v_y}$, giving $v_y = 5.196\\ \\mathrm{m/s}$. The true speed is $\\sqrt{9 + 27} = 6.0\\ \\mathrm{m/s}$."
   },
@@ -2595,7 +2595,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Four ants start at the corners of a square of side $1.50\\ \\mathrm{m}$. Each crawls at a constant $0.020\\ \\mathrm{m/s}$ always aimed directly at the ant counterclockwise from it. How long until they meet at the centre, in s?",
-    "answer": 75.0,
+    "answer": 75,
     "unit": "s",
     "solution": "By symmetry each ant's target moves perpendicular to the line joining them, so that motion never changes the separation. The gap between adjacent ants therefore closes at the full rate $v$, and the time is $\\frac{a}{v} = \\frac{1.50}{0.020} = 75\\ \\mathrm{s}$, even though the paths are spirals."
   },

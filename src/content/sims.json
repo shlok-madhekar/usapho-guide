@@ -333,27 +333,27 @@
         "label": "Mass",
         "unit": "kg",
         "min": 0.2,
-        "max": 3.0,
+        "max": 3,
         "step": 0.1,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "v",
         "label": "Speed",
         "unit": "m/s",
-        "min": 1.0,
-        "max": 8.0,
+        "min": 1,
+        "max": 8,
         "step": 0.5,
-        "value": 4.0
+        "value": 4
       },
       {
         "key": "d",
         "label": "Perpendicular offset of O",
         "unit": "m",
-        "min": 0.0,
-        "max": 3.0,
+        "min": 0,
+        "max": 3,
         "step": 0.1,
-        "value": 3.0
+        "value": 3
       }
     ],
     "draw": "var F = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar d = p.d;\nvar v = p.v;\nvar m = p.m;\nvar ox = W * 0.16, oy = H * 0.78;\nvar pxPerM = Math.min(W / 9.0, H / 4.5);\nvar lineY = oy - d * pxPerM;\n\nctx.lineWidth = 1;\nctx.strokeStyle = C.faint;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(W * 0.03, lineY); ctx.lineTo(W * 0.97, lineY); ctx.stroke();\nctx.setLineDash([]);\n\nvar cycle = 4.0;\nvar frac = (t % cycle) / cycle;\nvar bx = W * 0.06 + frac * W * 0.88;\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(bx, lineY); ctx.stroke();\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox, lineY); ctx.stroke();\nctx.beginPath();\nctx.moveTo(ox - 4, lineY + 8); ctx.lineTo(ox, lineY); ctx.lineTo(ox + 4, lineY + 8);\nctx.stroke();\n\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(bx, lineY, 7, 0, Math.PI * 2); ctx.fill();\n\nctx.strokeStyle = C.ink;\nctx.lineWidth = 2;\nvar av = 34;\nctx.beginPath();\nctx.moveTo(bx + 9, lineY); ctx.lineTo(bx + 9 + av, lineY);\nctx.moveTo(bx + 9 + av, lineY); ctx.lineTo(bx + 9 + av - 6, lineY - 4);\nctx.moveTo(bx + 9 + av, lineY); ctx.lineTo(bx + 9 + av - 6, lineY + 4);\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(ox, oy, 3.5, 0, Math.PI * 2); ctx.fill();\n\nctx.font = F;\nctx.textAlign = \"left\";\nctx.fillStyle = C.ink;\nctx.fillText(\"O\", ox + 7, oy + 5);\nctx.fillText(\"v = \" + v.toFixed(1) + \" m/s\", bx + 14 + av, lineY - 6);\nctx.fillText(\"m = \" + m.toFixed(2) + \" kg\", bx - 14, lineY - 14);\nctx.fillStyle = C.accent;\nctx.fillText(\"r-perp = \" + d.toFixed(1) + \" m\", ox + 8, (oy + lineY) / 2);\nctx.fillStyle = C.rule;\nctx.fillText(\"r\", (ox + bx) / 2, (oy + lineY) / 2 - 6);\nctx.fillStyle = C.faint;\nctx.fillText(\"line of motion\", W * 0.72, lineY - 10);\n\nout.note = \"L = m v r-perp = \" + (m * v * d).toFixed(2) + \" kg m^2/s about O, constant as the ball moves\";"
@@ -368,28 +368,28 @@
         "key": "L",
         "label": "Angular momentum (held fixed)",
         "unit": "kg m^2/s",
-        "min": 2.0,
-        "max": 16.0,
+        "min": 2,
+        "max": 16,
         "step": 0.5,
-        "value": 8.0
+        "value": 8
       },
       {
         "key": "Icore",
         "label": "Body moment of inertia",
         "unit": "kg m^2",
         "min": 0.2,
-        "max": 3.0,
+        "max": 3,
         "step": 0.1,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "marm",
         "label": "Mass in each arm",
         "unit": "kg",
         "min": 0.5,
-        "max": 5.0,
+        "max": 5,
         "step": 0.5,
-        "value": 3.0
+        "value": 3
       },
       {
         "key": "r",
@@ -398,7 +398,7 @@
         "min": 0.15,
         "max": 1.2,
         "step": 0.05,
-        "value": 1.0
+        "value": 1
       }
     ],
     "draw": "var F = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar Icore = p.Icore, marm = p.marm, r = p.r, L = p.L;\nvar I = Icore + 2 * marm * r * r;\nvar w = L / I;\nvar KE = 0.5 * L * w;\n\nvar cx = W * 0.5, cy = H * 0.55;\nvar pxPerM = Math.min(W * 0.40, H * 0.36) / 1.2;\nvar ang = w * t * 0.35;\n\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.arc(cx, cy, r * pxPerM, 0, Math.PI * 2); ctx.stroke();\nctx.setLineDash([]);\n\nvar coreR = Math.max(8, 0.22 * pxPerM);\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(cx, cy, coreR, 0, Math.PI * 2); ctx.fill();\n\nvar i;\nfor (i = 0; i < 2; i++) {\n  var a = ang + i * Math.PI;\n  var ax = cx + Math.cos(a) * r * pxPerM;\n  var ay = cy + Math.sin(a) * r * pxPerM;\n  ctx.strokeStyle = C.rule;\n  ctx.lineWidth = 3;\n  ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ax, ay); ctx.stroke();\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(ax, ay, Math.max(5, 4 + marm * 3), 0, Math.PI * 2); ctx.fill();\n}\n\nvar a0 = ang;\nvar hx = cx + Math.cos(a0) * r * pxPerM;\nvar hy = cy + Math.sin(a0) * r * pxPerM;\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1.5;\nctx.beginPath();\nctx.moveTo(cx, cy);\nctx.lineTo(cx + Math.cos(a0) * r * pxPerM * 0.55, cy + Math.sin(a0) * r * pxPerM * 0.55);\nctx.stroke();\n\nctx.font = F;\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"r = \" + r.toFixed(2) + \" m\", cx, cy - coreR - 8);\nctx.textAlign = \"left\";\nctx.fillStyle = C.accent;\nctx.fillText(\"arm mass \" + marm.toFixed(1) + \" kg\", W * 0.03, H * 0.12);\nctx.fillStyle = C.ink;\nctx.fillText(\"I = \" + I.toFixed(2) + \" kg m^2\", W * 0.03, H * 0.12 + 15);\nctx.fillText(\"omega = \" + w.toFixed(2) + \" rad/s\", W * 0.03, H * 0.12 + 30);\nctx.fillStyle = C.faint;\nctx.textAlign = \"right\";\nctx.fillText(\"L held fixed at \" + L.toFixed(1) + \" kg m^2/s\", W * 0.97, H * 0.12);\n\nout.note = \"I = \" + I.toFixed(3) + \" kg m^2, omega = L/I = \" + w.toFixed(2) + \" rad/s, K = L^2/2I = \" + KE.toFixed(2) + \" J\";"
@@ -414,9 +414,9 @@
         "label": "Rod mass",
         "unit": "kg",
         "min": 0.5,
-        "max": 4.0,
+        "max": 4,
         "step": 0.1,
-        "value": 2.0
+        "value": 2
       },
       {
         "key": "Lrod",
@@ -425,7 +425,7 @@
         "min": 0.4,
         "max": 1.6,
         "step": 0.1,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "mb",
@@ -449,7 +449,7 @@
         "key": "f",
         "label": "Pivot position along rod (0.5 = centre)",
         "unit": "",
-        "min": 0.0,
+        "min": 0,
         "max": 0.5,
         "step": 0.05,
         "value": 0.5
@@ -473,7 +473,7 @@
         "value": 10
       }
     ],
-    "draw": "var pad = 40, x0 = pad, x1 = W - 14, yb = H - 26, yt = 16;\nvar xmaxDeg = 90, ymax = 1.6;\nfunction X(d) { return x0 + (d / xmaxDeg) * (x1 - x0); }\nfunction Y(v) { return yb - (v / ymax) * (yb - yt); }\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\n// axes\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(x0, yt); ctx.lineTo(x0, yb); ctx.lineTo(x1, yb); ctx.stroke();\nctx.fillStyle = C.faint;\nfor (var d = 0; d <= 90; d += 30) {\n  ctx.beginPath(); ctx.moveTo(X(d), yb); ctx.lineTo(X(d), yb + 4); ctx.stroke();\n  ctx.fillText(d + \"\u00b0\", X(d) - 8, yb + 17);\n}\nfor (var v = 0.5; v <= 1.5001; v += 0.5) {\n  ctx.beginPath(); ctx.moveTo(x0 - 4, Y(v)); ctx.lineTo(x0, Y(v)); ctx.stroke();\n  ctx.fillText(v.toFixed(1), 8, Y(v) + 4);\n}\n\nfunction curve(f, color, dash) {\n  ctx.strokeStyle = color; ctx.lineWidth = 1.8;\n  ctx.setLineDash(dash);\n  ctx.beginPath();\n  for (var i = 0; i <= 120; i++) {\n    var dd = xmaxDeg * i / 120, r = dd * Math.PI / 180;\n    var xx = X(dd), yy = Y(f(r));\n    if (i === 0) ctx.moveTo(xx, yy); else ctx.lineTo(xx, yy);\n  }\n  ctx.stroke();\n  ctx.setLineDash([]);\n}\n\ncurve(function (r) { return r; }, C.faint, [4, 4]);\ncurve(function (r) { return r - r * r * r / 6; }, C.figure, [2, 3]);\ncurve(function (r) { return Math.sin(r); }, C.ink, []);\n\n// labels on curves\nctx.fillStyle = C.faint; ctx.fillText(\"y = \u03b8\", X(62), Y(1.20));\nctx.fillStyle = C.figure; ctx.fillText(\"\u03b8 \u2212 \u03b8\u00b3/6\", X(64), Y(0.72));\nctx.fillStyle = C.ink; ctx.fillText(\"sin \u03b8\", X(70), Y(1.02));\n\n// marker at the chosen angle, with a breathing highlight of the gap\nvar deg = p.theta, rad = deg * Math.PI / 180;\nvar s = Math.sin(rad);\nvar xm = X(deg);\nctx.strokeStyle = C.rule; ctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(xm, yt); ctx.lineTo(xm, yb); ctx.stroke();\nctx.setLineDash([]);\n\nvar pulse = 1.5 + 1.5 * (0.5 + 0.5 * Math.sin(2 * t));\nctx.strokeStyle = C.accent; ctx.lineWidth = pulse;\nctx.beginPath(); ctx.moveTo(xm, Y(s)); ctx.lineTo(xm, Y(rad)); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(xm, Y(s), 3.5, 0, 6.2832); ctx.fill();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(xm, Y(rad), 3.5, 0, 6.2832); ctx.fill();\n\nvar err = (rad - s) / s * 100;\nout.note = \"\u03b8 = \" + deg.toFixed(0) + \"\u00b0 = \" + rad.toFixed(4) +\n  \" rad,  sin \u03b8 = \" + s.toFixed(4) +\n  \",  error of \u03b8 \u2248 sin \u03b8: \" + err.toFixed(2) + \"%\";"
+    "draw": "var pad = 40, x0 = pad, x1 = W - 14, yb = H - 26, yt = 16;\nvar xmaxDeg = 90, ymax = 1.6;\nfunction X(d) { return x0 + (d / xmaxDeg) * (x1 - x0); }\nfunction Y(v) { return yb - (v / ymax) * (yb - yt); }\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\n// axes\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(x0, yt); ctx.lineTo(x0, yb); ctx.lineTo(x1, yb); ctx.stroke();\nctx.fillStyle = C.faint;\nfor (var d = 0; d <= 90; d += 30) {\n  ctx.beginPath(); ctx.moveTo(X(d), yb); ctx.lineTo(X(d), yb + 4); ctx.stroke();\n  ctx.fillText(d + \"°\", X(d) - 8, yb + 17);\n}\nfor (var v = 0.5; v <= 1.5001; v += 0.5) {\n  ctx.beginPath(); ctx.moveTo(x0 - 4, Y(v)); ctx.lineTo(x0, Y(v)); ctx.stroke();\n  ctx.fillText(v.toFixed(1), 8, Y(v) + 4);\n}\n\nfunction curve(f, color, dash) {\n  ctx.strokeStyle = color; ctx.lineWidth = 1.8;\n  ctx.setLineDash(dash);\n  ctx.beginPath();\n  for (var i = 0; i <= 120; i++) {\n    var dd = xmaxDeg * i / 120, r = dd * Math.PI / 180;\n    var xx = X(dd), yy = Y(f(r));\n    if (i === 0) ctx.moveTo(xx, yy); else ctx.lineTo(xx, yy);\n  }\n  ctx.stroke();\n  ctx.setLineDash([]);\n}\n\ncurve(function (r) { return r; }, C.faint, [4, 4]);\ncurve(function (r) { return r - r * r * r / 6; }, C.figure, [2, 3]);\ncurve(function (r) { return Math.sin(r); }, C.ink, []);\n\n// labels on curves\nctx.fillStyle = C.faint; ctx.fillText(\"y = θ\", X(62), Y(1.20));\nctx.fillStyle = C.figure; ctx.fillText(\"θ − θ³/6\", X(64), Y(0.72));\nctx.fillStyle = C.ink; ctx.fillText(\"sin θ\", X(70), Y(1.02));\n\n// marker at the chosen angle, with a breathing highlight of the gap\nvar deg = p.theta, rad = deg * Math.PI / 180;\nvar s = Math.sin(rad);\nvar xm = X(deg);\nctx.strokeStyle = C.rule; ctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(xm, yt); ctx.lineTo(xm, yb); ctx.stroke();\nctx.setLineDash([]);\n\nvar pulse = 1.5 + 1.5 * (0.5 + 0.5 * Math.sin(2 * t));\nctx.strokeStyle = C.accent; ctx.lineWidth = pulse;\nctx.beginPath(); ctx.moveTo(xm, Y(s)); ctx.lineTo(xm, Y(rad)); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(xm, Y(s), 3.5, 0, 6.2832); ctx.fill();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(xm, Y(rad), 3.5, 0, 6.2832); ctx.fill();\n\nvar err = (rad - s) / s * 100;\nout.note = \"θ = \" + deg.toFixed(0) + \"° = \" + rad.toFixed(4) +\n  \" rad,  sin θ = \" + s.toFixed(4) +\n  \",  error of θ ≈ sin θ: \" + err.toFixed(2) + \"%\";"
   },
   {
     "id": "approximations-binomial",
@@ -500,7 +500,7 @@
         "value": 0.1
       }
     ],
-    "draw": "var pad = 44, x0 = pad, x1 = W - 14, yb = H - 26, yt = 16;\nvar xlim = 0.5;\nvar n = p.n;\nfunction X(v) { return x0 + ((v + xlim) / (2 * xlim)) * (x1 - x0); }\nvar lo = Math.min(Math.pow(1 - xlim, n), Math.pow(1 + xlim, n), 1 - n * xlim, 1 + n * xlim);\nvar hi = Math.max(Math.pow(1 - xlim, n), Math.pow(1 + xlim, n), 1 - n * xlim, 1 + n * xlim);\nvar span = Math.max(hi - lo, 0.4), mid = (hi + lo) / 2;\nvar vlo = mid - span * 0.62, vhi = mid + span * 0.62;\nfunction Y(v) { return yb - ((v - vlo) / (vhi - vlo)) * (yb - yt); }\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x0, yt); ctx.lineTo(x0, yb); ctx.lineTo(x1, yb); ctx.stroke();\nctx.fillStyle = C.faint;\nfor (var d = -0.5; d <= 0.5001; d += 0.25) {\n  ctx.beginPath(); ctx.moveTo(X(d), yb); ctx.lineTo(X(d), yb + 4); ctx.stroke();\n  ctx.fillText(d.toFixed(2), X(d) - 12, yb + 17);\n}\nctx.fillText(\"x\", (x0 + x1) / 2 - 3, yb + 17 + 0);\nctx.fillText(vhi.toFixed(2), 6, Y(vhi) + 10);\nctx.fillText(vlo.toFixed(2), 6, Y(vlo) - 2);\n\n// true curve\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.8;\nctx.beginPath();\nfor (var i = 0; i <= 120; i++) {\n  var xx = -xlim + 2 * xlim * i / 120;\n  var yy = Math.pow(1 + xx, n);\n  if (i === 0) ctx.moveTo(X(xx), Y(yy)); else ctx.lineTo(X(xx), Y(yy));\n}\nctx.stroke();\n\n// tangent line\nctx.strokeStyle = C.accent; ctx.lineWidth = 1.8; ctx.setLineDash([5, 4]);\nctx.beginPath();\nctx.moveTo(X(-xlim), Y(1 - n * xlim));\nctx.lineTo(X(xlim), Y(1 + n * xlim));\nctx.stroke(); ctx.setLineDash([]);\n\nctx.fillStyle = C.ink; ctx.fillText(\"(1+x)\u207f\", X(0.22), Y(Math.pow(1.22, n)) - 8);\nctx.fillStyle = C.accent; ctx.fillText(\"1 + nx\", X(-0.46), Y(1 - n * 0.46) + 16);\n\n// the reader's point, with a pulsing error bar\nvar xs = p.x;\nvar exact = Math.pow(1 + xs, n), approx = 1 + n * xs;\nctx.strokeStyle = C.rule; ctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(xs), yt); ctx.lineTo(X(xs), yb); ctx.stroke();\nctx.setLineDash([]);\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.5 + 1.5 * (0.5 + 0.5 * Math.sin(2 * t));\nctx.beginPath(); ctx.moveTo(X(xs), Y(exact)); ctx.lineTo(X(xs), Y(approx)); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(X(xs), Y(exact), 3.5, 0, 6.2832); ctx.fill();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(xs), Y(approx), 3.5, 0, 6.2832); ctx.fill();\n\nvar err = exact === 0 ? 0 : (approx - exact) / exact * 100;\nout.note = \"n = \" + n.toFixed(2) + \", x = \" + xs.toFixed(2) +\n  \":  exact \" + exact.toFixed(4) + \",  1+nx = \" + approx.toFixed(4) +\n  \",  error \" + err.toFixed(2) + \"%\";"
+    "draw": "var pad = 44, x0 = pad, x1 = W - 14, yb = H - 26, yt = 16;\nvar xlim = 0.5;\nvar n = p.n;\nfunction X(v) { return x0 + ((v + xlim) / (2 * xlim)) * (x1 - x0); }\nvar lo = Math.min(Math.pow(1 - xlim, n), Math.pow(1 + xlim, n), 1 - n * xlim, 1 + n * xlim);\nvar hi = Math.max(Math.pow(1 - xlim, n), Math.pow(1 + xlim, n), 1 - n * xlim, 1 + n * xlim);\nvar span = Math.max(hi - lo, 0.4), mid = (hi + lo) / 2;\nvar vlo = mid - span * 0.62, vhi = mid + span * 0.62;\nfunction Y(v) { return yb - ((v - vlo) / (vhi - vlo)) * (yb - yt); }\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(x0, yt); ctx.lineTo(x0, yb); ctx.lineTo(x1, yb); ctx.stroke();\nctx.fillStyle = C.faint;\nfor (var d = -0.5; d <= 0.5001; d += 0.25) {\n  ctx.beginPath(); ctx.moveTo(X(d), yb); ctx.lineTo(X(d), yb + 4); ctx.stroke();\n  ctx.fillText(d.toFixed(2), X(d) - 12, yb + 17);\n}\nctx.fillText(\"x\", (x0 + x1) / 2 - 3, yb + 17 + 0);\nctx.fillText(vhi.toFixed(2), 6, Y(vhi) + 10);\nctx.fillText(vlo.toFixed(2), 6, Y(vlo) - 2);\n\n// true curve\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.8;\nctx.beginPath();\nfor (var i = 0; i <= 120; i++) {\n  var xx = -xlim + 2 * xlim * i / 120;\n  var yy = Math.pow(1 + xx, n);\n  if (i === 0) ctx.moveTo(X(xx), Y(yy)); else ctx.lineTo(X(xx), Y(yy));\n}\nctx.stroke();\n\n// tangent line\nctx.strokeStyle = C.accent; ctx.lineWidth = 1.8; ctx.setLineDash([5, 4]);\nctx.beginPath();\nctx.moveTo(X(-xlim), Y(1 - n * xlim));\nctx.lineTo(X(xlim), Y(1 + n * xlim));\nctx.stroke(); ctx.setLineDash([]);\n\nctx.fillStyle = C.ink; ctx.fillText(\"(1+x)ⁿ\", X(0.22), Y(Math.pow(1.22, n)) - 8);\nctx.fillStyle = C.accent; ctx.fillText(\"1 + nx\", X(-0.46), Y(1 - n * 0.46) + 16);\n\n// the reader's point, with a pulsing error bar\nvar xs = p.x;\nvar exact = Math.pow(1 + xs, n), approx = 1 + n * xs;\nctx.strokeStyle = C.rule; ctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(xs), yt); ctx.lineTo(X(xs), yb); ctx.stroke();\nctx.setLineDash([]);\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.5 + 1.5 * (0.5 + 0.5 * Math.sin(2 * t));\nctx.beginPath(); ctx.moveTo(X(xs), Y(exact)); ctx.lineTo(X(xs), Y(approx)); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(X(xs), Y(exact), 3.5, 0, 6.2832); ctx.fill();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(xs), Y(approx), 3.5, 0, 6.2832); ctx.fill();\n\nvar err = exact === 0 ? 0 : (approx - exact) / exact * 100;\nout.note = \"n = \" + n.toFixed(2) + \", x = \" + xs.toFixed(2) +\n  \":  exact \" + exact.toFixed(4) + \",  1+nx = \" + approx.toFixed(4) +\n  \",  error \" + err.toFixed(2) + \"%\";"
   },
   {
     "id": "approximations-tide",
@@ -518,7 +518,7 @@
         "value": 30
       }
     ],
-    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar cx = W * 0.30, cy = H * 0.42, Rp = Math.min(W, H) * 0.16;\n\n// Earth\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.8;\nctx.beginPath(); ctx.arc(cx, cy, Rp, 0, 6.2832); ctx.stroke();\nctx.fillStyle = C.ink; ctx.fillText(\"Earth\", cx - 16, cy + 4);\nctx.fillStyle = C.faint; ctx.fillText(\"radius R\", cx - 24, cy + 18);\n\n// Moon direction marker on the right\nctx.strokeStyle = C.faint; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(cx + Rp, cy); ctx.lineTo(W - 12, cy); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"to Moon, distance d\", W - 132, cy - 8);\n\nfunction arrow(x, y, len, color, wid) {\n  ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = wid;\n  ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + len, y); ctx.stroke();\n  var s = len > 0 ? 1 : -1, hx = x + len;\n  ctx.beginPath();\n  ctx.moveTo(hx, y); ctx.lineTo(hx - 7 * s, y - 4); ctx.lineTo(hx - 7 * s, y + 4);\n  ctx.closePath(); ctx.fill();\n}\n\n// three nearly equal pulls\nvar base = W * 0.20;\nvar ys = [cy - Rp * 0.0 - 0, cy, cy];\nvar near = cx + Rp, far = cx - Rp;\nvar yNear = cy - 46, yCen = cy - 4, yFar = cy + 38;\n\nctx.fillStyle = C.ink;\nctx.fillText(\"Moon's pull on three points, drawn to scale:\", 12, 18);\n\narrow(near + 6, yNear, base * 1.02, C.figure, 2);\nctx.fillStyle = C.figure; ctx.fillText(\"near side:  GM/(d\u2212R)\u00b2\", near + 10, yNear - 8);\n\narrow(cx + 6, yCen, base, C.figure, 2);\nctx.fillStyle = C.figure; ctx.fillText(\"centre:  GM/d\u00b2\", cx + 10, yCen - 8);\n\narrow(far + 6, yFar, base * 0.98, C.figure, 2);\nctx.fillStyle = C.figure; ctx.fillText(\"far side:  GM/(d+R)\u00b2\", far + 10, yFar - 8);\n\n// residual after subtracting the centre value\nvar ry = H - 30;\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(12, ry - 26); ctx.lineTo(W - 12, ry - 26); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"subtract the centre arrow from each, then magnify \u00d7\" + p.mag.toFixed(0) + \":\", 12, ry - 11);\n\nvar resid = base * 0.02 * p.mag / 30;\narrow(cx + Rp + 6, ry + 6, resid, C.accent, 2.4);\narrow(cx - Rp - 6, ry + 6, -resid, C.accent, 2.4);\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(cx, ry + 6, Rp * 0.35, 0, 6.2832); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"2GMR/d\u00b3 outward, both ends: a stretch\", cx + Rp + 14, ry + 22);\n\nout.note = \"Each long arrow is about 3.3e-5 m/s\u00b2; the difference between them is only 1.1e-6 m/s\u00b2, about 3% as long. Shown magnified \u00d7\" + p.mag.toFixed(0) + \".\";"
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar cx = W * 0.30, cy = H * 0.42, Rp = Math.min(W, H) * 0.16;\n\n// Earth\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.8;\nctx.beginPath(); ctx.arc(cx, cy, Rp, 0, 6.2832); ctx.stroke();\nctx.fillStyle = C.ink; ctx.fillText(\"Earth\", cx - 16, cy + 4);\nctx.fillStyle = C.faint; ctx.fillText(\"radius R\", cx - 24, cy + 18);\n\n// Moon direction marker on the right\nctx.strokeStyle = C.faint; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(cx + Rp, cy); ctx.lineTo(W - 12, cy); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"to Moon, distance d\", W - 132, cy - 8);\n\nfunction arrow(x, y, len, color, wid) {\n  ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = wid;\n  ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + len, y); ctx.stroke();\n  var s = len > 0 ? 1 : -1, hx = x + len;\n  ctx.beginPath();\n  ctx.moveTo(hx, y); ctx.lineTo(hx - 7 * s, y - 4); ctx.lineTo(hx - 7 * s, y + 4);\n  ctx.closePath(); ctx.fill();\n}\n\n// three nearly equal pulls\nvar base = W * 0.20;\nvar ys = [cy - Rp * 0.0 - 0, cy, cy];\nvar near = cx + Rp, far = cx - Rp;\nvar yNear = cy - 46, yCen = cy - 4, yFar = cy + 38;\n\nctx.fillStyle = C.ink;\nctx.fillText(\"Moon's pull on three points, drawn to scale:\", 12, 18);\n\narrow(near + 6, yNear, base * 1.02, C.figure, 2);\nctx.fillStyle = C.figure; ctx.fillText(\"near side:  GM/(d−R)²\", near + 10, yNear - 8);\n\narrow(cx + 6, yCen, base, C.figure, 2);\nctx.fillStyle = C.figure; ctx.fillText(\"centre:  GM/d²\", cx + 10, yCen - 8);\n\narrow(far + 6, yFar, base * 0.98, C.figure, 2);\nctx.fillStyle = C.figure; ctx.fillText(\"far side:  GM/(d+R)²\", far + 10, yFar - 8);\n\n// residual after subtracting the centre value\nvar ry = H - 30;\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(12, ry - 26); ctx.lineTo(W - 12, ry - 26); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"subtract the centre arrow from each, then magnify ×\" + p.mag.toFixed(0) + \":\", 12, ry - 11);\n\nvar resid = base * 0.02 * p.mag / 30;\narrow(cx + Rp + 6, ry + 6, resid, C.accent, 2.4);\narrow(cx - Rp - 6, ry + 6, -resid, C.accent, 2.4);\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(cx, ry + 6, Rp * 0.35, 0, 6.2832); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.fillText(\"2GMR/d³ outward, both ends: a stretch\", cx + Rp + 14, ry + 22);\n\nout.note = \"Each long arrow is about 3.3e-5 m/s²; the difference between them is only 1.1e-6 m/s², about 3% as long. Shown magnified ×\" + p.mag.toFixed(0) + \".\";"
   },
   {
     "id": "banked-curves-fbd",
@@ -612,7 +612,7 @@
         "label": "Ball mass",
         "unit": "kg",
         "min": 0.1,
-        "max": 2.0,
+        "max": 2,
         "step": 0.1,
         "value": 0.5
       }
@@ -716,7 +716,7 @@
         "value": 56
       }
     ],
-    "draw": "var av=15.75, as_=17.8, ac=0.711, asym=23.7;\nfunction pair(A,Z){ var N=A-Z; if(Z%2===0&&N%2===0) return 12/Math.sqrt(A); if(Z%2===1&&N%2===1) return -12/Math.sqrt(A); return 0; }\nfunction Bof(A,Z){ return av*A - as_*Math.pow(A,2/3) - ac*Z*(Z-1)/Math.pow(A,1/3) - asym*(A-2*Z)*(A-2*Z)/A + pair(A,Z); }\nfunction Zbest(A){ return Math.max(1, Math.round(A/(2+0.015*Math.pow(A,2/3)))); }\n\nvar padL=44, padR=14, padT=16, padB=30;\nvar Amax=250, Bmax=10;\nfunction X(a){ return padL + (a/Amax)*(W-padL-padR); }\nfunction Y(b){ return H-padB - (b/Bmax)*(H-padT-padB); }\n\nctx.lineWidth=1;\nctx.strokeStyle=C.faint;\nctx.font=\"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle=C.figure;\nfor(var b=2;b<=8;b+=2){\n  ctx.beginPath(); ctx.moveTo(padL,Y(b)); ctx.lineTo(W-padR,Y(b)); ctx.stroke();\n  ctx.textAlign=\"right\"; ctx.fillText(b.toFixed(0), padL-6, Y(b)+4);\n}\nctx.strokeStyle=C.rule;\nctx.beginPath(); ctx.moveTo(padL,Y(0)); ctx.lineTo(W-padR,Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(padL,Y(0)); ctx.lineTo(padL,padT); ctx.stroke();\nctx.textAlign=\"center\";\nfor(var a=50;a<=250;a+=50){ ctx.fillText(String(a), X(a), H-padB+15); }\nctx.fillText(\"mass number A\", (padL+W-padR)/2, H-4);\nctx.save(); ctx.translate(11,(padT+H-padB)/2); ctx.rotate(-Math.PI/2);\nctx.fillText(\"B/A  (MeV per nucleon)\",0,0); ctx.restore();\n\nctx.strokeStyle=C.accent; ctx.lineWidth=2; ctx.beginPath();\nfor(var A=4;A<=Amax;A+=1){\n  var z=Zbest(A); var ba=Bof(A,z)/A;\n  if(A===4) ctx.moveTo(X(A),Y(ba)); else ctx.lineTo(X(A),Y(ba));\n}\nctx.stroke();\n\nvar Ap=56, zp=Zbest(56), bp=Bof(56,zp)/56;\nctx.strokeStyle=C.rule; ctx.lineWidth=1; ctx.setLineDash([3,4]);\nctx.beginPath(); ctx.moveTo(X(Ap),Y(0)); ctx.lineTo(X(Ap),Y(bp)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle=C.figure; ctx.textAlign=\"left\";\nctx.fillText(\"iron-56, the peak\", X(Ap)+6, Y(bp)-8);\n\nvar As=Math.round(p.A); var Zs=Zbest(As); var Bs=Bof(As,Zs); var bas=Bs/As;\nctx.fillStyle=C.ink;\nctx.beginPath(); ctx.arc(X(As),Y(bas),5,0,Math.PI*2); ctx.fill();\nctx.textAlign = As>170 ? \"right\" : \"left\";\nctx.fillText(\"A=\"+As, X(As)+(As>170?-8:8), Y(bas)+16);\n\nctx.fillStyle=C.figure; ctx.textAlign=\"center\";\nctx.fillText(\"fusion runs this way \u2192\", X(28), Y(2.0));\nctx.fillText(\"\u2190 fission runs this way\", X(190), Y(2.0));\n\nout.note = \"A = \"+As+\", most stable Z \u2248 \"+Zs+\"   B/A = \"+bas.toFixed(2)+\" MeV   total B = \"+Bs.toFixed(0)+\" MeV\";"
+    "draw": "var av=15.75, as_=17.8, ac=0.711, asym=23.7;\nfunction pair(A,Z){ var N=A-Z; if(Z%2===0&&N%2===0) return 12/Math.sqrt(A); if(Z%2===1&&N%2===1) return -12/Math.sqrt(A); return 0; }\nfunction Bof(A,Z){ return av*A - as_*Math.pow(A,2/3) - ac*Z*(Z-1)/Math.pow(A,1/3) - asym*(A-2*Z)*(A-2*Z)/A + pair(A,Z); }\nfunction Zbest(A){ return Math.max(1, Math.round(A/(2+0.015*Math.pow(A,2/3)))); }\n\nvar padL=44, padR=14, padT=16, padB=30;\nvar Amax=250, Bmax=10;\nfunction X(a){ return padL + (a/Amax)*(W-padL-padR); }\nfunction Y(b){ return H-padB - (b/Bmax)*(H-padT-padB); }\n\nctx.lineWidth=1;\nctx.strokeStyle=C.faint;\nctx.font=\"12px ui-sans-serif, system-ui, sans-serif\";\nctx.fillStyle=C.figure;\nfor(var b=2;b<=8;b+=2){\n  ctx.beginPath(); ctx.moveTo(padL,Y(b)); ctx.lineTo(W-padR,Y(b)); ctx.stroke();\n  ctx.textAlign=\"right\"; ctx.fillText(b.toFixed(0), padL-6, Y(b)+4);\n}\nctx.strokeStyle=C.rule;\nctx.beginPath(); ctx.moveTo(padL,Y(0)); ctx.lineTo(W-padR,Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(padL,Y(0)); ctx.lineTo(padL,padT); ctx.stroke();\nctx.textAlign=\"center\";\nfor(var a=50;a<=250;a+=50){ ctx.fillText(String(a), X(a), H-padB+15); }\nctx.fillText(\"mass number A\", (padL+W-padR)/2, H-4);\nctx.save(); ctx.translate(11,(padT+H-padB)/2); ctx.rotate(-Math.PI/2);\nctx.fillText(\"B/A  (MeV per nucleon)\",0,0); ctx.restore();\n\nctx.strokeStyle=C.accent; ctx.lineWidth=2; ctx.beginPath();\nfor(var A=4;A<=Amax;A+=1){\n  var z=Zbest(A); var ba=Bof(A,z)/A;\n  if(A===4) ctx.moveTo(X(A),Y(ba)); else ctx.lineTo(X(A),Y(ba));\n}\nctx.stroke();\n\nvar Ap=56, zp=Zbest(56), bp=Bof(56,zp)/56;\nctx.strokeStyle=C.rule; ctx.lineWidth=1; ctx.setLineDash([3,4]);\nctx.beginPath(); ctx.moveTo(X(Ap),Y(0)); ctx.lineTo(X(Ap),Y(bp)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle=C.figure; ctx.textAlign=\"left\";\nctx.fillText(\"iron-56, the peak\", X(Ap)+6, Y(bp)-8);\n\nvar As=Math.round(p.A); var Zs=Zbest(As); var Bs=Bof(As,Zs); var bas=Bs/As;\nctx.fillStyle=C.ink;\nctx.beginPath(); ctx.arc(X(As),Y(bas),5,0,Math.PI*2); ctx.fill();\nctx.textAlign = As>170 ? \"right\" : \"left\";\nctx.fillText(\"A=\"+As, X(As)+(As>170?-8:8), Y(bas)+16);\n\nctx.fillStyle=C.figure; ctx.textAlign=\"center\";\nctx.fillText(\"fusion runs this way →\", X(28), Y(2.0));\nctx.fillText(\"← fission runs this way\", X(190), Y(2.0));\n\nout.note = \"A = \"+As+\", most stable Z ≈ \"+Zs+\"   B/A = \"+bas.toFixed(2)+\" MeV   total B = \"+Bs.toFixed(0)+\" MeV\";"
   },
   {
     "id": "binding-energy-defect",
@@ -743,7 +743,7 @@
         "value": 2
       }
     ],
-    "draw": "var av=15.75, as_=17.8, ac=0.711, asym=23.7;\nfunction pair(A,Z){ var N=A-Z; if(Z%2===0&&N%2===0) return 12/Math.sqrt(A); if(Z%2===1&&N%2===1) return -12/Math.sqrt(A); return 0; }\nvar Z=Math.round(p.Z), N=Math.round(p.N), A=Z+N;\nvar B = av*A - as_*Math.pow(A,2/3) - ac*Z*(Z-1)/Math.pow(A,1/3) - asym*(A-2*Z)*(A-2*Z)/A + pair(A,Z);\nif(B<0) B=0;\nvar mH=1.007825, mn=1.008665;\nvar parts = Z*mH + N*mn;\nvar mass = parts - B/931.5;\n\nctx.font=\"12px ui-sans-serif, system-ui, sans-serif\";\nvar padT=26, padB=42;\nvar base=H-padB;\nvar top=padT;\nvar scale=(base-top)/parts;\nvar wBar=Math.min(90,(W-140)/2);\nvar x1=W*0.24-wBar/2, x2=W*0.68-wBar/2;\n\nctx.fillStyle=C.faint;\nctx.fillRect(x1, base-parts*scale, wBar, parts*scale);\nctx.strokeStyle=C.rule; ctx.lineWidth=1;\nctx.strokeRect(x1, base-parts*scale, wBar, parts*scale);\n\nctx.fillStyle=C.accent;\nctx.fillRect(x2, base-mass*scale, wBar, mass*scale);\nctx.strokeRect(x2, base-mass*scale, wBar, mass*scale);\n\nctx.strokeStyle=C.ink; ctx.setLineDash([3,4]);\nctx.beginPath(); ctx.moveTo(x1, base-parts*scale); ctx.lineTo(x2+wBar+22, base-parts*scale); ctx.stroke();\nctx.beginPath(); ctx.moveTo(x2, base-mass*scale); ctx.lineTo(x2+wBar+22, base-mass*scale); ctx.stroke();\nctx.setLineDash([]);\n\nvar ax=x2+wBar+14;\nctx.strokeStyle=C.ink; ctx.lineWidth=1.5;\nctx.beginPath(); ctx.moveTo(ax, base-parts*scale); ctx.lineTo(ax, base-mass*scale); ctx.stroke();\nctx.beginPath(); ctx.moveTo(ax-4, base-parts*scale+6); ctx.lineTo(ax, base-parts*scale); ctx.lineTo(ax+4, base-parts*scale+6); ctx.stroke();\nctx.beginPath(); ctx.moveTo(ax-4, base-mass*scale-6); ctx.lineTo(ax, base-mass*scale); ctx.lineTo(ax+4, base-mass*scale-6); ctx.stroke();\n\nctx.fillStyle=C.ink; ctx.textAlign=\"center\";\nctx.fillText(\"mass defect\", (ax+W)/2 - 6, base-(parts+mass)*scale/2 - 2);\nctx.fillStyle=C.figure;\nctx.fillText(\"= B / 931.5\", (ax+W)/2 - 6, base-(parts+mass)*scale/2 + 13);\n\nctx.fillStyle=C.figure; ctx.textAlign=\"center\";\nctx.fillText(Z+\" free protons +\", x1+wBar/2, base+16);\nctx.fillText(N+\" free neutrons\", x1+wBar/2, base+30);\nctx.fillText(\"the bound nucleus\", x2+wBar/2, base+16);\nctx.fillText(\"A = \"+A, x2+wBar/2, base+30);\nctx.fillStyle=C.ink;\nctx.fillText(parts.toFixed(4)+\" u\", x1+wBar/2, base-parts*scale-8);\nctx.fillText(mass.toFixed(4)+\" u\", x2+wBar/2, base-mass*scale-8);\n\nout.note = \"defect \"+(parts-mass).toFixed(4)+\" u \u00d7 931.5 = B \"+B.toFixed(1)+\" MeV, so B/A = \"+(B/A).toFixed(2)+\" MeV per nucleon\";"
+    "draw": "var av=15.75, as_=17.8, ac=0.711, asym=23.7;\nfunction pair(A,Z){ var N=A-Z; if(Z%2===0&&N%2===0) return 12/Math.sqrt(A); if(Z%2===1&&N%2===1) return -12/Math.sqrt(A); return 0; }\nvar Z=Math.round(p.Z), N=Math.round(p.N), A=Z+N;\nvar B = av*A - as_*Math.pow(A,2/3) - ac*Z*(Z-1)/Math.pow(A,1/3) - asym*(A-2*Z)*(A-2*Z)/A + pair(A,Z);\nif(B<0) B=0;\nvar mH=1.007825, mn=1.008665;\nvar parts = Z*mH + N*mn;\nvar mass = parts - B/931.5;\n\nctx.font=\"12px ui-sans-serif, system-ui, sans-serif\";\nvar padT=26, padB=42;\nvar base=H-padB;\nvar top=padT;\nvar scale=(base-top)/parts;\nvar wBar=Math.min(90,(W-140)/2);\nvar x1=W*0.24-wBar/2, x2=W*0.68-wBar/2;\n\nctx.fillStyle=C.faint;\nctx.fillRect(x1, base-parts*scale, wBar, parts*scale);\nctx.strokeStyle=C.rule; ctx.lineWidth=1;\nctx.strokeRect(x1, base-parts*scale, wBar, parts*scale);\n\nctx.fillStyle=C.accent;\nctx.fillRect(x2, base-mass*scale, wBar, mass*scale);\nctx.strokeRect(x2, base-mass*scale, wBar, mass*scale);\n\nctx.strokeStyle=C.ink; ctx.setLineDash([3,4]);\nctx.beginPath(); ctx.moveTo(x1, base-parts*scale); ctx.lineTo(x2+wBar+22, base-parts*scale); ctx.stroke();\nctx.beginPath(); ctx.moveTo(x2, base-mass*scale); ctx.lineTo(x2+wBar+22, base-mass*scale); ctx.stroke();\nctx.setLineDash([]);\n\nvar ax=x2+wBar+14;\nctx.strokeStyle=C.ink; ctx.lineWidth=1.5;\nctx.beginPath(); ctx.moveTo(ax, base-parts*scale); ctx.lineTo(ax, base-mass*scale); ctx.stroke();\nctx.beginPath(); ctx.moveTo(ax-4, base-parts*scale+6); ctx.lineTo(ax, base-parts*scale); ctx.lineTo(ax+4, base-parts*scale+6); ctx.stroke();\nctx.beginPath(); ctx.moveTo(ax-4, base-mass*scale-6); ctx.lineTo(ax, base-mass*scale); ctx.lineTo(ax+4, base-mass*scale-6); ctx.stroke();\n\nctx.fillStyle=C.ink; ctx.textAlign=\"center\";\nctx.fillText(\"mass defect\", (ax+W)/2 - 6, base-(parts+mass)*scale/2 - 2);\nctx.fillStyle=C.figure;\nctx.fillText(\"= B / 931.5\", (ax+W)/2 - 6, base-(parts+mass)*scale/2 + 13);\n\nctx.fillStyle=C.figure; ctx.textAlign=\"center\";\nctx.fillText(Z+\" free protons +\", x1+wBar/2, base+16);\nctx.fillText(N+\" free neutrons\", x1+wBar/2, base+30);\nctx.fillText(\"the bound nucleus\", x2+wBar/2, base+16);\nctx.fillText(\"A = \"+A, x2+wBar/2, base+30);\nctx.fillStyle=C.ink;\nctx.fillText(parts.toFixed(4)+\" u\", x1+wBar/2, base-parts*scale-8);\nctx.fillText(mass.toFixed(4)+\" u\", x2+wBar/2, base-mass*scale-8);\n\nout.note = \"defect \"+(parts-mass).toFixed(4)+\" u × 931.5 = B \"+B.toFixed(1)+\" MeV, so B/A = \"+(B/A).toFixed(2)+\" MeV per nucleon\";"
   },
   {
     "id": "binding-energy-fission",
@@ -770,7 +770,7 @@
         "value": 0.4
       }
     ],
-    "draw": "var av=15.75, as_=17.8, ac=0.711, asym=23.7;\nfunction pair(A,Z){ var N=A-Z; if(Z%2===0&&N%2===0) return 12/Math.sqrt(A); if(Z%2===1&&N%2===1) return -12/Math.sqrt(A); return 0; }\nfunction Zbest(A){ return Math.max(1, Math.round(A/(2+0.015*Math.pow(A,2/3)))); }\nfunction Bof(A){ var z=Zbest(A); return av*A - as_*Math.pow(A,2/3) - ac*z*(z-1)/Math.pow(A,1/3) - asym*(A-2*z)*(A-2*z)/A + pair(A,z); }\n\nvar A=Math.round(p.A);\nvar f=p.split;\nvar A1=Math.round(A*f), A2=A-A1;\nif(A1<1){A1=1;A2=A-1;}\nvar Q = Bof(A1)+Bof(A2)-Bof(A);\n\nvar cyc=3.2; var ph=(t%cyc)/cyc;\nvar grow = ph<0.45 ? 0 : (ph-0.45)/0.55;\nvar R=function(n){ return 1.9*Math.pow(n,1/3)*(Math.min(W,H)/70); };\n\nctx.font=\"12px ui-sans-serif, system-ui, sans-serif\";\nvar cy=H*0.46, cx=W*0.5;\nvar sep=grow*Math.min(W*0.30, 150);\n\nif(ph<0.45){\n  var wob=1+0.10*Math.sin(ph*14);\n  ctx.fillStyle=C.accent;\n  ctx.beginPath(); ctx.ellipse(cx, cy, R(A)*wob, R(A)/wob, 0, 0, Math.PI*2); ctx.fill();\n  ctx.fillStyle=C.paper; ctx.textAlign=\"center\";\n  ctx.fillText(\"A=\"+A, cx, cy+4);\n} else {\n  ctx.fillStyle=C.accent;\n  ctx.beginPath(); ctx.arc(cx-sep, cy, R(A1),0,Math.PI*2); ctx.fill();\n  ctx.beginPath(); ctx.arc(cx+sep, cy, R(A2),0,Math.PI*2); ctx.fill();\n  ctx.fillStyle=C.paper; ctx.textAlign=\"center\";\n  ctx.fillText(\"A=\"+A1, cx-sep, cy+4);\n  ctx.fillText(\"A=\"+A2, cx+sep, cy+4);\n  ctx.strokeStyle=C.ink; ctx.lineWidth=1.5;\n  ctx.beginPath(); ctx.moveTo(cx-sep-R(A1)-6, cy); ctx.lineTo(cx-sep-R(A1)-6-18*grow, cy); ctx.stroke();\n  ctx.beginPath(); ctx.moveTo(cx+sep+R(A2)+6, cy); ctx.lineTo(cx+sep+R(A2)+6+18*grow, cy); ctx.stroke();\n}\n\nctx.fillStyle=C.figure; ctx.textAlign=\"center\";\nctx.fillText(Q>0 ? \"energy comes out: the fragments fly apart\" : \"energy must be put in: this will not happen on its own\", W/2, H-26);\nctx.fillStyle=C.ink;\nctx.fillText(\"Q = B(A1) + B(A2) \u2212 B(A) = \"+Q.toFixed(0)+\" MeV\", W/2, H-8);\n\nctx.textAlign=\"left\"; ctx.fillStyle=C.figure;\nctx.fillText(\"B/A parent \"+(Bof(A)/A).toFixed(2)+\" MeV\", 10, 16);\nctx.fillText(\"B/A fragments \"+((Bof(A1)+Bof(A2))/A).toFixed(2)+\" MeV\", 10, 32);\n\nout.note = \"A \"+A+\" \u2192 \"+A1+\" + \"+A2+\"   Q = \"+Q.toFixed(1)+\" MeV  (\"+(Q/A).toFixed(2)+\" MeV per nucleon)\";"
+    "draw": "var av=15.75, as_=17.8, ac=0.711, asym=23.7;\nfunction pair(A,Z){ var N=A-Z; if(Z%2===0&&N%2===0) return 12/Math.sqrt(A); if(Z%2===1&&N%2===1) return -12/Math.sqrt(A); return 0; }\nfunction Zbest(A){ return Math.max(1, Math.round(A/(2+0.015*Math.pow(A,2/3)))); }\nfunction Bof(A){ var z=Zbest(A); return av*A - as_*Math.pow(A,2/3) - ac*z*(z-1)/Math.pow(A,1/3) - asym*(A-2*z)*(A-2*z)/A + pair(A,z); }\n\nvar A=Math.round(p.A);\nvar f=p.split;\nvar A1=Math.round(A*f), A2=A-A1;\nif(A1<1){A1=1;A2=A-1;}\nvar Q = Bof(A1)+Bof(A2)-Bof(A);\n\nvar cyc=3.2; var ph=(t%cyc)/cyc;\nvar grow = ph<0.45 ? 0 : (ph-0.45)/0.55;\nvar R=function(n){ return 1.9*Math.pow(n,1/3)*(Math.min(W,H)/70); };\n\nctx.font=\"12px ui-sans-serif, system-ui, sans-serif\";\nvar cy=H*0.46, cx=W*0.5;\nvar sep=grow*Math.min(W*0.30, 150);\n\nif(ph<0.45){\n  var wob=1+0.10*Math.sin(ph*14);\n  ctx.fillStyle=C.accent;\n  ctx.beginPath(); ctx.ellipse(cx, cy, R(A)*wob, R(A)/wob, 0, 0, Math.PI*2); ctx.fill();\n  ctx.fillStyle=C.paper; ctx.textAlign=\"center\";\n  ctx.fillText(\"A=\"+A, cx, cy+4);\n} else {\n  ctx.fillStyle=C.accent;\n  ctx.beginPath(); ctx.arc(cx-sep, cy, R(A1),0,Math.PI*2); ctx.fill();\n  ctx.beginPath(); ctx.arc(cx+sep, cy, R(A2),0,Math.PI*2); ctx.fill();\n  ctx.fillStyle=C.paper; ctx.textAlign=\"center\";\n  ctx.fillText(\"A=\"+A1, cx-sep, cy+4);\n  ctx.fillText(\"A=\"+A2, cx+sep, cy+4);\n  ctx.strokeStyle=C.ink; ctx.lineWidth=1.5;\n  ctx.beginPath(); ctx.moveTo(cx-sep-R(A1)-6, cy); ctx.lineTo(cx-sep-R(A1)-6-18*grow, cy); ctx.stroke();\n  ctx.beginPath(); ctx.moveTo(cx+sep+R(A2)+6, cy); ctx.lineTo(cx+sep+R(A2)+6+18*grow, cy); ctx.stroke();\n}\n\nctx.fillStyle=C.figure; ctx.textAlign=\"center\";\nctx.fillText(Q>0 ? \"energy comes out: the fragments fly apart\" : \"energy must be put in: this will not happen on its own\", W/2, H-26);\nctx.fillStyle=C.ink;\nctx.fillText(\"Q = B(A1) + B(A2) − B(A) = \"+Q.toFixed(0)+\" MeV\", W/2, H-8);\n\nctx.textAlign=\"left\"; ctx.fillStyle=C.figure;\nctx.fillText(\"B/A parent \"+(Bof(A)/A).toFixed(2)+\" MeV\", 10, 16);\nctx.fillText(\"B/A fragments \"+((Bof(A1)+Bof(A2))/A).toFixed(2)+\" MeV\", 10, 32);\n\nout.note = \"A \"+A+\" → \"+A1+\" + \"+A2+\"   Q = \"+Q.toFixed(1)+\" MeV  (\"+(Q/A).toFixed(2)+\" MeV per nucleon)\";"
   },
   {
     "id": "biot-savart-element",
@@ -1184,7 +1184,7 @@
         "key": "z",
         "label": "Distance along axis",
         "unit": "m",
-        "min": 0.0,
+        "min": 0,
         "max": 0.45,
         "step": 0.005,
         "value": 0.1
@@ -1258,7 +1258,7 @@
         "min": 1,
         "max": 12,
         "step": 0.1,
-        "value": 4.0
+        "value": 4
       },
       {
         "key": "mass",
@@ -1285,7 +1285,7 @@
         "min": 0.6,
         "max": 2.2,
         "step": 0.05,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "radius",
@@ -1327,9 +1327,9 @@
         "label": "Drop height",
         "unit": "m",
         "min": 0.5,
-        "max": 3.0,
+        "max": 3,
         "step": 0.1,
-        "value": 2.0
+        "value": 2
       },
       {
         "key": "e",
@@ -1354,9 +1354,9 @@
         "label": "Mass ratio m1/m2",
         "unit": "",
         "min": 0.2,
-        "max": 5.0,
+        "max": 5,
         "step": 0.1,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "theta",
@@ -1427,7 +1427,7 @@
         "min": 0.2,
         "max": 4,
         "step": 0.1,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "volts",
@@ -1454,7 +1454,7 @@
         "min": 0.6,
         "max": 5,
         "step": 0.1,
-        "value": 2.0
+        "value": 2
       }
     ],
     "draw": "var k = 8.99e9;\nvar q = 3e-9;                 // fixed 3 nC\nvar h = p.height;             // cm\nvar plateY = H * 0.74;\nvar scale = (plateY - H * 0.10) / 6;   // pixels per cm, 6 cm fits\nvar cx = W * 0.5;\nvar cy = plateY - h * scale;\nvar iy = plateY + h * scale;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// field lines traced from the charge in the real half-space\nvar N = 16;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1.1;\nfor (var i = 0; i < N; i++) {\n  var a = -Math.PI * 0.5 + (i + 0.5) * (2 * Math.PI / N);\n  var x = cx + Math.cos(a) * 9;\n  var y = cy + Math.sin(a) * 9;\n  ctx.beginPath();\n  ctx.moveTo(x, y);\n  for (var s = 0; s < 500; s++) {\n    var dx1 = x - cx, dy1 = y - cy;\n    var r1 = Math.sqrt(dx1 * dx1 + dy1 * dy1); if (r1 < 1) r1 = 1;\n    var dx2 = x - cx, dy2 = y - iy;\n    var r2 = Math.sqrt(dx2 * dx2 + dy2 * dy2); if (r2 < 1) r2 = 1;\n    var ex = dx1 / (r1 * r1 * r1) - dx2 / (r2 * r2 * r2);\n    var ey = dy1 / (r1 * r1 * r1) - dy2 / (r2 * r2 * r2);\n    var m = Math.sqrt(ex * ex + ey * ey); if (m === 0) break;\n    x += 2.2 * ex / m;\n    y += 2.2 * ey / m;\n    if (y >= plateY || x < 0 || x > W || y < 0) break;\n    ctx.lineTo(x, y);\n  }\n  ctx.stroke();\n}\n\n// the plate\nctx.fillStyle = C.faint;\nctx.fillRect(0, plateY, W, H * 0.10);\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(0, plateY); ctx.lineTo(W, plateY); ctx.stroke();\n\n// induced surface charge density, sigma(x) proportional to -h/(x^2+h^2)^1.5\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.5;\nctx.beginPath();\nvar peak = 1 / (h * h);\nfor (var xi = 0; xi <= W; xi += 3) {\n  var xm = (xi - cx) / scale;\n  var val = h / Math.pow(xm * xm + h * h, 1.5);\n  var yy = plateY + (val / peak) * (H * 0.09);\n  if (xi === 0) ctx.moveTo(xi, yy); else ctx.lineTo(xi, yy);\n}\nctx.stroke();\n\n// the real charge\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(cx, cy, 8, 0, 6.2832); ctx.fill();\nctx.fillStyle = C.paper;\nctx.textAlign = \"center\";\nctx.fillText(\"+\", cx, cy + 4);\n\n// the image charge, ghosted\nctx.strokeStyle = C.accent;\nctx.setLineDash([3, 3]);\nctx.lineWidth = 1.2;\nctx.beginPath(); ctx.arc(cx, iy, 8, 0, 6.2832); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cx, cy + 9); ctx.lineTo(cx, iy - 9); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.accent;\nctx.fillText(\"-\", cx, iy + 4);\n\n// labels\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"+q at h\", cx + 14, cy + 4);\nctx.fillText(\"image -q at -h (not real)\", cx + 14, iy + 4);\nctx.fillText(\"grounded conductor, V = 0\", 8, plateY + H * 0.10 - 6);\nctx.fillStyle = C.accent;\nctx.fillText(\"induced surface charge\", 8, 16);\n\nvar F = k * q * q / (4 * h * h * 1e-4);\nvar Wk = k * q * q / (4 * h * 1e-2);\nout.note = \"h = \" + h.toFixed(1) + \" cm, attraction F = \" + (F * 1e9).toFixed(2) + \" nN, work to remove it to infinity = \" + (Wk * 1e9).toFixed(3) + \" nJ\";"
@@ -1560,7 +1560,7 @@
         "label": "Thread length",
         "unit": "m",
         "min": 0.2,
-        "max": 1.0,
+        "max": 1,
         "step": 0.05,
         "value": 0.8
       }
@@ -1580,7 +1580,7 @@
         "min": 0.2,
         "max": 9,
         "step": 0.1,
-        "value": 4.0
+        "value": 4
       }
     ],
     "draw": "\nvar k = 8.99e9;\nvar Lm = 0.60;\nvar Q1 = 1e-6, Q2 = p.ratio * 1e-6;\nvar x0 = Lm / (1 + Math.sqrt(Q2 / Q1));\n\nvar padL = W * 0.10, padR = W * 0.05;\nvar yb = H * 0.80, yt = H * 0.12, ym = (yb + yt) / 2;\nfunction X(a) { return padL + (a / Lm) * (W - padL - padR); }\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// axis\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(padL, ym); ctx.lineTo(W - padR, ym); ctx.stroke();\n\n// curve of net Ex, compressed so it fits\nvar Eref = k * Q1 / (0.09 * 0.09);\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nvar started = false;\nfor (var i = 0; i <= 300; i++) {\n  var xx = 0.02 + (Lm - 0.04) * i / 300;\n  var E = k * Q1 / (xx * xx) - k * Q2 / ((Lm - xx) * (Lm - xx));\n  var u = Math.max(-1, Math.min(1, E / Eref));\n  var py = ym - u * (ym - yt) * 0.9;\n  if (!started) { ctx.moveTo(X(xx), py); started = true; } else ctx.lineTo(X(xx), py);\n}\nctx.stroke();\n\n// zero marker\nctx.strokeStyle = C.figure; ctx.lineWidth = 1.5;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(X(x0), yt); ctx.lineTo(X(x0), yb); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"net field zero here\", X(x0), yt + 12);\nctx.fillText(\"x = \" + x0.toFixed(3) + \" m\", X(x0), yb + 30);\n\n// charges\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(0), yb, 9, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(X(Lm), yb, 9, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.paper;\nctx.fillText(\"+\", X(0), yb + 4);\nctx.fillText(\"+\", X(Lm), yb + 4);\nctx.fillStyle = C.ink;\nctx.fillText(\"Q1 = 1.0 uC\", X(0), yb + 26);\nctx.fillText(\"Q2 = \" + p.ratio.toFixed(1) + \" uC\", X(Lm), yb + 26);\n\nctx.textAlign = \"left\";\nctx.fillText(\"net Ex  (up = pointing right)\", padL + 4, yt);\n\nout.note = \"null point at x = \" + x0.toFixed(4) + \" m from Q1; distance ratio \" +\n  (x0 / (Lm - x0)).toFixed(3) + \" = sqrt(Q1/Q2) = \" + Math.sqrt(Q1 / Q2).toFixed(3);\n"
@@ -1937,7 +1937,7 @@
         "min": 0.2,
         "max": 3.4,
         "step": 0.05,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "h",
@@ -1946,7 +1946,7 @@
         "min": 0.02,
         "max": 1.5,
         "step": 0.02,
-        "value": 1.0
+        "value": 1
       }
     ],
     "draw": "// x(t) = 3t^2 - 4t + 2 ; secant vs tangent\nvar f = function (s) { return 3 * s * s - 4 * s + 2; };\nvar df = function (s) { return 6 * s - 4; };\n\nvar t0 = p.t0;\nvar h = p.h;\nvar tMin = 0, tMax = 4;\nvar yMin = -1, yMax = 36;\nvar padL = 40, padR = 16, padT = 16, padB = 30;\nvar X = function (s) { return padL + (s - tMin) / (tMax - tMin) * (W - padL - padR); };\nvar Y = function (y) { return H - padB - (y - yMin) / (yMax - yMin) * (H - padT - padB); };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\n// axes\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB);\nctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"t (s)\", W - padR - 34, H - padB + 20);\nctx.fillText(\"x (m)\", 4, padT + 10);\n\n// gridline at x = 0\nctx.strokeStyle = C.faint;\nctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(padL, Y(0)); ctx.lineTo(W - padR, Y(0)); ctx.stroke();\nctx.setLineDash([]);\n\n// curve\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 200; i++) {\n  var s = tMin + (tMax - tMin) * i / 200;\n  if (i === 0) ctx.moveTo(X(s), Y(f(s))); else ctx.lineTo(X(s), Y(f(s)));\n}\nctx.stroke();\nctx.lineWidth = 1;\n\nvar t1 = Math.min(tMax, t0 + h);\nvar mSec = (f(t1) - f(t0)) / (t1 - t0);\nvar mTan = df(t0);\n\n// tangent line (dashed, spans the plot)\nctx.strokeStyle = C.rule;\nctx.setLineDash([5, 4]);\nctx.beginPath();\nctx.moveTo(X(tMin), Y(f(t0) + mTan * (tMin - t0)));\nctx.lineTo(X(tMax), Y(f(t0) + mTan * (tMax - t0)));\nctx.stroke();\nctx.setLineDash([]);\n\n// secant line through the two marked points\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(X(tMin), Y(f(t0) + mSec * (tMin - t0)));\nctx.lineTo(X(tMax), Y(f(t0) + mSec * (tMax - t0)));\nctx.stroke();\nctx.lineWidth = 1;\n\n// rise / run box\nctx.strokeStyle = C.faint;\nctx.beginPath();\nctx.moveTo(X(t0), Y(f(t0))); ctx.lineTo(X(t1), Y(f(t0))); ctx.lineTo(X(t1), Y(f(t1)));\nctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"run = h\", (X(t0) + X(t1)) / 2 - 20, Y(f(t0)) + 15);\nctx.fillText(\"rise\", X(t1) + 5, (Y(f(t0)) + Y(f(t1))) / 2);\n\n// the two points\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(t0), Y(f(t0)), 4.5, 0, Math.PI * 2); ctx.fill();\nctx.beginPath(); ctx.arc(X(t1), Y(f(t1)), 4.5, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"t0\", X(t0) - 6, Y(f(t0)) + 18);\nctx.fillText(\"t0 + h\", X(t1) - 16, Y(f(t1)) - 10);\n\nout.note = \"secant slope = \" + mSec.toFixed(3) + \" m/s   |   true v(t0) = \" + mTan.toFixed(3) + \" m/s   |   gap = \" + Math.abs(mSec - mTan).toFixed(3);\n"
@@ -2429,7 +2429,7 @@
         "min": 1,
         "max": 5,
         "step": 0.1,
-        "value": 3.0
+        "value": 3
       },
       {
         "key": "mu",
@@ -2456,7 +2456,7 @@
         "min": 1,
         "max": 12,
         "step": 0.1,
-        "value": 6.0
+        "value": 6
       },
       {
         "key": "R",
@@ -2465,7 +2465,7 @@
         "min": 0.5,
         "max": 3,
         "step": 0.1,
-        "value": 2.0
+        "value": 2
       }
     ],
     "draw": "var g=9.8,R=p.R,h=p.h;var v0sq=2*g*h,tt=t%5.0,dt=0.003,phi=0,vsq=v0sq,lost=-1,n=Math.floor(tt/dt),i;for(i=0;i<n;i++){vsq=v0sq-2*g*R*(1-Math.cos(phi));if(vsq<=0){vsq=0;lost=phi;break;}if(vsq/R+g*Math.cos(phi)<0){lost=phi;break;}phi=phi+Math.sqrt(vsq)/R*dt;if(phi>2*Math.PI){phi=phi-2*Math.PI;}}var span=Math.max(h,2*R)+0.8;var sc=Math.min((H-46)/span,(W-70)/12);var gy=H-18,cx=W*0.64,cy=gy-R*sc;ctx.font='12px ui-sans-serif, system-ui, sans-serif';ctx.strokeStyle=C.rule;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(20,gy-h*sc);ctx.lineTo(W*0.30,gy);ctx.lineTo(W-16,gy);ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,R*sc,0,Math.PI*2);ctx.stroke();ctx.strokeStyle=C.faint;ctx.lineWidth=1;ctx.setLineDash([3,4]);ctx.beginPath();ctx.moveTo(20,gy-h*sc);ctx.lineTo(W-16,gy-h*sc);ctx.stroke();ctx.beginPath();ctx.moveTo(20,gy-2.5*R*sc);ctx.lineTo(W-16,gy-2.5*R*sc);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=C.ink;ctx.fillText('release h = '+h.toFixed(1)+' m',22,gy-h*sc-5);ctx.fillText('2.5R = '+(2.5*R).toFixed(2)+' m',W-110,gy-2.5*R*sc-5);ctx.fillText('R = '+R.toFixed(2)+' m',cx+4,cy-2);ctx.strokeStyle=C.rule;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx,cy-R*sc);ctx.stroke();var px=cx+R*sc*Math.sin(phi),py=gy-R*sc*(1-Math.cos(phi));ctx.fillStyle=(lost>=0?C.faint:C.figure);ctx.beginPath();ctx.arc(px,py,6,0,Math.PI*2);ctx.fill();if(lost>=0){ctx.fillStyle=C.accent;ctx.fillText('loses contact here',px+9,py-4);}var vtopsq=v0sq-4*g*R,vtop=(vtopsq>0?Math.sqrt(vtopsq):0),need=Math.sqrt(g*R);ctx.fillStyle=C.accent;ctx.fillText('top: needs v = sqrt(gR) = '+need.toFixed(2)+' m/s',cx-R*sc,cy-R*sc-8);out.note='v at top = '+vtop.toFixed(2)+' m/s, needs '+need.toFixed(2)+' m/s  ->  '+(h>=2.5*R?'completes the loop':'falls off the track')+'   (h = '+h.toFixed(1)+' m, 2.5R = '+(2.5*R).toFixed(2)+' m)';"
@@ -2525,9 +2525,9 @@
         "label": "Final volume as a multiple of the start",
         "unit": "",
         "min": 1.2,
-        "max": 4.0,
+        "max": 4,
         "step": 0.1,
-        "value": 2.0
+        "value": 2
       }
     ],
     "draw": "var r = p.ratio;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.5;\n\nvar padL = W * 0.12, padR = W * 0.06, padT = H * 0.16, padB = H * 0.22;\nvar gw = W - padL - padR, gh = H - padT - padB;\nvar vMax = 4.2, tMax = 1.35;\nvar X = function (v) { return padL + (v / vMax) * gw; };\nvar Y = function (T) { return padT + gh - (T / tMax) * gh; };\n\n// axes\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(padL, padT); ctx.lineTo(padL, padT + gh); ctx.lineTo(padL + gw, padT + gh);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"volume\", padL + gw / 2, padT + gh + 30);\nctx.save();\nctx.translate(padL - 34, padT + gh / 2);\nctx.rotate(-Math.PI / 2);\nctx.fillText(\"temperature\", 0, 0);\nctx.restore();\n\nvar Ti = 1.0;\nvar xi = X(1), yi = Y(Ti), xf = X(r), yf = Y(Ti);\n\n// isothermal reversible path\nctx.strokeStyle = C.accent;\nctx.beginPath(); ctx.moveTo(xi, yi); ctx.lineTo(xf, yf); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.textAlign = \"center\";\nctx.fillText(\"slow isothermal, heat flows in\", (xi + xf) / 2, yi - 12);\n\n// detour path: adiabat down then isotherm then constant volume back up\nctx.strokeStyle = C.figure;\nctx.setLineDash([5, 4]);\nctx.beginPath();\nctx.moveTo(xi, yi);\nfor (var i = 0; i <= 40; i++) {\n  var v = 1 + (r - 1) * (i / 40);\n  var Tad = Ti * Math.pow(1 / v, 2 / 3);\n  ctx.lineTo(X(v), Y(Tad));\n}\nctx.lineTo(xf, yf);\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.figure;\nctx.fillText(\"adiabat, then reheat at fixed volume\", (xi + xf) / 2, Y(Ti * Math.pow(1 / r, 2 / 3)) + 26);\n\n// irreversible free expansion: jagged, drawn off the surface\nctx.strokeStyle = C.ink;\nctx.setLineDash([2, 3]);\nctx.beginPath();\nctx.moveTo(xi, yi);\nfor (var k = 1; k <= 12; k++) {\n  var u = k / 12;\n  var wob = Math.sin(k * 1.9) * gh * 0.11;\n  ctx.lineTo(xi + (xf - xi) * u, yi - gh * 0.30 * Math.sin(Math.PI * u) + wob * (1 - u));\n}\nctx.lineTo(xf, yf);\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"free expansion: no path at all\", (xi + xf) / 2, yi - gh * 0.42);\n\n// endpoints\nfunction dot(x, y, lab, side) {\n  ctx.fillStyle = C.ink;\n  ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();\n  ctx.textAlign = side;\n  ctx.fillText(lab, x + (side === \"right\" ? -10 : 10), y + 18);\n}\ndot(xi, yi, \"start: V, T\", \"right\");\ndot(xf, yf, \"end: \" + r.toFixed(1) + \"V, same T\", \"left\");\n\nvar dS = 8.31 * Math.log(r);\nctx.fillStyle = C.accent;\nctx.textAlign = \"center\";\nctx.fillText(\"every route between these two dots gives the same entropy change\",\n  padL + gw / 2, padT - 4);\n\nout.note = \"per mole, entropy change = R ln(\" + r.toFixed(1) + \") = \" + dS.toFixed(2) + \" J/K, whichever route you invent\";"
@@ -2560,8 +2560,8 @@
         "key": "dBdt",
         "label": "Rate of change of B",
         "unit": "T/s",
-        "min": -2.0,
-        "max": 2.0,
+        "min": -2,
+        "max": 2,
         "step": 0.1,
         "value": 0.8
       },
@@ -2599,14 +2599,14 @@
         "min": 0,
         "max": 8,
         "step": 0.1,
-        "value": 4.0
+        "value": 4
       },
       {
         "key": "B",
         "label": "Field strength",
         "unit": "T",
         "min": 0,
-        "max": 1.0,
+        "max": 1,
         "step": 0.05,
         "value": 0.3
       },
@@ -2624,7 +2624,7 @@
         "label": "Circuit resistance",
         "unit": "ohm",
         "min": 0.1,
-        "max": 2.0,
+        "max": 2,
         "step": 0.05,
         "value": 0.5
       }
@@ -2739,13 +2739,13 @@
         "key": "beta",
         "label": "Speed beta = v/c",
         "unit": "",
-        "min": 0.0,
+        "min": 0,
         "max": 0.99,
         "step": 0.01,
         "value": 0.6
       }
     ],
-    "draw": "var m = p.mass;\nvar b = p.beta;\nvar g = 1 / Math.sqrt(1 - b * b);\nvar E = g * m;\nvar pc = g * b * m;\n\nvar padL = 46, padR = 16, padT = 16, padB = 32;\nvar axMax = Math.max(m * 4.2, 120);\nvar X = function (v) { return padL + v / axMax * (W - padL - padR); };\nvar Y = function (v) { return H - padB - v / axMax * (H - padT - padB); };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\n// axes\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(X(0), Y(axMax)); ctx.lineTo(X(0), Y(0)); ctx.lineTo(X(axMax), Y(0));\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"pc  (MeV)\", (X(0) + X(axMax)) / 2, H - 8);\nctx.save();\nctx.translate(12, (Y(0) + Y(axMax)) / 2);\nctx.rotate(-Math.PI / 2);\nctx.fillText(\"E  (MeV)\", 0, 0);\nctx.restore();\n\n// photon line E = pc\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(axMax), Y(axMax)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.textAlign = \"right\";\nctx.fillText(\"photon, E = pc\", X(axMax) - 4, Y(axMax) + 16);\n\n// mass shell E = sqrt((pc)^2 + (mc^2)^2)\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 160; i++) {\n  var q = axMax * i / 160;\n  var e = Math.sqrt(q * q + m * m);\n  if (i === 0) ctx.moveTo(X(q), Y(e)); else ctx.lineTo(X(q), Y(e));\n}\nctx.stroke();\nctx.lineWidth = 1;\n\n// rest-mass intercept\nctx.strokeStyle = C.faint;\nctx.setLineDash([2, 3]);\nctx.beginPath(); ctx.moveTo(X(0), Y(m)); ctx.lineTo(X(axMax), Y(m)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"mc\u00b2\", X(0) + 6, Y(m) - 6);\n\n// the particle\nctx.strokeStyle = C.accent;\nctx.setLineDash([2, 3]);\nctx.beginPath();\nctx.moveTo(X(pc), Y(0)); ctx.lineTo(X(pc), Y(E)); ctx.lineTo(X(0), Y(E));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(pc), Y(E), 5, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"this particle\", X(pc) + 8, Y(E) - 8);\n\nout.note = \"mc\u00b2 = \" + m.toFixed(1) + \" MeV,  beta = \" + b.toFixed(3) +\n  \",  gamma = \" + g.toFixed(3) + \"   |   E = \" + E.toFixed(1) +\n  \" MeV,  pc = \" + pc.toFixed(1) + \" MeV,  K = \" + (E - m).toFixed(1) + \" MeV\";"
+    "draw": "var m = p.mass;\nvar b = p.beta;\nvar g = 1 / Math.sqrt(1 - b * b);\nvar E = g * m;\nvar pc = g * b * m;\n\nvar padL = 46, padR = 16, padT = 16, padB = 32;\nvar axMax = Math.max(m * 4.2, 120);\nvar X = function (v) { return padL + v / axMax * (W - padL - padR); };\nvar Y = function (v) { return H - padB - v / axMax * (H - padT - padB); };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\n// axes\nctx.strokeStyle = C.rule;\nctx.beginPath();\nctx.moveTo(X(0), Y(axMax)); ctx.lineTo(X(0), Y(0)); ctx.lineTo(X(axMax), Y(0));\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"pc  (MeV)\", (X(0) + X(axMax)) / 2, H - 8);\nctx.save();\nctx.translate(12, (Y(0) + Y(axMax)) / 2);\nctx.rotate(-Math.PI / 2);\nctx.fillText(\"E  (MeV)\", 0, 0);\nctx.restore();\n\n// photon line E = pc\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(axMax), Y(axMax)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.textAlign = \"right\";\nctx.fillText(\"photon, E = pc\", X(axMax) - 4, Y(axMax) + 16);\n\n// mass shell E = sqrt((pc)^2 + (mc^2)^2)\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 160; i++) {\n  var q = axMax * i / 160;\n  var e = Math.sqrt(q * q + m * m);\n  if (i === 0) ctx.moveTo(X(q), Y(e)); else ctx.lineTo(X(q), Y(e));\n}\nctx.stroke();\nctx.lineWidth = 1;\n\n// rest-mass intercept\nctx.strokeStyle = C.faint;\nctx.setLineDash([2, 3]);\nctx.beginPath(); ctx.moveTo(X(0), Y(m)); ctx.lineTo(X(axMax), Y(m)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"mc²\", X(0) + 6, Y(m) - 6);\n\n// the particle\nctx.strokeStyle = C.accent;\nctx.setLineDash([2, 3]);\nctx.beginPath();\nctx.moveTo(X(pc), Y(0)); ctx.lineTo(X(pc), Y(E)); ctx.lineTo(X(0), Y(E));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(X(pc), Y(E), 5, 0, Math.PI * 2); ctx.fill();\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"this particle\", X(pc) + 8, Y(E) - 8);\n\nout.note = \"mc² = \" + m.toFixed(1) + \" MeV,  beta = \" + b.toFixed(3) +\n  \",  gamma = \" + g.toFixed(3) + \"   |   E = \" + E.toFixed(1) +\n  \" MeV,  pc = \" + pc.toFixed(1) + \" MeV,  K = \" + (E - m).toFixed(1) + \" MeV\";"
   },
   {
     "id": "four-vectors-threshold",
@@ -2763,7 +2763,7 @@
         "value": 1000
       }
     ],
-    "draw": "var mp = 938.3;\nvar K = p.kinetic;\nvar E = K + mp;\nvar sFixed = Math.sqrt(2 * mp * (E + mp));\nvar sCollide = 2 * E;\nvar barMax = 2 * (8000 + mp) * 1.02;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\nvar x0 = W * 0.06, x1 = W * 0.94;\nvar barW = x1 - x0;\nvar f = (t % 2.2) / 2.2;\n\nfunction scene(yLine, yBar, label, sval, moving2) {\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath(); ctx.moveTo(x0, yLine); ctx.lineTo(x1, yLine); ctx.stroke();\n\n  var mid = (x0 + x1) / 2;\n  var xa = x0 + (mid - x0 - 8) * f;\n  var xb = moving2 ? x1 - (x1 - mid - 8) * f : mid + 10;\n\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(xa, yLine, 6, 0, Math.PI * 2); ctx.fill();\n  ctx.fillStyle = moving2 ? C.accent : C.figure;\n  ctx.beginPath(); ctx.arc(xb, yLine, 6, 0, Math.PI * 2); ctx.fill();\n\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"left\";\n  ctx.fillText(label, x0, yLine - 16);\n\n  ctx.fillStyle = C.faint;\n  ctx.textAlign = \"center\";\n  ctx.fillText(moving2 ? \"both beams move\" : \"target at rest\", (x0 + x1) / 2, yLine + 20);\n\n  // bar\n  var wBar = barW * sval / barMax;\n  ctx.fillStyle = C.figure;\n  ctx.fillRect(x0, yBar, wBar, 12);\n  ctx.strokeStyle = C.rule;\n  ctx.strokeRect(x0, yBar, barW, 12);\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"left\";\n  ctx.fillText(\"sqrt(s) = \" + sval.toFixed(0) + \" MeV\", x0 + 2, yBar + 26);\n}\n\n// threshold markers drawn across both bars\nfunction marker(val, name, yTop, yBot) {\n  var xm = x0 + barW * val / barMax;\n  ctx.strokeStyle = C.accent;\n  ctx.setLineDash([3, 3]);\n  ctx.beginPath(); ctx.moveTo(xm, yTop); ctx.lineTo(xm, yBot); ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.accent;\n  ctx.textAlign = \"center\";\n  ctx.fillText(name, xm, yTop - 4);\n}\n\nscene(H * 0.20, H * 0.34, \"Fixed target:  beam on hydrogen\", sFixed, false);\nscene(H * 0.66, H * 0.80, \"Collider:  equal and opposite beams\", sCollide, true);\n\nmarker(2 * mp + 135.0, \"pi\u2070\", H * 0.30, H * 0.94);\nmarker(4 * mp, \"p pbar\", H * 0.30, H * 0.94);\n\nout.note = \"beam K = \" + K.toFixed(0) + \" MeV per proton   |   fixed target sqrt(s) = \" +\n  sFixed.toFixed(0) + \" MeV,  collider sqrt(s) = \" + sCollide.toFixed(0) +\n  \" MeV   |   ratio \" + (sCollide / sFixed).toFixed(2);"
+    "draw": "var mp = 938.3;\nvar K = p.kinetic;\nvar E = K + mp;\nvar sFixed = Math.sqrt(2 * mp * (E + mp));\nvar sCollide = 2 * E;\nvar barMax = 2 * (8000 + mp) * 1.02;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\nvar x0 = W * 0.06, x1 = W * 0.94;\nvar barW = x1 - x0;\nvar f = (t % 2.2) / 2.2;\n\nfunction scene(yLine, yBar, label, sval, moving2) {\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath(); ctx.moveTo(x0, yLine); ctx.lineTo(x1, yLine); ctx.stroke();\n\n  var mid = (x0 + x1) / 2;\n  var xa = x0 + (mid - x0 - 8) * f;\n  var xb = moving2 ? x1 - (x1 - mid - 8) * f : mid + 10;\n\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(xa, yLine, 6, 0, Math.PI * 2); ctx.fill();\n  ctx.fillStyle = moving2 ? C.accent : C.figure;\n  ctx.beginPath(); ctx.arc(xb, yLine, 6, 0, Math.PI * 2); ctx.fill();\n\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"left\";\n  ctx.fillText(label, x0, yLine - 16);\n\n  ctx.fillStyle = C.faint;\n  ctx.textAlign = \"center\";\n  ctx.fillText(moving2 ? \"both beams move\" : \"target at rest\", (x0 + x1) / 2, yLine + 20);\n\n  // bar\n  var wBar = barW * sval / barMax;\n  ctx.fillStyle = C.figure;\n  ctx.fillRect(x0, yBar, wBar, 12);\n  ctx.strokeStyle = C.rule;\n  ctx.strokeRect(x0, yBar, barW, 12);\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"left\";\n  ctx.fillText(\"sqrt(s) = \" + sval.toFixed(0) + \" MeV\", x0 + 2, yBar + 26);\n}\n\n// threshold markers drawn across both bars\nfunction marker(val, name, yTop, yBot) {\n  var xm = x0 + barW * val / barMax;\n  ctx.strokeStyle = C.accent;\n  ctx.setLineDash([3, 3]);\n  ctx.beginPath(); ctx.moveTo(xm, yTop); ctx.lineTo(xm, yBot); ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.accent;\n  ctx.textAlign = \"center\";\n  ctx.fillText(name, xm, yTop - 4);\n}\n\nscene(H * 0.20, H * 0.34, \"Fixed target:  beam on hydrogen\", sFixed, false);\nscene(H * 0.66, H * 0.80, \"Collider:  equal and opposite beams\", sCollide, true);\n\nmarker(2 * mp + 135.0, \"pi⁰\", H * 0.30, H * 0.94);\nmarker(4 * mp, \"p pbar\", H * 0.30, H * 0.94);\n\nout.note = \"beam K = \" + K.toFixed(0) + \" MeV per proton   |   fixed target sqrt(s) = \" +\n  sFixed.toFixed(0) + \" MeV,  collider sqrt(s) = \" + sCollide.toFixed(0) +\n  \" MeV   |   ratio \" + (sCollide / sFixed).toFixed(2);"
   },
   {
     "id": "four-vectors-doppler",
@@ -2775,7 +2775,7 @@
         "key": "beta",
         "label": "Source speed beta",
         "unit": "",
-        "min": 0.0,
+        "min": 0,
         "max": 0.95,
         "step": 0.05,
         "value": 0.6
@@ -3181,7 +3181,7 @@
         "min": 0.2,
         "max": 1.6,
         "step": 0.02,
-        "value": 1.0
+        "value": 1
       }
     ],
     "draw": "var GM = 3.986e14, Re = 6.37e6;\nvar r0 = p.r0 * Re;\nvar vc = Math.sqrt(GM / r0);\nvar v = p.k * vc;\nvar E = 0.5 * v * v - GM / r0;          // per kilogram\nvar rmaxPhys = E < 0 ? -GM / E : Infinity;\n\nvar padL = W * 0.13, padR = W * 0.05, padT = H * 0.16, padB = H * 0.20;\nvar rMin = 1, rMax = 12;                 // in Earth radii\nvar Umin = -GM / (rMin * Re);            // most negative\nvar yTop = -Umin * 0.32;                 // a little headroom above zero\nvar X = function (rr) { return padL + (rr - rMin) / (rMax - rMin) * (W - padL - padR); };\nvar Y = function (u) { return padT + (yTop - u) / (yTop - Umin) * (H - padT - padB); };\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// axes\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(padL, padT);\nctx.lineTo(padL, H - padB);\nctx.lineTo(W - padR, H - padB);\nctx.stroke();\n\n// U = 0 line\nctx.strokeStyle = C.faint;\nctx.setLineDash([2, 4]);\nctx.beginPath();\nctx.moveTo(padL, Y(0));\nctx.lineTo(W - padR, Y(0));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"U = 0 at infinity\", padL + 6, Y(0) - 5);\n\n// U(r) curve\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nvar i, rr, u;\nfor (i = 0; i <= 200; i++) {\n  rr = rMin + (rMax - rMin) * i / 200;\n  u = -GM / (rr * Re);\n  if (i === 0) { ctx.moveTo(X(rr), Y(u)); } else { ctx.lineTo(X(rr), Y(u)); }\n}\nctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"U(r) = -GMm/r\", X(7.2), Y(-GM / (7.2 * Re)) + 18);\n\n// total energy line\nvar Eclamped = E > yTop ? yTop : (E < Umin ? Umin : E);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.8;\nctx.beginPath();\nctx.moveTo(padL, Y(Eclamped));\nctx.lineTo(W - padR, Y(Eclamped));\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.textAlign = \"right\";\nctx.fillText(\"total E\", W - padR - 4, Y(Eclamped) - 6);\n\n// launch point marker\nctx.strokeStyle = C.ink;\nctx.setLineDash([3, 3]);\nctx.beginPath();\nctx.moveTo(X(p.r0), Y(-GM / r0));\nctx.lineTo(X(p.r0), Y(Eclamped));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"K here\", X(p.r0), (Y(-GM / r0) + Y(Eclamped)) / 2 + 4);\nctx.fillText(\"launch r0\", X(p.r0), H - padB + 16);\n\n// turning point\nif (E < 0 && rmaxPhys / Re <= rMax) {\n  var rt = rmaxPhys / Re;\n  ctx.fillStyle = C.accent;\n  ctx.beginPath();\n  ctx.arc(X(rt), Y(E), 4.5, 0, Math.PI * 2);\n  ctx.fill();\n  ctx.fillText(\"turns back\", X(rt), Y(E) - 10);\n}\n\n// axis labels\nctx.fillStyle = C.ink;\nctx.textAlign = \"center\";\nctx.fillText(\"distance from centre (Earth radii)\", (padL + W - padR) / 2, H - 6);\nctx.textAlign = \"left\";\nctx.fillText(\"energy per kg\", padL - 6, padT - 6);\n\nif (E >= 0) {\n  out.note = \"launch speed \" + v.toFixed(0) + \" m/s at r0 = \" + p.r0.toFixed(1) +\n    \" R_E: E >= 0, the body escapes (escape speed here is \" +\n    (Math.SQRT2 * vc).toFixed(0) + \" m/s)\";\n} else {\n  out.note = \"launch speed \" + v.toFixed(0) + \" m/s at r0 = \" + p.r0.toFixed(1) +\n    \" R_E: bound, it rises to \" + (rmaxPhys / Re).toFixed(2) +\n    \" R_E and falls back (escape would need \" + (Math.SQRT2 * vc).toFixed(0) + \" m/s)\";\n}"
@@ -3788,7 +3788,7 @@
         "min": 0.5,
         "max": 8,
         "step": 0.5,
-        "value": 2.0
+        "value": 2
       },
       {
         "key": "M",
@@ -3797,7 +3797,7 @@
         "min": 1,
         "max": 15,
         "step": 0.5,
-        "value": 5.0
+        "value": 5
       }
     ],
     "draw": "var F = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = F;\nvar a = p.angle * Math.PI / 180;\nvar m = p.m, M = p.M, g = 9.8;\nvar A = m * g * Math.sin(a) * Math.cos(a) / (M + m * Math.sin(a) * Math.sin(a));\nvar sdd = (M + m) * g * Math.sin(a) / (M + m * Math.sin(a) * Math.sin(a));\n\nvar floorY = H * 0.86;\nvar x0 = W * 0.16;\nvar base = W * 0.56;\nvar hgt = base * Math.tan(a);\nif (hgt > H * 0.56) { base = (H * 0.56) / Math.tan(a); hgt = H * 0.56; }\nvar apexX = x0, apexY = floorY - hgt;\nvar rightX = x0 + base;\n\n// floor\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(0, floorY); ctx.lineTo(W, floorY); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"frictionless floor\", W * 0.02, floorY + 16);\n\n// wedge\nctx.fillStyle = C.paper;\nctx.strokeStyle = C.ink;\nctx.beginPath();\nctx.moveTo(apexX, apexY); ctx.lineTo(rightX, floorY); ctx.lineTo(apexX, floorY);\nctx.closePath(); ctx.fill(); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"M\", apexX + 16, floorY - 14);\n\n// angle mark at the bottom right corner\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.arc(rightX, floorY, 26, Math.PI, Math.PI + a); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"alpha = \" + p.angle.toFixed(0) + \" deg\", rightX - 78, floorY - 8);\n\n// block a third of the way down the face\nvar f = 0.38;\nvar bx = apexX + (rightX - apexX) * f;\nvar by = apexY + (floorY - apexY) * f;\nvar bs = 18;\nvar nx = -Math.sin(a), ny = -Math.cos(a);\nctx.save();\nctx.translate(bx + nx * bs * 0.7, by + ny * bs * 0.7);\nctx.rotate(a);\nctx.fillStyle = C.paper;\nctx.fillRect(-bs / 2, -bs / 2, bs, bs);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1.8;\nctx.strokeRect(-bs / 2, -bs / 2, bs, bs);\nctx.restore();\nvar cxb = bx + nx * bs * 0.7, cyb = by + ny * bs * 0.7;\nctx.fillStyle = C.ink;\nctx.fillText(\"m\", cxb - 20, cyb - 10);\n\nfunction arrow(x1, y1, x2, y2, col) {\n  ctx.strokeStyle = col; ctx.lineWidth = 1.6;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var ang = Math.atan2(y2 - y1, x2 - x1);\n  ctx.fillStyle = col;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - 7 * Math.cos(ang - 0.4), y2 - 7 * Math.sin(ang - 0.4));\n  ctx.lineTo(x2 - 7 * Math.cos(ang + 0.4), y2 - 7 * Math.sin(ang + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\n// normal force on block (does no work in the ground frame only if wedge is fixed)\narrow(cxb, cyb, cxb + nx * 44, cyb + ny * 44, C.figure);\nctx.fillStyle = C.figure;\nctx.fillText(\"N (never appears in L)\", cxb + nx * 44 - 30, cyb + ny * 44 - 8);\n\n// gravity on block\narrow(cxb, cyb, cxb, cyb + 40, C.ink);\nctx.fillStyle = C.ink;\nctx.fillText(\"mg\", cxb + 6, cyb + 38);\n\n// s along the face\nvar sx = apexX + (rightX - apexX) * 0.70, sy = apexY + (floorY - apexY) * 0.70;\narrow(apexX, apexY, sx, sy, C.accent);\nctx.fillStyle = C.accent;\nctx.fillText(\"s: block along the face\", apexX + 26, apexY + 34);\n\n// X of the wedge\narrow(rightX - 40, floorY + 26, rightX + 20, floorY + 26, C.accent);\nctx.fillStyle = C.accent;\nctx.fillText(\"X: wedge along the floor\", rightX - 150, floorY + 42);\n\nout.note = \"wedge acceleration \" + A.toFixed(2) + \" m/s^2, block along the face \" +\n  sdd.toFixed(2) + \" m/s^2\";"
@@ -3815,7 +3815,7 @@
         "min": 0.2,
         "max": 8,
         "step": 0.1,
-        "value": 2.0
+        "value": 2
       },
       {
         "key": "m",
@@ -3849,7 +3849,7 @@
         "label": "Hoop radius",
         "unit": "m",
         "min": 0.1,
-        "max": 1.0,
+        "max": 1,
         "step": 0.05,
         "value": 0.4
       },
@@ -3860,7 +3860,7 @@
         "min": 0.5,
         "max": 12,
         "step": 0.1,
-        "value": 8.0
+        "value": 8
       }
     ],
     "draw": "var F = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.font = F;\nvar R = p.R, w = p.spin, g = 9.8;\nvar beta = w * w * R / g;\nvar supercrit = beta > 1;\nvar th0 = supercrit ? Math.acos(1 / beta) : 0;\nvar wosc = supercrit ? w * Math.sqrt(1 - 1 / (beta * beta)) : Math.sqrt(g / R - w * w);\nvar amp = 0.20;\nvar th = th0 + amp * Math.cos(wosc * t);\n\n// ---- left panel: the hoop ----\nvar cxh = W * 0.22, cyh = H * 0.48;\nvar rad = Math.min(W * 0.17, H * 0.34);\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.arc(cxh, cyh, rad, 0, Math.PI * 2); ctx.stroke();\nctx.strokeStyle = C.faint;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(cxh, cyh - rad - 16); ctx.lineTo(cxh, cyh + rad + 16); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.faint;\nctx.fillText(\"spin axis\", cxh + 6, cyh - rad - 6);\n\n// bead\nvar bxp = cxh + rad * Math.sin(th), byp = cyh + rad * Math.cos(th);\nctx.strokeStyle = C.figure;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(cxh, cyh); ctx.lineTo(bxp, byp); ctx.stroke();\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(bxp, byp, 7, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.figure;\nctx.beginPath();\nctx.arc(cxh, cyh, 22, Math.PI / 2, Math.PI / 2 - th, th > 0);\nctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"theta from the bottom\", cxh - 40, cyh + rad + 30);\n\n// ---- right panel: effective potential ----\nvar px0 = W * 0.46, px1 = W * 0.96;\nvar py0 = H * 0.16, py1 = H * 0.80;\nvar lo = -2.6, hi = 2.6;\nfunction u(x) { return (1 - Math.cos(x)) - 0.5 * beta * Math.sin(x) * Math.sin(x); }\nvar umin = 1e9, umax = -1e9, i, xx, vv;\nfor (i = 0; i <= 200; i++) {\n  xx = lo + (hi - lo) * i / 200; vv = u(xx);\n  if (vv < umin) umin = vv;\n  if (vv > umax) umax = vv;\n}\nif (umax - umin < 1e-6) { umax = umin + 1; }\nfunction PX(x) { return px0 + (x - lo) / (hi - lo) * (px1 - px0); }\nfunction PY(v) { return py1 - (v - umin) / (umax - umin) * (py1 - py0); }\n\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(PX(0), py0 - 6); ctx.lineTo(PX(0), py1 + 6); ctx.stroke();\nctx.beginPath(); ctx.moveTo(px0, PY(u(0))); ctx.lineTo(px1, PY(u(0))); ctx.stroke();\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (i = 0; i <= 200; i++) {\n  xx = lo + (hi - lo) * i / 200;\n  if (i === 0) ctx.moveTo(PX(xx), PY(u(xx))); else ctx.lineTo(PX(xx), PY(u(xx)));\n}\nctx.stroke();\n\n// bead on the curve\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(PX(th), PY(u(th)), 6, 0, Math.PI * 2); ctx.fill();\n\n// equilibrium markers\nctx.strokeStyle = C.accent;\nctx.setLineDash([2, 4]);\nctx.beginPath(); ctx.moveTo(PX(th0), PY(u(th0))); ctx.lineTo(PX(th0), py1 + 4); ctx.stroke();\nif (supercrit) {\n  ctx.beginPath(); ctx.moveTo(PX(-th0), PY(u(-th0))); ctx.lineTo(PX(-th0), py1 + 4); ctx.stroke();\n}\nctx.setLineDash([]);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"effective potential U(theta)\", px0, py0 - 4);\nctx.fillStyle = C.faint;\nctx.fillText(\"theta\", px1 - 26, py1 + 18);\nctx.fillStyle = C.accent;\nctx.fillText(supercrit ? \"tilted minimum\" : \"bottom is stable\", PX(th0) - 30, py1 + 18);\n\nout.note = supercrit\n  ? \"spinning above critical: equilibrium at \" + (th0 * 180 / Math.PI).toFixed(1) +\n    \" deg, small oscillations at \" + wosc.toFixed(2) + \" rad/s\"\n  : \"below critical (\" + Math.sqrt(g / R).toFixed(2) +\n    \" rad/s): bottom still stable, small oscillations at \" + wosc.toFixed(2) + \" rad/s\";"
@@ -3939,7 +3939,7 @@
         "label": "Index of the second medium",
         "unit": "",
         "min": 1.05,
-        "max": 2.0,
+        "max": 2,
         "step": 0.01,
         "value": 1.33
       },
@@ -3974,9 +3974,9 @@
         "label": "Entry speed",
         "unit": "10^6 m/s",
         "min": 0.4,
-        "max": 3.0,
+        "max": 3,
         "step": 0.1,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "field",
@@ -4019,7 +4019,7 @@
         "label": "Field",
         "unit": "T",
         "min": 0,
-        "max": 1.0,
+        "max": 1,
         "step": 0.05,
         "value": 0.6
       },
@@ -4073,7 +4073,7 @@
         "label": "Current",
         "unit": "A",
         "min": 0.1,
-        "max": 2.0,
+        "max": 2,
         "step": 0.1,
         "value": 0.5
       },
@@ -4126,9 +4126,9 @@
         "label": "Rod length",
         "unit": "m",
         "min": 0.6,
-        "max": 1.0,
+        "max": 1,
         "step": 0.05,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "M",
@@ -4137,7 +4137,7 @@
         "min": 0.5,
         "max": 4,
         "step": 0.1,
-        "value": 1.0
+        "value": 1
       }
     ],
     "draw": "// Uniform rod, mass M, length L, pivoted a distance d from its centre.\nvar g = 9.8;\nvar L = p.L;\nvar M = p.M;\nvar d = p.d;\nvar Icm = M * L * L / 12;\nvar I = Icm + M * d * d;\n\n// period of small oscillations; d = 0 is a free axis, no restoring torque\nvar hasSwing = d > 0.005;\nvar T = hasSwing ? 2 * Math.PI * Math.sqrt(I / (M * g * d)) : 0;\nvar theta0 = 0.28;\nvar theta = hasSwing ? theta0 * Math.cos(2 * Math.PI * t / T) : 0;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.textBaseline = \"middle\";\n\n// ---- left panel: the swinging rod ----\nvar px = W * 0.26;\nvar py = H * 0.16;\nvar sc = (H * 0.62) / 1.7;\n\n// ceiling\nctx.strokeStyle = C.faint;\nctx.lineWidth = 4;\nctx.beginPath();\nctx.moveTo(px - W * 0.16, py);\nctx.lineTo(px + W * 0.16, py);\nctx.stroke();\n\n// vertical reference\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.setLineDash([3, 5]);\nctx.beginPath();\nctx.moveTo(px, py);\nctx.lineTo(px, py + sc * 1.05);\nctx.stroke();\nctx.setLineDash([]);\n\nvar ux = Math.sin(theta);\nvar uy = Math.cos(theta);\nvar farEnd = L / 2 + d;\nvar nearEnd = L / 2 - d;\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 6;\nctx.lineCap = \"round\";\nctx.beginPath();\nctx.moveTo(px - ux * nearEnd * sc, py - uy * nearEnd * sc);\nctx.lineTo(px + ux * farEnd * sc, py + uy * farEnd * sc);\nctx.stroke();\nctx.lineCap = \"butt\";\n\n// centre of mass marker\nvar cmx = px + ux * d * sc;\nvar cmy = py + uy * d * sc;\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.arc(cmx, cmy, 5, 0, Math.PI * 2);\nctx.fill();\n\n// pivot\nctx.fillStyle = C.ink;\nctx.beginPath();\nctx.arc(px, py, 4, 0, Math.PI * 2);\nctx.fill();\n\n// d label\nctx.strokeStyle = C.accent;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(px, py);\nctx.lineTo(cmx, cmy);\nctx.stroke();\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"d\", (px + cmx) / 2 + 7, (py + cmy) / 2);\nctx.fillStyle = C.ink;\nctx.fillText(\"pivot\", px + 8, py - 10);\nctx.fillText(\"centre of mass\", cmx + 9, cmy + 12);\n\n// ---- right panel: T against d ----\nvar gx0 = W * 0.52;\nvar gx1 = W * 0.95;\nvar gy0 = H * 0.14;\nvar gy1 = H * 0.82;\nvar dmax = L / 2;\nvar Tmax = 2 * Math.PI * Math.sqrt((Icm + M * dmax * dmax) / (M * g * dmax)) * 1.9;\n\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(gx0, gy0);\nctx.lineTo(gx0, gy1);\nctx.lineTo(gx1, gy1);\nctx.stroke();\n\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nvar started = false;\nvar dBest = L / Math.sqrt(12);\nfor (var i = 0; i <= 160; i++) {\n  var dd = dmax * (i / 160);\n  if (dd < 0.02) { continue; }\n  var TT = 2 * Math.PI * Math.sqrt((Icm + M * dd * dd) / (M * g * dd));\n  var X = gx0 + (gx1 - gx0) * (dd / dmax);\n  var Y = gy1 - (gy1 - gy0) * Math.min(TT / Tmax, 1);\n  if (!started) { ctx.moveTo(X, Y); started = true; } else { ctx.lineTo(X, Y); }\n}\nctx.stroke();\n\n// marker for the minimum\nif (dBest <= dmax) {\n  var Tb = 2 * Math.PI * Math.sqrt((Icm + M * dBest * dBest) / (M * g * dBest));\n  var bx = gx0 + (gx1 - gx0) * (dBest / dmax);\n  var by = gy1 - (gy1 - gy0) * Math.min(Tb / Tmax, 1);\n  ctx.strokeStyle = C.rule;\n  ctx.setLineDash([2, 4]);\n  ctx.beginPath();\n  ctx.moveTo(bx, by);\n  ctx.lineTo(bx, gy1);\n  ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"center\";\n  ctx.fillText(\"d = L/sqrt(12)\", bx, gy1 + 14);\n}\n\n// current point\nif (hasSwing) {\n  var cx = gx0 + (gx1 - gx0) * (d / dmax);\n  var cy = gy1 - (gy1 - gy0) * Math.min(T / Tmax, 1);\n  ctx.fillStyle = C.accent;\n  ctx.beginPath();\n  ctx.arc(cx, cy, 4.5, 0, Math.PI * 2);\n  ctx.fill();\n}\n\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"period T\", gx0 + 4, gy0 - 2);\nctx.textAlign = \"right\";\nctx.fillText(\"d\", gx1, gy1 + 14);\n\nout.note = hasSwing\n  ? \"I = \" + I.toFixed(4) + \" kg m^2   (I_cm = \" + Icm.toFixed(4) +\n    \", M d^2 = \" + (M * d * d).toFixed(4) + \")   T = \" + T.toFixed(3) + \" s\"\n  : \"I = \" + Icm.toFixed(4) + \" kg m^2, the smallest possible. No gravity lever arm, so it does not swing.\";\n"
@@ -4180,7 +4180,7 @@
         "label": "Ball mass",
         "unit": "kg",
         "min": 0.05,
-        "max": 1.0,
+        "max": 1,
         "step": 0.05,
         "value": 0.25
       },
@@ -4391,7 +4391,7 @@
     "caption": "Push, coast, brake: acceleration, velocity and position for the same 8 seconds.",
     "height": 330,
     "params": [],
-    "draw": "var pad = 40, gap = 10;\nvar T = 8;\nvar ph = (H - gap * 2 - 22) / 3;\nvar X = function (s) { return pad + s / T * (W - pad - 20); };\n\nvar afn = function (s) { return s < 2 ? 4 : (s < 5 ? 0 : -4); };\nvar vfn = function (s) { return s < 2 ? 4 * s : (s < 5 ? 8 : 8 - 4 * (s - 5)); };\nvar xfn = function (s) {\n  if (s < 2) return 2 * s * s;\n  if (s < 5) return 8 + 8 * (s - 2);\n  return 32 + 8 * (s - 5) - 2 * (s - 5) * (s - 5);\n};\n\nvar panels = [\n  { f: afn, lo: -5, hi: 5, label: \"a (m/s\u00b2)\", color: C.figure, tick: \"+4\", tick2: \"-4\" },\n  { f: vfn, lo: -1, hi: 9, label: \"v (m/s)\", color: C.accent, tick: \"8\", tick2: \"\" },\n  { f: xfn, lo: -2, hi: 42, label: \"x (m)\", color: C.ink, tick: \"38\", tick2: \"\" }\n];\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nfor (var i = 0; i < 3; i++) {\n  var q = panels[i];\n  var top = 6 + i * (ph + gap);\n  var bot = top + ph;\n  var Y = function (v) { return bot - (v - q.lo) / (q.hi - q.lo) * (bot - top); };\n\n  ctx.strokeStyle = C.rule; ctx.lineWidth = 1;\n  ctx.beginPath(); ctx.moveTo(pad, top); ctx.lineTo(pad, bot); ctx.stroke();\n  var z = Y(0);\n  ctx.beginPath(); ctx.moveTo(pad, z); ctx.lineTo(X(T), z); ctx.stroke();\n\n  // segment boundaries\n  ctx.strokeStyle = C.faint;\n  var marks = [2, 5];\n  for (var m = 0; m < 2; m++) {\n    ctx.beginPath(); ctx.moveTo(X(marks[m]), top); ctx.lineTo(X(marks[m]), bot); ctx.stroke();\n  }\n\n  ctx.strokeStyle = q.color; ctx.lineWidth = 2;\n  ctx.beginPath();\n  var started = false;\n  for (var s = 0; s <= T; s += 0.02) {\n    var cx = X(s), cy = Y(q.f(s));\n    if (!started) { ctx.moveTo(cx, cy); started = true; } else ctx.lineTo(cx, cy);\n  }\n  ctx.stroke();\n\n  ctx.fillStyle = q.color;\n  ctx.textAlign = \"left\";\n  ctx.fillText(q.label, pad + 5, top + 11);\n\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"right\";\n  ctx.fillText(\"0\", pad - 5, z + 4);\n  if (i === 0) { ctx.fillText(\"+4\", pad - 5, Y(4) + 4); ctx.fillText(\"-4\", pad - 5, Y(-4) + 4); }\n  if (i === 1) ctx.fillText(\"8\", pad - 5, Y(8) + 4);\n  if (i === 2) ctx.fillText(\"38\", pad - 5, Y(38) + 4);\n}\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"t = 2 s\", X(2), H - 6);\nctx.fillText(\"t = 5 s\", X(5), H - 6);\nctx.fillText(\"t = 8 s\", X(8), H - 6);\nctx.textAlign = \"left\";\nctx.fillText(\"push\", X(0.3), H - 6);\nctx.fillText(\"coast\", X(2.6), H - 6);\nctx.fillText(\"brake\", X(5.6), H - 6);"
+    "draw": "var pad = 40, gap = 10;\nvar T = 8;\nvar ph = (H - gap * 2 - 22) / 3;\nvar X = function (s) { return pad + s / T * (W - pad - 20); };\n\nvar afn = function (s) { return s < 2 ? 4 : (s < 5 ? 0 : -4); };\nvar vfn = function (s) { return s < 2 ? 4 * s : (s < 5 ? 8 : 8 - 4 * (s - 5)); };\nvar xfn = function (s) {\n  if (s < 2) return 2 * s * s;\n  if (s < 5) return 8 + 8 * (s - 2);\n  return 32 + 8 * (s - 5) - 2 * (s - 5) * (s - 5);\n};\n\nvar panels = [\n  { f: afn, lo: -5, hi: 5, label: \"a (m/s²)\", color: C.figure, tick: \"+4\", tick2: \"-4\" },\n  { f: vfn, lo: -1, hi: 9, label: \"v (m/s)\", color: C.accent, tick: \"8\", tick2: \"\" },\n  { f: xfn, lo: -2, hi: 42, label: \"x (m)\", color: C.ink, tick: \"38\", tick2: \"\" }\n];\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\nfor (var i = 0; i < 3; i++) {\n  var q = panels[i];\n  var top = 6 + i * (ph + gap);\n  var bot = top + ph;\n  var Y = function (v) { return bot - (v - q.lo) / (q.hi - q.lo) * (bot - top); };\n\n  ctx.strokeStyle = C.rule; ctx.lineWidth = 1;\n  ctx.beginPath(); ctx.moveTo(pad, top); ctx.lineTo(pad, bot); ctx.stroke();\n  var z = Y(0);\n  ctx.beginPath(); ctx.moveTo(pad, z); ctx.lineTo(X(T), z); ctx.stroke();\n\n  // segment boundaries\n  ctx.strokeStyle = C.faint;\n  var marks = [2, 5];\n  for (var m = 0; m < 2; m++) {\n    ctx.beginPath(); ctx.moveTo(X(marks[m]), top); ctx.lineTo(X(marks[m]), bot); ctx.stroke();\n  }\n\n  ctx.strokeStyle = q.color; ctx.lineWidth = 2;\n  ctx.beginPath();\n  var started = false;\n  for (var s = 0; s <= T; s += 0.02) {\n    var cx = X(s), cy = Y(q.f(s));\n    if (!started) { ctx.moveTo(cx, cy); started = true; } else ctx.lineTo(cx, cy);\n  }\n  ctx.stroke();\n\n  ctx.fillStyle = q.color;\n  ctx.textAlign = \"left\";\n  ctx.fillText(q.label, pad + 5, top + 11);\n\n  ctx.fillStyle = C.ink;\n  ctx.textAlign = \"right\";\n  ctx.fillText(\"0\", pad - 5, z + 4);\n  if (i === 0) { ctx.fillText(\"+4\", pad - 5, Y(4) + 4); ctx.fillText(\"-4\", pad - 5, Y(-4) + 4); }\n  if (i === 1) ctx.fillText(\"8\", pad - 5, Y(8) + 4);\n  if (i === 2) ctx.fillText(\"38\", pad - 5, Y(38) + 4);\n}\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"center\";\nctx.fillText(\"t = 2 s\", X(2), H - 6);\nctx.fillText(\"t = 5 s\", X(5), H - 6);\nctx.fillText(\"t = 8 s\", X(8), H - 6);\nctx.textAlign = \"left\";\nctx.fillText(\"push\", X(0.3), H - 6);\nctx.fillText(\"coast\", X(2.6), H - 6);\nctx.fillText(\"brake\", X(5.6), H - 6);"
   },
   {
     "id": "motion-graphs-trapezoid",
@@ -4458,7 +4458,7 @@
         "label": "Rail separation",
         "unit": "m",
         "min": 0.1,
-        "max": 1.0,
+        "max": 1,
         "step": 0.05,
         "value": 0.5
       },
@@ -4520,7 +4520,7 @@
         "label": "Rail separation",
         "unit": "m",
         "min": 0.1,
-        "max": 1.0,
+        "max": 1,
         "step": 0.05,
         "value": 0.5
       },
@@ -5007,7 +5007,7 @@
         "min": 0.2,
         "max": 2.5,
         "step": 0.05,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "gravity",
@@ -5068,7 +5068,7 @@
         "label": "Work function",
         "unit": "eV",
         "min": 1.5,
-        "max": 5.0,
+        "max": 5,
         "step": 0.05,
         "value": 2.3
       },
@@ -5095,7 +5095,7 @@
         "label": "Work function",
         "unit": "eV",
         "min": 1.5,
-        "max": 5.0,
+        "max": 5,
         "step": 0.05,
         "value": 2.3
       }
@@ -5140,9 +5140,9 @@
         "label": "Total energy E",
         "unit": "J",
         "min": 0.5,
-        "max": 6.0,
+        "max": 6,
         "step": 0.1,
-        "value": 3.0
+        "value": 3
       }
     ],
     "draw": "var m = 2.0;\nvar E = p.energy;\nfunction Uf(x) { return 4*x*x - x*x*x*x; }\nfunction Ff(x) { return -(8*x - 4*x*x*x); }\n\nvar dt = 0.002;\nvar v0 = Math.sqrt(2*E/m);\nvar xs = 0, vs = v0, crossings = 0, T = 0, i, xp;\nfor (i = 0; i < 8000; i++) {\n  xp = xs;\n  vs = vs + Ff(xs)/m*dt;\n  xs = xs + vs*dt;\n  T = T + dt;\n  if (xp > 0 && xs <= 0) crossings = crossings + 1;\n  if (xp < 0 && xs >= 0) crossings = crossings + 1;\n  if (crossings >= 2) break;\n  if (Math.abs(xs) > 2.35) break;\n}\nvar tm = t - T*Math.floor(t/T);\nvar x = 0, v = v0;\nvar n = Math.floor(tm/dt);\nfor (i = 0; i < n; i++) { v = v + Ff(x)/m*dt; x = x + v*dt; }\n\nvar xmin = -2.35, xmax = 2.35, Umin = -6, Umax = 7;\nvar L = W*0.10, R = W*0.04, Tp = H*0.10, B = H*0.86;\nfunction PX(q) { return L + (q - xmin)/(xmax - xmin)*(W - L - R); }\nfunction PY(q) { return B - (q - Umin)/(Umax - Umin)*(B - Tp); }\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// axes\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(L, PY(0)); ctx.lineTo(W - R, PY(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(PX(0), Tp); ctx.lineTo(PX(0), B); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillText(\"x (m)\", W - R - 34, PY(0) + 14);\nctx.fillText(\"U (J)\", PX(0) + 6, Tp + 4);\n\n// U(x)\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (i = 0; i <= 200; i++) {\n  var xq = xmin + (xmax - xmin)*i/200;\n  var yq = Uf(xq);\n  if (yq < Umin) yq = Umin;\n  if (yq > Umax) yq = Umax;\n  if (i === 0) ctx.moveTo(PX(xq), PY(yq)); else ctx.lineTo(PX(xq), PY(yq));\n}\nctx.stroke();\n\n// energy line\nctx.strokeStyle = C.accent;\nctx.setLineDash([5, 4]);\nctx.beginPath(); ctx.moveTo(L, PY(E)); ctx.lineTo(W - R, PY(E)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.accent;\nctx.fillText(\"E = \" + E.toFixed(1) + \" J\", L + 4, PY(E) - 6);\n\n// barrier top\nctx.fillStyle = C.faint;\nctx.fillText(\"barrier top U = 4.0 J\", PX(1.41) + 6, PY(4) - 6);\n\n// turning points\nif (E < 4) {\n  var xt = Math.sqrt(2 - Math.sqrt(4 - E));\n  ctx.strokeStyle = C.rule;\n  ctx.setLineDash([2, 4]);\n  ctx.beginPath(); ctx.moveTo(PX(xt), PY(E)); ctx.lineTo(PX(xt), PY(0)); ctx.stroke();\n  ctx.beginPath(); ctx.moveTo(PX(-xt), PY(E)); ctx.lineTo(PX(-xt), PY(0)); ctx.stroke();\n  ctx.setLineDash([]);\n  ctx.fillStyle = C.ink;\n  ctx.fillText(\"turning point\", PX(xt) + 5, PY(0) + 26);\n}\n\n// particle riding the curve\nvar px = PX(x), py = PY(Uf(x));\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI*2); ctx.fill();\n\n// kinetic energy bar from curve up to E\nif (Uf(x) < E) {\n  ctx.strokeStyle = C.accent;\n  ctx.lineWidth = 3;\n  ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, PY(E)); ctx.stroke();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(\"K\", px + 7, (py + PY(E))/2 + 4);\n}\n\nvar K = E - Uf(x);\nif (K < 0) K = 0;\nout.note = \"U = \" + Uf(x).toFixed(2) + \" J, K = \" + K.toFixed(2) + \" J, speed = \" + Math.sqrt(2*K/m).toFixed(2) + \" m/s\" + (E >= 4 ? \"  (E is above the 4.0 J barrier: the particle escapes)\" : \"\");"
@@ -5174,7 +5174,7 @@
         "key": "stretch",
         "label": "Stretch",
         "unit": "m",
-        "min": 0.0,
+        "min": 0,
         "max": 0.55,
         "step": 0.01,
         "value": 0.2
@@ -5790,17 +5790,17 @@
         "key": "n1",
         "label": "Index of medium 1",
         "unit": "",
-        "min": 1.0,
-        "max": 2.0,
+        "min": 1,
+        "max": 2,
         "step": 0.01,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "n2",
         "label": "Index of medium 2",
         "unit": "",
-        "min": 1.0,
-        "max": 2.0,
+        "min": 1,
+        "max": 2,
         "step": 0.01,
         "value": 1.33
       }
@@ -5874,7 +5874,7 @@
         "min": 0.5,
         "max": 6,
         "step": 0.1,
-        "value": 4.0
+        "value": 4
       },
       {
         "key": "current",
@@ -5883,7 +5883,7 @@
         "min": 0,
         "max": 5,
         "step": 0.1,
-        "value": 3.0
+        "value": 3
       },
       {
         "key": "heading",
@@ -5919,7 +5919,7 @@
         "min": 0.6,
         "max": 6,
         "step": 0.1,
-        "value": 4.0
+        "value": 4
       },
       {
         "key": "current",
@@ -5928,7 +5928,7 @@
         "min": 0,
         "max": 5,
         "step": 0.1,
-        "value": 3.0
+        "value": 3
       },
       {
         "key": "heading",
@@ -6093,7 +6093,7 @@
         "value": 0.4
       }
     ],
-    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar th = p.angle * Math.PI / 180;\nvar beta = p.beta;\nvar g = 9.8;\n\nvar pad = 26;\nvar baseY = H - 34;\nvar x0 = pad, x1 = W - pad;\nvar rise = Math.min((x1 - x0) * Math.tan(th), H - 70);\nvar run = rise / Math.tan(th);\nvar topX = x1 - run, topY = baseY - rise;\n\n// incline\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.6;\nctx.beginPath();\nctx.moveTo(topX, topY); ctx.lineTo(x1, baseY); ctx.lineTo(topX, baseY); ctx.closePath();\nctx.stroke();\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(0, baseY); ctx.lineTo(W, baseY); ctx.stroke();\n\n// ball sitting on the slope, two thirds of the way up\nvar f = 0.55;\nvar bx = x1 + (topX - x1) * f, by = baseY + (topY - baseY) * f;\nvar R = 22;\nvar nx = Math.sin(th), ny = -Math.cos(th);     // unit normal (screen coords, y down)\nvar ccx = bx + nx * R, ccy = by + ny * R;\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.6;\nctx.beginPath(); ctx.arc(ccx, ccy, R, 0, Math.PI * 2); ctx.stroke();\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(ccx, ccy); ctx.lineTo(ccx + R * Math.cos(th), ccy - R * Math.sin(th)); ctx.stroke();\n\nfunction arrow(x, y, dx, dy, col, lab, lx, ly) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 1.8;\n  ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + dx, y + dy); ctx.stroke();\n  var a = Math.atan2(dy, dx);\n  ctx.beginPath();\n  ctx.moveTo(x + dx, y + dy);\n  ctx.lineTo(x + dx - 7 * Math.cos(a - 0.4), y + dy - 7 * Math.sin(a - 0.4));\n  ctx.lineTo(x + dx - 7 * Math.cos(a + 0.4), y + dy - 7 * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n  ctx.fillText(lab, x + dx + lx, y + dy + ly);\n}\n\n// weight\narrow(ccx, ccy, 0, 44, C.figure, \"Mg\", -8, 14);\n// normal at the contact\narrow(bx, by, nx * 40, ny * 40, C.figure, \"N\", 4, -4);\n// friction up the slope at the contact\nvar ux = (topX - x1) / Math.sqrt((topX - x1) * (topX - x1) + (topY - baseY) * (topY - baseY));\nvar uy = (topY - baseY) / Math.sqrt((topX - x1) * (topX - x1) + (topY - baseY) * (topY - baseY));\narrow(bx, by, ux * 38, uy * 38, C.accent, \"f (static)\", -46, 14);\n\n// angle mark\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(x1, baseY, 26, Math.PI - th, Math.PI); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(p.angle.toFixed(0) + \" deg\", x1 - 58, baseY - 6);\n\nvar a = g * Math.sin(th) / (1 + beta);\nvar fOverMg = beta * Math.sin(th) / (1 + beta);\nvar muMin = beta * Math.tan(th) / (1 + beta);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"a = g sin\" + \"\u03b8/(1+\u03b2) = \" + a.toFixed(2) + \" m/s\u00b2\", 8, 16);\nctx.fillStyle = C.figure;\nctx.fillText(\"f = \u03b2Mg sin\u03b8/(1+\u03b2) = \" + fOverMg.toFixed(3) + \" Mg\", 8, 32);\n\nout.note = \"\u03b2 = \" + beta.toFixed(2) + \": a = \" + a.toFixed(2) + \" m/s\u00b2, friction needed = \" + fOverMg.toFixed(3) + \" Mg, minimum \u03bcs = \" + muMin.toFixed(3);\n"
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar th = p.angle * Math.PI / 180;\nvar beta = p.beta;\nvar g = 9.8;\n\nvar pad = 26;\nvar baseY = H - 34;\nvar x0 = pad, x1 = W - pad;\nvar rise = Math.min((x1 - x0) * Math.tan(th), H - 70);\nvar run = rise / Math.tan(th);\nvar topX = x1 - run, topY = baseY - rise;\n\n// incline\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.6;\nctx.beginPath();\nctx.moveTo(topX, topY); ctx.lineTo(x1, baseY); ctx.lineTo(topX, baseY); ctx.closePath();\nctx.stroke();\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(0, baseY); ctx.lineTo(W, baseY); ctx.stroke();\n\n// ball sitting on the slope, two thirds of the way up\nvar f = 0.55;\nvar bx = x1 + (topX - x1) * f, by = baseY + (topY - baseY) * f;\nvar R = 22;\nvar nx = Math.sin(th), ny = -Math.cos(th);     // unit normal (screen coords, y down)\nvar ccx = bx + nx * R, ccy = by + ny * R;\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.6;\nctx.beginPath(); ctx.arc(ccx, ccy, R, 0, Math.PI * 2); ctx.stroke();\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(ccx, ccy); ctx.lineTo(ccx + R * Math.cos(th), ccy - R * Math.sin(th)); ctx.stroke();\n\nfunction arrow(x, y, dx, dy, col, lab, lx, ly) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 1.8;\n  ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + dx, y + dy); ctx.stroke();\n  var a = Math.atan2(dy, dx);\n  ctx.beginPath();\n  ctx.moveTo(x + dx, y + dy);\n  ctx.lineTo(x + dx - 7 * Math.cos(a - 0.4), y + dy - 7 * Math.sin(a - 0.4));\n  ctx.lineTo(x + dx - 7 * Math.cos(a + 0.4), y + dy - 7 * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n  ctx.fillText(lab, x + dx + lx, y + dy + ly);\n}\n\n// weight\narrow(ccx, ccy, 0, 44, C.figure, \"Mg\", -8, 14);\n// normal at the contact\narrow(bx, by, nx * 40, ny * 40, C.figure, \"N\", 4, -4);\n// friction up the slope at the contact\nvar ux = (topX - x1) / Math.sqrt((topX - x1) * (topX - x1) + (topY - baseY) * (topY - baseY));\nvar uy = (topY - baseY) / Math.sqrt((topX - x1) * (topX - x1) + (topY - baseY) * (topY - baseY));\narrow(bx, by, ux * 38, uy * 38, C.accent, \"f (static)\", -46, 14);\n\n// angle mark\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(x1, baseY, 26, Math.PI - th, Math.PI); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(p.angle.toFixed(0) + \" deg\", x1 - 58, baseY - 6);\n\nvar a = g * Math.sin(th) / (1 + beta);\nvar fOverMg = beta * Math.sin(th) / (1 + beta);\nvar muMin = beta * Math.tan(th) / (1 + beta);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"a = g sin\" + \"θ/(1+β) = \" + a.toFixed(2) + \" m/s²\", 8, 16);\nctx.fillStyle = C.figure;\nctx.fillText(\"f = βMg sinθ/(1+β) = \" + fOverMg.toFixed(3) + \" Mg\", 8, 32);\n\nout.note = \"β = \" + beta.toFixed(2) + \": a = \" + a.toFixed(2) + \" m/s², friction needed = \" + fOverMg.toFixed(3) + \" Mg, minimum μs = \" + muMin.toFixed(3);\n"
   },
   {
     "id": "rolling-race",
@@ -6120,7 +6120,7 @@
         "value": 4
       }
     ],
-    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar g = 9.8;\nvar th = p.angle * Math.PI / 180;\nvar pad = 26;\nvar baseY = H - 30;\nvar x1 = W - pad;\nvar rise = Math.min((x1 - pad) * Math.tan(th), H - 78);\nvar run = rise / Math.tan(th);\nvar topX = x1 - run, topY = baseY - rise;\nvar L = Math.sqrt(run * run + rise * rise);\n\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.6;\nctx.beginPath(); ctx.moveTo(topX, topY); ctx.lineTo(x1, baseY); ctx.stroke();\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(0, baseY); ctx.lineTo(W, baseY); ctx.stroke();\n\nvar ux = (x1 - topX) / L, uy = (baseY - topY) / L;\nvar nx = -uy, ny = ux;   // points away from the slope (upward-left in screen coords)\n\nvar shapes = [\n  { b: 0.4,  name: \"sphere  \u03b2=0.40\" },\n  { b: 0.5,  name: \"disk    \u03b2=0.50\" },\n  { b: 1.0,  name: \"hoop    \u03b2=1.00\" }\n];\n// physical ramp length the reader imagines\nvar Lphys = p.length;\nvar slowest = Math.sqrt(2 * Lphys * (1 + 1.0) / (g * Math.sin(th)));\nvar cycle = slowest + 1.2;\nvar tt = t % cycle;\n\nvar lines = [];\nfor (var i = 0; i < shapes.length; i++) {\n  var b = shapes[i].b;\n  var acc = g * Math.sin(th) / (1 + b);\n  var s = 0.5 * acc * tt * tt;\n  var done = s >= Lphys;\n  if (done) s = Lphys;\n  var frac = s / Lphys;\n  var R = 12;\n  var px = topX + ux * frac * L + nx * R;\n  var py = topY + uy * frac * L + ny * R;\n  ctx.strokeStyle = (i === 0) ? C.accent : C.ink;\n  ctx.lineWidth = (b === 1.0) ? 2.4 : 1.5;\n  ctx.beginPath(); ctx.arc(px, py, R, 0, Math.PI * 2); ctx.stroke();\n  if (b < 0.9) {\n    var spin = -(s / R);\n    ctx.strokeStyle = C.rule; ctx.lineWidth = 1;\n    ctx.beginPath(); ctx.moveTo(px, py);\n    ctx.lineTo(px + R * Math.cos(spin), py + R * Math.sin(spin));\n    ctx.stroke();\n  }\n  var vEnd = Math.sqrt(2 * g * Lphys * Math.sin(th) / (1 + b));\n  lines.push(shapes[i].name + \": a = \" + acc.toFixed(2) + \" m/s\u00b2, v_end = \" + vEnd.toFixed(2) + \" m/s\");\n}\n\nctx.fillStyle = C.ink;\nfor (var j = 0; j < lines.length; j++) {\n  ctx.fillStyle = (j === 0) ? C.accent : C.figure;\n  ctx.fillText(lines[j], 8, 16 + j * 15);\n}\n\nvar vS = Math.sqrt(2 * g * Lphys * Math.sin(th) / 1.4);\nvar vH = Math.sqrt(2 * g * Lphys * Math.sin(th) / 2.0);\nout.note = \"sphere reaches the bottom at \" + vS.toFixed(2) + \" m/s, hoop at \" + vH.toFixed(2) + \" m/s: ratio \" + (vS / vH).toFixed(4) + \" no matter the angle or length\";\n"
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar g = 9.8;\nvar th = p.angle * Math.PI / 180;\nvar pad = 26;\nvar baseY = H - 30;\nvar x1 = W - pad;\nvar rise = Math.min((x1 - pad) * Math.tan(th), H - 78);\nvar run = rise / Math.tan(th);\nvar topX = x1 - run, topY = baseY - rise;\nvar L = Math.sqrt(run * run + rise * rise);\n\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.6;\nctx.beginPath(); ctx.moveTo(topX, topY); ctx.lineTo(x1, baseY); ctx.stroke();\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(0, baseY); ctx.lineTo(W, baseY); ctx.stroke();\n\nvar ux = (x1 - topX) / L, uy = (baseY - topY) / L;\nvar nx = -uy, ny = ux;   // points away from the slope (upward-left in screen coords)\n\nvar shapes = [\n  { b: 0.4,  name: \"sphere  β=0.40\" },\n  { b: 0.5,  name: \"disk    β=0.50\" },\n  { b: 1.0,  name: \"hoop    β=1.00\" }\n];\n// physical ramp length the reader imagines\nvar Lphys = p.length;\nvar slowest = Math.sqrt(2 * Lphys * (1 + 1.0) / (g * Math.sin(th)));\nvar cycle = slowest + 1.2;\nvar tt = t % cycle;\n\nvar lines = [];\nfor (var i = 0; i < shapes.length; i++) {\n  var b = shapes[i].b;\n  var acc = g * Math.sin(th) / (1 + b);\n  var s = 0.5 * acc * tt * tt;\n  var done = s >= Lphys;\n  if (done) s = Lphys;\n  var frac = s / Lphys;\n  var R = 12;\n  var px = topX + ux * frac * L + nx * R;\n  var py = topY + uy * frac * L + ny * R;\n  ctx.strokeStyle = (i === 0) ? C.accent : C.ink;\n  ctx.lineWidth = (b === 1.0) ? 2.4 : 1.5;\n  ctx.beginPath(); ctx.arc(px, py, R, 0, Math.PI * 2); ctx.stroke();\n  if (b < 0.9) {\n    var spin = -(s / R);\n    ctx.strokeStyle = C.rule; ctx.lineWidth = 1;\n    ctx.beginPath(); ctx.moveTo(px, py);\n    ctx.lineTo(px + R * Math.cos(spin), py + R * Math.sin(spin));\n    ctx.stroke();\n  }\n  var vEnd = Math.sqrt(2 * g * Lphys * Math.sin(th) / (1 + b));\n  lines.push(shapes[i].name + \": a = \" + acc.toFixed(2) + \" m/s², v_end = \" + vEnd.toFixed(2) + \" m/s\");\n}\n\nctx.fillStyle = C.ink;\nfor (var j = 0; j < lines.length; j++) {\n  ctx.fillStyle = (j === 0) ? C.accent : C.figure;\n  ctx.fillText(lines[j], 8, 16 + j * 15);\n}\n\nvar vS = Math.sqrt(2 * g * Lphys * Math.sin(th) / 1.4);\nvar vH = Math.sqrt(2 * g * Lphys * Math.sin(th) / 2.0);\nout.note = \"sphere reaches the bottom at \" + vS.toFixed(2) + \" m/s, hoop at \" + vH.toFixed(2) + \" m/s: ratio \" + (vS / vH).toFixed(4) + \" no matter the angle or length\";\n"
   },
   {
     "id": "rolling-skid",
@@ -6147,7 +6147,7 @@
         "value": 0.1
       }
     ],
-    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar g = 9.8;\nvar v0 = p.v0, mu = p.mu, beta = 0.4;\nvar a = mu * g;\nvar tRoll = v0 / (a * (1 + 1 / beta));\nvar vRoll = v0 / (1 + beta);\nvar dRoll = (v0 * v0 - vRoll * vRoll) / (2 * a);\n\nvar padL = 44, padR = 14, padT = 26, padB = 30;\nvar tMax = tRoll * 1.7;\nvar vMax = v0 * 1.12;\nfunction X(s) { return padL + (W - padL - padR) * (s / tMax); }\nfunction Y(v) { return H - padB - (H - padT - padB) * (v / vMax); }\n\n// axes\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(padL, padT - 6); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"speed (m/s)\", 4, padT - 12);\nctx.fillText(\"time (s)\", W - padR - 48, H - 8);\nctx.fillText(v0.toFixed(0), padL - 22, Y(v0) + 4);\nctx.fillText(\"0\", padL - 14, H - padB + 4);\nctx.fillText(tRoll.toFixed(2), X(tRoll) - 12, H - padB + 16);\n\n// v(t) of the centre\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 120; i++) {\n  var s = tMax * i / 120;\n  var v = (s < tRoll) ? v0 - a * s : vRoll;\n  if (i === 0) ctx.moveTo(X(s), Y(v)); else ctx.lineTo(X(s), Y(v));\n}\nctx.stroke();\n\n// omega*R of the rim\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nctx.beginPath();\nfor (var k = 0; k <= 120; k++) {\n  var s2 = tMax * k / 120;\n  var w = (s2 < tRoll) ? (a / beta) * s2 : vRoll;\n  if (k === 0) ctx.moveTo(X(s2), Y(w)); else ctx.lineTo(X(s2), Y(w));\n}\nctx.stroke();\n\n// marker sweeping in time\nvar now = t % (tMax + 0.5);\nif (now < tMax) {\n  var vn = (now < tRoll) ? v0 - a * now : vRoll;\n  var wn = (now < tRoll) ? (a / beta) * now : vRoll;\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath(); ctx.moveTo(X(now), padT - 6); ctx.lineTo(X(now), H - padB); ctx.stroke();\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(X(now), Y(vn), 4, 0, Math.PI * 2); ctx.fill();\n  ctx.fillStyle = C.figure;\n  ctx.beginPath(); ctx.arc(X(now), Y(wn), 4, 0, Math.PI * 2); ctx.fill();\n}\n\n// meeting point\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(padL, Y(vRoll)); ctx.lineTo(X(tRoll), Y(vRoll)); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.accent; ctx.fillText(\"v of centre\", X(tRoll) + 8, Y(v0 * 0.95));\nctx.fillStyle = C.figure;  ctx.fillText(\"\u03c9R of rim\", X(tRoll) + 8, Y(vRoll * 0.35));\nctx.fillStyle = C.ink;\nctx.fillText(\"they meet at \" + vRoll.toFixed(2) + \" m/s\", X(tRoll) + 8, Y(vRoll) - 8);\n\nout.note = \"rolling starts at t = \" + tRoll.toFixed(2) + \" s and v = \" + vRoll.toFixed(2) + \" m/s, after sliding \" + dRoll.toFixed(2) + \" m\";\n"
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar g = 9.8;\nvar v0 = p.v0, mu = p.mu, beta = 0.4;\nvar a = mu * g;\nvar tRoll = v0 / (a * (1 + 1 / beta));\nvar vRoll = v0 / (1 + beta);\nvar dRoll = (v0 * v0 - vRoll * vRoll) / (2 * a);\n\nvar padL = 44, padR = 14, padT = 26, padB = 30;\nvar tMax = tRoll * 1.7;\nvar vMax = v0 * 1.12;\nfunction X(s) { return padL + (W - padL - padR) * (s / tMax); }\nfunction Y(v) { return H - padB - (H - padT - padB) * (v / vMax); }\n\n// axes\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(padL, padT - 6); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillText(\"speed (m/s)\", 4, padT - 12);\nctx.fillText(\"time (s)\", W - padR - 48, H - 8);\nctx.fillText(v0.toFixed(0), padL - 22, Y(v0) + 4);\nctx.fillText(\"0\", padL - 14, H - padB + 4);\nctx.fillText(tRoll.toFixed(2), X(tRoll) - 12, H - padB + 16);\n\n// v(t) of the centre\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath();\nfor (var i = 0; i <= 120; i++) {\n  var s = tMax * i / 120;\n  var v = (s < tRoll) ? v0 - a * s : vRoll;\n  if (i === 0) ctx.moveTo(X(s), Y(v)); else ctx.lineTo(X(s), Y(v));\n}\nctx.stroke();\n\n// omega*R of the rim\nctx.strokeStyle = C.figure; ctx.lineWidth = 2;\nctx.beginPath();\nfor (var k = 0; k <= 120; k++) {\n  var s2 = tMax * k / 120;\n  var w = (s2 < tRoll) ? (a / beta) * s2 : vRoll;\n  if (k === 0) ctx.moveTo(X(s2), Y(w)); else ctx.lineTo(X(s2), Y(w));\n}\nctx.stroke();\n\n// marker sweeping in time\nvar now = t % (tMax + 0.5);\nif (now < tMax) {\n  var vn = (now < tRoll) ? v0 - a * now : vRoll;\n  var wn = (now < tRoll) ? (a / beta) * now : vRoll;\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath(); ctx.moveTo(X(now), padT - 6); ctx.lineTo(X(now), H - padB); ctx.stroke();\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(X(now), Y(vn), 4, 0, Math.PI * 2); ctx.fill();\n  ctx.fillStyle = C.figure;\n  ctx.beginPath(); ctx.arc(X(now), Y(wn), 4, 0, Math.PI * 2); ctx.fill();\n}\n\n// meeting point\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(padL, Y(vRoll)); ctx.lineTo(X(tRoll), Y(vRoll)); ctx.stroke();\nctx.setLineDash([]);\n\nctx.fillStyle = C.accent; ctx.fillText(\"v of centre\", X(tRoll) + 8, Y(v0 * 0.95));\nctx.fillStyle = C.figure;  ctx.fillText(\"ωR of rim\", X(tRoll) + 8, Y(vRoll * 0.35));\nctx.fillStyle = C.ink;\nctx.fillText(\"they meet at \" + vRoll.toFixed(2) + \" m/s\", X(tRoll) + 8, Y(vRoll) - 8);\n\nout.note = \"rolling starts at t = \" + tRoll.toFixed(2) + \" s and v = \" + vRoll.toFixed(2) + \" m/s, after sliding \" + dRoll.toFixed(2) + \" m\";\n"
   },
   {
     "id": "rotational-dynamics-torque",
@@ -6183,7 +6183,7 @@
         "value": 20
       }
     ],
-    "draw": "var F = p.force, r = p.radius, th = p.angle * Math.PI / 180;\nvar px = W * 0.30, py = H * 0.62;\nvar scale = (W * 0.42) / 0.5;\nvar ax = px + r * scale, ay = py;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\n// pivot\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(px, py + 34); ctx.lineTo(px, py - 34); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px, py, 4, 0, 6.2832); ctx.fill();\nctx.fillText(\"pivot\", px - 16, py + 50);\n\n// the rigid bar\nctx.strokeStyle = C.figure;\nctx.lineWidth = 5;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + 0.5 * scale, py); ctx.stroke();\n\n// r marker\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(px, py + 22); ctx.lineTo(ax, py + 22); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"r = \" + r.toFixed(2) + \" m\", (px + ax) / 2 - 26, py + 36);\n\n// force arrow from application point\nvar L = 58 + F * 1.1;\nvar fx = ax + L * Math.cos(-th), fy = ay + L * Math.sin(-th);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2.5;\nctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(fx, fy); ctx.stroke();\nvar hw = 6;\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.moveTo(fx, fy);\nctx.lineTo(fx - 12 * Math.cos(-th) + hw * Math.sin(-th), fy - 12 * Math.sin(-th) - hw * Math.cos(-th));\nctx.lineTo(fx - 12 * Math.cos(-th) - hw * Math.sin(-th), fy - 12 * Math.sin(-th) + hw * Math.cos(-th));\nctx.closePath(); ctx.fill();\nctx.fillText(\"F = \" + F.toFixed(0) + \" N\", fx + 6, fy - 4);\n\n// line of action, extended both ways\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.setLineDash([2, 5]);\nctx.beginPath();\nctx.moveTo(ax - 240 * Math.cos(-th), ay - 240 * Math.sin(-th));\nctx.lineTo(ax + 240 * Math.cos(-th), ay + 240 * Math.sin(-th));\nctx.stroke();\nctx.setLineDash([]);\n\n// perpendicular from pivot to line of action = lever arm\nvar vx = Math.cos(-th), vy = Math.sin(-th);\nvar wx = px - ax, wy = py - ay;\nvar proj = wx * vx + wy * vy;\nvar footx = ax + proj * vx, footy = ay + proj * vy;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.setLineDash([5, 4]);\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(footx, footy); ctx.stroke();\nctx.setLineDash([]);\nvar lever = Math.abs(r * Math.sin(th));\nctx.fillStyle = C.figure;\nctx.fillText(\"lever arm r sin\" + \"\u03b8 = \" + lever.toFixed(3) + \" m\", 10, 20);\n\n// angle label\nctx.fillStyle = C.ink;\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.arc(ax, ay, 24, -th, 0, th < 0); ctx.stroke();\nctx.fillText(\"\u03b8 = \" + p.angle.toFixed(0) + \"\u00b0\", ax + 28, ay - 10);\n\nvar tau = r * F * Math.sin(th);\nout.note = \"torque = r F sin(theta) = \" + r.toFixed(2) + \" x \" + F.toFixed(0) + \" x \" + Math.sin(th).toFixed(3) + \" = \" + tau.toFixed(2) + \" N m\";"
+    "draw": "var F = p.force, r = p.radius, th = p.angle * Math.PI / 180;\nvar px = W * 0.30, py = H * 0.62;\nvar scale = (W * 0.42) / 0.5;\nvar ax = px + r * scale, ay = py;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\n// pivot\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(px, py + 34); ctx.lineTo(px, py - 34); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px, py, 4, 0, 6.2832); ctx.fill();\nctx.fillText(\"pivot\", px - 16, py + 50);\n\n// the rigid bar\nctx.strokeStyle = C.figure;\nctx.lineWidth = 5;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + 0.5 * scale, py); ctx.stroke();\n\n// r marker\nctx.lineWidth = 1;\nctx.strokeStyle = C.rule;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(px, py + 22); ctx.lineTo(ax, py + 22); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.ink;\nctx.fillText(\"r = \" + r.toFixed(2) + \" m\", (px + ax) / 2 - 26, py + 36);\n\n// force arrow from application point\nvar L = 58 + F * 1.1;\nvar fx = ax + L * Math.cos(-th), fy = ay + L * Math.sin(-th);\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2.5;\nctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(fx, fy); ctx.stroke();\nvar hw = 6;\nctx.fillStyle = C.accent;\nctx.beginPath();\nctx.moveTo(fx, fy);\nctx.lineTo(fx - 12 * Math.cos(-th) + hw * Math.sin(-th), fy - 12 * Math.sin(-th) - hw * Math.cos(-th));\nctx.lineTo(fx - 12 * Math.cos(-th) - hw * Math.sin(-th), fy - 12 * Math.sin(-th) + hw * Math.cos(-th));\nctx.closePath(); ctx.fill();\nctx.fillText(\"F = \" + F.toFixed(0) + \" N\", fx + 6, fy - 4);\n\n// line of action, extended both ways\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.setLineDash([2, 5]);\nctx.beginPath();\nctx.moveTo(ax - 240 * Math.cos(-th), ay - 240 * Math.sin(-th));\nctx.lineTo(ax + 240 * Math.cos(-th), ay + 240 * Math.sin(-th));\nctx.stroke();\nctx.setLineDash([]);\n\n// perpendicular from pivot to line of action = lever arm\nvar vx = Math.cos(-th), vy = Math.sin(-th);\nvar wx = px - ax, wy = py - ay;\nvar proj = wx * vx + wy * vy;\nvar footx = ax + proj * vx, footy = ay + proj * vy;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 2;\nctx.setLineDash([5, 4]);\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(footx, footy); ctx.stroke();\nctx.setLineDash([]);\nvar lever = Math.abs(r * Math.sin(th));\nctx.fillStyle = C.figure;\nctx.fillText(\"lever arm r sin\" + \"θ = \" + lever.toFixed(3) + \" m\", 10, 20);\n\n// angle label\nctx.fillStyle = C.ink;\nctx.strokeStyle = C.ink;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.arc(ax, ay, 24, -th, 0, th < 0); ctx.stroke();\nctx.fillText(\"θ = \" + p.angle.toFixed(0) + \"°\", ax + 28, ay - 10);\n\nvar tau = r * F * Math.sin(th);\nout.note = \"torque = r F sin(theta) = \" + r.toFixed(2) + \" x \" + F.toFixed(0) + \" x \" + Math.sin(th).toFixed(3) + \" = \" + tau.toFixed(2) + \" N m\";"
   },
   {
     "id": "rotational-dynamics-pulley",
@@ -6198,7 +6198,7 @@
         "min": 0.5,
         "max": 8,
         "step": 0.1,
-        "value": 3.0
+        "value": 3
       },
       {
         "key": "pulley",
@@ -6207,7 +6207,7 @@
         "min": 0,
         "max": 10,
         "step": 0.1,
-        "value": 2.0
+        "value": 2
       }
     ],
     "draw": "var g = 9.8;\nvar m = p.block, M = p.pulley, R = 0.20;\nvar I = 0.5 * M * R * R;\nvar a = m * g / (m + 0.5 * M);\nvar T = m * (g - a);\nvar alpha = a / R;\n\nvar cx = W * 0.36, cy = H * 0.30, rad = Math.min(W, H) * 0.14;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// support\nctx.strokeStyle = C.rule; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(cx, cy - rad); ctx.lineTo(cx, cy - rad - 24); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cx - 30, cy - rad - 24); ctx.lineTo(cx + 30, cy - rad - 24); ctx.stroke();\n\n// fall distance, looping\nvar cycle = 1.6;\nvar tt = t % cycle;\nvar drop = 0.5 * a * tt * tt;\nvar dpix = drop * (H * 0.30);\nif (dpix > H * 0.34) dpix = H * 0.34;\nvar theta = 0.5 * alpha * tt * tt;\n\n// pulley\nctx.strokeStyle = C.figure; ctx.lineWidth = 3;\nctx.beginPath(); ctx.arc(cx, cy, rad, 0, 6.2832); ctx.stroke();\nctx.strokeStyle = C.faint; ctx.lineWidth = 2;\nfor (var k = 0; k < 4; k++) {\n  var an = theta + k * Math.PI / 4;\n  ctx.beginPath();\n  ctx.moveTo(cx - rad * Math.cos(an), cy - rad * Math.sin(an));\n  ctx.lineTo(cx + rad * Math.cos(an), cy + rad * Math.sin(an));\n  ctx.stroke();\n}\nctx.fillStyle = C.ink;\nctx.fillText(\"pulley M = \" + M.toFixed(1) + \" kg\", cx - rad - 4, cy - rad - 32);\n\n// cord and block\nvar bx = cx + rad, by = cy + 40 + dpix;\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(bx, cy); ctx.lineTo(bx, by); ctx.stroke();\nctx.fillStyle = C.figure;\nctx.fillRect(bx - 20, by, 40, 30);\nctx.fillStyle = C.paper;\nctx.fillText(m.toFixed(1) + \" kg\", bx - 15, by + 19);\n\n// force labels on block\nctx.fillStyle = C.accent;\nctx.fillText(\"T = \" + T.toFixed(2) + \" N\", bx + 26, by + 2);\nctx.fillStyle = C.ink;\nctx.fillText(\"mg = \" + (m * g).toFixed(2) + \" N\", bx + 26, by + 44);\nctx.strokeStyle = C.ink; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(bx, by + 30); ctx.lineTo(bx, by + 52); ctx.stroke();\nctx.beginPath(); ctx.moveTo(bx, by + 56); ctx.lineTo(bx - 4, by + 48); ctx.lineTo(bx + 4, by + 48); ctx.closePath(); ctx.fill();\n\n// bar chart comparison with free fall\nvar gx = W * 0.72, gy0 = H * 0.80, hmax = H * 0.5;\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(gx - 30, gy0); ctx.lineTo(gx + 90, gy0); ctx.stroke();\nctx.fillStyle = C.faint;\nctx.fillRect(gx - 20, gy0 - hmax, 28, hmax);\nctx.fillStyle = C.accent;\nctx.fillRect(gx + 30, gy0 - hmax * a / g, 28, hmax * a / g);\nctx.fillStyle = C.ink;\nctx.fillText(\"g\", gx - 12, gy0 + 14);\nctx.fillText(\"a\", gx + 40, gy0 + 14);\n\nout.note = \"a = \" + a.toFixed(2) + \" m/s^2, T = \" + T.toFixed(2) + \" N, alpha = \" + alpha.toFixed(1) + \" rad/s^2 (I = \" + I.toFixed(3) + \" kg m^2)\";"
@@ -6237,7 +6237,7 @@
         "value": 89
       }
     ],
-    "draw": "var g = 9.8;\nvar L = p.length;\nvar th0 = p.start * Math.PI / 180;\n\n// integrate: alpha = (3g / 2L) cos(theta), theta measured up from the ground\nvar th = th0, om = 0, dt = 0.0008, tt = t % 3.0, n = Math.floor(tt / dt);\nif (n > 4000) n = 4000;\nfor (var i = 0; i < n; i++) {\n  if (th <= 0) { th = 0; break; }\n  om = om + (3 * g / (2 * L)) * Math.cos(th) * dt;\n  th = th - om * dt;\n}\nif (th < 0) th = 0;\n\nvar px = W * 0.22, py = H * 0.82;\nvar scale = (W * 0.6) / 1.6;\nvar tipx = px + L * scale * Math.cos(th);\nvar tipy = py - L * scale * Math.sin(th);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// ground\nctx.strokeStyle = C.rule; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(16, py); ctx.lineTo(W - 16, py); ctx.stroke();\n\n// start position, faint\nctx.strokeStyle = C.faint; ctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(px, py);\nctx.lineTo(px + L * scale * Math.cos(th0), py - L * scale * Math.sin(th0));\nctx.stroke();\n\n// rod\nctx.strokeStyle = C.figure; ctx.lineWidth = 6;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(tipx, tipy); ctx.stroke();\n\n// centre of mass and its weight\nvar cmx = px + 0.5 * L * scale * Math.cos(th);\nvar cmy = py - 0.5 * L * scale * Math.sin(th);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(cmx, cmy, 4, 0, 6.2832); ctx.fill();\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(cmx, cmy); ctx.lineTo(cmx, cmy + 32); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cmx, cmy + 38); ctx.lineTo(cmx - 4, cmy + 29); ctx.lineTo(cmx + 4, cmy + 29); ctx.closePath(); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"Mg acts at L/2\", cmx + 8, cmy + 26);\n\n// pivot\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px, py, 5, 0, 6.2832); ctx.fill();\nctx.fillText(\"hinge\", px - 34, py + 16);\nctx.fillText(\"lever arm = (L/2) cos\" + \"\u03b8 = \" + (0.5 * L * Math.cos(th)).toFixed(3) + \" m\", 14, 20);\n\nvar alpha = (3 * g / (2 * L)) * Math.cos(th);\nvar vtip = om * L;\nout.note = \"theta = \" + (th * 180 / Math.PI).toFixed(1) + \" deg, alpha = \" + alpha.toFixed(2) + \" rad/s^2, omega = \" + om.toFixed(2) + \" rad/s, tip speed = \" + vtip.toFixed(2) + \" m/s\";"
+    "draw": "var g = 9.8;\nvar L = p.length;\nvar th0 = p.start * Math.PI / 180;\n\n// integrate: alpha = (3g / 2L) cos(theta), theta measured up from the ground\nvar th = th0, om = 0, dt = 0.0008, tt = t % 3.0, n = Math.floor(tt / dt);\nif (n > 4000) n = 4000;\nfor (var i = 0; i < n; i++) {\n  if (th <= 0) { th = 0; break; }\n  om = om + (3 * g / (2 * L)) * Math.cos(th) * dt;\n  th = th - om * dt;\n}\nif (th < 0) th = 0;\n\nvar px = W * 0.22, py = H * 0.82;\nvar scale = (W * 0.6) / 1.6;\nvar tipx = px + L * scale * Math.cos(th);\nvar tipy = py - L * scale * Math.sin(th);\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// ground\nctx.strokeStyle = C.rule; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(16, py); ctx.lineTo(W - 16, py); ctx.stroke();\n\n// start position, faint\nctx.strokeStyle = C.faint; ctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(px, py);\nctx.lineTo(px + L * scale * Math.cos(th0), py - L * scale * Math.sin(th0));\nctx.stroke();\n\n// rod\nctx.strokeStyle = C.figure; ctx.lineWidth = 6;\nctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(tipx, tipy); ctx.stroke();\n\n// centre of mass and its weight\nvar cmx = px + 0.5 * L * scale * Math.cos(th);\nvar cmy = py - 0.5 * L * scale * Math.sin(th);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(cmx, cmy, 4, 0, 6.2832); ctx.fill();\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.beginPath(); ctx.moveTo(cmx, cmy); ctx.lineTo(cmx, cmy + 32); ctx.stroke();\nctx.beginPath(); ctx.moveTo(cmx, cmy + 38); ctx.lineTo(cmx - 4, cmy + 29); ctx.lineTo(cmx + 4, cmy + 29); ctx.closePath(); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"Mg acts at L/2\", cmx + 8, cmy + 26);\n\n// pivot\nctx.fillStyle = C.ink;\nctx.beginPath(); ctx.arc(px, py, 5, 0, 6.2832); ctx.fill();\nctx.fillText(\"hinge\", px - 34, py + 16);\nctx.fillText(\"lever arm = (L/2) cos\" + \"θ = \" + (0.5 * L * Math.cos(th)).toFixed(3) + \" m\", 14, 20);\n\nvar alpha = (3 * g / (2 * L)) * Math.cos(th);\nvar vtip = om * L;\nout.note = \"theta = \" + (th * 180 / Math.PI).toFixed(1) + \" deg, alpha = \" + alpha.toFixed(2) + \" rad/s^2, omega = \" + om.toFixed(2) + \" rad/s, tip speed = \" + vtip.toFixed(2) + \" m/s\";"
   },
   {
     "id": "rotational-dynamics-fbd",
@@ -6269,7 +6269,7 @@
         "min": 0.25,
         "max": 4,
         "step": 0.05,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "amplitude",
@@ -6305,7 +6305,7 @@
         "min": 0.25,
         "max": 4,
         "step": 0.05,
-        "value": 1.0
+        "value": 1
       },
       {
         "key": "amplitude",
@@ -6515,7 +6515,7 @@
         "value": 1.5
       }
     ],
-    "draw": "var beta = p.beta;\nvar gam = 1 / Math.sqrt(1 - beta * beta);\nvar pad = 30;\nvar font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// mirror separation in pixels, shrunk so two slanted legs still fit the canvas\nvar d = Math.min(0.34 * H, (W - 2 * pad) / (2 * beta * gam + 0.6));\nvar yTop = 0.26 * H;\nvar yBot = yTop + d;\nvar adv = beta * gam * d;          // horizontal advance per one-way leg\nvar x0 = pad + 10;\n\n// mirrors at the three positions the clock occupies at the two turning points\nctx.lineWidth = 2;\nvar k;\nfor (k = 0; k < 3; k++) {\n  var xc = x0 + k * adv;\n  ctx.strokeStyle = k === 0 ? C.figure : C.faint;\n  ctx.beginPath();\n  ctx.moveTo(xc - 16, yBot); ctx.lineTo(xc + 16, yBot);\n  ctx.moveTo(xc - 16, yTop); ctx.lineTo(xc + 16, yTop);\n  ctx.stroke();\n}\n\n// the light path: down-up zigzag\nctx.lineWidth = 1.5;\nctx.strokeStyle = C.rule;\nctx.setLineDash([4, 5]);\nctx.beginPath();\nctx.moveTo(x0, yBot);\nctx.lineTo(x0 + adv, yTop);\nctx.lineTo(x0 + 2 * adv, yBot);\nctx.stroke();\nctx.setLineDash([]);\n\n// the vertical leg the clock's own frame sees\nctx.strokeStyle = C.faint;\nctx.beginPath();\nctx.moveTo(x0, yBot); ctx.lineTo(x0, yTop); ctx.stroke();\n\n// animate the photon over one full round trip, then pause\nvar period = 3.2;\nvar ph = (t % period) / period;\nvar leg = ph * 2;\nvar px, py;\nif (leg < 1) { px = x0 + adv * leg; py = yBot + (yTop - yBot) * leg; }\nelse { px = x0 + adv * leg; py = yTop + (yBot - yTop) * (leg - 1); }\nif (leg > 2) { px = x0 + 2 * adv; py = yBot; }\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(px, py, 4.5, 0, Math.PI * 2); ctx.fill();\n\n// travelled part of the slanted path\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(x0, yBot);\nif (leg < 1) ctx.lineTo(px, py);\nelse { ctx.lineTo(x0 + adv, yTop); ctx.lineTo(px, py); }\nctx.stroke();\n\n// labels\nctx.font = font;\nctx.fillStyle = C.ink;\nctx.textAlign = \"right\";\nctx.fillText(\"d\", x0 - 5, (yTop + yBot) / 2 + 4);\nctx.textAlign = \"center\";\nctx.fillText(\"v \u0394t\", x0 + adv / 2, yBot + 18);\nctx.fillStyle = C.figure;\nctx.fillText(\"c \u0394t\", x0 + adv / 2 - 14, (yTop + yBot) / 2 - 6);\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"mirror\", x0 + 20, yTop - 8);\nctx.fillText(\"mirror\", x0 + 20, yBot + 18);\n\n// base line marking the horizontal drift\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(x0, yBot + 8); ctx.lineTo(x0 + adv, yBot + 8); ctx.stroke();\n\nvar d0 = p.sep;\nvar tick0 = 2 * d0 / 3e8 * 1e9;\nout.note = \"gamma \" + gam.toFixed(3) + \"  |  round trip \" + tick0.toFixed(1) +\n  \" ns on the clock itself, \" + (gam * tick0).toFixed(1) + \" ns in the lab\";"
+    "draw": "var beta = p.beta;\nvar gam = 1 / Math.sqrt(1 - beta * beta);\nvar pad = 30;\nvar font = \"12px ui-sans-serif, system-ui, sans-serif\";\n\n// mirror separation in pixels, shrunk so two slanted legs still fit the canvas\nvar d = Math.min(0.34 * H, (W - 2 * pad) / (2 * beta * gam + 0.6));\nvar yTop = 0.26 * H;\nvar yBot = yTop + d;\nvar adv = beta * gam * d;          // horizontal advance per one-way leg\nvar x0 = pad + 10;\n\n// mirrors at the three positions the clock occupies at the two turning points\nctx.lineWidth = 2;\nvar k;\nfor (k = 0; k < 3; k++) {\n  var xc = x0 + k * adv;\n  ctx.strokeStyle = k === 0 ? C.figure : C.faint;\n  ctx.beginPath();\n  ctx.moveTo(xc - 16, yBot); ctx.lineTo(xc + 16, yBot);\n  ctx.moveTo(xc - 16, yTop); ctx.lineTo(xc + 16, yTop);\n  ctx.stroke();\n}\n\n// the light path: down-up zigzag\nctx.lineWidth = 1.5;\nctx.strokeStyle = C.rule;\nctx.setLineDash([4, 5]);\nctx.beginPath();\nctx.moveTo(x0, yBot);\nctx.lineTo(x0 + adv, yTop);\nctx.lineTo(x0 + 2 * adv, yBot);\nctx.stroke();\nctx.setLineDash([]);\n\n// the vertical leg the clock's own frame sees\nctx.strokeStyle = C.faint;\nctx.beginPath();\nctx.moveTo(x0, yBot); ctx.lineTo(x0, yTop); ctx.stroke();\n\n// animate the photon over one full round trip, then pause\nvar period = 3.2;\nvar ph = (t % period) / period;\nvar leg = ph * 2;\nvar px, py;\nif (leg < 1) { px = x0 + adv * leg; py = yBot + (yTop - yBot) * leg; }\nelse { px = x0 + adv * leg; py = yTop + (yBot - yTop) * (leg - 1); }\nif (leg > 2) { px = x0 + 2 * adv; py = yBot; }\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(px, py, 4.5, 0, Math.PI * 2); ctx.fill();\n\n// travelled part of the slanted path\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nctx.moveTo(x0, yBot);\nif (leg < 1) ctx.lineTo(px, py);\nelse { ctx.lineTo(x0 + adv, yTop); ctx.lineTo(px, py); }\nctx.stroke();\n\n// labels\nctx.font = font;\nctx.fillStyle = C.ink;\nctx.textAlign = \"right\";\nctx.fillText(\"d\", x0 - 5, (yTop + yBot) / 2 + 4);\nctx.textAlign = \"center\";\nctx.fillText(\"v Δt\", x0 + adv / 2, yBot + 18);\nctx.fillStyle = C.figure;\nctx.fillText(\"c Δt\", x0 + adv / 2 - 14, (yTop + yBot) / 2 - 6);\nctx.fillStyle = C.ink;\nctx.textAlign = \"left\";\nctx.fillText(\"mirror\", x0 + 20, yTop - 8);\nctx.fillText(\"mirror\", x0 + 20, yBot + 18);\n\n// base line marking the horizontal drift\nctx.strokeStyle = C.faint;\nctx.lineWidth = 1;\nctx.beginPath();\nctx.moveTo(x0, yBot + 8); ctx.lineTo(x0 + adv, yBot + 8); ctx.stroke();\n\nvar d0 = p.sep;\nvar tick0 = 2 * d0 / 3e8 * 1e9;\nout.note = \"gamma \" + gam.toFixed(3) + \"  |  round trip \" + tick0.toFixed(1) +\n  \" ns on the clock itself, \" + (gam * tick0).toFixed(1) + \" ns in the lab\";"
   },
   {
     "id": "sr-kinematics-simultaneity",
@@ -6591,9 +6591,9 @@
         "label": "String length",
         "unit": "m",
         "min": 0.2,
-        "max": 2.0,
+        "max": 2,
         "step": 0.05,
-        "value": 1.0
+        "value": 1
       }
     ],
     "draw": "var pad = 30;\nvar Lx = W - 2 * pad;\nvar k = p.n * Math.PI / Lx;\nvar w = 1.8;\nvar A = H * 0.085;\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1;\n\nvar topY = H * 0.28;\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(pad, topY); ctx.lineTo(W - pad, topY); ctx.stroke();\n\nctx.lineWidth = 1.6;\nctx.strokeStyle = C.faint;\nctx.beginPath();\nfor (var i = 0; i <= 240; i++) {\n  var x1 = pad + Lx * i / 240;\n  var y1 = topY - A * Math.sin(k * (x1 - pad) - w * t);\n  if (i === 0) { ctx.moveTo(x1, y1); } else { ctx.lineTo(x1, y1); }\n}\nctx.stroke();\n\nctx.strokeStyle = C.figure;\nctx.beginPath();\nfor (var j = 0; j <= 240; j++) {\n  var x2 = pad + Lx * j / 240;\n  var y2 = topY - A * Math.sin(k * (x2 - pad) + w * t);\n  if (j === 0) { ctx.moveTo(x2, y2); } else { ctx.lineTo(x2, y2); }\n}\nctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"two travelling waves, opposite directions\", pad, H * 0.09);\n\nvar by = H * 0.74;\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(pad, by); ctx.lineTo(W - pad, by); ctx.stroke();\n\nctx.strokeStyle = C.faint;\nctx.setLineDash([4, 4]);\nfor (var s = -1; s <= 1; s += 2) {\n  ctx.beginPath();\n  for (var m = 0; m <= 240; m++) {\n    var x3 = pad + Lx * m / 240;\n    var y3 = by - s * 2 * A * Math.sin(k * (x3 - pad));\n    if (m === 0) { ctx.moveTo(x3, y3); } else { ctx.lineTo(x3, y3); }\n  }\n  ctx.stroke();\n}\nctx.setLineDash([]);\n\nctx.strokeStyle = C.accent;\nctx.lineWidth = 2;\nctx.beginPath();\nfor (var q = 0; q <= 240; q++) {\n  var x4 = pad + Lx * q / 240;\n  var y4 = by - 2 * A * Math.sin(k * (x4 - pad)) * Math.cos(w * t);\n  if (q === 0) { ctx.moveTo(x4, y4); } else { ctx.lineTo(x4, y4); }\n}\nctx.stroke();\n\nctx.fillStyle = C.ink;\nfor (var nd = 0; nd <= p.n; nd++) {\n  var xn = pad + Lx * nd / p.n;\n  ctx.beginPath(); ctx.arc(xn, by, 3.5, 0, 6.2832); ctx.fill();\n}\nctx.fillText(\"their sum: nothing travels\", pad, H * 0.56);\nctx.fillText(\"node\", pad + Lx / p.n - 14, by + 16);\nctx.fillText(\"antinode\", pad + Lx / (2 * p.n) - 22, by - 2 * A - 8);\n\nvar lam = 2 * p.L / p.n;\nout.note = \"n = \" + p.n + \" loops on L = \" + p.L.toFixed(2) + \" m: wavelength = \" + lam.toFixed(3) + \" m, nodes every \" + (lam / 2).toFixed(3) + \" m\";"
@@ -6865,7 +6865,7 @@
         "value": 60
       }
     ],
-    "draw": "var F = p.force, r = p.dist, th = p.angle * Math.PI / 180;\nvar cx = W * 0.26, cy = H * 0.66;\nvar len = (r / 0.50) * (W * 0.40);\nvar ux = Math.cos(th), uy = -Math.sin(th);\nvar ax = cx + len, ay = cy;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\n// line of action, dashed, extended both ways\nctx.strokeStyle = C.faint;\nctx.setLineDash([4, 4]);\nctx.beginPath();\nctx.moveTo(ax - ux * W, ay - uy * W);\nctx.lineTo(ax + ux * W, ay + uy * W);\nctx.stroke();\nctx.setLineDash([]);\n\n// handle\nctx.strokeStyle = C.ink;\nctx.lineWidth = 5;\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ax, ay); ctx.stroke();\nctx.lineWidth = 2;\n\n// bolt\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(cx, cy, 9, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"pivot (bolt)\", cx - 22, cy + 26);\n\n// r label along handle\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(cx, cy - 16); ctx.lineTo(ax, ay - 16); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"r = \" + r.toFixed(2) + \" m\", (cx + ax) / 2 - 26, cy - 22);\n\n// lever arm: foot of perpendicular from pivot onto the line of action\nvar vx = cx - ax, vy = cy - ay;\nvar s = vx * ux + vy * uy;\nvar fx = ax + s * ux, fy = ay + s * uy;\nctx.strokeStyle = C.accent;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(fx, fy); ctx.stroke();\nctx.setLineDash([]);\nvar rperp = Math.abs(r * Math.sin(th));\nctx.fillStyle = C.accent;\nctx.fillText(\"lever arm \" + rperp.toFixed(3) + \" m\", (cx + fx) / 2 - 40, (cy + fy) / 2 - 8);\n\n// force arrow at the handle end\nvar alen = (F / 200) * (W * 0.24) + 14;\nvar ex = ax + ux * alen, ey = ay + uy * alen;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 3;\nctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ex, ey); ctx.stroke();\nctx.beginPath();\nctx.moveTo(ex, ey);\nctx.lineTo(ex - ux * 11 - uy * 6, ey - uy * 11 + ux * 6);\nctx.lineTo(ex - ux * 11 + uy * 6, ey - uy * 11 - ux * 6);\nctx.closePath();\nctx.fillStyle = C.figure;\nctx.fill();\nctx.fillText(\"F = \" + F.toFixed(0) + \" N\", ex + 6, ey - 6);\n\n// angle marker at the handle end\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.arc(ax, ay, 26, -th, 0, th > 0); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(p.angle.toFixed(0) + \" deg\", ax + 30, ay - 10);\n\nvar tau = r * F * Math.sin(th);\nctx.fillStyle = C.ink;\nctx.fillText(\"torque = r F sin(angle) = lever arm x F\", 14, H - 12);\nout.note = \"tau = \" + Math.abs(tau).toFixed(1) + \" N\u00b7m   (lever arm \" + rperp.toFixed(3) + \" m x \" + F.toFixed(0) + \" N)\";"
+    "draw": "var F = p.force, r = p.dist, th = p.angle * Math.PI / 180;\nvar cx = W * 0.26, cy = H * 0.66;\nvar len = (r / 0.50) * (W * 0.40);\nvar ux = Math.cos(th), uy = -Math.sin(th);\nvar ax = cx + len, ay = cy;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 2;\n\n// line of action, dashed, extended both ways\nctx.strokeStyle = C.faint;\nctx.setLineDash([4, 4]);\nctx.beginPath();\nctx.moveTo(ax - ux * W, ay - uy * W);\nctx.lineTo(ax + ux * W, ay + uy * W);\nctx.stroke();\nctx.setLineDash([]);\n\n// handle\nctx.strokeStyle = C.ink;\nctx.lineWidth = 5;\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ax, ay); ctx.stroke();\nctx.lineWidth = 2;\n\n// bolt\nctx.fillStyle = C.figure;\nctx.beginPath(); ctx.arc(cx, cy, 9, 0, Math.PI * 2); ctx.fill();\nctx.fillStyle = C.ink;\nctx.fillText(\"pivot (bolt)\", cx - 22, cy + 26);\n\n// r label along handle\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(cx, cy - 16); ctx.lineTo(ax, ay - 16); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"r = \" + r.toFixed(2) + \" m\", (cx + ax) / 2 - 26, cy - 22);\n\n// lever arm: foot of perpendicular from pivot onto the line of action\nvar vx = cx - ax, vy = cy - ay;\nvar s = vx * ux + vy * uy;\nvar fx = ax + s * ux, fy = ay + s * uy;\nctx.strokeStyle = C.accent;\nctx.setLineDash([3, 3]);\nctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(fx, fy); ctx.stroke();\nctx.setLineDash([]);\nvar rperp = Math.abs(r * Math.sin(th));\nctx.fillStyle = C.accent;\nctx.fillText(\"lever arm \" + rperp.toFixed(3) + \" m\", (cx + fx) / 2 - 40, (cy + fy) / 2 - 8);\n\n// force arrow at the handle end\nvar alen = (F / 200) * (W * 0.24) + 14;\nvar ex = ax + ux * alen, ey = ay + uy * alen;\nctx.strokeStyle = C.figure;\nctx.lineWidth = 3;\nctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ex, ey); ctx.stroke();\nctx.beginPath();\nctx.moveTo(ex, ey);\nctx.lineTo(ex - ux * 11 - uy * 6, ey - uy * 11 + ux * 6);\nctx.lineTo(ex - ux * 11 + uy * 6, ey - uy * 11 - ux * 6);\nctx.closePath();\nctx.fillStyle = C.figure;\nctx.fill();\nctx.fillText(\"F = \" + F.toFixed(0) + \" N\", ex + 6, ey - 6);\n\n// angle marker at the handle end\nctx.strokeStyle = C.rule;\nctx.lineWidth = 1.5;\nctx.beginPath(); ctx.arc(ax, ay, 26, -th, 0, th > 0); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(p.angle.toFixed(0) + \" deg\", ax + 30, ay - 10);\n\nvar tau = r * F * Math.sin(th);\nctx.fillStyle = C.ink;\nctx.fillText(\"torque = r F sin(angle) = lever arm x F\", 14, H - 12);\nout.note = \"tau = \" + Math.abs(tau).toFixed(1) + \" N·m   (lever arm \" + rperp.toFixed(3) + \" m x \" + F.toFixed(0) + \" N)\";"
   },
   {
     "id": "torque-equilibrium-plank",
@@ -6973,7 +6973,7 @@
         "value": 50
       }
     ],
-    "draw": "\nvar V = 6.0, Rg = p.rg;\nvar R1 = p.r1, R2 = p.r2, R3 = p.r3, R4 = p.r4;\n\n// node equations for VA, VB with P at 6 V and Q at 0 V\nvar a11 = 1/R1 + 1/R2 + 1/Rg, a12 = -1/Rg, b1 = V/R1;\nvar a22 = 1/R3 + 1/R4 + 1/Rg, a21 = -1/Rg, b2 = V/R3;\nvar det = a11*a22 - a12*a21;\nvar VA = (b1*a22 - a12*b2) / det;\nvar VB = (a11*b2 - b1*a21) / det;\nvar Ig = (VA - VB) / Rg;\nvar Itot = (V - VA)/R1 + (V - VB)/R3;\nvar Rpq = V / Itot;\n\nvar cx = W/2, cy = H/2;\nvar rx = Math.min(W*0.34, 190), ry = Math.min(H*0.30, 78);\nvar P = [cx - rx, cy], Q = [cx + rx, cy];\nvar A = [cx, cy - ry], B = [cx, cy + ry];\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.6;\nctx.textAlign = \"center\";\nctx.textBaseline = \"middle\";\n\nfunction wire(u, v, col) {\n  ctx.strokeStyle = col;\n  ctx.beginPath(); ctx.moveTo(u[0], u[1]); ctx.lineTo(v[0], v[1]); ctx.stroke();\n}\nfunction box(u, v, label, col) {\n  var mx = (u[0]+v[0])/2, my = (u[1]+v[1])/2;\n  var dx = v[0]-u[0], dy = v[1]-u[1];\n  var L = Math.sqrt(dx*dx + dy*dy); dx /= L; dy /= L;\n  var w = 20, h = 9;\n  ctx.save();\n  ctx.translate(mx, my);\n  ctx.rotate(Math.atan2(dy, dx));\n  ctx.fillStyle = C.paper;\n  ctx.fillRect(-w, -h, 2*w, 2*h);\n  ctx.strokeStyle = col;\n  ctx.strokeRect(-w, -h, 2*w, 2*h);\n  ctx.restore();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(label, mx - dy*22, my + dx*22);\n}\nfunction node(u, name, volts) {\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(u[0], u[1], 4, 0, Math.PI*2); ctx.fill();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(name + \"  \" + volts, u[0], u[1] - 16);\n}\n\nwire(P, A, C.rule); wire(A, Q, C.rule);\nwire(P, B, C.rule); wire(B, Q, C.rule);\nwire(A, B, C.figure);\n\nbox(P, A, R1.toFixed(0) + \" \u03a9\", C.rule);\nbox(A, Q, R2.toFixed(0) + \" \u03a9\", C.rule);\nbox(P, B, R3.toFixed(0) + \" \u03a9\", C.rule);\nbox(B, Q, R4.toFixed(0) + \" \u03a9\", C.rule);\nbox(A, B, Rg.toFixed(0) + \" \u03a9\", C.figure);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"P  6.00 V\", P[0] - 4, P[1] - 16);\nctx.fillText(\"Q  0.00 V\", Q[0] + 4, Q[1] - 16);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(P[0], P[1], 4, 0, Math.PI*2); ctx.fill();\nctx.beginPath(); ctx.arc(Q[0], Q[1], 4, 0, Math.PI*2); ctx.fill();\nnode(A, \"A\", VA.toFixed(3) + \" V\");\nctx.fillStyle = C.ink;\nctx.fillText(\"B  \" + VB.toFixed(3) + \" V\", B[0], B[1] + 18);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(B[0], B[1], 4, 0, Math.PI*2); ctx.fill();\n\n// animated charge in the bridge arm, speed set by the galvanometer current\nvar speed = Math.min(1.2, Math.abs(Ig) * 260);\nvar dir = Ig >= 0 ? 1 : -1;\nif (speed > 0.004) {\n  for (var k = 0; k < 4; k++) {\n    var f = ((t * speed + k/4) % 1);\n    var yy = A[1] + dir * f * (B[1] - A[1]);\n    if (dir < 0) yy = B[1] + f * (A[1] - B[1]);\n    ctx.fillStyle = C.figure;\n    ctx.beginPath(); ctx.arc(A[0], yy, 3, 0, Math.PI*2); ctx.fill();\n  }\n} else {\n  ctx.fillStyle = C.figure;\n  ctx.fillText(\"balanced: no current\", A[0] + 96, cy);\n}\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"ratio PA/AQ = \" + (R1/R2).toFixed(3), 8, H - 26);\nctx.fillText(\"ratio PB/BQ = \" + (R3/R4).toFixed(3), 8, H - 10);\n\nout.note = \"V(A) - V(B) = \" + (VA - VB).toFixed(4) + \" V, bridge current = \"\n  + (Ig*1000).toFixed(3) + \" mA, R(P to Q) = \" + Rpq.toFixed(2) + \" \u03a9\";\n"
+    "draw": "\nvar V = 6.0, Rg = p.rg;\nvar R1 = p.r1, R2 = p.r2, R3 = p.r3, R4 = p.r4;\n\n// node equations for VA, VB with P at 6 V and Q at 0 V\nvar a11 = 1/R1 + 1/R2 + 1/Rg, a12 = -1/Rg, b1 = V/R1;\nvar a22 = 1/R3 + 1/R4 + 1/Rg, a21 = -1/Rg, b2 = V/R3;\nvar det = a11*a22 - a12*a21;\nvar VA = (b1*a22 - a12*b2) / det;\nvar VB = (a11*b2 - b1*a21) / det;\nvar Ig = (VA - VB) / Rg;\nvar Itot = (V - VA)/R1 + (V - VB)/R3;\nvar Rpq = V / Itot;\n\nvar cx = W/2, cy = H/2;\nvar rx = Math.min(W*0.34, 190), ry = Math.min(H*0.30, 78);\nvar P = [cx - rx, cy], Q = [cx + rx, cy];\nvar A = [cx, cy - ry], B = [cx, cy + ry];\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.6;\nctx.textAlign = \"center\";\nctx.textBaseline = \"middle\";\n\nfunction wire(u, v, col) {\n  ctx.strokeStyle = col;\n  ctx.beginPath(); ctx.moveTo(u[0], u[1]); ctx.lineTo(v[0], v[1]); ctx.stroke();\n}\nfunction box(u, v, label, col) {\n  var mx = (u[0]+v[0])/2, my = (u[1]+v[1])/2;\n  var dx = v[0]-u[0], dy = v[1]-u[1];\n  var L = Math.sqrt(dx*dx + dy*dy); dx /= L; dy /= L;\n  var w = 20, h = 9;\n  ctx.save();\n  ctx.translate(mx, my);\n  ctx.rotate(Math.atan2(dy, dx));\n  ctx.fillStyle = C.paper;\n  ctx.fillRect(-w, -h, 2*w, 2*h);\n  ctx.strokeStyle = col;\n  ctx.strokeRect(-w, -h, 2*w, 2*h);\n  ctx.restore();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(label, mx - dy*22, my + dx*22);\n}\nfunction node(u, name, volts) {\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(u[0], u[1], 4, 0, Math.PI*2); ctx.fill();\n  ctx.fillStyle = C.ink;\n  ctx.fillText(name + \"  \" + volts, u[0], u[1] - 16);\n}\n\nwire(P, A, C.rule); wire(A, Q, C.rule);\nwire(P, B, C.rule); wire(B, Q, C.rule);\nwire(A, B, C.figure);\n\nbox(P, A, R1.toFixed(0) + \" Ω\", C.rule);\nbox(A, Q, R2.toFixed(0) + \" Ω\", C.rule);\nbox(P, B, R3.toFixed(0) + \" Ω\", C.rule);\nbox(B, Q, R4.toFixed(0) + \" Ω\", C.rule);\nbox(A, B, Rg.toFixed(0) + \" Ω\", C.figure);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"P  6.00 V\", P[0] - 4, P[1] - 16);\nctx.fillText(\"Q  0.00 V\", Q[0] + 4, Q[1] - 16);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(P[0], P[1], 4, 0, Math.PI*2); ctx.fill();\nctx.beginPath(); ctx.arc(Q[0], Q[1], 4, 0, Math.PI*2); ctx.fill();\nnode(A, \"A\", VA.toFixed(3) + \" V\");\nctx.fillStyle = C.ink;\nctx.fillText(\"B  \" + VB.toFixed(3) + \" V\", B[0], B[1] + 18);\nctx.fillStyle = C.accent;\nctx.beginPath(); ctx.arc(B[0], B[1], 4, 0, Math.PI*2); ctx.fill();\n\n// animated charge in the bridge arm, speed set by the galvanometer current\nvar speed = Math.min(1.2, Math.abs(Ig) * 260);\nvar dir = Ig >= 0 ? 1 : -1;\nif (speed > 0.004) {\n  for (var k = 0; k < 4; k++) {\n    var f = ((t * speed + k/4) % 1);\n    var yy = A[1] + dir * f * (B[1] - A[1]);\n    if (dir < 0) yy = B[1] + f * (A[1] - B[1]);\n    ctx.fillStyle = C.figure;\n    ctx.beginPath(); ctx.arc(A[0], yy, 3, 0, Math.PI*2); ctx.fill();\n  }\n} else {\n  ctx.fillStyle = C.figure;\n  ctx.fillText(\"balanced: no current\", A[0] + 96, cy);\n}\n\nctx.fillStyle = C.faint;\nctx.textAlign = \"left\";\nctx.fillText(\"ratio PA/AQ = \" + (R1/R2).toFixed(3), 8, H - 26);\nctx.fillText(\"ratio PB/BQ = \" + (R3/R4).toFixed(3), 8, H - 10);\n\nout.note = \"V(A) - V(B) = \" + (VA - VB).toFixed(4) + \" V, bridge current = \"\n  + (Ig*1000).toFixed(3) + \" mA, R(P to Q) = \" + Rpq.toFixed(2) + \" Ω\";\n"
   },
   {
     "id": "tricky-networks-cube",
@@ -7017,7 +7017,7 @@
         "value": 4
       }
     ],
-    "draw": "\nvar Rs = p.rs, Rp = p.rp, n = Math.round(p.n);\n\n// exact infinite-ladder value: X is the resistance looking in at a shunt node\nvar Xinf = (-Rp + Math.sqrt(Rp*Rp + 4*Rp*Rs)) / 2;\nvar Rinf = Rs + Xinf;\n\n// finite ladder with n sections, built from the far end backwards\nvar X = Rp;\nfor (var k = 1; k < n; k++) { X = 1 / (1/Rp + 1/(Rs + X)); }\nvar Rfin = Rs + X;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.6;\nctx.textAlign = \"center\";\nctx.textBaseline = \"middle\";\n\nvar top = H * 0.30, bot = H * 0.78;\nvar left = 34, right = W - 26;\nvar seg = (right - left) / (n + 0.6);\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(left, bot); ctx.lineTo(right, bot); ctx.stroke();\n\nfunction box(x1, y1, x2, y2, label) {\n  var mx = (x1+x2)/2, my = (y1+y2)/2;\n  var horiz = Math.abs(x2-x1) > Math.abs(y2-y1);\n  var w = horiz ? 15 : 8, h = horiz ? 7 : 14;\n  ctx.fillStyle = C.paper;\n  ctx.fillRect(mx-w, my-h, 2*w, 2*h);\n  ctx.strokeStyle = C.rule;\n  ctx.strokeRect(mx-w, my-h, 2*w, 2*h);\n  ctx.fillStyle = C.ink;\n  if (horiz) ctx.fillText(label, mx, my - 16); else ctx.fillText(label, mx + 26, my);\n}\n\nvar Iin = 1.0;\nvar Icar = Iin;\nfor (var i = 0; i < n; i++) {\n  var x0 = left + i * seg, x1 = left + (i + 1) * seg;\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath(); ctx.moveTo(x0, top); ctx.lineTo(x1, top); ctx.stroke();\n  box(x0, top, x1, top, Rs.toFixed(1));\n  ctx.beginPath(); ctx.moveTo(x1, top); ctx.lineTo(x1, bot); ctx.stroke();\n  box(x1, top, x1, bot, Rp.toFixed(1));\n\n  // rest of the ladder beyond this node\n  var Xhere = Rp;\n  for (var k2 = 1; k2 < n - i; k2++) { Xhere = 1 / (1/Rp + 1/(Rs + Xhere)); }\n  var beyond = (i === n - 1) ? Infinity : (Rs + (function () {\n    var Z = Rp;\n    for (var m = 1; m < n - i - 1; m++) { Z = 1 / (1/Rp + 1/(Rs + Z)); }\n    return Z;\n  })());\n  var fshunt = (beyond === Infinity) ? 1 : beyond / (Rp + beyond);\n  var Ishunt = Icar * fshunt;\n\n  ctx.fillStyle = C.figure;\n  ctx.fillText(Ishunt.toFixed(3), x1 + 26, (top + bot) / 2 + 20);\n\n  // animated charge sliding along this rung\n  var ph = (t * 0.55 + i * 0.17) % 1;\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(x0 + ph * seg, top, 3, 0, Math.PI*2); ctx.fill();\n\n  Icar = Icar - Ishunt;\n}\n\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"1.000 A in\", left - 26, top - 26);\nctx.fillStyle = C.figure;\nctx.fillText(\"shunt currents, in amps, below each rung\", left, H - 8);\n\nout.note = n + \" section\" + (n === 1 ? \"\" : \"s\") + \": R = \" + Rfin.toFixed(4)\n  + \" \u03a9    infinite ladder: R = \" + Rinf.toFixed(4) + \" \u03a9\";\n"
+    "draw": "\nvar Rs = p.rs, Rp = p.rp, n = Math.round(p.n);\n\n// exact infinite-ladder value: X is the resistance looking in at a shunt node\nvar Xinf = (-Rp + Math.sqrt(Rp*Rp + 4*Rp*Rs)) / 2;\nvar Rinf = Rs + Xinf;\n\n// finite ladder with n sections, built from the far end backwards\nvar X = Rp;\nfor (var k = 1; k < n; k++) { X = 1 / (1/Rp + 1/(Rs + X)); }\nvar Rfin = Rs + X;\n\nctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nctx.lineWidth = 1.6;\nctx.textAlign = \"center\";\nctx.textBaseline = \"middle\";\n\nvar top = H * 0.30, bot = H * 0.78;\nvar left = 34, right = W - 26;\nvar seg = (right - left) / (n + 0.6);\n\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.moveTo(left, bot); ctx.lineTo(right, bot); ctx.stroke();\n\nfunction box(x1, y1, x2, y2, label) {\n  var mx = (x1+x2)/2, my = (y1+y2)/2;\n  var horiz = Math.abs(x2-x1) > Math.abs(y2-y1);\n  var w = horiz ? 15 : 8, h = horiz ? 7 : 14;\n  ctx.fillStyle = C.paper;\n  ctx.fillRect(mx-w, my-h, 2*w, 2*h);\n  ctx.strokeStyle = C.rule;\n  ctx.strokeRect(mx-w, my-h, 2*w, 2*h);\n  ctx.fillStyle = C.ink;\n  if (horiz) ctx.fillText(label, mx, my - 16); else ctx.fillText(label, mx + 26, my);\n}\n\nvar Iin = 1.0;\nvar Icar = Iin;\nfor (var i = 0; i < n; i++) {\n  var x0 = left + i * seg, x1 = left + (i + 1) * seg;\n  ctx.strokeStyle = C.rule;\n  ctx.beginPath(); ctx.moveTo(x0, top); ctx.lineTo(x1, top); ctx.stroke();\n  box(x0, top, x1, top, Rs.toFixed(1));\n  ctx.beginPath(); ctx.moveTo(x1, top); ctx.lineTo(x1, bot); ctx.stroke();\n  box(x1, top, x1, bot, Rp.toFixed(1));\n\n  // rest of the ladder beyond this node\n  var Xhere = Rp;\n  for (var k2 = 1; k2 < n - i; k2++) { Xhere = 1 / (1/Rp + 1/(Rs + Xhere)); }\n  var beyond = (i === n - 1) ? Infinity : (Rs + (function () {\n    var Z = Rp;\n    for (var m = 1; m < n - i - 1; m++) { Z = 1 / (1/Rp + 1/(Rs + Z)); }\n    return Z;\n  })());\n  var fshunt = (beyond === Infinity) ? 1 : beyond / (Rp + beyond);\n  var Ishunt = Icar * fshunt;\n\n  ctx.fillStyle = C.figure;\n  ctx.fillText(Ishunt.toFixed(3), x1 + 26, (top + bot) / 2 + 20);\n\n  // animated charge sliding along this rung\n  var ph = (t * 0.55 + i * 0.17) % 1;\n  ctx.fillStyle = C.accent;\n  ctx.beginPath(); ctx.arc(x0 + ph * seg, top, 3, 0, Math.PI*2); ctx.fill();\n\n  Icar = Icar - Ishunt;\n}\n\nctx.fillStyle = C.accent;\nctx.textAlign = \"left\";\nctx.fillText(\"1.000 A in\", left - 26, top - 26);\nctx.fillStyle = C.figure;\nctx.fillText(\"shunt currents, in amps, below each rung\", left, H - 8);\n\nout.note = n + \" section\" + (n === 1 ? \"\" : \"s\") + \": R = \" + Rfin.toFixed(4)\n  + \" Ω    infinite ladder: R = \" + Rinf.toFixed(4) + \" Ω\";\n"
   },
   {
     "id": "units-estimation-exponents",
@@ -7193,7 +7193,7 @@
         "min": 0.5,
         "max": 6,
         "step": 0.1,
-        "value": 2.0
+        "value": 2
       },
       {
         "key": "current",
@@ -7202,7 +7202,7 @@
         "min": 0,
         "max": 6,
         "step": 0.1,
-        "value": 3.0
+        "value": 3
       },
       {
         "key": "heading",
@@ -7244,7 +7244,7 @@
         "label": "Wavelength",
         "unit": "m",
         "min": 0.3,
-        "max": 2.0,
+        "max": 2,
         "step": 0.05,
         "value": 0.8
       },
@@ -7339,7 +7339,7 @@
         "value": 40
       }
     ],
-    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar th = p.angle * Math.PI / 180;\nvar F = p.force, d = 6.0;\nvar Wk = F * d * Math.cos(th);\n\nfunction arw(x1, y1, x2, y2, col, lw) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var a = Math.atan2(y2 - y1, x2 - x1), hl = 8;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - hl * Math.cos(a - 0.4), y2 - hl * Math.sin(a - 0.4));\n  ctx.lineTo(x2 - hl * Math.cos(a + 0.4), y2 - hl * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nvar gy = H * 0.70;\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(W * 0.04, gy); ctx.lineTo(W * 0.96, gy); ctx.stroke();\n\nvar bw = W * 0.11, bh = H * 0.15;\nvar bx = W * 0.20;\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.5;\nctx.strokeRect(bx, gy - bh, bw, bh);\nctx.fillStyle = C.ink;\nctx.fillText(\"sled\", bx + bw * 0.18, gy - bh * 0.35);\n\nvar ox = bx + bw, oy = gy - bh;\nvar scale = W * 0.0042;\nvar ex = ox + F * scale * Math.cos(th);\nvar ey = oy - F * scale * Math.sin(th);\narw(ox, oy, ex, ey, C.accent, 2);\nctx.fillStyle = C.accent;\nctx.fillText(\"F = \" + F.toFixed(0) + \" N\", ex + 6, ey - 2);\n\nvar cx = ox + F * scale * Math.cos(th);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(cx, oy); ctx.stroke();\nctx.setLineDash([]);\narw(ox, oy, cx, oy, C.figure, 2);\nctx.fillStyle = C.figure;\nctx.fillText(\"F cos\" + \"\u03b8 = \" + (F * Math.cos(th)).toFixed(1) + \" N\", ox + 4, oy - 8);\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.arc(ox, oy, 26, -th, 0); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"\u03b8 = \" + p.angle.toFixed(0) + \"\u00b0\", ox + 30, oy - 26 * Math.sin(th / 2) - 4);\n\nvar ay = gy + H * 0.14;\narw(bx, ay, bx + W * 0.45, ay, C.rule, 1.5);\nctx.fillStyle = C.ink;\nctx.fillText(\"d = 6.0 m\", bx + W * 0.16, ay + 15);\n\nctx.fillStyle = C.faint;\nctx.fillText(\"only the shaded-out horizontal part travels with the sled\", W * 0.04, H * 0.13);\n\nout.note = \"W = F d cos\u03b8 = \" + F.toFixed(0) + \" \u00d7 6.0 \u00d7 \" + Math.cos(th).toFixed(3) + \" = \" + Wk.toFixed(1) + \" J\";"
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar th = p.angle * Math.PI / 180;\nvar F = p.force, d = 6.0;\nvar Wk = F * d * Math.cos(th);\n\nfunction arw(x1, y1, x2, y2, col, lw) {\n  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw;\n  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();\n  var a = Math.atan2(y2 - y1, x2 - x1), hl = 8;\n  ctx.beginPath();\n  ctx.moveTo(x2, y2);\n  ctx.lineTo(x2 - hl * Math.cos(a - 0.4), y2 - hl * Math.sin(a - 0.4));\n  ctx.lineTo(x2 - hl * Math.cos(a + 0.4), y2 - hl * Math.sin(a + 0.4));\n  ctx.closePath(); ctx.fill();\n}\n\nvar gy = H * 0.70;\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(W * 0.04, gy); ctx.lineTo(W * 0.96, gy); ctx.stroke();\n\nvar bw = W * 0.11, bh = H * 0.15;\nvar bx = W * 0.20;\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.5;\nctx.strokeRect(bx, gy - bh, bw, bh);\nctx.fillStyle = C.ink;\nctx.fillText(\"sled\", bx + bw * 0.18, gy - bh * 0.35);\n\nvar ox = bx + bw, oy = gy - bh;\nvar scale = W * 0.0042;\nvar ex = ox + F * scale * Math.cos(th);\nvar ey = oy - F * scale * Math.sin(th);\narw(ox, oy, ex, ey, C.accent, 2);\nctx.fillStyle = C.accent;\nctx.fillText(\"F = \" + F.toFixed(0) + \" N\", ex + 6, ey - 2);\n\nvar cx = ox + F * scale * Math.cos(th);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(cx, oy); ctx.stroke();\nctx.setLineDash([]);\narw(ox, oy, cx, oy, C.figure, 2);\nctx.fillStyle = C.figure;\nctx.fillText(\"F cos\" + \"θ = \" + (F * Math.cos(th)).toFixed(1) + \" N\", ox + 4, oy - 8);\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.beginPath(); ctx.arc(ox, oy, 26, -th, 0); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(\"θ = \" + p.angle.toFixed(0) + \"°\", ox + 30, oy - 26 * Math.sin(th / 2) - 4);\n\nvar ay = gy + H * 0.14;\narw(bx, ay, bx + W * 0.45, ay, C.rule, 1.5);\nctx.fillStyle = C.ink;\nctx.fillText(\"d = 6.0 m\", bx + W * 0.16, ay + 15);\n\nctx.fillStyle = C.faint;\nctx.fillText(\"only the shaded-out horizontal part travels with the sled\", W * 0.04, H * 0.13);\n\nout.note = \"W = F d cosθ = \" + F.toFixed(0) + \" × 6.0 × \" + Math.cos(th).toFixed(3) + \" = \" + Wk.toFixed(1) + \" J\";"
   },
   {
     "id": "work-energy-theorem-area",
@@ -7375,7 +7375,7 @@
         "value": 5
       }
     ],
-    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar F0 = p.f0, k = p.slope, xe = p.xend;\n\nvar xMax = 6.0;\nvar fvals = [];\nvar i, x, f;\nvar fHi = 1, fLo = -1;\nfor (i = 0; i <= 120; i++) {\n  x = xMax * i / 120;\n  f = F0 + k * x;\n  if (f > fHi) fHi = f;\n  if (f < fLo) fLo = f;\n}\nfHi = fHi * 1.2; fLo = fLo * 1.2;\n\nvar padL = W * 0.11, padR = W * 0.05, padT = H * 0.12, padB = H * 0.22;\nvar sx = (W - padL - padR) / xMax;\nvar sy = (H - padT - padB) / (fHi - fLo);\nfunction X(v) { return padL + v * sx; }\nfunction Y(v) { return H - padB - (v - fLo) * sy; }\n\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(xMax), Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X(0), Y(fLo)); ctx.lineTo(X(0), Y(fHi)); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"F (N)\", X(0) - 4, Y(fHi) + 10);\nctx.fillText(\"x (m)\", X(xMax) - 34, Y(0) + 16);\nfor (i = 1; i <= 6; i++) {\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath(); ctx.moveTo(X(i), Y(0) - 3); ctx.lineTo(X(i), Y(0) + 3); ctx.stroke();\n  ctx.fillStyle = C.faint;\n  ctx.fillText(\"\" + i, X(i) - 3, Y(0) + 16);\n}\n\nvar steps = 160;\nvar dx = xe / steps;\nvar Wpos = 0, Wneg = 0;\nfor (i = 0; i < steps; i++) {\n  x = dx * (i + 0.5);\n  f = F0 + k * x;\n  if (f >= 0) { Wpos += f * dx; } else { Wneg += f * dx; }\n}\nvar Wtot = Wpos + Wneg;\n\nfor (i = 0; i < steps; i++) {\n  x = dx * i;\n  f = F0 + k * (x + dx / 2);\n  ctx.fillStyle = f >= 0 ? C.accent : C.figure;\n  ctx.globalAlpha = 0.25;\n  var yTop = Y(Math.max(f, 0)), yBot = Y(Math.min(f, 0));\n  ctx.fillRect(X(x), yTop, Math.max(sx * dx + 0.6, 0.6), Math.max(yBot - yTop, 0));\n  ctx.globalAlpha = 1;\n}\n\nctx.strokeStyle = C.ink; ctx.lineWidth = 2;\nctx.beginPath();\nfor (i = 0; i <= 120; i++) {\n  x = xMax * i / 120;\n  f = F0 + k * x;\n  if (i === 0) { ctx.moveTo(X(x), Y(f)); } else { ctx.lineTo(X(x), Y(f)); }\n}\nctx.stroke();\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1.5;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(X(xe), Y(fLo)); ctx.lineTo(X(xe), Y(fHi)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.rule;\nctx.fillText(\"finish x = \" + xe.toFixed(1) + \" m\", X(xe) + 5, Y(fHi) + 12);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"F = \" + F0.toFixed(1) + (k >= 0 ? \" + \" : \" \u2212 \") + Math.abs(k).toFixed(1) + \" x\", padL, H * 0.09);\n\nctx.fillStyle = C.faint;\nctx.fillText(\"shaded area = work done\", padL, H - 4);\n\nout.note = \"positive area \" + Wpos.toFixed(2) + \" J, negative area \" + Wneg.toFixed(2) + \" J, total work \" + Wtot.toFixed(2) + \" J\";"
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar F0 = p.f0, k = p.slope, xe = p.xend;\n\nvar xMax = 6.0;\nvar fvals = [];\nvar i, x, f;\nvar fHi = 1, fLo = -1;\nfor (i = 0; i <= 120; i++) {\n  x = xMax * i / 120;\n  f = F0 + k * x;\n  if (f > fHi) fHi = f;\n  if (f < fLo) fLo = f;\n}\nfHi = fHi * 1.2; fLo = fLo * 1.2;\n\nvar padL = W * 0.11, padR = W * 0.05, padT = H * 0.12, padB = H * 0.22;\nvar sx = (W - padL - padR) / xMax;\nvar sy = (H - padT - padB) / (fHi - fLo);\nfunction X(v) { return padL + v * sx; }\nfunction Y(v) { return H - padB - (v - fLo) * sy; }\n\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(xMax), Y(0)); ctx.stroke();\nctx.beginPath(); ctx.moveTo(X(0), Y(fLo)); ctx.lineTo(X(0), Y(fHi)); ctx.stroke();\n\nctx.fillStyle = C.ink;\nctx.fillText(\"F (N)\", X(0) - 4, Y(fHi) + 10);\nctx.fillText(\"x (m)\", X(xMax) - 34, Y(0) + 16);\nfor (i = 1; i <= 6; i++) {\n  ctx.strokeStyle = C.faint;\n  ctx.beginPath(); ctx.moveTo(X(i), Y(0) - 3); ctx.lineTo(X(i), Y(0) + 3); ctx.stroke();\n  ctx.fillStyle = C.faint;\n  ctx.fillText(\"\" + i, X(i) - 3, Y(0) + 16);\n}\n\nvar steps = 160;\nvar dx = xe / steps;\nvar Wpos = 0, Wneg = 0;\nfor (i = 0; i < steps; i++) {\n  x = dx * (i + 0.5);\n  f = F0 + k * x;\n  if (f >= 0) { Wpos += f * dx; } else { Wneg += f * dx; }\n}\nvar Wtot = Wpos + Wneg;\n\nfor (i = 0; i < steps; i++) {\n  x = dx * i;\n  f = F0 + k * (x + dx / 2);\n  ctx.fillStyle = f >= 0 ? C.accent : C.figure;\n  ctx.globalAlpha = 0.25;\n  var yTop = Y(Math.max(f, 0)), yBot = Y(Math.min(f, 0));\n  ctx.fillRect(X(x), yTop, Math.max(sx * dx + 0.6, 0.6), Math.max(yBot - yTop, 0));\n  ctx.globalAlpha = 1;\n}\n\nctx.strokeStyle = C.ink; ctx.lineWidth = 2;\nctx.beginPath();\nfor (i = 0; i <= 120; i++) {\n  x = xMax * i / 120;\n  f = F0 + k * x;\n  if (i === 0) { ctx.moveTo(X(x), Y(f)); } else { ctx.lineTo(X(x), Y(f)); }\n}\nctx.stroke();\n\nctx.strokeStyle = C.rule; ctx.lineWidth = 1.5;\nctx.setLineDash([4, 4]);\nctx.beginPath(); ctx.moveTo(X(xe), Y(fLo)); ctx.lineTo(X(xe), Y(fHi)); ctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.rule;\nctx.fillText(\"finish x = \" + xe.toFixed(1) + \" m\", X(xe) + 5, Y(fHi) + 12);\n\nctx.fillStyle = C.ink;\nctx.fillText(\"F = \" + F0.toFixed(1) + (k >= 0 ? \" + \" : \" − \") + Math.abs(k).toFixed(1) + \" x\", padL, H * 0.09);\n\nctx.fillStyle = C.faint;\nctx.fillText(\"shaded area = work done\", padL, H - 4);\n\nout.note = \"positive area \" + Wpos.toFixed(2) + \" J, negative area \" + Wneg.toFixed(2) + \" J, total work \" + Wtot.toFixed(2) + \" J\";"
   },
   {
     "id": "work-energy-theorem-ramp",
@@ -7411,6 +7411,6 @@
         "value": 0.25
       }
     ],
-    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar g = 9.8;\nvar th = p.angle * Math.PI / 180;\nvar v0 = p.v0, mu = p.mu, m = 2.0;\nvar aUp = g * (Math.sin(th) + mu * Math.cos(th));\nvar dStop = v0 * v0 / (2 * aUp);\nvar tUp = v0 / aUp;\nvar slides = Math.tan(th) > mu;\nvar aDown = g * (Math.sin(th) - mu * Math.cos(th));\nvar tDown = slides ? Math.sqrt(2 * dStop / aDown) : 1.2;\nvar period = tUp + tDown + 0.8;\nvar tc = t % period;\n\nvar s, v;\nif (tc < tUp) {\n  s = v0 * tc - 0.5 * aUp * tc * tc;\n  v = v0 - aUp * tc;\n} else if (tc < tUp + tDown && slides) {\n  var td = tc - tUp;\n  s = dStop - 0.5 * aDown * td * td;\n  v = -aDown * td;\n} else if (tc < tUp + tDown) {\n  s = dStop; v = 0;\n} else {\n  s = slides ? 0 : dStop; v = 0;\n}\nif (s < 0) { s = 0; }\n\nvar padL = W * 0.09, padB = H * 0.16;\nvar avail = Math.min((W - padL - W * 0.12) / Math.cos(th), (H - padB - H * 0.22) / Math.sin(th));\nvar mScale = avail / Math.max(dStop * 1.15, 0.6);\nvar Lpx = Math.max(dStop, 0.4) * 1.15 * mScale;\n\nvar bx0 = padL, by0 = H - padB;\nvar tx = bx0 + Lpx * Math.cos(th), ty = by0 - Lpx * Math.sin(th);\n\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(bx0 + Lpx * Math.cos(th), by0); ctx.stroke();\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(bx0, by0, 24, -th, 0); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(p.angle.toFixed(0) + \"\u00b0\", bx0 + 28, by0 - 6);\n\nvar stx = bx0 + dStop * mScale * Math.cos(th), sty = by0 - dStop * mScale * Math.sin(th);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath();\nctx.moveTo(stx - 12 * Math.sin(th), sty - 12 * Math.cos(th));\nctx.lineTo(stx + 16 * Math.sin(th), sty + 16 * Math.cos(th));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.rule;\nctx.fillText(\"stops at \" + dStop.toFixed(2) + \" m\", stx + 6, sty - 10);\n\nvar px = bx0 + s * mScale * Math.cos(th), py = by0 - s * mScale * Math.sin(th);\nvar bs = Math.max(H * 0.09, 12);\nctx.save();\nctx.translate(px, py);\nctx.rotate(-th);\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.strokeRect(-bs / 2, -bs, bs, bs);\nctx.restore();\n\nvar K = 0.5 * m * v * v;\nctx.fillStyle = C.figure;\nctx.fillText(\"v = \" + Math.abs(v).toFixed(2) + \" m/s\", W * 0.55, H * 0.20);\nctx.fillText(\"K = \" + K.toFixed(1) + \" J\", W * 0.55, H * 0.20 + 16);\nctx.fillStyle = C.faint;\nctx.fillText(\"m = 2.0 kg\", W * 0.55, H * 0.20 + 32);\n\nout.note = \"gravity takes \" + (m * g * Math.sin(th) * dStop).toFixed(1) + \" J, friction takes \" + (mu * m * g * Math.cos(th) * dStop).toFixed(1) + \" J, start K = \" + (0.5 * m * v0 * v0).toFixed(1) + \" J, stopping distance \" + dStop.toFixed(2) + \" m\";"
+    "draw": "ctx.font = \"12px ui-sans-serif, system-ui, sans-serif\";\nvar g = 9.8;\nvar th = p.angle * Math.PI / 180;\nvar v0 = p.v0, mu = p.mu, m = 2.0;\nvar aUp = g * (Math.sin(th) + mu * Math.cos(th));\nvar dStop = v0 * v0 / (2 * aUp);\nvar tUp = v0 / aUp;\nvar slides = Math.tan(th) > mu;\nvar aDown = g * (Math.sin(th) - mu * Math.cos(th));\nvar tDown = slides ? Math.sqrt(2 * dStop / aDown) : 1.2;\nvar period = tUp + tDown + 0.8;\nvar tc = t % period;\n\nvar s, v;\nif (tc < tUp) {\n  s = v0 * tc - 0.5 * aUp * tc * tc;\n  v = v0 - aUp * tc;\n} else if (tc < tUp + tDown && slides) {\n  var td = tc - tUp;\n  s = dStop - 0.5 * aDown * td * td;\n  v = -aDown * td;\n} else if (tc < tUp + tDown) {\n  s = dStop; v = 0;\n} else {\n  s = slides ? 0 : dStop; v = 0;\n}\nif (s < 0) { s = 0; }\n\nvar padL = W * 0.09, padB = H * 0.16;\nvar avail = Math.min((W - padL - W * 0.12) / Math.cos(th), (H - padB - H * 0.22) / Math.sin(th));\nvar mScale = avail / Math.max(dStop * 1.15, 0.6);\nvar Lpx = Math.max(dStop, 0.4) * 1.15 * mScale;\n\nvar bx0 = padL, by0 = H - padB;\nvar tx = bx0 + Lpx * Math.cos(th), ty = by0 - Lpx * Math.sin(th);\n\nctx.strokeStyle = C.faint; ctx.lineWidth = 1;\nctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(bx0 + Lpx * Math.cos(th), by0); ctx.stroke();\nctx.strokeStyle = C.ink; ctx.lineWidth = 1.5;\nctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();\nctx.strokeStyle = C.rule;\nctx.beginPath(); ctx.arc(bx0, by0, 24, -th, 0); ctx.stroke();\nctx.fillStyle = C.ink;\nctx.fillText(p.angle.toFixed(0) + \"°\", bx0 + 28, by0 - 6);\n\nvar stx = bx0 + dStop * mScale * Math.cos(th), sty = by0 - dStop * mScale * Math.sin(th);\nctx.strokeStyle = C.rule; ctx.lineWidth = 1;\nctx.setLineDash([3, 4]);\nctx.beginPath();\nctx.moveTo(stx - 12 * Math.sin(th), sty - 12 * Math.cos(th));\nctx.lineTo(stx + 16 * Math.sin(th), sty + 16 * Math.cos(th));\nctx.stroke();\nctx.setLineDash([]);\nctx.fillStyle = C.rule;\nctx.fillText(\"stops at \" + dStop.toFixed(2) + \" m\", stx + 6, sty - 10);\n\nvar px = bx0 + s * mScale * Math.cos(th), py = by0 - s * mScale * Math.sin(th);\nvar bs = Math.max(H * 0.09, 12);\nctx.save();\nctx.translate(px, py);\nctx.rotate(-th);\nctx.strokeStyle = C.accent; ctx.lineWidth = 2;\nctx.strokeRect(-bs / 2, -bs, bs, bs);\nctx.restore();\n\nvar K = 0.5 * m * v * v;\nctx.fillStyle = C.figure;\nctx.fillText(\"v = \" + Math.abs(v).toFixed(2) + \" m/s\", W * 0.55, H * 0.20);\nctx.fillText(\"K = \" + K.toFixed(1) + \" J\", W * 0.55, H * 0.20 + 16);\nctx.fillStyle = C.faint;\nctx.fillText(\"m = 2.0 kg\", W * 0.55, H * 0.20 + 32);\n\nout.note = \"gravity takes \" + (m * g * Math.sin(th) * dStop).toFixed(1) + \" J, friction takes \" + (mu * m * g * Math.cos(th) * dStop).toFixed(1) + \" J, start K = \" + (0.5 * m * v0 * v0).toFixed(1) + \" J, stopping distance \" + dStop.toFixed(2) + \" m\";"
   }
 ]

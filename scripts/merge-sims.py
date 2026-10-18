@@ -12,6 +12,8 @@ import json
 import pathlib
 import sys
 
+from canonical_json import dumps
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SEED = ROOT / "src/content/sim-seed.json"
 BATCHES = ROOT / "src/content/sim-batches"
@@ -62,7 +64,7 @@ def main() -> int:
         print(f"{len(issues)} problem(s); nothing written", file=sys.stderr)
         return 1
 
-    OUT.write_text(json.dumps(sims, indent=2) + "\n")
+    OUT.write_text(dumps(sims))
 
     # A lesson needs two or three sims, not all of them. Writing one file per
     # sim lets a page fetch just those instead of bundling the whole catalogue,
@@ -72,7 +74,7 @@ def main() -> int:
     for stale in public.glob("*.json"):
         stale.unlink()
     for sim in sims:
-        (public / f"{sim['id']}.json").write_text(json.dumps(sim))
+        (public / f"{sim['id']}.json").write_text(dumps(sim, None))
 
     print(f"{len(sims)} simulations from {len(sources)} source file(s)")
     return 0

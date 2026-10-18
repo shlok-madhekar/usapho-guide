@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import { CONTRIBUTORS_REPO, getContributors } from "@/lib/contributors";
+import { CONTRIBUTORS_REPO, FOUNDER, getContributors } from "@/lib/contributors";
 
 export const metadata: Metadata = {
   title: "Contributors · USAPhO Guide",
@@ -23,7 +23,38 @@ export default async function ContributorsPage() {
         <h1 className="text-3xl font-bold text-[var(--ink-strong)]">
           Contributors
         </h1>
-        <p className="sans mt-3 text-sm text-[var(--ink-soft)]">
+
+        <section className="mt-8">
+          <h2 className="label border-b border-[var(--rule-strong)] pb-1.5">
+            Team
+          </h2>
+          <a
+            href={FOUNDER.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 border-b border-[var(--rule)] py-4"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`https://github.com/${FOUNDER.login}.png?s=112`}
+              alt=""
+              width={48}
+              height={48}
+              className="h-12 w-12 shrink-0 rounded-full border border-[var(--rule)]"
+            />
+            <span className="min-w-0">
+              <span className="sans block text-[0.95rem] font-semibold text-[var(--ink-strong)] group-hover:text-[var(--accent)]">
+                {FOUNDER.name}
+              </span>
+              <span className="sans block text-xs text-[var(--ink-soft)]">
+                {FOUNDER.role} &middot; @{FOUNDER.login}
+              </span>
+            </span>
+          </a>
+        </section>
+
+        <h2 className="label mt-12">Other contributors</h2>
+        <p className="sans mt-2 text-sm text-[var(--ink-soft)]">
           Everyone with a merged change on{" "}
           <a href={repoUrl} className="link" target="_blank" rel="noopener noreferrer">
             GitHub
@@ -48,7 +79,7 @@ export default async function ContributorsPage() {
             .
           </p>
         ) : (
-          <ul className="mt-8 grid grid-cols-1 border-t border-[var(--rule)] sm:grid-cols-2">
+          <ul className="mt-6 grid grid-cols-1 border-t border-[var(--rule)] sm:grid-cols-2">
             {contributors.map((c, i) => (
               <li key={c.login} className="border-b border-[var(--rule)]">
                 <a

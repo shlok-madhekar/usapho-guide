@@ -12,6 +12,14 @@ import "server-only";
 export const CONTRIBUTORS_REPO =
   process.env.GITHUB_REPO || "shlok-madhekar/usapho-guide";
 
+/** Who started the guide, shown above the contributor list. */
+export const FOUNDER = {
+  name: "Shlok Madhekar",
+  login: "shlok-madhekar",
+  role: "Founder",
+  url: "https://shlok.vercel.app",
+} as const;
+
 export interface Contributor {
   login: string;
   avatar: string;

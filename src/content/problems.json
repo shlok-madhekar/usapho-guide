@@ -891,6 +891,34 @@
     "solution": ""
   },
   {
+    "id": "orig-mvevvzic",
+    "name": "Kinematics ",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO Guide",
+    "statement": "At some instant, a motor car is moving on a circular path of radius 600 m, with a speed u = 30 ms-1\n. If its speed is increased at a rate of 2 ms^-2, the magnitude of the acceleration of the car at that instant is\n",
+    "answer": 2.5,
+    "unit": "",
+    "solution": "Tangential acceleration = 2 m/s^2\n\nCentripetal acceleration = u^2/r = 30^2/600 = 1.5 m/s^2\n\nResultant acceleration = rt(2^2 + 1.5^2) = rt(6.25) = 2.5 m/s^2"
+  },
+  {
+    "id": "orig-mvew53uo",
+    "name": "Conducting game",
+    "module": "conductors-capacitance",
+    "difficulty": "Normal",
+    "tags": [],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "statement": "A certain substance, with a dielectric constant k = 2.5 and the dielectric strength E = 1.8 × 10^7 N/C, \ncompletely fills the space between the plates of a parallel plate capacitor (with circular plates) of \ncapacitance C = 72.0 nF. The minimum diameter of the circular plates, to ensure that the capacitor can \nwithstand a potential difference of V = 4.0 kV, is",
+    "answer": 0.3,
+    "unit": "m",
+    "solution": "Given: k = 2.5, E = 1.8 × 10^7 N/C, C = 72 × 10^-9 F, V = 4 × 10^3 V\n\nFor minimum plate diameter, d = V/E = (4 × 10^3)/(1.8 × 10^7) = 2.22 × 10^-4 m\n\nC = kε₀A/d\n\nA = Cd/(kε₀) = (72 × 10^-9 × 2.22 × 10^-4)/(2.5 × 8.85 × 10^-12) = 0.0722 m²\n\nFor circular plates, A = πD²/4\n\nD = rt(4A/π) = rt(4 × 0.0722/π) ≈ 0.303 m\n\nAnswer: 0.30 m"
+  },
+  {
     "id": "we-work-01",
     "name": "Pushing a crate across a floor",
     "module": "work-energy-theorem",

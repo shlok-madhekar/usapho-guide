@@ -14,6 +14,8 @@ import json
 import pathlib
 import sys
 
+from canonical_json import dumps
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BATCHES = ROOT / "src/content/problem-batches"
 PROBLEMS = ROOT / "src/content/problems.json"
@@ -136,7 +138,7 @@ def main() -> int:
         if len(errors) > 40:
             print(f"  ... and {len(errors) - 40} more", file=sys.stderr)
 
-    PROBLEMS.write_text(json.dumps(merged, indent=2) + "\n")
+    PROBLEMS.write_text(dumps(merged))
 
     # A metadata-only index and a counts map, so pages that just list or count
     # problems never pull the statements and solutions into the bundle.
@@ -154,7 +156,7 @@ def main() -> int:
         }
         for p in merged
     ]
-    INDEX.write_text(json.dumps(index, indent=2) + "\n")
+    INDEX.write_text(dumps(index))
 
     counts: dict[str, dict[str, int]] = {}
     for p in index:
@@ -162,11 +164,11 @@ def main() -> int:
         c["total"] += 1
         if p["solvable"]:
             c["solvable"] += 1
-    COUNTS.write_text(json.dumps(counts, indent=2, sort_keys=True) + "\n")
+    COUNTS.write_text(dumps({m: dict(sorted(c.items())) for m, c in sorted(counts.items())}))
 
     # served as a static file so the problem bank can fetch it on demand
     PUBLIC.parent.mkdir(parents=True, exist_ok=True)
-    PUBLIC.write_text(json.dumps(merged))
+    PUBLIC.write_text(dumps(merged, None))
 
     by_module: dict[str, int] = {}
     for problem in merged:

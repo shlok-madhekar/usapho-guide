@@ -334,7 +334,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $62\\ \\mathrm{kg}$ rider bounces on a pogo stick, staying in contact with the spring and completing one full bounce cycle every $0.55\\ \\mathrm{s}$. Treating the rider plus spring as a mass-spring oscillator, find the spring constant in N/m.",
-    "answer": 8091.0,
+    "answer": 8091,
     "unit": "N/m",
     "solution": "The bounce is SHM about the compressed equilibrium point, so $k = 4\\pi^2 m/T^2$. With $m = 62\\ \\mathrm{kg}$ and $T = 0.55\\ \\mathrm{s}$, $k = 4\\pi^2(62)/0.3025 = 8091\\ \\mathrm{N/m}$."
   },
@@ -1079,7 +1079,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A 0.50 kg air-track glider is attached to a spring of stiffness $k = 200$ N/m and oscillates with amplitude $A = 0.10$ m. Friction is negligible. What is the glider's maximum speed, in m/s?",
-    "answer": 2.0,
+    "answer": 2,
     "unit": "m/s",
     "solution": "All the energy is spring potential at the turning point and all kinetic at the centre, so $\\tfrac12 kA^2 = \\tfrac12 m v_{\\max}^2$. Thus $v_{\\max} = A\\sqrt{k/m} = 0.10\\sqrt{200/0.50} = 2.0$ m/s."
   },
@@ -1205,7 +1205,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A 2.0 kg block on a frictionless horizontal spring reaches a maximum speed of 3.0 m/s. What is the total mechanical energy of the oscillation, in J?",
-    "answer": 9.0,
+    "answer": 9,
     "unit": "J",
     "solution": "At the centre the energy is entirely kinetic, so $E = \\tfrac12 m v_{\\max}^2 = \\tfrac12(2.0)(3.0)^2 = 9.0$ J."
   },
@@ -1475,7 +1475,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A 0.80 kg block on a horizontal surface is attached to a spring with $k = 160$ N/m. The coefficient of kinetic friction is $\\mu = 0.20$ and $g = 9.8$ m/s$^2$. The block is pulled 15.0 cm from equilibrium and released. How many complete cycles does it perform before it stops permanently? Give an integer count of complete cycles.",
-    "answer": 3.0,
+    "answer": 3,
     "unit": "cycles",
     "solution": "Friction removes a fixed amplitude $4\\mu mg/k = 0.0392$ m per full cycle. The block sticks once its turning-point displacement falls below $\\mu mg/k = 0.0098$ m, so it must lose $0.150-0.0098 = 0.1402$ m of amplitude; $0.1402/0.0392 = 3.58$, giving 3 complete cycles."
   },
@@ -1565,7 +1565,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A bob on a 1.00 m string is released from rest with the string at $60^\\circ$ from the vertical. At the lowest point, what is the ratio of the string tension to the bob's weight? Give a pure number.",
-    "answer": 2.0,
+    "answer": 2,
     "unit": "",
     "solution": "Energy gives $v^2 = 2gL(1-\\cos\\theta_0)$ at the bottom. Newton's second law there is $T - mg = mv^2/L$, so $T/mg = 1 + 2(1-\\cos\\theta_0) = 3-2\\cos 60^\\circ = 2.000$."
   },
@@ -1619,7 +1619,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A cart moving along a track has potential energy $U(x) = 3x^2 - 12x$, with $U$ in joules and $x$ in metres. At what value of $x$ is the cart in equilibrium? Give the answer in m.",
-    "answer": 2.0,
+    "answer": 2,
     "unit": "m",
     "solution": "Equilibrium requires $F = -dU/dx = 0$. Here $dU/dx = 6x - 12$, which vanishes at $x = 2.0$ m. Since $U'' = 6 > 0$ this point is a stable minimum."
   },
@@ -1637,7 +1637,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A 0.20 kg bead slides on a wire where its potential energy is $U(x) = 40x^2$ ($U$ in J, $x$ in m). What is the angular frequency of its oscillation about $x = 0$, in rad/s?",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "rad/s",
     "solution": "Near a minimum the effective stiffness is $k_{\\rm eff} = U''(x_0)$. Here $U'' = 80$ N/m, so $\\omega = \\sqrt{80/0.20} = 20.0$ rad/s."
   },
@@ -1745,7 +1745,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A 0.50 kg puck slides on a frictionless table, tethered by a string through a central hole, with angular momentum 2.4 kg m$^2$/s about the hole. The centrifugal term of the effective potential is $L^2/2mr^2$. What is its value at $r = 0.60$ m, in J?",
-    "answer": 16.0,
+    "answer": 16,
     "unit": "J",
     "solution": "Substituting directly, $L^2/(2mr^2) = (2.4)^2/[2(0.50)(0.60)^2] = 5.76/0.36 = 16.0$ J. This is the rotational kinetic energy $\\tfrac12 m r^2\\dot\\theta^2$ rewritten in terms of $L$."
   },
@@ -1799,7 +1799,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A particle moves in $U(x) = 2x^3 - 9x^2 + 12x$ ($U$ in J, $x$ in m). The potential has two equilibrium points. At which one is the particle stable? Give that value of $x$ in m.",
-    "answer": 2.0,
+    "answer": 2,
     "unit": "m",
     "solution": "$U'(x) = 6x^2-18x+12 = 6(x-1)(x-2)$, so the equilibria are $x = 1$ m and $x = 2$ m. Since $U''(x) = 12x-18$ is $-6$ at $x=1$ and $+6$ at $x=2$, the stable point is $x = 2.0$ m."
   },
@@ -1835,7 +1835,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An ion near a surface has $U(x) = \\dfrac{4.0}{x^2} - \\dfrac{8.0}{x}$, with $U$ in joules when $x$ is in metres. At what value of $x$ does the ion sit in equilibrium? Give the answer in m.",
-    "answer": 1.0,
+    "answer": 1,
     "unit": "m",
     "solution": "$U'(x) = -8.0x^{-3} + 8.0x^{-2} = 0$ gives $x_0 = 1.0$ m. Writing $U = a/x^2 - b/x$ generally, $x_0 = 2a/b = 2(4.0)/8.0 = 1.0$ m."
   },
@@ -1907,7 +1907,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A 0.30 kg bead slides on a horizontal rod that rotates about a vertical axis through one end; a spring of stiffness 120 N/m connects the bead to the axis. In the rotating frame the effective potential is $\\tfrac12(k - m\\Omega^2)x^2$. Above what spin rate does the bead fly outward instead of oscillating? Give the answer in rad/s.",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "rad/s",
     "solution": "The bead is stable only while $k - m\\Omega^2 > 0$. The threshold is $\\Omega_c = \\sqrt{k/m} = \\sqrt{120/0.30} = 20.0$ rad/s; above it the effective stiffness is negative and $x = 0$ becomes a maximum."
   },
@@ -1925,7 +1925,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A diatomic molecule has the Morse potential $U(r) = D\\left[1-e^{-a(r-r_0)}\\right]^2$ with $D = 7.0\\times10^{-19}$ J and $a = 2.0\\times10^{10}$ m$^{-1}$. The vibrating reduced mass is $1.6\\times10^{-26}$ kg. What is the angular frequency of small vibrations, in rad/s?",
-    "answer": 187100000000000.0,
+    "answer": 187100000000000,
     "unit": "rad/s",
     "solution": "Expanding about $r_0$ gives $U \\approx Da^2(r-r_0)^2$, so $U'' = 2Da^2$ and $\\omega = a\\sqrt{2D/\\mu}$. Numerically $\\omega = 2.0\\times10^{10}\\sqrt{1.4\\times10^{-18}/1.6\\times10^{-26}} = 1.871\\times10^{14}$ rad/s."
   },
@@ -1943,7 +1943,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two argon atoms bound by $U(r) = 4\\varepsilon[(\\sigma/r)^{12}-(\\sigma/r)^{6}]$ have $\\varepsilon = 1.65\\times10^{-21}$ J and $\\sigma = 0.340$ nm; the reduced mass of the pair is $3.32\\times10^{-26}$ kg. What is the angular frequency of small vibrations about the equilibrium separation, in rad/s?",
-    "answer": 4957000000000.0,
+    "answer": 4957000000000,
     "unit": "rad/s",
     "solution": "Differentiating twice and setting $r = 2^{1/6}\\sigma$ gives $U''(r_0) = 72\\varepsilon/(2^{1/3}\\sigma^2) = 57.15\\,\\varepsilon/\\sigma^2 = 0.8156$ N/m. Then $\\omega = \\sqrt{U''/\\mu} = 4.957\\times10^{12}$ rad/s."
   },
@@ -1961,7 +1961,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "For a satellite in Earth orbit the effective potential per unit mass is $U_{\\rm eff}(r) = \\ell^2/2r^2 - GM/r$, with $GM = 3.986\\times10^{14}$ m$^3$/s$^2$. A satellite has specific angular momentum $\\ell = 5.30\\times10^{10}$ m$^2$/s. What is the radius of its circular orbit, in m?",
-    "answer": 7047000.0,
+    "answer": 7047000,
     "unit": "m",
     "solution": "A circular orbit sits at the minimum of $U_{\\rm eff}$: $-\\ell^2/r^3 + GM/r^2 = 0$, so $r = \\ell^2/GM$. Numerically $r = 2.809\\times10^{21}/3.986\\times10^{14} = 7.047\\times10^{6}$ m."
   },
@@ -2015,7 +2015,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A spacecraft moves in Earth's field with specific energy $E = -1.42\\times10^{7}$ J/kg and specific angular momentum $\\ell = 6.47\\times10^{10}$ m$^2$/s, so $E = \\ell^2/2r^2 - GM/r$ at a turning point. Take $GM = 3.986\\times10^{14}$ m$^3$/s$^2$. What is its distance of closest approach, in m?",
-    "answer": 6993000.0,
+    "answer": 6993000,
     "unit": "m",
     "solution": "Turning points are the roots of $Er^2 + GMr - \\ell^2/2 = 0$. Solving, $r = \\left[-GM \\pm \\sqrt{(GM)^2 + 2E\\ell^2}\\right]/(2E)$ gives two positive roots; the smaller is the pericentre, $r_{\\min} = 6.993\\times10^{6}$ m."
   },
@@ -2051,7 +2051,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A particle moves on a nearly circular orbit in the central potential $U(r) = \\tfrac12 kr^2$ (a particle tied to the origin by an ideal spring). What is the ratio of its radial oscillation frequency to its orbital angular frequency? Give a pure number.",
-    "answer": 2.0,
+    "answer": 2,
     "unit": "",
     "solution": "With $U_{\\rm eff} = \\ell^2/2r^2 + \\tfrac12 kr^2$, the minimum is at $r_0^4 = \\ell^2/k$ and $U_{\\rm eff}'' = 3\\ell^2/r_0^4 + k = 4k$. Since $\\omega_\\theta^2 = \\ell^2/r_0^4 = k$, the ratio is $\\sqrt{4k/k} = 2$, which is why the orbit is a closed ellipse centred on the origin."
   },
@@ -2158,7 +2158,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A swimming pool is $12.0\\,$m deep. Take $\\rho_{\\text{water}}=1000\\,$kg/m$^3$ and $g=9.8\\,$m/s$^2$. What is the gauge pressure of the water at the bottom, in Pa?",
-    "answer": 117600.0,
+    "answer": 117600,
     "unit": "Pa",
     "solution": "Gauge pressure grows linearly with depth: $p=\\rho g h$. Here $p=(1000)(9.8)(12.0)=1.176\\times10^5\\,$Pa."
   },
@@ -2175,7 +2175,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A diver hangs at a depth of $25.0\\,$m in fresh water. Atmospheric pressure is $1.01\\times10^5\\,$Pa, $\\rho_{\\text{water}}=1000\\,$kg/m$^3$, $g=9.8\\,$m/s$^2$. What is the absolute pressure on the diver, in Pa?",
-    "answer": 346000.0,
+    "answer": 346000,
     "unit": "Pa",
     "solution": "Absolute pressure is atmospheric plus the water column: $p=p_0+\\rho g h$. So $p=1.01\\times10^5+(1000)(9.8)(25.0)=3.46\\times10^5\\,$Pa."
   },
@@ -2245,7 +2245,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A hydraulic lift has an input piston of area $2.00\\times10^{-3}\\,$m$^2$ and an output piston of area $5.00\\times10^{-2}\\,$m$^2$ at the same height. A force of $150\\,$N is applied to the input piston. What force does the output piston deliver, in N?",
-    "answer": 3750.0,
+    "answer": 3750,
     "unit": "N",
     "solution": "Pascal's principle makes the pressure equal on both pistons, so $F_2=F_1 A_2/A_1$. Here $F_2=150\\times(0.0500/0.00200)=3750\\,$N."
   },
@@ -2334,7 +2334,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A raft is a slab of wood of area $2.00\\,$m$^2$, thickness $0.200\\,$m, and density $600\\,$kg/m$^3$, floating in fresh water. What is the largest mass that can be placed on it before water reaches the top surface, in kg?",
-    "answer": 160.0,
+    "answer": 160,
     "unit": "kg",
     "solution": "At the limit the raft is exactly fully submerged, displacing $V=2.00\\times0.200=0.400\\,$m$^3$. The buoyant load capacity is $(\\rho_w-\\rho_{\\text{wood}})V=(1000-600)(0.400)=160\\,$kg."
   },
@@ -2351,7 +2351,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A gas line is connected to one arm of an open water manometer. The water in the open arm stands $0.340\\,$m higher than in the gas arm. With $\\rho_w=1000\\,$kg/m$^3$ and $g=9.8\\,$m/s$^2$, what is the gauge pressure of the gas, in Pa?",
-    "answer": 3332.0,
+    "answer": 3332,
     "unit": "Pa",
     "solution": "The gauge pressure equals the hydrostatic head of the level difference: $p=\\rho g \\Delta h$. So $p=(1000)(9.8)(0.340)=3332\\,$Pa."
   },
@@ -2369,7 +2369,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A metal sample weighs $40.0\\,$N in air and $32.0\\,$N when fully submerged in water ($1000\\,$kg/m$^3$). What is the density of the metal, in kg/m$^3$?",
-    "answer": 5000.0,
+    "answer": 5000,
     "unit": "kg/m^3",
     "solution": "The apparent weight loss is the buoyant force, $F_B=8.0\\,$N, so the displaced volume is $V=F_B/(\\rho_w g)$. The density follows from $\\rho=W/(gV)=\\rho_w W/F_B=1000\\times40.0/8.0=5000\\,$kg/m$^3$."
   },
@@ -2423,7 +2423,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A hot-air balloon envelope holds $2200\\,$m$^3$ of heated air of density $0.950\\,$kg/m$^3$; the surrounding air has density $1.225\\,$kg/m$^3$. Ignoring the mass of the fabric, what total payload mass can the balloon just lift, in kg?",
-    "answer": 605.0,
+    "answer": 605,
     "unit": "kg",
     "solution": "Lift is the difference between displaced-air weight and the heated air's weight: $m_{\\max}=(\\rho_{\\text{out}}-\\rho_{\\text{in}})V$. Thus $m_{\\max}=(1.225-0.950)(2200)=605\\,$kg."
   },
@@ -2459,7 +2459,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A tank holds $0.500\\,$m of water with $0.300\\,$m of oil (density $850\\,$kg/m$^3$) floating on top. With $g=9.8\\,$m/s$^2$, what is the gauge pressure at the bottom of the tank, in Pa?",
-    "answer": 7399.0,
+    "answer": 7399,
     "unit": "Pa",
     "solution": "Hydrostatic heads add layer by layer: $p=\\rho_{\\text{oil}} g h_{\\text{oil}}+\\rho_w g h_w$. So $p=(850)(9.8)(0.300)+(1000)(9.8)(0.500)=2499+4900=7399\\,$Pa."
   },
@@ -2477,7 +2477,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A vertical dam is $8.00\\,$m wide and holds fresh water $4.00\\,$m deep against its face, with air on the other side. Using $\\rho_w=1000\\,$kg/m$^3$ and $g=9.8\\,$m/s$^2$, what is the net horizontal force from the water on the dam, in N?",
-    "answer": 627200.0,
+    "answer": 627200,
     "unit": "N",
     "solution": "Pressure rises linearly with depth, so its average over the wetted face is $\\tfrac12\\rho g h$. The net force is $F=\\tfrac12\\rho g h^2 w=\\tfrac12(1000)(9.8)(4.00)^2(8.00)=6.272\\times10^5\\,$N."
   },
@@ -2513,7 +2513,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A submarine of fixed external volume $250\\,$m$^3$ has a hull-and-contents mass of $2.40\\times10^5\\,$kg. Seawater has density $1025\\,$kg/m$^3$. How much seawater must it take into its ballast tanks to hover neutrally submerged, in kg?",
-    "answer": 16250.0,
+    "answer": 16250,
     "unit": "kg",
     "solution": "Neutral buoyancy means total mass equals displaced seawater mass, $\\rho_{\\text{sea}}V=1025\\times250=2.5625\\times10^5\\,$kg. The ballast needed is $2.5625\\times10^5-2.40\\times10^5=1.625\\times10^4\\,$kg."
   },
@@ -2728,7 +2728,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $70.0\\,$kg person stands on a bathroom scale in an elevator accelerating upward at $2.00\\,$m/s$^2$. With $g=9.8\\,$m/s$^2$, what does the scale read, in N?",
-    "answer": 826.0,
+    "answer": 826,
     "unit": "N",
     "solution": "In the elevator frame the pseudo-force points downward, so the effective gravity is $g+a$. The scale reads $N=m(g+a)=70.0(11.8)=826\\,$N."
   },
@@ -2746,7 +2746,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A small object sits $0.500\\,$m from the axis of a turntable spinning at $6.00\\,$rad/s. In the rotating frame, what is the magnitude of the centrifugal acceleration it experiences, in m/s$^2$?",
-    "answer": 18.0,
+    "answer": 18,
     "unit": "m/s^2",
     "solution": "The centrifugal acceleration in a rotating frame is $\\omega^2 r$ directed outward. Here $\\omega^2 r=(6.00)^2(0.500)=18.0\\,$m/s$^2$."
   },
@@ -2798,7 +2798,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A car takes a flat curve of radius $80.0\\,$m at a constant $20.0\\,$m/s. In the car's frame, what is the magnitude of the centrifugal force felt by a $60.0\\,$kg passenger, in N?",
-    "answer": 300.0,
+    "answer": 300,
     "unit": "N",
     "solution": "The centrifugal force in the car frame is $mv^2/r$. That is $60.0(20.0)^2/80.0=300\\,$N."
   },
@@ -2851,7 +2851,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $5.00\\,$kg box rests on the floor of an elevator accelerating downward at $3.00\\,$m/s$^2$. With $g=9.8\\,$m/s$^2$, what normal force does the floor exert, in N?",
-    "answer": 34.0,
+    "answer": 34,
     "unit": "N",
     "solution": "The effective gravity is reduced to $g-a$. Thus $N=m(g-a)=5.00(6.80)=34.0\\,$N."
   },
@@ -2937,7 +2937,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An open tank $1.00\\,$m long holds water whose depth would be $0.400\\,$m at rest. The tank accelerates horizontally at $3.00\\,$m/s$^2$ along its length. What is the gauge pressure at the bottom of the rear wall, in Pa? Use $\\rho_w=1000\\,$kg/m$^3$, $g=9.8\\,$m/s$^2$.",
-    "answer": 5420.0,
+    "answer": 5420,
     "unit": "Pa",
     "solution": "The surface tilts with slope $a/g$ about the tank's midpoint, so the rear depth becomes $h_0+La/(2g)=0.400+0.1531=0.5531\\,$m. The pressure there is still $\\rho g h$ measured vertically: $p=(1000)(9.8)(0.5531)=5420.0\\,$Pa."
   },
@@ -3115,7 +3115,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A sealed tank $2.00\\,$m long is completely filled with water and accelerated horizontally at $4.00\\,$m/s$^2$ along its length. What is the pressure difference between the rear and front walls at the same height, in Pa? Use $\\rho_w=1000\\,$kg/m$^3$.",
-    "answer": 8000.0,
+    "answer": 8000,
     "unit": "Pa",
     "solution": "In the accelerating frame the pseudo-force per unit volume $\\rho a$ acts backward, so pressure grows linearly toward the rear: $dp/dx=-\\rho a$. Over $L=2.00\\,$m, $\\Delta p=\\rho a L=(1000)(4.00)(2.00)=8000\\,$Pa."
   },
@@ -3240,7 +3240,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "In a simple model of hydrogen the electron sits $5.3\\times10^{-11}$ m from the proton. Use $k=8.99\\times10^{9}$ N·m$^2$/C$^2$ and $e=1.6\\times10^{-19}$ C. What is the magnitude of the Coulomb attraction between them, in N?",
-    "answer": 8.193e-08,
+    "answer": 8.193e-8,
     "unit": "N",
     "solution": "Apply $F=ke^2/r^2$ directly. Substituting $e=1.6\\times10^{-19}$ C and $r=5.3\\times10^{-11}$ m gives $F\\approx8.2\\times10^{-8}$ N, roughly $10^{39}$ times the gravitational attraction between the two particles."
   },
@@ -3293,7 +3293,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A charge $+5.0$ nC sits at the origin and a charge $-5.0$ nC sits at $x=0.10$ m. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the magnitude of the electric field at the midpoint $x=0.050$ m, in N/C?",
-    "answer": 35960.0,
+    "answer": 35960,
     "unit": "N/C",
     "solution": "At the midpoint both charges drive the field in the $+x$ direction, so the magnitudes add: $E=2kq/r^2$ with $r=0.050$ m. This gives $E\\approx3.60\\times10^{4}$ N/C."
   },
@@ -3311,7 +3311,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A dust grain carrying $+3.0$ nC drifts into a region where the electric field has magnitude $2.0\\times10^{4}$ N/C. What is the magnitude of the electric force on the grain, in N?",
-    "answer": 6e-05,
+    "answer": 0.00006,
     "unit": "N",
     "solution": "By definition of the field, $F=qE$. Then $F=(3.0\\times10^{-9})(2.0\\times10^{4})=6.0\\times10^{-5}$ N, along the field."
   },
@@ -3347,7 +3347,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Rubbing a balloon transfers $5.0\\times10^{10}$ excess electrons onto it. Treat the balloon as a point charge and use $e=1.6\\times10^{-19}$ C, $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the magnitude of the field $0.10$ m from the balloon, in N/C?",
-    "answer": 7192.0,
+    "answer": 7192,
     "unit": "N/C",
     "solution": "The charge magnitude is $q=Ne=(5.0\\times10^{10})(1.6\\times10^{-19})=8.0\\times10^{-9}$ C. Then $E=kq/r^2\\approx7.19\\times10^{3}$ N/C, pointing toward the balloon since the charge is negative."
   },
@@ -3364,7 +3364,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two beads each carrying $+3.0$ nC are fixed at $(0,+0.040\\ \\mathrm{m})$ and $(0,-0.040\\ \\mathrm{m})$. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the magnitude of the electric field at the point $(0.030\\ \\mathrm{m},0)$, in N/C?",
-    "answer": 12950.0,
+    "answer": 12950,
     "unit": "N/C",
     "solution": "The $y$-components cancel and the $x$-components add: $E=2kqx/(x^2+a^2)^{3/2}$. With $x=0.030$ m and $a=0.040$ m the denominator is $(0.050)^3$, so $E\\approx1.29\\times10^{4}$ N/C."
   },
@@ -3382,7 +3382,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A pith ball of mass $0.50$ g carrying $+2.0\\times10^{-7}$ C hangs from a light thread. A uniform horizontal electric field holds the thread at $20^\\circ$ from the vertical. Use $g=9.8$ m/s$^2$. What is the field magnitude, in N/C?",
-    "answer": 8917.0,
+    "answer": 8917,
     "unit": "N/C",
     "solution": "Balancing the thread tension against gravity and the electric force gives $qE=mg\\tan\\theta$. So $E=mg\\tan20^\\circ/q=(5.0\\times10^{-4})(9.8)(0.3640)/(2.0\\times10^{-7})\\approx8.92\\times10^{3}$ N/C."
   },
@@ -3506,7 +3506,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two small balls, each of mass $0.80$ g, hang from the same point on threads of length $0.60$ m. Given equal charges, they come to rest $5.0$ cm apart. Use $g=9.8$ m/s$^2$ and $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the charge on each ball, in C?",
-    "answer": 9.535e-09,
+    "answer": 9.535e-9,
     "unit": "C",
     "solution": "Each thread makes an angle $\\theta$ with $\\sin\\theta=r/2L=0.04167$, and horizontal/vertical balance gives $\\tan\\theta=kq^2/(r^2mg)$. Solving, $q=r\\sqrt{mg\\tan\\theta/k}$ with $\\tan\\theta=0.04170$, so $q=0.050\\sqrt{(7.84\\times10^{-3})(0.04170)/(8.99\\times10^{9})}\\approx9.54\\times10^{-9}$ C."
   },
@@ -3559,7 +3559,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A right triangle has its right angle at the origin, a charge $+4.0$ nC at $(0.030\\ \\mathrm{m},0)$ and a charge $-4.0$ nC at $(0,0.040\\ \\mathrm{m})$. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the magnitude of the electric field at the origin, in N/C?",
-    "answer": 45840.0,
+    "answer": 45840,
     "unit": "N/C",
     "solution": "The positive charge contributes $kq/(0.030)^2=3.996\\times10^{4}$ N/C along $-x$; the negative charge contributes $kq/(0.040)^2=2.247\\times10^{4}$ N/C along $+y$. The two are perpendicular, so $E=\\sqrt{E_x^2+E_y^2}\\approx4.59\\times10^{4}$ N/C."
   },
@@ -3613,7 +3613,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Charges $+4.0\\,\\mu$C and $+9.0\\,\\mu$C are fixed $0.40$ m apart. A third charge is placed on the line between them so that all three charges are simultaneously in equilibrium. What is the magnitude of the third charge, in C?",
-    "answer": 1.44e-06,
+    "answer": 0.00000144,
     "unit": "C",
     "solution": "The third charge must sit where the field of the other two vanishes, at $x=0.16$ m from the $4\\,\\mu$C charge. Demanding that each outer charge also be balanced gives $|q_3|=q_1q_2/(\\sqrt{q_1}+\\sqrt{q_2})^2$, and its sign must be negative. Numerically $|q_3|=3.6\\times10^{-11}/(5.0\\times10^{-3})^2=1.44\\times10^{-6}$ C."
   },
@@ -3667,7 +3667,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Four charges of $+2.5\\,\\mu$C sit at the corners of a square. A fifth charge is placed at the center so that every corner charge is in equilibrium. What is the magnitude of the center charge, in C?",
-    "answer": 2.393e-06,
+    "answer": 0.000002393,
     "unit": "C",
     "solution": "For one corner charge the other three corners push outward along the diagonal with $(kq^2/a^2)(\\sqrt2+\\tfrac12)$. The center charge lies a distance $a/\\sqrt2$ away, so it must pull inward with $2kqQ/a^2$. Equating gives $Q=q(1+2\\sqrt2)/4\\approx2.40\\times10^{-6}$ C, and it must be negative."
   },
@@ -3684,7 +3684,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two small dipoles, each of moment $3.0\\times10^{-12}$ C·m, lie on a common axis with their moments parallel and their centers $0.050$ m apart. Use $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the magnitude of the force between them, in N?",
-    "answer": 7.767e-08,
+    "answer": 7.767e-8,
     "unit": "N",
     "solution": "Dipole 1 produces $E=2kp_1/r^3$ on its own axis, and the force on dipole 2 is $p_2|dE/dr|=6kp_1p_2/r^4$. Substituting, $F=6(8.99\\times10^{9})(3.0\\times10^{-12})^2/(0.050)^4\\approx7.77\\times10^{-4}$ N, attractive for parallel moments in line."
   },
@@ -3756,7 +3756,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A very long straight wire carries a uniform linear charge density $\\lambda=3.0\\times10^{-8}$ C/m. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the magnitude of the electric field $5.0$ cm from the wire, in N/C?",
-    "answer": 10790.0,
+    "answer": 10790,
     "unit": "N/C",
     "solution": "For an infinite line, a cylindrical Gaussian surface gives $E=2k\\lambda/r=\\lambda/(2\\pi\\varepsilon_0r)$. With $r=0.050$ m, $E=2(8.99\\times10^{9})(3.0\\times10^{-8})/0.050\\approx1.08\\times10^{4}$ N/C."
   },
@@ -3774,7 +3774,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A large flat plastic sheet carries a uniform surface charge density $\\sigma=2.5\\times10^{-6}$ C/m$^2$. Use $\\varepsilon_0=8.85\\times10^{-12}$ F/m. Treating the sheet as infinite, what is the field magnitude just off its surface, in N/C?",
-    "answer": 141200.0,
+    "answer": 141200,
     "unit": "N/C",
     "solution": "An infinite sheet of charge gives $E=\\sigma/(2\\varepsilon_0)$, independent of distance. Then $E=2.5\\times10^{-6}/(2\\times8.85\\times10^{-12})\\approx1.41\\times10^{5}$ N/C."
   },
@@ -3827,7 +3827,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A flat disk of radius $5.0$ cm carries a uniform surface charge density $\\sigma=4.0\\times10^{-7}$ C/m$^2$. Use $\\varepsilon_0=8.85\\times10^{-12}$ F/m. What is the field magnitude on the axis $3.0$ cm from the disk's center, in N/C?",
-    "answer": 10970.0,
+    "answer": 10970,
     "unit": "N/C",
     "solution": "Stacking concentric rings gives $E=\\frac{\\sigma}{2\\varepsilon_0}\\left(1-\\frac{z}{\\sqrt{z^2+R^2}}\\right)$. Here $z/\\sqrt{z^2+R^2}=0.5145$ and $\\sigma/2\\varepsilon_0=2.260\\times10^{4}$ N/C, so $E\\approx1.10\\times10^{4}$ N/C."
   },
@@ -3845,7 +3845,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A thin spherical shell of radius $0.10$ m carries $8.0$ nC spread uniformly over its surface. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the field magnitude at a point $0.25$ m from the center, in N/C?",
-    "answer": 1151.0,
+    "answer": 1151,
     "unit": "N/C",
     "solution": "Outside a uniform shell the field equals that of a point charge at the center, $E=kQ/r^2$. Then $E=(8.99\\times10^{9})(8.0\\times10^{-9})/(0.25)^2\\approx1.15\\times10^{3}$ N/C."
   },
@@ -3863,7 +3863,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "The same shell (radius $0.10$ m, charge $8.0$ nC, $k=8.99\\times10^{9}$ N·m$^2$/C$^2$) is probed just outside its surface. What is the field magnitude there, in N/C?",
-    "answer": 7192.0,
+    "answer": 7192,
     "unit": "N/C",
     "solution": "Just outside, Gauss's law still gives $E=kQ/R^2$ with $R=0.10$ m, so $E\\approx7.19\\times10^{3}$ N/C. Just inside the surface the field drops discontinuously to zero."
   },
@@ -3881,7 +3881,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "The drum of a photocopier is charged to a uniform surface density $\\sigma=6.0\\times10^{-5}$ C/m$^2$. Treat its surface as a flat conductor and use $\\varepsilon_0=8.85\\times10^{-12}$ F/m. What is the field magnitude just outside the drum, in N/C?",
-    "answer": 6780000.0,
+    "answer": 6780000,
     "unit": "N/C",
     "solution": "Just outside a charged conductor Gauss's law gives $E=\\sigma/\\varepsilon_0$, twice the thin-sheet value because the field exists only on one side. Then $E=6.0\\times10^{-5}/(8.85\\times10^{-12})\\approx6.78\\times10^{6}$ N/C."
   },
@@ -3899,7 +3899,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A thin rod of length $0.30$ m carries $12$ nC uniformly. A point lies on the rod's own axis, $0.10$ m beyond the near end. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the field magnitude at that point, in N/C?",
-    "answer": 2697.0,
+    "answer": 2697,
     "unit": "N/C",
     "solution": "Integrating $dE=k\\lambda\\,ds/s^2$ from $a$ to $a+L$ gives $E=k\\lambda(1/a-1/(a+L))=kQ/[a(a+L)]$. With $a=0.10$ m and $a+L=0.40$ m, $E\\approx2.70\\times10^{3}$ N/C."
   },
@@ -3917,7 +3917,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A wire is bent into a semicircle of radius $8.0$ cm and given $6.0$ nC uniformly. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the field magnitude at the center of the semicircle, in N/C?",
-    "answer": 5366.0,
+    "answer": 5366,
     "unit": "N/C",
     "solution": "Only the component along the symmetry axis survives: $E=\\int_0^{\\pi}\\frac{k\\lambda}{R}\\sin\\theta\\,d\\theta=2k\\lambda/R$ with $\\lambda=Q/(\\pi R)$. Hence $E=2kQ/(\\pi R^2)\\approx5.37\\times10^{3}$ N/C."
   },
@@ -3935,7 +3935,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A very long rod occupies $x\\ge0$ on the $x$-axis and carries $\\lambda=2.0\\times10^{-8}$ C/m. Consider the point $(0,\\,0.050\\ \\mathrm{m})$, a perpendicular distance $5.0$ cm from the rod's end. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the field magnitude there, in N/C?",
-    "answer": 5086.0,
+    "answer": 5086,
     "unit": "N/C",
     "solution": "Integrating over the semi-infinite rod gives components of equal size, $|E_x|=|E_y|=k\\lambda/a$, so the field points at $45^\\circ$ to the rod with magnitude $\\sqrt2\\,k\\lambda/a$. Numerically that is $\\sqrt2(8.99\\times10^{9})(2.0\\times10^{-8})/0.050\\approx5.09\\times10^{3}$ N/C."
   },
@@ -3953,7 +3953,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A rod of length $0.40$ m carries $15$ nC uniformly. A point sits on the perpendicular bisector, $0.10$ m from the rod. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the field magnitude there, in N/C?",
-    "answer": 6031.0,
+    "answer": 6031,
     "unit": "N/C",
     "solution": "Integration along the rod gives $E=\\dfrac{kQ}{a\\sqrt{a^2+L^2/4}}$ on the bisector. With $a=0.10$ m and $L/2=0.20$ m, $\\sqrt{a^2+L^2/4}=0.2236$ m, so $E\\approx6.03\\times10^{3}$ N/C."
   },
@@ -3971,7 +3971,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A flat annulus with inner radius $2.0$ cm and outer radius $6.0$ cm carries $\\sigma=3.0\\times10^{-7}$ C/m$^2$. Use $\\varepsilon_0=8.85\\times10^{-12}$ F/m. What is the field magnitude on the axis $4.0$ cm from the center, in N/C?",
-    "answer": 5758.0,
+    "answer": 5758,
     "unit": "N/C",
     "solution": "Treat the annulus as a big disk minus a small one: $E=\\frac{\\sigma}{2\\varepsilon_0}\\left(\\frac{z}{\\sqrt{z^2+R_1^2}}-\\frac{z}{\\sqrt{z^2+R_2^2}}\\right)$. The bracket is $0.8944-0.5547=0.3397$ and $\\sigma/2\\varepsilon_0=1.695\\times10^{4}$ N/C, giving $E\\approx5.76\\times10^{3}$ N/C."
   },
@@ -3989,7 +3989,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two large parallel plates carry uniform surface densities $+1.2\\times10^{-6}$ C/m$^2$ and $-1.2\\times10^{-6}$ C/m$^2$. Use $\\varepsilon_0=8.85\\times10^{-12}$ F/m. What is the field magnitude in the gap between them, in N/C?",
-    "answer": 135600.0,
+    "answer": 135600,
     "unit": "N/C",
     "solution": "Each sheet contributes $\\sigma/2\\varepsilon_0$, and between the plates the two contributions point the same way while outside they cancel. So $E=\\sigma/\\varepsilon_0\\approx1.36\\times10^{5}$ N/C."
   },
@@ -4007,7 +4007,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A wire bent into a quarter circle of radius $0.10$ m carries $9.0$ nC uniformly. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the field magnitude at the center of curvature, in N/C?",
-    "answer": 7284.0,
+    "answer": 7284,
     "unit": "N/C",
     "solution": "Each Cartesian component integrates to $k\\lambda/R$, so the resultant is $\\sqrt2\\,k\\lambda/R$ along the bisector of the quarter. With $\\lambda=Q/(\\pi R/2)=5.730\\times10^{-8}$ C/m, $E\\approx7.28\\times10^{3}$ N/C."
   },
@@ -4043,7 +4043,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A nonconducting ball of radius $0.15$ m carries $20$ nC spread uniformly through its volume. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the field magnitude at a point $0.10$ m from the center, in N/C?",
-    "answer": 5327.0,
+    "answer": 5327,
     "unit": "N/C",
     "solution": "A Gaussian sphere of radius $r$ encloses the fraction $(r/R)^3$ of the charge, so $E=kQr/R^3$. Then $E=(8.99\\times10^{9})(2.0\\times10^{-8})(0.10)/(0.15)^3\\approx5.33\\times10^{3}$ N/C."
   },
@@ -4079,7 +4079,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A ring of radius $6.0$ cm carries $+4.0$ nC uniformly. An electron is released from rest on the axis, $8.0$ cm from the center. Use $k=8.99\\times10^{9}$ N·m$^2$/C$^2$, $e=1.6\\times10^{-19}$ C, $m_e=9.11\\times10^{-31}$ kg. What is the magnitude of its initial acceleration, in m/s$^2$?",
-    "answer": 505300000000000.0,
+    "answer": 505300000000000,
     "unit": "m/s^2",
     "solution": "The axial field is $E=kQx/(x^2+R^2)^{3/2}=(8.99\\times10^{9})(4.0\\times10^{-9})(0.080)/(0.10)^3=2877$ N/C. Then $a=eE/m_e\\approx5.05\\times10^{14}$ m/s$^2$, directed toward the ring."
   },
@@ -4097,7 +4097,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A rod of length $0.50$ m carries $25$ nC uniformly. A small bead with $8.0$ nC lies on the rod's axis, $0.20$ m from the near end. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the magnitude of the force on the bead, in N?",
-    "answer": 1.284e-05,
+    "answer": 0.00001284,
     "unit": "N",
     "solution": "The rod's axial field is $E=kQ/[a(a+L)]$, so the force is $F=kQq/[a(a+L)]$. With $a=0.20$ m and $a+L=0.70$ m, $F=(8.99\\times10^{9})(2.5\\times10^{-8})(8.0\\times10^{-9})/0.14\\approx1.28\\times10^{-5}$ N."
   },
@@ -4115,7 +4115,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A long hollow cylinder of radius $3.0$ cm carries $1.0\\times10^{-7}$ C per meter of length, spread uniformly over its surface. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the field magnitude $8.0$ cm from the axis, in N/C?",
-    "answer": 22480.0,
+    "answer": 22480,
     "unit": "N/C",
     "solution": "A coaxial Gaussian cylinder of radius $8.0$ cm encloses $\\lambda\\ell$, so outside the shell the field matches that of a line charge: $E=2k\\lambda/r$. Then $E=2(8.99\\times10^{9})(1.0\\times10^{-7})/0.080\\approx2.25\\times10^{4}$ N/C."
   },
@@ -4132,7 +4132,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A ring of radius $0.12$ m carries $10$ nC uniformly. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the largest field magnitude found anywhere on the ring's axis, in N/C?",
-    "answer": 2403.0,
+    "answer": 2403,
     "unit": "N/C",
     "solution": "The maximum sits at $x=R/\\sqrt2$, where substitution gives $E_{\\max}=\\frac{kQ}{R^2}\\cdot\\frac{2}{3\\sqrt3}$. With $kQ/R^2=6243$ N/C and $2/(3\\sqrt3)=0.3849$, the peak is about $2.40\\times10^{3}$ N/C."
   },
@@ -4150,7 +4150,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A disk of radius $8.0$ cm carries surface charge density $\\sigma(r)=\\sigma_0 r/R$ with $\\sigma_0=5.0\\times10^{-7}$ C/m$^2$, so the charge thins out toward the center. Use $\\varepsilon_0=8.85\\times10^{-12}$ F/m. What is the field magnitude on the axis $6.0$ cm from the center, in N/C?",
-    "answer": 6327.0,
+    "answer": 6327,
     "unit": "N/C",
     "solution": "Sum axial contributions of rings: $E=\\int_0^R\\frac{\\sigma(r)\\,z\\,r\\,dr}{2\\varepsilon_0(r^2+z^2)^{3/2}}=\\frac{\\sigma_0z}{2\\varepsilon_0R}\\int_0^R\\frac{r^2dr}{(r^2+z^2)^{3/2}}$. The remaining integral is $\\ln\\!\\left(\\frac{R+\\sqrt{R^2+z^2}}{z}\\right)-\\frac{R}{\\sqrt{R^2+z^2}}$, and the whole expression evaluates to about $6.33\\times10^{3}$ N/C."
   },
@@ -4168,7 +4168,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A wire is bent into a square of side $0.20$ m and given $12$ nC uniformly. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the field magnitude on the square's central axis, $0.15$ m from the plane of the square, in N/C?",
-    "answer": 2415.0,
+    "answer": 2415,
     "unit": "N/C",
     "solution": "Each side is a finite rod of density $\\lambda=Q/4a$ whose field at the axial point has magnitude $k\\lambda a/[s\\sqrt{s^2+a^2/4}]$ with $s=\\sqrt{z^2+a^2/4}$. Only the axial component, a factor $z/s$ of that, survives after adding all four sides. With $\\lambda=1.5\\times10^{-8}$ C/m and $s=0.1803$ m, four sides give about $2.42\\times10^{3}$ N/C."
   },
@@ -4186,7 +4186,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A ring of radius $5.0$ cm is charged so that one half carries $+4.0$ nC uniformly and the other half carries $-4.0$ nC uniformly. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the field magnitude at the center of the ring, in N/C?",
-    "answer": 18310.0,
+    "answer": 18310,
     "unit": "N/C",
     "solution": "Each semicircle alone produces $2k\\lambda/R$ at the center, and because the halves have opposite signs both contributions point the same way (from the positive half toward the negative half). With $\\lambda=4.0\\times10^{-9}/(\\pi\\times0.050)=2.546\\times10^{-8}$ C/m, $E=4k\\lambda/R\\approx1.83\\times10^{4}$ N/C."
   },
@@ -4204,7 +4204,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A uniformly charged wire with $\\lambda=3.0\\times10^{-8}$ C/m consists of a semicircle of radius $0.10$ m centered at $O$, plus one straight segment of length $0.10$ m running outward from one end of the semicircle along the line of the diameter. Take $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the field magnitude at $O$, in N/C?",
-    "answer": 5560.0,
+    "answer": 5560,
     "unit": "N/C",
     "solution": "The semicircle contributes $2k\\lambda/R=5394$ N/C perpendicular to the diameter, while the straight tail contributes $k\\lambda(1/R-1/(R+L))=1349$ N/C along the diameter. The two are perpendicular, so $E=\\sqrt{5394^2+1349^2}\\approx5.56\\times10^{3}$ N/C."
   },
@@ -4240,7 +4240,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A thin hemispherical shell carries a uniform surface charge density $\\sigma=4.0\\times10^{-6}$ C/m$^2$. Use $\\varepsilon_0=8.85\\times10^{-12}$ F/m. What is the field magnitude at the center of the shell's flat rim, in N/C?",
-    "answer": 113000.0,
+    "answer": 113000,
     "unit": "N/C",
     "solution": "Slice the hemisphere into rings at polar angle $\\theta$: each contributes $dE=\\frac{\\sigma\\sin\\theta\\cos\\theta}{2\\varepsilon_0}d\\theta$ along the symmetry axis, independent of the radius. Integrating from $0$ to $\\pi/2$ gives $E=\\sigma/(4\\varepsilon_0)\\approx1.13\\times10^{5}$ N/C."
   },
@@ -4258,7 +4258,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A nonconducting ball of radius $0.10$ m carries uniform charge density $\\rho=3.0\\times10^{-6}$ C/m$^3$. A spherical cavity of radius $0.040$ m is hollowed out, its center displaced $0.050$ m from the ball's center. Use $\\varepsilon_0=8.85\\times10^{-12}$ F/m. What is the field magnitude everywhere inside the cavity, in N/C?",
-    "answer": 5650.0,
+    "answer": 5650,
     "unit": "N/C",
     "solution": "Superpose a full ball of density $\\rho$ with a smaller ball of density $-\\rho$ filling the cavity. Inside each, $\\vec E=\\rho\\vec r/3\\varepsilon_0$ measured from its own center, so the sum is the constant $\\vec E=\\rho\\vec a/3\\varepsilon_0$ with $a=0.050$ m. That gives $E\\approx5.65\\times10^{3}$ N/C, uniform throughout the cavity."
   },
@@ -4294,7 +4294,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $4.50\\ \\mu\\text{C}$ point charge sits at the center of a hollow cubical box. Find the electric flux through one face of the cube, in $\\text{N}\\cdot\\text{m}^2/\\text{C}$. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": 84750.0,
+    "answer": 84750,
     "unit": "N·m^2/C",
     "solution": "By symmetry the six faces share the total flux equally, so each carries $\\Phi_{\\text{face}} = q/(6\\varepsilon_0)$. Numerically $\\Phi = (4.50\\times10^{-6})/(6\\times8.85\\times10^{-12}) = 8.47\\times10^{4}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}$."
   },
@@ -4311,7 +4311,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A uniform field of $250\\ \\text{N/C}$ points horizontally. A flat rectangular panel measuring $0.40\\ \\text{m}\\times0.30\\ \\text{m}$ is tilted so that its normal makes an angle of $60^\\circ$ with the field. Find the flux through the panel in $\\text{N}\\cdot\\text{m}^2/\\text{C}$.",
-    "answer": 15.0,
+    "answer": 15,
     "unit": "N·m^2/C",
     "solution": "Flux through a flat surface in a uniform field is $\\Phi = EA\\cos\\theta$ with $\\theta$ measured from the normal. So $\\Phi = 250(0.12)\\cos 60^\\circ = 15.0\\ \\text{N}\\cdot\\text{m}^2/\\text{C}$."
   },
@@ -4328,7 +4328,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A field probe finds the net outward electric flux through the closed surface of a sealed instrument housing to be $-6.20\\times10^{5}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}$. Find the net charge inside the housing in C. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": -5.487e-06,
+    "answer": -0.000005487,
     "unit": "C",
     "solution": "Gauss's law gives $q_{\\text{enc}} = \\varepsilon_0\\Phi$. Thus $q = (8.85\\times10^{-12})(-6.20\\times10^{5}) = -5.487\\times10^{-6}\\ \\text{C}$."
   },
@@ -4345,7 +4345,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A plastic ball of radius $5.0\\ \\text{cm}$ carries $8.0\\ \\text{nC}$ spread uniformly through its volume. Find the electric field magnitude $15\\ \\text{cm}$ from the center, in N/C. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 3196.0,
+    "answer": 3196,
     "unit": "N/C",
     "solution": "Outside a spherically symmetric charge the field is that of a point charge at the center: $E = kQ/r^2$. So $E = (8.99\\times10^9)(8.0\\times10^{-9})/(0.15)^2 = 3.20\\times10^{3}\\ \\text{N/C}$."
   },
@@ -4362,7 +4362,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "The same ball (radius $5.0\\ \\text{cm}$, uniform charge $8.0\\ \\text{nC}$) is probed at $r = 2.0\\ \\text{cm}$ from its center. Find the electric field magnitude there in N/C. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 11510.0,
+    "answer": 11510,
     "unit": "N/C",
     "solution": "A Gaussian sphere of radius $r<R$ encloses $Q r^3/R^3$, giving $E = kQr/R^3$. Then $E = (8.99\\times10^9)(8.0\\times10^{-9})(0.020)/(0.050)^3 = 1.151\\times10^{4}\\ \\text{N/C}$."
   },
@@ -4379,7 +4379,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A large flat acrylic sheet carries a uniform surface charge density $2.4\\ \\mu\\text{C/m}^2$. Find the electric field magnitude just above the middle of the sheet, in N/C. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": 135600.0,
+    "answer": 135600,
     "unit": "N/C",
     "solution": "For an infinite nonconducting sheet a pillbox Gaussian surface gives $E = \\sigma/(2\\varepsilon_0)$, independent of distance. So $E = (2.4\\times10^{-6})/(2\\times8.85\\times10^{-12}) = 1.356\\times10^{5}\\ \\text{N/C}$."
   },
@@ -4396,7 +4396,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two large parallel metal plates carry equal and opposite surface charge densities of magnitude $1.1\\ \\mu\\text{C/m}^2$. Find the electric field magnitude in the gap between them, in N/C. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": 124300.0,
+    "answer": 124300,
     "unit": "N/C",
     "solution": "The two sheets contribute $\\sigma/(2\\varepsilon_0)$ each and add in the gap, giving $E = \\sigma/\\varepsilon_0$. So $E = (1.1\\times10^{-6})/(8.85\\times10^{-12}) = 1.243\\times10^{5}\\ \\text{N/C}$."
   },
@@ -4448,7 +4448,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A Van de Graaff dome is a metal sphere of radius $0.20\\ \\text{m}$ holding a charge of $1.2\\ \\mu\\text{C}$. Find the electric field magnitude just outside its surface, in N/C. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 269700.0,
+    "answer": 269700,
     "unit": "N/C",
     "solution": "All the charge sits on the surface, and outside the conductor the field is $E = kQ/r^2$. Just outside, $E = (8.99\\times10^9)(1.2\\times10^{-6})/(0.20)^2 = 2.697\\times10^{5}\\ \\text{N/C}$."
   },
@@ -4466,7 +4466,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A wide plastic slab of thickness $2.0\\ \\text{cm}$ carries a uniform volume charge density $6.0\\ \\mu\\text{C/m}^3$. Take $x$ as the distance from the slab's central plane. Find the electric field magnitude at $x = 0.40\\ \\text{cm}$, in N/C. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": 2712.0,
+    "answer": 2712,
     "unit": "N/C",
     "solution": "A pillbox of area $A$ straddling the midplane, extending to $\\pm x$, encloses $\\rho(2xA)$ and has flux $2EA$, so $E = \\rho x/\\varepsilon_0$. Then $E = (6.0\\times10^{-6})(0.0040)/(8.85\\times10^{-12}) = 2.71\\times10^{3}\\ \\text{N/C}$."
   },
@@ -4502,7 +4502,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A neutral metal block has a hollow cavity inside it. A $7.5\\ \\text{nC}$ point charge is placed in the cavity, not at its center. Find the total induced charge on the cavity wall, in C.",
-    "answer": -7.5e-09,
+    "answer": -7.5e-9,
     "unit": "C",
     "solution": "A Gaussian surface drawn entirely inside the metal has $E=0$ everywhere, so the enclosed charge must vanish. The cavity wall therefore carries exactly $-7.5\\ \\text{nC}$, regardless of where the charge sits."
   },
@@ -4537,7 +4537,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A sphere of radius $10\\ \\text{cm}$ has charge density $\\rho(r) = A r$ with $A = 2.0\\times10^{-4}\\ \\text{C/m}^4$. Find the electric field magnitude at the surface, in N/C. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 56490.0,
+    "answer": 56490,
     "unit": "N/C",
     "solution": "Integrate the charge: $Q = \\int_0^R A r\\,4\\pi r^2 dr = \\pi A R^4 = 6.283\\times10^{-8}\\ \\text{C}$. At the surface $E = kQ/R^2 = (8.99\\times10^9)(6.283\\times10^{-8})/(0.10)^2 = 5.649\\times10^{4}\\ \\text{N/C}$."
   },
@@ -4555,7 +4555,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A sphere of radius $12\\ \\text{cm}$ has charge density $\\rho(r) = \\rho_0(1 - r/R)$ with $\\rho_0 = 3.0\\ \\mu\\text{C/m}^3$. Find the electric field magnitude at the surface $r=R$, in N/C. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 3389.0,
+    "answer": 3389,
     "unit": "N/C",
     "solution": "The total charge is $Q = 4\\pi\\rho_0\\int_0^R (1-r/R)r^2dr = \\pi\\rho_0 R^3/3 = 5.429\\times10^{-9}\\ \\text{C}$. Then $E = kQ/R^2 = 3.389\\times10^{3}\\ \\text{N/C}$."
   },
@@ -4573,7 +4573,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $9.0\\ \\mu\\text{C}$ point charge rests on a flat tabletop, and a hemispherical glass dome of radius $20\\ \\text{cm}$ is placed over it with the charge at the center of the flat face. Find the electric flux through the curved glass surface, in $\\text{N}\\cdot\\text{m}^2/\\text{C}$. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": 508500.0,
+    "answer": 508500,
     "unit": "N·m^2/C",
     "solution": "The charge sits at the center of the full sphere formed by the dome plus its mirror image, so the dome subtends half of $4\\pi$ steradians. The flux is $q/(2\\varepsilon_0) = (9.0\\times10^{-6})/(2\\times8.85\\times10^{-12}) = 5.085\\times10^{5}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}$; the radius is irrelevant."
   },
@@ -4608,7 +4608,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An electron beam is modeled as a very long cylinder of radius $4.0\\ \\text{cm}$ with uniform charge density $\\rho = -8.0\\times10^{-7}\\ \\text{C/m}^3$. Find the electric field magnitude at $r = 1.5\\ \\text{cm}$ from the axis, in N/C. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": 678.0,
+    "answer": 678,
     "unit": "N/C",
     "solution": "A Gaussian cylinder of radius $r<R$ and length $L$ encloses $\\rho\\pi r^2 L$ and has side flux $E(2\\pi r L)$, so $E = \\rho r/(2\\varepsilon_0)$. Then $E = (8.0\\times10^{-7})(0.015)/(2\\times8.85\\times10^{-12}) = 678.0\\ \\text{N/C}$ pointing inward."
   },
@@ -4626,7 +4626,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A wide flat membrane of thickness $6.0\\ \\text{mm}$ carries a uniform charge density $1.5\\times10^{-5}\\ \\text{C/m}^3$. Find the electric field magnitude just outside one of its faces, in N/C. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": 5085.0,
+    "answer": 5085,
     "unit": "N/C",
     "solution": "Outside the slab the field saturates at the value set by the full sheet charge per area $\\sigma = \\rho t$, giving $E = \\rho t/(2\\varepsilon_0)$. Then $E = (1.5\\times10^{-5})(0.0060)/(2\\times8.85\\times10^{-12}) = 5.085\\times10^{3}\\ \\text{N/C}$."
   },
@@ -4662,7 +4662,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $3.0\\ \\mu\\text{C}$ point charge is placed exactly at one corner of a cubical cardboard box. Find the electric flux through one of the three faces that do not touch that corner, in $\\text{N}\\cdot\\text{m}^2/\\text{C}$. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": 14120.0,
+    "answer": 14120,
     "unit": "N·m^2/C",
     "solution": "Surround the charge with eight such cubes; each takes $q/(8\\varepsilon_0)$. Within one cube the three faces touching the corner get zero flux, so the other three share equally: $\\Phi = q/(24\\varepsilon_0) = (3.0\\times10^{-6})/(24\\times8.85\\times10^{-12}) = 1.412\\times10^{4}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}$."
   },
@@ -4716,7 +4716,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An ion trap requires a spherical charge cloud whose internal radial field has the same magnitude $1.00\\times10^{5}\\ \\text{N/C}$ at every radius inside it. This is achieved with $\\rho(r) = C/r$. Find the required constant $C$, in $\\text{C/m}^2$. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": 1.77e-06,
+    "answer": 0.00000177,
     "unit": "C/m^2",
     "solution": "The enclosed charge is $q(r) = \\int_0^r (C/r')4\\pi r'^2 dr' = 2\\pi C r^2$, so $E = q/(4\\pi\\varepsilon_0 r^2) = C/(2\\varepsilon_0)$, independent of $r$. Solving, $C = 2\\varepsilon_0 E = 2(8.85\\times10^{-12})(1.00\\times10^5) = 1.770\\times10^{-6}\\ \\text{C/m}^2$."
   },
@@ -4734,7 +4734,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $2.0\\ \\mu\\text{C}$ point charge sits on the axis of a flat circular disk of radius $10\\ \\text{cm}$, a distance $10\\ \\text{cm}$ from the disk's center. Find the electric flux through the disk, in $\\text{N}\\cdot\\text{m}^2/\\text{C}$. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": 33100.0,
+    "answer": 33100,
     "unit": "N·m^2/C",
     "solution": "The disk subtends a cone of half-angle $\\theta$ with $\\cos\\theta = z/\\sqrt{z^2+R^2}$; the solid angle is $2\\pi(1-\\cos\\theta)$. Since flux is $q\\Omega/(4\\pi\\varepsilon_0)$, $\\Phi = \\frac{q}{2\\varepsilon_0}\\left(1 - \\frac{z}{\\sqrt{z^2+R^2}}\\right) = 3.310\\times10^{4}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}$."
   },
@@ -4751,7 +4751,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A long charged rod of radius $1.0\\ \\text{mm}$ carrying $10\\ \\text{nC/m}$ runs along the axis of a grounded metal tube of inner radius $5.0\\ \\text{mm}$. The air in the gap breaks down where the field is largest. Find that maximum field magnitude, in N/C. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 179800.0,
+    "answer": 179800,
     "unit": "N/C",
     "solution": "In the gap $E = 2k\\lambda/r$, which is largest at the smallest radius, the rod's surface $r = a$. So $E_{\\max} = 2(8.99\\times10^9)(1.0\\times10^{-8})/(1.0\\times10^{-3}) = 1.798\\times10^{5}\\ \\text{N/C}$."
   },
@@ -4786,7 +4786,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A ball of radius $5.0\\ \\text{cm}$ carries $+5.0\\ \\text{nC}$ uniformly through its volume. A narrow tunnel is bored along a diameter, and an electron is released from rest just inside one end. Find the frequency of the resulting oscillation, in Hz. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$, $e = 1.6\\times10^{-19}\\ \\text{C}$, $m_e = 9.11\\times10^{-31}\\ \\text{kg}$.",
-    "answer": 40000000.0,
+    "answer": 40000000,
     "unit": "Hz",
     "solution": "Inside the sphere $E = kQr/R^3$, so the electron feels $F = -(kQe/R^3)r$: simple harmonic motion with $\\omega = \\sqrt{kQe/(m_eR^3)}$. Numerically $\\omega = 2.513\\times10^{8}\\ \\text{s}^{-1}$ and $f = \\omega/2\\pi = 4.000\\times10^{7}\\ \\text{Hz}$."
   },
@@ -4804,7 +4804,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "The negatively charged base of a thundercloud is modeled as a very large flat sheet of charge, with the ground far below. Air breaks down at $3.0\\times10^{6}\\ \\text{N/C}$. Find the surface charge density magnitude the cloud base needs so that its own field alone reaches breakdown, in $\\text{C/m}^2$. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\text{F/m}$.",
-    "answer": 5.31e-05,
+    "answer": 0.0000531,
     "unit": "C/m^2",
     "solution": "An isolated charged sheet produces $E = \\sigma/(2\\varepsilon_0)$ on each side. Setting this to the breakdown field, $\\sigma = 2\\varepsilon_0 E = 2(8.85\\times10^{-12})(3.0\\times10^6) = 5.310\\times10^{-5}\\ \\text{C/m}^2$."
   },
@@ -4855,7 +4855,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A metal dome of radius $25\\ \\text{cm}$ holds $1.5\\ \\mu\\text{C}$. Find its potential relative to infinity, in V. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 53940.0,
+    "answer": 53940,
     "unit": "V",
     "solution": "Outside a charged sphere $V = kQ/r$, and the whole conductor sits at the surface value. So $V = (8.99\\times10^9)(1.5\\times10^{-6})/0.25 = 5.394\\times10^{4}\\ \\text{V}$."
   },
@@ -4872,7 +4872,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Inside a parallel-plate region the potential varies as $V(x) = 400 - 2500x$ volts, with $x$ in meters. Find the $x$-component of the electric field, in V/m.",
-    "answer": 2500.0,
+    "answer": 2500,
     "unit": "V/m",
     "solution": "The field follows from $E_x = -dV/dx$. Differentiating gives $E_x = -(-2500) = 2500\\ \\text{V/m}$."
   },
@@ -4889,7 +4889,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A charge of $-4.0\\ \\text{nC}$ is carried slowly from a terminal at $0\\ \\text{V}$ to one at $250\\ \\text{V}$. Find the work done by the external agent, in J.",
-    "answer": -1e-06,
+    "answer": -0.000001,
     "unit": "J",
     "solution": "For quasi-static transport the external work equals $\\Delta U = q\\Delta V$. So $W = (-4.0\\times10^{-9})(250) = -1.000\\times10^{-6}\\ \\text{J}$; the field does positive work instead."
   },
@@ -4907,7 +4907,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An electron starts from rest at the cathode of a vacuum tube and is accelerated through a potential difference of $120\\ \\text{V}$. Find its final speed, in m/s. Use $e = 1.6\\times10^{-19}\\ \\text{C}$ and $m_e = 9.11\\times10^{-31}\\ \\text{kg}$.",
-    "answer": 6492000.0,
+    "answer": 6492000,
     "unit": "m/s",
     "solution": "Energy conservation gives $\\tfrac12 m v^2 = e\\Delta V$, so $v = \\sqrt{2e\\Delta V/m}$. Then $v = \\sqrt{2(1.6\\times10^{-19})(120)/(9.11\\times10^{-31})} = 6.492\\times10^{6}\\ \\text{m/s}$."
   },
@@ -4924,7 +4924,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two point charges, $2.0\\ \\text{nC}$ and $5.0\\ \\text{nC}$, are held $15\\ \\text{cm}$ apart. Find the potential energy of the pair, in J. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 5.993e-07,
+    "answer": 5.993e-7,
     "unit": "J",
     "solution": "The pair energy is $U = kq_1q_2/r$. So $U = (8.99\\times10^9)(2.0\\times10^{-9})(5.0\\times10^{-9})/0.15 = 5.993\\times10^{-7}\\ \\text{J}$."
   },
@@ -4993,7 +4993,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Three $4.0\\ \\text{nC}$ charges are brought in from infinity and fixed at the vertices of an equilateral triangle of side $30\\ \\text{cm}$. Find the total work required, in J. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 1.438e-06,
+    "answer": 0.000001438,
     "unit": "J",
     "solution": "The work equals the total pair energy, and there are three identical pairs: $U = 3kq^2/L$. So $U = 3(8.99\\times10^9)(4.0\\times10^{-9})^2/0.30 = 1.438\\times10^{-6}\\ \\text{J}$."
   },
@@ -5010,7 +5010,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A uniform field of $1800\\ \\text{N/C}$ points in the $+x$ direction. Find $V_A - V_B$, where $A$ is at $x = 0.10\\ \\text{m}$ and $B$ is at $x = 0.55\\ \\text{m}$ on the same field line, in V.",
-    "answer": 810.0,
+    "answer": 810,
     "unit": "V",
     "solution": "Using $V_A - V_B = \\int_A^B \\vec E\\cdot d\\vec l = E\\Delta x$ for a uniform field along the path. So $V_A - V_B = 1800(0.45) = 810\\ \\text{V}$."
   },
@@ -5027,7 +5027,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "In a region of a semiconductor the potential is $V(x) = 60x^2 - 15x$ volts with $x$ in meters. Find the $x$-component of the electric field at $x = 0.25\\ \\text{m}$, in V/m.",
-    "answer": -15.0,
+    "answer": -15,
     "unit": "V/m",
     "solution": "Take $E_x = -dV/dx = -(120x - 15)$. At $x=0.25$, $E_x = -(30 - 15) = -15.0\\ \\text{V/m}$."
   },
@@ -5115,7 +5115,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A Van de Graaff dome is a sphere of radius $15\\ \\text{cm}$. Air sparks over when the surface field reaches $3.0\\times10^{6}\\ \\text{V/m}$. Find the highest potential the dome can hold, in V.",
-    "answer": 450000.0,
+    "answer": 450000,
     "unit": "V",
     "solution": "At the surface $E = kQ/R^2$ and $V = kQ/R$, so $V = ER$. The limit is $V = (3.0\\times10^6)(0.15) = 4.500\\times10^{5}\\ \\text{V}$."
   },
@@ -5133,7 +5133,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A metal sphere of radius $4.0\\ \\text{cm}$ and one of radius $10\\ \\text{cm}$ are far apart and connected by a long thin wire. A total charge of $9.0\\ \\text{nC}$ is placed on the pair. Find the charge that ends up on the smaller sphere, in C.",
-    "answer": 2.571e-09,
+    "answer": 2.571e-9,
     "unit": "C",
     "solution": "The wire forces equal potentials, and $V = kq/R$, so $q \\propto R$. The small sphere gets $Q R_1/(R_1+R_2) = 9.0\\ \\text{nC}\\times(4/14) = 2.571\\times10^{-9}\\ \\text{C}$."
   },
@@ -5222,7 +5222,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A ring of radius $12\\ \\text{cm}$ carries $+40\\ \\text{nC}$. An electron is released from rest very far away on the ring's axis. Find its speed as it passes through the center of the ring, in m/s. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$, $e = 1.6\\times10^{-19}\\ \\text{C}$, $m_e = 9.11\\times10^{-31}\\ \\text{kg}$.",
-    "answer": 32440000.0,
+    "answer": 32440000,
     "unit": "m/s",
     "solution": "The center potential is $V = kQ/R = 2996\\ \\text{V}$, and the electron loses potential energy $eV$ falling into it. Then $v = \\sqrt{2eV/m_e} = \\sqrt{2(1.6\\times10^{-19})(2996)/(9.11\\times10^{-31})} = 3.244\\times10^{7}\\ \\text{m/s}$."
   },
@@ -5240,7 +5240,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A uniformly charged insulating ball of radius $20\\ \\text{cm}$ carries $50\\ \\text{nC}$. Find $V_{\\text{center}} - V_{\\text{surface}}$, in V. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 1124.0,
+    "answer": 1124,
     "unit": "V",
     "solution": "Integrating the interior field $E = kQr/R^3$ from $0$ to $R$ gives a drop of $kQ/(2R)$. So $V_{\\text{center}} - V_{\\text{surface}} = (8.99\\times10^9)(50\\times10^{-9})/(2\\times0.20) = 1124\\ \\text{V}$."
   },
@@ -5276,7 +5276,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Eight identical $1.0\\ \\text{nC}$ charges are fixed at the corners of a cube of edge $10\\ \\text{cm}$. Find the total electrostatic potential energy of the configuration, in J. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$.",
-    "answer": 2.049e-06,
+    "answer": 0.000002049,
     "unit": "J",
     "solution": "The 28 pairs split into 12 edges at $s$, 12 face diagonals at $s\\sqrt2$, and 4 body diagonals at $s\\sqrt3$. So $U = \\frac{kq^2}{s}\\left(12 + \\frac{12}{\\sqrt2} + \\frac{4}{\\sqrt3}\\right) = 2.049\\times10^{-6}\\ \\text{J}$."
   },
@@ -5294,7 +5294,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A singly charged ion of mass $2.0\\times10^{-26}\\ \\text{kg}$ enters an accelerating gap with speed $1.0\\times10^{4}\\ \\text{m/s}$ and falls through a potential difference of $500\\ \\text{V}$ in the direction that speeds it up. Find its exit speed, in m/s. Use $e = 1.6\\times10^{-19}\\ \\text{C}$.",
-    "answer": 90000.0,
+    "answer": 90000,
     "unit": "m/s",
     "solution": "Energy conservation gives $\\tfrac12 mv_f^2 = \\tfrac12 mv_0^2 + q\\Delta V$, so $v_f = \\sqrt{v_0^2 + 2q\\Delta V/m}$. Then $v_f = \\sqrt{(10^4)^2 + 2(1.6\\times10^{-19})(500)/(2.0\\times10^{-26})} = 9.000\\times10^{4}\\ \\text{m/s}$."
   },
@@ -5312,7 +5312,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A ring of radius $8.0\\ \\text{cm}$ carries $+25\\ \\text{nC}$. An electron placed on the axis is displaced a tiny distance from the center and released. Find the frequency of the resulting small oscillation, in Hz. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$, $e = 1.6\\times10^{-19}\\ \\text{C}$, $m_e = 9.11\\times10^{-31}\\ \\text{kg}$.",
-    "answer": 44190000.0,
+    "answer": 44190000,
     "unit": "Hz",
     "solution": "Expanding $U = -keQ/\\sqrt{R^2+z^2}$ near $z=0$ gives $U \\approx \\text{const} + \\tfrac12(keQ/R^3)z^2$, a harmonic well with $\\omega = \\sqrt{keQ/(m_eR^3)}$. Numerically $\\omega = 2.777\\times10^{8}\\ \\text{s}^{-1}$, so $f = 4.419\\times10^{7}\\ \\text{Hz}$."
   },
@@ -5330,7 +5330,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two $+5.0\\ \\text{nC}$ charges are fixed $20\\ \\text{cm}$ apart. A proton is fired from very far away, along the perpendicular bisector of the line joining them, aimed at the midpoint. Find the minimum launch speed needed for it to reach the midpoint, in m/s. Use $k = 8.99\\times10^{9}\\ \\text{N}\\cdot\\text{m}^2/\\text{C}^2$, $e = 1.6\\times10^{-19}\\ \\text{C}$, proton mass $1.67\\times10^{-27}\\ \\text{kg}$.",
-    "answer": 415000.0,
+    "answer": 415000,
     "unit": "m/s",
     "solution": "Along the bisector the potential rises monotonically toward the midpoint, so the midpoint is the barrier top: $V = 2kQ/(d/2) = 899.0\\ \\text{V}$. Setting $\\tfrac12 m v^2 = eV$ gives $v = \\sqrt{2(1.6\\times10^{-19})(899.0)/(1.67\\times10^{-27})} = 4.150\\times10^{5}\\ \\text{m/s}$."
   },
@@ -5348,7 +5348,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A pressure sensor uses two parallel metal plates of area $0.020\\,\\mathrm{m^2}$ separated by an air gap of $0.50\\,\\mathrm{mm}$. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\,\\mathrm{F/m}$. What is the capacitance, in pF?",
-    "answer": 354.0,
+    "answer": 354,
     "unit": "pF",
     "solution": "Use $C=\\varepsilon_0 A/d$. Then $C=(8.85\\times10^{-12})(0.020)/(5.0\\times10^{-4})=3.54\\times10^{-10}\\,\\mathrm{F}$, or $354\\,\\mathrm{pF}$."
   },
@@ -5438,7 +5438,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $+5.0\\,\\mathrm{nC}$ point charge sits inside a hollow cavity in a large neutral copper block. What is the total induced charge on the cavity wall, in nC?",
-    "answer": -5.0,
+    "answer": -5,
     "unit": "nC",
     "solution": "A Gaussian surface drawn entirely inside the metal encloses zero field, so it must enclose zero net charge. The cavity wall therefore carries $-5.0\\,\\mathrm{nC}$, exactly cancelling the enclosed point charge."
   },
@@ -5456,7 +5456,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $+8.0\\,\\mathrm{nC}$ point charge is placed at the center of a hollow conducting shell that itself carries a net charge of $-3.0\\,\\mathrm{nC}$. What is the charge on the outer surface of the shell, in nC?",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "nC",
     "solution": "The inner surface must carry $-8.0\\,\\mathrm{nC}$ to screen the point charge. Charge conservation on the shell then requires the outer surface to hold $-3.0-(-8.0)=+5.0\\,\\mathrm{nC}$."
   },
@@ -5510,7 +5510,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A conducting sphere of radius $5.0\\,\\mathrm{cm}$ carries $6.0\\,\\mathrm{nC}$. It is briefly connected by a thin wire to a distant uncharged conducting sphere of radius $10.0\\,\\mathrm{cm}$, then disconnected. What charge ends up on the larger sphere, in nC?",
-    "answer": 4.0,
+    "answer": 4,
     "unit": "nC",
     "solution": "Connected conductors reach a common potential, and for well-separated spheres $V=kQ/R$, so $Q\\propto R$. The larger sphere takes $10/(5+10)$ of the $6.0\\,\\mathrm{nC}$, i.e. $4.0\\,\\mathrm{nC}$."
   },
@@ -5564,7 +5564,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Capacitors of $2.0\\,\\mu\\mathrm{F}$, $3.0\\,\\mu\\mathrm{F}$ and $6.0\\,\\mu\\mathrm{F}$ are connected in series across a $12.0\\,\\mathrm{V}$ battery. What is the voltage across the $2.0\\,\\mu\\mathrm{F}$ capacitor, in V?",
-    "answer": 6.0,
+    "answer": 6,
     "unit": "V",
     "solution": "Series capacitors carry the same charge $Q=C_{\\rm eq}V$, with $1/C_{\\rm eq}=1/2+1/3+1/6=1$, so $C_{\\rm eq}=1.0\\,\\mu\\mathrm{F}$ and $Q=12\\,\\mu\\mathrm{C}$. Then $V_2=Q/C_2=12/2=6.0\\,\\mathrm{V}$."
   },
@@ -5600,7 +5600,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "The isolated capacitor of the previous setup (plate area $0.015\\,\\mathrm{m^2}$, charges $\\pm40\\,\\mathrm{nC}$) has its plates pulled apart by an extra $1.00\\,\\mathrm{mm}$ while the charge stays fixed. How much work must be done, in J?",
-    "answer": 6.026e-06,
+    "answer": 0.000006026,
     "unit": "J",
     "solution": "At fixed charge the field between the plates is unchanged, so the attractive force $F=Q^2/(2\\varepsilon_0A)$ is constant and the work is simply $F\\Delta d$. That gives $W=(6.026\\times10^{-3})(1.00\\times10^{-3})=6.026\\times10^{-6}\\,\\mathrm{J}$."
   },
@@ -5618,7 +5618,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $3.0\\,\\mathrm{nC}$ point charge is held $2.0\\,\\mathrm{cm}$ above a large grounded metal plate. Use $k=8.99\\times10^{9}\\,\\mathrm{N\\cdot m^2/C^2}$. What is the magnitude of the force on the charge, in N?",
-    "answer": 5.057e-05,
+    "answer": 0.00005057,
     "unit": "N",
     "solution": "The grounded plane is equivalent to an image charge $-q$ at the mirror position, a distance $2d$ from the real charge. So $F=kq^2/(2d)^2=(8.99\\times10^{9})(3.0\\times10^{-9})^2/(0.040)^2=5.057\\times10^{-5}\\,\\mathrm{N}$."
   },
@@ -5673,7 +5673,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two conducting spheres of radii $2.0\\,\\mathrm{cm}$ and $8.0\\,\\mathrm{cm}$ sit far apart and are joined by a long thin wire. What is the ratio of the surface electric field of the small sphere to that of the large sphere (dimensionless)?",
-    "answer": 4.0,
+    "answer": 4,
     "unit": "",
     "solution": "Common potential means $kQ/R$ is equal, so $Q\\propto R$. The surface field is $E=kQ/R^2\\propto 1/R$, so $E_{\\rm small}/E_{\\rm large}=R_{\\rm large}/R_{\\rm small}=8.0/2.0=4.0$."
   },
@@ -5745,7 +5745,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $3.0\\,\\mathrm{nC}$ charge is $2.0\\,\\mathrm{cm}$ above a large grounded plate. How much work must an external agent do to move it infinitely far away, in J?",
-    "answer": 1.011e-06,
+    "answer": 0.000001011,
     "unit": "J",
     "solution": "The image force at height $z$ is $F=kq^2/(4z^2)$, so $W=\\int_d^\\infty kq^2/(4z^2)\\,dz=kq^2/(4d)$. Note this is half the naive $kq^2/(2d)$ interaction energy, because the image moves as the charge moves. Numerically $W=(8.99\\times10^{9})(9.0\\times10^{-18})/(0.080)=1.011\\times10^{-6}\\,\\mathrm{J}$."
   },
@@ -5763,7 +5763,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $5.0\\,\\mathrm{nC}$ point charge is held $8.0\\,\\mathrm{cm}$ from the center of a grounded conducting sphere of radius $3.0\\,\\mathrm{cm}$. What is the magnitude of the attractive force on the charge, in N?",
-    "answer": 1.783e-05,
+    "answer": 0.00001783,
     "unit": "N",
     "solution": "The grounded sphere is replaced by an image $q'=-qR/d$ at distance $R^2/d$ from the center. The separation is $d-R^2/d$, giving $F=\\dfrac{kq^2Rd}{(d^2-R^2)^2}$. With $d=0.080$, $R=0.030$: $F=(8.99\\times10^{9})(2.5\\times10^{-17})(0.030)(0.080)/(0.0055)^2=1.783\\times10^{-5}\\,\\mathrm{N}$."
   },
@@ -5817,7 +5817,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two distant conducting spheres of radii $2.0\\,\\mathrm{cm}$ and $8.0\\,\\mathrm{cm}$ are joined by a long thin wire, and a total charge of $12.0\\,\\mathrm{nC}$ is placed on the system. What is the electric field at the surface of the small sphere, in V/m?",
-    "answer": 53940.0,
+    "answer": 53940,
     "unit": "V/m",
     "solution": "Equal potentials give $Q\\propto R$, so the small sphere holds $Q_1=12.0(2/10)=2.40\\,\\mathrm{nC}$. Then $E=kQ_1/R_1^2=(8.99\\times10^{9})(2.40\\times10^{-9})/(0.020)^2=5.394\\times10^{4}\\,\\mathrm{V/m}$."
   },
@@ -5871,7 +5871,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $4.0\\,\\mathrm{nC}$ point charge is held $6.0\\,\\mathrm{cm}$ from the center of a hollow grounded conducting sphere whose inner radius is $10.0\\,\\mathrm{cm}$. What is the magnitude of the force pulling the charge toward the nearest wall, in N?",
-    "answer": 2.107e-05,
+    "answer": 0.00002107,
     "unit": "N",
     "solution": "The same image construction works from the inside: an image $q'=-qR/d$ sits outside at $R^2/d$. The separation is $R^2/d-d$, so $F=\\dfrac{kq^2Rd}{(R^2-d^2)^2}$. With $R=0.100$, $d=0.060$: $F=(8.99\\times10^{9})(1.6\\times10^{-17})(0.100)(0.060)/(0.0064)^2=2.107\\times10^{-5}\\,\\mathrm{N}$."
   },
@@ -5906,7 +5906,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An empty test cell measures $22.0\\,\\mathrm{pF}$. Filled with a transformer oil it measures $88.0\\,\\mathrm{pF}$. What is the dielectric constant of the oil (dimensionless)?",
-    "answer": 4.0,
+    "answer": 4,
     "unit": "",
     "solution": "Filling the gap multiplies the capacitance by $\\kappa$, so $\\kappa=C/C_0$. Here $\\kappa=88.0/22.0=4.00$."
   },
@@ -5924,7 +5924,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A charged parallel-plate capacitor with fixed charge on its plates has a vacuum field of $2.0\\times10^{6}\\,\\mathrm{V/m}$. A slab with $\\kappa=2.5$ is slid in to fill the gap. What is the field inside the slab, in V/m?",
-    "answer": 800000.0,
+    "answer": 800000,
     "unit": "V/m",
     "solution": "At fixed free charge the bound surface charge partially cancels the free charge, reducing the field by $\\kappa$: $E=E_0/\\kappa$. So $E=2.0\\times10^{6}/2.5=8.0\\times10^{5}\\,\\mathrm{V/m}$."
   },
@@ -5959,7 +5959,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A polypropylene film $0.15\\,\\mathrm{mm}$ thick has a dielectric strength of $16\\,\\mathrm{MV/m}$. What is the largest voltage the film can hold off, in V?",
-    "answer": 2400.0,
+    "answer": 2400,
     "unit": "V",
     "solution": "Breakdown occurs when the uniform field $E=V/d$ reaches the dielectric strength, so $V_{\\max}=E_{\\max}d$. Thus $V_{\\max}=(1.6\\times10^{7})(1.5\\times10^{-4})=2400\\,\\mathrm{V}$."
   },
@@ -6120,7 +6120,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A capacitor with $C_0=100\\,\\mathrm{pF}$ empty is filled with a slab of $\\kappa=3.0$ and charged to $50.0\\,\\mathrm{V}$, then disconnected. How much work must be done to pull the slab all the way out, in nJ?",
-    "answer": 750.0,
+    "answer": 750,
     "unit": "nJ",
     "solution": "Disconnected means $Q$ is fixed at $Q=\\kappa C_0V=1.50\\times10^{-8}\\,\\mathrm{C}$, and $U=Q^2/(2C)$ rises as $C$ drops from $\\kappa C_0$ to $C_0$. So $W=\\dfrac{Q^2}{2C_0}\\left(1-\\dfrac1\\kappa\\right)=\\dfrac{(1.5\\times10^{-8})^2}{2(10^{-10})}(0.6667)=750.0\\,\\mathrm{nJ}$."
   },
@@ -6138,7 +6138,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An empty capacitor $C_0=100\\,\\mathrm{pF}$ stays connected to a $50.0\\,\\mathrm{V}$ battery while a slab with $\\kappa=3.0$ is slid in to fill it completely. How much work does the battery do, in nJ?",
-    "answer": 500.0,
+    "answer": 500,
     "unit": "nJ",
     "solution": "The extra charge delivered is $\\Delta Q=(\\kappa-1)C_0V$, and the battery does $W_{\\rm batt}=V\\Delta Q=(\\kappa-1)C_0V^2$. So $W_{\\rm batt}=(2)(10^{-10})(2500)=5.00\\times10^{-7}\\,\\mathrm{J}=500.0\\,\\mathrm{nJ}$; half of it becomes stored field energy and half is delivered to whatever pulls the slab in."
   },
@@ -6155,7 +6155,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A slab with $\\kappa=5.0$ fills a capacitor of plate area $0.020\\,\\mathrm{m^2}$ whose free surface charge density is $4.0\\,\\mu\\mathrm{C/m^2}$. What is the magnitude of the total bound charge on one face of the slab, in nC?",
-    "answer": 64.0,
+    "answer": 64,
     "unit": "nC",
     "solution": "The bound density is $\\sigma_b=\\sigma_f(1-1/\\kappa)=3.20\\,\\mu\\mathrm{C/m^2}$, and the total is $\\sigma_bA$. So $Q_b=(3.20\\times10^{-6})(0.020)=6.40\\times10^{-8}\\,\\mathrm{C}=64.00\\,\\mathrm{nC}$."
   },
@@ -6191,7 +6191,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $47\\,\\mathrm{pF}$ air capacitor is held at $9.0\\,\\mathrm{V}$ by a battery while a slab of $\\kappa=5.5$ is inserted to fill it. How much additional charge flows onto the plates, in pC?",
-    "answer": 1904.0,
+    "answer": 1904,
     "unit": "pC",
     "solution": "At fixed $V$ the charge is $Q=CV$, so $\\Delta Q=(\\kappa-1)C_0V$. Thus $\\Delta Q=(4.5)(47\\times10^{-12})(9.0)=1.904\\times10^{-9}\\,\\mathrm{C}=1904\\,\\mathrm{pC}$."
   },
@@ -6227,7 +6227,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $1.00\\,\\mathrm{mm}$ gap held at $200\\,\\mathrm{V}$ contains a $0.60\\,\\mathrm{mm}$ slab of $\\kappa=4.0$ lying flat against one plate, with air filling the rest. What is the field in the air region, in V/m?",
-    "answer": 363600.0,
+    "answer": 363600,
     "unit": "V/m",
     "solution": "$D$ is the same in both regions, so $E_{\\rm slab}=E_{\\rm air}/\\kappa$, and $V=E_{\\rm air}(d-t)+ (E_{\\rm air}/\\kappa)t$. Solving, $E_{\\rm air}=V/(d-t+t/\\kappa)=200/(5.5\\times10^{-4})=3.636\\times10^{5}\\,\\mathrm{V/m}$."
   },
@@ -6317,7 +6317,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A cable insulation stack has $0.20\\,\\mathrm{mm}$ of material A ($\\kappa=3.0$, strength $20\\,\\mathrm{MV/m}$) on top of $0.30\\,\\mathrm{mm}$ of material B ($\\kappa=6.0$, strength $10\\,\\mathrm{MV/m}$). What is the maximum voltage across the stack before either layer breaks down, in V?",
-    "answer": 7000.0,
+    "answer": 7000,
     "unit": "V",
     "solution": "$D=\\kappa\\varepsilon_0E$ is common to both layers, so the allowed $D$ is $\\min(\\kappa_1\\varepsilon_0E_1,\\kappa_2\\varepsilon_0E_2)$: A allows $D=5.31\\times10^{-4}$ and B allows $D=5.31\\times10^{-4}\\,\\mathrm{C/m^2}$: they fail simultaneously. Then $V=E_1t_1+E_2t_2=(2.0\\times10^{7})(2.0\\times10^{-4})+(1.0\\times10^{7})(3.0\\times10^{-4})=7000\\,\\mathrm{V}$."
   },
@@ -6371,7 +6371,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An empty capacitor of $250\\,\\mathrm{pF}$ is held at $120\\,\\mathrm{V}$ by a battery. A frictionless slab with $\\kappa=2.8$ is released at the edge and slides in until it fills the gap. What is its kinetic energy at that moment, in nJ?",
-    "answer": 3240.0,
+    "answer": 3240,
     "unit": "nJ",
     "solution": "The battery supplies $W_{\\rm batt}=V\\Delta Q=(\\kappa-1)C_0V^2$ while the stored energy rises by $\\Delta U=\\tfrac12(\\kappa-1)C_0V^2$. The difference goes to the slab: $KE=\\tfrac12(\\kappa-1)C_0V^2=\\tfrac12(1.8)(2.5\\times10^{-10})(14400)=3.240\\times10^{-6}\\,\\mathrm{J}=3240\\,\\mathrm{nJ}$."
   },
@@ -6425,7 +6425,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A toaster element carries a steady current of $8.5\\ \\mathrm{A}$ while the toaster runs for $90\\ \\mathrm{s}$. How much charge passes through the element, in $\\mathrm{C}$?",
-    "answer": 765.0,
+    "answer": 765,
     "unit": "C",
     "solution": "Steady current means $Q=It$. So $Q=(8.5\\ \\mathrm{A})(90\\ \\mathrm{s})=765\\ \\mathrm{C}$."
   },
@@ -6478,7 +6478,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A car headlight bulb has a hot resistance of $2.4\\ \\Omega$ and is connected across a $12.0\\ \\mathrm{V}$ source. What current does it draw, in $\\mathrm{A}$?",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "A",
     "solution": "Ohm's law gives $I=V/R=12.0/2.4=5.0\\ \\mathrm{A}$."
   },
@@ -6512,7 +6512,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $60\\ \\Omega$ heating coil and a $30\\ \\Omega$ heating coil are connected in parallel between the same two terminals. What is the resistance of the combination, in $\\Omega$?",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "ohm",
     "solution": "For parallel resistors $1/R=1/60+1/30=1/20$, so $R=20\\ \\Omega$. The combination is always smaller than the smaller resistor."
   },
@@ -6529,7 +6529,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A hair dryer draws $12.5\\ \\mathrm{A}$ from a $120\\ \\mathrm{V}$ outlet. What electrical power does it consume, in $\\mathrm{W}$?",
-    "answer": 1500.0,
+    "answer": 1500,
     "unit": "W",
     "solution": "Power delivered to a device is $P=IV=(12.5)(120)=1500\\ \\mathrm{W}$."
   },
@@ -6546,7 +6546,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A welding cable of resistance $8.0\\ \\Omega$ carries $3.0\\ \\mathrm{A}$. At what rate is energy dissipated as heat in the cable, in $\\mathrm{W}$?",
-    "answer": 72.0,
+    "answer": 72,
     "unit": "W",
     "solution": "Use $P=I^{2}R$ because the current is what is given: $P=(3.0)^{2}(8.0)=72\\ \\mathrm{W}$."
   },
@@ -6564,7 +6564,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A toaster is rated $1200\\ \\mathrm{W}$ when connected to $120\\ \\mathrm{V}$. What is the resistance of its heating element at operating temperature, in $\\Omega$?",
-    "answer": 12.0,
+    "answer": 12,
     "unit": "ohm",
     "solution": "With voltage and power known, $P=V^{2}/R$, so $R=V^{2}/P=(120)^{2}/1200=12\\ \\Omega$."
   },
@@ -6633,7 +6633,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A wire of resistance $2.0\\ \\Omega$ is drawn through a die until its length is three times the original. The volume of metal and the resistivity are unchanged. What is the new resistance, in $\\Omega$?",
-    "answer": 18.0,
+    "answer": 18,
     "unit": "ohm",
     "solution": "Constant volume means $A$ falls by the same factor the length grows, so $R=\\rho L/A\\propto L^{2}$. Tripling the length multiplies the resistance by $9$: $R=9(2.0)=18\\ \\Omega$."
   },
@@ -6651,7 +6651,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Starting at one battery terminal, a $4.0\\ \\Omega$ resistor leads to node A. From A, a $6.0\\ \\Omega$ resistor and a $12.0\\ \\Omega$ resistor run in parallel to node B. From B a $2.0\\ \\Omega$ resistor returns to the other terminal. What is the resistance between the battery terminals, in $\\Omega$?",
-    "answer": 10.0,
+    "answer": 10,
     "unit": "ohm",
     "solution": "The parallel pair gives $(6)(12)/(6+12)=4.0\\ \\Omega$. That is in series with the other two, so $R=4.0+4.0+2.0=10.0\\ \\Omega$."
   },
@@ -6686,7 +6686,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two $10.0\\ \\mathrm{k}\\Omega$ resistors are in series across an ideal $24.0\\ \\mathrm{V}$ supply. A voltmeter of internal resistance $10.0\\ \\mathrm{k}\\Omega$ is connected across the lower resistor. What voltage does the meter read, in $\\mathrm{V}$?",
-    "answer": 8.0,
+    "answer": 8,
     "unit": "V",
     "solution": "The meter is in parallel with the lower resistor, giving $5.0\\ \\mathrm{k}\\Omega$. The divider now reads $V=24.0\\times5.0/(10.0+5.0)=8.00\\ \\mathrm{V}$, not the $12.0\\ \\mathrm{V}$ present before the meter was attached."
   },
@@ -6757,7 +6757,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $12.0\\ \\mathrm{V}$ ideal car battery feeds two devices in parallel: a fan of resistance $8.00\\ \\Omega$ and a radio of resistance $24.0\\ \\Omega$. What total power does the battery deliver, in $\\mathrm{W}$?",
-    "answer": 24.0,
+    "answer": 24,
     "unit": "W",
     "solution": "Each branch sees the full $12.0\\ \\mathrm{V}$, so $P=V^{2}/R$ for each: $144/8.00=18.0\\ \\mathrm{W}$ and $144/24.0=6.00\\ \\mathrm{W}$. The total is $24.0\\ \\mathrm{W}$."
   },
@@ -6792,7 +6792,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A household branch circuit uses copper wire of diameter $2.59\\ \\mathrm{mm}$ and carries $15.0\\ \\mathrm{A}$. What is the magnitude of the current density in the wire, in $\\mathrm{A/m^2}$?",
-    "answer": 2847000.0,
+    "answer": 2847000,
     "unit": "A/m^2",
     "solution": "Current density is $J=I/A$ with $A=\\pi d^{2}/4=\\pi(2.59\\times10^{-3})^{2}/4=5.269\\times10^{-6}\\ \\mathrm{m^2}$. Then $J=15.0/5.269\\times10^{-6}=2.85\\times10^{6}\\ \\mathrm{A/m^2}$."
   },
@@ -6827,7 +6827,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A copper contact pin is a truncated cone of length $20.0\\ \\mathrm{mm}$ whose circular cross section has radius $1.00\\ \\mathrm{mm}$ at one end and $3.00\\ \\mathrm{mm}$ at the other, with the radius varying linearly. Current flows along the axis and the current density may be taken as uniform over each cross section. With $\\rho=1.68\\times10^{-8}\\ \\Omega\\cdot\\mathrm{m}$, what is the end-to-end resistance, in $\\Omega$?",
-    "answer": 3.565e-05,
+    "answer": 0.00003565,
     "unit": "ohm",
     "solution": "Add thin slices in series: $R=\\int_0^{L}\\rho\\,dx/[\\pi r(x)^{2}]$ with $r$ linear in $x$. The integral evaluates to $R=\\rho L/(\\pi ab)$, the geometric-mean-area result. Numerically $R=(1.68\\times10^{-8})(0.0200)/[\\pi(1.00\\times10^{-3})(3.00\\times10^{-3})]=3.565\\times10^{-5}\\ \\Omega$."
   },
@@ -6844,7 +6844,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $100\\ \\mathrm{W}$, $120\\ \\mathrm{V}$ incandescent bulb has a cold filament resistance of $4.50\\ \\Omega$ measured at $20.0^{\\circ}\\mathrm{C}$. Tungsten has $\\alpha=4.5\\times10^{-3}\\ \\mathrm{K^{-1}}$ referred to $20.0^{\\circ}\\mathrm{C}$, and the linear model is assumed valid. Estimate the operating temperature of the filament, in $^{\\circ}\\mathrm{C}$.",
-    "answer": 6909.0,
+    "answer": 6909,
     "unit": "C",
     "solution": "The hot resistance follows from the rating: $R_{hot}=V^{2}/P=120^{2}/100=144\\ \\Omega$. Then $R_{hot}/R_{cold}=1+\\alpha\\Delta T$ gives $\\Delta T=(144/4.50-1)/(4.5\\times10^{-3})=6.889\\times10^{3}\\ \\mathrm{K}$, so $T\\approx6.91\\times10^{3}\\,^{\\circ}\\mathrm{C}$. The linear model badly overestimates; real filaments run near $2800\\,^{\\circ}\\mathrm{C}$."
   },
@@ -6861,7 +6861,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A generator of emf $24.0\\ \\mathrm{V}$ and internal resistance $0.500\\ \\Omega$ feeds a load through a cable whose total resistance is $1.50\\ \\Omega$. The load resistance can be chosen freely. What is the greatest power that can be delivered to the load, in $\\mathrm{W}$?",
-    "answer": 72.0,
+    "answer": 72,
     "unit": "W",
     "solution": "Everything in series with the load acts as one source resistance $r_{\\rm eff}=0.500+1.50=2.00\\ \\Omega$, and the load power peaks when $R=r_{\\rm eff}$. Then $P_{\\max}=\\mathcal{E}^{2}/(4r_{\\rm eff})=576/8.00=72.0\\ \\mathrm{W}$."
   },
@@ -6879,7 +6879,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $30.0\\ \\mathrm{V}$ ideal supply drives a $20.0\\ \\mathrm{k}\\Omega$ resistor in series with an unknown resistor $R$. A voltmeter of internal resistance $50.0\\ \\mathrm{k}\\Omega$ placed across $R$ reads $10.0\\ \\mathrm{V}$. What is $R$, in $\\Omega$?",
-    "answer": 12500.0,
+    "answer": 12500,
     "unit": "ohm",
     "solution": "With the meter attached, the current through the $20.0\\ \\mathrm{k}\\Omega$ resistor splits between $R$ and the meter. Junction rule: $(30.0-10.0)/20.0\\mathrm{k}=10.0/R+10.0/50.0\\mathrm{k}$, so $10.0/R=1.00\\times10^{-3}-0.200\\times10^{-3}$ and $R=1.25\\times10^{4}\\ \\Omega$. Ignoring the meter would have given $10.0\\ \\mathrm{k}\\Omega$."
   },
@@ -6915,7 +6915,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Twelve identical $6.00\\ \\Omega$ resistors are soldered along the twelve edges of a cube. What is the resistance between two diagonally opposite corners of the cube, in $\\Omega$?",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "ohm",
     "solution": "By symmetry the three edges leaving the input corner carry equal currents $I/3$, the six middle edges carry $I/6$, and the three edges into the far corner carry $I/3$. Summing potential drops along a path gives $V=IR(1/3+1/6+1/3)=5IR/6$, so $R_{eq}=5(6.00)/6=5.00\\ \\Omega$."
   },
@@ -6933,7 +6933,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A coaxial cable $0.500\\ \\mathrm{m}$ long has an inner conductor of radius $2.00\\ \\mathrm{mm}$ and an outer conductor of inner radius $5.00\\ \\mathrm{mm}$. The insulation between them has resistivity $2.00\\times10^{5}\\ \\Omega\\cdot\\mathrm{m}$. Leakage current flows radially outward from the inner to the outer conductor. What is the leakage resistance between the conductors, in $\\Omega$?",
-    "answer": 58330.0,
+    "answer": 58330,
     "unit": "ohm",
     "solution": "Treat the insulation as nested cylindrical shells in series: a shell of radius $r$ and thickness $dr$ has $dR=\\rho\\,dr/(2\\pi rL)$. Integrating, $R=\\frac{\\rho}{2\\pi L}\\ln(b/a)=\\frac{2.00\\times10^{5}}{2\\pi(0.500)}\\ln(2.50)=5.83\\times10^{4}\\ \\Omega$."
   },
@@ -6985,7 +6985,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An ideal $9.00\\ \\mathrm{V}$ battery drives a single loop containing $10.0\\ \\Omega$, $20.0\\ \\Omega$ and $30.0\\ \\Omega$ in series. What is the potential difference across the $20.0\\ \\Omega$ resistor, in $\\mathrm{V}$?",
-    "answer": 3.0,
+    "answer": 3,
     "unit": "V",
     "solution": "The loop rule gives one current: $I=9.00/60.0=0.150\\ \\mathrm{A}$. Then $V=IR=(0.150)(20.0)=3.00\\ \\mathrm{V}$."
   },
@@ -7019,7 +7019,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A charger forces $5.00\\ \\mathrm{A}$ backwards through a battery of emf $12.0\\ \\mathrm{V}$ and internal resistance $0.400\\ \\Omega$. What is the potential difference across the battery terminals while charging, in $\\mathrm{V}$?",
-    "answer": 14.0,
+    "answer": 14,
     "unit": "V",
     "solution": "When current is pushed into the positive terminal the $Ir$ drop adds instead of subtracting: $V=\\mathcal{E}+Ir=12.0+(5.00)(0.400)=14.0\\ \\mathrm{V}$."
   },
@@ -7053,7 +7053,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A single loop contains a $15.0\\ \\mathrm{V}$ battery, an unknown battery connected so that it opposes the first, and $20.0\\ \\Omega$ of resistance. The measured current is $0.500\\ \\mathrm{A}$. What is the emf of the unknown battery, in $\\mathrm{V}$?",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "V",
     "solution": "Loop rule: $15.0-\\mathcal{E}-I(20.0)=0$ with $I=0.500\\ \\mathrm{A}$. The resistive drop is $10.0\\ \\mathrm{V}$, so $\\mathcal{E}=5.00\\ \\mathrm{V}$."
   },
@@ -7106,7 +7106,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An ideal $12.0\\ \\mathrm{V}$ source is connected across a $4.00\\ \\Omega$ resistor and a $12.0\\ \\Omega$ resistor that are in parallel with each other. What total current does the source deliver, in $\\mathrm{A}$?",
-    "answer": 4.0,
+    "answer": 4,
     "unit": "A",
     "solution": "Both branches see $12.0\\ \\mathrm{V}$: $3.00\\ \\mathrm{A}$ and $1.00\\ \\mathrm{A}$. The junction rule at the source terminal gives $4.00\\ \\mathrm{A}$ total."
   },
@@ -7212,7 +7212,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $12.0\\ \\mathrm{V}$ ideal supply is connected across two parallel divider strings. String 1 is $10.0\\ \\Omega$ from the positive rail to node A, then $30.0\\ \\Omega$ from A to the negative rail. String 2 is $20.0\\ \\Omega$ from the positive rail to node B, then $20.0\\ \\Omega$ from B to the negative rail. An ideal voltmeter (infinite resistance) is connected between A and B. What is the magnitude of its reading, in $\\mathrm{V}$?",
-    "answer": 3.0,
+    "answer": 3,
     "unit": "V",
     "solution": "An ideal meter draws no current, so each string is an ordinary divider: $V_A=12.0(30.0/40.0)=9.00\\ \\mathrm{V}$ and $V_B=12.0(20.0/40.0)=6.00\\ \\mathrm{V}$ above the negative rail. The reading is $|V_A-V_B|=3.00\\ \\mathrm{V}$; the bridge is not balanced."
   },
@@ -7302,7 +7302,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An ideal $9.00\\ \\mathrm{V}$ battery drives $2.00\\ \\mathrm{k}\\Omega$ in series with $4.00\\ \\mathrm{k}\\Omega$. A branch containing a $1.00\\ \\mathrm{k}\\Omega$ resistor in series with a capacitor is connected across the $4.00\\ \\mathrm{k}\\Omega$ resistor. Long after the switch closes, what is the potential difference across the capacitor, in $\\mathrm{V}$?",
-    "answer": 6.0,
+    "answer": 6,
     "unit": "V",
     "solution": "In the steady state no current flows in the capacitor branch, so the $1.00\\ \\mathrm{k}\\Omega$ resistor has no drop and the capacitor sees the full voltage across the $4.00\\ \\mathrm{k}\\Omega$ resistor. The divider gives $V=9.00(4.00/6.00)=6.00\\ \\mathrm{V}$."
   },
@@ -7320,7 +7320,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $15.0\\ \\mathrm{V}$ ideal battery has its positive terminal at A and its negative terminal at B. Two independent strings connect A to B: string 1 is $5.00\\ \\Omega$ from A to node P then $10.0\\ \\Omega$ from P to B; string 2 is $20.0\\ \\Omega$ from A to node Q then $10.0\\ \\Omega$ from Q to B. Nothing else connects P and Q. What is $V_P-V_Q$, in $\\mathrm{V}$?",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "V",
     "solution": "Each string is an independent divider referenced to B: $V_P=15.0(10.0/15.0)=10.0\\ \\mathrm{V}$ and $V_Q=15.0(10.0/30.0)=5.00\\ \\mathrm{V}$. Hence $V_P-V_Q=5.00\\ \\mathrm{V}$."
   },
@@ -7692,7 +7692,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $12\\ \\mathrm{V}$ battery feeds node $A$ through a $6.0\\ \\mathrm{k\\Omega}$ resistor; a $3.0\\ \\mathrm{k\\Omega}$ resistor runs from $A$ to ground and a $100\\ \\mu\\mathrm{F}$ capacitor also runs from $A$ to ground. Find the capacitor voltage after a long time, in volts.",
-    "answer": 4.0,
+    "answer": 4,
     "unit": "V",
     "solution": "At steady state the capacitor draws no current, so the two resistors form an ordinary divider. $V_A = 12\\cdot 3/(6+3) = 4.00\\ \\mathrm{V}$."
   },
@@ -7834,7 +7834,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A camera flash uses an $800\\ \\mu\\mathrm{F}$ capacitor charged to $300\\ \\mathrm{V}$, which is dumped through a flash tube of resistance $5.0\\ \\Omega$. Find the peak power delivered to the tube, in watts.",
-    "answer": 18000.0,
+    "answer": 18000,
     "unit": "W",
     "solution": "Power peaks at $t=0$, when the full $300\\ \\mathrm{V}$ still stands across the tube. Then $P = V_0^2/R = 90000/5.0 = 1.80\\times10^{4}\\ \\mathrm{W}$."
   },
@@ -8012,7 +8012,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A Wheatstone bridge runs from node $P$ to node $Q$. Arm $PA = 100\\ \\Omega$, arm $AQ = 200\\ \\Omega$, arm $PB = 300\\ \\Omega$, arm $BQ = 600\\ \\Omega$, and a galvanometer of $50\\ \\Omega$ connects $A$ to $B$. Find the resistance between $P$ and $Q$, in ohms.",
-    "answer": 225.0,
+    "answer": 225,
     "unit": "ohm",
     "solution": "The bridge is balanced because $100/200 = 300/600$, so $A$ and $B$ are at the same potential and the galvanometer carries no current: remove it. The two arms $300\\ \\Omega$ and $900\\ \\Omega$ are then in parallel: $R = (300)(900)/1200 = 225\\ \\Omega$."
   },
@@ -8029,7 +8029,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "In a Wheatstone bridge from $P$ to $Q$, arm $PA = 300\\ \\Omega$, arm $AQ = 450\\ \\Omega$, and arm $PB = 120\\ \\Omega$. Find the value of arm $BQ$ that makes the galvanometer between $A$ and $B$ read zero, in ohms.",
-    "answer": 180.0,
+    "answer": 180,
     "unit": "ohm",
     "solution": "Zero galvanometer current means $R_{PA}/R_{AQ} = R_{PB}/R_{BQ}$. Solving, $R_{BQ} = R_{AQ}R_{PB}/R_{PA} = (450)(120)/300 = 180\\ \\Omega$."
   },
@@ -8047,7 +8047,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Twelve identical $6.0\\ \\Omega$ resistors form the edges of a cube, one resistor on each edge. Find the resistance measured between two opposite corners of the cube, in ohms.",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "ohm",
     "solution": "Symmetry puts the three corners next to the input at one potential and the three next to the output at another, so the path splits into three parallel, then six parallel, then three parallel resistors: $R = R_0(1/3+1/6+1/3) = (5/6)R_0$. With $R_0 = 6.0\\ \\Omega$, $R = 5.0\\ \\Omega$."
   },
@@ -8083,7 +8083,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Twelve identical $12\\ \\Omega$ resistors form the edges of a cube. Find the resistance measured between two corners that lie on the same face but are diagonally opposite on that face, in ohms.",
-    "answer": 9.0,
+    "answer": 9,
     "unit": "ohm",
     "solution": "For a face diagonal the symmetry result is $R = (3/4)R_0$. With $R_0 = 12\\ \\Omega$, $R = 9.0\\ \\Omega$."
   },
@@ -8118,7 +8118,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Three identical $9.0\\ \\Omega$ resistors are connected in a triangle (delta) between terminals $A$, $B$, and $C$. Find the resistance between $A$ and $B$, in ohms.",
-    "answer": 6.0,
+    "answer": 6,
     "unit": "ohm",
     "solution": "One resistor sits directly between $A$ and $B$; the other two are in series ($18\\ \\Omega$) and in parallel with it. So $R = (9)(18)/27 = 6.0\\ \\Omega$."
   },
@@ -8135,7 +8135,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Three identical $30\\ \\Omega$ resistors form a delta between terminals $A$, $B$, and $C$. Find the resistance of each arm of the equivalent Y (star) network, in ohms.",
-    "answer": 10.0,
+    "answer": 10,
     "unit": "ohm",
     "solution": "The delta-Y formula for arm $A$ is $R_A = R_{AB}R_{CA}/(R_{AB}+R_{BC}+R_{CA})$. For a symmetric delta this reduces to $R_Y = R_\\Delta/3 = 10\\ \\Omega$."
   },
@@ -8152,7 +8152,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Four identical $8.0\\ \\Omega$ resistors form a square loop $A\\!-\\!B\\!-\\!C\\!-\\!D\\!-\\!A$. Find the resistance between the opposite corners $A$ and $C$, in ohms.",
-    "answer": 8.0,
+    "answer": 8,
     "unit": "ohm",
     "solution": "Two paths run from $A$ to $C$: through $B$ and through $D$, each $16\\ \\Omega$. In parallel these give $R = 16/2 = 8.0\\ \\Omega$."
   },
@@ -8170,7 +8170,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "From node $P$ to node $Q$ there are two branches: $P\\!-\\!A$ is $100\\ \\Omega$ and $A\\!-\\!Q$ is $200\\ \\Omega$; $P\\!-\\!B$ is $150\\ \\Omega$ and $B\\!-\\!Q$ is $300\\ \\Omega$. A $75\\ \\Omega$ resistor connects $A$ to $B$. Find the resistance between $P$ and $Q$, in ohms.",
-    "answer": 180.0,
+    "answer": 180,
     "unit": "ohm",
     "solution": "The ratios match ($100/200 = 150/300$), so $A$ and $B$ sit at equal potential and the $75\\ \\Omega$ bridging resistor carries no current. The remaining branches are $300\\ \\Omega$ and $450\\ \\Omega$ in parallel: $R = (300)(450)/750 = 180\\ \\Omega$."
   },
@@ -8276,7 +8276,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Twelve identical $12\\ \\Omega$ resistors form the edges of a regular octahedron (six vertices, each joined to four others; only the two opposite vertices are not directly joined). Find the resistance between two opposite vertices, in ohms.",
-    "answer": 6.0,
+    "answer": 6,
     "unit": "ohm",
     "solution": "By symmetry the four equatorial vertices all sit at the same potential, so they can be merged into one node. That leaves four resistors in parallel from the input to that node and four more in parallel to the output: $R = 12/4 + 12/4 = 6.0\\ \\Omega$."
   },
@@ -8329,7 +8329,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Six identical $6.0\\ \\Omega$ resistors are joined end to end into a closed hexagonal ring with vertices $1$ through $6$. Find the resistance between vertices $1$ and $4$, in ohms.",
-    "answer": 9.0,
+    "answer": 9,
     "unit": "ohm",
     "solution": "The ring splits into two arcs from $1$ to $4$, each containing three resistors, so each arc is $18\\ \\Omega$. In parallel, $R = 18/2 = 9.0\\ \\Omega$."
   },
@@ -8347,7 +8347,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Six identical $6.0\\ \\Omega$ resistors form a closed hexagonal ring. Find the resistance between two adjacent vertices, in ohms.",
-    "answer": 5.0,
+    "answer": 5,
     "unit": "ohm",
     "solution": "The two arcs joining adjacent vertices are one resistor ($6\\ \\Omega$) and five resistors ($30\\ \\Omega$). In parallel, $R = (6)(30)/36 = 5.0\\ \\Omega$."
   },
@@ -8382,7 +8382,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Five identical $20\\ \\Omega$ resistors are arranged as a square loop $A\\!-\\!B\\!-\\!C\\!-\\!D\\!-\\!A$ plus one extra resistor connecting $B$ to $D$. Find the resistance between $A$ and $C$, in ohms.",
-    "answer": 20.0,
+    "answer": 20,
     "unit": "ohm",
     "solution": "The network is symmetric under swapping $B$ and $D$, so those two nodes sit at the same potential and the diagonal brace carries no current. The remaining two paths $A\\!-\\!B\\!-\\!C$ and $A\\!-\\!D\\!-\\!C$ are $40\\ \\Omega$ each, giving $R = 20\\ \\Omega$."
   },
@@ -8400,7 +8400,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An infinite square grid of nodes is built so that every nearest-neighbour pair is joined by an identical $8.0\\ \\Omega$ resistor. Find the resistance between two adjacent nodes, in ohms.",
-    "answer": 4.0,
+    "answer": 4,
     "unit": "ohm",
     "solution": "Use superposition: inject $I$ at node $A$ and let it escape to infinity, so each of the four edges at $A$ carries $I/4$; separately extract $I$ at the neighbour $B$, which also puts $I/4$ in the joining edge. Superposing, the $A\\!-\\!B$ edge carries $I/2$, so $V_{AB} = (I/2)R_0$ and $R = R_0/2 = 4.0\\ \\Omega$."
   },
@@ -8418,7 +8418,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Twelve identical $10\\ \\Omega$ resistors form a cube with corners $A$ and $G$ opposite. One edge meeting at corner $A$ is then cut open, leaving eleven resistors. Find the resistance between $A$ and $G$, in ohms.",
-    "answer": 11.0,
+    "answer": 11,
     "unit": "ohm",
     "solution": "The full three-fold symmetry is broken, but the mirror symmetry exchanging the two surviving edges at $A$ survives, which pairs up nodes and reduces the network to a small series-parallel chain. Solving the node equations gives $R_{AG} = (11/10)R_0 = 11.0\\ \\Omega$, up from $(5/6)R_0 = 8.33\\ \\Omega$ for the intact cube."
   },
@@ -8454,7 +8454,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A rectangular mesh has six nodes in two rows of three. Every horizontally adjacent pair and every vertically adjacent pair is joined by an identical $10\\ \\Omega$ resistor (seven resistors in all). Find the resistance between the top-left node and the bottom-right node, in ohms.",
-    "answer": 14.0,
+    "answer": 14,
     "unit": "ohm",
     "solution": "There is no balanced bridge here, so solve the node equations (or exploit the $180^\\circ$ rotational symmetry about the mesh centre, which relates the two measurement nodes). Injecting $1\\ \\mathrm{A}$ across the diagonal gives $14.0\\ \\mathrm{V}$, so $R = 14.0\\ \\Omega$."
   },
@@ -8490,7 +8490,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "An infinite ladder is built from identical $2.0\\ \\mu\\mathrm{F}$ capacitors: a series capacitor along the top rail, a shunt capacitor across the rails, another series capacitor, another shunt, and so on. Find the input capacitance, in farads.",
-    "answer": 1.236e-06,
+    "answer": 0.000001236,
     "unit": "F",
     "solution": "Let $X$ be the input capacitance. Removing one section leaves the same ladder, so $X$ is the series combination of $C$ with the parallel pair $(C + X)$: $X = C(C+X)/(2C+X)$, giving $X^2 + CX - C^2 = 0$. The positive root is $X = C(\\sqrt5-1)/2 = 1.236\\ \\mu\\mathrm{F} = 1.236\\times10^{-6}\\ \\mathrm{F}$."
   },

@@ -35,3 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .lesson-briefs/
+
+# python
+__pycache__/

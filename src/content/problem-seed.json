@@ -64,7 +64,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A train moving at 30 m/s brakes uniformly at 1.2 m/s\u00b2. How far, in meters, does it travel before stopping?",
+    "statement": "A train moving at 30 m/s brakes uniformly at 1.2 m/s². How far, in meters, does it travel before stopping?",
     "answer": 375,
     "unit": "m",
     "solution": "No time is mentioned, so use the time-free relation $v^2 = v_0^2 + 2a\\Delta x$. Setting $v = 0$: $\\Delta x = v_0^2/2a = 900/2.4 = 375$ m."
@@ -99,8 +99,8 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A balloon rises at a steady 5 m/s. At a height of 60 m a sandbag is released. Using $g = 10$ m/s\u00b2, how long, in seconds, until the bag hits the ground?",
-    "answer": 4.0,
+    "statement": "A balloon rises at a steady 5 m/s. At a height of 60 m a sandbag is released. Using $g = 10$ m/s², how long, in seconds, until the bag hits the ground?",
+    "answer": 4,
     "unit": "s",
     "solution": "The bag leaves with the balloon's velocity, $+5$ m/s upward. Taking up as positive with the ground at $y = -60$: $-60 = 5t - 5t^2$. So $t^2 - t - 12 = 0$, giving $t = 4$ s. Forgetting the initial upward velocity gives 3.46 s, which is the classic wrong answer."
   },
@@ -116,7 +116,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is thrown horizontally at 15 m/s from a cliff 45 m high. Using $g = 10$ m/s\u00b2, how far from the base of the cliff does it land, in meters?",
+    "statement": "A ball is thrown horizontally at 15 m/s from a cliff 45 m high. Using $g = 10$ m/s², how far from the base of the cliff does it land, in meters?",
     "answer": 45,
     "unit": "m",
     "solution": "Vertical motion sets the clock: $t = \\sqrt{2h/g} = 3$ s. Horizontal motion is uniform: $x = 15 \\times 3 = 45$ m. The two directions never mix."
@@ -133,10 +133,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A projectile launched at 25\u00b0 covers a certain range on level ground. What other launch angle, in degrees, gives the same range at the same speed?",
+    "statement": "A projectile launched at 25° covers a certain range on level ground. What other launch angle, in degrees, gives the same range at the same speed?",
     "answer": 65,
     "unit": "deg",
-    "solution": "Range goes as $\\sin 2\\theta$, and $\\sin(180\u00b0 - x) = \\sin x$. So $2\\theta_2 = 180\u00b0 - 50\u00b0$, giving $\\theta_2 = 65\u00b0$. Complementary angles always share a range."
+    "solution": "Range goes as $\\sin 2\\theta$, and $\\sin(180° - x) = \\sin x$. So $2\\theta_2 = 180° - 50°$, giving $\\theta_2 = 65°$. Complementary angles always share a range."
   },
   {
     "id": "orig-proj-3",
@@ -150,10 +150,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is launched horizontally at 8 m/s from the top of a 30\u00b0 incline and lands on the slope. Using $g = 10$ m/s\u00b2, how far along the incline, in meters, does it land?",
+    "statement": "A ball is launched horizontally at 8 m/s from the top of a 30° incline and lands on the slope. Using $g = 10$ m/s², how far along the incline, in meters, does it land?",
     "answer": 8.87,
     "unit": "m",
-    "solution": "Let the landing point be a distance $L$ down the slope, so $x = L\\cos30\u00b0$ and $y = L\\sin30\u00b0$. From $x = 8t$ and $y = 5t^2$: $L\\sin30\u00b0 = 5(L\\cos30\u00b0/8)^2$. Solving, $L = 8\\sin30\u00b0\\cdot 64/(5\\cdot 64 \\cos^2 30\u00b0)$ ... more directly $t = 2v\\tan\\theta/g = 0.924$ s, $x = 7.39$ m, $L = x/\\cos30\u00b0 = 8.87$ m."
+    "solution": "Let the landing point be a distance $L$ down the slope, so $x = L\\cos30°$ and $y = L\\sin30°$. From $x = 8t$ and $y = 5t^2$: $L\\sin30° = 5(L\\cos30°/8)^2$. Solving, $L = 8\\sin30°\\cdot 64/(5\\cdot 64 \\cos^2 30°)$ ... more directly $t = 2v\\tan\\theta/g = 0.924$ s, $x = 7.39$ m, $L = x/\\cos30° = 8.87$ m."
   },
   {
     "id": "orig-fbd-1",
@@ -167,10 +167,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A 3 kg block and a 2 kg block hang from a light string over a frictionless pulley. Using $g = 10$ m/s\u00b2, what is the magnitude of their acceleration, in m/s\u00b2?",
+    "statement": "A 3 kg block and a 2 kg block hang from a light string over a frictionless pulley. Using $g = 10$ m/s², what is the magnitude of their acceleration, in m/s²?",
     "answer": 2,
-    "unit": "m/s\u00b2",
-    "solution": "Write $\\sum F = ma$ for each mass with the same tension and the same acceleration magnitude, then add the equations to eliminate $T$: $a = (m_1 - m_2)g/(m_1 + m_2) = 10/5 = 2$ m/s\u00b2."
+    "unit": "m/s²",
+    "solution": "Write $\\sum F = ma$ for each mass with the same tension and the same acceleration magnitude, then add the equations to eliminate $T$: $a = (m_1 - m_2)g/(m_1 + m_2) = 10/5 = 2$ m/s²."
   },
   {
     "id": "orig-fbd-2",
@@ -185,10 +185,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A 2 kg block sits on a frictionless 40\u00b0 incline, held in place by a purely horizontal force. Using $g = 10$ m/s\u00b2, what is the normal force, in newtons?",
+    "statement": "A 2 kg block sits on a frictionless 40° incline, held in place by a purely horizontal force. Using $g = 10$ m/s², what is the normal force, in newtons?",
     "answer": 26.1,
     "unit": "N",
-    "solution": "Resolve along and perpendicular to the incline. Equilibrium along the slope gives $F = mg\\tan\\theta$; perpendicular gives $N = mg/\\cos\\theta = 20/\\cos40\u00b0 = 26.1$ N. The reflex answer $mg\\cos\\theta$ assumes the applied force is along the slope, which it is not."
+    "solution": "Resolve along and perpendicular to the incline. Equilibrium along the slope gives $F = mg\\tan\\theta$; perpendicular gives $N = mg/\\cos\\theta = 20/\\cos40° = 26.1$ N. The reflex answer $mg\\cos\\theta$ assumes the applied force is along the slope, which it is not."
   },
   {
     "id": "orig-fbd-3",
@@ -202,10 +202,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A 1 kg block rests on a 4 kg block on a frictionless floor. The coefficient of static friction between them is 0.30. Using $g = 10$ m/s\u00b2, what is the largest horizontal force, in newtons, that can be applied to the bottom block without the top one slipping?",
+    "statement": "A 1 kg block rests on a 4 kg block on a frictionless floor. The coefficient of static friction between them is 0.30. Using $g = 10$ m/s², what is the largest horizontal force, in newtons, that can be applied to the bottom block without the top one slipping?",
     "answer": 15,
     "unit": "N",
-    "solution": "The only horizontal force on the top block is friction, so its maximum acceleration is $a = \\mu g = 3$ m/s\u00b2. Both blocks must share that acceleration, so $F = (m_1+m_2)a = 5 \\times 3 = 15$ N."
+    "solution": "The only horizontal force on the top block is friction, so its maximum acceleration is $a = \\mu g = 3$ m/s². Both blocks must share that acceleration, so $F = (m_1+m_2)a = 5 \\times 3 = 15$ N."
   },
   {
     "id": "orig-em-1",
@@ -237,7 +237,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A cart starts from rest at height $h$ and runs without friction into a vertical loop of radius 2 m. Using $g = 10$ m/s\u00b2, what is the minimum $h$, in meters, for the cart to keep contact at the top?",
+    "statement": "A cart starts from rest at height $h$ and runs without friction into a vertical loop of radius 2 m. Using $g = 10$ m/s², what is the minimum $h$, in meters, for the cart to keep contact at the top?",
     "answer": 5,
     "unit": "m",
     "solution": "At the critical speed gravity alone supplies the centripetal force at the top: $v^2 = gr$. Energy conservation to a height $2r$: $gh = 2gr + \\tfrac12 gr$, so $h = 2.5r = 5$ m."
@@ -272,10 +272,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A curve of radius 50 m is banked so that a car needs no friction at 20 m/s. Using $g = 10$ m/s\u00b2, what is the banking angle, in degrees?",
+    "statement": "A curve of radius 50 m is banked so that a car needs no friction at 20 m/s. Using $g = 10$ m/s², what is the banking angle, in degrees?",
     "answer": 38.7,
     "unit": "deg",
-    "solution": "With no friction the horizontal component of the normal force supplies the centripetal force: $\\tan\\theta = v^2/(gr) = 400/500 = 0.8$, so $\\theta = 38.7\u00b0$. Notice the mass cancels."
+    "solution": "With no friction the horizontal component of the normal force supplies the centripetal force: $\\tan\\theta = v^2/(gr) = 400/500 = 0.8$, so $\\theta = 38.7°$. Notice the mass cancels."
   },
   {
     "id": "orig-circ-2",
@@ -292,7 +292,7 @@
     "url": "",
     "statement": "Satellite B orbits at four times the radius of satellite A. By what factor is B's period longer than A's?",
     "answer": 8,
-    "unit": "\u00d7",
+    "unit": "×",
     "solution": "Kepler's third law: $T^2 \\propto r^3$, so $T_B/T_A = 4^{3/2} = 8$."
   },
   {
@@ -324,7 +324,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A pendulum has a period of 2.0 s on Earth ($g = 9.8$ m/s\u00b2). What is its period, in seconds, on Mars where $g = 3.7$ m/s\u00b2?",
+    "statement": "A pendulum has a period of 2.0 s on Earth ($g = 9.8$ m/s²). What is its period, in seconds, on Mars where $g = 3.7$ m/s²?",
     "answer": 3.26,
     "unit": "s",
     "solution": "$T \\propto 1/\\sqrt{g}$, so $T_{Mars} = 2.0\\sqrt{9.8/3.7} = 3.26$ s. Weaker gravity means a slower swing."
@@ -358,7 +358,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A solid sphere ($I = \\tfrac25 mr^2$) rolls without slipping from rest down a 2 m high ramp. Using $g = 10$ m/s\u00b2, what is its speed at the bottom, in m/s?",
+    "statement": "A solid sphere ($I = \\tfrac25 mr^2$) rolls without slipping from rest down a 2 m high ramp. Using $g = 10$ m/s², what is its speed at the bottom, in m/s?",
     "answer": 5.35,
     "unit": "m/s",
     "solution": "Energy splits between translation and rotation: $mgh = \\tfrac12 mv^2(1 + 2/5)$. So $v = \\sqrt{10gh/7} = \\sqrt{200/7} = 5.35$ m/s. A sliding block would reach 6.32 m/s; the sphere is slower because some energy goes into spin."
@@ -375,8 +375,8 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A uniform rod of length 1.2 m is held vertically on a frictionless pivot at its base and released. Using $g = 10$ m/s\u00b2, what is the speed of its tip when it hits the ground, in m/s?",
-    "answer": 6.0,
+    "statement": "A uniform rod of length 1.2 m is held vertically on a frictionless pivot at its base and released. Using $g = 10$ m/s², what is the speed of its tip when it hits the ground, in m/s?",
+    "answer": 6,
     "unit": "m/s",
     "solution": "The center of mass falls $L/2$: $mgL/2 = \\tfrac12 I\\omega^2$ with $I = mL^2/3$. So $\\omega = \\sqrt{3g/L}$ and the tip moves at $v = \\omega L = \\sqrt{3gL} = 6.0$ m/s."
   },
@@ -411,7 +411,7 @@
     "url": "",
     "statement": "A $+3\\ \\mu$C point charge sits at the center of an uncharged conducting shell. What is the total charge, in microcoulombs, on the shell's outer surface?",
     "answer": 3,
-    "unit": "\u03bcC",
+    "unit": "μC",
     "solution": "Induction puts $-3\\ \\mu$C on the inner surface so the conductor's interior field vanishes. The shell is neutral overall, so $+3\\ \\mu$C appears on the outside. Conductors shield their insides, not their outsides."
   },
   {
@@ -426,10 +426,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "Twelve 1 \u03a9 resistors form the edges of a cube. What is the resistance, in ohms, between two opposite corners?",
+    "statement": "Twelve 1 Ω resistors form the edges of a cube. What is the resistance, in ohms, between two opposite corners?",
     "answer": 0.833,
-    "unit": "\u03a9",
-    "solution": "By symmetry the current splits 3-way, then 6-way, then 3-way: $R = R(1/3 + 1/6 + 1/3) = 5/6 = 0.833$ \u03a9. Symmetry lets you merge equipotential nodes instead of solving twelve loop equations."
+    "unit": "Ω",
+    "solution": "By symmetry the current splits 3-way, then 6-way, then 3-way: $R = R(1/3 + 1/6 + 1/3) = 5/6 = 0.833$ Ω. Symmetry lets you merge equipotential nodes instead of solving twelve loop equations."
   },
   {
     "id": "orig-cir-2",
@@ -443,7 +443,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A 10 \u03bcF capacitor charges through a 50 k\u03a9 resistor from a 12 V source. How long, in seconds, until the capacitor reaches 6 V?",
+    "statement": "A 10 μF capacitor charges through a 50 kΩ resistor from a 12 V source. How long, in seconds, until the capacitor reaches 6 V?",
     "answer": 0.347,
     "unit": "s",
     "solution": "$V = V_0(1 - e^{-t/RC})$ with $RC = 0.5$ s. Half charge gives $t = RC\\ln 2 = 0.347$ s."
@@ -460,7 +460,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "What is the rms speed, in m/s, of a nitrogen molecule (28 g/mol) at 300 K? Use $R = 8.31$ J/mol\u00b7K.",
+    "statement": "What is the rms speed, in m/s, of a nitrogen molecule (28 g/mol) at 300 K? Use $R = 8.31$ J/mol·K.",
     "answer": 517,
     "unit": "m/s",
     "solution": "$v_{rms} = \\sqrt{3RT/M} = \\sqrt{3(8.31)(300)/0.028} = 517$ m/s. Equipartition puts $\\tfrac32 k_BT$ into each molecule's translation."
@@ -545,10 +545,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A muon lives 2.2 \u03bcs at rest. Traveling at 0.99c, how long, in microseconds, does it live in the lab frame?",
+    "statement": "A muon lives 2.2 μs at rest. Traveling at 0.99c, how long, in microseconds, does it live in the lab frame?",
     "answer": 15.6,
-    "unit": "\u03bcs",
-    "solution": "$\\gamma = 1/\\sqrt{1 - 0.99^2} = 7.09$, so the lab lifetime is $7.09 \\times 2.2 = 15.6$ \u03bcs. This is why cosmic-ray muons reach the ground."
+    "unit": "μs",
+    "solution": "$\\gamma = 1/\\sqrt{1 - 0.99^2} = 7.09$, so the lab lifetime is $7.09 \\times 2.2 = 15.6$ μs. This is why cosmic-ray muons reach the ground."
   },
   {
     "id": "orig-mp-2",
@@ -565,7 +565,7 @@
     "statement": "A metal has a work function of 2.3 eV. What is the longest wavelength of light, in nanometers, that still ejects electrons?",
     "answer": 539,
     "unit": "nm",
-    "solution": "At threshold the photon energy equals the work function: $\\lambda = hc/\\phi = 1240\\ \\text{eV\u00b7nm}/2.3\\ \\text{eV} = 539$ nm. Longer wavelengths eject nothing no matter how intense."
+    "solution": "At threshold the photon energy equals the work function: $\\lambda = hc/\\phi = 1240\\ \\text{eV·nm}/2.3\\ \\text{eV} = 539$ nm. Longer wavelengths eject nothing no matter how intense."
   },
   {
     "id": "fma-2018-8",

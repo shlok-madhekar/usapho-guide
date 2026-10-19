@@ -73,7 +73,7 @@
         "label": "Index of the second medium",
         "unit": "",
         "min": 1.05,
-        "max": 2.0,
+        "max": 2,
         "step": 0.01,
         "value": 1.33
       },

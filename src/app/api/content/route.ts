@@ -14,6 +14,18 @@ import {
 } from "@/lib/github";
 import type { Division } from "@/lib/curriculum";
 import type { BankProblem } from "@/lib/problems";
+import {
+  applyToSources,
+  checkBatchProblem,
+  checkSim,
+  normalizeBatchProblem,
+  problemOutputs,
+  simOutputs,
+  sourceChanges,
+  toJson,
+  type SimSource,
+  type SourceFile,
+} from "@/lib/content-build";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +33,11 @@ const LESSONS = "src/content/lessons";
 const CURRICULUM = "src/content/curriculum.json";
 const PROBLEMS = "src/content/problems.json";
 const SIMS = "src/content/sims.json";
+// the files the two merge scripts build problems.json and sims.json from
+const PROBLEM_SEED = "src/content/problem-seed.json";
+const PROBLEM_BATCHES = "src/content/problem-batches";
+const SIM_SEED = "src/content/sim-seed.json";
+const SIM_BATCHES = "src/content/sim-batches";
 const SLUG_RE = /^[a-z0-9][a-z0-9-]{1,60}$/;
 
 class ApiError extends Error {
@@ -76,6 +93,30 @@ async function requireRole(...roles: Role[]) {
   const profile = await currentProfile();
   if (!hasRole(profile, ...roles))
     throw new ApiError(403, `This action needs the ${roles.join(" or ")} role.`);
+}
+
+/**
+ * Read a seed file and its batch directory in the order the merge script
+ * does: seed first, then batches sorted by name. A few reads at a time, since
+ * there is a batch file per lesson for sims.
+ */
+async function readSources<T>(
+  token: string,
+  seed: string,
+  dir: string
+): Promise<SourceFile<T>[]> {
+  const batches = (await listDir(token, dir))
+    .filter((f) => f.endsWith(".json"))
+    .sort()
+    .map((f) => `${dir}/${f}`);
+  const paths = [seed, ...batches];
+  const files: SourceFile<T>[] = [];
+  for (let i = 0; i < paths.length; i += 10) {
+    const chunk = paths.slice(i, i + 10);
+    const texts = await Promise.all(chunk.map((path) => readFile(token, path)));
+    chunk.forEach((path, j) => files.push({ path, items: JSON.parse(texts[j]) }));
+  }
+  return files;
 }
 
 /**
@@ -186,7 +227,7 @@ export async function POST(req: NextRequest) {
             for (const m of s.modules) if (m.slug === slug) m.hasContent = false;
         changes = [
           { path: `${LESSONS}/${slug}.mdx`, content: null },
-          { path: CURRICULUM, content: JSON.stringify(curriculum, null, 2) + "\n" },
+          { path: CURRICULUM, content: toJson(curriculum) },
         ];
         title = `content: remove lesson ${slug}`;
         summary = `Deletes \`${slug}.mdx\` and clears its \`hasContent\` flag.`;
@@ -205,16 +246,42 @@ export async function POST(req: NextRequest) {
             throw new ApiError(400, `Duplicate problem id: ${p.id}`);
           seen.add(p.id);
         }
-        changes = [
-          { path: PROBLEMS, content: JSON.stringify(problems, null, 2) + "\n" },
+const [sources, curriculum] = await Promise.all([
+          readSources<BankProblem>(token, PROBLEM_SEED, PROBLEM_BATCHES),
+          readFile(token, CURRICULUM).then((t) => JSON.parse(t) as Division[]),
+        ]);
+        const next = applyToSources(
+          sources,
+          problems,
+          // the editor loads problems.json, where batch problems are normalized
+          (src, edited) =>
+            toJson(src) === toJson(edited) ||
+            toJson(normalizeBatchProblem(src)) === toJson(edited)
+        );
+
+        // merge-problems.py drops a batch problem that fails its checks, so
+        // refuse here rather than open a pull request that loses it
+        const slugs = new Set(
+          curriculum.flatMap((d) => d.sections.flatMap((s) => s.modules.map((m) => m.slug)))
+        );
+        const errors = next.slice(1).flatMap((f) =>
+          f.items.flatMap((p) => checkBatchProblem(p, slugs))
+        );
+        if (errors.length)
+          throw new ApiError(400, `Problem check failed: ${errors.slice(0, 5).join("; ")}`);
+
+        const built = [
+          ...next[0].items,
+          ...next.slice(1).flatMap((f) => f.items.map(normalizeBatchProblem)),
         ];
+        changes = [...sourceChanges(sources, next), ...problemOutputs(built)];
         title = "content: update problem bank";
         summary = `Updates the problem bank (${problems.length} problems).`;
         break;
       }
 
       case "saveSims": {
-        const sims = body.sims as { id: string; title: string; draw: string }[];
+        const sims = body.sims as SimSource[];
         if (!Array.isArray(sims)) throw new ApiError(400, "sims must be an array");
         const ids = new Set<string>();
         for (const sim of sims) {
@@ -226,7 +293,17 @@ export async function POST(req: NextRequest) {
           if (typeof sim.draw !== "string" || sim.draw.length > 40_000)
             throw new ApiError(400, `Draw code missing or too large in ${sim.id}`);
         }
-        changes = [{ path: SIMS, content: JSON.stringify(sims, null, 2) + "\n" }];
+        const errors = sims.flatMap(checkSim);
+        if (errors.length)
+          throw new ApiError(400, `Simulation check failed: ${errors.slice(0, 5).join("; ")}`);
+
+        const [sources, previous] = await Promise.all([
+          readSources<SimSource>(token, SIM_SEED, SIM_BATCHES),
+          readFile(token, SIMS).then((t) => JSON.parse(t) as SimSource[]),
+        ]);
+        const next = applyToSources(sources, sims);
+        const built = next.flatMap((f) => f.items);
+        changes = [...sourceChanges(sources, next), ...simOutputs(previous, built)];
         title = "content: update simulations";
         summary = `Updates the simulation set (${sims.length} simulations).`;
         break;
@@ -251,7 +328,7 @@ export async function POST(req: NextRequest) {
             }
         }
         changes = [
-          { path: CURRICULUM, content: JSON.stringify(curriculum, null, 2) + "\n" },
+          { path: CURRICULUM, content: toJson(curriculum) },
         ];
         title = "content: update course structure";
         summary = `Updates courses, sections and modules (${curriculum.length} courses).`;

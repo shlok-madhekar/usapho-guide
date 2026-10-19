@@ -683,6 +683,17 @@
     "solvable": false
   },
   {
+    "id": "orig-mvevvzic",
+    "name": "Kinematics ",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
     "id": "we-work-01",
     "name": "Pushing a crate across a floor",
     "module": "work-energy-theorem",

@@ -889,5 +889,19 @@
     "answer": null,
     "unit": "",
     "solution": ""
+  },
+  {
+    "id": "orig-mvevvzic",
+    "name": "Kinematics ",
+    "module": "motion-1d",
+    "difficulty": "Easy",
+    "tags": [],
+    "starred": false,
+    "origin": "exam",
+    "source": "USAPhO Guide",
+    "statement": "At some instant, a motor car is moving on a circular path of radius 600 m, with a speed u = 30 ms-1\n. If its speed is increased at a rate of 2 ms^-2, the magnitude of the acceleration of the car at that instant is\n",
+    "answer": 2.5,
+    "unit": "",
+    "solution": "Tangential acceleration = 2 m/s^2\n\nCentripetal acceleration = u^2/r = 30^2/600 = 1.5 m/s^2\n\nResultant acceleration = rt(2^2 + 1.5^2) = rt(6.25) = 2.5 m/s^2"
   }
 ]

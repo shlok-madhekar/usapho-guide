@@ -151,9 +151,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A ball is launched horizontally at 8 m/s from the top of a 30° incline and lands on the slope. Using $g = 10$ m/s², how far along the incline, in meters, does it land?",
-    "answer": 8.87,
+    "answer": 8.533,
     "unit": "m",
-    "solution": "Let the landing point be a distance $L$ down the slope, so $x = L\\cos30°$ and $y = L\\sin30°$. From $x = 8t$ and $y = 5t^2$: $L\\sin30° = 5(L\\cos30°/8)^2$. Solving, $L = 8\\sin30°\\cdot 64/(5\\cdot 64 \\cos^2 30°)$ ... more directly $t = 2v\\tan\\theta/g = 0.924$ s, $x = 7.39$ m, $L = x/\\cos30° = 8.87$ m."
+    "solution": "Let the landing point be a distance $L$ down the slope, so $x = L\\cos30°$ and $y = L\\sin30°$. From $x = 8t$ and $y = 5t^2$: $y/x = \\tan30° = 5t/8$, so $t = 2v\\tan\\theta/g = 0.924$ s, $x = 7.39$ m, $L = x/\\cos30° = 8.53$ m."
   },
   {
     "id": "orig-fbd-1",

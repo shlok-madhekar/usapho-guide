@@ -5622,7 +5622,7 @@
     "statement": "1.0 kg of water at $20^\\circ$C is heated to $100^\\circ$C and then boiled completely into steam at $100^\\circ$C. Take $c = 4186$ J/kg·K and $L_v = 2.26\\times10^6$ J/kg. What is the total entropy change of the water, in J/K?",
     "answer": 7070,
     "unit": "J/K",
-    "solution": "Add the two stages: $\\Delta S = mc\\ln(373/293) + mL_v/373 = 1009 + 6059 = 7070$ J/K. The phase change dominates."
+    "solution": "Add the two stages: $\\Delta S = mc\\ln(373/293) + mL_v/373 = 1011 + 6059 = 7070$ J/K. The phase change dominates."
   },
   {
     "id": "th-ent-20",

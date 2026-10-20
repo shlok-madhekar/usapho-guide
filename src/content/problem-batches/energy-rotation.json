@@ -1010,7 +1010,7 @@
     "statement": "A $70\\ \\mathrm{kg}$ jumper steps off a bridge attached to a bungee cord of unstretched length $20\\ \\mathrm{m}$ and stiffness $60\\ \\mathrm{N/m}$. How far below the bridge is the lowest point of the fall, in m?",
     "answer": 55.6832,
     "unit": "m",
-    "solution": "Set gravitational energy released equal to cord energy stored: $mgd = \\tfrac12 k(d-20)^2$, i.e. $686d = 30(d-20)^2$. This is $30d^2 - 1886d + 12000 = 0$, whose physical root is $d = 55.0\\ \\mathrm{m}$."
+    "solution": "Set gravitational energy released equal to cord energy stored: $mgd = \\tfrac12 k(d-20)^2$, i.e. $686d = 30(d-20)^2$. This is $30d^2 - 1886d + 12000 = 0$, whose physical root is $d = 55.7\\ \\mathrm{m}$."
   },
   {
     "id": "we-pe-28",
@@ -4060,7 +4060,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "What is the angular speed of a clock's minute hand, in rad/s?",
-    "answer": 0.0017,
+    "answer": 0.001745,
     "unit": "rad/s",
     "solution": "It completes $2\\pi$ radians per hour: $\\omega = 2\\pi/3600 = 1.745\\times10^{-3}\\ \\mathrm{rad/s}$."
   },
@@ -6274,7 +6274,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A star of radius $7.0\\times10^{8}\\ \\mathrm{m}$ rotating once per $25$ days collapses to a uniform sphere of radius $1.2\\times10^{4}\\ \\mathrm{m}$ with no mass loss. What is the new rotation period, in s?",
-    "answer": 0.0006,
+    "answer": 0.000635,
     "unit": "s",
     "solution": "For a uniform sphere $I \\propto R^2$, and $L = I\\omega$ is conserved, so $T \\propto R^2$. Then $T_2 = (25)(86400)(1.2\\times10^4/7.0\\times10^8)^2 = 6.35\\times10^{-4}\\ \\mathrm{s}$: a millisecond pulsar."
   },

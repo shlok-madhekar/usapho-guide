@@ -151,9 +151,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A ball is launched horizontally at 8 m/s from the top of a 30° incline and lands on the slope. Using $g = 10$ m/s², how far along the incline, in meters, does it land?",
-    "answer": 8.87,
+    "answer": 8.533,
     "unit": "m",
-    "solution": "Let the landing point be a distance $L$ down the slope, so $x = L\\cos30°$ and $y = L\\sin30°$. From $x = 8t$ and $y = 5t^2$: $L\\sin30° = 5(L\\cos30°/8)^2$. Solving, $L = 8\\sin30°\\cdot 64/(5\\cdot 64 \\cos^2 30°)$ ... more directly $t = 2v\\tan\\theta/g = 0.924$ s, $x = 7.39$ m, $L = x/\\cos30° = 8.87$ m."
+    "solution": "Let the landing point be a distance $L$ down the slope, so $x = L\\cos30°$ and $y = L\\sin30°$. From $x = 8t$ and $y = 5t^2$: $y/x = \\tan30° = 5t/8$, so $t = 2v\\tan\\theta/g = 0.924$ s, $x = 7.39$ m, $L = x/\\cos30° = 8.53$ m."
   },
   {
     "id": "orig-fbd-1",
@@ -1901,7 +1901,7 @@
     "statement": "A $70\\ \\mathrm{kg}$ jumper steps off a bridge attached to a bungee cord of unstretched length $20\\ \\mathrm{m}$ and stiffness $60\\ \\mathrm{N/m}$. How far below the bridge is the lowest point of the fall, in m?",
     "answer": 55.6832,
     "unit": "m",
-    "solution": "Set gravitational energy released equal to cord energy stored: $mgd = \\tfrac12 k(d-20)^2$, i.e. $686d = 30(d-20)^2$. This is $30d^2 - 1886d + 12000 = 0$, whose physical root is $d = 55.0\\ \\mathrm{m}$."
+    "solution": "Set gravitational energy released equal to cord energy stored: $mgd = \\tfrac12 k(d-20)^2$, i.e. $686d = 30(d-20)^2$. This is $30d^2 - 1886d + 12000 = 0$, whose physical root is $d = 55.7\\ \\mathrm{m}$."
   },
   {
     "id": "we-pe-28",
@@ -4951,7 +4951,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "What is the angular speed of a clock's minute hand, in rad/s?",
-    "answer": 0.0017,
+    "answer": 0.001745,
     "unit": "rad/s",
     "solution": "It completes $2\\pi$ radians per hour: $\\omega = 2\\pi/3600 = 1.745\\times10^{-3}\\ \\mathrm{rad/s}$."
   },
@@ -7165,7 +7165,7 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A star of radius $7.0\\times10^{8}\\ \\mathrm{m}$ rotating once per $25$ days collapses to a uniform sphere of radius $1.2\\times10^{4}\\ \\mathrm{m}$ with no mass loss. What is the new rotation period, in s?",
-    "answer": 0.0006,
+    "answer": 0.000635,
     "unit": "s",
     "solution": "For a uniform sphere $I \\propto R^2$, and $L = I\\omega$ is conserved, so $T \\propto R^2$. Then $T_2 = (25)(86400)(1.2\\times10^4/7.0\\times10^8)^2 = 6.35\\times10^{-4}\\ \\mathrm{s}$: a millisecond pulsar."
   },
@@ -15948,7 +15948,7 @@
     "statement": "1.0 kg of water at $20^\\circ$C is heated to $100^\\circ$C and then boiled completely into steam at $100^\\circ$C. Take $c = 4186$ J/kg·K and $L_v = 2.26\\times10^6$ J/kg. What is the total entropy change of the water, in J/K?",
     "answer": 7070,
     "unit": "J/K",
-    "solution": "Add the two stages: $\\Delta S = mc\\ln(373/293) + mL_v/373 = 1009 + 6059 = 7070$ J/K. The phase change dominates."
+    "solution": "Add the two stages: $\\Delta S = mc\\ln(373/293) + mL_v/373 = 1011 + 6059 = 7070$ J/K. The phase change dominates."
   },
   {
     "id": "th-ent-20",
@@ -34258,7 +34258,7 @@
     "statement": "A mercury barometer stands in air at $1.01\\times10^5\\,$Pa. Mercury has density $13600\\,$kg/m$^3$ and $g=9.8\\,$m/s$^2$. How tall is the mercury column, in m?",
     "answer": 0.7578,
     "unit": "m",
-    "solution": "The column's weight per unit area balances atmospheric pressure: $\\rho g h=p_0$. Hence $h=1.01\\times10^5/(13600\\times9.8)=0.7576\\,$m."
+    "solution": "The column's weight per unit area balances atmospheric pressure: $\\rho g h=p_0$. Hence $h=1.01\\times10^5/(13600\\times9.8)=0.7578\\,$m."
   },
   {
     "id": "fl-press-10",
@@ -35644,7 +35644,7 @@
     "statement": "Two small dipoles, each of moment $3.0\\times10^{-12}$ C·m, lie on a common axis with their moments parallel and their centers $0.050$ m apart. Use $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the magnitude of the force between them, in N?",
     "answer": 7.767e-8,
     "unit": "N",
-    "solution": "Dipole 1 produces $E=2kp_1/r^3$ on its own axis, and the force on dipole 2 is $p_2|dE/dr|=6kp_1p_2/r^4$. Substituting, $F=6(8.99\\times10^{9})(3.0\\times10^{-12})^2/(0.050)^4\\approx7.77\\times10^{-4}$ N, attractive for parallel moments in line."
+    "solution": "Dipole 1 produces $E=2kp_1/r^3$ on its own axis, and the force on dipole 2 is $p_2|dE/dr|=6kp_1p_2/r^4$. Substituting, $F=6(8.99\\times10^{9})(3.0\\times10^{-12})^2/(0.050)^4\\approx7.77\\times10^{-8}$ N, attractive for parallel moments in line."
   },
   {
     "id": "es-coul-28",
@@ -35659,10 +35659,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "Two charges of $+2.0\\,\\mu$C are fixed $0.20$ m apart on a horizontal insulating track. A bead of mass $0.50$ g carrying $-1.0\\,\\mu$C rests at the midpoint and is displaced slightly along the line joining them. Use $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the frequency of the resulting small oscillations, in Hz?",
+    "statement": "Two charges of $+2.0\\,\\mu$C are fixed $0.20$ m apart on a horizontal insulating track. A bead of mass $0.50$ g carrying $+1.0\\,\\mu$C rests at the midpoint and is displaced slightly along the line joining them. Use $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the frequency of the resulting small oscillations, in Hz?",
     "answer": 60.36,
     "unit": "Hz",
-    "solution": "Expanding $F=kQq[(L/2-x)^{-2}-(L/2+x)^{-2}]$ to first order in $x$ gives a restoring force of stiffness $32kQq/L^3$. Then $f=\\frac{1}{2\\pi}\\sqrt{32kQq/(mL^3)}=\\frac{1}{2\\pi}\\sqrt{1.438\\times10^{5}}\\approx60.4$ Hz."
+    "solution": "Expanding $F=kQq[(L/2+x)^{-2}-(L/2-x)^{-2}]$ to first order in $x$ gives a restoring force of stiffness $32kQq/L^3$. Then $f=\\frac{1}{2\\pi}\\sqrt{32kQq/(mL^3)}=\\frac{1}{2\\pi}\\sqrt{1.438\\times10^{5}}\\approx60.4$ Hz."
   },
   {
     "id": "es-coul-29",
@@ -40767,7 +40767,7 @@
     "statement": "A person has a mass of $70$ kg. The body is mostly water and light elements; take the average mass per atom to be $7.0$ atomic mass units, with $1\\ \\text{u}=1.66\\times10^{-27}$ kg. Estimate the number of atoms in the body.",
     "answer": 6e+27,
     "unit": "",
-    "solution": "Total mass divided by average mass per atom. One atom averages $7.0\\times1.66\\times10^{-27}=1.16\\times10^{-26}$ kg, so $N=70/1.16\\times10^{-26}\\approx6.0\\times10^{27}$ atoms. Water is 2 hydrogens (1 u) plus one oxygen (16 u) over 3 atoms, i.e. 6 u per atom, which is where the estimate comes from."
+    "solution": "Total mass divided by average mass per atom. One atom averages $7.0\\times1.66\\times10^{-27}=1.16\\times10^{-26}$ kg, so $N=70/1.16\\times10^{-26}\\approx6.0\\times10^{27}$ atoms. Water is 2 hydrogens (1 u) plus one oxygen (16 u) over 3 atoms, i.e. 6 u per atom; heavier elements such as carbon and nitrogen raise the average to about 7 u, which is where the estimate comes from."
   },
   {
     "id": "tk-units-17",

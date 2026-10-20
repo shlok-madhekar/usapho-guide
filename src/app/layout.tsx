@@ -19,9 +19,10 @@ const dmSans = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://usapho.one"),
-  title: "USAPhO Guide",
+  title: { default: "USAPhO Guide", template: "%s · USAPhO Guide" },
   description:
     "Notes and problems for the F=ma exam and the US Physics Olympiad.",
+  openGraph: { siteName: "USAPhO Guide", type: "website" },
 };
 
 export default function RootLayout({

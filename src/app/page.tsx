@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Sim from "@/components/Sim";
@@ -8,6 +9,8 @@ import { LESSONS } from "@/content/lessons";
 import { TOTAL_SOLVABLE } from "@/lib/problem-counts";
 
 const REPO = "https://github.com/shlok-madhekar/usapho-guide";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 /** Counted at build time from the files themselves, so it never goes stale. */
 function simCount() {

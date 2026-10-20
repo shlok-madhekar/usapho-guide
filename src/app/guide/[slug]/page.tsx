@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
@@ -12,6 +13,19 @@ import { problemsForModule, isSolvable } from "@/lib/problems";
 
 export function generateStaticParams() {
   return allModules().map(({ module }) => ({ slug: module.slug }));
+}
+
+// every tab used to read "USAPhO Guide", and so did every search result
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const found = findModule(params.slug);
+  if (!found) return {};
+  const { module: mod } = found;
+  return {
+    title: mod.title,
+    description: mod.description,
+    alternates: { canonical: `/guide/${mod.slug}` },
+    openGraph: { title: mod.title, description: mod.description },
+  };
 }
 
 export default function ModulePage({ params }: { params: { slug: string } }) {

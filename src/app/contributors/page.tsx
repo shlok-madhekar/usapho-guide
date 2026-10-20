@@ -4,7 +4,8 @@ import Nav from "@/components/Nav";
 import { CONTRIBUTORS_REPO, FOUNDER, getContributors } from "@/lib/contributors";
 
 export const metadata: Metadata = {
-  title: "Contributors · USAPhO Guide",
+  title: "Contributors",
+  alternates: { canonical: "/contributors" },
   description: "The people who write the lessons, problems and code behind the USAPhO Guide.",
 };
 

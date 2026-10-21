@@ -56,8 +56,8 @@
     "total": 30
   },
   "conductors-capacitance": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 31,
+    "total": 31
   },
   "coulomb-superposition": {
     "solvable": 30,
@@ -192,8 +192,8 @@
     "total": 30
   },
   "motion-1d": {
-    "solvable": 33,
-    "total": 34
+    "solvable": 34,
+    "total": 35
   },
   "motion-graphs": {
     "solvable": 30,
@@ -224,8 +224,8 @@
     "total": 30
   },
   "photoelectric": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 31,
+    "total": 31
   },
   "potential-energy": {
     "solvable": 30,

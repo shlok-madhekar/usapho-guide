@@ -684,8 +684,8 @@
   },
   {
     "id": "orig-mvevvzic",
-    "name": "Kinematics ",
-    "module": "motion-1d",
+    "name": "Speeding up on a curve",
+    "module": "circular-motion",
     "difficulty": "Easy",
     "tags": [],
     "starred": false,
@@ -706,7 +706,7 @@
   },
   {
     "id": "orig-mvew9alr",
-    "name": "Photoelectric worlds ",
+    "name": "Photoelectric worlds",
     "module": "photoelectric",
     "difficulty": "Normal",
     "tags": [],

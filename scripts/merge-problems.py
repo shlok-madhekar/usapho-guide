@@ -12,6 +12,7 @@ Run from the repo root:  python3 scripts/merge-problems.py
 
 import json
 import pathlib
+import re
 import sys
 
 from canonical_json import dumps
@@ -57,6 +58,45 @@ def normalize(problem: dict) -> None:
             break
     problem["solution"] = solution
     problem["statement"] = problem["statement"].strip()
+
+
+# a number, optionally in LaTeX scientific form: 1.745\times10^{-3}
+NUMBER = re.compile(
+    r"(?<![A-Za-z_])(-?\d+(?:\.\d+)?)(?:\s*\\times\s*10\^\{?(-?\d+)\}?)?"
+)
+
+
+# Checked by hand: the solution's last number is not the answer itself.
+ROUNDING_CHECKED = {
+    "nu-bind-29": "52 is tellurium's Z; the computed 52.6 is the answer",
+    "tk-units-29": "the text rounds the Planck length to 1.6e-35; 1.62e-35 is right",
+    "tk-vec-30": "208 N is the other tension; T_A = 200.3 N",
+    "tk-approx-27": "84.9 rings means 84 complete ones; 85 is still inside 2%",
+}
+
+
+def rounding_warning(problem: dict) -> str | None:
+    """
+    Answers are accepted within 2%, so a stored answer rounded further than
+    that marks the exact value wrong (0.0006 for 6.35e-4 failed every student
+    who got it right). The tell is a solution that ends a little away from the
+    stored answer: close enough to be the same result, too far to be checked.
+    """
+    answer = problem["answer"]
+    if not answer or problem["id"] in ROUNDING_CHECKED:
+        return None
+    tail = re.split(r"=|\\approx|≈", problem["solution"])[-1]
+    match = NUMBER.search(tail.replace("{,}", "").replace("\\,", ""))
+    if not match:
+        return None
+    final = float(match.group(1)) * 10 ** int(match.group(2) or 0)
+    off = abs(abs(final) - abs(answer)) / abs(answer)
+    if 0.01 < off < 0.06:
+        return (
+            f"{problem['id']}: solution ends at {final:g} but the answer is "
+            f"{answer:g} ({off:.1%} off); students get 2%"
+        )
+    return None
 
 
 def check(problem: dict, slugs: set[str], seen: set[str]) -> list[str]:
@@ -130,6 +170,12 @@ def main() -> int:
             seen.add(problem["id"])
             kept += 1
         print(f"{path.name}: {kept} of {len(batch)} accepted")
+
+    warnings = [w for p in merged if (w := rounding_warning(p))]
+    if warnings:
+        print(f"\n{len(warnings)} answer(s) may be rounded too far:", file=sys.stderr)
+        for w in warnings:
+            print(f"  {w}", file=sys.stderr)
 
     if errors:
         print(f"\n{len(errors)} problem(s) rejected:", file=sys.stderr)

@@ -2300,7 +2300,7 @@
     "statement": "A mercury barometer stands in air at $1.01\\times10^5\\,$Pa. Mercury has density $13600\\,$kg/m$^3$ and $g=9.8\\,$m/s$^2$. How tall is the mercury column, in m?",
     "answer": 0.7578,
     "unit": "m",
-    "solution": "The column's weight per unit area balances atmospheric pressure: $\\rho g h=p_0$. Hence $h=1.01\\times10^5/(13600\\times9.8)=0.7576\\,$m."
+    "solution": "The column's weight per unit area balances atmospheric pressure: $\\rho g h=p_0$. Hence $h=1.01\\times10^5/(13600\\times9.8)=0.7578\\,$m."
   },
   {
     "id": "fl-press-10",
@@ -3686,7 +3686,7 @@
     "statement": "Two small dipoles, each of moment $3.0\\times10^{-12}$ C·m, lie on a common axis with their moments parallel and their centers $0.050$ m apart. Use $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the magnitude of the force between them, in N?",
     "answer": 7.767e-8,
     "unit": "N",
-    "solution": "Dipole 1 produces $E=2kp_1/r^3$ on its own axis, and the force on dipole 2 is $p_2|dE/dr|=6kp_1p_2/r^4$. Substituting, $F=6(8.99\\times10^{9})(3.0\\times10^{-12})^2/(0.050)^4\\approx7.77\\times10^{-4}$ N, attractive for parallel moments in line."
+    "solution": "Dipole 1 produces $E=2kp_1/r^3$ on its own axis, and the force on dipole 2 is $p_2|dE/dr|=6kp_1p_2/r^4$. Substituting, $F=6(8.99\\times10^{9})(3.0\\times10^{-12})^2/(0.050)^4\\approx7.77\\times10^{-8}$ N, attractive for parallel moments in line."
   },
   {
     "id": "es-coul-28",
@@ -3701,10 +3701,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "Two charges of $+2.0\\,\\mu$C are fixed $0.20$ m apart on a horizontal insulating track. A bead of mass $0.50$ g carrying $-1.0\\,\\mu$C rests at the midpoint and is displaced slightly along the line joining them. Use $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the frequency of the resulting small oscillations, in Hz?",
+    "statement": "Two charges of $+2.0\\,\\mu$C are fixed $0.20$ m apart on a horizontal insulating track. A bead of mass $0.50$ g carrying $+1.0\\,\\mu$C rests at the midpoint and is displaced slightly along the line joining them. Use $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is the frequency of the resulting small oscillations, in Hz?",
     "answer": 60.36,
     "unit": "Hz",
-    "solution": "Expanding $F=kQq[(L/2-x)^{-2}-(L/2+x)^{-2}]$ to first order in $x$ gives a restoring force of stiffness $32kQq/L^3$. Then $f=\\frac{1}{2\\pi}\\sqrt{32kQq/(mL^3)}=\\frac{1}{2\\pi}\\sqrt{1.438\\times10^{5}}\\approx60.4$ Hz."
+    "solution": "Expanding $F=kQq[(L/2+x)^{-2}-(L/2-x)^{-2}]$ to first order in $x$ gives a restoring force of stiffness $32kQq/L^3$. Then $f=\\frac{1}{2\\pi}\\sqrt{32kQq/(mL^3)}=\\frac{1}{2\\pi}\\sqrt{1.438\\times10^{5}}\\approx60.4$ Hz."
   },
   {
     "id": "es-coul-29",

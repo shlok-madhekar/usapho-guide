@@ -277,7 +277,7 @@
     "statement": "A person has a mass of $70$ kg. The body is mostly water and light elements; take the average mass per atom to be $7.0$ atomic mass units, with $1\\ \\text{u}=1.66\\times10^{-27}$ kg. Estimate the number of atoms in the body.",
     "answer": 6e+27,
     "unit": "",
-    "solution": "KEY IDEA: total mass divided by average mass per atom. One atom averages $7.0\\times1.66\\times10^{-27}=1.16\\times10^{-26}$ kg, so $N=70/1.16\\times10^{-26}\\approx6.0\\times10^{27}$ atoms. Water is 2 hydrogens (1 u) plus one oxygen (16 u) over 3 atoms, i.e. 6 u per atom, which is where the estimate comes from."
+    "solution": "KEY IDEA: total mass divided by average mass per atom. One atom averages $7.0\\times1.66\\times10^{-27}=1.16\\times10^{-26}$ kg, so $N=70/1.16\\times10^{-26}\\approx6.0\\times10^{27}$ atoms. Water is 2 hydrogens (1 u) plus one oxygen (16 u) over 3 atoms, i.e. 6 u per atom; heavier elements such as carbon and nitrogen raise the average to about 7 u, which is where the estimate comes from."
   },
   {
     "id": "tk-units-17",

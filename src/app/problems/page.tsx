@@ -61,6 +61,12 @@ export default function ProblemsPage() {
   const [filter, setFilter] = useState<Filter>("all");
   const [shown, setShown] = useState(PAGE_SIZE);
 
+  // the header search hands its query over as ?q=
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (q) setQuery(q);
+  }, []);
+
   // any change to the filters starts the list again from the top
   useEffect(() => {
     setShown(PAGE_SIZE);

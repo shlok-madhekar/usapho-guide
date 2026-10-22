@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/Logo";
+import SearchDialog from "@/components/SearchDialog";
 import { useEffect, useRef, useState } from "react";
 import { allModules } from "@/lib/curriculum";
 import { useProgress } from "@/lib/progress";
@@ -185,6 +186,7 @@ export default function Nav() {
               {done}/{total}
             </span>
           )}
+          <SearchDialog />
           <ThemeToggle />
           <AccountMenu />
         </nav>

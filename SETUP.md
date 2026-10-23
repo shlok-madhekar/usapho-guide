@@ -120,6 +120,27 @@ Each problem carries an `origin`:
 Both kinds appear in `/problems` and on module pages; only originals can be
 answered on the site.
 
+### Checks on every pull request
+
+`.github/workflows/checks.yml` runs on each pull request and on `main`:
+
+- rebuilds problems and simulations with `scripts/merge-problems.py` and
+  `scripts/merge-sims.py`, and fails if that changes any file, which means a
+  generated file was edited by hand or a problem failed validation;
+- runs `scripts/check-lessons.py`;
+- type-checks, lints and builds the site.
+
+To run the same checks locally before pushing:
+
+```bash
+python3 scripts/merge-problems.py && python3 scripts/merge-sims.py && git diff --stat
+python3 scripts/check-lessons.py
+npx tsc --noEmit && npm run lint && npm run build
+```
+
+GitHub asks a maintainer to approve the first workflow run from a new
+contributor's fork; after that their pull requests are checked automatically.
+
 ## 5. Progress
 
 Progress is kept in the browser for signed-out readers. Signing in merges that

@@ -1,0 +1,67 @@
+# Runs on every pull request, so a maintainer sees a green or red check
+# before merging instead of finding out when the deploy fails.
+name: Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  content:
+    name: Content files in sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # problems.json, sims.json and the files under public/ are generated
+      # from the seed and batch files. Rebuilding them must change nothing;
+      # if it does, the pull request edited a generated file directly (it
+      # would be erased by the next rebuild) or a problem failed validation.
+      - name: Rebuild problems and simulations
+        run: |
+          python3 scripts/merge-problems.py
+          python3 scripts/merge-sims.py
+      - name: Generated files match their sources
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Rebuilding the content changed these files:"
+            git diff --stat
+            echo ""
+            echo "Run 'python3 scripts/merge-problems.py && python3 scripts/merge-sims.py'"
+            echo "and commit the result. If a problem was rejected above, fix it in its"
+            echo "seed or batch file rather than in problems.json."
+            exit 1
+          fi
+
+      - name: Lesson style check
+        run: python3 scripts/check-lessons.py
+
+  site:
+    name: Types, lint and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Type check
+        run: npx tsc --noEmit
+      - name: Lint
+        run: npm run lint
+      # catches MDX that does not compile, which tsc and lint never read
+      - name: Build
+        run: npm run build

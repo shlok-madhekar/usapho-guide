@@ -716,6 +716,17 @@
     "solvable": true
   },
   {
+    "id": "orig-mvmnqunn",
+    "name": "The Prism hype",
+    "module": "rotational-dynamics",
+    "difficulty": "Hard",
+    "tags": [],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
     "id": "we-work-01",
     "name": "Pushing a crate across a floor",
     "module": "work-energy-theorem",

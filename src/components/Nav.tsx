@@ -125,6 +125,58 @@ function AccountMenu() {
   );
 }
 
+/**
+ * The header links are hidden below the sm breakpoint to fit the logo, which
+ * left phones with no way to reach the course or the problem bank except the
+ * home page. This menu carries the same links there.
+ */
+function MobileMenu({ links }: { links: { href: string; label: string }[] }) {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    const close = (e: MouseEvent) => {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", close);
+    return () => document.removeEventListener("mousedown", close);
+  }, []);
+
+  return (
+    <div className="relative sm:hidden" ref={ref}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-label="Menu"
+        aria-expanded={open}
+        className="flex h-7 w-7 items-center justify-center text-[var(--ink-soft)] hover:text-[var(--ink-strong)]"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+        </svg>
+      </button>
+      {open && (
+        <div className="absolute right-0 top-full z-40 mt-2 w-48 border border-[var(--rule-strong)] bg-[var(--panel)] py-1">
+          {links.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className={`sans block px-3 py-2 text-sm hover:bg-[var(--paper-2)] ${
+                pathname.startsWith(l.href)
+                  ? "font-medium text-[var(--ink-strong)]"
+                  : "text-[var(--ink)]"
+              }`}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Nav() {
   const pathname = usePathname();
   const { modules, ready } = useProgress();
@@ -187,6 +239,7 @@ export default function Nav() {
           )}
           <ThemeToggle />
           <AccountMenu />
+          <MobileMenu links={links} />
         </nav>
       </div>
     </header>

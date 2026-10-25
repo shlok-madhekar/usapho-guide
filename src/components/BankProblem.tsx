@@ -119,7 +119,11 @@ function BankProblemInner({
           <div className="mt-4 flex flex-wrap items-center gap-2 print:hidden">
             <input
               type="text"
-              inputMode="decimal"
+              // not inputMode="decimal": the iPhone decimal pad has no minus
+              // sign and no "e", so negative and 3.75e10 answers could not be typed
+              autoCapitalize="off"
+              autoCorrect="off"
+              spellCheck={false}
               value={input}
               onChange={(e) => {
                 setInput(e.target.value);
@@ -127,6 +131,7 @@ function BankProblemInner({
               }}
               onKeyDown={(e) => e.key === "Enter" && check()}
               placeholder="Answer"
+              aria-label={p.unit ? `Answer in ${p.unit}` : "Answer"}
               title="Scientific notation is fine: 3.75e10 or 3.75x10^10"
               className="w-32"
               style={

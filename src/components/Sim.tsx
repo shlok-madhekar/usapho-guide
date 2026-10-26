@@ -89,6 +89,7 @@ export function SimRunner({
   onValues: (v: Record<string, number>) => void;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
   const [note, setNote] = useState("");
   const [error, setError] = useState<string | null>(null);
   const valuesRef = useRef(values);
@@ -143,21 +144,41 @@ export function SimRunner({
     // run in a hidden tab, and a sim scrolled into view should already be there.
     paint(performance.now());
 
+    // Animate only while the sim is on screen and the tab is visible. A
+    // lesson has three or four sims, and drawing the ones scrolled out of
+    // view cost up to a fifth of a CPU core for nothing. While paused the
+    // clock stops too, so an animation resumes where it left off.
+    let onScreen = true;
+    let pausedAt: number | null = null;
     const loop = (now: number) => {
       if (failed) return;
       paint(now);
       raf = requestAnimationFrame(loop);
     };
-    raf = requestAnimationFrame(loop);
-
-    // restart the clock when the tab comes back, so nothing jumps
-    const onVisible = () => {
-      if (document.visibilityState === "visible") {
-        start = performance.now() - (performance.now() - start);
-        paint(performance.now());
+    const update = () => {
+      const run = onScreen && document.visibilityState === "visible";
+      if (run && pausedAt !== null) {
+        start += performance.now() - pausedAt;
+        pausedAt = null;
+        raf = requestAnimationFrame(loop);
+      } else if (!run && pausedAt === null) {
+        pausedAt = performance.now();
+        cancelAnimationFrame(raf);
       }
     };
-    document.addEventListener("visibilitychange", onVisible);
+    raf = requestAnimationFrame(loop);
+
+    // the sliders count as part of the sim, so moving one still repaints
+    // while the canvas itself is just above the fold
+    const seen = new IntersectionObserver(
+      ([entry]) => {
+        onScreen = entry.isIntersecting;
+        update();
+      },
+      { rootMargin: "100px" }
+    );
+    if (rootRef.current) seen.observe(rootRef.current);
+    document.addEventListener("visibilitychange", update);
 
     // The palette is read from CSS variables, so pick it up again when the
     // theme changes (a toggle, or printing, which switches to light). Paint
@@ -174,13 +195,14 @@ export function SimRunner({
     return () => {
       loaded = false;
       cancelAnimationFrame(raf);
-      document.removeEventListener("visibilitychange", onVisible);
+      seen.disconnect();
+      document.removeEventListener("visibilitychange", update);
       themeWatch.disconnect();
     };
   }, [fn]);
 
   return (
-    <div>
+    <div ref={rootRef}>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <span className="label">{def.title}</span>
         {note && !error && (
@@ -195,6 +217,9 @@ export function SimRunner({
       ) : (
         <canvas
           ref={canvasRef}
+          // a canvas is invisible to screen readers without a name
+          role="img"
+          aria-label={[def.title, def.caption].filter(Boolean).join(". ").replace(/\$/g, "")}
           className="mt-2 w-full"
           style={{ height: `${def.height}px` }}
         />

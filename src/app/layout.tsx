@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   description:
     "Notes and problems for the F=ma exam and the US Physics Olympiad.",
   openGraph: { siteName: "USAPhO Guide", type: "website" },
+  // X falls back to og:image, but shows it small unless asked for the large card
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({

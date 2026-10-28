@@ -80,10 +80,22 @@ export function checkBatchProblem(p: BankProblem, slugs: Set<string>): string[] 
   if (!DIFFICULTIES.has(p.difficulty))
     errors.push(`${p.id}: bad difficulty '${p.difficulty}'`);
   if (!ORIGINS.has(p.origin)) errors.push(`${p.id}: bad origin '${p.origin}'`);
-  if (typeof p.answer !== "number") errors.push(`${p.id}: answer must be a number`);
-  if (!String(p.statement).trim()) errors.push(`${p.id}: empty statement`);
-  if (!String(p.solution).trim()) errors.push(`${p.id}: empty solution`);
   if (!Array.isArray(p.tags)) errors.push(`${p.id}: tags must be a list`);
+
+  // exam and textbook problems are cited and linked, not reproduced: no
+  // statement, answer or solution, only a url. An original must be solvable.
+  if (p.origin === "original") {
+    if (typeof p.answer !== "number") errors.push(`${p.id}: answer must be a number`);
+    if (!String(p.statement).trim()) errors.push(`${p.id}: empty statement`);
+    if (!String(p.solution).trim()) errors.push(`${p.id}: empty solution`);
+  } else {
+    if (!String(p.url ?? "").trim())
+      errors.push(`${p.id}: ${p.origin} problem needs a url to its source`);
+    if (p.answer !== null)
+      errors.push(`${p.id}: ${p.origin} problem must not reproduce an answer`);
+    if (String(p.statement).trim() || String(p.solution).trim())
+      errors.push(`${p.id}: ${p.origin} problem must not reproduce statement or solution`);
+  }
   return errors;
 }
 

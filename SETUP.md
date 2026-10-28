@@ -115,10 +115,14 @@ Each problem carries an `origin`:
   solution, solvable inline and answer-checked.
 - `exam` / `textbook` — a real F=ma, USAPhO, IPhO or textbook problem. These
   are cited and linked, not reproduced, so the copyright stays with the
-  original publisher.
+  original publisher. They carry no `statement`, `answer` or `solution` (those
+  stay empty); they need a `url` to the source, and may add a `solutionUrl` to
+  the official solution. The build rejects an `exam`/`textbook` entry that
+  fills in a statement, answer or solution.
 
 Both kinds appear in `/problems` and on module pages; only originals can be
-answered on the site.
+answered on the site. Past-exam entries live in
+`src/content/problem-batches/exams.json`.
 
 ### Checks on every pull request
 

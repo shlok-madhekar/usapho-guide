@@ -5989,6 +5989,1100 @@
     "solvable": true
   },
   {
+    "id": "fma-2024-01",
+    "name": "Arrow through two raised hoops",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "projectiles",
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 1",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-02",
+    "name": "Spinning room rider lifts off",
+    "module": "banked-curves",
+    "difficulty": "Easy",
+    "tags": [
+      "circular-motion",
+      "normal-force"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 2",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-03",
+    "name": "Five-rod truss under load",
+    "module": "torque-equilibrium",
+    "difficulty": "Easy",
+    "tags": [
+      "static-equilibrium",
+      "trusses",
+      "forces"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 3",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-04",
+    "name": "Bouncing ball kinetic energy graph",
+    "module": "free-fall",
+    "difficulty": "Easy",
+    "tags": [
+      "energy",
+      "graphs",
+      "free-fall"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 4",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-05",
+    "name": "Scale under sliding incline block",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Easy",
+    "tags": [
+      "inclined-plane",
+      "normal-force",
+      "forces"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 5",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-06",
+    "name": "Leaking bucket pendulum landing pattern",
+    "module": "pendulums",
+    "difficulty": "Easy",
+    "tags": [
+      "pendulum",
+      "oscillations"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 6",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-07",
+    "name": "Velocity-time to velocity-distance",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "kinematics",
+      "graphs"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 7",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-08",
+    "name": "Sliding rod midpoint speed",
+    "module": "angular-kinematics",
+    "difficulty": "Normal",
+    "tags": [
+      "rigid-body",
+      "constraints",
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 8",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-09",
+    "name": "Braking across dry then icy road",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "friction",
+      "work-energy",
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 9",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-10",
+    "name": "Block on springs in spinning box",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "circular-motion",
+      "springs"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 10",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-11",
+    "name": "Pulling sealed hemispheres apart",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "pressure",
+      "fluids"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 11",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-12",
+    "name": "Gravitational torque from asteroids",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "gravitation",
+      "torque"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 12",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-13",
+    "name": "Tension vs block separation",
+    "module": "tension-pulleys",
+    "difficulty": "Normal",
+    "tags": [
+      "tension",
+      "pulleys",
+      "dynamics"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 13",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-14",
+    "name": "Bead on hoop on movable stand",
+    "module": "momentum-impulse",
+    "difficulty": "Normal",
+    "tags": [
+      "momentum",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 14",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-15",
+    "name": "Dimensional analysis of Ohnesorge number",
+    "module": "units-estimation",
+    "difficulty": "Normal",
+    "tags": [
+      "dimensional-analysis",
+      "fluids"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 15",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-16",
+    "name": "Rope swing launch range on Moon",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "projectiles",
+      "energy",
+      "gravity"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 16",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-17",
+    "name": "Pulley-spring network displacement",
+    "module": "springs-hooke",
+    "difficulty": "Hard",
+    "tags": [
+      "springs",
+      "pulleys",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 17",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-18",
+    "name": "Delta-v to raise orbit apoapsis",
+    "module": "gravitation",
+    "difficulty": "Hard",
+    "tags": [
+      "orbits",
+      "energy",
+      "gravitation"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 18",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-19",
+    "name": "Unbalanced spoked wheel oscillation",
+    "module": "pendulums",
+    "difficulty": "Hard",
+    "tags": [
+      "physical-pendulum",
+      "moment-of-inertia",
+      "oscillations"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 19",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-20",
+    "name": "Spring-diagonal square oscillation period",
+    "module": "shm",
+    "difficulty": "Hard",
+    "tags": [
+      "springs",
+      "oscillations",
+      "shm"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 20",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-21",
+    "name": "Force to push a syringe",
+    "module": "pressure-buoyancy",
+    "difficulty": "Hard",
+    "tags": [
+      "bernoulli",
+      "fluids",
+      "continuity"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 21",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-22",
+    "name": "Gravity jump across a mass shell",
+    "module": "gravitation",
+    "difficulty": "Hard",
+    "tags": [
+      "gravity",
+      "shell",
+      "field-discontinuity"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 22",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-23",
+    "name": "Steady bounce with moving paddle",
+    "module": "collisions",
+    "difficulty": "Hard",
+    "tags": [
+      "restitution",
+      "collisions",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 23",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-24",
+    "name": "Fall distance at half terminal velocity",
+    "module": "free-fall",
+    "difficulty": "Very Hard",
+    "tags": [
+      "drag",
+      "terminal-velocity",
+      "scaling"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 24",
+    "solvable": false
+  },
+  {
+    "id": "fma-2024-25",
+    "name": "Dropped yo-yo acceleration behavior",
+    "module": "rotational-dynamics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rotational-dynamics",
+      "moment-of-inertia",
+      "yo-yo"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2024, Problem 25",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-01",
+    "name": "Constant speed from x-t and y-t graphs",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "kinematics",
+      "graphs",
+      "speed"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 1",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-02",
+    "name": "Three-disk collision setup",
+    "module": "collisions",
+    "difficulty": "Easy",
+    "tags": [
+      "momentum",
+      "collisions"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 2",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-03",
+    "name": "Sequential disk collisions",
+    "module": "collisions",
+    "difficulty": "Normal",
+    "tags": [
+      "momentum",
+      "elastic-collision"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 3",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-04",
+    "name": "Cat pursuing a running mouse",
+    "module": "circular-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "pursuit",
+      "relative-motion",
+      "acceleration"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 4",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-05",
+    "name": "Stacked cylinders staying in equilibrium",
+    "module": "torque-equilibrium",
+    "difficulty": "Hard",
+    "tags": [
+      "friction",
+      "statics"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 5",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-06",
+    "name": "Rolling ball launched off a ramp",
+    "module": "energy-conservation",
+    "difficulty": "Normal",
+    "tags": [
+      "rolling",
+      "projectiles"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 6",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-07",
+    "name": "Energy of a stair-walking linkage",
+    "module": "energy-conservation",
+    "difficulty": "Hard",
+    "tags": [
+      "rotation",
+      "kinetic-energy"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 7",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-08",
+    "name": "Spinning top on a rotating plate",
+    "module": "non-inertial-frames",
+    "difficulty": "Normal",
+    "tags": [
+      "rotation",
+      "rotating-frame"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 8",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-09",
+    "name": "Mass on nested rotating circles",
+    "module": "circular-motion",
+    "difficulty": "Hard",
+    "tags": [
+      "rotation",
+      "epicycles",
+      "acceleration"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 9",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-10",
+    "name": "Heavy object strikes a light one",
+    "module": "collisions",
+    "difficulty": "Normal",
+    "tags": [
+      "elastic-collision",
+      "energy-transfer"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 10",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-11",
+    "name": "Light object strikes a heavy one",
+    "module": "collisions",
+    "difficulty": "Normal",
+    "tags": [
+      "elastic-collision",
+      "energy-transfer"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 11",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-12",
+    "name": "Clay striking a pendulum bob",
+    "module": "collisions",
+    "difficulty": "Normal",
+    "tags": [
+      "inelastic-collision",
+      "pendulum",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 12",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-13",
+    "name": "Ball slipping then rolling graphs",
+    "module": "rolling",
+    "difficulty": "Normal",
+    "tags": [
+      "friction",
+      "rolling",
+      "graphs"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 13",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-14",
+    "name": "Fastest ball after it starts rolling",
+    "module": "rolling",
+    "difficulty": "Normal",
+    "tags": [
+      "moment-of-inertia",
+      "rolling"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 14",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-15",
+    "name": "Impulse on a hinged compound rod",
+    "module": "angular-momentum",
+    "difficulty": "Hard",
+    "tags": [
+      "impulse",
+      "moment-of-inertia",
+      "rigid-body"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 15",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-16",
+    "name": "Two connected soap bubbles",
+    "module": "pressure-buoyancy",
+    "difficulty": "Normal",
+    "tags": [
+      "surface-tension",
+      "fluids",
+      "pressure"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 16",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-17",
+    "name": "Motion in a repulsive quadratic potential",
+    "module": "effective-potentials",
+    "difficulty": "Hard",
+    "tags": [
+      "central-force",
+      "potential-energy"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 17",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-18",
+    "name": "Oscillation in a saddle potential",
+    "module": "shm",
+    "difficulty": "Hard",
+    "tags": [
+      "effective-potentials",
+      "stability"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 18",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-19",
+    "name": "Wind turbine power versus height",
+    "module": "power",
+    "difficulty": "Normal",
+    "tags": [
+      "energy",
+      "fluids",
+      "scaling"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 19",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-20",
+    "name": "Spanner tossed from orbit",
+    "module": "gravitation",
+    "difficulty": "Hard",
+    "tags": [
+      "orbits",
+      "relative-motion",
+      "kepler"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 20",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-21",
+    "name": "Venturi pipe flow setup",
+    "module": "pressure-buoyancy",
+    "difficulty": "Hard",
+    "tags": [
+      "bernoulli",
+      "fluids"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 21",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-22",
+    "name": "Height difference in Venturi tubes",
+    "module": "pressure-buoyancy",
+    "difficulty": "Hard",
+    "tags": [
+      "bernoulli",
+      "fluids",
+      "pressure"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 22",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-23",
+    "name": "Spring constant percent error",
+    "module": "data-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "uncertainty",
+      "error-propagation",
+      "springs"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 23",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-24",
+    "name": "Bead swinging on a pivoted rod",
+    "module": "circular-motion",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rotation",
+      "spherical-pivot"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 24",
+    "solvable": false
+  },
+  {
+    "id": "fma-2025-25",
+    "name": "Puck sliding off a moving prism",
+    "module": "energy-conservation",
+    "difficulty": "Very Hard",
+    "tags": [
+      "momentum",
+      "non-inertial-frames",
+      "reference-frames"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2025, Problem 25",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-01",
+    "name": "Apparent transverse speed of a jet",
+    "module": "relative-motion",
+    "difficulty": "Normal",
+    "tags": [
+      "relative velocity",
+      "light travel time",
+      "geometry"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 1",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-02",
+    "name": "Scaling of a domino wave speed",
+    "module": "units-estimation",
+    "difficulty": "Easy",
+    "tags": [
+      "scaling",
+      "dimensional analysis"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 2",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-03",
+    "name": "Matching velocity components to a path",
+    "module": "motion-graphs",
+    "difficulty": "Easy",
+    "tags": [
+      "velocity components",
+      "graphs"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 3",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-04",
+    "name": "Two balls launched from one point",
+    "module": "projectiles",
+    "difficulty": "Easy",
+    "tags": [
+      "projectile",
+      "relative position"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 4",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-05",
+    "name": "Sand dropped from a circling helicopter",
+    "module": "projectiles",
+    "difficulty": "Normal",
+    "tags": [
+      "projectile",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 5",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-06",
+    "name": "Force scaling in impact penetration",
+    "module": "work-energy-theorem",
+    "difficulty": "Normal",
+    "tags": [
+      "scaling",
+      "work-energy"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 6",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-07",
+    "name": "Stability of the L2 point",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "lagrange point",
+      "orbits",
+      "stability"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 7",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-08",
+    "name": "Puck riding a moving bump",
+    "module": "collisions",
+    "difficulty": "Normal",
+    "tags": [
+      "elastic collision",
+      "reference frame",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 8",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-09",
+    "name": "Ball bounced to escape speed",
+    "module": "collisions",
+    "difficulty": "Normal",
+    "tags": [
+      "elastic collision",
+      "escape velocity",
+      "fermi acceleration"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 9",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-10",
+    "name": "Gravity at the face of solids",
+    "module": "gravitation",
+    "difficulty": "Normal",
+    "tags": [
+      "gravitation",
+      "gravitational field",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 10",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-11",
+    "name": "Bead sliding on a free ring",
+    "module": "momentum-impulse",
+    "difficulty": "Normal",
+    "tags": [
+      "momentum conservation",
+      "center of mass"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 11",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-12",
+    "name": "Towing a wake surfer at angle",
+    "module": "newtons-laws-fbd",
+    "difficulty": "Normal",
+    "tags": [
+      "force balance",
+      "buoyancy",
+      "normal force"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 12",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-13",
+    "name": "Block bouncing between springs",
+    "module": "friction",
+    "difficulty": "Normal",
+    "tags": [
+      "friction",
+      "kinematics"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 13",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-14",
+    "name": "Period of a rigid-rod swing",
+    "module": "pendulums",
+    "difficulty": "Normal",
+    "tags": [
+      "pendulum",
+      "small oscillations"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 14",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-15",
+    "name": "Slipping to rolling final speed",
+    "module": "rolling",
+    "difficulty": "Normal",
+    "tags": [
+      "rolling",
+      "friction",
+      "angular momentum"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 15",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-16",
+    "name": "Puck bouncing in a free triangle",
+    "module": "collisions",
+    "difficulty": "Hard",
+    "tags": [
+      "elastic collision",
+      "momentum",
+      "geometry"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 16",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-17",
+    "name": "Sliding ladder contact-point speed",
+    "module": "rotational-dynamics",
+    "difficulty": "Hard",
+    "tags": [
+      "rigid body",
+      "energy conservation",
+      "rotation"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 17",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-18",
+    "name": "Effective constant of spring-pulley set",
+    "module": "springs-hooke",
+    "difficulty": "Hard",
+    "tags": [
+      "spring combination",
+      "shm",
+      "pulleys"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 18",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-19",
+    "name": "Pendulum on a free-sliding cart",
+    "module": "pendulums",
+    "difficulty": "Hard",
+    "tags": [
+      "coupled oscillation",
+      "pendulum",
+      "center of mass"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 19",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-20",
+    "name": "Motor-driven rod holding a tilt",
+    "module": "rotational-dynamics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "torque",
+      "rotation",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 20",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-21",
+    "name": "Jumping off a merry-go-round",
+    "module": "non-inertial-frames",
+    "difficulty": "Hard",
+    "tags": [
+      "rotating frame",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 21",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-22",
+    "name": "Tricycle braking with uneven friction",
+    "module": "rotational-dynamics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "torque",
+      "friction",
+      "moment of inertia"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 22",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-23",
+    "name": "Moment of inertia of nested hexagons",
+    "module": "moment-of-inertia",
+    "difficulty": "Very Hard",
+    "tags": [
+      "moment of inertia",
+      "fractal",
+      "infinite series"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 23",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-24",
+    "name": "Air sheet clinging to a cylinder",
+    "module": "pressure-buoyancy",
+    "difficulty": "Hard",
+    "tags": [
+      "fluid pressure",
+      "centripetal force",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 24",
+    "solvable": false
+  },
+  {
+    "id": "fma-2026-25",
+    "name": "Fastest-draining vase shape",
+    "module": "pressure-buoyancy",
+    "difficulty": "Hard",
+    "tags": [
+      "torricelli",
+      "fluid flow",
+      "draining"
+    ],
+    "starred": false,
+    "origin": "exam",
+    "source": "F=ma 2026, Problem 25",
+    "solvable": false
+  },
+  {
     "id": "kin-1d-01",
     "name": "Car speeding up from rest",
     "module": "motion-1d",

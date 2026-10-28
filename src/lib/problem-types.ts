@@ -21,6 +21,8 @@ export interface BankProblem {
   origin: Origin;
   source: string;
   url?: string;
+  /** exam/textbook only: a link to the official solution, shown beside the source */
+  solutionUrl?: string;
   statement: string;
   answer: number | null;
   unit: string;

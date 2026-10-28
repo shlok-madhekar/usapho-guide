@@ -11,6 +11,10 @@ import { allModules, findModule } from "@/lib/curriculum";
 import { LESSONS } from "@/content/lessons";
 import { problemsForModule, isSolvable } from "@/lib/problems";
 
+// Every module is built ahead of time, so an unknown slug can answer 404 at
+// once instead of starting a server render that only ends in notFound().
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return allModules().map(({ module }) => ({ slug: module.slug }));
 }

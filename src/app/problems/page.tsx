@@ -144,10 +144,12 @@ export default function ProblemsPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by name, topic, tag or source"
+            aria-label="Search problems"
             className="w-full"
           />
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Select
+              label="Division"
               value={division}
               onChange={setDivision}
               options={[
@@ -156,6 +158,7 @@ export default function ProblemsPage() {
               ]}
             />
             <Select
+              label="Difficulty"
               value={difficulty}
               onChange={(v) => setDifficulty(v as Difficulty | "any")}
               options={[
@@ -164,6 +167,7 @@ export default function ProblemsPage() {
               ]}
             />
             <Select
+              label="Origin"
               value={origin}
               onChange={(v) => setOrigin(v as Origin | "any")}
               options={ORIGIN_FILTERS}
@@ -244,16 +248,22 @@ export default function ProblemsPage() {
 }
 
 function Select({
+  label,
   value,
   onChange,
   options,
 }: {
+  label: string;
   value: string;
   onChange: (v: string) => void;
   options: { key: string; label: string }[];
 }) {
   return (
-    <select value={value} onChange={(e) => onChange(e.target.value)}>
+    <select
+      aria-label={label}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    >
       {options.map((o) => (
         <option key={o.key} value={o.key}>
           {o.label}

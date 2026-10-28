@@ -294,7 +294,9 @@ input[type="number"], textarea, select {
 }
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: var(--ink-soft);
+  border-color: var(--accent);
+  /* the border alone moved one grey shade, too faint to find the field by */
+  box-shadow: 0 0 0 1px var(--accent);
 }
 input::placeholder, textarea::placeholder { color: var(--ink-faint); }
 

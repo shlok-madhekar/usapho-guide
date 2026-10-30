@@ -150,7 +150,7 @@ export default function SearchDialog() {
                       role="option"
                       aria-selected={i === active}
                     >
-                      <Link
+                      <Link prefetch={false}
                         href={hrefFor(r)}
                         onClick={close}
                         onMouseMove={() => setActive(i)}
@@ -176,7 +176,7 @@ export default function SearchDialog() {
               )}
 
               {query.trim() && (
-                <Link
+                <Link prefetch={false}
                   href={problemsHref}
                   onClick={close}
                   className="sans block px-4 py-2.5 text-sm text-[var(--ink-soft)] hover:text-[var(--accent)]"

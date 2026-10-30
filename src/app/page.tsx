@@ -45,10 +45,10 @@ export default function Home() {
               is wrong you can fix it.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/guide" className="btn">
+              <Link prefetch={false} href="/guide" className="btn">
                 Start with F=ma
               </Link>
-              <Link href="/problems" className="btn-plain">
+              <Link prefetch={false} href="/problems" className="btn-plain">
                 Problem bank
               </Link>
             </div>
@@ -77,7 +77,7 @@ export default function Home() {
                 <ol className="mt-4">
                   {course.sections.map((section, si) => (
                     <li key={section.id} className="py-1.5">
-                      <Link
+                      <Link prefetch={false}
                         href={`/guide/${section.modules[0]?.slug ?? ""}`}
                         className="group flex items-baseline gap-2"
                       >
@@ -111,7 +111,7 @@ export default function Home() {
         <footer className="mt-20 border-t border-[var(--rule)] pt-6 text-[0.9em] text-[var(--ink-soft)]">
           <p>
             Anyone can add a lesson or a problem from{" "}
-            <Link href="/edit" className="link">
+            <Link prefetch={false} href="/edit" className="link">
               the editor
             </Link>{" "}
             or a pull request on{" "}
@@ -123,7 +123,7 @@ export default function Home() {
               Open an issue
             </a>
             . See{" "}
-            <Link href="/contributors" className="link">
+            <Link prefetch={false} href="/contributors" className="link">
               who&apos;s helped
             </Link>
             .

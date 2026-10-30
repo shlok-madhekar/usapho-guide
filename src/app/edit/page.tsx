@@ -379,7 +379,7 @@ function Lessons({ api }: { api: Api }) {
               <span className="mono text-sm text-[var(--ink-strong)]">
                 {active}.mdx {dirty && <em className="text-[var(--warn)]">edited</em>}
               </span>
-              <Link href={`/guide/${active}`} target="_blank" className="link sans text-sm">
+              <Link prefetch={false} href={`/guide/${active}`} target="_blank" className="link sans text-sm">
                 Preview page
               </Link>
             </div>

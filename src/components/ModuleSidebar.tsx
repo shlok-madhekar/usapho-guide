@@ -33,7 +33,7 @@ export default function ModuleSidebar({
                     className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full"
                     style={{ background: MODULE_STATUS_META[st].color }}
                   />
-                  <Link
+                  <Link prefetch={false}
                     href={`/guide/${m.slug}`}
                     className={`sans text-[0.82rem] leading-snug ${
                       active

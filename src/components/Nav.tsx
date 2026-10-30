@@ -52,7 +52,7 @@ function AccountMenu() {
 
   if (!session) {
     return (
-      <Link
+      <Link prefetch={false}
         href="/login"
         className="sans text-sm text-[var(--ink-soft)] hover:text-[var(--ink-strong)]"
       >
@@ -97,14 +97,14 @@ function AccountMenu() {
               <div className="sans mt-1 text-xs text-[var(--ink-faint)]">Reader</div>
             )}
           </div>
-          <Link
+          <Link prefetch={false}
             href="/edit"
             onClick={() => setOpen(false)}
             className="sans block px-3 py-1.5 text-sm text-[var(--ink)] hover:bg-[var(--paper-2)]"
           >
             Write for the guide
           </Link>
-          <Link
+          <Link prefetch={false}
             href="/account"
             onClick={() => setOpen(false)}
             className="sans block px-3 py-1.5 text-sm text-[var(--ink)] hover:bg-[var(--paper-2)]"
@@ -160,7 +160,7 @@ function MobileMenu({ links }: { links: { href: string; label: string }[] }) {
       {open && (
         <div className="absolute right-0 top-full z-40 mt-2 w-48 border border-[var(--rule-strong)] bg-[var(--panel)] py-1">
           {links.map((l) => (
-            <Link
+            <Link prefetch={false}
               key={l.href}
               href={l.href}
               className={`sans block px-3 py-2 text-sm hover:bg-[var(--paper-2)] ${
@@ -200,7 +200,7 @@ export default function Nav() {
   return (
     <header className="no-print sticky top-0 z-40 border-b border-[var(--rule)] bg-[color:var(--paper)]/95 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
-        <Link
+        <Link prefetch={false}
           href="/"
           className="sans flex items-center gap-2 text-[16px] font-semibold text-[var(--ink-strong)]"
         >
@@ -210,7 +210,7 @@ export default function Nav() {
 
         <nav className="flex items-center gap-4 text-sm sm:gap-5">
           {links.map((l) => (
-            <Link
+            <Link prefetch={false}
               key={l.href}
               href={l.href}
               className={`sans hidden text-sm sm:inline ${

@@ -30,7 +30,7 @@ export default function AccountPage() {
           <p className="mt-3 text-[var(--ink-soft)]">
             {configured ? (
               <>
-                <Link href="/login" className="link">
+                <Link prefetch={false} href="/login" className="link">
                   Sign in
                 </Link>{" "}
                 to keep your progress across devices.
@@ -105,7 +105,7 @@ export default function AccountPage() {
                 <StarPrompt api={gh.api} />
               </>
             ) : (
-              <Link href="/edit" className="btn">
+              <Link prefetch={false} href="/edit" className="btn">
                 Open the editor
               </Link>
             )}
@@ -118,7 +118,7 @@ export default function AccountPage() {
           </h2>
           <p className="mt-2 text-[0.95rem] text-[var(--ink-soft)]">
             Change it from the sign-in page using{" "}
-            <Link href="/login?reset=1" className="link">
+            <Link prefetch={false} href="/login?reset=1" className="link">
               send a reset link
             </Link>
             , which emails you a one-time link.

@@ -37,7 +37,7 @@ export default function ProgressPage() {
           ) : configured && !session ? (
             <>
               Saved in this browser only.{" "}
-              <Link href="/login" className="link">
+              <Link prefetch={false} href="/login" className="link">
                 Sign in
               </Link>{" "}
               to keep it across devices.
@@ -86,7 +86,7 @@ export default function ProgressPage() {
                             className="inline-block h-2 w-2 shrink-0 rounded-full"
                             style={{ background: MODULE_STATUS_META[st].color }}
                           />
-                          <Link
+                          <Link prefetch={false}
                             href={`/guide/${m.slug}`}
                             className="min-w-0 flex-1 truncate text-[0.97rem] hover:text-[var(--accent)]"
                           >

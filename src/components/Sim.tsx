@@ -79,6 +79,11 @@ function compile(source: string): { fn: DrawFn | null; error: string | null } {
   }
 }
 
+/** True when the reader asked the system to minimise animation. */
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia?.("(prefers-reduced-motion: reduce)").matches === true;
+
 export function SimRunner({
   def,
   values,
@@ -94,6 +99,8 @@ export function SimRunner({
   const [error, setError] = useState<string | null>(null);
   const valuesRef = useRef(values);
   valuesRef.current = values;
+  // lets a slider repaint a static (reduced-motion) sim, which has no loop
+  const repaintRef = useRef<(() => void) | null>(null);
 
   const { fn, error: compileError } = useMemo(() => compile(def.draw), [def.draw]);
 
@@ -116,6 +123,7 @@ export function SimRunner({
     let raf = 0;
     let start = performance.now();
     let failed = false;
+    const reduce = prefersReducedMotion();
 
     const paint = (now: number) => {
       const W = canvas.clientWidth;
@@ -130,7 +138,9 @@ export function SimRunner({
 
       const out = { note: "" };
       try {
-        fn(math, valuesRef.current, (now - start) / 1000, W, H, C, out);
+        // reduced motion freezes the clock at the opening frame; sliders still repaint
+        const t = reduce ? 0 : (now - start) / 1000;
+        fn(math, valuesRef.current, t, W, H, C, out);
       } catch (e) {
         // a broken sim should report itself, not spin at 60fps forever
         failed = true;
@@ -143,6 +153,10 @@ export function SimRunner({
     // Draw one frame straight away so the canvas is never blank: rAF does not
     // run in a hidden tab, and a sim scrolled into view should already be there.
     paint(performance.now());
+
+    // Reduced motion: leave the opening frame on screen and never animate.
+    // A slider still repaints through repaintRef (there is no loop to do it).
+    repaintRef.current = reduce ? () => paint(performance.now()) : null;
 
     // Animate only while the sim is on screen and the tab is visible. A
     // lesson has three or four sims, and drawing the ones scrolled out of
@@ -166,19 +180,21 @@ export function SimRunner({
         cancelAnimationFrame(raf);
       }
     };
-    raf = requestAnimationFrame(loop);
-
-    // the sliders count as part of the sim, so moving one still repaints
-    // while the canvas itself is just above the fold
-    const seen = new IntersectionObserver(
-      ([entry]) => {
-        onScreen = entry.isIntersecting;
-        update();
-      },
-      { rootMargin: "100px" }
-    );
-    if (rootRef.current) seen.observe(rootRef.current);
-    document.addEventListener("visibilitychange", update);
+    let seen: IntersectionObserver | null = null;
+    if (!reduce) {
+      raf = requestAnimationFrame(loop);
+      // the sliders count as part of the sim, so moving one still repaints
+      // while the canvas itself is just above the fold
+      seen = new IntersectionObserver(
+        ([entry]) => {
+          onScreen = entry.isIntersecting;
+          update();
+        },
+        { rootMargin: "100px" }
+      );
+      if (rootRef.current) seen.observe(rootRef.current);
+      document.addEventListener("visibilitychange", update);
+    }
 
     // The palette is read from CSS variables, so pick it up again when the
     // theme changes (a toggle, or printing, which switches to light). Paint
@@ -195,11 +211,18 @@ export function SimRunner({
     return () => {
       loaded = false;
       cancelAnimationFrame(raf);
-      seen.disconnect();
+      seen?.disconnect();
       document.removeEventListener("visibilitychange", update);
       themeWatch.disconnect();
+      repaintRef.current = null;
     };
   }, [fn]);
+
+  // a slider change repaints a static (reduced-motion) sim; the animation
+  // loop already repaints in the normal case, so repaintRef is null there
+  useEffect(() => {
+    repaintRef.current?.();
+  }, [values]);
 
   return (
     <div ref={rootRef}>

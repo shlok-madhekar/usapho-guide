@@ -10,19 +10,41 @@ import {
   isSolvable,
 } from "@/lib/problem-types";
 
-/**
- * Accepts the ways people actually write numbers: 3.75e10, 3.75E10,
- * 3.75x10^10, 3.75 × 10^10, and thousands separators.
- */
-function parseAnswer(raw: string): number | null {
-  const text = raw.trim().replace(/,/g, "").replace(/\s+/g, "");
-  if (!text) return null;
-
+/** A plain decimal, or scientific notation written 3.75e10 or 3.75x10^10. */
+function parseScalar(text: string): number | null {
   const sci = text.match(/^([+-]?\d*\.?\d+)[x×*]10\^?([+-]?\d+)$/i);
   if (sci) return Number(sci[1]) * Math.pow(10, Number(sci[2]));
-
   const val = Number(text);
   return Number.isFinite(val) ? val : null;
+}
+
+/**
+ * Accepts the ways people actually write a physics answer: 3.75e10,
+ * 3.75x10^10, thousands separators, a fraction like 3/4, and multiples of
+ * pi like pi, 2pi, pi/2 or 3pi/4 (also written π). Returns null if it is not
+ * one clean number, so a wrong-format entry is never read as a stray value.
+ */
+function parseAnswer(raw: string): number | null {
+  const text = raw.trim().replace(/,/g, "").replace(/\s+/g, "").replace(/π/g, "pi");
+  if (!text) return null;
+
+  // a multiple of pi: [coef]pi[/denom], e.g. pi, -2pi, pi/2, 3pi/4
+  const pi = text.match(/^([+-]?\d*\.?\d*)pi(?:\/(\d*\.?\d+))?$/i);
+  if (pi) {
+    const coef = pi[1] === "" || pi[1] === "+" ? 1 : pi[1] === "-" ? -1 : Number(pi[1]);
+    const denom = pi[2] ? Number(pi[2]) : 1;
+    if (Number.isFinite(coef) && denom !== 0) return (coef * Math.PI) / denom;
+    return null;
+  }
+
+  // a plain fraction of two scalars, e.g. 3/4 or 1.5/2
+  const frac = text.match(/^([+-]?\d*\.?\d+)\/(\d*\.?\d+)$/);
+  if (frac) {
+    const denom = Number(frac[2]);
+    return denom !== 0 ? Number(frac[1]) / denom : null;
+  }
+
+  return parseScalar(text);
 }
 
 function Meta({ p }: { p: Problem }) {
@@ -132,7 +154,7 @@ function BankProblemInner({
               onKeyDown={(e) => e.key === "Enter" && check()}
               placeholder="Answer"
               aria-label={p.unit ? `Answer in ${p.unit}` : "Answer"}
-              title="Scientific notation is fine: 3.75e10 or 3.75x10^10"
+              title="You can enter 3.75e10, 3.75x10^10, a fraction like 3/4, or a multiple of pi like pi/2"
               className="w-32"
               style={
                 verdict === "right"

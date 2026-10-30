@@ -186,16 +186,32 @@ function BankProblemInner({
           <p className="text-[0.95rem] text-[var(--ink-soft)]">
             Official exam text is not reproduced here.{" "}
             {p.url ? (
-              <a
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link"
-              >
-                {p.url.toLowerCase().endsWith(".pdf")
-                  ? `Open the ${p.source} exam (PDF)`
-                  : `Find ${p.source} on the AAPT past exams page`}
-              </a>
+              <>
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link"
+                >
+                  {/* the page anchor (#page=3) leaves .pdf mid-string */}
+                  {p.url.toLowerCase().includes(".pdf")
+                    ? `Open the ${p.source} exam (PDF)`
+                    : `Find ${p.source} on the AAPT past exams page`}
+                </a>
+                {p.solutionUrl && (
+                  <>
+                    {" · "}
+                    <a
+                      href={p.solutionUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link"
+                    >
+                      official solution
+                    </a>
+                  </>
+                )}
+              </>
             ) : (
               <>Find it in {p.source}.</>
             )}

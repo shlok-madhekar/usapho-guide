@@ -117,16 +117,30 @@ def check(problem: dict, slugs: set[str], seen: set[str]) -> list[str]:
         errors.append(f"{pid}: bad difficulty '{problem['difficulty']}'")
     if problem["origin"] not in ORIGINS:
         errors.append(f"{pid}: bad origin '{problem['origin']}'")
-    if not isinstance(problem["answer"], (int, float)) or isinstance(
-        problem["answer"], bool
-    ):
-        errors.append(f"{pid}: answer must be a number, got {problem['answer']!r}")
-    if not str(problem["statement"]).strip():
-        errors.append(f"{pid}: empty statement")
-    if not str(problem["solution"]).strip():
-        errors.append(f"{pid}: empty solution")
     if not isinstance(problem["tags"], list):
         errors.append(f"{pid}: tags must be a list")
+
+    # exam and textbook problems are cited and linked, not reproduced, so they
+    # carry no statement, answer or solution, only a link to the source. An
+    # original must be fully solvable on the site.
+    if problem["origin"] == "original":
+        if not isinstance(problem["answer"], (int, float)) or isinstance(
+            problem["answer"], bool
+        ):
+            errors.append(f"{pid}: answer must be a number, got {problem['answer']!r}")
+        if not str(problem["statement"]).strip():
+            errors.append(f"{pid}: empty statement")
+        if not str(problem["solution"]).strip():
+            errors.append(f"{pid}: empty solution")
+    else:
+        if not str(problem.get("url", "")).strip():
+            errors.append(f"{pid}: {problem['origin']} problem needs a url to its source")
+        if problem["answer"] is not None:
+            errors.append(f"{pid}: {problem['origin']} problem must not reproduce an answer")
+        if str(problem["statement"]).strip() or str(problem["solution"]).strip():
+            errors.append(
+                f"{pid}: {problem['origin']} problem must not reproduce statement or solution"
+            )
     return errors
 
 

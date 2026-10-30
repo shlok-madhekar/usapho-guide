@@ -5,11 +5,11 @@
   },
   "angular-kinematics": {
     "solvable": 30,
-    "total": 30
+    "total": 31
   },
   "angular-momentum": {
     "solvable": 30,
-    "total": 30
+    "total": 31
   },
   "approximations": {
     "solvable": 30,
@@ -17,7 +17,7 @@
   },
   "banked-curves": {
     "solvable": 30,
-    "total": 30
+    "total": 31
   },
   "beats-interference": {
     "solvable": 30,
@@ -49,11 +49,11 @@
   },
   "circular-motion": {
     "solvable": 33,
-    "total": 33
+    "total": 37
   },
   "collisions": {
     "solvable": 30,
-    "total": 30
+    "total": 39
   },
   "conductors-capacitance": {
     "solvable": 31,
@@ -73,7 +73,7 @@
   },
   "data-graphs": {
     "solvable": 30,
-    "total": 30
+    "total": 31
   },
   "data-uncertainty": {
     "solvable": 30,
@@ -101,7 +101,7 @@
   },
   "effective-potentials": {
     "solvable": 30,
-    "total": 30
+    "total": 31
   },
   "electric-potential": {
     "solvable": 30,
@@ -109,7 +109,7 @@
   },
   "energy-conservation": {
     "solvable": 33,
-    "total": 35
+    "total": 38
   },
   "entropy": {
     "solvable": 30,
@@ -129,11 +129,11 @@
   },
   "free-fall": {
     "solvable": 30,
-    "total": 30
+    "total": 32
   },
   "friction": {
     "solvable": 30,
-    "total": 30
+    "total": 32
   },
   "gauss-law": {
     "solvable": 32,
@@ -141,7 +141,7 @@
   },
   "gravitation": {
     "solvable": 30,
-    "total": 30
+    "total": 36
   },
   "heat-engines": {
     "solvable": 31,
@@ -185,11 +185,11 @@
   },
   "moment-of-inertia": {
     "solvable": 30,
-    "total": 30
+    "total": 31
   },
   "momentum-impulse": {
     "solvable": 30,
-    "total": 30
+    "total": 32
   },
   "motion-1d": {
     "solvable": 33,
@@ -197,7 +197,7 @@
   },
   "motion-graphs": {
     "solvable": 30,
-    "total": 30
+    "total": 33
   },
   "motional-emf": {
     "solvable": 30,
@@ -205,11 +205,11 @@
   },
   "newtons-laws-fbd": {
     "solvable": 33,
-    "total": 35
+    "total": 37
   },
   "non-inertial-frames": {
     "solvable": 30,
-    "total": 30
+    "total": 32
   },
   "oscillator-energy": {
     "solvable": 30,
@@ -221,7 +221,7 @@
   },
   "pendulums": {
     "solvable": 30,
-    "total": 30
+    "total": 34
   },
   "photoelectric": {
     "solvable": 31,
@@ -233,11 +233,11 @@
   },
   "power": {
     "solvable": 30,
-    "total": 30
+    "total": 31
   },
   "pressure-buoyancy": {
     "solvable": 30,
-    "total": 30
+    "total": 37
   },
   "problem-strategy": {
     "solvable": 30,
@@ -245,7 +245,7 @@
   },
   "projectiles": {
     "solvable": 33,
-    "total": 35
+    "total": 39
   },
   "pv-diagrams": {
     "solvable": 30,
@@ -265,7 +265,7 @@
   },
   "relative-motion": {
     "solvable": 30,
-    "total": 30
+    "total": 31
   },
   "relativistic-energy": {
     "solvable": 30,
@@ -273,19 +273,19 @@
   },
   "rolling": {
     "solvable": 30,
-    "total": 30
+    "total": 33
   },
   "rotational-dynamics": {
     "solvable": 33,
-    "total": 35
+    "total": 39
   },
   "shm": {
     "solvable": 33,
-    "total": 34
+    "total": 36
   },
   "springs-hooke": {
     "solvable": 30,
-    "total": 30
+    "total": 32
   },
   "sr-kinematics": {
     "solvable": 32,
@@ -297,7 +297,7 @@
   },
   "tension-pulleys": {
     "solvable": 30,
-    "total": 30
+    "total": 31
   },
   "thin-film": {
     "solvable": 30,
@@ -305,7 +305,7 @@
   },
   "torque-equilibrium": {
     "solvable": 30,
-    "total": 30
+    "total": 32
   },
   "tricky-networks": {
     "solvable": 30,
@@ -313,7 +313,7 @@
   },
   "units-estimation": {
     "solvable": 30,
-    "total": 30
+    "total": 32
   },
   "vectors": {
     "solvable": 33,
@@ -325,6 +325,6 @@
   },
   "work-energy-theorem": {
     "solvable": 30,
-    "total": 30
+    "total": 31
   }
 }

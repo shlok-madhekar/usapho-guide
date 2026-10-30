@@ -157,6 +157,13 @@ a { color: inherit; }
 /* keep a linked heading clear of the sticky header */
 .prose h2[id],
 .prose h3[id] { scroll-margin-top: 4.5rem; }
+/* the "#" link that appears on hovering a heading */
+.prose .heading-anchor {
+  color: var(--ink-faint);
+  font-weight: 400;
+  text-decoration: none;
+}
+.prose .heading-anchor:hover { color: var(--accent); }
 
 .prose h2 + *,
 .prose h3 + * { margin-top: 0.6em; }

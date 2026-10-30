@@ -38,7 +38,7 @@ export default function Error({
           <button onClick={reset} className="btn sans">
             Try again
           </button>
-          <Link href="/" className="link sans text-sm">
+          <Link prefetch={false} href="/" className="link sans text-sm">
             Go home
           </Link>
           <a

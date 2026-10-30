@@ -59,7 +59,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
             <span>usapho.one/guide/{mod.slug} · CC BY-NC-SA 4.0</span>
           </p>
           <p className="label">
-            <Link href="/guide" className="hover:text-[var(--ink)]">
+            <Link prefetch={false} href="/guide" className="hover:text-[var(--ink)]">
               {division.name}
             </Link>
             <span className="mx-2">/</span>
@@ -85,7 +85,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
               <span className="label">
                 after{" "}
                 {mod.prereqs.map((p) => (
-                  <Link key={p} href={`/guide/${p}`} className="link normal-case">
+                  <Link prefetch={false} key={p} href={`/guide/${p}`} className="link normal-case">
                     {allModules().find((x) => x.module.slug === p)?.module.title ?? p}
                   </Link>
                 ))}
@@ -164,7 +164,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
 
           <nav className="no-print mt-16 flex justify-between gap-6 border-t border-[var(--rule)] pt-5 text-sm">
             {prev ? (
-              <Link href={`/guide/${prev.slug}`} className="group">
+              <Link prefetch={false} href={`/guide/${prev.slug}`} className="group">
                 <span className="label block">Previous</span>
                 <span className="text-[var(--ink)] group-hover:text-[var(--accent)]">
                   {prev.title}
@@ -174,7 +174,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
               <span />
             )}
             {next && (
-              <Link href={`/guide/${next.slug}`} className="group text-right">
+              <Link prefetch={false} href={`/guide/${next.slug}`} className="group text-right">
                 <span className="label block">Next</span>
                 <span className="text-[var(--ink)] group-hover:text-[var(--accent)]">
                   {next.title}

@@ -43,7 +43,7 @@ export default function NearestModules() {
       <ul>
         {shown.map(({ module }) => (
           <li key={module.slug} className="border-b border-[var(--rule)] py-3">
-            <Link
+            <Link prefetch={false}
               href={`/guide/${module.slug}`}
               className="sans text-[0.95rem] font-semibold text-[var(--ink-strong)] hover:text-[var(--accent)]"
             >

@@ -120,7 +120,7 @@ export default async function ContributorsPage() {
         <section className="mt-6 text-sm text-[var(--ink-soft)]">
           <p>
             Want your name here? Write a lesson, add a problem or fix a typo from{" "}
-            <Link href="/edit" className="link">
+            <Link prefetch={false} href="/edit" className="link">
               the editor
             </Link>{" "}
             or open a pull request on{" "}

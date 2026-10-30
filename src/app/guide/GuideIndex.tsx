@@ -71,7 +71,7 @@ export default function GuideIndex({ written }: { written: string[] }) {
                 const started = st && st !== "not-started";
                 return (
                   <li key={m.slug} className="border-b border-[var(--rule)]">
-                    <Link
+                    <Link prefetch={false}
                       href={`/guide/${m.slug}`}
                       className="group flex items-baseline gap-3 py-2.5"
                     >

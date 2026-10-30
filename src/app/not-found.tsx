@@ -20,13 +20,13 @@ export default function NotFound() {
         <NearestModules />
 
         <nav className="sans mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <Link href="/guide" className="link">
+          <Link prefetch={false} href="/guide" className="link">
             The course
           </Link>
-          <Link href="/problems" className="link">
+          <Link prefetch={false} href="/problems" className="link">
             Problem bank
           </Link>
-          <Link href="/" className="link">
+          <Link prefetch={false} href="/" className="link">
             Home
           </Link>
         </nav>

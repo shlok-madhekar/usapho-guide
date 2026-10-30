@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 /**
  * A single multiple-choice check. Plain strings so lesson MDX stays readable,
@@ -28,6 +28,34 @@ export default function QuickCheck({
   const correct = checked && picked === answer;
   const letter = (i: number) => String.fromCharCode(65 + i);
 
+  // A radiogroup is expected to move selection with the arrow keys, with only
+  // the chosen option in the tab order (a "roving tabindex"). Without this the
+  // keyboard lands on every option in turn and arrows do nothing.
+  const optionRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const pickAndFocus = (i: number) => {
+    const n = ((i % options.length) + options.length) % options.length;
+    setPicked(n);
+    optionRefs.current[n]?.focus();
+  };
+  const onOptionKey = (e: React.KeyboardEvent, i: number) => {
+    if (checked) return;
+    // move relative to the focused option (i), so one arrow press always steps
+    // to a neighbour even when nothing is selected yet
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+      e.preventDefault();
+      pickAndFocus(i + 1);
+    } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      pickAndFocus(i - 1);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      pickAndFocus(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      pickAndFocus(options.length - 1);
+    }
+  };
+
   return (
     <section className="my-8 border border-[var(--rule-strong)] p-4 sm:p-5">
       <p className="sans text-sm font-semibold text-[var(--ink-strong)]">Quick check</p>
@@ -48,11 +76,17 @@ export default function QuickCheck({
           return (
             <button
               key={i}
+              ref={(el) => {
+                optionRefs.current[i] = el;
+              }}
               type="button"
               role="radio"
               aria-checked={isPicked}
+              // roving tabindex: one stop into the group, then arrows move within
+              tabIndex={isPicked || (picked === null && i === 0) ? 0 : -1}
               disabled={checked}
               onClick={() => setPicked(i)}
+              onKeyDown={(e) => onOptionKey(e, i)}
               className="sans flex w-full items-center gap-3 border bg-transparent px-3 py-2.5 text-left text-[0.95rem] text-[var(--ink)] transition-colors hover:bg-[var(--paper-2)] disabled:cursor-default disabled:hover:bg-transparent"
               style={{ borderColor: border }}
             >

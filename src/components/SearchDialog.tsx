@@ -35,6 +35,7 @@ export default function SearchDialog() {
   const [failed, setFailed] = useState(false);
   const [active, setActive] = useState(0);
   const input = useRef<HTMLInputElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -63,9 +64,17 @@ export default function SearchDialog() {
   const results = useMemo(() => (index ? search(index, query) : []), [index, query]);
   useEffect(() => setActive(0), [query]);
 
+  // arrow keys move the highlight, so keep it inside the scrolled list
+  useEffect(() => {
+    if (open)
+      document.getElementById(`search-result-${active}`)?.scrollIntoView({ block: "nearest" });
+  }, [open, active]);
+
   const close = () => {
     setOpen(false);
     setQuery("");
+    // hand focus back to the button that opened the dialog
+    trigger.current?.focus();
   };
   const go = (href: string) => {
     close();
@@ -75,7 +84,11 @@ export default function SearchDialog() {
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Escape") close();
-    else if (e.key === "ArrowDown") {
+    // a modal keeps Tab inside it; the arrows already reach every result
+    else if (e.key === "Tab") {
+      e.preventDefault();
+      input.current?.focus();
+    } else if (e.key === "ArrowDown") {
       e.preventDefault();
       setActive((i) => Math.min(i + 1, results.length - 1));
     } else if (e.key === "ArrowUp") {
@@ -91,6 +104,7 @@ export default function SearchDialog() {
   return (
     <>
       <button
+        ref={trigger}
         onClick={() => setOpen(true)}
         aria-label="Search lessons"
         title="Search lessons (/)"
@@ -125,11 +139,23 @@ export default function SearchDialog() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search lessons, e.g. gauss, rolling, doppler"
+                role="combobox"
+                aria-expanded={results.length > 0}
+                aria-autocomplete="list"
                 aria-label="Search lessons"
                 aria-controls="search-results"
                 aria-activedescendant={results[active] ? `search-result-${active}` : undefined}
                 className="sans w-full border-b border-[var(--rule)] bg-transparent px-4 py-3 text-[15px] text-[var(--ink-strong)] outline-none placeholder:text-[var(--ink-faint)]"
               />
+
+              {/* announced as the results change; the list itself is not live */}
+              <p role="status" className="sr-only">
+                {index && query.trim()
+                  ? results.length === 0
+                    ? "No lessons found"
+                    : `${results.length} ${results.length === 1 ? "lesson" : "lessons"} found`
+                  : ""}
+              </p>
 
               {failed ? (
                 <p className="sans px-4 py-6 text-sm text-[var(--ink-soft)]">

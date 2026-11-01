@@ -50,6 +50,9 @@ const EMPTY: ProgressState = { modules: {}, problems: {} };
 
 const ProgressContext = createContext<ProgressContextValue | null>(null);
 
+const isRecord = (v: unknown): v is Record<string, unknown> =>
+  typeof v === "object" && v !== null && !Array.isArray(v);
+
 function mergeProgress(local: ProgressState, remote: ProgressState): ProgressState {
   // Union of both; remote wins on conflict for module status, and the further
   // along problem status wins so a solve is never downgraded by a stale device.
@@ -67,6 +70,9 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<ProgressState>(EMPTY);
   const [ready, setReady] = useState(false);
   const [syncing, setSyncing] = useState(false);
+  // the account whose copy has been pulled and merged; nothing is pushed
+  // before that, or an empty device would overwrite the saved progress
+  const [pulledFor, setPulledFor] = useState<string | null>(null);
   const userId = session?.user?.id ?? null;
   const loadedFor = useRef<string | null>(null);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -75,7 +81,15 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const raw = localStorage.getItem(KEY);
-      if (raw) setState(JSON.parse(raw));
+      if (raw) {
+        const saved = JSON.parse(raw);
+        // JSON.parse("null") and hand-edited storage must not reach the state
+        if (isRecord(saved))
+          setState({
+            modules: isRecord(saved.modules) ? (saved.modules as ProgressState["modules"]) : {},
+            problems: isRecord(saved.problems) ? (saved.problems as ProgressState["problems"]) : {},
+          });
+      }
     } catch {
       /* corrupted storage, start fresh */
     }
@@ -96,12 +110,17 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     if (!client || !userId || !ready || loadedFor.current === userId) return;
     loadedFor.current = userId;
     setSyncing(true);
-    client
-      .from("progress")
-      .select("modules, problems")
-      .eq("user_id", userId)
-      .maybeSingle()
-      .then(({ data }) => {
+    Promise.resolve(
+      client
+        .from("progress")
+        .select("modules, problems")
+        .eq("user_id", userId)
+        .maybeSingle()
+    )
+      .then(({ data, error }) => {
+        // a failed read says nothing about what is saved, so keep pushes off
+        // and let the next sign-in try again
+        if (error) throw error;
         if (data) {
           setState((local) =>
             mergeProgress(local, {
@@ -110,13 +129,17 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
             })
           );
         }
-        setSyncing(false);
-      });
+        setPulledFor(userId);
+      })
+      .catch(() => {
+        loadedFor.current = null;
+      })
+      .then(() => setSyncing(false));
   }, [client, userId, ready]);
 
   // debounced push of any change to the account
   useEffect(() => {
-    if (!client || !userId || !ready) return;
+    if (!client || !userId || !ready || pulledFor !== userId) return;
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(() => {
       client
@@ -135,10 +158,13 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     return () => {
       if (saveTimer.current) clearTimeout(saveTimer.current);
     };
-  }, [state, client, userId, ready]);
+  }, [state, client, userId, ready, pulledFor]);
 
   useEffect(() => {
-    if (!userId) loadedFor.current = null;
+    if (!userId) {
+      loadedFor.current = null;
+      setPulledFor(null);
+    }
   }, [userId]);
 
   const setModuleStatus = useCallback((slug: string, status: ModuleStatus) => {
@@ -166,14 +192,14 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     () => ({
       ...state,
       ready,
-      synced: Boolean(userId),
+      synced: Boolean(userId) && pulledFor === userId,
       syncing,
       setModuleStatus,
       cycleProblem,
       setProblem,
       reset,
     }),
-    [state, ready, userId, syncing, setModuleStatus, cycleProblem, setProblem, reset]
+    [state, ready, userId, pulledFor, syncing, setModuleStatus, cycleProblem, setProblem, reset]
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

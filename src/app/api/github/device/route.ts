@@ -14,6 +14,15 @@ const SCOPE = "public_repo";
 
 export const dynamic = "force-dynamic";
 
+/** GitHub answers with JSON, but a gateway error page must not become a 500. */
+async function githubJson(res: Response): Promise<Record<string, any> | null> {
+  try {
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
 function noClient() {
   return NextResponse.json(
     {
@@ -34,10 +43,10 @@ export async function POST() {
     body: JSON.stringify({ client_id: CLIENT_ID, scope: SCOPE }),
     cache: "no-store",
   });
-  const data = await res.json();
-  if (!res.ok || data.error) {
+  const data = await githubJson(res);
+  if (!data || !res.ok || data.error) {
     return NextResponse.json(
-      { error: data.error_description ?? "Could not start GitHub sign-in." },
+      { error: data?.error_description ?? "Could not start GitHub sign-in." },
       { status: 502 }
     );
   }
@@ -54,7 +63,8 @@ export async function POST() {
 export async function PUT(req: NextRequest) {
   if (!CLIENT_ID) return noClient();
 
-  const { deviceCode } = await req.json();
+  const body = await req.json().catch(() => null);
+  const deviceCode = body?.deviceCode;
   if (typeof deviceCode !== "string" || !deviceCode)
     return NextResponse.json({ error: "Missing device code" }, { status: 400 });
 
@@ -68,7 +78,12 @@ export async function PUT(req: NextRequest) {
     }),
     cache: "no-store",
   });
-  const data = await res.json();
+  const data = await githubJson(res);
+  if (!data)
+    return NextResponse.json(
+      { error: "GitHub did not give a usable answer. Try again." },
+      { status: 502 }
+    );
 
   // still waiting on the reader, or asked to slow down: not an error
   if (data.error === "authorization_pending" || data.error === "slow_down")

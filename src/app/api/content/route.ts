@@ -46,6 +46,21 @@ class ApiError extends Error {
   }
 }
 
+const isObject = (v: unknown): v is Record<string, unknown> =>
+  typeof v === "object" && v !== null && !Array.isArray(v);
+
+/** A request body that is not a JSON object is the caller's mistake, not a 500. */
+async function readBody(req: NextRequest): Promise<Record<string, unknown>> {
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    throw new ApiError(400, "Request body must be JSON");
+  }
+  if (!isObject(body)) throw new ApiError(400, "Request body must be a JSON object");
+  return body;
+}
+
 function fail(e: unknown) {
   if (e instanceof ApiError)
     return NextResponse.json({ error: e.message }, { status: e.status });
@@ -178,7 +193,7 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const token = githubToken(req);
-    const body = await req.json();
+    const body = await readBody(req);
     const { action } = body;
 
     // Starring is its own thing: it touches the contributor's account rather
@@ -203,8 +218,8 @@ export async function POST(req: NextRequest) {
 
     switch (action) {
       case "saveLesson": {
-        const { slug, content } = body;
-        if (!SLUG_RE.test(slug ?? "")) throw new ApiError(400, "Invalid slug");
+        const { slug, content } = body as { slug?: string; content?: unknown };
+        if (typeof slug !== "string" || !SLUG_RE.test(slug)) throw new ApiError(400, "Invalid slug");
         if (typeof content !== "string" || content.length > 200_000)
           throw new ApiError(400, "Lesson content missing or too large");
         changes = [
@@ -219,8 +234,8 @@ export async function POST(req: NextRequest) {
       }
 
       case "deleteLesson": {
-        const { slug } = body;
-        if (!SLUG_RE.test(slug ?? "")) throw new ApiError(400, "Invalid slug");
+        const { slug } = body as { slug?: string };
+        if (typeof slug !== "string" || !SLUG_RE.test(slug)) throw new ApiError(400, "Invalid slug");
         const curriculum = JSON.parse(await readFile(token, CURRICULUM)) as Division[];
         for (const d of curriculum)
           for (const s of d.sections)
@@ -240,13 +255,13 @@ export async function POST(req: NextRequest) {
           throw new ApiError(400, "problems must be an array");
         const seen = new Set<string>();
         for (const p of problems) {
-          if (!p.id || !p.name)
+          if (!isObject(p) || !p.id || !p.name)
             throw new ApiError(400, "Every problem needs an id and a name");
           if (seen.has(p.id))
             throw new ApiError(400, `Duplicate problem id: ${p.id}`);
           seen.add(p.id);
         }
-const [sources, curriculum] = await Promise.all([
+        const [sources, curriculum] = await Promise.all([
           readSources<BankProblem>(token, PROBLEM_SEED, PROBLEM_BATCHES),
           readFile(token, CURRICULUM).then((t) => JSON.parse(t) as Division[]),
         ]);
@@ -285,8 +300,8 @@ const [sources, curriculum] = await Promise.all([
         if (!Array.isArray(sims)) throw new ApiError(400, "sims must be an array");
         const ids = new Set<string>();
         for (const sim of sims) {
-          if (!SLUG_RE.test(sim.id ?? ""))
-            throw new ApiError(400, `Invalid simulation id: ${sim.id}`);
+          if (!isObject(sim) || typeof sim.id !== "string" || !SLUG_RE.test(sim.id))
+            throw new ApiError(400, `Invalid simulation id: ${isObject(sim) ? sim.id : sim}`);
           if (ids.has(sim.id))
             throw new ApiError(400, `Duplicate simulation id: ${sim.id}`);
           ids.add(sim.id);
@@ -316,16 +331,19 @@ const [sources, curriculum] = await Promise.all([
           throw new ApiError(400, "curriculum must be an array");
         const slugs = new Set<string>();
         for (const d of curriculum) {
-          if (!d.id || !d.name)
-            throw new ApiError(400, "Every course needs an id and a name");
-          for (const s of d.sections)
+          if (!isObject(d) || !d.id || !d.name || !Array.isArray(d.sections))
+            throw new ApiError(400, "Every course needs an id, a name and sections");
+          for (const s of d.sections) {
+            if (!isObject(s) || !Array.isArray(s.modules))
+              throw new ApiError(400, "Every section needs a list of modules");
             for (const m of s.modules) {
-              if (!SLUG_RE.test(m.slug))
-                throw new ApiError(400, `Invalid module slug: ${m.slug}`);
+              if (!isObject(m) || typeof m.slug !== "string" || !SLUG_RE.test(m.slug))
+                throw new ApiError(400, `Invalid module slug: ${isObject(m) ? m.slug : m}`);
               if (slugs.has(m.slug))
                 throw new ApiError(400, `Duplicate module slug: ${m.slug}`);
               slugs.add(m.slug);
             }
+          }
         }
         changes = [
           { path: CURRICULUM, content: toJson(curriculum) },

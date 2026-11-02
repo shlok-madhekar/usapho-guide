@@ -122,7 +122,7 @@
     "id": "kin-1d-08",
     "name": "Average speed of a delivery truck",
     "module": "motion-1d",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "average-speed"
     ],
@@ -208,7 +208,7 @@
     "id": "kin-1d-13",
     "name": "Turning points of a cubic",
     "module": "motion-1d",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "calculus"
     ],
@@ -277,7 +277,7 @@
     "id": "kin-1d-17",
     "name": "Speed before a uniform stop",
     "module": "motion-1d",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "suvat"
     ],
@@ -380,7 +380,7 @@
     "id": "kin-1d-23",
     "name": "Rocket sled, accelerate then brake",
     "module": "motion-1d",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "two-phase"
     ],
@@ -397,7 +397,7 @@
     "id": "kin-1d-24",
     "name": "Fastest run between two stops",
     "module": "motion-1d",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "optimization"
     ],
@@ -414,7 +414,7 @@
     "id": "kin-1d-25",
     "name": "Peak speed from a triangular trip",
     "module": "motion-1d",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "two-phase"
     ],
@@ -431,7 +431,7 @@
     "id": "kin-1d-26",
     "name": "Delayed police pursuit",
     "module": "motion-1d",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "two-body"
     ],
@@ -448,7 +448,7 @@
     "id": "kin-1d-27",
     "name": "Acceleration from two equal intervals",
     "module": "motion-1d",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "suvat"
     ],
@@ -465,7 +465,7 @@
     "id": "kin-1d-28",
     "name": "Distance travelled after reversing",
     "module": "motion-1d",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "distance-vs-displacement"
     ],
@@ -482,7 +482,7 @@
     "id": "kin-1d-29",
     "name": "Coasting with linear drag",
     "module": "motion-1d",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "drag",
       "calculus"
@@ -500,7 +500,7 @@
     "id": "kin-1d-30",
     "name": "Minimum time with a speed limit",
     "module": "motion-1d",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "optimization"
     ],
@@ -697,7 +697,7 @@
     "id": "kin-graph-11",
     "name": "Trapezoidal journey",
     "module": "motion-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "v-t",
       "area"
@@ -715,7 +715,7 @@
     "id": "kin-graph-12",
     "name": "Average speed of the trapezoidal journey",
     "module": "motion-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "v-t",
       "average-speed"
@@ -769,7 +769,7 @@
     "id": "kin-graph-15",
     "name": "Tangent to a parabolic position graph",
     "module": "motion-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "x-t",
       "slope"
@@ -787,7 +787,7 @@
     "id": "kin-graph-16",
     "name": "Triangular acceleration graph",
     "module": "motion-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "a-t",
       "area"
@@ -805,7 +805,7 @@
     "id": "kin-graph-17",
     "name": "Three-segment velocity graph",
     "module": "motion-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "v-t",
       "area"
@@ -823,7 +823,7 @@
     "id": "kin-graph-18",
     "name": "Out and partway back",
     "module": "motion-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "x-t",
       "average-velocity"
@@ -841,7 +841,7 @@
     "id": "kin-graph-19",
     "name": "Speed on the return leg",
     "module": "motion-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "x-t",
       "slope"
@@ -859,7 +859,7 @@
     "id": "kin-graph-20",
     "name": "Height gained by an elevator",
     "module": "motion-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "v-t",
       "area"
@@ -913,7 +913,7 @@
     "id": "kin-graph-23",
     "name": "Maximum displacement",
     "module": "motion-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "v-t",
       "extremum"
@@ -931,7 +931,7 @@
     "id": "kin-graph-24",
     "name": "Net displacement after reversing",
     "module": "motion-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "v-t",
       "sign"
@@ -949,7 +949,7 @@
     "id": "kin-graph-25",
     "name": "Position from a three-step acceleration graph",
     "module": "motion-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "a-t",
       "integration"
@@ -967,7 +967,7 @@
     "id": "kin-graph-26",
     "name": "Staircase velocity graph",
     "module": "motion-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "v-t",
       "average-velocity"
@@ -985,7 +985,7 @@
     "id": "kin-graph-27",
     "name": "Round trip past the origin",
     "module": "motion-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "x-t",
       "average-velocity"
@@ -1003,7 +1003,7 @@
     "id": "kin-graph-28",
     "name": "When does the car reach 100 metres?",
     "module": "motion-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "v-t",
       "area"
@@ -1021,7 +1021,7 @@
     "id": "kin-graph-29",
     "name": "Triangular acceleration pulse",
     "module": "motion-graphs",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "a-t",
       "integration"
@@ -1039,7 +1039,7 @@
     "id": "kin-graph-30",
     "name": "Return to the start",
     "module": "motion-graphs",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "v-t",
       "extremum"
@@ -1247,7 +1247,7 @@
     "id": "kin-fall-12",
     "name": "Landing speed from the same throw",
     "module": "free-fall",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "free-fall",
       "energy-shortcut"
@@ -1300,7 +1300,7 @@
     "id": "kin-fall-15",
     "name": "Launch speed from hang time",
     "module": "free-fall",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "free-fall"
     ],
@@ -1317,7 +1317,7 @@
     "id": "kin-fall-16",
     "name": "Time above the launch point",
     "module": "free-fall",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "free-fall"
     ],
@@ -1334,7 +1334,7 @@
     "id": "kin-fall-17",
     "name": "Juggler's throw height",
     "module": "free-fall",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "free-fall"
     ],
@@ -1351,7 +1351,7 @@
     "id": "kin-fall-18",
     "name": "Terminal speed of a raindrop",
     "module": "free-fall",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "drag",
       "terminal-velocity"
@@ -1441,7 +1441,7 @@
     "id": "kin-fall-23",
     "name": "Depth of a well from the splash",
     "module": "free-fall",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "free-fall",
       "sound"
@@ -1459,7 +1459,7 @@
     "id": "kin-fall-24",
     "name": "Time to the second bounce",
     "module": "free-fall",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "free-fall",
       "restitution"
@@ -1477,7 +1477,7 @@
     "id": "kin-fall-25",
     "name": "Separation of two dropped stones",
     "module": "free-fall",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "free-fall",
       "two-body"
@@ -1495,7 +1495,7 @@
     "id": "kin-fall-26",
     "name": "Speed under linear drag",
     "module": "free-fall",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "drag",
       "exponential"
@@ -1513,7 +1513,7 @@
     "id": "kin-fall-27",
     "name": "Speed partway down from a tower",
     "module": "free-fall",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "free-fall"
     ],
@@ -1530,7 +1530,7 @@
     "id": "kin-fall-28",
     "name": "Rocket coasting after burnout",
     "module": "free-fall",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "two-phase",
       "free-fall"
@@ -1548,7 +1548,7 @@
     "id": "kin-fall-29",
     "name": "Where do they meet?",
     "module": "free-fall",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "free-fall",
       "two-body"
@@ -1566,7 +1566,7 @@
     "id": "kin-fall-30",
     "name": "Distance to reach 80% of terminal speed",
     "module": "free-fall",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "drag",
       "quadratic-drag"
@@ -1790,7 +1790,7 @@
     "id": "kin-proj-13",
     "name": "Angle for a required range",
     "module": "projectiles",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "range-height",
       "inverse"
@@ -1808,7 +1808,7 @@
     "id": "kin-proj-14",
     "name": "Speed at the top of the arc",
     "module": "projectiles",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "components"
     ],
@@ -1859,7 +1859,7 @@
     "id": "kin-proj-17",
     "name": "Height from peak speed and flight time",
     "module": "projectiles",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "range-height"
     ],
@@ -1876,7 +1876,7 @@
     "id": "kin-proj-18",
     "name": "Ball rolling off a table",
     "module": "projectiles",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "horizontal-launch",
       "inverse"
@@ -1911,7 +1911,7 @@
     "id": "kin-proj-20",
     "name": "Height from range at 45 degrees",
     "module": "projectiles",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "range-height"
     ],
@@ -1945,7 +1945,7 @@
     "id": "kin-proj-22",
     "name": "Speed hitting the water",
     "module": "projectiles",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "energy-shortcut"
     ],
@@ -1962,7 +1962,7 @@
     "id": "kin-proj-23",
     "name": "Range up an incline",
     "module": "projectiles",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "incline"
     ],
@@ -1997,7 +1997,7 @@
     "id": "kin-proj-25",
     "name": "Thrown horizontally down a slope",
     "module": "projectiles",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "incline"
     ],
@@ -2014,7 +2014,7 @@
     "id": "kin-proj-26",
     "name": "Angle from a trajectory condition",
     "module": "projectiles",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "trajectory",
       "inverse"
@@ -2032,7 +2032,7 @@
     "id": "kin-proj-27",
     "name": "Launch speed for that trajectory",
     "module": "projectiles",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "trajectory",
       "inverse"
@@ -2067,7 +2067,7 @@
     "id": "kin-proj-29",
     "name": "Fired perpendicular to a slope",
     "module": "projectiles",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "incline"
     ],
@@ -2084,7 +2084,7 @@
     "id": "kin-proj-30",
     "name": "Best angle when launching from a height",
     "module": "projectiles",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "optimization"
     ],
@@ -2271,7 +2271,7 @@
     "id": "kin-rel-11",
     "name": "Heading to land directly opposite",
     "module": "relative-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "river-crossing"
     ],
@@ -2305,7 +2305,7 @@
     "id": "kin-rel-13",
     "name": "Quickest crossing",
     "module": "relative-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "river-crossing",
       "optimization"
@@ -2323,7 +2323,7 @@
     "id": "kin-rel-14",
     "name": "Drift on the quickest crossing",
     "module": "relative-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "river-crossing"
     ],
@@ -2340,7 +2340,7 @@
     "id": "kin-rel-15",
     "name": "Perpendicular approach",
     "module": "relative-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "relative-velocity",
       "2d"
@@ -2358,7 +2358,7 @@
     "id": "kin-rel-16",
     "name": "Equal speeds, 60 degrees apart",
     "module": "relative-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "relative-velocity",
       "2d"
@@ -2376,7 +2376,7 @@
     "id": "kin-rel-17",
     "name": "Tilting an umbrella",
     "module": "relative-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rain"
     ],
@@ -2393,7 +2393,7 @@
     "id": "kin-rel-18",
     "name": "Rain seen from a train",
     "module": "relative-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rain",
       "inverse"
@@ -2411,7 +2411,7 @@
     "id": "kin-rel-19",
     "name": "Two ships separating",
     "module": "relative-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "relative-velocity",
       "2d"
@@ -2499,7 +2499,7 @@
     "id": "kin-rel-24",
     "name": "Closest approach of two ships",
     "module": "relative-motion",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "closest-approach"
     ],
@@ -2516,7 +2516,7 @@
     "id": "kin-rel-25",
     "name": "Time of closest approach",
     "module": "relative-motion",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "closest-approach"
     ],
@@ -2533,7 +2533,7 @@
     "id": "kin-rel-26",
     "name": "Landing at a chosen point downstream",
     "module": "relative-motion",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "river-crossing"
     ],
@@ -2550,7 +2550,7 @@
     "id": "kin-rel-27",
     "name": "Deducing the rain's velocity",
     "module": "relative-motion",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rain",
       "inverse"
@@ -2568,7 +2568,7 @@
     "id": "kin-rel-28",
     "name": "Meeting in free fall",
     "module": "relative-motion",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "free-fall",
       "relative-velocity"
@@ -2586,7 +2586,7 @@
     "id": "kin-rel-29",
     "name": "Four ants on a square",
     "module": "relative-motion",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "pursuit"
     ],
@@ -2603,7 +2603,7 @@
     "id": "kin-rel-30",
     "name": "Cars on intersecting roads",
     "module": "relative-motion",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "closest-approach"
     ],

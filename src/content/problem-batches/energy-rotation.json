@@ -266,7 +266,7 @@
     "id": "we-work-16",
     "name": "Compressing a spring",
     "module": "work-energy-theorem",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "spring",
       "work"
@@ -284,7 +284,7 @@
     "id": "we-work-17",
     "name": "Stopping distance",
     "module": "work-energy-theorem",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "work-energy theorem",
       "friction"
@@ -339,7 +339,7 @@
     "id": "we-work-20",
     "name": "Bullet in a board",
     "module": "work-energy-theorem",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "work-energy theorem",
       "average force"
@@ -357,7 +357,7 @@
     "id": "we-work-21",
     "name": "Two forces on a box",
     "module": "work-energy-theorem",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "work-energy theorem"
     ],
@@ -374,7 +374,7 @@
     "id": "we-work-22",
     "name": "Friction on a curved track",
     "module": "work-energy-theorem",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "work",
       "friction",
@@ -393,7 +393,7 @@
     "id": "we-work-23",
     "name": "Chain hanging off a table",
     "module": "work-energy-theorem",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "work",
       "integration",
@@ -412,7 +412,7 @@
     "id": "we-work-24",
     "name": "Lifting a heavy rope",
     "module": "work-energy-theorem",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "work",
       "integration"
@@ -430,7 +430,7 @@
     "id": "we-work-25",
     "name": "Inverse-square force",
     "module": "work-energy-theorem",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "variable force",
       "integration"
@@ -448,7 +448,7 @@
     "id": "we-work-26",
     "name": "Position-dependent friction",
     "module": "work-energy-theorem",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "variable force",
       "friction"
@@ -466,7 +466,7 @@
     "id": "we-work-27",
     "name": "Force along a circular arc",
     "module": "work-energy-theorem",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "work",
       "vector"
@@ -484,7 +484,7 @@
     "id": "we-work-28",
     "name": "How far up the ramp?",
     "module": "work-energy-theorem",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "work-energy theorem",
       "incline",
@@ -503,7 +503,7 @@
     "id": "we-work-29",
     "name": "Pulling a cart with a rope over a pole",
     "module": "work-energy-theorem",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "work",
       "geometry"
@@ -521,7 +521,7 @@
     "id": "we-work-30",
     "name": "Chain sliding off a frictionless table",
     "module": "work-energy-theorem",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "work",
       "integration",
@@ -714,7 +714,7 @@
     "id": "we-pe-11",
     "name": "Pendulum height",
     "module": "potential-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "gravitational PE",
       "geometry"
@@ -750,7 +750,7 @@
     "id": "we-pe-13",
     "name": "Springs in parallel",
     "module": "potential-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "spring",
       "combination"
@@ -768,7 +768,7 @@
     "id": "we-pe-14",
     "name": "Reading a potential energy curve",
     "module": "potential-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "force from PE",
       "graph"
@@ -803,7 +803,7 @@
     "id": "we-pe-16",
     "name": "Spring gun",
     "module": "potential-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "spring PE",
       "energy"
@@ -821,7 +821,7 @@
     "id": "we-pe-17",
     "name": "Escaping a well",
     "module": "potential-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "potential curve",
       "energy"
@@ -857,7 +857,7 @@
     "id": "we-pe-19",
     "name": "Is this force conservative?",
     "module": "potential-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conservative force"
     ],
@@ -910,7 +910,7 @@
     "id": "we-pe-22",
     "name": "Gravity far from Earth",
     "module": "potential-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "gravitational PE"
     ],
@@ -927,7 +927,7 @@
     "id": "we-pe-23",
     "name": "Turning points in a well",
     "module": "potential-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "potential curve",
       "turning point"
@@ -945,7 +945,7 @@
     "id": "we-pe-24",
     "name": "Barrier height",
     "module": "potential-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "potential curve"
     ],
@@ -962,7 +962,7 @@
     "id": "we-pe-25",
     "name": "Small oscillations in a well",
     "module": "potential-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "potential curve",
       "oscillation"
@@ -980,7 +980,7 @@
     "id": "we-pe-26",
     "name": "Lennard-Jones minimum",
     "module": "potential-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "potential curve",
       "molecular"
@@ -998,7 +998,7 @@
     "id": "we-pe-27",
     "name": "Bungee jumper",
     "module": "potential-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "spring PE",
       "gravitational PE"
@@ -1016,7 +1016,7 @@
     "id": "we-pe-28",
     "name": "Force curve to energy",
     "module": "potential-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "force from PE",
       "integration"
@@ -1034,7 +1034,7 @@
     "id": "we-pe-29",
     "name": "Tunnel through the Earth",
     "module": "potential-energy",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "gravitational PE",
       "integration"
@@ -1052,7 +1052,7 @@
     "id": "we-pe-30",
     "name": "Stability of a magnet above a coil",
     "module": "potential-energy",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "potential curve",
       "stability"
@@ -1258,7 +1258,7 @@
     "id": "we-cons-12",
     "name": "Ski jump landing speed",
     "module": "energy-conservation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "projectile",
       "energy"
@@ -1329,7 +1329,7 @@
     "id": "we-cons-16",
     "name": "Water slide with friction",
     "module": "energy-conservation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "friction",
       "efficiency"
@@ -1347,7 +1347,7 @@
     "id": "we-cons-17",
     "name": "Vertical spring launch",
     "module": "energy-conservation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "spring",
       "gravity"
@@ -1400,7 +1400,7 @@
     "id": "we-cons-20",
     "name": "Chain of energy transformations",
     "module": "energy-conservation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "multi-stage",
       "spring"
@@ -1436,7 +1436,7 @@
     "id": "we-cons-22",
     "name": "Roller coaster with drag",
     "module": "energy-conservation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "energy loss"
     ],
@@ -1488,7 +1488,7 @@
     "id": "we-cons-25",
     "name": "Minimum push for a loop with friction",
     "module": "energy-conservation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "loop",
       "friction"
@@ -1506,7 +1506,7 @@
     "id": "we-cons-26",
     "name": "Two blocks and a pulley",
     "module": "energy-conservation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "Atwood",
       "energy"
@@ -1524,7 +1524,7 @@
     "id": "we-cons-27",
     "name": "Spring and incline combination",
     "module": "energy-conservation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "multi-stage",
       "spring",
@@ -1543,7 +1543,7 @@
     "id": "we-cons-28",
     "name": "Rope swing over water",
     "module": "energy-conservation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pendulum",
       "projectile"
@@ -1561,7 +1561,7 @@
     "id": "we-cons-29",
     "name": "Sliding wedge",
     "module": "energy-conservation",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "momentum",
       "energy"
@@ -1579,7 +1579,7 @@
     "id": "we-cons-30",
     "name": "Hanging chain released",
     "module": "energy-conservation",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "chain",
       "integration"
@@ -1804,7 +1804,7 @@
     "id": "we-power-13",
     "name": "Doubling top speed",
     "module": "power",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "power-limited",
       "scaling"
@@ -1840,7 +1840,7 @@
     "id": "we-power-15",
     "name": "Power delivered by a spring",
     "module": "power",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "instantaneous power"
     ],
@@ -1874,7 +1874,7 @@
     "id": "we-power-17",
     "name": "Constant-power start",
     "module": "power",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "power-limited"
     ],
@@ -1891,7 +1891,7 @@
     "id": "we-power-18",
     "name": "Speed under constant power",
     "module": "power",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "power-limited"
     ],
@@ -1908,7 +1908,7 @@
     "id": "we-power-19",
     "name": "Human metabolic power",
     "module": "power",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "efficiency"
     ],
@@ -1925,7 +1925,7 @@
     "id": "we-power-20",
     "name": "Hydroelectric dam",
     "module": "power",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "average power",
       "efficiency"
@@ -1943,7 +1943,7 @@
     "id": "we-power-21",
     "name": "Wind on a sail",
     "module": "power",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "instantaneous power",
       "vector"
@@ -1961,7 +1961,7 @@
     "id": "we-power-22",
     "name": "Braking power",
     "module": "power",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "average power"
     ],
@@ -1978,7 +1978,7 @@
     "id": "we-power-23",
     "name": "Distance under constant power",
     "module": "power",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "power-limited",
       "integration"
@@ -1996,7 +1996,7 @@
     "id": "we-power-24",
     "name": "Grain falling onto a belt",
     "module": "power",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "momentum",
       "power"
@@ -2031,7 +2031,7 @@
     "id": "we-power-26",
     "name": "Rowing boat power scaling",
     "module": "power",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "power-limited"
     ],
@@ -2048,7 +2048,7 @@
     "id": "we-power-27",
     "name": "Chain being lifted at constant speed",
     "module": "power",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "variable mass",
       "power"
@@ -2066,7 +2066,7 @@
     "id": "we-power-28",
     "name": "Peak power during a jump",
     "module": "power",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "instantaneous power"
     ],
@@ -2083,7 +2083,7 @@
     "id": "we-power-29",
     "name": "Terminal speed of a power-limited car with linear drag",
     "module": "power",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "power-limited",
       "drag"
@@ -2101,7 +2101,7 @@
     "id": "we-power-30",
     "name": "Time to reach 90% of top speed",
     "module": "power",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "power-limited",
       "integration"
@@ -2292,7 +2292,7 @@
     "id": "we-imp-11",
     "name": "Force-time graph",
     "module": "momentum-impulse",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "impulse",
       "graph"
@@ -2345,7 +2345,7 @@
     "id": "we-imp-14",
     "name": "Recoil of a rifle",
     "module": "momentum-impulse",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "momentum conservation"
     ],
@@ -2398,7 +2398,7 @@
     "id": "we-imp-17",
     "name": "Firehose reaction force",
     "module": "momentum-impulse",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "momentum flux"
     ],
@@ -2415,7 +2415,7 @@
     "id": "we-imp-18",
     "name": "Sand into a cart",
     "module": "momentum-impulse",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "variable mass"
     ],
@@ -2450,7 +2450,7 @@
     "id": "we-imp-20",
     "name": "Karate chop",
     "module": "momentum-impulse",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "average force"
     ],
@@ -2467,7 +2467,7 @@
     "id": "we-imp-21",
     "name": "Momentum of a system",
     "module": "momentum-impulse",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "system momentum"
     ],
@@ -2484,7 +2484,7 @@
     "id": "we-imp-22",
     "name": "Airbag versus dashboard",
     "module": "momentum-impulse",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "average force",
       "ratio"
@@ -2502,7 +2502,7 @@
     "id": "we-imp-23",
     "name": "Non-constant impact force",
     "module": "momentum-impulse",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "impulse",
       "integration"
@@ -2520,7 +2520,7 @@
     "id": "we-imp-24",
     "name": "Rocket in deep space",
     "module": "momentum-impulse",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "rocket equation"
     ],
@@ -2537,7 +2537,7 @@
     "id": "we-imp-25",
     "name": "Water jet that rebounds",
     "module": "momentum-impulse",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "momentum flux"
     ],
@@ -2572,7 +2572,7 @@
     "id": "we-imp-27",
     "name": "Hovering by thrust",
     "module": "momentum-impulse",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "momentum flux"
     ],
@@ -2589,7 +2589,7 @@
     "id": "we-imp-28",
     "name": "Impulse on a bouncing stream of balls",
     "module": "momentum-impulse",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "momentum flux"
     ],
@@ -2606,7 +2606,7 @@
     "id": "we-imp-29",
     "name": "Rocket lifting off",
     "module": "momentum-impulse",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "rocket equation",
       "gravity"
@@ -2624,7 +2624,7 @@
     "id": "we-imp-30",
     "name": "Rope pulled off a pile",
     "module": "momentum-impulse",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "variable mass",
       "impulse"
@@ -2813,7 +2813,7 @@
     "id": "we-coll-11",
     "name": "Elastic collision, unequal masses",
     "module": "collisions",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "elastic"
     ],
@@ -2830,7 +2830,7 @@
     "id": "we-coll-12",
     "name": "Heavy hits light: the projectile",
     "module": "collisions",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "elastic"
     ],
@@ -2847,7 +2847,7 @@
     "id": "we-coll-13",
     "name": "Light hits heavy",
     "module": "collisions",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "elastic"
     ],
@@ -2970,7 +2970,7 @@
     "id": "we-coll-20",
     "name": "Bullet passes through",
     "module": "collisions",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "momentum conservation"
     ],
@@ -2987,7 +2987,7 @@
     "id": "we-coll-21",
     "name": "Collision in the center-of-mass frame",
     "module": "collisions",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "center of mass frame"
     ],
@@ -3040,7 +3040,7 @@
     "id": "we-coll-24",
     "name": "Two blocks and a spring",
     "module": "collisions",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "elastic",
       "spring"
@@ -3058,7 +3058,7 @@
     "id": "we-coll-25",
     "name": "Oblique elastic collision with a wall",
     "module": "collisions",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "2D collision"
     ],
@@ -3075,7 +3075,7 @@
     "id": "we-coll-26",
     "name": "Recoil angle in a 2D collision",
     "module": "collisions",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "2D collision"
     ],
@@ -3092,7 +3092,7 @@
     "id": "we-coll-27",
     "name": "Repeated bounces",
     "module": "collisions",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "restitution",
       "series"
@@ -3128,7 +3128,7 @@
     "id": "we-coll-29",
     "name": "Neutron moderation",
     "module": "collisions",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "elastic",
       "energy transfer"
@@ -3146,7 +3146,7 @@
     "id": "we-coll-30",
     "name": "Three-body explosion",
     "module": "collisions",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "explosion",
       "2D"
@@ -3426,7 +3426,7 @@
     "id": "we-com-16",
     "name": "Center of mass of a triangle",
     "module": "center-of-mass",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "center of mass",
       "geometry"
@@ -3461,7 +3461,7 @@
     "id": "we-com-18",
     "name": "Center of mass acceleration",
     "module": "center-of-mass",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "Newton's second law"
     ],
@@ -3496,7 +3496,7 @@
     "id": "we-com-20",
     "name": "Center of mass of the Sun-Jupiter system",
     "module": "center-of-mass",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "center of mass"
     ],
@@ -3513,7 +3513,7 @@
     "id": "we-com-21",
     "name": "Two carts and a compressed spring",
     "module": "center-of-mass",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "cm conservation"
     ],
@@ -3548,7 +3548,7 @@
     "id": "we-com-23",
     "name": "Semicircular plate",
     "module": "center-of-mass",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "center of mass",
       "integration"
@@ -3566,7 +3566,7 @@
     "id": "we-com-24",
     "name": "Solid cone",
     "module": "center-of-mass",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "center of mass",
       "integration"
@@ -3584,7 +3584,7 @@
     "id": "we-com-25",
     "name": "Hemispherical bowl versus solid hemisphere",
     "module": "center-of-mass",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "center of mass"
     ],
@@ -3601,7 +3601,7 @@
     "id": "we-com-26",
     "name": "Stacked blocks overhang",
     "module": "center-of-mass",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "center of mass",
       "stability"
@@ -3619,7 +3619,7 @@
     "id": "we-com-27",
     "name": "Where the rocket's pieces land",
     "module": "center-of-mass",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "projectile",
       "cm"
@@ -3637,7 +3637,7 @@
     "id": "we-com-28",
     "name": "Chain hanging over a pulley",
     "module": "center-of-mass",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "center of mass"
     ],
@@ -3654,7 +3654,7 @@
     "id": "we-com-29",
     "name": "Man climbing a rope over a pulley",
     "module": "center-of-mass",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "cm",
       "pulley"
@@ -3672,7 +3672,7 @@
     "id": "we-com-30",
     "name": "Center of mass of a hollow tapered rod",
     "module": "center-of-mass",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "integration"
     ],
@@ -3861,7 +3861,7 @@
     "id": "rot-kin-11",
     "name": "Turns before stopping",
     "module": "angular-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinematics"
     ],
@@ -3878,7 +3878,7 @@
     "id": "rot-kin-12",
     "name": "Angular position function",
     "module": "angular-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinematics",
       "calculus"
@@ -3896,7 +3896,7 @@
     "id": "rot-kin-13",
     "name": "Angular acceleration from a function",
     "module": "angular-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinematics",
       "calculus"
@@ -3931,7 +3931,7 @@
     "id": "rot-kin-15",
     "name": "Two connected pulleys",
     "module": "angular-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "belt drive"
     ],
@@ -3948,7 +3948,7 @@
     "id": "rot-kin-16",
     "name": "Gear train",
     "module": "angular-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "gears"
     ],
@@ -3983,7 +3983,7 @@
     "id": "rot-kin-18",
     "name": "Hard drive platter",
     "module": "angular-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "linear-angular"
     ],
@@ -4000,7 +4000,7 @@
     "id": "rot-kin-19",
     "name": "Earth's rotation",
     "module": "angular-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "linear-angular"
     ],
@@ -4017,7 +4017,7 @@
     "id": "rot-kin-20",
     "name": "Angular speed from tangential and radial acceleration",
     "module": "angular-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "centripetal"
     ],
@@ -4051,7 +4051,7 @@
     "id": "rot-kin-22",
     "name": "Angular speed of a clock hand",
     "module": "angular-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "period"
     ],
@@ -4068,7 +4068,7 @@
     "id": "rot-kin-23",
     "name": "Non-constant angular acceleration",
     "module": "angular-kinematics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "calculus"
     ],
@@ -4085,7 +4085,7 @@
     "id": "rot-kin-24",
     "name": "Speed-dependent deceleration",
     "module": "angular-kinematics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "calculus",
       "exponential"
@@ -4120,7 +4120,7 @@
     "id": "rot-kin-26",
     "name": "Rolling wheel: top point speed",
     "module": "angular-kinematics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rolling",
       "linear-angular"
@@ -4138,7 +4138,7 @@
     "id": "rot-kin-27",
     "name": "Rolling wheel: side point",
     "module": "angular-kinematics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rolling"
     ],
@@ -4155,7 +4155,7 @@
     "id": "rot-kin-28",
     "name": "Angle between velocity and acceleration",
     "module": "angular-kinematics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "centripetal",
       "tangential"
@@ -4173,7 +4173,7 @@
     "id": "rot-kin-29",
     "name": "Pursuit on a turntable",
     "module": "angular-kinematics",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "relative angular motion"
     ],
@@ -4190,7 +4190,7 @@
     "id": "rot-kin-30",
     "name": "Cord unwinding from a spool",
     "module": "angular-kinematics",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "linear-angular",
       "calculus"
@@ -4522,7 +4522,7 @@
     "id": "rot-torque-19",
     "name": "Traffic light on a strut",
     "module": "torque-equilibrium",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "equilibrium"
     ],
@@ -4556,7 +4556,7 @@
     "id": "rot-torque-21",
     "name": "Torque about different points",
     "module": "torque-equilibrium",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "torque",
       "reference point"
@@ -4574,7 +4574,7 @@
     "id": "rot-torque-22",
     "name": "Weightlifter's forearm",
     "module": "torque-equilibrium",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "biomechanics",
       "equilibrium"
@@ -4610,7 +4610,7 @@
     "id": "rot-torque-24",
     "name": "Leaning ladder at the critical angle",
     "module": "torque-equilibrium",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "ladder"
     ],
@@ -4627,7 +4627,7 @@
     "id": "rot-torque-25",
     "name": "Tipping versus sliding",
     "module": "torque-equilibrium",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "tipping",
       "friction"
@@ -4645,7 +4645,7 @@
     "id": "rot-torque-26",
     "name": "Nonuniform beam on two scales",
     "module": "torque-equilibrium",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "equilibrium"
     ],
@@ -4662,7 +4662,7 @@
     "id": "rot-torque-27",
     "name": "Hanging picture on two wires",
     "module": "torque-equilibrium",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "equilibrium",
       "2D"
@@ -4680,7 +4680,7 @@
     "id": "rot-torque-28",
     "name": "Strut with a hinge force",
     "module": "torque-equilibrium",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "equilibrium",
       "hinge"
@@ -4698,7 +4698,7 @@
     "id": "rot-torque-29",
     "name": "Rod against a rough wall and floor",
     "module": "torque-equilibrium",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "equilibrium",
       "friction"
@@ -4716,7 +4716,7 @@
     "id": "rot-torque-30",
     "name": "Stack of bricks maximum overhang",
     "module": "torque-equilibrium",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "equilibrium",
       "stacking"
@@ -4906,7 +4906,7 @@
     "id": "rot-inertia-11",
     "name": "Parallel axis theorem for a disk",
     "module": "moment-of-inertia",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "parallel axis"
     ],
@@ -4941,7 +4941,7 @@
     "id": "rot-inertia-13",
     "name": "Disk plus point mass",
     "module": "moment-of-inertia",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "additivity"
     ],
@@ -4958,7 +4958,7 @@
     "id": "rot-inertia-14",
     "name": "Annulus",
     "module": "moment-of-inertia",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "annulus"
     ],
@@ -4975,7 +4975,7 @@
     "id": "rot-inertia-15",
     "name": "Four masses in a square",
     "module": "moment-of-inertia",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "point mass"
     ],
@@ -4992,7 +4992,7 @@
     "id": "rot-inertia-16",
     "name": "Axis along one side of the square",
     "module": "moment-of-inertia",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "point mass"
     ],
@@ -5009,7 +5009,7 @@
     "id": "rot-inertia-17",
     "name": "Solid cylinder about a diameter of its face",
     "module": "moment-of-inertia",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "cylinder"
     ],
@@ -5026,7 +5026,7 @@
     "id": "rot-inertia-18",
     "name": "Rectangular plate",
     "module": "moment-of-inertia",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "plate"
     ],
@@ -5077,7 +5077,7 @@
     "id": "rot-inertia-21",
     "name": "Flywheel energy storage",
     "module": "moment-of-inertia",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rotational KE"
     ],
@@ -5094,7 +5094,7 @@
     "id": "rot-inertia-22",
     "name": "Which spins easier",
     "module": "moment-of-inertia",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "comparison"
     ],
@@ -5111,7 +5111,7 @@
     "id": "rot-inertia-23",
     "name": "Disk with a hole, moment of inertia",
     "module": "moment-of-inertia",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "subtraction"
     ],
@@ -5128,7 +5128,7 @@
     "id": "rot-inertia-24",
     "name": "Off-center hole",
     "module": "moment-of-inertia",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "subtraction",
       "parallel axis"
@@ -5146,7 +5146,7 @@
     "id": "rot-inertia-25",
     "name": "Physical pendulum period",
     "module": "moment-of-inertia",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "parallel axis",
       "pendulum"
@@ -5164,7 +5164,7 @@
     "id": "rot-inertia-26",
     "name": "Composite: rod with end masses",
     "module": "moment-of-inertia",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "additivity"
     ],
@@ -5181,7 +5181,7 @@
     "id": "rot-inertia-27",
     "name": "Solid cone about its axis",
     "module": "moment-of-inertia",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "integration"
     ],
@@ -5198,7 +5198,7 @@
     "id": "rot-inertia-28",
     "name": "Minimum-inertia axis",
     "module": "moment-of-inertia",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "parallel axis",
       "optimization"
@@ -5216,7 +5216,7 @@
     "id": "rot-inertia-29",
     "name": "Rod with quadratic density",
     "module": "moment-of-inertia",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "integration"
     ],
@@ -5233,7 +5233,7 @@
     "id": "rot-inertia-30",
     "name": "Where to pivot for the fastest swing",
     "module": "moment-of-inertia",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "physical pendulum",
       "optimization"
@@ -5476,7 +5476,7 @@
     "id": "rot-dyn-14",
     "name": "Rotational work-energy theorem",
     "module": "rotational-dynamics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "energy"
     ],
@@ -5546,7 +5546,7 @@
     "id": "rot-dyn-18",
     "name": "Two cords on a stepped pulley",
     "module": "rotational-dynamics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "stepped pulley"
     ],
@@ -5563,7 +5563,7 @@
     "id": "rot-dyn-19",
     "name": "Angular acceleration of a merry-go-round",
     "module": "rotational-dynamics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dynamics"
     ],
@@ -5580,7 +5580,7 @@
     "id": "rot-dyn-20",
     "name": "Rod struck at its end",
     "module": "rotational-dynamics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dynamics",
       "impulse"
@@ -5616,7 +5616,7 @@
     "id": "rot-dyn-22",
     "name": "Motor bringing a rotor to speed",
     "module": "rotational-dynamics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "power"
     ],
@@ -5633,7 +5633,7 @@
     "id": "rot-dyn-23",
     "name": "Rod hinged and released from an angle",
     "module": "rotational-dynamics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy",
       "rod"
@@ -5651,7 +5651,7 @@
     "id": "rot-dyn-24",
     "name": "Two masses on a stepped pulley",
     "module": "rotational-dynamics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "stepped pulley",
       "dynamics"
@@ -5669,7 +5669,7 @@
     "id": "rot-dyn-25",
     "name": "Block on a table with a massive pulley",
     "module": "rotational-dynamics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pulley",
       "friction"
@@ -5687,7 +5687,7 @@
     "id": "rot-dyn-26",
     "name": "Hinge force on a falling rod",
     "module": "rotational-dynamics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "dynamics",
       "hinge"
@@ -5705,7 +5705,7 @@
     "id": "rot-dyn-27",
     "name": "Rolling start on a spool",
     "module": "rotational-dynamics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "spool",
       "dynamics"
@@ -5723,7 +5723,7 @@
     "id": "rot-dyn-28",
     "name": "Angular deceleration from a brake pad",
     "module": "rotational-dynamics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "friction",
       "dynamics"
@@ -5741,7 +5741,7 @@
     "id": "rot-dyn-29",
     "name": "Center of percussion",
     "module": "rotational-dynamics",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "impulse",
       "rod"
@@ -5759,7 +5759,7 @@
     "id": "rot-dyn-30",
     "name": "Falling chimney",
     "module": "rotational-dynamics",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "rod",
       "dynamics"
@@ -5948,7 +5948,7 @@
     "id": "rot-angmom-11",
     "name": "Clay hits a rotating disk",
     "module": "angular-momentum",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "collision",
       "conservation"
@@ -5984,7 +5984,7 @@
     "id": "rot-angmom-13",
     "name": "Two disks couple together",
     "module": "angular-momentum",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rotational collision"
     ],
@@ -6001,7 +6001,7 @@
     "id": "rot-angmom-14",
     "name": "Energy lost in the coupling",
     "module": "angular-momentum",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rotational collision",
       "energy"
@@ -6036,7 +6036,7 @@
     "id": "rot-angmom-16",
     "name": "Ball on a shrinking string",
     "module": "angular-momentum",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conservation"
     ],
@@ -6053,7 +6053,7 @@
     "id": "rot-angmom-17",
     "name": "Work done pulling the string",
     "module": "angular-momentum",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conservation",
       "energy"
@@ -6071,7 +6071,7 @@
     "id": "rot-angmom-18",
     "name": "Satellite at perigee and apogee",
     "module": "angular-momentum",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "orbits",
       "conservation"
@@ -6089,7 +6089,7 @@
     "id": "rot-angmom-19",
     "name": "Turntable and a walking person",
     "module": "angular-momentum",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conservation"
     ],
@@ -6123,7 +6123,7 @@
     "id": "rot-angmom-21",
     "name": "Spinning ice dancer's ratio",
     "module": "angular-momentum",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conservation",
       "ratio"
@@ -6141,7 +6141,7 @@
     "id": "rot-angmom-22",
     "name": "Precession-free check: torque along L",
     "module": "angular-momentum",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "torque"
     ],
@@ -6158,7 +6158,7 @@
     "id": "rot-angmom-23",
     "name": "Rod hit off-center on a frictionless table",
     "module": "angular-momentum",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "free body",
       "collision"
@@ -6194,7 +6194,7 @@
     "id": "rot-angmom-25",
     "name": "Rotating platform catches a thrown ball",
     "module": "angular-momentum",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "collision"
     ],
@@ -6211,7 +6211,7 @@
     "id": "rot-angmom-26",
     "name": "Ballistic pendulum, rotational version",
     "module": "angular-momentum",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "collision",
       "energy"
@@ -6229,7 +6229,7 @@
     "id": "rot-angmom-27",
     "name": "Bullet speed for a full rotation",
     "module": "angular-momentum",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "collision",
       "energy"
@@ -6247,7 +6247,7 @@
     "id": "rot-angmom-28",
     "name": "Angular momentum about a moving point",
     "module": "angular-momentum",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "reference point"
     ],
@@ -6264,7 +6264,7 @@
     "id": "rot-angmom-29",
     "name": "Neutron star spin-up",
     "module": "angular-momentum",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "conservation",
       "astro"
@@ -6282,7 +6282,7 @@
     "id": "rot-angmom-30",
     "name": "Gyroscope precession rate",
     "module": "angular-momentum",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "gyroscope"
     ],
@@ -6487,7 +6487,7 @@
     "id": "rot-roll-12",
     "name": "Acceleration down the incline",
     "module": "rolling",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "incline"
     ],
@@ -6522,7 +6522,7 @@
     "id": "rot-roll-14",
     "name": "Hoop versus sphere acceleration ratio",
     "module": "rolling",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "incline",
       "race"
@@ -6540,7 +6540,7 @@
     "id": "rot-roll-15",
     "name": "Rolling up a hill",
     "module": "rolling",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "incline",
       "energy"
@@ -6558,7 +6558,7 @@
     "id": "rot-roll-16",
     "name": "Rolling versus sliding",
     "module": "rolling",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "comparison"
     ],
@@ -6575,7 +6575,7 @@
     "id": "rot-roll-17",
     "name": "Rolling wheel kinetic energy split",
     "module": "rolling",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rolling KE"
     ],
@@ -6627,7 +6627,7 @@
     "id": "rot-roll-20",
     "name": "Rolling on a curved track",
     "module": "rolling",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "loop",
       "rolling"
@@ -6681,7 +6681,7 @@
     "id": "rot-roll-23",
     "name": "Bowling ball that starts out sliding",
     "module": "rolling",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "transition to rolling"
     ],
@@ -6698,7 +6698,7 @@
     "id": "rot-roll-24",
     "name": "Distance before rolling begins",
     "module": "rolling",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "transition to rolling"
     ],
@@ -6715,7 +6715,7 @@
     "id": "rot-roll-25",
     "name": "Energy lost while skidding",
     "module": "rolling",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "transition to rolling",
       "energy"
@@ -6733,7 +6733,7 @@
     "id": "rot-roll-26",
     "name": "Spinning ball dropped on the floor",
     "module": "rolling",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "transition to rolling"
     ],
@@ -6750,7 +6750,7 @@
     "id": "rot-roll-27",
     "name": "Rolling with slipping on a steep incline",
     "module": "rolling",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "incline",
       "friction"
@@ -6768,7 +6768,7 @@
     "id": "rot-roll-28",
     "name": "Hollow versus solid sphere race",
     "module": "rolling",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "race"
     ],
@@ -6785,7 +6785,7 @@
     "id": "rot-roll-29",
     "name": "Rolling inside a bowl",
     "module": "rolling",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "oscillation",
       "rolling"
@@ -6803,7 +6803,7 @@
     "id": "rot-roll-30",
     "name": "Spool pulled at the critical angle",
     "module": "rolling",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "spool",
       "rolling"

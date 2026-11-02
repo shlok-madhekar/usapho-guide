@@ -176,7 +176,7 @@
     "id": "mag-force-11",
     "name": "Torque on a galvanometer coil",
     "module": "magnetic-force",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "torque",
       "dipole moment"
@@ -194,7 +194,7 @@
     "id": "mag-force-12",
     "name": "Tilted current loop",
     "module": "magnetic-force",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "torque"
     ],
@@ -211,7 +211,7 @@
     "id": "mag-force-13",
     "name": "Mass from a spectrometer radius",
     "module": "magnetic-force",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "mass spectrometer"
     ],
@@ -228,7 +228,7 @@
     "id": "mag-force-14",
     "name": "Rod on rails",
     "module": "magnetic-force",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "magnetic force",
       "current"
@@ -246,7 +246,7 @@
     "id": "mag-force-15",
     "name": "Floating a wire",
     "module": "magnetic-force",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "magnetic force"
     ],
@@ -314,7 +314,7 @@
     "id": "mag-force-19",
     "name": "Antiparallel currents",
     "module": "magnetic-force",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "parallel wires"
     ],
@@ -348,7 +348,7 @@
     "id": "mag-force-21",
     "name": "Work to rotate a dipole",
     "module": "magnetic-force",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dipole moment",
       "torque"
@@ -383,7 +383,7 @@
     "id": "mag-force-23",
     "name": "Maximum cyclotron energy",
     "module": "magnetic-force",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "circular motion"
     ],
@@ -400,7 +400,7 @@
     "id": "mag-force-24",
     "name": "Magnetic levitation of a wire",
     "module": "magnetic-force",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "parallel wires"
     ],
@@ -417,7 +417,7 @@
     "id": "mag-force-25",
     "name": "Deflection through a field slab",
     "module": "magnetic-force",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "circular motion"
     ],
@@ -434,7 +434,7 @@
     "id": "mag-force-26",
     "name": "Helical electron beam",
     "module": "magnetic-force",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "helical motion"
     ],
@@ -451,7 +451,7 @@
     "id": "mag-force-27",
     "name": "Separating neon isotopes",
     "module": "magnetic-force",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "mass spectrometer"
     ],
@@ -468,7 +468,7 @@
     "id": "mag-force-28",
     "name": "Starting a rod against friction",
     "module": "magnetic-force",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "magnetic force"
     ],
@@ -485,7 +485,7 @@
     "id": "mag-force-29",
     "name": "Oscillating current loop",
     "module": "magnetic-force",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "torque",
       "dipole moment"
@@ -503,7 +503,7 @@
     "id": "mag-force-30",
     "name": "Cycloid in crossed fields",
     "module": "magnetic-force",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "velocity selector",
       "circular motion"
@@ -815,7 +815,7 @@
     "id": "mag-bs-18",
     "name": "A 120 degree arc",
     "module": "biot-savart",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "arc"
     ],
@@ -850,7 +850,7 @@
     "id": "mag-bs-20",
     "name": "Single current sheet",
     "module": "biot-savart",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "current sheet"
     ],
@@ -885,7 +885,7 @@
     "id": "mag-bs-22",
     "name": "Far field of a small loop",
     "module": "biot-savart",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "circular loop",
       "on-axis field"
@@ -903,7 +903,7 @@
     "id": "mag-bs-23",
     "name": "Field at a square's corner",
     "module": "biot-savart",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "polygon",
       "finite segment"
@@ -921,7 +921,7 @@
     "id": "mag-bs-24",
     "name": "Center of a finite solenoid",
     "module": "biot-savart",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "solenoid",
       "superposition"
@@ -939,7 +939,7 @@
     "id": "mag-bs-25",
     "name": "Coil pair, wrong spacing",
     "module": "biot-savart",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "helmholtz",
       "on-axis field"
@@ -957,7 +957,7 @@
     "id": "mag-bs-26",
     "name": "Three wires, field at the centroid",
     "module": "biot-savart",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "long wire",
       "superposition"
@@ -975,7 +975,7 @@
     "id": "mag-bs-27",
     "name": "Null point between two wires",
     "module": "biot-savart",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "long wire",
       "superposition"
@@ -993,7 +993,7 @@
     "id": "mag-bs-28",
     "name": "Center of a hexagonal loop",
     "module": "biot-savart",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "polygon"
     ],
@@ -1010,7 +1010,7 @@
     "id": "mag-bs-29",
     "name": "Spinning charged ring",
     "module": "biot-savart",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "circular loop",
       "current"
@@ -1028,7 +1028,7 @@
     "id": "mag-bs-30",
     "name": "Spinning charged disk",
     "module": "biot-savart",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "circular loop",
       "current"
@@ -1098,7 +1098,7 @@
     "id": "mag-amp-04",
     "name": "Inside a solid conductor",
     "module": "amperes-law",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "ampere's law",
       "current density"
@@ -1289,7 +1289,7 @@
     "id": "mag-amp-15",
     "name": "Toroid field at the inner edge",
     "module": "amperes-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "toroid"
     ],
@@ -1378,7 +1378,7 @@
     "id": "mag-amp-20",
     "name": "Circulation around solenoid turns",
     "module": "amperes-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "ampere's law",
       "solenoid"
@@ -1396,7 +1396,7 @@
     "id": "mag-amp-21",
     "name": "Imperfectly shielded coax",
     "module": "amperes-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "coaxial cable"
     ],
@@ -1413,7 +1413,7 @@
     "id": "mag-amp-22",
     "name": "Designing a toroid",
     "module": "amperes-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "toroid",
       "design"
@@ -1449,7 +1449,7 @@
     "id": "mag-amp-24",
     "name": "Density falling off toward the surface",
     "module": "amperes-law",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "current density",
       "ampere's law"
@@ -1467,7 +1467,7 @@
     "id": "mag-amp-25",
     "name": "Slab with density growing from the midplane",
     "module": "amperes-law",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "current slab",
       "current density"
@@ -1485,7 +1485,7 @@
     "id": "mag-amp-26",
     "name": "Coax with currents in the same direction",
     "module": "amperes-law",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "coaxial cable",
       "enclosed current"
@@ -1503,7 +1503,7 @@
     "id": "mag-amp-27",
     "name": "Wire balanced against a sheet",
     "module": "amperes-law",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "superposition",
       "current sheet"
@@ -1521,7 +1521,7 @@
     "id": "mag-amp-28",
     "name": "Flux through a toroid's cross-section",
     "module": "amperes-law",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "toroid",
       "flux"
@@ -1539,7 +1539,7 @@
     "id": "mag-amp-29",
     "name": "Field at the axis of a drilled conductor",
     "module": "amperes-law",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "superposition",
       "cavity"
@@ -1557,7 +1557,7 @@
     "id": "mag-amp-30",
     "name": "Where the shield halves the field",
     "module": "amperes-law",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "coaxial cable",
       "enclosed current"
@@ -1679,7 +1679,7 @@
     "id": "mag-far-07",
     "name": "Charge through a coil",
     "module": "faraday-lenz",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "induced charge"
     ],
@@ -1784,7 +1784,7 @@
     "id": "mag-far-13",
     "name": "RMS output of an alternator",
     "module": "faraday-lenz",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rotating coil",
       "generator"
@@ -1856,7 +1856,7 @@
     "id": "mag-far-17",
     "name": "Current in a loop in a decaying field",
     "module": "faraday-lenz",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "induced current",
       "lenz's law"
@@ -1964,7 +1964,7 @@
     "id": "mag-far-23",
     "name": "Induced current beside a ramping wire",
     "module": "faraday-lenz",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "long wire",
       "induced current"
@@ -1982,7 +1982,7 @@
     "id": "mag-far-24",
     "name": "Rod coasting to a stop",
     "module": "faraday-lenz",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "motional emf",
       "lenz's law"
@@ -2000,7 +2000,7 @@
     "id": "mag-far-25",
     "name": "Loop drifting away from a wire",
     "module": "faraday-lenz",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "long wire",
       "motional emf"
@@ -2018,7 +2018,7 @@
     "id": "mag-far-26",
     "name": "Charge from repositioning a loop",
     "module": "faraday-lenz",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "induced charge",
       "long wire"
@@ -2036,7 +2036,7 @@
     "id": "mag-far-27",
     "name": "Induced electric field inside a solenoid",
     "module": "faraday-lenz",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "induced electric field"
     ],
@@ -2053,7 +2053,7 @@
     "id": "mag-far-28",
     "name": "Induced electric field outside the windings",
     "module": "faraday-lenz",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "induced electric field"
     ],
@@ -2070,7 +2070,7 @@
     "id": "mag-far-29",
     "name": "Heat from a loop falling at terminal speed",
     "module": "faraday-lenz",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy",
       "lenz's law"
@@ -2088,7 +2088,7 @@
     "id": "mag-far-30",
     "name": "Small loop at the center of a big one",
     "module": "faraday-lenz",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "mutual inductance",
       "faraday's law"
@@ -2158,7 +2158,7 @@
     "id": "mag-emf-04",
     "name": "Force needed to keep the rod moving",
     "module": "motional-emf",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "motional emf",
       "magnetic force"
@@ -2194,7 +2194,7 @@
     "id": "mag-emf-06",
     "name": "Rotating rod",
     "module": "motional-emf",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "motional emf",
       "rotation"
@@ -2247,7 +2247,7 @@
     "id": "mag-emf-09",
     "name": "Disk dynamo EMF",
     "module": "motional-emf",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "motional emf",
       "rotation"
@@ -2265,7 +2265,7 @@
     "id": "mag-emf-10",
     "name": "Charge through the rail circuit",
     "module": "motional-emf",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "motional emf",
       "induced charge"
@@ -2354,7 +2354,7 @@
     "id": "mag-emf-15",
     "name": "Heat generated by magnetic braking",
     "module": "motional-emf",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "magnetic braking",
       "energy"
@@ -2372,7 +2372,7 @@
     "id": "mag-emf-16",
     "name": "Generator peak EMF from rpm",
     "module": "motional-emf",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "ac generator"
     ],
@@ -2389,7 +2389,7 @@
     "id": "mag-emf-17",
     "name": "RMS output of the generator",
     "module": "motional-emf",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "ac generator"
     ],
@@ -2406,7 +2406,7 @@
     "id": "mag-emf-18",
     "name": "Spin rate for a target EMF",
     "module": "motional-emf",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "motional emf",
       "rotation"
@@ -2495,7 +2495,7 @@
     "id": "mag-emf-23",
     "name": "Pulling against friction and induction",
     "module": "motional-emf",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "motional emf",
       "power"
@@ -2513,7 +2513,7 @@
     "id": "mag-emf-24",
     "name": "Speed when acceleration is half of g",
     "module": "motional-emf",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "motional emf",
       "dynamics"
@@ -2531,7 +2531,7 @@
     "id": "mag-emf-25",
     "name": "Power from a rotating rod",
     "module": "motional-emf",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "motional emf",
       "rotation",
@@ -2568,7 +2568,7 @@
     "id": "mag-emf-27",
     "name": "Inclined rails with friction",
     "module": "motional-emf",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "motional emf",
       "terminal velocity",
@@ -2605,7 +2605,7 @@
     "id": "mag-emf-29",
     "name": "Two free rods on the same rails",
     "module": "motional-emf",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "motional emf",
       "momentum",
@@ -2624,7 +2624,7 @@
     "id": "mag-emf-30",
     "name": "Rod on rails closed by an inductor",
     "module": "motional-emf",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "motional emf",
       "inductance",
@@ -2832,7 +2832,7 @@
     "id": "mag-ind-12",
     "name": "Flux linkage",
     "module": "inductance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "self-inductance"
     ],
@@ -2883,7 +2883,7 @@
     "id": "mag-ind-15",
     "name": "Stored energy at steady state",
     "module": "inductance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "lr circuit",
       "magnetic energy"
@@ -2937,7 +2937,7 @@
     "id": "mag-ind-18",
     "name": "Peak current in an LC circuit",
     "module": "inductance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "lc circuit"
     ],
@@ -2954,7 +2954,7 @@
     "id": "mag-ind-19",
     "name": "Energy exchange in an LC circuit",
     "module": "inductance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "lc circuit",
       "magnetic energy"
@@ -2972,7 +2972,7 @@
     "id": "mag-ind-20",
     "name": "Back-EMF of a motor",
     "module": "inductance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "back-emf"
     ],
@@ -2989,7 +2989,7 @@
     "id": "mag-ind-21",
     "name": "Initial rate of current rise",
     "module": "inductance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "lr circuit"
     ],
@@ -3006,7 +3006,7 @@
     "id": "mag-ind-22",
     "name": "Period of an LC oscillator",
     "module": "inductance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "lc circuit"
     ],
@@ -3023,7 +3023,7 @@
     "id": "mag-ind-23",
     "name": "Time to store half the final energy",
     "module": "inductance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "lr circuit",
       "magnetic energy"
@@ -3041,7 +3041,7 @@
     "id": "mag-ind-24",
     "name": "Mutual inductance of two coaxial coils",
     "module": "inductance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "mutual inductance"
     ],
@@ -3058,7 +3058,7 @@
     "id": "mag-ind-25",
     "name": "Energy stored in a coaxial cable",
     "module": "inductance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy density",
       "self-inductance"
@@ -3076,7 +3076,7 @@
     "id": "mag-ind-26",
     "name": "Current when the charge is half its peak",
     "module": "inductance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "lc circuit"
     ],
@@ -3093,7 +3093,7 @@
     "id": "mag-ind-27",
     "name": "Voltage spike when the switch opens",
     "module": "inductance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "lr circuit",
       "back-emf"
@@ -3111,7 +3111,7 @@
     "id": "mag-ind-28",
     "name": "Energy stored in a toroid",
     "module": "inductance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "toroid",
       "magnetic energy"
@@ -3129,7 +3129,7 @@
     "id": "mag-ind-29",
     "name": "Heat dissipated during one time constant",
     "module": "inductance",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "lr circuit",
       "energy"
@@ -3147,7 +3147,7 @@
     "id": "mag-ind-30",
     "name": "Maximum current when two capacitors share charge",
     "module": "inductance",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "lc circuit",
       "magnetic energy"
@@ -3251,7 +3251,7 @@
     "id": "th-first-06",
     "name": "Isothermal work of an ideal gas",
     "module": "first-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "isothermal",
       "work"
@@ -3269,7 +3269,7 @@
     "id": "th-first-07",
     "name": "Heat in an isothermal expansion",
     "module": "first-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "isothermal",
       "first law"
@@ -3305,7 +3305,7 @@
     "id": "th-first-09",
     "name": "Diatomic gas heated at constant pressure",
     "module": "first-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "isobaric",
       "heat capacity"
@@ -3323,7 +3323,7 @@
     "id": "th-first-10",
     "name": "Splitting isobaric heat into work and internal energy",
     "module": "first-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "isobaric",
       "first law"
@@ -3341,7 +3341,7 @@
     "id": "th-first-11",
     "name": "Free expansion into vacuum",
     "module": "first-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "free expansion",
       "first law"
@@ -3377,7 +3377,7 @@
     "id": "th-first-13",
     "name": "Falling weight drives a paddle wheel",
     "module": "first-law",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "stirring work",
       "calorimetry"
@@ -3447,7 +3447,7 @@
     "id": "th-first-17",
     "name": "Steam condensed into water",
     "module": "first-law",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "latent heat",
       "calorimetry"
@@ -3465,7 +3465,7 @@
     "id": "th-first-18",
     "name": "Adiabatic compression of a monatomic gas",
     "module": "first-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "adiabatic"
     ],
@@ -3482,7 +3482,7 @@
     "id": "th-first-19",
     "name": "Adiabatic pressure change",
     "module": "first-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "adiabatic"
     ],
@@ -3499,7 +3499,7 @@
     "id": "th-first-20",
     "name": "Work in an adiabatic process",
     "module": "first-law",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "adiabatic",
       "work"
@@ -3517,7 +3517,7 @@
     "id": "th-first-21",
     "name": "Diesel-style adiabatic compression",
     "module": "first-law",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "adiabatic"
     ],
@@ -3552,7 +3552,7 @@
     "id": "th-first-23",
     "name": "Work lifting a loaded piston",
     "module": "first-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "isobaric",
       "work"
@@ -3588,7 +3588,7 @@
     "id": "th-first-25",
     "name": "Work from a linear P-V path",
     "module": "first-law",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "work",
       "pV diagram"
@@ -3624,7 +3624,7 @@
     "id": "th-first-27",
     "name": "Two-step path to the same state",
     "module": "first-law",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "first law",
       "state function"
@@ -3642,7 +3642,7 @@
     "id": "th-first-28",
     "name": "Melting ice with stirring only",
     "module": "first-law",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "stirring work",
       "latent heat"
@@ -3660,7 +3660,7 @@
     "id": "th-first-29",
     "name": "Adiabatic then isothermal",
     "module": "first-law",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "adiabatic",
       "isothermal"
@@ -3833,7 +3833,7 @@
     "id": "th-kin-09",
     "name": "Mass of one molecule from rms speed",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinetic energy"
     ],
@@ -3868,7 +3868,7 @@
     "id": "th-kin-11",
     "name": "Momentum transfer in one wall collision",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "momentum transfer"
     ],
@@ -3885,7 +3885,7 @@
     "id": "th-kin-12",
     "name": "Force from a stream of molecules",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "momentum transfer",
       "pressure"
@@ -3903,7 +3903,7 @@
     "id": "th-kin-13",
     "name": "Pressure from molecular bombardment",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pressure"
     ],
@@ -3920,7 +3920,7 @@
     "id": "th-kin-14",
     "name": "Pressure from number density and mean KE",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pressure",
       "kinetic theory"
@@ -3938,7 +3938,7 @@
     "id": "th-kin-15",
     "name": "Mean free path in air",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "mean free path"
     ],
@@ -3955,7 +3955,7 @@
     "id": "th-kin-16",
     "name": "Mean free path in a vacuum chamber",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "mean free path"
     ],
@@ -3972,7 +3972,7 @@
     "id": "th-kin-17",
     "name": "Collision frequency",
     "module": "kinetic-theory",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "mean free path"
     ],
@@ -3989,7 +3989,7 @@
     "id": "th-kin-18",
     "name": "Effusion rate ratio",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "effusion"
     ],
@@ -4006,7 +4006,7 @@
     "id": "th-kin-19",
     "name": "Effusion time comparison",
     "module": "kinetic-theory",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "effusion"
     ],
@@ -4023,7 +4023,7 @@
     "id": "th-kin-20",
     "name": "Effusion flux through a hole",
     "module": "kinetic-theory",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "effusion",
       "number density"
@@ -4041,7 +4041,7 @@
     "id": "th-kin-21",
     "name": "Kinetic energy of a whole tank of gas",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinetic energy"
     ],
@@ -4058,7 +4058,7 @@
     "id": "th-kin-22",
     "name": "RMS speed from pressure and density",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rms speed",
       "pressure"
@@ -4076,7 +4076,7 @@
     "id": "th-kin-23",
     "name": "Molecules in a room",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "number density"
     ],
@@ -4093,7 +4093,7 @@
     "id": "th-kin-24",
     "name": "Escape speed and molecular speed",
     "module": "kinetic-theory",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "rms speed"
     ],
@@ -4110,7 +4110,7 @@
     "id": "th-kin-25",
     "name": "Mean square speed from a small sample",
     "module": "kinetic-theory",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "rms speed"
     ],
@@ -4144,7 +4144,7 @@
     "id": "th-kin-27",
     "name": "Heating a sealed tank",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pressure",
       "number density"
@@ -4162,7 +4162,7 @@
     "id": "th-kin-28",
     "name": "Molecular diameter from mean free path",
     "module": "kinetic-theory",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "mean free path"
     ],
@@ -4179,7 +4179,7 @@
     "id": "th-kin-29",
     "name": "Isotope separation by effusion",
     "module": "kinetic-theory",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "effusion",
       "molar mass"
@@ -4197,7 +4197,7 @@
     "id": "th-kin-30",
     "name": "Pressure of a molecular beam that sticks",
     "module": "kinetic-theory",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "momentum transfer",
       "pressure"
@@ -4392,7 +4392,7 @@
     "id": "th-gas-11",
     "name": "Heating a diatomic gas at fixed volume",
     "module": "ideal-gas",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "heat capacity",
       "first law"
@@ -4410,7 +4410,7 @@
     "id": "th-gas-12",
     "name": "Heating the same gas at fixed pressure",
     "module": "ideal-gas",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "heat capacity",
       "first law"
@@ -4428,7 +4428,7 @@
     "id": "th-gas-13",
     "name": "Adiabatic compression of helium",
     "module": "ideal-gas",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "adiabatic",
       "gamma"
@@ -4446,7 +4446,7 @@
     "id": "th-gas-14",
     "name": "Adiabatic pressure rise in air",
     "module": "ideal-gas",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "adiabatic"
     ],
@@ -4463,7 +4463,7 @@
     "id": "th-gas-15",
     "name": "Gas under a loaded piston",
     "module": "ideal-gas",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pressure",
       "piston"
@@ -4481,7 +4481,7 @@
     "id": "th-gas-16",
     "name": "Molecules in a cubic centimeter",
     "module": "ideal-gas",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinetic theory",
       "ideal gas law"
@@ -4517,7 +4517,7 @@
     "id": "th-gas-18",
     "name": "Pressure of a helium-nitrogen mixture",
     "module": "ideal-gas",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "mixtures",
       "partial pressure"
@@ -4571,7 +4571,7 @@
     "id": "th-gas-21",
     "name": "Identifying a gas from its density",
     "module": "ideal-gas",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "density",
       "molar mass"
@@ -4589,7 +4589,7 @@
     "id": "th-gas-22",
     "name": "Root-mean-square speed of nitrogen",
     "module": "ideal-gas",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinetic theory",
       "rms speed"
@@ -4607,7 +4607,7 @@
     "id": "th-gas-23",
     "name": "Pressure three kilometres up",
     "module": "ideal-gas",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "barometric formula",
       "ideal gas law"
@@ -4625,7 +4625,7 @@
     "id": "th-gas-24",
     "name": "Work done in an adiabatic expansion",
     "module": "ideal-gas",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "adiabatic",
       "first law"
@@ -4643,7 +4643,7 @@
     "id": "th-gas-25",
     "name": "Opening a valve between two tanks",
     "module": "ideal-gas",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "ideal gas law",
       "mixtures"
@@ -4661,7 +4661,7 @@
     "id": "th-gas-26",
     "name": "Inverting a mercury-sealed tube",
     "module": "ideal-gas",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "boyle's law",
       "manometer"
@@ -4679,7 +4679,7 @@
     "id": "th-gas-27",
     "name": "Air temperature after diesel compression",
     "module": "ideal-gas",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "adiabatic",
       "compression ratio"
@@ -4697,7 +4697,7 @@
     "id": "th-gas-28",
     "name": "How hot must the balloon air be?",
     "module": "ideal-gas",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "buoyancy",
       "density"
@@ -4715,7 +4715,7 @@
     "id": "th-gas-29",
     "name": "Piston squeezing the other half",
     "module": "ideal-gas",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "adiabatic",
       "piston"
@@ -4733,7 +4733,7 @@
     "id": "th-gas-30",
     "name": "Dry adiabatic lapse rate",
     "module": "ideal-gas",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "adiabatic",
       "atmosphere"
@@ -4927,7 +4927,7 @@
     "id": "th-eng-11",
     "name": "Diesel cycle efficiency",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "diesel cycle"
     ],
@@ -4944,7 +4944,7 @@
     "id": "th-eng-12",
     "name": "Brayton cycle for a gas turbine",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "brayton cycle"
     ],
@@ -4961,7 +4961,7 @@
     "id": "th-eng-13",
     "name": "Testing an inventor's claim",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "second law",
       "carnot"
@@ -4979,7 +4979,7 @@
     "id": "th-eng-14",
     "name": "Second-law efficiency of a real engine",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "efficiency",
       "carnot"
@@ -4997,7 +4997,7 @@
     "id": "th-eng-15",
     "name": "Waste heat from a power plant",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "efficiency",
       "power"
@@ -5015,7 +5015,7 @@
     "id": "th-eng-16",
     "name": "Ideal Stirling engine efficiency",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "stirling",
       "carnot"
@@ -5033,7 +5033,7 @@
     "id": "th-eng-17",
     "name": "Power from fuel burn rate",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "efficiency",
       "power"
@@ -5051,7 +5051,7 @@
     "id": "th-eng-18",
     "name": "Work needed by a refrigerator",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "refrigerator",
       "cop"
@@ -5069,7 +5069,7 @@
     "id": "th-eng-19",
     "name": "Relating the two COPs",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "heat pump",
       "cop"
@@ -5087,7 +5087,7 @@
     "id": "th-eng-20",
     "name": "Electrical power drawn by a heat pump",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "heat pump",
       "power"
@@ -5105,7 +5105,7 @@
     "id": "th-eng-21",
     "name": "Work per cycle from efficiency",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "efficiency",
       "otto cycle"
@@ -5123,7 +5123,7 @@
     "id": "th-eng-22",
     "name": "Work as the area of a PV rectangle",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pv diagram",
       "work"
@@ -5141,7 +5141,7 @@
     "id": "th-eng-23",
     "name": "Carnot engine driving a Carnot fridge",
     "module": "heat-engines",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "carnot",
       "refrigerator"
@@ -5159,7 +5159,7 @@
     "id": "th-eng-24",
     "name": "Two Carnot engines in series",
     "module": "heat-engines",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "carnot",
       "second law"
@@ -5177,7 +5177,7 @@
     "id": "th-eng-25",
     "name": "Otto cycle with a monatomic working gas",
     "module": "heat-engines",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "otto cycle",
       "gamma"
@@ -5195,7 +5195,7 @@
     "id": "th-eng-26",
     "name": "Ocean thermal energy conversion",
     "module": "heat-engines",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "carnot",
       "power"
@@ -5213,7 +5213,7 @@
     "id": "th-eng-27",
     "name": "By how much does the claim break the second law?",
     "module": "heat-engines",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "second law",
       "carnot"
@@ -5231,7 +5231,7 @@
     "id": "th-eng-28",
     "name": "Net work of a Stirling cycle",
     "module": "heat-engines",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "stirling",
       "work"
@@ -5249,7 +5249,7 @@
     "id": "th-eng-29",
     "name": "Work from two finite bodies",
     "module": "heat-engines",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "carnot",
       "second law"
@@ -5267,7 +5267,7 @@
     "id": "th-eng-30",
     "name": "Otto cycle measured against Carnot",
     "module": "heat-engines",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "otto cycle",
       "carnot"
@@ -5447,7 +5447,7 @@
     "id": "th-ent-10",
     "name": "Heat leaking between two reservoirs",
     "module": "entropy",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "entropy",
       "irreversible"
@@ -5465,7 +5465,7 @@
     "id": "th-ent-11",
     "name": "Heating an aluminum block",
     "module": "entropy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "entropy",
       "specific heat"
@@ -5538,7 +5538,7 @@
     "id": "th-ent-15",
     "name": "Isothermal compression of a gas",
     "module": "entropy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "entropy",
       "ideal gas"
@@ -5592,7 +5592,7 @@
     "id": "th-ent-18",
     "name": "Entropy of expansion from molecule counting",
     "module": "entropy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "entropy",
       "boltzmann"
@@ -5628,7 +5628,7 @@
     "id": "th-ent-20",
     "name": "Constant-volume heating of a diatomic gas",
     "module": "entropy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "entropy",
       "ideal gas"
@@ -5646,7 +5646,7 @@
     "id": "th-ent-21",
     "name": "Constant-pressure heating",
     "module": "entropy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "entropy",
       "ideal gas"
@@ -5682,7 +5682,7 @@
     "id": "th-ent-23",
     "name": "Free expansion undone",
     "module": "entropy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "entropy",
       "free expansion"
@@ -5700,7 +5700,7 @@
     "id": "th-ent-24",
     "name": "Two blocks brought into contact",
     "module": "entropy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "entropy",
       "irreversible"
@@ -5718,7 +5718,7 @@
     "id": "th-ent-25",
     "name": "Cold ice dropped into a warm bath",
     "module": "entropy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "entropy",
       "phase change",
@@ -5737,7 +5737,7 @@
     "id": "th-ent-26",
     "name": "Expanding while cooling",
     "module": "entropy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "entropy",
       "ideal gas"
@@ -5755,7 +5755,7 @@
     "id": "th-ent-27",
     "name": "Two macrostates of four molecules",
     "module": "entropy",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "entropy",
       "boltzmann"
@@ -5773,7 +5773,7 @@
     "id": "th-ent-28",
     "name": "Entropy generated by a real engine",
     "module": "entropy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "entropy",
       "engine"
@@ -5791,7 +5791,7 @@
     "id": "th-ent-29",
     "name": "Work from a cooling copper block",
     "module": "entropy",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "entropy",
       "engine",
@@ -5810,7 +5810,7 @@
     "id": "th-ent-30",
     "name": "Common temperature of two finite bodies",
     "module": "entropy",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "entropy",
       "carnot"
@@ -5956,7 +5956,7 @@
     "id": "th-pv-08",
     "name": "Heat added along an isobar",
     "module": "pv-diagrams",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "pv diagram",
       "isobaric"
@@ -6065,7 +6065,7 @@
     "id": "th-pv-14",
     "name": "Slanted triangular cycle",
     "module": "pv-diagrams",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pv diagram",
       "cycle",
@@ -6084,7 +6084,7 @@
     "id": "th-pv-15",
     "name": "Carnot efficiency from corner temperatures",
     "module": "pv-diagrams",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pv diagram",
       "carnot",
@@ -6103,7 +6103,7 @@
     "id": "th-pv-16",
     "name": "Heat expelled during isothermal compression",
     "module": "pv-diagrams",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pv diagram",
       "isothermal"
@@ -6121,7 +6121,7 @@
     "id": "th-pv-17",
     "name": "Hottest corner of a rectangle",
     "module": "pv-diagrams",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pv diagram",
       "ideal gas law"
@@ -6139,7 +6139,7 @@
     "id": "th-pv-18",
     "name": "Cycle run backwards as a fridge",
     "module": "pv-diagrams",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pv diagram",
       "refrigerator"
@@ -6157,7 +6157,7 @@
     "id": "th-pv-19",
     "name": "Work under a straight slanted line",
     "module": "pv-diagrams",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pv diagram",
       "work"
@@ -6212,7 +6212,7 @@
     "id": "th-pv-22",
     "name": "Work along a two-leg path",
     "module": "pv-diagrams",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pv diagram",
       "work"
@@ -6230,7 +6230,7 @@
     "id": "th-pv-23",
     "name": "Efficiency of a triangular cycle",
     "module": "pv-diagrams",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pv diagram",
       "efficiency",
@@ -6249,7 +6249,7 @@
     "id": "th-pv-24",
     "name": "Signs on the return leg of a triangle",
     "module": "pv-diagrams",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pv diagram",
       "first law"
@@ -6267,7 +6267,7 @@
     "id": "th-pv-25",
     "name": "Work from a Carnot cycle on a PV diagram",
     "module": "pv-diagrams",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pv diagram",
       "carnot"
@@ -6285,7 +6285,7 @@
     "id": "th-pv-26",
     "name": "Carnot fridge coefficient of performance",
     "module": "pv-diagrams",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pv diagram",
       "refrigerator",
@@ -6304,7 +6304,7 @@
     "id": "th-pv-27",
     "name": "Isotherm plus isobar plus isochore",
     "module": "pv-diagrams",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pv diagram",
       "cycle",
@@ -6323,7 +6323,7 @@
     "id": "th-pv-28",
     "name": "Coldest corner of a cycle",
     "module": "pv-diagrams",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "pv diagram",
       "ideal gas law"
@@ -6341,7 +6341,7 @@
     "id": "th-pv-29",
     "name": "Efficiency of an Otto cycle",
     "module": "pv-diagrams",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "pv diagram",
       "efficiency",
@@ -6360,7 +6360,7 @@
     "id": "th-pv-30",
     "name": "Heat rejected per cycle",
     "module": "pv-diagrams",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "pv diagram",
       "cycle",
@@ -6449,7 +6449,7 @@
     "id": "wv-basic-05",
     "name": "P waves and S waves",
     "module": "wave-basics",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "transverse",
       "longitudinal"
@@ -6555,7 +6555,7 @@
     "id": "wv-basic-11",
     "name": "Fastest the rope moves",
     "module": "wave-basics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "particle velocity"
     ],
@@ -6572,7 +6572,7 @@
     "id": "wv-basic-12",
     "name": "Transverse acceleration",
     "module": "wave-basics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "particle acceleration"
     ],
@@ -6607,7 +6607,7 @@
     "id": "wv-basic-14",
     "name": "Tension for a target speed",
     "module": "wave-basics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "waves on a string",
       "tension"
@@ -6642,7 +6642,7 @@
     "id": "wv-basic-16",
     "name": "Moving back from a speaker",
     "module": "wave-basics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "intensity",
       "inverse square"
@@ -6660,7 +6660,7 @@
     "id": "wv-basic-17",
     "name": "Sound level of a vacuum cleaner",
     "module": "wave-basics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "decibels",
       "intensity"
@@ -6678,7 +6678,7 @@
     "id": "wv-basic-18",
     "name": "From decibels back to intensity",
     "module": "wave-basics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "decibels",
       "intensity"
@@ -6696,7 +6696,7 @@
     "id": "wv-basic-19",
     "name": "Power of a chirping alarm",
     "module": "wave-basics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "intensity",
       "power"
@@ -6714,7 +6714,7 @@
     "id": "wv-basic-20",
     "name": "Sound in a steel rail",
     "module": "wave-basics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "sound in solids"
     ],
@@ -6731,7 +6731,7 @@
     "id": "wv-basic-21",
     "name": "Sound speed on a hot day",
     "module": "wave-basics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "sound",
       "temperature"
@@ -6749,7 +6749,7 @@
     "id": "wv-basic-22",
     "name": "Starting displacement",
     "module": "wave-basics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "wave function",
       "phase"
@@ -6767,7 +6767,7 @@
     "id": "wv-basic-23",
     "name": "Ten machines instead of one",
     "module": "wave-basics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "decibels"
     ],
@@ -6784,7 +6784,7 @@
     "id": "wv-basic-24",
     "name": "Velocity of one rope element",
     "module": "wave-basics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "particle velocity",
       "wave function"
@@ -6802,7 +6802,7 @@
     "id": "wv-basic-25",
     "name": "How far to get quiet",
     "module": "wave-basics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "decibels",
       "inverse square"
@@ -6820,7 +6820,7 @@
     "id": "wv-basic-26",
     "name": "Pulse across a splice",
     "module": "wave-basics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "waves on a string",
       "pulse"
@@ -6838,7 +6838,7 @@
     "id": "wv-basic-27",
     "name": "Pulse climbing a hanging rope",
     "module": "wave-basics",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "waves on a string",
       "variable tension"
@@ -6856,7 +6856,7 @@
     "id": "wv-basic-28",
     "name": "Tripling the amplitude",
     "module": "wave-basics",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "power",
       "waves on a string"
@@ -6874,7 +6874,7 @@
     "id": "wv-basic-29",
     "name": "Where the siren fades to 60 dB",
     "module": "wave-basics",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "decibels",
       "intensity",
@@ -6893,7 +6893,7 @@
     "id": "wv-basic-30",
     "name": "Energy in one wavelength",
     "module": "wave-basics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy",
       "waves on a string"
@@ -7122,7 +7122,7 @@
     "id": "wv-stand-13",
     "name": "Two resonances in a tube",
     "module": "standing-waves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "resonance tube"
     ],
@@ -7139,7 +7139,7 @@
     "id": "wv-stand-14",
     "name": "Frequency from the first resonance",
     "module": "standing-waves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "resonance tube",
       "closed pipe"
@@ -7175,7 +7175,7 @@
     "id": "wv-stand-16",
     "name": "Fifth harmonic of a stopped pipe",
     "module": "standing-waves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "closed pipe",
       "harmonics"
@@ -7211,7 +7211,7 @@
     "id": "wv-stand-18",
     "name": "String with one free end",
     "module": "standing-waves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "fixed-free",
       "string"
@@ -7229,7 +7229,7 @@
     "id": "wv-stand-19",
     "name": "Next mode of the fixed-free string",
     "module": "standing-waves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "fixed-free",
       "harmonics"
@@ -7247,7 +7247,7 @@
     "id": "wv-stand-20",
     "name": "Fundamental from two neighbours",
     "module": "standing-waves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "harmonics",
       "string"
@@ -7301,7 +7301,7 @@
     "id": "wv-stand-23",
     "name": "Matching a pipe to a string",
     "module": "standing-waves",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "pipe",
       "string"
@@ -7319,7 +7319,7 @@
     "id": "wv-stand-24",
     "name": "Counting resonances as the water drops",
     "module": "standing-waves",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "resonance tube"
     ],
@@ -7336,7 +7336,7 @@
     "id": "wv-stand-25",
     "name": "Length from a harmonic",
     "module": "standing-waves",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "harmonics",
       "string"
@@ -7354,7 +7354,7 @@
     "id": "wv-stand-26",
     "name": "A pipe driving a string",
     "module": "standing-waves",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pipe",
       "string",
@@ -7373,7 +7373,7 @@
     "id": "wv-stand-27",
     "name": "Identifying the mode",
     "module": "standing-waves",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "harmonics",
       "nodes"
@@ -7391,7 +7391,7 @@
     "id": "wv-stand-28",
     "name": "Warming a pipe into tune",
     "module": "standing-waves",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "temperature",
       "closed pipe"
@@ -7409,7 +7409,7 @@
     "id": "wv-stand-29",
     "name": "Plugging one end",
     "module": "standing-waves",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "open pipe",
       "closed pipe",
@@ -7428,7 +7428,7 @@
     "id": "wv-stand-30",
     "name": "Mass that tunes the wire",
     "module": "standing-waves",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "string",
       "resonance",
@@ -7640,7 +7640,7 @@
     "id": "wv-beat-12",
     "name": "Two guitar strings",
     "module": "beats-interference",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "beats"
     ],
@@ -7728,7 +7728,7 @@
     "id": "wv-beat-17",
     "name": "Working backwards to the phase",
     "module": "beats-interference",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "interference",
       "superposition"
@@ -7746,7 +7746,7 @@
     "id": "wv-beat-18",
     "name": "Sliding tube interferometer",
     "module": "beats-interference",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "interference",
       "path difference"
@@ -7764,7 +7764,7 @@
     "id": "wv-beat-19",
     "name": "Successive minima in the tube",
     "module": "beats-interference",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "interference",
       "path difference"
@@ -7836,7 +7836,7 @@
     "id": "wv-beat-23",
     "name": "Two percent more tension",
     "module": "beats-interference",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "beats",
       "tension"
@@ -7854,7 +7854,7 @@
     "id": "wv-beat-24",
     "name": "How many silent tones",
     "module": "beats-interference",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "interference",
       "counting"
@@ -7872,7 +7872,7 @@
     "id": "wv-beat-25",
     "name": "Counting quiet directions",
     "module": "beats-interference",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "interference",
       "counting"
@@ -7890,7 +7890,7 @@
     "id": "wv-beat-26",
     "name": "Siren on an approaching car",
     "module": "beats-interference",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "beats",
       "doppler"
@@ -7908,7 +7908,7 @@
     "id": "wv-beat-27",
     "name": "How much to tighten",
     "module": "beats-interference",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "beats",
       "tension"
@@ -7926,7 +7926,7 @@
     "id": "wv-beat-28",
     "name": "Out-of-phase speakers at an odd point",
     "module": "beats-interference",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "interference",
       "phase"
@@ -7944,7 +7944,7 @@
     "id": "wv-beat-29",
     "name": "Beats against a wall",
     "module": "beats-interference",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "beats",
       "doppler",
@@ -7963,7 +7963,7 @@
     "id": "wv-beat-30",
     "name": "Walking to the first quiet spot",
     "module": "beats-interference",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "interference",
       "geometry"
@@ -8255,7 +8255,7 @@
     "id": "wv-dopp-17",
     "name": "Bat closing on a moth",
     "module": "doppler",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "doppler",
       "bats"
@@ -8362,7 +8362,7 @@
     "id": "wv-dopp-23",
     "name": "Mach cone angle",
     "module": "doppler",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "shock wave",
       "mach"
@@ -8380,7 +8380,7 @@
     "id": "wv-dopp-24",
     "name": "Speed from the cone",
     "module": "doppler",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "shock wave",
       "mach"
@@ -8398,7 +8398,7 @@
     "id": "wv-dopp-25",
     "name": "Waiting for the boom",
     "module": "doppler",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "shock wave",
       "mach"
@@ -8416,7 +8416,7 @@
     "id": "wv-dopp-26",
     "name": "Bat closing on a wall",
     "module": "doppler",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "doppler",
       "reflection",
@@ -8435,7 +8435,7 @@
     "id": "wv-dopp-27",
     "name": "Reflecting off a moving panel",
     "module": "doppler",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "doppler",
       "reflection"
@@ -8453,7 +8453,7 @@
     "id": "wv-dopp-28",
     "name": "The moment of closest approach",
     "module": "doppler",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "doppler",
       "reasoning"
@@ -8471,7 +8471,7 @@
     "id": "wv-dopp-29",
     "name": "Redshift of a star",
     "module": "doppler",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "doppler",
       "light"
@@ -8489,7 +8489,7 @@
     "id": "wv-dopp-30",
     "name": "Two trains and a wind",
     "module": "doppler",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "doppler",
       "wind"

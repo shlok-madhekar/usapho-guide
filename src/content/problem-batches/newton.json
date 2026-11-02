@@ -140,7 +140,7 @@
     "id": "nl-fbd-09",
     "name": "Contact force between two blocks",
     "module": "newtons-laws-fbd",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "contact force",
       "third law"
@@ -176,7 +176,7 @@
     "id": "nl-fbd-11",
     "name": "Normal force on an incline",
     "module": "newtons-laws-fbd",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "incline",
       "normal force"
@@ -194,7 +194,7 @@
     "id": "nl-fbd-12",
     "name": "Sliding down a frictionless ramp",
     "module": "newtons-laws-fbd",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "incline"
     ],
@@ -211,7 +211,7 @@
     "id": "nl-fbd-13",
     "name": "Reading the acceleration off a scale",
     "module": "newtons-laws-fbd",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "apparent weight"
     ],
@@ -228,7 +228,7 @@
     "id": "nl-fbd-14",
     "name": "Weightless in a falling elevator",
     "module": "newtons-laws-fbd",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "free fall"
     ],
@@ -262,7 +262,7 @@
     "id": "nl-fbd-16",
     "name": "Pushing downward at an angle",
     "module": "newtons-laws-fbd",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "normal force",
       "components"
@@ -280,7 +280,7 @@
     "id": "nl-fbd-17",
     "name": "Bird accelerating upward",
     "module": "newtons-laws-fbd",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "second law"
     ],
@@ -297,7 +297,7 @@
     "id": "nl-fbd-18",
     "name": "Braking car",
     "module": "newtons-laws-fbd",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "second law",
       "kinematics"
@@ -315,7 +315,7 @@
     "id": "nl-fbd-19",
     "name": "Ball bouncing off a wall",
     "module": "newtons-laws-fbd",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "impulse",
       "second law"
@@ -351,7 +351,7 @@
     "id": "nl-fbd-21",
     "name": "Astronaut pushes a capsule",
     "module": "newtons-laws-fbd",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "third law"
     ],
@@ -386,7 +386,7 @@
     "id": "nl-fbd-23",
     "name": "Accelerating wedge",
     "module": "newtons-laws-fbd",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "non-inertial",
       "incline"
@@ -404,7 +404,7 @@
     "id": "nl-fbd-24",
     "name": "Cables at two angles",
     "module": "newtons-laws-fbd",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "equilibrium",
       "components"
@@ -422,7 +422,7 @@
     "id": "nl-fbd-25",
     "name": "Friction on a stacked block",
     "module": "newtons-laws-fbd",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "stacked blocks",
       "friction"
@@ -440,7 +440,7 @@
     "id": "nl-fbd-26",
     "name": "Tension inside a hanging chain",
     "module": "newtons-laws-fbd",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "chain",
       "internal force"
@@ -458,7 +458,7 @@
     "id": "nl-fbd-27",
     "name": "Tension in a massive rope",
     "module": "newtons-laws-fbd",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "chain",
       "internal force"
@@ -476,7 +476,7 @@
     "id": "nl-fbd-28",
     "name": "Pushing a rope along the floor",
     "module": "newtons-laws-fbd",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "internal force"
     ],
@@ -493,7 +493,7 @@
     "id": "nl-fbd-29",
     "name": "Block on a free wedge",
     "module": "newtons-laws-fbd",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "wedge",
       "coupled motion"
@@ -511,7 +511,7 @@
     "id": "nl-fbd-30",
     "name": "Painter on a hanging platform",
     "module": "newtons-laws-fbd",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "pulley",
       "equilibrium"
@@ -721,7 +721,7 @@
     "id": "nl-fric-12",
     "name": "Block sent up a rough incline",
     "module": "friction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "incline",
       "kinetic friction"
@@ -775,7 +775,7 @@
     "id": "nl-fric-15",
     "name": "Cargo in a braking truck",
     "module": "friction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "static friction"
     ],
@@ -810,7 +810,7 @@
     "id": "nl-fric-17",
     "name": "Fastest safe speed on a flat curve",
     "module": "friction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "static friction",
       "circular motion"
@@ -882,7 +882,7 @@
     "id": "nl-fric-21",
     "name": "Block held against a wall",
     "module": "friction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "static friction"
     ],
@@ -899,7 +899,7 @@
     "id": "nl-fric-22",
     "name": "Steady haul up a slope",
     "module": "friction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "incline",
       "kinetic friction"
@@ -917,7 +917,7 @@
     "id": "nl-fric-23",
     "name": "Which surface gives way first",
     "module": "friction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "static friction",
       "stacked blocks"
@@ -935,7 +935,7 @@
     "id": "nl-fric-24",
     "name": "Ladder against a smooth wall",
     "module": "friction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "static friction",
       "torque"
@@ -953,7 +953,7 @@
     "id": "nl-fric-25",
     "name": "Horizontal force holding a block on a slope",
     "module": "friction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "incline",
       "static friction"
@@ -971,7 +971,7 @@
     "id": "nl-fric-26",
     "name": "Two blocks with different friction",
     "module": "friction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "incline",
       "kinetic friction",
@@ -1008,7 +1008,7 @@
     "id": "nl-fric-28",
     "name": "Ramp then floor",
     "module": "friction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "incline",
       "kinetic friction"
@@ -1026,7 +1026,7 @@
     "id": "nl-fric-29",
     "name": "Friction needed on an accelerating ramp",
     "module": "friction",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "non-inertial",
       "static friction"
@@ -1044,7 +1044,7 @@
     "id": "nl-fric-30",
     "name": "Stack that does slip",
     "module": "friction",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "stacked blocks",
       "kinetic friction"
@@ -1236,7 +1236,7 @@
     "id": "nl-tens-11",
     "name": "Movable pulley advantage",
     "module": "tension-pulleys",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "movable pulley"
     ],
@@ -1253,7 +1253,7 @@
     "id": "nl-tens-12",
     "name": "Three blocks in a train",
     "module": "tension-pulleys",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "tension"
     ],
@@ -1305,7 +1305,7 @@
     "id": "nl-tens-15",
     "name": "Constraint in a block and tackle",
     "module": "tension-pulleys",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "constraint"
     ],
@@ -1359,7 +1359,7 @@
     "id": "nl-tens-18",
     "name": "Lower string in a hanging pair",
     "module": "tension-pulleys",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "tension"
     ],
@@ -1376,7 +1376,7 @@
     "id": "nl-tens-19",
     "name": "Upper string in the same pair",
     "module": "tension-pulleys",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "tension"
     ],
@@ -1393,7 +1393,7 @@
     "id": "nl-tens-20",
     "name": "Rope with mass",
     "module": "tension-pulleys",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "massive rope",
       "tension"
@@ -1411,7 +1411,7 @@
     "id": "nl-tens-21",
     "name": "Rope strength limit",
     "module": "tension-pulleys",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "tension"
     ],
@@ -1464,7 +1464,7 @@
     "id": "nl-tens-24",
     "name": "Stacked masses on an Atwood machine",
     "module": "tension-pulleys",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "Atwood machine",
       "tension"
@@ -1482,7 +1482,7 @@
     "id": "nl-tens-25",
     "name": "Monkey and counterweight",
     "module": "tension-pulleys",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pulley",
       "constraint"
@@ -1500,7 +1500,7 @@
     "id": "nl-tens-26",
     "name": "Two inclines and a pulley",
     "module": "tension-pulleys",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pulley",
       "incline"
@@ -1536,7 +1536,7 @@
     "id": "nl-tens-28",
     "name": "Partway up a massive rope",
     "module": "tension-pulleys",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "massive rope",
       "tension"
@@ -1554,7 +1554,7 @@
     "id": "nl-tens-29",
     "name": "Atwood machine inside an elevator",
     "module": "tension-pulleys",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "Atwood machine",
       "non-inertial"
@@ -1572,7 +1572,7 @@
     "id": "nl-tens-30",
     "name": "Climbing monkey, equal counterweight",
     "module": "tension-pulleys",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "pulley",
       "relative motion"
@@ -1743,7 +1743,7 @@
     "id": "nl-spring-10",
     "name": "Two springs in series holding a load",
     "module": "springs-hooke",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "combinations"
     ],
@@ -1794,7 +1794,7 @@
     "id": "nl-spring-13",
     "name": "Maximum speed of an oscillator",
     "module": "springs-hooke",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "SHM",
       "energy"
@@ -1812,7 +1812,7 @@
     "id": "nl-spring-14",
     "name": "Spring gun",
     "module": "springs-hooke",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "elastic energy"
     ],
@@ -1847,7 +1847,7 @@
     "id": "nl-spring-16",
     "name": "Spring on an incline",
     "module": "springs-hooke",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "incline",
       "Hooke's law"
@@ -1865,7 +1865,7 @@
     "id": "nl-spring-17",
     "name": "Spring in an accelerating elevator",
     "module": "springs-hooke",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "Hooke's law",
       "non-inertial"
@@ -1900,7 +1900,7 @@
     "id": "nl-spring-19",
     "name": "Spring constant from a period",
     "module": "springs-hooke",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "SHM"
     ],
@@ -1935,7 +1935,7 @@
     "id": "nl-spring-21",
     "name": "Work done stretching a spring",
     "module": "springs-hooke",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "elastic energy"
     ],
@@ -1952,7 +1952,7 @@
     "id": "nl-spring-22",
     "name": "Scaling the load",
     "module": "springs-hooke",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "Hooke's law"
     ],
@@ -1969,7 +1969,7 @@
     "id": "nl-spring-23",
     "name": "Mass released on a spring",
     "module": "springs-hooke",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy",
       "SHM"
@@ -1987,7 +1987,7 @@
     "id": "nl-spring-24",
     "name": "Dropped onto a spring",
     "module": "springs-hooke",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy"
     ],
@@ -2004,7 +2004,7 @@
     "id": "nl-spring-25",
     "name": "Two springs stacked vertically",
     "module": "springs-hooke",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "combinations"
     ],
@@ -2021,7 +2021,7 @@
     "id": "nl-spring-26",
     "name": "Slipping on an oscillating block",
     "module": "springs-hooke",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "SHM",
       "friction"
@@ -2039,7 +2039,7 @@
     "id": "nl-spring-27",
     "name": "Spring pushing two free blocks apart",
     "module": "springs-hooke",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy",
       "momentum"
@@ -2057,7 +2057,7 @@
     "id": "nl-spring-28",
     "name": "Cut into three, joined in parallel",
     "module": "springs-hooke",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "combinations",
       "SHM"
@@ -2075,7 +2075,7 @@
     "id": "nl-spring-29",
     "name": "Instant after the string is cut",
     "module": "springs-hooke",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "Hooke's law",
       "second law"
@@ -2093,7 +2093,7 @@
     "id": "nl-spring-30",
     "name": "Mass on a movable pulley and spring",
     "module": "springs-hooke",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "SHM",
       "constraint"
@@ -2282,7 +2282,7 @@
     "id": "nl-circ-11",
     "name": "Tension at the top",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "vertical circle",
       "tension"
@@ -2318,7 +2318,7 @@
     "id": "nl-circ-13",
     "name": "Crest of a hill",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "vertical circle"
     ],
@@ -2335,7 +2335,7 @@
     "id": "nl-circ-14",
     "name": "Normal force at the crest",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "vertical circle"
     ],
@@ -2370,7 +2370,7 @@
     "id": "nl-circ-16",
     "name": "Coin on a turntable",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "friction",
       "angular velocity"
@@ -2406,7 +2406,7 @@
     "id": "nl-circ-18",
     "name": "Speed at the equator",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "period"
     ],
@@ -2423,7 +2423,7 @@
     "id": "nl-circ-19",
     "name": "Centripetal acceleration at the equator",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "centripetal acceleration"
     ],
@@ -2440,7 +2440,7 @@
     "id": "nl-circ-20",
     "name": "String breaking point",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "centripetal force"
     ],
@@ -2457,7 +2457,7 @@
     "id": "nl-circ-21",
     "name": "Top to bottom of a vertical circle",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "vertical circle",
       "energy"
@@ -2475,7 +2475,7 @@
     "id": "nl-circ-22",
     "name": "Pilot at the bottom of a loop",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "vertical circle"
     ],
@@ -2492,7 +2492,7 @@
     "id": "nl-circ-23",
     "name": "Tension at the bottom for the critical loop",
     "module": "circular-motion",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "vertical circle",
       "energy"
@@ -2528,7 +2528,7 @@
     "id": "nl-circ-25",
     "name": "Rigid rod instead of a string",
     "module": "circular-motion",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "vertical circle",
       "energy"
@@ -2546,7 +2546,7 @@
     "id": "nl-circ-26",
     "name": "Friction budget while cornering",
     "module": "circular-motion",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "friction",
       "centripetal force"
@@ -2564,7 +2564,7 @@
     "id": "nl-circ-27",
     "name": "Two beads on one rotating string",
     "module": "circular-motion",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "tension"
     ],
@@ -2581,7 +2581,7 @@
     "id": "nl-circ-28",
     "name": "Ferris wheel at the top",
     "module": "circular-motion",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "vertical circle"
     ],
@@ -2598,7 +2598,7 @@
     "id": "nl-circ-29",
     "name": "Tension in a rotating chain",
     "module": "circular-motion",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "tension",
       "integration"
@@ -2616,7 +2616,7 @@
     "id": "nl-circ-30",
     "name": "Bead in a rotating hoop",
     "module": "circular-motion",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "rotating frame",
       "equilibrium"
@@ -2703,7 +2703,7 @@
     "id": "nl-bank-05",
     "name": "Speed of a conical pendulum",
     "module": "banked-curves",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "conical pendulum"
     ],
@@ -2860,7 +2860,7 @@
     "id": "nl-bank-14",
     "name": "Longer conical pendulum",
     "module": "banked-curves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conical pendulum"
     ],
@@ -2877,7 +2877,7 @@
     "id": "nl-bank-15",
     "name": "Cone angle from the period",
     "module": "banked-curves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conical pendulum"
     ],
@@ -2894,7 +2894,7 @@
     "id": "nl-bank-16",
     "name": "Banking a railway curve",
     "module": "banked-curves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "banking"
     ],
@@ -2911,7 +2911,7 @@
     "id": "nl-bank-17",
     "name": "Motorcycle lean angle",
     "module": "banked-curves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "banking"
     ],
@@ -2945,7 +2945,7 @@
     "id": "nl-bank-19",
     "name": "Mass does not matter",
     "module": "banked-curves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "banking"
     ],
@@ -2962,7 +2962,7 @@
     "id": "nl-bank-20",
     "name": "Load factor in a bank",
     "module": "banked-curves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "banking"
     ],
@@ -2979,7 +2979,7 @@
     "id": "nl-bank-21",
     "name": "Revolutions per minute",
     "module": "banked-curves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conical pendulum"
     ],
@@ -2996,7 +2996,7 @@
     "id": "nl-bank-22",
     "name": "Parked on a bank",
     "module": "banked-curves",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "banking"
     ],
@@ -3013,7 +3013,7 @@
     "id": "nl-bank-23",
     "name": "Racing on a shallow bank",
     "module": "banked-curves",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "banking",
       "friction"
@@ -3031,7 +3031,7 @@
     "id": "nl-bank-24",
     "name": "Friction required at high speed",
     "module": "banked-curves",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "banking",
       "friction"
@@ -3049,7 +3049,7 @@
     "id": "nl-bank-25",
     "name": "Steep conical pendulum",
     "module": "banked-curves",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "conical pendulum"
     ],
@@ -3066,7 +3066,7 @@
     "id": "nl-bank-26",
     "name": "Slowest safe speed on a steep bank",
     "module": "banked-curves",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "banking",
       "friction"
@@ -3084,7 +3084,7 @@
     "id": "nl-bank-27",
     "name": "Period is set by the angle alone",
     "module": "banked-curves",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "conical pendulum"
     ],
@@ -3101,7 +3101,7 @@
     "id": "nl-bank-28",
     "name": "Puck inside a smooth funnel",
     "module": "banked-curves",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "conical surface"
     ],
@@ -3118,7 +3118,7 @@
     "id": "nl-bank-29",
     "name": "Very steep bank, very high grip",
     "module": "banked-curves",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "banking",
       "friction"
@@ -3136,7 +3136,7 @@
     "id": "nl-bank-30",
     "name": "String at its breaking tension",
     "module": "banked-curves",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "conical pendulum"
     ],
@@ -3340,7 +3340,7 @@
     "id": "nl-grav-12",
     "name": "Escape speed from the Moon",
     "module": "gravitation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "escape velocity"
     ],
@@ -3374,7 +3374,7 @@
     "id": "nl-grav-14",
     "name": "Period at two Earth radii",
     "module": "gravitation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "orbital period"
     ],
@@ -3391,7 +3391,7 @@
     "id": "nl-grav-15",
     "name": "Gravity inside the Earth",
     "module": "gravitation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "field inside a sphere"
     ],
@@ -3425,7 +3425,7 @@
     "id": "nl-grav-17",
     "name": "Speed of the Moon",
     "module": "gravitation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "orbital speed"
     ],
@@ -3459,7 +3459,7 @@
     "id": "nl-grav-19",
     "name": "A bigger, less dense planet",
     "module": "gravitation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "surface gravity"
     ],
@@ -3476,7 +3476,7 @@
     "id": "nl-grav-20",
     "name": "Mean density of Earth",
     "module": "gravitation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "density"
     ],
@@ -3527,7 +3527,7 @@
     "id": "nl-grav-23",
     "name": "Tunnel through the Earth",
     "module": "gravitation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "SHM",
       "field inside a sphere"
@@ -3545,7 +3545,7 @@
     "id": "nl-grav-24",
     "name": "Binary star period",
     "module": "gravitation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "two-body",
       "orbital period"
@@ -3563,7 +3563,7 @@
     "id": "nl-grav-25",
     "name": "Change in g with altitude",
     "module": "gravitation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "approximation"
     ],
@@ -3580,7 +3580,7 @@
     "id": "nl-grav-26",
     "name": "Extra speed to escape from orbit",
     "module": "gravitation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "escape velocity"
     ],
@@ -3597,7 +3597,7 @@
     "id": "nl-grav-27",
     "name": "Field off the axis of two masses",
     "module": "gravitation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "gravitational field",
       "superposition"
@@ -3615,7 +3615,7 @@
     "id": "nl-grav-28",
     "name": "Leaving the solar system",
     "module": "gravitation",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "escape velocity"
     ],
@@ -3632,7 +3632,7 @@
     "id": "nl-grav-29",
     "name": "Falling from two Earth radii",
     "module": "gravitation",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "gravitational potential energy"
     ],
@@ -3649,7 +3649,7 @@
     "id": "nl-grav-30",
     "name": "Speeding up as a satellite decays",
     "module": "gravitation",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "orbital speed"
     ],
@@ -3836,7 +3836,7 @@
     "id": "nl-kepler-11",
     "name": "Period of Ceres",
     "module": "keplers-laws",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "third law"
     ],
@@ -3853,7 +3853,7 @@
     "id": "nl-kepler-12",
     "name": "Third law in SI units",
     "module": "keplers-laws",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "third law"
     ],
@@ -3870,7 +3870,7 @@
     "id": "nl-kepler-13",
     "name": "The Kepler constant for the Sun",
     "module": "keplers-laws",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "third law"
     ],
@@ -3887,7 +3887,7 @@
     "id": "nl-kepler-14",
     "name": "Mass of a binary system",
     "module": "keplers-laws",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "third law",
       "binary"
@@ -3939,7 +3939,7 @@
     "id": "nl-kepler-17",
     "name": "Geostationary orbit from lunar data",
     "module": "keplers-laws",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "third law"
     ],
@@ -3956,7 +3956,7 @@
     "id": "nl-kepler-18",
     "name": "Weighing Mars with Phobos",
     "module": "keplers-laws",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "third law"
     ],
@@ -3973,7 +3973,7 @@
     "id": "nl-kepler-19",
     "name": "Areal velocity of Earth",
     "module": "keplers-laws",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "second law"
     ],
@@ -4043,7 +4043,7 @@
     "id": "nl-kepler-23",
     "name": "Hohmann transfer to Mars",
     "module": "keplers-laws",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "third law",
       "transfer orbit"
@@ -4061,7 +4061,7 @@
     "id": "nl-kepler-24",
     "name": "Speed ratio for a very eccentric orbit",
     "module": "keplers-laws",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "second law"
     ],
@@ -4078,7 +4078,7 @@
     "id": "nl-kepler-25",
     "name": "Orbits per day",
     "module": "keplers-laws",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "third law"
     ],
@@ -4113,7 +4113,7 @@
     "id": "nl-kepler-27",
     "name": "Mass of a galactic center",
     "module": "keplers-laws",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "third law"
     ],
@@ -4130,7 +4130,7 @@
     "id": "nl-kepler-28",
     "name": "Period depends only on density",
     "module": "keplers-laws",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "third law",
       "density"
@@ -4148,7 +4148,7 @@
     "id": "nl-kepler-29",
     "name": "Falling straight into the Sun",
     "module": "keplers-laws",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "third law",
       "degenerate orbit"
@@ -4166,7 +4166,7 @@
     "id": "nl-kepler-30",
     "name": "Burn to raise the apogee",
     "module": "keplers-laws",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "vis-viva"
     ],

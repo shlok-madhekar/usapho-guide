@@ -307,7 +307,7 @@
     "id": "osc-shm-18",
     "name": "Where the energy splits evenly",
     "module": "shm",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "energy"
     ],
@@ -324,7 +324,7 @@
     "id": "osc-shm-19",
     "name": "Pogo stick spring",
     "module": "shm",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "spring",
       "period"
@@ -378,7 +378,7 @@
     "id": "osc-shm-22",
     "name": "Frequency from one data point",
     "module": "shm",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinematics"
     ],
@@ -395,7 +395,7 @@
     "id": "osc-shm-23",
     "name": "A spring that is not massless",
     "module": "shm",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "spring",
       "effective mass"
@@ -413,7 +413,7 @@
     "id": "osc-shm-24",
     "name": "Released at the natural length",
     "module": "shm",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "vertical",
       "energy"
@@ -431,7 +431,7 @@
     "id": "osc-shm-25",
     "name": "Bouncing between two springs",
     "module": "shm",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "springs",
       "period"
@@ -449,7 +449,7 @@
     "id": "osc-shm-26",
     "name": "Book on a vibrating platform",
     "module": "shm",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "vertical",
       "contact"
@@ -467,7 +467,7 @@
     "id": "osc-shm-27",
     "name": "Package dropped onto a spring scale",
     "module": "shm",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy",
       "amplitude"
@@ -503,7 +503,7 @@
     "id": "osc-shm-29",
     "name": "Two carts joined by a spring",
     "module": "shm",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "reduced mass",
       "frequency"
@@ -521,7 +521,7 @@
     "id": "osc-shm-30",
     "name": "Rolling cylinder on a spring",
     "module": "shm",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "rolling",
       "period"
@@ -646,7 +646,7 @@
     "id": "osc-pend-07",
     "name": "Swinging rod",
     "module": "pendulums",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "physical pendulum",
       "rod"
@@ -733,7 +733,7 @@
     "id": "osc-pend-12",
     "name": "Pendulum in a rising elevator",
     "module": "pendulums",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "accelerating frame"
     ],
@@ -909,7 +909,7 @@
     "id": "osc-pend-22",
     "name": "Hanging angle in a braking train",
     "module": "pendulums",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "accelerating frame"
     ],
@@ -926,7 +926,7 @@
     "id": "osc-pend-23",
     "name": "Center of oscillation of a rod",
     "module": "pendulums",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "compound pendulum",
       "center of oscillation"
@@ -944,7 +944,7 @@
     "id": "osc-pend-24",
     "name": "Fastest swinging rod",
     "module": "pendulums",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "optimization",
       "physical pendulum"
@@ -962,7 +962,7 @@
     "id": "osc-pend-25",
     "name": "Meter stick on a pin",
     "module": "pendulums",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "physical pendulum"
     ],
@@ -997,7 +997,7 @@
     "id": "osc-pend-27",
     "name": "Unknown body on a torsion wire",
     "module": "pendulums",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "torsional",
       "moment of inertia"
@@ -1015,7 +1015,7 @@
     "id": "osc-pend-28",
     "name": "Pendulum with a real bob",
     "module": "pendulums",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "physical pendulum",
       "correction"
@@ -1033,7 +1033,7 @@
     "id": "osc-pend-29",
     "name": "Swinging too far",
     "module": "pendulums",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "large amplitude",
       "correction"
@@ -1051,7 +1051,7 @@
     "id": "osc-pend-30",
     "name": "Rod and disk pendulum",
     "module": "pendulums",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "compound pendulum",
       "moment of inertia"
@@ -1321,7 +1321,7 @@
     "id": "osc-energy-15",
     "name": "Pendulum halfway back",
     "module": "oscillator-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pendulum",
       "energy"
@@ -1429,7 +1429,7 @@
     "id": "osc-energy-21",
     "name": "Amplitude from a kick",
     "module": "oscillator-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "shm",
       "energy"
@@ -1447,7 +1447,7 @@
     "id": "osc-energy-22",
     "name": "Half-life of a damped oscillation",
     "module": "oscillator-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "damping",
       "energy"
@@ -1483,7 +1483,7 @@
     "id": "osc-energy-24",
     "name": "Total path length before stopping",
     "module": "oscillator-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "damping",
       "friction"
@@ -1501,7 +1501,7 @@
     "id": "osc-energy-25",
     "name": "Cylinder rolling on a spring",
     "module": "oscillator-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rolling",
       "energy"
@@ -1519,7 +1519,7 @@
     "id": "osc-energy-26",
     "name": "Two masses joined by a spring",
     "module": "oscillator-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "reduced-mass",
       "energy"
@@ -1537,7 +1537,7 @@
     "id": "osc-energy-27",
     "name": "Energy loss per cycle from Q",
     "module": "oscillator-energy",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "damping",
       "quality-factor"
@@ -1555,7 +1555,7 @@
     "id": "osc-energy-28",
     "name": "String tension at the bottom of a wide swing",
     "module": "oscillator-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pendulum",
       "energy"
@@ -1573,7 +1573,7 @@
     "id": "osc-energy-29",
     "name": "Slowly leaking sand",
     "module": "oscillator-energy",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "adiabatic-invariant",
       "energy"
@@ -1591,7 +1591,7 @@
     "id": "osc-energy-30",
     "name": "Speed at the centre with friction",
     "module": "oscillator-energy",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "friction",
       "energy"
@@ -1645,7 +1645,7 @@
     "id": "osc-pot-03",
     "name": "Marble in a spherical bowl",
     "module": "effective-potentials",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "small-oscillations",
       "gravity"
@@ -1663,7 +1663,7 @@
     "id": "osc-pot-04",
     "name": "Lennard-Jones bond length",
     "module": "effective-potentials",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "lennard-jones",
       "equilibrium"
@@ -1825,7 +1825,7 @@
     "id": "osc-pot-13",
     "name": "Equilibrium of an inverse-power potential",
     "module": "effective-potentials",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "equilibrium",
       "potential"
@@ -1879,7 +1879,7 @@
     "id": "osc-pot-16",
     "name": "Wobble of the bead on the hoop",
     "module": "effective-potentials",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "rotating-frame",
       "small-oscillations"
@@ -1897,7 +1897,7 @@
     "id": "osc-pot-17",
     "name": "Critical spin of a rotating rod",
     "module": "effective-potentials",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rotating-frame",
       "stability"
@@ -1951,7 +1951,7 @@
     "id": "osc-pot-20",
     "name": "Circular orbit from the angular momentum",
     "module": "effective-potentials",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "orbits",
       "effective-potential"
@@ -2005,7 +2005,7 @@
     "id": "osc-pot-23",
     "name": "Closest approach in an elliptical orbit",
     "module": "effective-potentials",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "orbits",
       "turning-points"
@@ -2023,7 +2023,7 @@
     "id": "osc-pot-24",
     "name": "Apsidal angle for a non-Newtonian force",
     "module": "effective-potentials",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "orbits",
       "precession"
@@ -2059,7 +2059,7 @@
     "id": "osc-pot-26",
     "name": "Where the Lennard-Jones force peaks",
     "module": "effective-potentials",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "lennard-jones",
       "force"
@@ -2077,7 +2077,7 @@
     "id": "osc-pot-27",
     "name": "Spinning parabolic wire",
     "module": "effective-potentials",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rotating-frame",
       "small-oscillations"
@@ -2113,7 +2113,7 @@
     "id": "osc-pot-29",
     "name": "Anharmonic frequency shift",
     "module": "effective-potentials",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "anharmonic",
       "perturbation"
@@ -2131,7 +2131,7 @@
     "id": "osc-pot-30",
     "name": "Tuning the hoop",
     "module": "effective-potentials",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "rotating-frame",
       "effective-potential"
@@ -2342,7 +2342,7 @@
     "id": "fl-press-12",
     "name": "Open-tube water manometer",
     "module": "pressure-buoyancy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "manometer"
     ],
@@ -2413,7 +2413,7 @@
     "id": "fl-press-16",
     "name": "Payload of a hot-air balloon",
     "module": "pressure-buoyancy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "balloon",
       "archimedes"
@@ -2431,7 +2431,7 @@
     "id": "fl-press-17",
     "name": "Water displaced by a floating ice cube",
     "module": "pressure-buoyancy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "floating",
       "archimedes"
@@ -2449,7 +2449,7 @@
     "id": "fl-press-18",
     "name": "Pressure under a layer of oil",
     "module": "pressure-buoyancy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "layered-fluids",
       "hydrostatics"
@@ -2485,7 +2485,7 @@
     "id": "fl-press-20",
     "name": "Volume of a helium balloon that just lifts a load",
     "module": "pressure-buoyancy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "balloon",
       "archimedes"
@@ -2503,7 +2503,7 @@
     "id": "fl-press-21",
     "name": "Ballast for a neutrally buoyant submarine",
     "module": "pressure-buoyancy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "archimedes",
       "submarine"
@@ -2521,7 +2521,7 @@
     "id": "fl-press-22",
     "name": "Extra force to push a float down",
     "module": "pressure-buoyancy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "floating",
       "archimedes"
@@ -2539,7 +2539,7 @@
     "id": "fl-press-23",
     "name": "Bobbing period of a floating cylinder",
     "module": "pressure-buoyancy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "oscillation",
       "floating"
@@ -2557,7 +2557,7 @@
     "id": "fl-press-24",
     "name": "Scale reading with a block hung in the water",
     "module": "pressure-buoyancy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "archimedes",
       "newton-third-law"
@@ -2575,7 +2575,7 @@
     "id": "fl-press-25",
     "name": "Depth where a bubble is one third its surface size",
     "module": "pressure-buoyancy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "gas-law",
       "hydrostatics"
@@ -2593,7 +2593,7 @@
     "id": "fl-press-26",
     "name": "Oil poured into one arm of a U-tube",
     "module": "pressure-buoyancy",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "manometer",
       "layered-fluids"
@@ -2611,7 +2611,7 @@
     "id": "fl-press-27",
     "name": "How high a released float leaps",
     "module": "pressure-buoyancy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "archimedes",
       "kinematics"
@@ -2629,7 +2629,7 @@
     "id": "fl-press-28",
     "name": "Hydrometer stem reading in a lighter liquid",
     "module": "pressure-buoyancy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "hydrometer",
       "floating"
@@ -2647,7 +2647,7 @@
     "id": "fl-press-29",
     "name": "Hinged rod floating at an angle",
     "module": "pressure-buoyancy",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "archimedes",
       "torque"
@@ -2665,7 +2665,7 @@
     "id": "fl-press-30",
     "name": "Inner radius of a half-submerged steel shell",
     "module": "pressure-buoyancy",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "archimedes",
       "geometry"
@@ -2771,7 +2771,7 @@
     "id": "fl-frame-06",
     "name": "Angular speed of a conical pendulum",
     "module": "non-inertial-frames",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "conical-pendulum"
     ],
@@ -2859,7 +2859,7 @@
     "id": "fl-frame-11",
     "name": "Height difference across an accelerating tank",
     "module": "non-inertial-frames",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "accelerating-fluid"
     ],
@@ -2910,7 +2910,7 @@
     "id": "fl-frame-14",
     "name": "Design speed of a banked curve",
     "module": "non-inertial-frames",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "banked-curve"
     ],
@@ -2981,7 +2981,7 @@
     "id": "fl-frame-18",
     "name": "Spin rate for artificial gravity",
     "module": "non-inertial-frames",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rotating-frame",
       "effective-gravity"
@@ -2999,7 +2999,7 @@
     "id": "fl-frame-19",
     "name": "Acceleration inside a laboratory centrifuge",
     "module": "non-inertial-frames",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "centrifugal",
       "rotating-frame"
@@ -3017,7 +3017,7 @@
     "id": "fl-frame-20",
     "name": "Coriolis acceleration of a polar aircraft",
     "module": "non-inertial-frames",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "coriolis"
     ],
@@ -3034,7 +3034,7 @@
     "id": "fl-frame-21",
     "name": "Effective gravity at the equator",
     "module": "non-inertial-frames",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "effective-gravity",
       "rotating-frame"
@@ -3052,7 +3052,7 @@
     "id": "fl-frame-22",
     "name": "Hanging air freshener in a turning car",
     "module": "non-inertial-frames",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "centrifugal",
       "pendulum"
@@ -3087,7 +3087,7 @@
     "id": "fl-frame-24",
     "name": "Minimum push on a wedge with friction",
     "module": "non-inertial-frames",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "accelerating-wedge",
       "friction"
@@ -3105,7 +3105,7 @@
     "id": "fl-frame-25",
     "name": "Pressure difference in a full accelerating tank",
     "module": "non-inertial-frames",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "accelerating-fluid",
       "hydrostatics"
@@ -3123,7 +3123,7 @@
     "id": "fl-frame-26",
     "name": "Bead in a spinning hoop",
     "module": "non-inertial-frames",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rotating-frame",
       "equilibrium"
@@ -3141,7 +3141,7 @@
     "id": "fl-frame-27",
     "name": "Swing of a pendulum when the cart starts moving",
     "module": "non-inertial-frames",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pendulum",
       "pseudo-force"
@@ -3159,7 +3159,7 @@
     "id": "fl-frame-28",
     "name": "Deflection of a plumb line at 45 degrees latitude",
     "module": "non-inertial-frames",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "effective-gravity",
       "rotating-frame"
@@ -3177,7 +3177,7 @@
     "id": "fl-frame-29",
     "name": "Wedge free to recoil",
     "module": "non-inertial-frames",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "accelerating-wedge",
       "momentum"
@@ -3195,7 +3195,7 @@
     "id": "fl-frame-30",
     "name": "Dry disc at the bottom of a spinning cylinder",
     "module": "non-inertial-frames",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "rotating-fluid"
     ],
@@ -3355,7 +3355,7 @@
     "id": "es-coul-09",
     "name": "Field on the bisector of two beads",
     "module": "coulomb-superposition",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "superposition"
     ],
@@ -3372,7 +3372,7 @@
     "id": "es-coul-10",
     "name": "Pith ball pushed sideways",
     "module": "coulomb-superposition",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "pendulum",
       "field"
@@ -3444,7 +3444,7 @@
     "id": "es-coul-14",
     "name": "Dipole field along the axis",
     "module": "coulomb-superposition",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dipole"
     ],
@@ -3461,7 +3461,7 @@
     "id": "es-coul-15",
     "name": "Dipole field on the bisector",
     "module": "coulomb-superposition",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dipole"
     ],
@@ -3478,7 +3478,7 @@
     "id": "es-coul-16",
     "name": "Torque on a water molecule",
     "module": "coulomb-superposition",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dipole",
       "torque"
@@ -3514,7 +3514,7 @@
     "id": "es-coul-18",
     "name": "Where the field vanishes",
     "module": "coulomb-superposition",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "equilibrium",
       "superposition"
@@ -3549,7 +3549,7 @@
     "id": "es-coul-20",
     "name": "Field at the right angle",
     "module": "coulomb-superposition",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "superposition",
       "triangle"
@@ -3585,7 +3585,7 @@
     "id": "es-coul-22",
     "name": "Spheres that touch",
     "module": "coulomb-superposition",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "coulomb",
       "conductors"
@@ -3603,7 +3603,7 @@
     "id": "es-coul-23",
     "name": "Third charge that balances everything",
     "module": "coulomb-superposition",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "equilibrium",
       "superposition"
@@ -3621,7 +3621,7 @@
     "id": "es-coul-24",
     "name": "Separation of two charged pendulums",
     "module": "coulomb-superposition",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pendulum",
       "coulomb"
@@ -3639,7 +3639,7 @@
     "id": "es-coul-25",
     "name": "One ball is grounded",
     "module": "coulomb-superposition",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "pendulum",
       "conductors"
@@ -3657,7 +3657,7 @@
     "id": "es-coul-26",
     "name": "Charge at the center of a square",
     "module": "coulomb-superposition",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "equilibrium",
       "square"
@@ -3710,7 +3710,7 @@
     "id": "es-coul-29",
     "name": "Two unequal balls on threads",
     "module": "coulomb-superposition",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "pendulum",
       "equilibrium"
@@ -3728,7 +3728,7 @@
     "id": "es-coul-30",
     "name": "Bead sliding above a fixed charge",
     "module": "coulomb-superposition",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "oscillation",
       "superposition"
@@ -3800,7 +3800,7 @@
     "id": "es-dist-04",
     "name": "Where the ring's field peaks",
     "module": "charge-distributions",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "ring"
     ],
@@ -3889,7 +3889,7 @@
     "id": "es-dist-09",
     "name": "Rod seen end-on",
     "module": "charge-distributions",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "rod",
       "integration"
@@ -3907,7 +3907,7 @@
     "id": "es-dist-10",
     "name": "Semicircular arc",
     "module": "charge-distributions",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "arc",
       "integration"
@@ -3979,7 +3979,7 @@
     "id": "es-dist-14",
     "name": "Between parallel plates",
     "module": "charge-distributions",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "sheet",
       "superposition"
@@ -4033,7 +4033,7 @@
     "id": "es-dist-17",
     "name": "Inside a uniformly charged ball",
     "module": "charge-distributions",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "solid sphere",
       "gauss"
@@ -4051,7 +4051,7 @@
     "id": "es-dist-18",
     "name": "Point charge inside a charged shell",
     "module": "charge-distributions",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "shell",
       "gauss"
@@ -4105,7 +4105,7 @@
     "id": "es-dist-21",
     "name": "Charged cylindrical shell",
     "module": "charge-distributions",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "cylinder",
       "gauss"
@@ -4176,7 +4176,7 @@
     "id": "es-dist-25",
     "name": "Ring split into two halves",
     "module": "charge-distributions",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "ring",
       "integration"
@@ -4194,7 +4194,7 @@
     "id": "es-dist-26",
     "name": "Semicircle with a tail",
     "module": "charge-distributions",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "arc",
       "rod"
@@ -4248,7 +4248,7 @@
     "id": "es-dist-29",
     "name": "Field inside an off-center cavity",
     "module": "charge-distributions",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "solid sphere",
       "superposition"
@@ -4266,7 +4266,7 @@
     "id": "es-dist-30",
     "name": "Bead oscillating through a ring",
     "module": "charge-distributions",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "ring",
       "oscillation"
@@ -4474,7 +4474,7 @@
     "id": "es-gauss-12",
     "name": "Point Charge Inside a Charged Shell",
     "module": "gauss-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "shell",
       "superposition"
@@ -4492,7 +4492,7 @@
     "id": "es-gauss-13",
     "name": "Charge Induced on the Inner Wall of a Cavity",
     "module": "gauss-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conductor",
       "cavity"
@@ -4510,7 +4510,7 @@
     "id": "es-gauss-14",
     "name": "Leaky Coaxial Shield",
     "module": "gauss-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "coaxial"
     ],
@@ -4563,7 +4563,7 @@
     "id": "es-gauss-17",
     "name": "Flux Through a Hemispherical Dome",
     "module": "gauss-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "flux",
       "symmetry"
@@ -4581,7 +4581,7 @@
     "id": "es-gauss-18",
     "name": "Ball Inside a Metal Shell",
     "module": "gauss-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conductor",
       "shell"
@@ -4599,7 +4599,7 @@
     "id": "es-gauss-19",
     "name": "Inside a Charged Cylindrical Beam",
     "module": "gauss-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "cylindrical"
     ],
@@ -4634,7 +4634,7 @@
     "id": "es-gauss-21",
     "name": "Field Inside an Off-Center Bubble",
     "module": "gauss-law",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "cavity",
       "superposition"
@@ -4652,7 +4652,7 @@
     "id": "es-gauss-22",
     "name": "Charge at the Corner of a Cube",
     "module": "gauss-law",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "flux",
       "symmetry"
@@ -4670,7 +4670,7 @@
     "id": "es-gauss-23",
     "name": "Where the Field Peaks in a Fading Sphere",
     "module": "gauss-law",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "nonuniform",
       "sphere"
@@ -4706,7 +4706,7 @@
     "id": "es-gauss-25",
     "name": "Designing a Constant-Field Sphere",
     "module": "gauss-law",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "nonuniform",
       "design"
@@ -4724,7 +4724,7 @@
     "id": "es-gauss-26",
     "name": "Flux Through a Disk on the Axis of a Charge",
     "module": "gauss-law",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "flux",
       "solid-angle"
@@ -4742,7 +4742,7 @@
     "id": "es-gauss-27",
     "name": "Grounded Shield Around a Charged Rod",
     "module": "gauss-law",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "coaxial"
     ],
@@ -4759,7 +4759,7 @@
     "id": "es-gauss-28",
     "name": "Matching Fields Inside and Outside",
     "module": "gauss-law",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "sphere"
     ],
@@ -4776,7 +4776,7 @@
     "id": "es-gauss-29",
     "name": "Electron Oscillating Inside a Charged Sphere",
     "module": "gauss-law",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "sphere",
       "oscillation"
@@ -4794,7 +4794,7 @@
     "id": "es-gauss-30",
     "name": "Charge a Thundercloud Needs to Break Down Air",
     "module": "gauss-law",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "planar",
       "application"
@@ -4983,7 +4983,7 @@
     "id": "es-pot-11",
     "name": "Assembling a Triangle of Charges",
     "module": "electric-potential",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "energy",
       "assembly"
@@ -5001,7 +5001,7 @@
     "id": "es-pot-12",
     "name": "Potential Drop Across a Uniform Field",
     "module": "electric-potential",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "e-and-v"
     ],
@@ -5018,7 +5018,7 @@
     "id": "es-pot-13",
     "name": "Field from a Quadratic Potential",
     "module": "electric-potential",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "e-from-v"
     ],
@@ -5070,7 +5070,7 @@
     "id": "es-pot-16",
     "name": "Proton Fired at a Charged Dome",
     "module": "electric-potential",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "energy",
       "turning-point"
@@ -5088,7 +5088,7 @@
     "id": "es-pot-17",
     "name": "Spacing of Equipotential Surfaces",
     "module": "electric-potential",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "equipotentials"
     ],
@@ -5105,7 +5105,7 @@
     "id": "es-pot-18",
     "name": "Maximum Voltage on a Van de Graaff",
     "module": "electric-potential",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "sphere",
       "breakdown"
@@ -5141,7 +5141,7 @@
     "id": "es-pot-20",
     "name": "Inside a Charged Metal Shell",
     "module": "electric-potential",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "shell"
     ],
@@ -5158,7 +5158,7 @@
     "id": "es-pot-21",
     "name": "Rutherford Backscattering Distance",
     "module": "electric-potential",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "energy",
       "turning-point"
@@ -5194,7 +5194,7 @@
     "id": "es-pot-23",
     "name": "Energy Stored in a Charged Ball",
     "module": "electric-potential",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "assembly",
       "energy"
@@ -5212,7 +5212,7 @@
     "id": "es-pot-24",
     "name": "Electron Pulled Through a Charged Ring",
     "module": "electric-potential",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "ring",
       "energy"
@@ -5230,7 +5230,7 @@
     "id": "es-pot-25",
     "name": "Center-to-Surface Voltage of a Charged Ball",
     "module": "electric-potential",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "sphere",
       "integration"
@@ -5248,7 +5248,7 @@
     "id": "es-pot-26",
     "name": "Why Sharp Points Spark First",
     "module": "electric-potential",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "conductor",
       "sharing"
@@ -5266,7 +5266,7 @@
     "id": "es-pot-27",
     "name": "Energy of Eight Charges on a Cube",
     "module": "electric-potential",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "assembly",
       "energy"
@@ -5284,7 +5284,7 @@
     "id": "es-pot-28",
     "name": "Ion Launched Into an Accelerating Gap",
     "module": "electric-potential",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "energy",
       "kinematics"
@@ -5302,7 +5302,7 @@
     "id": "es-pot-29",
     "name": "Electron Trapped on a Ring Axis",
     "module": "electric-potential",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "ring",
       "oscillation"
@@ -5320,7 +5320,7 @@
     "id": "es-pot-30",
     "name": "Threading a Proton Between Two Charges",
     "module": "electric-potential",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy",
       "superposition"
@@ -5500,7 +5500,7 @@
     "id": "es-cond-10",
     "name": "Charge sharing between spheres",
     "module": "conductors-capacitance",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "charge sharing",
       "sphere"
@@ -5518,7 +5518,7 @@
     "id": "es-cond-11",
     "name": "Spherical capacitor",
     "module": "conductors-capacitance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "spherical",
       "capacitance"
@@ -5536,7 +5536,7 @@
     "id": "es-cond-12",
     "name": "Coaxial cable capacitance per meter",
     "module": "conductors-capacitance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "coaxial",
       "capacitance"
@@ -5644,7 +5644,7 @@
     "id": "es-cond-18",
     "name": "Mixed capacitor network",
     "module": "conductors-capacitance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "network",
       "series",
@@ -5771,7 +5771,7 @@
     "id": "es-cond-25",
     "name": "Force with the battery still attached",
     "module": "conductors-capacitance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "force",
       "energy method"
@@ -5789,7 +5789,7 @@
     "id": "es-cond-26",
     "name": "Three concentric shells in series",
     "module": "conductors-capacitance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "spherical",
       "series"
@@ -5807,7 +5807,7 @@
     "id": "es-cond-27",
     "name": "Field at the small sphere of a joined pair",
     "module": "conductors-capacitance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "charge sharing",
       "field"
@@ -5825,7 +5825,7 @@
     "id": "es-cond-28",
     "name": "Energy density at the breakdown field of air",
     "module": "conductors-capacitance",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "energy density",
       "field"
@@ -5843,7 +5843,7 @@
     "id": "es-cond-29",
     "name": "Infinite capacitor ladder",
     "module": "conductors-capacitance",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "ladder",
       "network"
@@ -5861,7 +5861,7 @@
     "id": "es-cond-30",
     "name": "Off-center charge in a grounded shell",
     "module": "conductors-capacitance",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "image charge",
       "shell"
@@ -6003,7 +6003,7 @@
     "id": "es-diel-08",
     "name": "Bound surface charge density",
     "module": "dielectrics",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "bound charge"
     ],
@@ -6181,7 +6181,7 @@
     "id": "es-diel-18",
     "name": "Extra charge drawn from the battery",
     "module": "dielectrics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "constant voltage",
       "charge"
@@ -6199,7 +6199,7 @@
     "id": "es-diel-19",
     "name": "Polyethylene coaxial cable",
     "module": "dielectrics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "coaxial",
       "dielectric"
@@ -6253,7 +6253,7 @@
     "id": "es-diel-22",
     "name": "Energy in a filled capacitor",
     "module": "dielectrics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "energy",
       "capacitance"
@@ -6289,7 +6289,7 @@
     "id": "es-diel-24",
     "name": "Force on a slab at fixed charge",
     "module": "dielectrics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "force",
       "constant charge"
@@ -6307,7 +6307,7 @@
     "id": "es-diel-25",
     "name": "Which layer breaks down first",
     "module": "dielectrics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "breakdown",
       "layers"
@@ -6325,7 +6325,7 @@
     "id": "es-diel-26",
     "name": "Fraction of energy in the vacuum half",
     "module": "dielectrics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy",
       "layers"
@@ -6343,7 +6343,7 @@
     "id": "es-diel-27",
     "name": "Hemispherically filled spherical capacitor",
     "module": "dielectrics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "spherical",
       "parallel"
@@ -6379,7 +6379,7 @@
     "id": "es-diel-29",
     "name": "Graded dielectric",
     "module": "dielectrics",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "graded",
       "capacitance"
@@ -6397,7 +6397,7 @@
     "id": "es-diel-30",
     "name": "Dielectric liquid rising between plates",
     "module": "dielectrics",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "force",
       "liquid"
@@ -6589,7 +6589,7 @@
     "id": "ci-ohm-11",
     "name": "Drift speed in a lamp cord",
     "module": "current-resistance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "drift-velocity"
     ],
@@ -6606,7 +6606,7 @@
     "id": "ci-ohm-12",
     "name": "Hot tungsten filament",
     "module": "current-resistance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "temperature"
     ],
@@ -6641,7 +6641,7 @@
     "id": "ci-ohm-14",
     "name": "A series-parallel network",
     "module": "current-resistance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "series",
       "parallel"
@@ -6659,7 +6659,7 @@
     "id": "ci-ohm-15",
     "name": "Finding internal resistance",
     "module": "current-resistance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "internal-resistance"
     ],
@@ -6694,7 +6694,7 @@
     "id": "ci-ohm-17",
     "name": "Ammeter burden",
     "module": "current-resistance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "ammeter",
       "loading"
@@ -6729,7 +6729,7 @@
     "id": "ci-ohm-19",
     "name": "Cutting a nichrome heater",
     "module": "current-resistance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "resistivity",
       "geometry"
@@ -6747,7 +6747,7 @@
     "id": "ci-ohm-20",
     "name": "Two loads on one battery",
     "module": "current-resistance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "parallel",
       "power"
@@ -6783,7 +6783,7 @@
     "id": "ci-ohm-22",
     "name": "Current density in house wiring",
     "module": "current-resistance",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "current-density"
     ],
@@ -6800,7 +6800,7 @@
     "id": "ci-ohm-23",
     "name": "Half a wire stretched",
     "module": "current-resistance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "stretched-wire"
     ],
@@ -6817,7 +6817,7 @@
     "id": "ci-ohm-24",
     "name": "A tapered contact pin",
     "module": "current-resistance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "geometry",
       "integration"
@@ -6835,7 +6835,7 @@
     "id": "ci-ohm-25",
     "name": "Operating temperature of a filament",
     "module": "current-resistance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "temperature"
     ],
@@ -6852,7 +6852,7 @@
     "id": "ci-ohm-26",
     "name": "Best load at the end of a long cable",
     "module": "current-resistance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "max-power"
     ],
@@ -6869,7 +6869,7 @@
     "id": "ci-ohm-27",
     "name": "Correcting for meter resistance",
     "module": "current-resistance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "voltmeter",
       "loading"
@@ -6887,7 +6887,7 @@
     "id": "ci-ohm-28",
     "name": "An infinite ladder",
     "module": "current-resistance",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "ladder",
       "self-similar"
@@ -6905,7 +6905,7 @@
     "id": "ci-ohm-29",
     "name": "Resistor cube",
     "module": "current-resistance",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "symmetry",
       "network"
@@ -6923,7 +6923,7 @@
     "id": "ci-ohm-30",
     "name": "Leakage through cable insulation",
     "module": "current-resistance",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "geometry",
       "integration"
@@ -7132,7 +7132,7 @@
     "id": "ci-kirch-12",
     "name": "Alternator charging a battery",
     "module": "kirchhoff",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "charging"
     ],
@@ -7202,7 +7202,7 @@
     "id": "ci-kirch-16",
     "name": "Reading across an unbalanced bridge",
     "module": "kirchhoff",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "bridge",
       "voltmeter"
@@ -7310,7 +7310,7 @@
     "id": "ci-kirch-22",
     "name": "Voltage between two taps",
     "module": "kirchhoff",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "divider",
       "node"
@@ -7328,7 +7328,7 @@
     "id": "ci-kirch-23",
     "name": "Current through the galvanometer",
     "module": "kirchhoff",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "bridge",
       "two-loop"
@@ -7346,7 +7346,7 @@
     "id": "ci-kirch-24",
     "name": "Three meshes",
     "module": "kirchhoff",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "three-loop",
       "mesh"
@@ -7364,7 +7364,7 @@
     "id": "ci-kirch-25",
     "name": "Thevenin equivalent of a bridge",
     "module": "kirchhoff",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "thevenin",
       "bridge"
@@ -7382,7 +7382,7 @@
     "id": "ci-kirch-26",
     "name": "A bank of unequal batteries",
     "module": "kirchhoff",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "node",
       "internal-resistance"
@@ -7400,7 +7400,7 @@
     "id": "ci-kirch-27",
     "name": "Deducing a hidden resistor",
     "module": "kirchhoff",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "node",
       "inverse"
@@ -7418,7 +7418,7 @@
     "id": "ci-kirch-28",
     "name": "Resistance of an unbalanced bridge",
     "module": "kirchhoff",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "bridge",
       "equivalent"
@@ -7436,7 +7436,7 @@
     "id": "ci-kirch-29",
     "name": "Loaded bridge with a real battery",
     "module": "kirchhoff",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "bridge",
       "internal-resistance"
@@ -7454,7 +7454,7 @@
     "id": "ci-kirch-30",
     "name": "Two supplies sharing a bus",
     "module": "kirchhoff",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "node",
       "superposition"
@@ -7593,7 +7593,7 @@
     "id": "ci-rc-08",
     "name": "Heat produced while charging",
     "module": "rc-circuits",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "energy",
       "charging"
@@ -7682,7 +7682,7 @@
     "id": "ci-rc-13",
     "name": "Final capacitor voltage in a divider",
     "module": "rc-circuits",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "thevenin",
       "steady state"
@@ -7700,7 +7700,7 @@
     "id": "ci-rc-14",
     "name": "Battery current at the instant of closing",
     "module": "rc-circuits",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "initial current"
     ],
@@ -7717,7 +7717,7 @@
     "id": "ci-rc-15",
     "name": "Charge remaining after three time constants",
     "module": "rc-circuits",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "discharging"
     ],
@@ -7752,7 +7752,7 @@
     "id": "ci-rc-17",
     "name": "Parallel capacitors bleeding down",
     "module": "rc-circuits",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "discharging",
       "parallel"
@@ -7824,7 +7824,7 @@
     "id": "ci-rc-21",
     "name": "Peak power in a flash tube",
     "module": "rc-circuits",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "flash",
       "power"
@@ -7842,7 +7842,7 @@
     "id": "ci-rc-22",
     "name": "Settling to one percent",
     "module": "rc-circuits",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "charging"
     ],
@@ -7859,7 +7859,7 @@
     "id": "ci-rc-23",
     "name": "Charge sharing loss",
     "module": "rc-circuits",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "charge sharing",
       "energy"
@@ -7877,7 +7877,7 @@
     "id": "ci-rc-24",
     "name": "Heat in the first time constant",
     "module": "rc-circuits",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy",
       "charging"
@@ -7895,7 +7895,7 @@
     "id": "ci-rc-25",
     "name": "Capacitor bridging two dividers",
     "module": "rc-circuits",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "thevenin",
       "bridge"
@@ -7913,7 +7913,7 @@
     "id": "ci-rc-26",
     "name": "Time constant across a bridge",
     "module": "rc-circuits",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "thevenin",
       "bridge"
@@ -7931,7 +7931,7 @@
     "id": "ci-rc-27",
     "name": "When the power drops to a quarter",
     "module": "rc-circuits",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "power",
       "discharging"
@@ -7949,7 +7949,7 @@
     "id": "ci-rc-28",
     "name": "Equalisation time constant of two capacitors",
     "module": "rc-circuits",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "charge sharing",
       "time constant"
@@ -7967,7 +7967,7 @@
     "id": "ci-rc-29",
     "name": "Charge then short",
     "module": "rc-circuits",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "charging",
       "discharging"
@@ -7985,7 +7985,7 @@
     "id": "ci-rc-30",
     "name": "Two capacitors opposing in a loop",
     "module": "rc-circuits",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "charge sharing",
       "energy"
@@ -8003,7 +8003,7 @@
     "id": "ci-net-01",
     "name": "Equivalent resistance of a balanced bridge",
     "module": "tricky-networks",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "wheatstone"
     ],
@@ -8037,7 +8037,7 @@
     "id": "ci-net-03",
     "name": "Cube across a body diagonal",
     "module": "tricky-networks",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "cube",
       "symmetry"
@@ -8055,7 +8055,7 @@
     "id": "ci-net-04",
     "name": "Cube across one edge",
     "module": "tricky-networks",
-    "difficulty": "Easy",
+    "difficulty": "Hard",
     "tags": [
       "cube",
       "symmetry"
@@ -8073,7 +8073,7 @@
     "id": "ci-net-05",
     "name": "Cube across a face diagonal",
     "module": "tricky-networks",
-    "difficulty": "Easy",
+    "difficulty": "Hard",
     "tags": [
       "cube",
       "symmetry"
@@ -8091,7 +8091,7 @@
     "id": "ci-net-06",
     "name": "An infinite ladder",
     "module": "tricky-networks",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "ladder",
       "self-similarity"
@@ -8160,7 +8160,7 @@
     "id": "ci-net-10",
     "name": "A bridge resistor that carries nothing",
     "module": "tricky-networks",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "wheatstone",
       "symmetry"
@@ -8284,7 +8284,7 @@
     "id": "ci-net-17",
     "name": "Current in one edge of a cube",
     "module": "tricky-networks",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "cube",
       "symmetry"
@@ -8319,7 +8319,7 @@
     "id": "ci-net-19",
     "name": "Hexagon ring across opposite vertices",
     "module": "tricky-networks",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "symmetry",
       "ring"
@@ -8337,7 +8337,7 @@
     "id": "ci-net-20",
     "name": "Hexagon ring across adjacent vertices",
     "module": "tricky-networks",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "symmetry",
       "ring"
@@ -8426,7 +8426,7 @@
     "id": "ci-net-25",
     "name": "Power in the galvanometer",
     "module": "tricky-networks",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "wheatstone",
       "power"
@@ -8444,7 +8444,7 @@
     "id": "ci-net-26",
     "name": "Two-by-three resistor mesh",
     "module": "tricky-networks",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "grid",
       "nodal analysis"
@@ -8462,7 +8462,7 @@
     "id": "ci-net-27",
     "name": "Attenuation down a ladder",
     "module": "tricky-networks",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "ladder",
       "self-similarity"
@@ -8480,7 +8480,7 @@
     "id": "ci-net-28",
     "name": "Infinite capacitor ladder",
     "module": "tricky-networks",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "capacitor ladder",
       "self-similarity"
@@ -8516,7 +8516,7 @@
     "id": "ci-net-30",
     "name": "A tapered transmission line",
     "module": "tricky-networks",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "ladder",
       "self-similarity",

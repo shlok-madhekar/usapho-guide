@@ -210,7 +210,7 @@
   {
     "id": "orig-em-1",
     "name": "Bullet in a block",
-    "module": "energy-conservation",
+    "module": "collisions",
     "difficulty": "Easy",
     "tags": [
       "collisions"
@@ -245,7 +245,7 @@
   {
     "id": "orig-em-3",
     "name": "Explosion on the way up",
-    "module": "energy-conservation",
+    "module": "momentum-impulse",
     "difficulty": "Easy",
     "tags": [
       "momentum",
@@ -280,7 +280,7 @@
   {
     "id": "orig-circ-2",
     "name": "Orbit period ratio",
-    "module": "circular-motion",
+    "module": "keplers-laws",
     "difficulty": "Easy",
     "tags": [
       "orbits",
@@ -434,7 +434,7 @@
   {
     "id": "orig-cir-2",
     "name": "RC time constant",
-    "module": "kirchhoff",
+    "module": "rc-circuits",
     "difficulty": "Easy",
     "tags": [
       "transients"
@@ -553,7 +553,7 @@
   {
     "id": "orig-mp-2",
     "name": "Photoelectric threshold",
-    "module": "sr-kinematics",
+    "module": "photoelectric",
     "difficulty": "Easy",
     "tags": [
       "quantum"
@@ -907,7 +907,7 @@
   {
     "id": "orig-mvew53uo",
     "name": "Conducting game",
-    "module": "conductors-capacitance",
+    "module": "dielectrics",
     "difficulty": "Normal",
     "tags": [],
     "starred": false,

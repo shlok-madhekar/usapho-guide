@@ -48,16 +48,16 @@
     "total": 30
   },
   "circular-motion": {
-    "solvable": 33,
-    "total": 37
+    "solvable": 32,
+    "total": 36
   },
   "collisions": {
-    "solvable": 30,
-    "total": 39
+    "solvable": 31,
+    "total": 40
   },
   "conductors-capacitance": {
-    "solvable": 31,
-    "total": 31
+    "solvable": 30,
+    "total": 30
   },
   "coulomb-superposition": {
     "solvable": 30,
@@ -88,8 +88,8 @@
     "total": 30
   },
   "dielectrics": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 31,
+    "total": 31
   },
   "diffraction": {
     "solvable": 30,
@@ -108,8 +108,8 @@
     "total": 30
   },
   "energy-conservation": {
-    "solvable": 33,
-    "total": 38
+    "solvable": 31,
+    "total": 36
   },
   "entropy": {
     "solvable": 30,
@@ -160,16 +160,16 @@
     "total": 30
   },
   "keplers-laws": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 31,
+    "total": 31
   },
   "kinetic-theory": {
     "solvable": 31,
     "total": 32
   },
   "kirchhoff": {
-    "solvable": 32,
-    "total": 33
+    "solvable": 31,
+    "total": 32
   },
   "lagrangian": {
     "solvable": 30,
@@ -188,8 +188,8 @@
     "total": 31
   },
   "momentum-impulse": {
-    "solvable": 30,
-    "total": 32
+    "solvable": 31,
+    "total": 33
   },
   "motion-1d": {
     "solvable": 33,
@@ -224,8 +224,8 @@
     "total": 34
   },
   "photoelectric": {
-    "solvable": 31,
-    "total": 31
+    "solvable": 32,
+    "total": 32
   },
   "potential-energy": {
     "solvable": 30,
@@ -256,8 +256,8 @@
     "total": 30
   },
   "rc-circuits": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 31,
+    "total": 31
   },
   "reflection-refraction": {
     "solvable": 30,
@@ -288,8 +288,8 @@
     "total": 32
   },
   "sr-kinematics": {
-    "solvable": 32,
-    "total": 33
+    "solvable": 31,
+    "total": 32
   },
   "standing-waves": {
     "solvable": 30,

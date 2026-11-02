@@ -439,7 +439,7 @@
     "id": "fma-2018-8",
     "name": "F=ma 2018 Problem 8",
     "module": "projectiles",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "projectiles"
     ],
@@ -452,7 +452,7 @@
     "id": "fma-2019-4",
     "name": "F=ma 2019 Problem 4",
     "module": "motion-1d",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "free fall"
     ],
@@ -478,7 +478,7 @@
     "id": "fma-2020-20",
     "name": "F=ma 2020 Problem 20",
     "module": "energy-conservation",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "collisions"
     ],
@@ -504,7 +504,7 @@
     "id": "fma-2016-20",
     "name": "F=ma 2016 Problem 20",
     "module": "shm",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "shm"
     ],
@@ -530,7 +530,7 @@
     "id": "usapho-2018-b1",
     "name": "USAPhO 2018 Problem B1",
     "module": "heat-engines",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "cycles"
     ],
@@ -556,7 +556,7 @@
     "id": "usapho-2019-b1",
     "name": "USAPhO 2019 Problem B1",
     "module": "wave-basics",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "doppler"
     ],
@@ -569,7 +569,7 @@
     "id": "usapho-2016-b2",
     "name": "USAPhO 2016 Problem B2",
     "module": "lenses-mirrors",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "lenses"
     ],
@@ -595,7 +595,7 @@
     "id": "usapho-2014-b1",
     "name": "USAPhO 2014 Problem B1",
     "module": "kinetic-theory",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "kinetic theory"
     ],
@@ -608,7 +608,7 @@
     "id": "usapho-2013-a3",
     "name": "USAPhO 2013 Problem A3",
     "module": "faraday-lenz",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "faraday"
     ],
@@ -673,7 +673,7 @@
     "id": "morin-8-6",
     "name": "Morin 8.6 Ball hits rod",
     "module": "rotational-dynamics",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "angular momentum"
     ],
@@ -686,7 +686,7 @@
     "id": "orig-mvevvzic",
     "name": "Speeding up on a curve",
     "module": "circular-motion",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [],
     "starred": false,
     "origin": "exam",
@@ -5992,7 +5992,7 @@
     "id": "fma-2024-01",
     "name": "Arrow through two raised hoops",
     "module": "projectiles",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "projectiles",
       "kinematics"
@@ -6006,7 +6006,7 @@
     "id": "fma-2024-02",
     "name": "Spinning room rider lifts off",
     "module": "banked-curves",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "circular-motion",
       "normal-force"
@@ -6020,7 +6020,7 @@
     "id": "fma-2024-03",
     "name": "Five-rod truss under load",
     "module": "torque-equilibrium",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "static-equilibrium",
       "trusses",
@@ -6050,7 +6050,7 @@
     "id": "fma-2024-05",
     "name": "Scale under sliding incline block",
     "module": "newtons-laws-fbd",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "inclined-plane",
       "normal-force",
@@ -6065,7 +6065,7 @@
     "id": "fma-2024-06",
     "name": "Leaking bucket pendulum landing pattern",
     "module": "pendulums",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "pendulum",
       "oscillations"
@@ -6079,7 +6079,7 @@
     "id": "fma-2024-07",
     "name": "Velocity-time to velocity-distance",
     "module": "motion-graphs",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "kinematics",
       "graphs"
@@ -6165,7 +6165,7 @@
     "id": "fma-2024-13",
     "name": "Tension vs block separation",
     "module": "tension-pulleys",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "tension",
       "pulleys",
@@ -6238,7 +6238,7 @@
     "id": "fma-2024-18",
     "name": "Delta-v to raise orbit apoapsis",
     "module": "gravitation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "orbits",
       "energy",
@@ -6253,7 +6253,7 @@
     "id": "fma-2024-19",
     "name": "Unbalanced spoked wheel oscillation",
     "module": "pendulums",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "physical-pendulum",
       "moment-of-inertia",
@@ -6298,7 +6298,7 @@
     "id": "fma-2024-22",
     "name": "Gravity jump across a mass shell",
     "module": "gravitation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "gravity",
       "shell",
@@ -6328,7 +6328,7 @@
     "id": "fma-2024-24",
     "name": "Fall distance at half terminal velocity",
     "module": "free-fall",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "drag",
       "terminal-velocity",
@@ -6343,7 +6343,7 @@
     "id": "fma-2024-25",
     "name": "Dropped yo-yo acceleration behavior",
     "module": "rotational-dynamics",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "rotational-dynamics",
       "moment-of-inertia",
@@ -6373,7 +6373,7 @@
     "id": "fma-2025-02",
     "name": "Three-disk collision setup",
     "module": "collisions",
-    "difficulty": "Easy",
+    "difficulty": "Hard",
     "tags": [
       "momentum",
       "collisions"
@@ -6401,7 +6401,7 @@
     "id": "fma-2025-04",
     "name": "Cat pursuing a running mouse",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "pursuit",
       "relative-motion",
@@ -6444,7 +6444,7 @@
     "id": "fma-2025-07",
     "name": "Energy of a stair-walking linkage",
     "module": "energy-conservation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rotation",
       "kinetic-energy"
@@ -6589,7 +6589,7 @@
     "id": "fma-2025-17",
     "name": "Motion in a repulsive quadratic potential",
     "module": "effective-potentials",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "central-force",
       "potential-energy"
@@ -6647,7 +6647,7 @@
     "id": "fma-2025-21",
     "name": "Venturi pipe flow setup",
     "module": "pressure-buoyancy",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "bernoulli",
       "fluids"
@@ -6661,7 +6661,7 @@
     "id": "fma-2025-22",
     "name": "Height difference in Venturi tubes",
     "module": "pressure-buoyancy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "bernoulli",
       "fluids",
@@ -6676,7 +6676,7 @@
     "id": "fma-2025-23",
     "name": "Spring constant percent error",
     "module": "data-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "uncertainty",
       "error-propagation",
@@ -6691,7 +6691,7 @@
     "id": "fma-2025-24",
     "name": "Bead swinging on a pivoted rod",
     "module": "circular-motion",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "rotation",
       "spherical-pivot"
@@ -6705,7 +6705,7 @@
     "id": "fma-2025-25",
     "name": "Puck sliding off a moving prism",
     "module": "energy-conservation",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "momentum",
       "non-inertial-frames",
@@ -6720,7 +6720,7 @@
     "id": "fma-2026-01",
     "name": "Apparent transverse speed of a jet",
     "module": "relative-motion",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "relative velocity",
       "light travel time",
@@ -6735,7 +6735,7 @@
     "id": "fma-2026-02",
     "name": "Scaling of a domino wave speed",
     "module": "units-estimation",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "scaling",
       "dimensional analysis"
@@ -6763,7 +6763,7 @@
     "id": "fma-2026-04",
     "name": "Two balls launched from one point",
     "module": "projectiles",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "projectile",
       "relative position"
@@ -6805,7 +6805,7 @@
     "id": "fma-2026-07",
     "name": "Stability of the L2 point",
     "module": "gravitation",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "lagrange point",
       "orbits",
@@ -6835,7 +6835,7 @@
     "id": "fma-2026-09",
     "name": "Ball bounced to escape speed",
     "module": "collisions",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "elastic collision",
       "escape velocity",
@@ -6850,7 +6850,7 @@
     "id": "fma-2026-10",
     "name": "Gravity at the face of solids",
     "module": "gravitation",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "gravitation",
       "gravitational field",
@@ -6865,7 +6865,7 @@
     "id": "fma-2026-11",
     "name": "Bead sliding on a free ring",
     "module": "momentum-impulse",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "momentum conservation",
       "center of mass"
@@ -6908,7 +6908,7 @@
     "id": "fma-2026-14",
     "name": "Period of a rigid-rod swing",
     "module": "pendulums",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "pendulum",
       "small oscillations"
@@ -6997,7 +6997,7 @@
     "id": "fma-2026-20",
     "name": "Motor-driven rod holding a tilt",
     "module": "rotational-dynamics",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "torque",
       "rotation",
@@ -7026,7 +7026,7 @@
     "id": "fma-2026-22",
     "name": "Tricycle braking with uneven friction",
     "module": "rotational-dynamics",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "torque",
       "friction",
@@ -7041,7 +7041,7 @@
     "id": "fma-2026-23",
     "name": "Moment of inertia of nested hexagons",
     "module": "moment-of-inertia",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "moment of inertia",
       "fractal",
@@ -7056,7 +7056,7 @@
     "id": "fma-2026-24",
     "name": "Air sheet clinging to a cylinder",
     "module": "pressure-buoyancy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "fluid pressure",
       "centripetal force",
@@ -7071,7 +7071,7 @@
     "id": "fma-2026-25",
     "name": "Fastest-draining vase shape",
     "module": "pressure-buoyancy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "torricelli",
       "fluid flow",

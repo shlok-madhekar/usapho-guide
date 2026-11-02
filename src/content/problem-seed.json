@@ -571,7 +571,7 @@
     "id": "fma-2018-8",
     "name": "F=ma 2018 Problem 8",
     "module": "projectiles",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "projectiles"
     ],
@@ -588,7 +588,7 @@
     "id": "fma-2019-4",
     "name": "F=ma 2019 Problem 4",
     "module": "motion-1d",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "free fall"
     ],
@@ -622,7 +622,7 @@
     "id": "fma-2020-20",
     "name": "F=ma 2020 Problem 20",
     "module": "energy-conservation",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "collisions"
     ],
@@ -656,7 +656,7 @@
     "id": "fma-2016-20",
     "name": "F=ma 2016 Problem 20",
     "module": "shm",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "shm"
     ],
@@ -690,7 +690,7 @@
     "id": "usapho-2018-b1",
     "name": "USAPhO 2018 Problem B1",
     "module": "heat-engines",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "cycles"
     ],
@@ -724,7 +724,7 @@
     "id": "usapho-2019-b1",
     "name": "USAPhO 2019 Problem B1",
     "module": "wave-basics",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "doppler"
     ],
@@ -741,7 +741,7 @@
     "id": "usapho-2016-b2",
     "name": "USAPhO 2016 Problem B2",
     "module": "lenses-mirrors",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "lenses"
     ],
@@ -775,7 +775,7 @@
     "id": "usapho-2014-b1",
     "name": "USAPhO 2014 Problem B1",
     "module": "kinetic-theory",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "kinetic theory"
     ],
@@ -792,7 +792,7 @@
     "id": "usapho-2013-a3",
     "name": "USAPhO 2013 Problem A3",
     "module": "faraday-lenz",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "faraday"
     ],
@@ -877,7 +877,7 @@
     "id": "morin-8-6",
     "name": "Morin 8.6 Ball hits rod",
     "module": "rotational-dynamics",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "angular momentum"
     ],
@@ -894,7 +894,7 @@
     "id": "orig-mvevvzic",
     "name": "Speeding up on a curve",
     "module": "circular-motion",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [],
     "starred": false,
     "origin": "exam",

@@ -3664,9 +3664,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $70\\ \\mathrm{kg}$ man hangs from one side of a rope over a frictionless pulley, balanced by a $70\\ \\mathrm{kg}$ counterweight on the other side. He climbs the rope at $0.50\\ \\mathrm{m/s}$ relative to the rope. What is the speed of the center of mass of the man-plus-counterweight system, in m/s?",
-    "answer": 0,
+    "answer": 0.25,
     "unit": "m/s",
-    "solution": "Because the masses are equal and the rope is inextensible, whatever the man does the counterweight mirrors: they move at equal speeds in opposite senses relative to the ground. Their center of mass therefore stays at rest, $v_{\\rm cm} = 0$."
+    "solution": "Both hang from the same rope, so both feel the same tension $T$, and they have equal mass: the net force $T - mg$ on each is the same, so they always have the same upward velocity $v$. The rope on the man's side then moves down at $v$ while he moves up at $v$, so his speed relative to the rope is $2v = 0.50\\ \\mathrm{m/s}$, giving $v = 0.25\\ \\mathrm{m/s}$. Both rise together, so the center of mass rises at $v_{\\rm cm} = 0.25\\ \\mathrm{m/s}$."
   },
   {
     "id": "we-com-30",

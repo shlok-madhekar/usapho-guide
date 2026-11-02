@@ -5408,7 +5408,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "The binding energy per nucleon curve peaks near iron-56 at its maximum value. What is that value, in MeV per nucleon? (Give the standard textbook figure to three significant figures: $8.79$.)",
+    "statement": "The binding energy per nucleon curve peaks near iron-56. What is its maximum value, in MeV per nucleon, to three significant figures?",
     "answer": 8.79,
     "unit": "MeV",
     "solution": "Iron-56 and nickel-62 sit at the top of the binding energy curve at about $8.79$ MeV per nucleon. Nuclei lighter than iron release energy by fusing, heavier ones by fissioning, which is why iron is the endpoint of stellar burning."
@@ -8400,10 +8400,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A charge $q=+1.0\\ \\text{nC}$ starts at the center of a spherical cavity of radius $10.0\\ \\text{cm}$ inside a grounded conductor and is moved slowly to a point $6.0\\ \\text{cm}$ from the center. Find the work done by the external agent, in nJ.",
-    "answer": 25.3,
+    "statement": "A charge $q=+1.0\\ \\text{nC}$ starts at the center of a spherical cavity of radius $10.0\\ \\text{cm}$ inside a grounded conductor and is moved slowly to a point $6.0\\ \\text{cm}$ from the center. Find the work done by the external agent, in nJ (negative if the agent does negative work).",
+    "answer": -25.3,
     "unit": "nJ",
-    "solution": "Integrating the image force $F(s)=\\frac{kq^2as}{(a^2-s^2)^2}$, the energy is $U(s)=-\\frac{kq^2a}{2(a^2-s^2)}$. Then $W_{ext}=U(s)-U(0)=\\frac{kq^2a}{2}\\left[\\frac{1}{a^2}-\\frac{1}{a^2-s^2}\\right]$, which is negative: the conductor pulls the charge outward. Numerically $W=25.3$ nJ."
+    "solution": "Integrating the image force $F(s)=\\frac{kq^2as}{(a^2-s^2)^2}$, the energy is $U(s)=-\\frac{kq^2a}{2(a^2-s^2)}$. Then $W_{ext}=U(s)-U(0)=\\frac{kq^2a}{2}\\left[\\frac{1}{a^2}-\\frac{1}{a^2-s^2}\\right]$, which is negative: the conductor pulls the charge outward, so the agent holds it back. Numerically $W=\\frac{(8.99\\times10^{-9})(0.100)}{2}(100-156.25)=-25.3$ nJ."
   },
   {
     "id": "adv-bvp-30",
@@ -8609,7 +8609,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A source with $\\gamma=2.00$ moves past a detector. At the instant the source is at its closest approach in the detector's frame, the detector receives light emitted with rest-frame frequency $f_0$. Find the ratio $f/f_0$ of received to emitted frequency.",
+    "statement": "A source with $\\gamma=2.00$ moves past a detector. The detector receives light that the source emitted at the instant it was at its closest approach, as judged in the detector's frame. The light has rest-frame frequency $f_0$. Find the ratio $f/f_0$ of received to emitted frequency.",
     "answer": 0.5,
     "unit": "unitless",
     "solution": "At transverse viewing in the observer's frame there is no first-order Doppler term; the entire effect is time dilation of the source clock, so $f=f_0/\\gamma$. With $\\gamma=2.00$, $f/f_0=0.500$. The shift is a pure redshift, a direct test of time dilation."
@@ -8803,7 +8803,7 @@
     "statement": "Two protons, each with kinetic energy $1000\\ \\text{MeV}$, collide head-on. Using $m_pc^2=938.3\\ \\text{MeV}$, find $\\sqrt{s}$ for the collision, in MeV.",
     "answer": 3876.6,
     "unit": "MeV",
-    "solution": "In a symmetric head-on collision the lab frame is the CM frame, so the total momentum vanishes and $\\sqrt{s}$ is just the total energy: $\\sqrt{s}=2(T+m_pc^2)=2(1938.3)=3876.6$ MeV. Compare a fixed target of the same beam energy, which yields only about 2.9 GeV."
+    "solution": "In a symmetric head-on collision the lab frame is the CM frame, so the total momentum vanishes and $\\sqrt{s}$ is just the total energy: $\\sqrt{s}=2(T+m_pc^2)=2(1938.3)=3876.6$ MeV. Compare a fixed target hit by the same beam: $s = 2m_p^2c^4 + 2m_pc^2E$ gives only about 2.3 GeV."
   },
   {
     "id": "adv-4vec-23",

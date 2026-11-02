@@ -124,6 +124,25 @@ Both kinds appear in `/problems` and on module pages; only originals can be
 answered on the site. Past-exam entries live in
 `src/content/problem-batches/exams.json`.
 
+### Difficulty
+
+`difficulty` says what a problem demands, on one scale shared by originals and
+past exams. Rate it from the statement and the solution, not from the topic
+or from where the problem sits in its module: a Gauss's-law problem that is
+one formula plug-in is Easy.
+
+| Label | What it takes | About as hard as |
+|---|---|---|
+| Easy | One idea, one or two steps, a standard formula used directly | below the F=ma exam |
+| Normal | A few routine steps or two standard ideas combined | early and middle F=ma problems |
+| Hard | A non-obvious idea, a careful setup, or several ideas chained | late F=ma problems, the easiest USAPhO parts |
+| Very Hard | Multi-stage reasoning, real modeling or approximation | a typical USAPhO problem |
+| Insane | Long, deep problems that stop most strong students | the hardest USAPhO problems, IPhO |
+
+Most problems written for a module are Easy or Normal; there is no quota per
+level. The same wording is shown as a tooltip on each problem's difficulty
+(`DIFFICULTY_MEANING` in `src/lib/problem-types.ts`), so keep the two in step.
+
 ### Checks on every pull request
 
 `.github/workflows/checks.yml` runs on each pull request and on `main`:

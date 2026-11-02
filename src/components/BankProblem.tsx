@@ -5,6 +5,7 @@ import { K, Markish } from "@/components/Katex";
 import { useProgress } from "@/lib/progress";
 import {
   BankProblem as Problem,
+  DIFFICULTY_MEANING,
   DIFFICULTY_VAR,
   ORIGIN_LABEL,
   isSolvable,
@@ -51,8 +52,9 @@ function Meta({ p }: { p: Problem }) {
   return (
     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
       <span
-        className="label"
+        className="label cursor-help"
         style={{ color: DIFFICULTY_VAR[p.difficulty] }}
+        title={DIFFICULTY_MEANING[p.difficulty]}
       >
         {p.difficulty}
       </span>

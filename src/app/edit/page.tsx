@@ -11,7 +11,7 @@ import { useGitHub } from "@/lib/github-auth";
 import { canEditCurriculum } from "@/lib/roles";
 import type { Difficulty, Division, Module, Section } from "@/lib/curriculum";
 import type { BankProblem as Problem, Origin } from "@/lib/problem-types";
-import { DIFFICULTY_ORDER } from "@/lib/problem-types";
+import { DIFFICULTY_MEANING, DIFFICULTY_ORDER } from "@/lib/problem-types";
 import { NEW_SIM, paramValues, type SimDef, type SimParam } from "@/lib/sims";
 
 type Tab = "lessons" | "problems" | "sims" | "courses";
@@ -563,6 +563,10 @@ function Problems({ api }: { api: Api }) {
                     <option key={d}>{d}</option>
                   ))}
                 </select>
+                {/* the scale is shared with past exams; rate the work, not the topic */}
+                <span className="sans mt-1 block text-xs text-[var(--ink-soft)]">
+                  {DIFFICULTY_MEANING[current.difficulty]}
+                </span>
               </Field>
               <Field label="Source type">
                 <select

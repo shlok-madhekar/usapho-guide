@@ -53,6 +53,10 @@ export const DIFFICULTY_ORDER: Difficulty[] = [
   "Insane",
 ];
 
+/** Sort comparator, easiest first; Array.sort is stable, so ties keep their order. */
+export const byDifficulty = (a: { difficulty: Difficulty }, b: { difficulty: Difficulty }) =>
+  DIFFICULTY_ORDER.indexOf(a.difficulty) - DIFFICULTY_ORDER.indexOf(b.difficulty);
+
 export const DIFFICULTY_VAR: Record<Difficulty, string> = {
   Easy: "var(--diff-1)",
   Normal: "var(--diff-2)",

@@ -46,6 +46,28 @@ function matches(word: string, term: string) {
   return n >= term.length - 2;
 }
 
+/** "lenses" -> "lens", "pulleys" -> "pulley"; short words are left alone. */
+const singular = (term: string) =>
+  term.length > 4 && term.endsWith("es")
+    ? term.slice(0, -2)
+    : term.length > 3 && term.endsWith("s")
+      ? term.slice(0, -1)
+      : term;
+
+/**
+ * Filter test for the problem bank: every query word must start some word of
+ * the text, allowing for a plural, so "gauss sphere" and "lenses" match in any
+ * order. Stricter than lesson search's ending rule, which ranks its results;
+ * a filter has no ranking, and "pulley" should not bring in "pulling".
+ */
+export function matchesQuery(text: string, query: string) {
+  const have = words(text);
+  return words(query).every((term) => {
+    const stem = singular(term);
+    return have.some((w) => w.startsWith(term) || w.startsWith(stem));
+  });
+}
+
 export interface SearchResult {
   entry: SearchEntry;
   heading: SearchHeading | null;

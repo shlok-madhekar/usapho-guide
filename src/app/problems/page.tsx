@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Nav from "@/components/Nav";
 import BankProblem from "@/components/BankProblem";
 import { DIVISIONS, allModules, Difficulty } from "@/lib/curriculum";
@@ -13,7 +14,8 @@ import {
 import { TOTAL_PROBLEMS, TOTAL_SOLVABLE } from "@/lib/problem-counts";
 import { useProgress } from "@/lib/progress";
 
-type Filter = "all" | "unsolved" | "solved" | "starred" | "solvable";
+const FILTERS = ["all", "unsolved", "solved", "starred", "solvable"] as const;
+type Filter = (typeof FILTERS)[number];
 
 /**
  * Rendering every match at once puts tens of thousands of nodes on the page
@@ -61,11 +63,44 @@ export default function ProblemsPage() {
   const [filter, setFilter] = useState<Filter>("all");
   const [shown, setShown] = useState(PAGE_SIZE);
 
-  // the header search hands its query over as ?q=
-  useEffect(() => {
-    const q = new URLSearchParams(window.location.search).get("q");
-    if (q) setQuery(q);
+  // The filters live in the URL as well, so a filtered list can be shared or
+  // bookmarked, Back returns to it, and the header search can hand over ?q=
+  // even when the bank is already open.
+  const written = useRef<string | null>(null);
+  const [readUrl, setReadUrl] = useState(false);
+
+  const applyUrl = useCallback((search: string) => {
+    if (search === written.current) return; // our own write coming back
+    written.current = search;
+    const params = new URLSearchParams(search);
+    const pick = <T extends string>(key: string, allowed: readonly T[], fallback: T): T => {
+      const value = params.get(key);
+      return allowed.find((a) => a === value) ?? fallback;
+    };
+    setQuery(params.get("q") ?? "");
+    setDivision(pick("division", DIVISIONS.map((d) => d.id), "any"));
+    setDifficulty(pick<Difficulty | "any">("difficulty", DIFFICULTY_ORDER, "any"));
+    setOrigin(pick("origin", ORIGIN_FILTERS.map((o) => o.key), "any"));
+    setFilter(pick("show", FILTERS, "all"));
+    setReadUrl(true);
   }, []);
+
+  useEffect(() => {
+    // until the URL has been read, the filters are defaults and would erase it
+    if (!readUrl) return;
+    const params = new URLSearchParams();
+    if (query.trim()) params.set("q", query);
+    if (division !== "any") params.set("division", division);
+    if (difficulty !== "any") params.set("difficulty", difficulty);
+    if (origin !== "any") params.set("origin", origin);
+    if (filter !== "all") params.set("show", filter);
+    const search = params.toString();
+    if (search === written.current) return;
+    written.current = search;
+    // replaceState, not router.replace: no navigation per keystroke, and
+    // Next keeps useSearchParams in step with it
+    window.history.replaceState(null, "", search ? `?${search}` : window.location.pathname);
+  }, [readUrl, query, division, difficulty, origin, filter]);
 
   // any change to the filters starts the list again from the top
   useEffect(() => {
@@ -125,6 +160,9 @@ export default function ProblemsPage() {
   return (
     <>
       <Nav />
+      <Suspense fallback={null}>
+        <UrlParams onChange={applyUrl} />
+      </Suspense>
       <main className="mx-auto max-w-3xl px-6 pb-24 pt-10">
         <h1 className="text-3xl font-bold text-[var(--ink-strong)]">
           Problems
@@ -245,6 +283,17 @@ export default function ProblemsPage() {
       </main>
     </>
   );
+}
+
+/**
+ * Reports the query string whenever it changes. Reading it suspends during
+ * prerendering, so it sits in its own Suspense boundary and renders nothing,
+ * leaving the rest of the page in the static HTML.
+ */
+function UrlParams({ onChange }: { onChange: (search: string) => void }) {
+  const search = useSearchParams().toString();
+  useEffect(() => onChange(search), [search, onChange]);
+  return null;
 }
 
 function Select({

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useCallback, useEffect, useState } from "react";
 import Nav from "@/components/Nav";
 import { DIVISIONS } from "@/lib/curriculum";
 import { MODULE_STATUS_META, useProgress } from "@/lib/progress";
@@ -13,6 +14,18 @@ export default function GuideIndex({ written }: { written: string[] }) {
   const hasLesson = new Set(written);
   const [courseId, setCourseId] = useState(DIVISIONS[0]?.id ?? "");
   const course = DIVISIONS.find((d) => d.id === courseId) ?? DIVISIONS[0];
+
+  // The chosen course is kept in the URL (?course=usapho). Held only in state
+  // it was lost on every visit: Back from a USAPhO lesson, or that lesson's
+  // "USAPhO" breadcrumb, always opened the F=ma course.
+  const fromUrl = useCallback((id: string | null) => {
+    setCourseId(DIVISIONS.some((d) => d.id === id) ? id! : DIVISIONS[0]?.id ?? "");
+  }, []);
+  const choose = (id: string) => {
+    setCourseId(id);
+    const search = id === DIVISIONS[0]?.id ? "" : `?course=${encodeURIComponent(id)}`;
+    window.history.replaceState(null, "", `${window.location.pathname}${search}`);
+  };
   const { modules } = useProgress();
 
   if (!course) return null;
@@ -23,6 +36,9 @@ export default function GuideIndex({ written }: { written: string[] }) {
   return (
     <>
       <Nav />
+      <Suspense fallback={null}>
+        <CourseParam onChange={fromUrl} />
+      </Suspense>
       <main className="mx-auto max-w-3xl px-6 pb-24 pt-10">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
           <h1 className="text-3xl font-bold text-[var(--ink-strong)]">
@@ -32,7 +48,9 @@ export default function GuideIndex({ written }: { written: string[] }) {
             {DIVISIONS.map((d) => (
               <button
                 key={d.id}
-                onClick={() => setCourseId(d.id)}
+                type="button"
+                aria-pressed={d.id === course.id}
+                onClick={() => choose(d.id)}
                 className={`sans text-sm ${
                   d.id === course.id
                     ? "font-medium text-[var(--ink-strong)] underline underline-offset-4"
@@ -105,4 +123,15 @@ export default function GuideIndex({ written }: { written: string[] }) {
       </main>
     </>
   );
+}
+
+/**
+ * Reports ?course= whenever it changes. Reading it suspends during
+ * prerendering, so it renders nothing inside its own Suspense boundary and
+ * the course list stays in the static HTML.
+ */
+function CourseParam({ onChange }: { onChange: (id: string | null) => void }) {
+  const id = useSearchParams().get("course");
+  useEffect(() => onChange(id), [id, onChange]);
+  return null;
 }

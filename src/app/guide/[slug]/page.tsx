@@ -7,7 +7,7 @@ import { FreqMeter, StatusPicker } from "@/components/ModuleBits";
 import ModuleSidebar from "@/components/ModuleSidebar";
 import ExportPdfButton from "@/components/ExportPdfButton";
 import { Markish } from "@/components/Katex";
-import { allModules, findModule } from "@/lib/curriculum";
+import { DIVISIONS, allModules, findModule } from "@/lib/curriculum";
 import { LESSONS } from "@/content/lessons";
 import { problemsForModule, isSolvable } from "@/lib/problems";
 
@@ -59,7 +59,12 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
             <span>usapho.one/guide/{mod.slug} · CC BY-NC-SA 4.0</span>
           </p>
           <p className="label">
-            <Link prefetch={false} href="/guide" className="hover:text-[var(--ink)]">
+            <Link
+              prefetch={false}
+              // open the index on this lesson's course, not the first one
+              href={division.id === DIVISIONS[0]?.id ? "/guide" : `/guide?course=${division.id}`}
+              className="hover:text-[var(--ink)]"
+            >
               {division.name}
             </Link>
             <span className="mx-2">/</span>

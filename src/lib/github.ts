@@ -18,6 +18,13 @@ export const REPO = process.env.GITHUB_REPO ?? "";
 export const FALLBACK_TOKEN = process.env.GITHUB_TOKEN ?? "";
 export const repoConfigured = Boolean(REPO);
 
+/** A failed GitHub request, keeping the status so callers can tell 404 from 401. */
+export class GitHubError extends Error {
+  constructor(public status: number, message: string) {
+    super(message);
+  }
+}
+
 async function gh<T>(token: string, path: string, init: RequestInit = {}): Promise<T> {
   const res = await fetch(`${API}${path}`, {
     ...init,
@@ -32,7 +39,8 @@ async function gh<T>(token: string, path: string, init: RequestInit = {}): Promi
   });
   if (!res.ok) {
     const detail = await res.text();
-    throw new Error(
+    throw new GitHubError(
+      res.status,
       `GitHub ${init.method ?? "GET"} ${path} failed (${res.status}): ${detail.slice(0, 300)}`
     );
   }
@@ -66,13 +74,18 @@ interface RepoInfo {
 export const starRepo = (token: string, repo = REPO) =>
   gh<null>(token, `/user/starred/${repo}`, { method: "PUT" });
 
-/** Whether this contributor has already starred it. */
+/**
+ * Whether this contributor has already starred it. GitHub answers 404 for
+ * "not starred"; anything else (an expired token, an outage) is an error, not
+ * a reason to tell them to go and star the repository.
+ */
 export const hasStarred = async (token: string, repo = REPO) => {
   try {
     await gh<null>(token, `/user/starred/${repo}`);
     return true;
-  } catch {
-    return false;
+  } catch (e) {
+    if (e instanceof GitHubError && e.status === 404) return false;
+    throw e;
   }
 };
 
@@ -102,7 +115,8 @@ export async function readFile(token: string, path: string): Promise<string> {
   });
   if (!res.ok) {
     const detail = await res.text();
-    throw new Error(
+    throw new GitHubError(
+      res.status,
       `GitHub GET ${path} failed (${res.status}): ${detail.slice(0, 300)}`
     );
   }

@@ -46,8 +46,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     apply(stored);
 
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    // follow the OS only while the reader has not picked light or dark
     const onChange = () => {
-      if ((localStorage.getItem(KEY) as Theme | null) ?? "system") apply("system");
+      if ((localStorage.getItem(KEY) ?? "system") === "system") apply("system");
     };
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);

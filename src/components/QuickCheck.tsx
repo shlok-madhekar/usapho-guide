@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * A single multiple-choice check. Plain strings so lesson MDX stays readable,
@@ -32,6 +32,17 @@ export default function QuickCheck({
   // the chosen option in the tab order (a "roving tabindex"). Without this the
   // keyboard lands on every option in turn and arrows do nothing.
   const optionRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // The button that was just pressed is replaced (Check -> Try again) or
+  // disabled, which would drop keyboard focus onto the page. Put it somewhere
+  // sensible instead, but only after the reader has acted, never on load.
+  const retry = useRef<HTMLButtonElement>(null);
+  const interacted = useRef(false);
+  useEffect(() => {
+    if (!interacted.current) return;
+    if (checked) retry.current?.focus();
+    else optionRefs.current[0]?.focus();
+  }, [checked]);
   const pickAndFocus = (i: number) => {
     const n = ((i % options.length) + options.length) % options.length;
     setPicked(n);
@@ -120,7 +131,10 @@ export default function QuickCheck({
               type="button"
               className="btn sans"
               disabled={picked === null}
-              onClick={() => setChecked(true)}
+              onClick={() => {
+                interacted.current = true;
+                setChecked(true);
+              }}
             >
               Check answer
             </button>
@@ -130,9 +144,11 @@ export default function QuickCheck({
           </>
         ) : (
           <button
+            ref={retry}
             type="button"
             className="btn-plain sans"
             onClick={() => {
+              interacted.current = true;
               setChecked(false);
               setPicked(null);
             }}
@@ -142,20 +158,24 @@ export default function QuickCheck({
         )}
       </div>
 
-      {checked && (
-        <div
-          className="mt-4 border-l-2 pl-4 text-[0.95rem] text-[var(--ink-soft)]"
-          style={{ borderColor: correct ? "var(--ok)" : "var(--bad)" }}
-        >
-          <p
-            className="sans mb-1 text-sm font-semibold"
-            style={{ color: correct ? "var(--ok)" : "var(--bad)" }}
+      {/* always mounted: a live region is only announced if it exists before
+          its content changes */}
+      <div role="status">
+        {checked && (
+          <div
+            className="mt-4 border-l-2 pl-4 text-[0.95rem] text-[var(--ink-soft)]"
+            style={{ borderColor: correct ? "var(--ok)" : "var(--bad)" }}
           >
-            {correct ? "That's right." : `Not quite. The answer is ${letter(answer)}.`}
-          </p>
-          {explanation}
-        </div>
-      )}
+            <p
+              className="sans mb-1 text-sm font-semibold"
+              style={{ color: correct ? "var(--ok)" : "var(--bad)" }}
+            >
+              {correct ? "That's right." : `Not quite. The answer is ${letter(answer)}.`}
+            </p>
+            {explanation}
+          </div>
+        )}
+      </div>
 
       {/* on paper nothing can be clicked, so the answer is printed instead */}
       <p className="sans mt-3 hidden text-[0.85rem] text-[var(--ink-soft)] print:block">

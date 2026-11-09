@@ -26,7 +26,14 @@ function parseScalar(text: string): number | null {
  * one clean number, so a wrong-format entry is never read as a stray value.
  */
 function parseAnswer(raw: string): number | null {
-  const text = raw.trim().replace(/,/g, "").replace(/\s+/g, "").replace(/π/g, "pi");
+  const text = raw
+    .trim()
+    .replace(/,/g, "")
+    .replace(/\s+/g, "")
+    .replace(/π/g, "pi")
+    // a pasted typographic minus, and LaTeX-style exponents: 10^{-3}
+    .replace(/\u2212/g, "-")
+    .replace(/[{}]/g, "");
   if (!text) return null;
 
   // a multiple of pi: [coef]pi[/denom], e.g. pi, -2pi, pi/2, 3pi/4
@@ -73,6 +80,57 @@ function Meta({ p }: { p: Problem }) {
   );
 }
 
+/** Unit spellings compared loosely: m/s² = m/s^2, μF = uF, Ω = ohm, N·m = Nm. */
+const unitChars = (u: string) =>
+  u
+    .replace(/\s+/g, "")
+    .replace(/²/g, "^2")
+    .replace(/³/g, "^3")
+    .replace(/[µμ]/g, "u")
+    .replace(/Ω/g, "ohm")
+    .replace(/[·⋅*]/g, "");
+
+const NO_UNIT = new Set(["", "unitless", "dimensionless"]);
+
+/** The ways a reader might write the problem's unit. */
+function unitSpellings(unit: string): string[] {
+  const u = unitChars(unit);
+  if (["deg", "degree", "degrees", "°"].includes(u)) return ["degrees", "degree", "deg", "°"];
+  if (u === "%" || u === "percent") return ["percent", "%"];
+  return [u];
+}
+
+/**
+ * Reads an entry for a problem whose answer is in `unit`. A trailing unit is
+ * fine when it is that unit ("12 m", "-25.3 nJ", "pi/2 rad"). Any other unit
+ * is refused with a note rather than read as a bare number: "12 cm" for an
+ * answer in m would otherwise be judged as 12 m and marked wrong.
+ */
+function readAnswer(raw: string, unit: string): { value: number } | { note: string } {
+  const value = parseAnswer(raw);
+  if (value !== null) return { value };
+
+  if (!NO_UNIT.has(unit)) {
+    const text = unitChars(raw);
+    for (const spelling of unitSpellings(unit)) {
+      if (text.length > spelling.length && text.endsWith(spelling)) {
+        const number = parseAnswer(text.slice(0, -spelling.length));
+        if (number !== null) return { value: number };
+      }
+    }
+  }
+
+  // a number followed by some other unit gets told which unit to use
+  const split = raw.trim().match(/^(.*\d\.?)\s*([A-Za-zµμΩ°%].*)$/);
+  if (split && parseAnswer(split[1]) !== null)
+    return {
+      note: NO_UNIT.has(unit)
+        ? "This answer has no unit; enter just the number."
+        : `Enter just the number, in ${unit}.`,
+    };
+  return { note: "Enter one number, like 3.75e10, 3/4 or pi/2." };
+}
+
 /**
  * One problem in the bank. Problems written for this guide are solvable in
  * place; past-exam problems are cited and linked rather than reproduced.
@@ -90,11 +148,20 @@ function BankProblemInner({
 
   const [input, setInput] = useState("");
   const [verdict, setVerdict] = useState<"right" | "wrong" | null>(null);
+  // why an entry could not be read; pressing Check used to do nothing at all
+  const [note, setNote] = useState<string | null>(null);
   const [showSolution, setShowSolution] = useState(false);
 
   const check = () => {
-    const val = parseAnswer(input);
-    if (val === null || p.answer === null) return;
+    if (p.answer === null || !input.trim()) return;
+    const read = readAnswer(input, p.unit);
+    if ("note" in read) {
+      setVerdict(null);
+      setNote(read.note);
+      return;
+    }
+    setNote(null);
+    const val = read.value;
     // 2% relative, with an absolute floor so answers of exactly zero are not
     // judged against a zero-width window
     const tolerance = Math.max(Math.abs(p.answer) * 0.02, 1e-9);
@@ -152,6 +219,7 @@ function BankProblemInner({
               onChange={(e) => {
                 setInput(e.target.value);
                 setVerdict(null);
+                setNote(null);
               }}
               onKeyDown={(e) => e.key === "Enter" && check()}
               placeholder="Answer"
@@ -172,14 +240,14 @@ function BankProblemInner({
             <button onClick={check} className="btn">
               Check
             </button>
-            {verdict === "right" && (
-              <span className="sans text-sm font-medium text-[var(--ok)]">
-                Correct
-              </span>
-            )}
-            {verdict === "wrong" && (
-              <span className="sans text-sm text-[var(--bad)]">Not that</span>
-            )}
+            {/* a live region, so the verdict is announced as well as shown */}
+            <span role="status" className="sans text-sm">
+              {verdict === "right" && (
+                <span className="font-medium text-[var(--ok)]">Correct</span>
+              )}
+              {verdict === "wrong" && <span className="text-[var(--bad)]">Not that</span>}
+              {note && <span className="text-[var(--ink-soft)]">{note}</span>}
+            </span>
             <button
               onClick={() => setShowSolution((v) => !v)}
               className="sans ml-auto text-sm text-[var(--accent)] underline underline-offset-2"

@@ -5,6 +5,7 @@ import {
   starRepo,
   hasStarred,
   FALLBACK_TOKEN,
+  GitHubError,
   getUser,
   listDir,
   openPullRequest,
@@ -64,6 +65,13 @@ async function readBody(req: NextRequest): Promise<Record<string, unknown>> {
 function fail(e: unknown) {
   if (e instanceof ApiError)
     return NextResponse.json({ error: e.message }, { status: e.status });
+  // the contributor's token was revoked or has expired: say so, rather than
+  // pass on GitHub's raw "Bad credentials" body as a server error
+  if (e instanceof GitHubError && e.status === 401)
+    return NextResponse.json(
+      { error: "Your GitHub connection has expired or was revoked. Disconnect and connect again." },
+      { status: 401 }
+    );
   const message = e instanceof Error ? e.message : "Unexpected error";
   return NextResponse.json({ error: message }, { status: 500 });
 }

@@ -6,6 +6,7 @@ import "./globals.css";
 import { ProgressProvider } from "@/lib/progress";
 import { AuthProvider } from "@/lib/auth";
 import { ThemeProvider, ThemeScript } from "@/lib/theme";
+import Tracker from "@/components/Tracker";
 
 const dmSans = localFont({
   src: [
@@ -42,6 +43,7 @@ export default function RootLayout({
           </AuthProvider>
         </ThemeProvider>
         <Analytics />
+        <Tracker />
       </body>
     </html>
   );

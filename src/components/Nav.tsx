@@ -10,6 +10,7 @@ import { useProgress } from "@/lib/progress";
 import { useAuth } from "@/lib/auth";
 import { useTheme } from "@/lib/theme";
 import { ROLE_LABEL } from "@/lib/roles";
+import DiscordLink from "@/components/DiscordLink";
 
 /**
  * Closes a dropdown on a click outside, on focus moving outside (Tab), and on
@@ -197,6 +198,12 @@ function MobileMenu({ links }: { links: { href: string; label: string }[] }) {
               {l.label}
             </Link>
           ))}
+          <DiscordLink
+            from="nav_mobile"
+            className="sans block border-t border-[var(--rule)] px-3 py-2 text-sm text-[var(--ink)] hover:bg-[var(--paper-2)]"
+          >
+            Discord
+          </DiscordLink>
         </div>
       )}
     </div>
@@ -260,6 +267,12 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
+          <DiscordLink
+            from="nav"
+            className="sans hidden text-sm font-medium text-[#5865F2] hover:text-[#4752c4] sm:inline"
+          >
+            Discord
+          </DiscordLink>
           {ready && done > 0 && (
             <span className="tabular sans hidden text-xs text-[var(--ink-faint)] md:inline">
               {done}/{total}

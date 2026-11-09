@@ -3,6 +3,7 @@
 import { memo, useState } from "react";
 import { K, Markish } from "@/components/Katex";
 import { useProgress } from "@/lib/progress";
+import { track } from "@/lib/analytics";
 import {
   BankProblem as Problem,
   DIFFICULTY_MEANING,
@@ -167,6 +168,7 @@ function BankProblemInner({
     const tolerance = Math.max(Math.abs(p.answer) * 0.02, 1e-9);
     const ok = Math.abs(val - p.answer) <= tolerance;
     setVerdict(ok ? "right" : "wrong");
+    track("problem_check", { id: p.id, ok, module: p.module ?? null });
     if (ok && !solved) setProblem(p.id, "solved");
   };
 

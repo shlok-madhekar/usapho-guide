@@ -6,6 +6,7 @@ import BankProblem from "@/components/BankProblem";
 import { FreqMeter, StatusPicker } from "@/components/ModuleBits";
 import ModuleSidebar from "@/components/ModuleSidebar";
 import ExportPdfButton from "@/components/ExportPdfButton";
+import DiscordLink from "@/components/DiscordLink";
 import { Markish } from "@/components/Katex";
 import { DIVISIONS, allModules, findModule } from "@/lib/curriculum";
 import { LESSONS } from "@/content/lessons";
@@ -127,6 +128,14 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
               </div>
             </section>
           )}
+
+          <aside className="no-print mt-12 border border-[var(--rule-strong)] p-4 text-[0.95em]">
+            Stuck on something in this lesson? Ask in{" "}
+            <DiscordLink from="lesson" className="link font-medium">
+              the USAPhO Guide Discord
+            </DiscordLink>
+            , where other F=ma and USAPhO students help each other out.
+          </aside>
 
           {references.length > 0 && (
             <section className="mt-12">

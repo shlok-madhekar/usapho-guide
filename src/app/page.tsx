@@ -7,6 +7,7 @@ import Sim from "@/components/Sim";
 import { DIVISIONS } from "@/lib/curriculum";
 import { LESSONS } from "@/content/lessons";
 import { TOTAL_SOLVABLE } from "@/lib/problem-counts";
+import DiscordLink from "@/components/DiscordLink";
 
 const REPO = "https://github.com/shlok-madhekar/usapho-guide";
 
@@ -51,6 +52,9 @@ export default function Home() {
               <Link prefetch={false} href="/problems" className="btn-plain">
                 Problem bank
               </Link>
+              <DiscordLink from="home_hero" className="btn-plain">
+                Join the Discord
+              </DiscordLink>
             </div>
           </div>
 
@@ -109,6 +113,14 @@ export default function Home() {
         </section>
 
         <footer className="mt-20 border-t border-[var(--rule)] pt-6 text-[0.9em] text-[var(--ink-soft)]">
+          <p className="mb-2">
+            Studying for F=ma or USAPhO? Ask questions, find study partners
+            and help write problems in{" "}
+            <DiscordLink from="home_footer" className="link">
+              the USAPhO Guide Discord
+            </DiscordLink>
+            .
+          </p>
           <p>
             Anyone can add a lesson or a problem from{" "}
             <Link prefetch={false} href="/edit" className="link">

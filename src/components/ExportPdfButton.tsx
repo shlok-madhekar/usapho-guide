@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { track } from "@/lib/analytics";
 
 /**
  * Saves the lesson as a PDF through the browser's own print pipeline.
@@ -49,7 +50,10 @@ export default function ExportPdfButton({ title }: { title: string }) {
   return (
     <button
       type="button"
-      onClick={() => window.print()}
+      onClick={() => {
+        track("pdf_export");
+        window.print();
+      }}
       className="sans inline-flex items-center gap-1.5 text-xs text-[var(--ink-soft)] transition-colors hover:text-[var(--ink-strong)] print:hidden"
       title="Save this lesson as a PDF"
     >

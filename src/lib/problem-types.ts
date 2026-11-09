@@ -61,6 +61,15 @@ export const DIFFICULTY_VAR: Record<Difficulty, string> = {
   Insane: "var(--diff-5)",
 };
 
+/** What each level means, on one scale for originals and past exams (SETUP.md). */
+export const DIFFICULTY_MEANING: Record<Difficulty, string> = {
+  Easy: "One idea, a standard formula used directly. Below the F=ma exam.",
+  Normal: "A few routine steps. About an early-to-middle F=ma problem.",
+  Hard: "Needs a non-obvious idea or careful setup. Late F=ma, easiest USAPhO.",
+  "Very Hard": "Multi-stage reasoning or real modeling. A typical USAPhO problem.",
+  Insane: "The hardest USAPhO problems and IPhO.",
+};
+
 export const ORIGIN_LABEL: Record<Origin, string> = {
   original: "Written for this guide",
   exam: "Past exam",

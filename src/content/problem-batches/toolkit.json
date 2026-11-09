@@ -1279,7 +1279,7 @@
   },
   {
     "id": "tk-deriv-13",
-    "name": "Rocket at peak acceleration change",
+    "name": "When the rocket stops speeding up",
     "module": "derivatives",
     "difficulty": "Easy",
     "tags": [
@@ -1534,7 +1534,7 @@
   },
   {
     "id": "tk-deriv-28",
-    "name": "Total acceleration on a banked oval",
+    "name": "Total acceleration of a car speeding up on a circle",
     "module": "derivatives",
     "difficulty": "Normal",
     "tags": [
@@ -3070,7 +3070,7 @@
     "statement": "Twelve identical $8.0\\,\\Omega$ resistors form the edges of a cube. Find the resistance between two corners on the same face that are diagonally opposite (a face diagonal), in $\\Omega$.",
     "answer": 6,
     "unit": "Ω",
-    "solution": "KEY IDEA: the mirror plane containing the two chosen corners forces symmetric pairs of nodes to sit at equal potential. Merging those pairs collapses the cube to a simple series-parallel network with $R = \\tfrac{3}{4}R_0 = 6.0\\,\\Omega$. Sanity check: this is less than the body-diagonal value $\\tfrac{5}{6}R_0 = 6.7\\,\\Omega$, as it should be for corners that are closer together."
+    "solution": "Feed current in at the corner $A$ and out at the opposite face corner $C$, with $V_A = V$ and $V_C = 0$. Swapping $A$ and $C$ reverses every current, so each node that this swap leaves in place sits halfway, at $V/2$: the other two corners of that face and the two top corners above them. The top corner above $A$ connects to $A$ and to two nodes at $V/2$, so its potential $a$ obeys $(V-a) + 2(V/2-a) = 0$, giving $a = 2V/3$. The current leaving $A$ is then $2\\cdot\\frac{V/2}{R_0} + \\frac{V/3}{R_0} = \\frac{4V}{3R_0}$, so $R = \\tfrac{3}{4}R_0 = 6.0\\,\\Omega$. Sanity check: this is less than the body-diagonal value $\\tfrac{5}{6}R_0 = 6.7\\,\\Omega$, as it should be for corners that are closer together."
   },
   {
     "id": "tk-strat-24",

@@ -33415,7 +33415,7 @@
   },
   {
     "id": "tk-deriv-13",
-    "name": "Rocket at peak acceleration change",
+    "name": "When the rocket stops speeding up",
     "module": "derivatives",
     "difficulty": "Easy",
     "tags": [
@@ -33610,7 +33610,7 @@
   },
   {
     "id": "tk-deriv-28",
-    "name": "Total acceleration on a banked oval",
+    "name": "Total acceleration of a car speeding up on a circle",
     "module": "derivatives",
     "difficulty": "Normal",
     "tags": [

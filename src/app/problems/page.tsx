@@ -8,6 +8,7 @@ import {
   DIFFICULTY_ORDER,
   type BankProblem as BankProblemT,
   type Origin,
+  byDifficulty,
   isSolvable,
 } from "@/lib/problem-types";
 import { TOTAL_PROBLEMS, TOTAL_SOLVABLE } from "@/lib/problem-counts";
@@ -79,9 +80,20 @@ export default function ProblemsPage() {
     return map;
   }, []);
 
+  // problems.json lists the hand-written seed first and then each batch, so
+  // in file order a module's problems are scattered and "Show more" grows
+  // groups far above the reader. Course order, easiest first within a module,
+  // keeps each group whole and adds new ones at the bottom.
+  const ordered = useMemo(() => {
+    if (!ALL) return null;
+    const position = new Map(allModules().map(({ module }, i) => [module.slug, i]));
+    const at = (slug: string) => position.get(slug) ?? Infinity;
+    return [...ALL].sort((a, b) => at(a.module) - at(b.module) || byDifficulty(a, b));
+  }, [ALL]);
+
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return (ALL ?? []).filter((p) => {
+    return (ordered ?? []).filter((p) => {
       const status = statuses[p.id] ?? "none";
       const isSolved = status === "solved" || status === "reviewed";
       if (division !== "any" && moduleTitle[p.module]?.division !== division)
@@ -104,7 +116,7 @@ export default function ProblemsPage() {
         return false;
       return true;
     });
-  }, [ALL, query, division, difficulty, origin, filter, statuses, moduleTitle]);
+  }, [ordered, query, division, difficulty, origin, filter, statuses, moduleTitle]);
 
   const page = useMemo(() => visible.slice(0, shown), [visible, shown]);
 

@@ -195,7 +195,7 @@
     "id": "tk-units-12",
     "name": "Wave speed on a guitar string",
     "module": "units-estimation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dimensional analysis",
       "waves"
@@ -213,7 +213,7 @@
     "id": "tk-units-13",
     "name": "Orbital period at four times the radius",
     "module": "units-estimation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dimensional analysis",
       "orbits"
@@ -231,7 +231,7 @@
     "id": "tk-units-14",
     "name": "Piano tuners in Chicago",
     "module": "units-estimation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "Fermi estimate"
     ],
@@ -248,7 +248,7 @@
     "id": "tk-units-15",
     "name": "Counting raindrops",
     "module": "units-estimation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "Fermi estimate"
     ],
@@ -265,7 +265,7 @@
     "id": "tk-units-16",
     "name": "Atoms in a human body",
     "module": "units-estimation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "Fermi estimate",
       "atomic scale"
@@ -283,7 +283,7 @@
     "id": "tk-units-17",
     "name": "Power output of the Sun",
     "module": "units-estimation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "Fermi estimate",
       "astronomy"
@@ -301,7 +301,7 @@
     "id": "tk-units-18",
     "name": "Gasoline burned by American cars",
     "module": "units-estimation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "Fermi estimate"
     ],
@@ -318,7 +318,7 @@
     "id": "tk-units-19",
     "name": "Base units of the gravitational constant",
     "module": "units-estimation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "SI base units",
       "dimensional analysis"
@@ -354,7 +354,7 @@
     "id": "tk-units-21",
     "name": "Reynolds number for a cyclist's arm",
     "module": "units-estimation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dimensionless groups"
     ],
@@ -389,7 +389,7 @@
     "id": "tk-units-23",
     "name": "Speed of sound from dimensional analysis",
     "module": "units-estimation",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "dimensional analysis",
       "waves"
@@ -407,7 +407,7 @@
     "id": "tk-units-24",
     "name": "Energy of a blast from its fireball",
     "module": "units-estimation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "dimensional analysis",
       "Buckingham pi"
@@ -425,7 +425,7 @@
     "id": "tk-units-25",
     "name": "Energy released by a hurricane in a day",
     "module": "units-estimation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "Fermi estimate",
       "energy"
@@ -443,7 +443,7 @@
     "id": "tk-units-26",
     "name": "Terminal speed of a bigger hailstone",
     "module": "units-estimation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "scaling",
       "drag"
@@ -461,7 +461,7 @@
     "id": "tk-units-27",
     "name": "Air molecules in a bedroom",
     "module": "units-estimation",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "Fermi estimate",
       "ideal gas"
@@ -479,7 +479,7 @@
     "id": "tk-units-28",
     "name": "Building the Stefan-Boltzmann constant",
     "module": "units-estimation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "dimensional analysis",
       "Buckingham pi"
@@ -497,7 +497,7 @@
     "id": "tk-units-29",
     "name": "The Planck length",
     "module": "units-estimation",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "dimensional analysis",
       "natural units"
@@ -515,7 +515,7 @@
     "id": "tk-units-30",
     "name": "Wavelength of a deep-water swell",
     "module": "units-estimation",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "dimensional analysis",
       "waves"
@@ -710,7 +710,7 @@
     "id": "tk-vec-11",
     "name": "Component along a diagonal",
     "module": "vectors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "projection",
       "dot product"
@@ -728,7 +728,7 @@
     "id": "tk-vec-12",
     "name": "Steering to land straight across",
     "module": "vectors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "relative velocity",
       "river crossing"
@@ -746,7 +746,7 @@
     "id": "tk-vec-13",
     "name": "Plane in a crosswind",
     "module": "vectors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "relative velocity",
       "wind triangle"
@@ -837,7 +837,7 @@
     "id": "tk-vec-18",
     "name": "Angle to the vertical",
     "module": "vectors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "direction cosines",
       "3D vectors"
@@ -873,7 +873,7 @@
     "id": "tk-vec-20",
     "name": "Diagonal of a cube",
     "module": "vectors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dot product",
       "angle",
@@ -892,7 +892,7 @@
     "id": "tk-vec-21",
     "name": "Work done by gravity on a ramp",
     "module": "vectors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dot product",
       "work"
@@ -910,7 +910,7 @@
     "id": "tk-vec-22",
     "name": "Two forces at an angle",
     "module": "vectors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "vector addition",
       "law of cosines"
@@ -947,7 +947,7 @@
     "id": "tk-vec-24",
     "name": "The perpendicular leftover",
     "module": "vectors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "projection",
       "3D vectors"
@@ -965,7 +965,7 @@
     "id": "tk-vec-25",
     "name": "Closest approach of two ships",
     "module": "vectors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "relative velocity",
       "cross product"
@@ -983,7 +983,7 @@
     "id": "tk-vec-26",
     "name": "Pushing a crate up a slope",
     "module": "vectors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "components",
       "inclined plane"
@@ -1001,7 +1001,7 @@
     "id": "tk-vec-27",
     "name": "Area of a parallelogram in space",
     "module": "vectors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "cross product",
       "area",
@@ -1020,7 +1020,7 @@
     "id": "tk-vec-28",
     "name": "Proton in a general field",
     "module": "vectors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "cross product",
       "magnetic force",
@@ -1039,7 +1039,7 @@
     "id": "tk-vec-29",
     "name": "Impact parameter of an alpha particle",
     "module": "vectors",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "cross product",
       "3D vectors",
@@ -1058,7 +1058,7 @@
     "id": "tk-vec-30",
     "name": "Three cables holding a lamp",
     "module": "vectors",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "equilibrium",
       "3D vectors",
@@ -1230,7 +1230,7 @@
     "id": "tk-deriv-10",
     "name": "Tip of a walking shadow",
     "module": "derivatives",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "kinematics"
     ],
@@ -1281,7 +1281,7 @@
     "id": "tk-deriv-13",
     "name": "Rocket at peak acceleration change",
     "module": "derivatives",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinematics"
     ],
@@ -1315,7 +1315,7 @@
     "id": "tk-deriv-15",
     "name": "Half-amplitude time of a damped swing",
     "module": "derivatives",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinematics"
     ],
@@ -1366,7 +1366,7 @@
     "id": "tk-deriv-18",
     "name": "Equilibrium from a potential well",
     "module": "derivatives",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinematics"
     ],
@@ -1383,7 +1383,7 @@
     "id": "tk-deriv-19",
     "name": "Lifeguard's fastest route",
     "module": "derivatives",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "kinematics"
     ],
@@ -1451,7 +1451,7 @@
     "id": "tk-deriv-23",
     "name": "Acceleration of the ladder's top",
     "module": "derivatives",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "kinematics"
     ],
@@ -1536,7 +1536,7 @@
     "id": "tk-deriv-28",
     "name": "Total acceleration on a banked oval",
     "module": "derivatives",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "kinematics"
     ],
@@ -1553,7 +1553,7 @@
     "id": "tk-deriv-29",
     "name": "Fastest-turning telescope",
     "module": "derivatives",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "kinematics"
     ],
@@ -1570,7 +1570,7 @@
     "id": "tk-deriv-30",
     "name": "Cheapest shot to a target",
     "module": "derivatives",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "kinematics"
     ],
@@ -1659,7 +1659,7 @@
     "id": "tk-int-05",
     "name": "From a(t) to v(t)",
     "module": "integrals",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "kinematics"
     ],
@@ -1676,7 +1676,7 @@
     "id": "tk-int-06",
     "name": "Total charge from a ramping current",
     "module": "integrals",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "current",
       "charge"
@@ -1694,7 +1694,7 @@
     "id": "tk-int-07",
     "name": "Impulse from a growing force",
     "module": "integrals",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "impulse"
     ],
@@ -1711,7 +1711,7 @@
     "id": "tk-int-08",
     "name": "Work by a quadratic force",
     "module": "integrals",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "work",
       "variable force"
@@ -1729,7 +1729,7 @@
     "id": "tk-int-09",
     "name": "Center of mass of a rod with linear density",
     "module": "integrals",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "center of mass"
     ],
@@ -1799,7 +1799,7 @@
     "id": "tk-int-13",
     "name": "Energy stored in a charging capacitor",
     "module": "integrals",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "capacitor",
       "work"
@@ -1905,7 +1905,7 @@
     "id": "tk-int-19",
     "name": "Triangular acceleration pulse",
     "module": "integrals",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinematics",
       "a-t graph"
@@ -1975,7 +1975,7 @@
     "id": "tk-int-23",
     "name": "Rocket speed with shrinking mass",
     "module": "integrals",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rocket",
       "kinematics"
@@ -2011,7 +2011,7 @@
     "id": "tk-int-25",
     "name": "Pumping a conical tank",
     "module": "integrals",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "work",
       "pumping"
@@ -2029,7 +2029,7 @@
     "id": "tk-int-26",
     "name": "Work to reach a 500 km orbit altitude",
     "module": "integrals",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "gravity",
       "work"
@@ -2047,7 +2047,7 @@
     "id": "tk-int-27",
     "name": "Moment of inertia of a disk with graded density",
     "module": "integrals",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "moment of inertia"
     ],
@@ -2064,7 +2064,7 @@
     "id": "tk-int-28",
     "name": "Distance to halve speed under quadratic drag",
     "module": "integrals",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "drag",
       "kinematics"
@@ -2082,7 +2082,7 @@
     "id": "tk-int-29",
     "name": "Burnout altitude of a rocket fighting gravity",
     "module": "integrals",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "rocket",
       "kinematics"
@@ -2100,7 +2100,7 @@
     "id": "tk-int-30",
     "name": "Falling to Earth from three radii out",
     "module": "integrals",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "gravity",
       "energy"
@@ -2298,7 +2298,7 @@
     "id": "tk-approx-11",
     "name": "Second-order correction to kinetic energy",
     "module": "approximations",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "binomial approximation",
       "relativity"
@@ -2316,7 +2316,7 @@
     "id": "tk-approx-12",
     "name": "Tidal acceleration from the Moon",
     "module": "approximations",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "binomial approximation",
       "tides"
@@ -2334,7 +2334,7 @@
     "id": "tk-approx-13",
     "name": "When does mgh stop working?",
     "module": "approximations",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "binomial approximation",
       "gravitation"
@@ -2352,7 +2352,7 @@
     "id": "tk-approx-14",
     "name": "Precision of a g measurement",
     "module": "approximations",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "error propagation",
       "Taylor series"
@@ -2370,7 +2370,7 @@
     "id": "tk-approx-15",
     "name": "Deviation by a thin prism",
     "module": "approximations",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "small angle",
       "optics"
@@ -2388,7 +2388,7 @@
     "id": "tk-approx-16",
     "name": "Sag of a nearly straight cable",
     "module": "approximations",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "binomial approximation",
       "statics"
@@ -2406,7 +2406,7 @@
     "id": "tk-approx-17",
     "name": "Raising a satellite by ten kilometers",
     "module": "approximations",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "binomial approximation",
       "orbits"
@@ -2424,7 +2424,7 @@
     "id": "tk-approx-18",
     "name": "Redshift of a receding star",
     "module": "approximations",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "binomial approximation",
       "relativity"
@@ -2442,7 +2442,7 @@
     "id": "tk-approx-19",
     "name": "Length contraction of an airliner",
     "module": "approximations",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "binomial approximation",
       "relativity"
@@ -2460,7 +2460,7 @@
     "id": "tk-approx-20",
     "name": "Pressure one hundred meters up",
     "module": "approximations",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "exponential expansion",
       "fluids"
@@ -2478,7 +2478,7 @@
     "id": "tk-approx-21",
     "name": "Field of a distant dipole",
     "module": "approximations",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "binomial approximation",
       "electrostatics"
@@ -2514,7 +2514,7 @@
     "id": "tk-approx-23",
     "name": "Amplitude correction to a pendulum clock",
     "module": "approximations",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "small angle",
       "Taylor series",
@@ -2533,7 +2533,7 @@
     "id": "tk-approx-24",
     "name": "Vibration frequency in a Lennard-Jones well",
     "module": "approximations",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "Taylor series",
       "oscillations"
@@ -2551,7 +2551,7 @@
     "id": "tk-approx-25",
     "name": "Height of the equilibrium tide",
     "module": "approximations",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "binomial approximation",
       "tides"
@@ -2569,7 +2569,7 @@
     "id": "tk-approx-26",
     "name": "Tidal stretch on an astronaut",
     "module": "approximations",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "binomial approximation",
       "gravitation"
@@ -2587,7 +2587,7 @@
     "id": "tk-approx-27",
     "name": "Counting Newton's rings",
     "module": "approximations",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "binomial approximation",
       "optics"
@@ -2605,7 +2605,7 @@
     "id": "tk-approx-28",
     "name": "How large an amplitude is still small?",
     "module": "approximations",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "small angle",
       "Taylor series",
@@ -2624,7 +2624,7 @@
     "id": "tk-approx-29",
     "name": "Why GPS clocks need a correction",
     "module": "approximations",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "binomial approximation",
       "relativity",
@@ -2643,7 +2643,7 @@
     "id": "tk-approx-30",
     "name": "Deflection of a plumb line by Earth's rotation",
     "module": "approximations",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "small angle",
       "rotation",
@@ -2824,7 +2824,7 @@
     "id": "tk-strat-10",
     "name": "Choosing the Pivot on a Loaded Plank",
     "module": "problem-strategy",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "torque",
       "pivot"
@@ -2878,7 +2878,7 @@
     "id": "tk-strat-13",
     "name": "Normal Force on the Accelerating Wedge",
     "module": "problem-strategy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "frames",
       "wedge"
@@ -3004,7 +3004,7 @@
     "id": "tk-strat-20",
     "name": "Fixing an Unknown Coefficient by a Limiting Case",
     "module": "problem-strategy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "limiting-case",
       "atwood"
@@ -3040,7 +3040,7 @@
     "id": "tk-strat-22",
     "name": "Pendulum in an Accelerating Train",
     "module": "problem-strategy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "frames",
       "pseudo-force"
@@ -3094,7 +3094,7 @@
     "id": "tk-strat-25",
     "name": "Ladder Against a Frictionless Wall",
     "module": "problem-strategy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "torque",
       "pivot"
@@ -3130,7 +3130,7 @@
     "id": "tk-strat-27",
     "name": "Energy Lost in a Perfectly Inelastic Collision",
     "module": "problem-strategy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "cm-frame",
       "energy"
@@ -3166,7 +3166,7 @@
     "id": "tk-strat-29",
     "name": "Infinite Grid of Resistors",
     "module": "problem-strategy",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "symmetry",
       "superposition",
@@ -3185,7 +3185,7 @@
     "id": "tk-strat-30",
     "name": "Cheapest Angle to Drag a Block Uphill",
     "module": "problem-strategy",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "limiting-case",
       "friction",
@@ -3330,7 +3330,7 @@
     "id": "tk-data-08",
     "name": "Standard error of the mean",
     "module": "data-graphs",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "uncertainty",
       "statistics"
@@ -3438,7 +3438,7 @@
     "id": "tk-data-14",
     "name": "Half-life from a semi-log decay plot",
     "module": "data-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "semi-log",
       "decay"
@@ -3456,7 +3456,7 @@
     "id": "tk-data-15",
     "name": "Ohm's law with a contact-resistance intercept",
     "module": "data-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "intercept",
       "circuits"
@@ -3546,7 +3546,7 @@
     "id": "tk-data-20",
     "name": "Combining independent uncertainties in quadrature",
     "module": "data-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "uncertainty",
       "quadrature"
@@ -3564,7 +3564,7 @@
     "id": "tk-data-21",
     "name": "Work from the area under a force-displacement graph",
     "module": "data-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "area",
       "work"
@@ -3582,7 +3582,7 @@
     "id": "tk-data-22",
     "name": "Is the point consistent with the fit?",
     "module": "data-graphs",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "error-bars",
       "consistency"
@@ -3600,7 +3600,7 @@
     "id": "tk-data-23",
     "name": "Uncertainty in g from the uncertainty in a slope",
     "module": "data-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "least-squares",
       "uncertainty",
@@ -3619,7 +3619,7 @@
     "id": "tk-data-24",
     "name": "Linearizing with v squared versus x",
     "module": "data-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "linearization",
       "kinematics"
@@ -3637,7 +3637,7 @@
     "id": "tk-data-25",
     "name": "Terminal-velocity exponent from a log-log fit",
     "module": "data-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "log-log",
       "power-law"
@@ -3655,7 +3655,7 @@
     "id": "tk-data-26",
     "name": "Focal length from the intercept of a 1/v versus 1/u plot",
     "module": "data-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "linearization",
       "intercept",
@@ -3674,7 +3674,7 @@
     "id": "tk-data-27",
     "name": "Half-life with a constant background",
     "module": "data-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "semi-log",
       "decay",
@@ -3693,7 +3693,7 @@
     "id": "tk-data-28",
     "name": "How many trials to reach a target uncertainty",
     "module": "data-graphs",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "uncertainty",
       "statistics"
@@ -3711,7 +3711,7 @@
     "id": "tk-data-29",
     "name": "Uncertainty in Planck's constant from a fitted slope",
     "module": "data-graphs",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "least-squares",
       "uncertainty",
@@ -3730,7 +3730,7 @@
     "id": "tk-data-30",
     "name": "A systematic offset hiding in an intercept",
     "module": "data-graphs",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "intercept",
       "systematic",

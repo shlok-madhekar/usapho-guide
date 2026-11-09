@@ -90,7 +90,7 @@
     "id": "orig-k1-3",
     "name": "Dropped from a rising balloon",
     "module": "motion-1d",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "free fall",
       "relative motion"
@@ -108,7 +108,7 @@
     "id": "orig-proj-1",
     "name": "Off the cliff",
     "module": "projectiles",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "projectiles"
     ],
@@ -125,7 +125,7 @@
     "id": "orig-proj-2",
     "name": "The other angle",
     "module": "projectiles",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "range"
     ],
@@ -142,7 +142,7 @@
     "id": "orig-proj-3",
     "name": "Down the slope",
     "module": "projectiles",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "inclines"
     ],
@@ -159,7 +159,7 @@
     "id": "orig-fbd-1",
     "name": "Atwood machine",
     "module": "newtons-laws-fbd",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "pulleys"
     ],
@@ -176,7 +176,7 @@
     "id": "orig-fbd-2",
     "name": "Held on a frictionless slope",
     "module": "newtons-laws-fbd",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "inclines",
       "statics"
@@ -194,7 +194,7 @@
     "id": "orig-fbd-3",
     "name": "Block on a block",
     "module": "newtons-laws-fbd",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "friction"
     ],
@@ -211,7 +211,7 @@
     "id": "orig-em-1",
     "name": "Bullet in a block",
     "module": "energy-conservation",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "collisions"
     ],
@@ -228,7 +228,7 @@
     "id": "orig-em-2",
     "name": "Minimum loop height",
     "module": "energy-conservation",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy",
       "circular"
@@ -246,7 +246,7 @@
     "id": "orig-em-3",
     "name": "Explosion on the way up",
     "module": "energy-conservation",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "momentum",
       "center of mass"
@@ -264,7 +264,7 @@
     "id": "orig-circ-1",
     "name": "Banked curve",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "circular"
     ],
@@ -281,7 +281,7 @@
     "id": "orig-circ-2",
     "name": "Orbit period ratio",
     "module": "circular-motion",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "orbits",
       "kepler"
@@ -299,7 +299,7 @@
     "id": "orig-shm-1",
     "name": "Quadrupled mass",
     "module": "shm",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "springs"
     ],
@@ -333,7 +333,7 @@
     "id": "orig-shm-3",
     "name": "Two springs in series",
     "module": "shm",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "springs"
     ],
@@ -367,7 +367,7 @@
     "id": "orig-rot-2",
     "name": "Falling rod",
     "module": "rotational-dynamics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "torque"
     ],
@@ -384,7 +384,7 @@
     "id": "orig-es-1",
     "name": "Inside a uniform sphere",
     "module": "gauss-law",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "gauss"
     ],
@@ -401,7 +401,7 @@
     "id": "orig-es-2",
     "name": "Shielded, or not",
     "module": "gauss-law",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conductors"
     ],
@@ -418,7 +418,7 @@
     "id": "orig-cir-1",
     "name": "Resistor cube",
     "module": "kirchhoff",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "symmetry"
     ],
@@ -435,7 +435,7 @@
     "id": "orig-cir-2",
     "name": "RC time constant",
     "module": "kirchhoff",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "transients"
     ],
@@ -452,7 +452,7 @@
     "id": "orig-kt-1",
     "name": "Speed of a gas molecule",
     "module": "kinetic-theory",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinetic theory"
     ],
@@ -469,7 +469,7 @@
     "id": "orig-he-1",
     "name": "Carnot ceiling",
     "module": "heat-engines",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "cycles"
     ],
@@ -503,7 +503,7 @@
     "id": "orig-w-2",
     "name": "Doppler approach",
     "module": "wave-basics",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "doppler"
     ],
@@ -520,7 +520,7 @@
     "id": "orig-op-1",
     "name": "Thin lens image",
     "module": "lenses-mirrors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "lenses"
     ],
@@ -537,7 +537,7 @@
     "id": "orig-mp-1",
     "name": "Relativistic time dilation",
     "module": "sr-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "relativity"
     ],
@@ -554,7 +554,7 @@
     "id": "orig-mp-2",
     "name": "Photoelectric threshold",
     "module": "sr-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "quantum"
     ],
@@ -571,7 +571,7 @@
     "id": "fma-2018-8",
     "name": "F=ma 2018 Problem 8",
     "module": "projectiles",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "projectiles"
     ],
@@ -588,7 +588,7 @@
     "id": "fma-2019-4",
     "name": "F=ma 2019 Problem 4",
     "module": "motion-1d",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "free fall"
     ],
@@ -622,7 +622,7 @@
     "id": "fma-2020-20",
     "name": "F=ma 2020 Problem 20",
     "module": "energy-conservation",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "collisions"
     ],
@@ -656,7 +656,7 @@
     "id": "fma-2016-20",
     "name": "F=ma 2016 Problem 20",
     "module": "shm",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "shm"
     ],
@@ -690,7 +690,7 @@
     "id": "usapho-2018-b1",
     "name": "USAPhO 2018 Problem B1",
     "module": "heat-engines",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "cycles"
     ],
@@ -724,7 +724,7 @@
     "id": "usapho-2019-b1",
     "name": "USAPhO 2019 Problem B1",
     "module": "wave-basics",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "doppler"
     ],
@@ -741,7 +741,7 @@
     "id": "usapho-2016-b2",
     "name": "USAPhO 2016 Problem B2",
     "module": "lenses-mirrors",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "lenses"
     ],
@@ -775,7 +775,7 @@
     "id": "usapho-2014-b1",
     "name": "USAPhO 2014 Problem B1",
     "module": "kinetic-theory",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "kinetic theory"
     ],
@@ -792,7 +792,7 @@
     "id": "usapho-2013-a3",
     "name": "USAPhO 2013 Problem A3",
     "module": "faraday-lenz",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "faraday"
     ],
@@ -877,7 +877,7 @@
     "id": "morin-8-6",
     "name": "Morin 8.6 Ball hits rod",
     "module": "rotational-dynamics",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "angular momentum"
     ],
@@ -894,7 +894,7 @@
     "id": "orig-mvevvzic",
     "name": "Speeding up on a curve",
     "module": "circular-motion",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [],
     "starred": false,
     "origin": "exam",
@@ -936,7 +936,7 @@
     "id": "orig-mvmnqunn",
     "name": "Rolling square prism",
     "module": "rotational-dynamics",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "rolling",
       "angular momentum",

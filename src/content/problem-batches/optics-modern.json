@@ -285,7 +285,7 @@
     "id": "opt-refr-17",
     "name": "Minimum index for a periscope prism",
     "module": "reflection-refraction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "tir",
       "prism"
@@ -357,7 +357,7 @@
     "id": "opt-refr-21",
     "name": "Through oil into water",
     "module": "reflection-refraction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "snell",
       "layers"
@@ -375,7 +375,7 @@
     "id": "opt-refr-22",
     "name": "Index from measured minimum deviation",
     "module": "reflection-refraction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "prism",
       "index"
@@ -411,7 +411,7 @@
     "id": "opt-refr-24",
     "name": "Escaping through a water layer",
     "module": "reflection-refraction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "tir",
       "layers"
@@ -447,7 +447,7 @@
     "id": "opt-refr-26",
     "name": "Grazing incidence on a thin prism",
     "module": "reflection-refraction",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "dispersion",
       "thin-prism"
@@ -465,7 +465,7 @@
     "id": "opt-refr-27",
     "name": "Just barely trapped in the prism",
     "module": "reflection-refraction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "tir",
       "prism"
@@ -501,7 +501,7 @@
     "id": "opt-refr-29",
     "name": "Angle of the secondary rainbow",
     "module": "reflection-refraction",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "rainbow",
       "deviation"
@@ -519,7 +519,7 @@
     "id": "opt-refr-30",
     "name": "Focus of a glass sphere",
     "module": "reflection-refraction",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "spherical-surface",
       "refraction"
@@ -725,7 +725,7 @@
     "id": "opt-lens-12",
     "name": "Lensmaker's equation",
     "module": "lenses-mirrors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "lensmaker"
     ],
@@ -742,7 +742,7 @@
     "id": "opt-lens-13",
     "name": "Plano-convex focal length",
     "module": "lenses-mirrors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "lensmaker"
     ],
@@ -793,7 +793,7 @@
     "id": "opt-lens-16",
     "name": "Concave mirror used as a magnifier",
     "module": "lenses-mirrors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "mirror",
       "virtual-image"
@@ -811,7 +811,7 @@
     "id": "opt-lens-17",
     "name": "Compound microscope",
     "module": "lenses-mirrors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "microscope"
     ],
@@ -900,7 +900,7 @@
     "id": "opt-lens-22",
     "name": "Galilean telescope",
     "module": "lenses-mirrors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "telescope"
     ],
@@ -934,7 +934,7 @@
     "id": "opt-lens-24",
     "name": "Newton's form of the lens equation",
     "module": "lenses-mirrors",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "newton-equation"
     ],
@@ -951,7 +951,7 @@
     "id": "opt-lens-25",
     "name": "Refraction at a single curved surface",
     "module": "lenses-mirrors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "spherical-surface"
     ],
@@ -968,7 +968,7 @@
     "id": "opt-lens-26",
     "name": "Two separated lenses",
     "module": "lenses-mirrors",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "effective-focal-length"
     ],
@@ -985,7 +985,7 @@
     "id": "opt-lens-27",
     "name": "Speed of a moving image",
     "module": "lenses-mirrors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "mirror",
       "kinematics"
@@ -1003,7 +1003,7 @@
     "id": "opt-lens-28",
     "name": "Shortest object-to-screen distance",
     "module": "lenses-mirrors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "thin-lens",
       "extremum"
@@ -1021,7 +1021,7 @@
     "id": "opt-lens-29",
     "name": "Image made by a glass sphere",
     "module": "lenses-mirrors",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "spherical-surface",
       "multi-element"
@@ -1039,7 +1039,7 @@
     "id": "opt-lens-30",
     "name": "Telescope focused at the near point",
     "module": "lenses-mirrors",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "telescope"
     ],
@@ -1262,7 +1262,7 @@
     "id": "opt-diff-13",
     "name": "Sodium light in second order",
     "module": "diffraction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "grating"
     ],
@@ -1279,7 +1279,7 @@
     "id": "opt-diff-14",
     "name": "Splitting the sodium doublet",
     "module": "diffraction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "resolving-power"
     ],
@@ -1296,7 +1296,7 @@
     "id": "opt-diff-15",
     "name": "Double slit submerged in water",
     "module": "diffraction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "double-slit",
       "medium"
@@ -1332,7 +1332,7 @@
     "id": "opt-diff-17",
     "name": "Brightness of the first side lobe",
     "module": "diffraction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "single-slit",
       "intensity"
@@ -1350,7 +1350,7 @@
     "id": "opt-diff-18",
     "name": "Overlapping grating orders",
     "module": "diffraction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "grating",
       "overlap"
@@ -1368,7 +1368,7 @@
     "id": "opt-diff-19",
     "name": "Track spacing on a CD",
     "module": "diffraction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "grating",
       "application"
@@ -1403,7 +1403,7 @@
     "id": "opt-diff-21",
     "name": "Counting the bright fringes",
     "module": "diffraction",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "double-slit",
       "counting"
@@ -1439,7 +1439,7 @@
     "id": "opt-diff-23",
     "name": "Grating at oblique incidence",
     "module": "diffraction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "grating",
       "oblique"
@@ -1457,7 +1457,7 @@
     "id": "opt-diff-24",
     "name": "Angular dispersion of a grating",
     "module": "diffraction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "grating",
       "dispersion"
@@ -1475,7 +1475,7 @@
     "id": "opt-diff-25",
     "name": "Slit width from the diffraction pattern",
     "module": "diffraction",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "single-slit",
       "measurement"
@@ -1493,7 +1493,7 @@
     "id": "opt-diff-26",
     "name": "Three-slit secondary maximum",
     "module": "diffraction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "multiple-slits",
       "intensity"
@@ -1511,7 +1511,7 @@
     "id": "opt-diff-27",
     "name": "Aperture needed to split a binary star",
     "module": "diffraction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rayleigh",
       "astronomy"
@@ -1529,7 +1529,7 @@
     "id": "opt-diff-28",
     "name": "Unequal slits and fringe contrast",
     "module": "diffraction",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "double-slit",
       "visibility"
@@ -1547,7 +1547,7 @@
     "id": "opt-diff-29",
     "name": "Lloyd's mirror fringes",
     "module": "diffraction",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "lloyd-mirror",
       "interference"
@@ -1565,7 +1565,7 @@
     "id": "opt-diff-30",
     "name": "Fringes inside the diffraction envelope",
     "module": "diffraction",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "missing-orders",
       "counting"
@@ -1583,7 +1583,7 @@
     "id": "opt-film-01",
     "name": "Thinnest bright soap film",
     "module": "thin-film",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "interference",
       "soap film"
@@ -1601,7 +1601,7 @@
     "id": "opt-film-02",
     "name": "Quarter-wave antireflection coating",
     "module": "thin-film",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "antireflection",
       "coating"
@@ -1619,7 +1619,7 @@
     "id": "opt-film-03",
     "name": "Oil slick on a puddle",
     "module": "thin-film",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "oil film",
       "interference"
@@ -1637,7 +1637,7 @@
     "id": "opt-film-04",
     "name": "Dark soap film",
     "module": "thin-film",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "interference",
       "soap film"
@@ -1655,7 +1655,7 @@
     "id": "opt-film-05",
     "name": "Newton's rings radius",
     "module": "thin-film",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "Newtons rings"
     ],
@@ -1672,7 +1672,7 @@
     "id": "opt-film-06",
     "name": "Fringes across an air wedge",
     "module": "thin-film",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "air wedge",
       "fringe counting"
@@ -1690,7 +1690,7 @@
     "id": "opt-film-07",
     "name": "Maximum transmission through a soap film",
     "module": "thin-film",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "transmission"
     ],
@@ -1724,7 +1724,7 @@
     "id": "opt-film-09",
     "name": "Third-order bright film",
     "module": "thin-film",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "interference",
       "soap film"
@@ -1813,7 +1813,7 @@
     "id": "opt-film-14",
     "name": "Lens curvature from Newton's rings",
     "module": "thin-film",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "Newtons rings"
     ],
@@ -1934,7 +1934,7 @@
     "id": "opt-film-21",
     "name": "Bright Newton's ring",
     "module": "thin-film",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "Newtons rings"
     ],
@@ -1969,7 +1969,7 @@
     "id": "opt-film-23",
     "name": "Thickness from two bright colors",
     "module": "thin-film",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "order counting",
       "soap film"
@@ -1987,7 +1987,7 @@
     "id": "opt-film-24",
     "name": "Oil on glass with two flips",
     "module": "thin-film",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "phase shift",
       "order counting"
@@ -2005,7 +2005,7 @@
     "id": "opt-film-25",
     "name": "Newton's rings with a bright center",
     "module": "thin-film",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "Newtons rings",
       "phase shift"
@@ -2023,7 +2023,7 @@
     "id": "opt-film-26",
     "name": "Apex angle of a glass wedge",
     "module": "thin-film",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "wedge"
     ],
@@ -2040,7 +2040,7 @@
     "id": "opt-film-27",
     "name": "Bright in one color, dark in another",
     "module": "thin-film",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "order counting",
       "soap film"
@@ -2058,7 +2058,7 @@
     "id": "opt-film-28",
     "name": "Wavelength from two ring radii",
     "module": "thin-film",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "Newtons rings"
     ],
@@ -2075,7 +2075,7 @@
     "id": "opt-film-29",
     "name": "Coating that blocks one color and passes another",
     "module": "thin-film",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "coating",
       "order counting"
@@ -2093,7 +2093,7 @@
     "id": "opt-film-30",
     "name": "Oil film with three missing colors",
     "module": "thin-film",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "oil film",
       "order counting"
@@ -2231,7 +2231,7 @@
     "id": "mp-sr-08",
     "name": "Trip time on the ship's clock",
     "module": "sr-kinematics",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "time dilation",
       "proper time"
@@ -2319,7 +2319,7 @@
     "id": "mp-sr-13",
     "name": "Probe fired backward",
     "module": "sr-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "velocity addition"
     ],
@@ -2353,7 +2353,7 @@
     "id": "mp-sr-15",
     "name": "Transforming a position",
     "module": "sr-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "lorentz transformation"
     ],
@@ -2370,7 +2370,7 @@
     "id": "mp-sr-16",
     "name": "Transforming a time",
     "module": "sr-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "lorentz transformation",
       "simultaneity"
@@ -2388,7 +2388,7 @@
     "id": "mp-sr-17",
     "name": "Pole in the barn",
     "module": "sr-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "length contraction",
       "pole and barn"
@@ -2441,7 +2441,7 @@
     "id": "mp-sr-20",
     "name": "Moving light clock",
     "module": "sr-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "light clock",
       "time dilation"
@@ -2459,7 +2459,7 @@
     "id": "mp-sr-21",
     "name": "Earth-Moon distance from a ship",
     "module": "sr-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "length contraction"
     ],
@@ -2476,7 +2476,7 @@
     "id": "mp-sr-22",
     "name": "Redshift of a receding source",
     "module": "sr-kinematics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "doppler"
     ],
@@ -2493,7 +2493,7 @@
     "id": "mp-sr-23",
     "name": "Three successive boosts",
     "module": "sr-kinematics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "velocity addition",
       "rapidity"
@@ -2511,7 +2511,7 @@
     "id": "mp-sr-24",
     "name": "Barn doors in the pole's frame",
     "module": "sr-kinematics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "simultaneity",
       "pole and barn"
@@ -2529,7 +2529,7 @@
     "id": "mp-sr-25",
     "name": "How far a fast muon travels",
     "module": "sr-kinematics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "muon",
       "time dilation"
@@ -2547,7 +2547,7 @@
     "id": "mp-sr-26",
     "name": "Ship clearing a platform",
     "module": "sr-kinematics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "length contraction",
       "kinematics"
@@ -2565,7 +2565,7 @@
     "id": "mp-sr-27",
     "name": "Desynchronized train clocks",
     "module": "sr-kinematics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "simultaneity"
     ],
@@ -2599,7 +2599,7 @@
     "id": "mp-sr-29",
     "name": "Turnaround jump in the twin paradox",
     "module": "sr-kinematics",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "twin paradox",
       "simultaneity"
@@ -2617,7 +2617,7 @@
     "id": "mp-sr-30",
     "name": "Muon survival between two altitudes",
     "module": "sr-kinematics",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "muon",
       "decay",
@@ -2809,7 +2809,7 @@
     "id": "mp-energy-11",
     "name": "Speed of a 10 MeV electron",
     "module": "relativistic-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "speed",
       "total energy"
@@ -2827,7 +2827,7 @@
     "id": "mp-energy-12",
     "name": "Rest mass from E and p",
     "module": "relativistic-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "energy momentum relation",
       "invariant mass"
@@ -2845,7 +2845,7 @@
     "id": "mp-energy-13",
     "name": "Neutral pion decay at rest",
     "module": "relativistic-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "decay",
       "photon"
@@ -2863,7 +2863,7 @@
     "id": "mp-energy-14",
     "name": "Kinetic energy at 0.900c",
     "module": "relativistic-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinetic energy"
     ],
@@ -2898,7 +2898,7 @@
     "id": "mp-energy-16",
     "name": "Annihilation photon wavelength",
     "module": "relativistic-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "annihilation",
       "photon"
@@ -2934,7 +2934,7 @@
     "id": "mp-energy-18",
     "name": "Fixed-target collision mass",
     "module": "relativistic-energy",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "collision",
       "invariant mass"
@@ -2952,7 +2952,7 @@
     "id": "mp-energy-19",
     "name": "Mass defect in hydrogen fusion",
     "module": "relativistic-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "mass energy",
       "nuclear"
@@ -2970,7 +2970,7 @@
     "id": "mp-energy-20",
     "name": "Mass the Sun loses each second",
     "module": "relativistic-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "mass energy"
     ],
@@ -2987,7 +2987,7 @@
     "id": "mp-energy-21",
     "name": "Linac electron gamma",
     "module": "relativistic-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "accelerator",
       "total energy"
@@ -3005,7 +3005,7 @@
     "id": "mp-energy-22",
     "name": "Speed from a 2 MeV kinetic energy",
     "module": "relativistic-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinetic energy",
       "speed"
@@ -3059,7 +3059,7 @@
     "id": "mp-energy-25",
     "name": "Muon energy in pion decay",
     "module": "relativistic-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "decay",
       "two body"
@@ -3131,7 +3131,7 @@
     "id": "mp-energy-29",
     "name": "Minimum opening angle in pion decay",
     "module": "relativistic-energy",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "decay",
       "photon",
@@ -3150,7 +3150,7 @@
     "id": "mp-energy-30",
     "name": "Proton energy in lambda decay",
     "module": "relativistic-energy",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "decay",
       "two body"
@@ -3339,7 +3339,7 @@
     "id": "mp-photo-11",
     "name": "Work function from two stopping potentials",
     "module": "photoelectric",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "stopping-potential",
       "work-function"
@@ -3357,7 +3357,7 @@
     "id": "mp-photo-12",
     "name": "Speed of the fastest photoelectron",
     "module": "photoelectric",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "kinematics"
     ],
@@ -3374,7 +3374,7 @@
     "id": "mp-photo-13",
     "name": "Radiation pressure on a mirror",
     "module": "photoelectric",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "radiation-pressure"
     ],
@@ -3391,7 +3391,7 @@
     "id": "mp-photo-14",
     "name": "Force on a solar sail",
     "module": "photoelectric",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "radiation-pressure"
     ],
@@ -3408,7 +3408,7 @@
     "id": "mp-photo-15",
     "name": "Compton shift at 90 degrees",
     "module": "photoelectric",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "compton"
     ],
@@ -3425,7 +3425,7 @@
     "id": "mp-photo-16",
     "name": "Backscattered X-ray",
     "module": "photoelectric",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "compton"
     ],
@@ -3442,7 +3442,7 @@
     "id": "mp-photo-17",
     "name": "Photocurrent and photon count",
     "module": "photoelectric",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "photocurrent"
     ],
@@ -3459,7 +3459,7 @@
     "id": "mp-photo-18",
     "name": "Slope of the Millikan line",
     "module": "photoelectric",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "measurement",
       "planck"
@@ -3477,7 +3477,7 @@
     "id": "mp-photo-19",
     "name": "Cesium in visible light",
     "module": "photoelectric",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "threshold"
     ],
@@ -3511,7 +3511,7 @@
     "id": "mp-photo-21",
     "name": "Photons needed to warm a target",
     "module": "photoelectric",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "photon-flux",
       "energy"
@@ -3529,7 +3529,7 @@
     "id": "mp-photo-22",
     "name": "Shortest X-ray from a tube",
     "module": "photoelectric",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "bremsstrahlung"
     ],
@@ -3546,7 +3546,7 @@
     "id": "mp-photo-23",
     "name": "Energy given to a Compton electron",
     "module": "photoelectric",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "compton"
     ],
@@ -3563,7 +3563,7 @@
     "id": "mp-photo-24",
     "name": "Recoil direction of the electron",
     "module": "photoelectric",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "compton",
       "kinematics"
@@ -3581,7 +3581,7 @@
     "id": "mp-photo-25",
     "name": "Levitating a mirror with light",
     "module": "photoelectric",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "radiation-pressure"
     ],
@@ -3598,7 +3598,7 @@
     "id": "mp-photo-26",
     "name": "Intensity does not change the cutoff",
     "module": "photoelectric",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "work-function",
       "conceptual"
@@ -3616,7 +3616,7 @@
     "id": "mp-photo-27",
     "name": "Two metals, one lamp",
     "module": "photoelectric",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "work-function"
     ],
@@ -3633,7 +3633,7 @@
     "id": "mp-photo-28",
     "name": "Recoil of an emitting atom",
     "module": "photoelectric",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "photon-momentum",
       "recoil"
@@ -3651,7 +3651,7 @@
     "id": "mp-photo-29",
     "name": "Maximum energy loss of a gamma ray",
     "module": "photoelectric",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "compton",
       "gamma"
@@ -3669,7 +3669,7 @@
     "id": "mp-photo-30",
     "name": "Charging an isolated sphere with UV",
     "module": "photoelectric",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "work-function",
       "electrostatics"
@@ -3858,7 +3858,7 @@
     "id": "mp-bohr-11",
     "name": "Orbital speed in the ground state",
     "module": "bohr-model",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "orbit-speed"
     ],
@@ -3875,7 +3875,7 @@
     "id": "mp-bohr-12",
     "name": "H-gamma line",
     "module": "bohr-model",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "balmer"
     ],
@@ -3892,7 +3892,7 @@
     "id": "mp-bohr-13",
     "name": "Which level does the atom reach?",
     "module": "bohr-model",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "excitation"
     ],
@@ -3909,7 +3909,7 @@
     "id": "mp-bohr-14",
     "name": "Counting spectral lines",
     "module": "bohr-model",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "spectra",
       "counting"
@@ -3927,7 +3927,7 @@
     "id": "mp-bohr-15",
     "name": "Frequency of the electron's orbit",
     "module": "bohr-model",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "orbit"
     ],
@@ -3944,7 +3944,7 @@
     "id": "mp-bohr-16",
     "name": "Franck-Hertz photons from mercury",
     "module": "bohr-model",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "franck-hertz"
     ],
@@ -3961,7 +3961,7 @@
     "id": "mp-bohr-17",
     "name": "Potential energy in the ground state",
     "module": "bohr-model",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "virial"
     ],
@@ -3978,7 +3978,7 @@
     "id": "mp-bohr-18",
     "name": "Muonic hydrogen",
     "module": "bohr-model",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "exotic-atom"
     ],
@@ -4013,7 +4013,7 @@
     "id": "mp-bohr-20",
     "name": "Identifying an absorption line",
     "module": "bohr-model",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "absorption"
     ],
@@ -4030,7 +4030,7 @@
     "id": "mp-bohr-21",
     "name": "Paschen series longest line",
     "module": "bohr-model",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "paschen"
     ],
@@ -4047,7 +4047,7 @@
     "id": "mp-bohr-22",
     "name": "Rydberg constant from the model",
     "module": "bohr-model",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rydberg"
     ],
@@ -4064,7 +4064,7 @@
     "id": "mp-bohr-23",
     "name": "He+ line matching H-alpha",
     "module": "bohr-model",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "hydrogen-like",
       "scaling"
@@ -4082,7 +4082,7 @@
     "id": "mp-bohr-24",
     "name": "Recoil energy on emission",
     "module": "bohr-model",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "recoil",
       "momentum"
@@ -4100,7 +4100,7 @@
     "id": "mp-bohr-25",
     "name": "Magnetic field at the proton",
     "module": "bohr-model",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "orbit",
       "magnetism"
@@ -4136,7 +4136,7 @@
     "id": "mp-bohr-27",
     "name": "Deuterium isotope shift",
     "module": "bohr-model",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "reduced-mass",
       "isotope"
@@ -4154,7 +4154,7 @@
     "id": "mp-bohr-28",
     "name": "Do Balmer and Paschen overlap?",
     "module": "bohr-model",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "series",
       "spectra"
@@ -4172,7 +4172,7 @@
     "id": "mp-bohr-29",
     "name": "A Rydberg atom",
     "module": "bohr-model",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "rydberg-atom",
       "correspondence"
@@ -4190,7 +4190,7 @@
     "id": "mp-bohr-30",
     "name": "A gravitationally bound atom",
     "module": "bohr-model",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "scaling",
       "gravity"
@@ -4379,7 +4379,7 @@
     "id": "mp-debroglie-11",
     "name": "Davisson-Germer angle",
     "module": "de-broglie",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "electron-diffraction"
     ],
@@ -4396,7 +4396,7 @@
     "id": "mp-debroglie-12",
     "name": "Electron microscope wavelength",
     "module": "de-broglie",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "application"
     ],
@@ -4413,7 +4413,7 @@
     "id": "mp-debroglie-13",
     "name": "Transition in a quantum well",
     "module": "de-broglie",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "particle-in-box"
     ],
@@ -4430,7 +4430,7 @@
     "id": "mp-debroglie-14",
     "name": "Neutron for crystallography",
     "module": "de-broglie",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "neutron",
       "thermal"
@@ -4448,7 +4448,7 @@
     "id": "mp-debroglie-15",
     "name": "Electron with an optical wavelength",
     "module": "de-broglie",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "matter-wave"
     ],
@@ -4465,7 +4465,7 @@
     "id": "mp-debroglie-16",
     "name": "Equal kinetic energies",
     "module": "de-broglie",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "comparison"
     ],
@@ -4482,7 +4482,7 @@
     "id": "mp-debroglie-17",
     "name": "Standing wave around a Bohr orbit",
     "module": "de-broglie",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "bohr",
       "standing-wave"
@@ -4500,7 +4500,7 @@
     "id": "mp-debroglie-18",
     "name": "Alpha particle in an accelerator",
     "module": "de-broglie",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "matter-wave"
     ],
@@ -4517,7 +4517,7 @@
     "id": "mp-debroglie-19",
     "name": "Why electrons are not in the nucleus",
     "module": "de-broglie",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "uncertainty",
       "nuclear"
@@ -4535,7 +4535,7 @@
     "id": "mp-debroglie-20",
     "name": "Cold helium atoms",
     "module": "de-broglie",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "thermal"
     ],
@@ -4569,7 +4569,7 @@
     "id": "mp-debroglie-22",
     "name": "Slit width for electron diffraction",
     "module": "de-broglie",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "diffraction"
     ],
@@ -4586,7 +4586,7 @@
     "id": "mp-debroglie-23",
     "name": "Relativistic electron wavelength",
     "module": "de-broglie",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "relativistic"
     ],
@@ -4603,7 +4603,7 @@
     "id": "mp-debroglie-24",
     "name": "Electron double slit",
     "module": "de-broglie",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "interference"
     ],
@@ -4620,7 +4620,7 @@
     "id": "mp-debroglie-25",
     "name": "Nucleon confined in a nucleus",
     "module": "de-broglie",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "particle-in-box",
       "nuclear"
@@ -4638,7 +4638,7 @@
     "id": "mp-debroglie-26",
     "name": "Uncertainty estimate of the hydrogen atom",
     "module": "de-broglie",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "uncertainty",
       "hydrogen"
@@ -4656,7 +4656,7 @@
     "id": "mp-debroglie-27",
     "name": "Bragg reflection of electrons",
     "module": "de-broglie",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "bragg",
       "diffraction"
@@ -4674,7 +4674,7 @@
     "id": "mp-debroglie-28",
     "name": "Wavelength equal to particle size",
     "module": "de-broglie",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "estimate"
     ],
@@ -4691,7 +4691,7 @@
     "id": "mp-debroglie-29",
     "name": "When wavelength meets Compton wavelength",
     "module": "de-broglie",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "relativistic",
       "compton-wavelength"
@@ -4709,7 +4709,7 @@
     "id": "mp-debroglie-30",
     "name": "Diffracting a buckyball",
     "module": "de-broglie",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "molecular-interference"
     ],
@@ -4897,7 +4897,7 @@
     "id": "nu-radio-11",
     "name": "Half-life from two readings",
     "module": "radioactivity",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "half-life"
     ],
@@ -4949,7 +4949,7 @@
     "id": "nu-radio-14",
     "name": "Activity at an arbitrary time",
     "module": "radioactivity",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "exponential-decay"
     ],
@@ -4966,7 +4966,7 @@
     "id": "nu-radio-15",
     "name": "Counting decays, not rates",
     "module": "radioactivity",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "counting"
     ],
@@ -4983,7 +4983,7 @@
     "id": "nu-radio-16",
     "name": "Becquerels into curies",
     "module": "radioactivity",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "units"
     ],
@@ -5000,7 +5000,7 @@
     "id": "nu-radio-17",
     "name": "Radon in a sealed basement",
     "module": "radioactivity",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "exponential-decay"
     ],
@@ -5017,7 +5017,7 @@
     "id": "nu-radio-18",
     "name": "Branching in potassium-40",
     "module": "radioactivity",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "branching-ratio"
     ],
@@ -5051,7 +5051,7 @@
     "id": "nu-radio-20",
     "name": "Correcting for detector efficiency",
     "module": "radioactivity",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "measurement"
     ],
@@ -5068,7 +5068,7 @@
     "id": "nu-radio-21",
     "name": "Radiocarbon age of a campfire",
     "module": "radioactivity",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "dating"
     ],
@@ -5085,7 +5085,7 @@
     "id": "nu-radio-22",
     "name": "Alpha, beta, gamma stopping",
     "module": "radioactivity",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "decay-modes"
     ],
@@ -5102,7 +5102,7 @@
     "id": "nu-radio-23",
     "name": "Transient equilibrium in a generator",
     "module": "radioactivity",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "decay-chain",
       "equilibrium"
@@ -5120,7 +5120,7 @@
     "id": "nu-radio-24",
     "name": "Uranium-lead dating",
     "module": "radioactivity",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "dating",
       "decay-chain"
@@ -5138,7 +5138,7 @@
     "id": "nu-radio-25",
     "name": "Production and decay in a cyclotron",
     "module": "radioactivity",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "production",
       "saturation"
@@ -5156,7 +5156,7 @@
     "id": "nu-radio-26",
     "name": "Sharing the alpha decay energy",
     "module": "radioactivity",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "alpha-decay",
       "recoil"
@@ -5174,7 +5174,7 @@
     "id": "nu-radio-27",
     "name": "Absorbed dose from alpha particles",
     "module": "radioactivity",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "dose"
     ],
@@ -5191,7 +5191,7 @@
     "id": "nu-radio-28",
     "name": "Mixture of two isotopes",
     "module": "radioactivity",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "mixture"
     ],
@@ -5208,7 +5208,7 @@
     "id": "nu-radio-29",
     "name": "When is the daughter activity highest?",
     "module": "radioactivity",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "bateman",
       "decay-chain"
@@ -5226,7 +5226,7 @@
     "id": "nu-radio-30",
     "name": "Age of the elements from uranium isotopes",
     "module": "radioactivity",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "dating",
       "isotopes"
@@ -5417,7 +5417,7 @@
     "id": "nu-bind-11",
     "name": "Q value of D-T fusion",
     "module": "binding-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "fusion",
       "q-value"
@@ -5435,7 +5435,7 @@
     "id": "nu-bind-12",
     "name": "Q value of D-D fusion",
     "module": "binding-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "fusion",
       "q-value"
@@ -5453,7 +5453,7 @@
     "id": "nu-bind-13",
     "name": "Energy of the proton-proton chain",
     "module": "binding-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "fusion",
       "stellar"
@@ -5489,7 +5489,7 @@
     "id": "nu-bind-15",
     "name": "Q value of an alpha decay",
     "module": "binding-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "alpha-decay",
       "q-value"
@@ -5507,7 +5507,7 @@
     "id": "nu-bind-16",
     "name": "Endpoint of the carbon-14 beta spectrum",
     "module": "binding-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "beta-decay",
       "q-value"
@@ -5525,7 +5525,7 @@
     "id": "nu-bind-17",
     "name": "Fission rate in a power reactor",
     "module": "binding-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "fission",
       "reactor"
@@ -5543,7 +5543,7 @@
     "id": "nu-bind-18",
     "name": "Mass consumed by a reactor",
     "module": "binding-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "mass-energy",
       "reactor"
@@ -5561,7 +5561,7 @@
     "id": "nu-bind-19",
     "name": "Binding energy of oxygen-16",
     "module": "binding-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "mass-defect"
     ],
@@ -5578,7 +5578,7 @@
     "id": "nu-bind-20",
     "name": "Photodisintegration of the deuteron",
     "module": "binding-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "threshold"
     ],
@@ -5595,7 +5595,7 @@
     "id": "nu-bind-21",
     "name": "Fusion versus fission per nucleon",
     "module": "binding-energy",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "comparison"
     ],
@@ -5629,7 +5629,7 @@
     "id": "nu-bind-23",
     "name": "Semi-empirical mass formula for calcium-40",
     "module": "binding-energy",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "semf"
     ],
@@ -5646,7 +5646,7 @@
     "id": "nu-bind-24",
     "name": "Coulomb barrier for two deuterons",
     "module": "binding-energy",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "fusion",
       "barrier"
@@ -5664,7 +5664,7 @@
     "id": "nu-bind-25",
     "name": "Fuel burn rate of a fusion plant",
     "module": "binding-energy",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "fusion",
       "power"
@@ -5682,7 +5682,7 @@
     "id": "nu-bind-26",
     "name": "Binding energy per nucleon of uranium",
     "module": "binding-energy",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "mass-defect"
     ],
@@ -5699,7 +5699,7 @@
     "id": "nu-bind-27",
     "name": "Fusing helium into oxygen",
     "module": "binding-energy",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "fusion",
       "stellar"
@@ -5717,7 +5717,7 @@
     "id": "nu-bind-28",
     "name": "Is spontaneous fission energetically allowed?",
     "module": "binding-energy",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "fission",
       "q-value"
@@ -5735,7 +5735,7 @@
     "id": "nu-bind-29",
     "name": "Most stable charge for a given mass number",
     "module": "binding-energy",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "semf",
       "stability"
@@ -5753,7 +5753,7 @@
     "id": "nu-bind-30",
     "name": "Lifetime of the Sun's hydrogen",
     "module": "binding-energy",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "stellar",
       "fusion"
@@ -5944,7 +5944,7 @@
     "id": "nu-particle-11",
     "name": "Why the proton is stable",
     "module": "particle-physics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conservation-laws"
     ],
@@ -5978,7 +5978,7 @@
     "id": "nu-particle-13",
     "name": "Strangeness in a weak decay",
     "module": "particle-physics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "strangeness",
       "weak"
@@ -5996,7 +5996,7 @@
     "id": "nu-particle-14",
     "name": "Antiproton threshold on a fixed target",
     "module": "particle-physics",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "threshold"
     ],
@@ -6013,7 +6013,7 @@
     "id": "nu-particle-15",
     "name": "Identifying a missing particle",
     "module": "particle-physics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "conservation-laws"
     ],
@@ -6030,7 +6030,7 @@
     "id": "nu-particle-16",
     "name": "Lepton numbers in muon decay",
     "module": "particle-physics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "lepton-number"
     ],
@@ -6047,7 +6047,7 @@
     "id": "nu-particle-17",
     "name": "Lifetime from a resonance width",
     "module": "particle-physics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "resonance",
       "uncertainty"
@@ -6065,7 +6065,7 @@
     "id": "nu-particle-18",
     "name": "Quarks in a meson",
     "module": "particle-physics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "quarks"
     ],
@@ -6082,7 +6082,7 @@
     "id": "nu-particle-19",
     "name": "Strangeness of the negative kaon",
     "module": "particle-physics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "strangeness",
       "quarks"
@@ -6100,7 +6100,7 @@
     "id": "nu-particle-20",
     "name": "Collider centre-of-mass energy",
     "module": "particle-physics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "collider"
     ],
@@ -6117,7 +6117,7 @@
     "id": "nu-particle-21",
     "name": "Charge of the sigma-plus",
     "module": "particle-physics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "quarks",
       "charge"
@@ -6135,7 +6135,7 @@
     "id": "nu-particle-22",
     "name": "Counting fundamental fermions",
     "module": "particle-physics",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "standard-model",
       "counting"
@@ -6153,7 +6153,7 @@
     "id": "nu-particle-23",
     "name": "Fixed target versus collider",
     "module": "particle-physics",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "invariants",
       "collider"
@@ -6189,7 +6189,7 @@
     "id": "nu-particle-25",
     "name": "Momentum in a lambda decay",
     "module": "particle-physics",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "decay",
       "kinematics"
@@ -6207,7 +6207,7 @@
     "id": "nu-particle-26",
     "name": "How many conservation laws are broken?",
     "module": "particle-physics",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "conservation-laws"
     ],
@@ -6224,7 +6224,7 @@
     "id": "nu-particle-27",
     "name": "Flight distance of a kaon",
     "module": "particle-physics",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "decay-length",
       "relativity"
@@ -6242,7 +6242,7 @@
     "id": "nu-particle-28",
     "name": "Charm from the quark model",
     "module": "particle-physics",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "quarks",
       "charge"
@@ -6260,7 +6260,7 @@
     "id": "nu-particle-29",
     "name": "The GZK cutoff",
     "module": "particle-physics",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "threshold",
       "astrophysics"
@@ -6278,7 +6278,7 @@
     "id": "nu-particle-30",
     "name": "Photon from a sigma-zero decay",
     "module": "particle-physics",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "decay",
       "kinematics"
@@ -6331,7 +6331,7 @@
     "id": "adv-data-03",
     "name": "Standard error of five timings",
     "module": "data-uncertainty",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "statistics"
     ],
@@ -6365,7 +6365,7 @@
     "id": "adv-data-05",
     "name": "Power-law exponent from a log-log plot",
     "module": "data-uncertainty",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "power-law",
       "log-log"
@@ -6383,7 +6383,7 @@
     "id": "adv-data-06",
     "name": "Weighted average of two measurements of g",
     "module": "data-uncertainty",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "weighted-average"
     ],
@@ -6400,7 +6400,7 @@
     "id": "adv-data-07",
     "name": "Uncertainty of a weighted average",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "weighted-average"
     ],
@@ -6417,7 +6417,7 @@
     "id": "adv-data-08",
     "name": "Spring constant from a linearized plot",
     "module": "data-uncertainty",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "linearization"
     ],
@@ -6451,7 +6451,7 @@
     "id": "adv-data-10",
     "name": "Intercept of the same fit",
     "module": "data-uncertainty",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "least-squares"
     ],
@@ -6486,7 +6486,7 @@
     "id": "adv-data-12",
     "name": "Choosing what to plot for constant acceleration",
     "module": "data-uncertainty",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "linearization"
     ],
@@ -6503,7 +6503,7 @@
     "id": "adv-data-13",
     "name": "Reading a prefactor off a log-log plot",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "log-log",
       "graph-reading"
@@ -6521,7 +6521,7 @@
     "id": "adv-data-14",
     "name": "Uncertainty in a small difference",
     "module": "data-uncertainty",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "propagation",
       "subtraction"
@@ -6539,7 +6539,7 @@
     "id": "adv-data-15",
     "name": "Significant figures in a quotient",
     "module": "data-uncertainty",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "sig-figs"
     ],
@@ -6556,7 +6556,7 @@
     "id": "adv-data-16",
     "name": "Counting statistics",
     "module": "data-uncertainty",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "statistics"
     ],
@@ -6573,7 +6573,7 @@
     "id": "adv-data-17",
     "name": "Best-fit line forced through the origin",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "least-squares"
     ],
@@ -6590,7 +6590,7 @@
     "id": "adv-data-18",
     "name": "Uncertainty of a least-squares slope",
     "module": "data-uncertainty",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "least-squares",
       "statistics"
@@ -6608,7 +6608,7 @@
     "id": "adv-data-19",
     "name": "Uncertainty in a fitted exponent",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "log-log",
       "propagation"
@@ -6626,7 +6626,7 @@
     "id": "adv-data-20",
     "name": "Error in g from a pendulum timing",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "propagation",
       "powers"
@@ -6644,7 +6644,7 @@
     "id": "adv-data-21",
     "name": "Error budget for Young's modulus",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "propagation",
       "error-budget"
@@ -6662,7 +6662,7 @@
     "id": "adv-data-22",
     "name": "Required timing precision",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "error-budget"
     ],
@@ -6679,7 +6679,7 @@
     "id": "adv-data-23",
     "name": "Time constant from a semilog fit",
     "module": "data-uncertainty",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "linearization",
       "least-squares"
@@ -6697,7 +6697,7 @@
     "id": "adv-data-24",
     "name": "Half-life from the same fit",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "linearization"
     ],
@@ -6714,7 +6714,7 @@
     "id": "adv-data-25",
     "name": "Weighted average of three results",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "weighted-average"
     ],
@@ -6731,7 +6731,7 @@
     "id": "adv-data-26",
     "name": "Are two results consistent?",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "statistics"
     ],
@@ -6748,7 +6748,7 @@
     "id": "adv-data-27",
     "name": "Uncertainty in a kinetic energy",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "propagation",
       "powers"
@@ -6766,7 +6766,7 @@
     "id": "adv-data-28",
     "name": "How many repeats are needed?",
     "module": "data-uncertainty",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "statistics"
     ],
@@ -6783,7 +6783,7 @@
     "id": "adv-data-29",
     "name": "Error in a projectile range",
     "module": "data-uncertainty",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "propagation",
       "trig"
@@ -6801,7 +6801,7 @@
     "id": "adv-data-30",
     "name": "Choosing a plot for a saturating curve",
     "module": "data-uncertainty",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "linearization"
     ],
@@ -6854,7 +6854,7 @@
     "id": "adv-lag-03",
     "name": "Critical spin rate of a rotating hoop",
     "module": "lagrangian",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "rotating-hoop",
       "effective-potential"
@@ -6872,7 +6872,7 @@
     "id": "adv-lag-04",
     "name": "Cylinder rolling down an incline",
     "module": "lagrangian",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "rolling",
       "constraints"
@@ -6907,7 +6907,7 @@
     "id": "adv-lag-06",
     "name": "Pendulum hanging from a sliding cart",
     "module": "lagrangian",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "two-body",
       "cyclic-coordinate"
@@ -6979,7 +6979,7 @@
     "id": "adv-lag-10",
     "name": "Hoop rolling inside a cylinder",
     "module": "lagrangian",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "rolling",
       "small-oscillations"
@@ -6997,7 +6997,7 @@
     "id": "adv-lag-11",
     "name": "Cylinder rolling inside a cylinder",
     "module": "lagrangian",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "rolling",
       "small-oscillations"
@@ -7050,7 +7050,7 @@
     "id": "adv-lag-14",
     "name": "Puck pulled through a hole",
     "module": "lagrangian",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "cyclic-coordinate",
       "angular-momentum"
@@ -7104,7 +7104,7 @@
     "id": "adv-lag-17",
     "name": "Equilibrium angle on a fast rotating hoop",
     "module": "lagrangian",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rotating-hoop",
       "effective-potential"
@@ -7140,7 +7140,7 @@
     "id": "adv-lag-19",
     "name": "Double pendulum: slow mode",
     "module": "lagrangian",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "normal-modes",
       "double-pendulum"
@@ -7158,7 +7158,7 @@
     "id": "adv-lag-20",
     "name": "Double pendulum: fast mode",
     "module": "lagrangian",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "normal-modes",
       "double-pendulum"
@@ -7176,7 +7176,7 @@
     "id": "adv-lag-21",
     "name": "Oscillator on a rotating turntable",
     "module": "lagrangian",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rotating-frame",
       "effective-potential"
@@ -7194,7 +7194,7 @@
     "id": "adv-lag-22",
     "name": "Where the block leaves the sphere",
     "module": "lagrangian",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "constraints",
       "lagrange-multiplier"
@@ -7230,7 +7230,7 @@
     "id": "adv-lag-24",
     "name": "Circular orbit from the effective potential",
     "module": "lagrangian",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "effective-potential",
       "central-force"
@@ -7248,7 +7248,7 @@
     "id": "adv-lag-25",
     "name": "Fastest physical pendulum",
     "module": "lagrangian",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "small-oscillations",
       "optimization"
@@ -7266,7 +7266,7 @@
     "id": "adv-lag-26",
     "name": "Slowly spinning hoop",
     "module": "lagrangian",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "rotating-hoop",
       "small-oscillations"
@@ -7338,7 +7338,7 @@
     "id": "adv-lag-30",
     "name": "Chain sliding off a table",
     "module": "lagrangian",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "constraints",
       "continuous-system"
@@ -7373,7 +7373,7 @@
     "id": "adv-coupled-02",
     "name": "Antiphase mode of the same pair",
     "module": "coupled-oscillators",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "normal-modes"
     ],
@@ -7479,7 +7479,7 @@
     "id": "adv-coupled-08",
     "name": "Asymmetric stretch of a linear triatomic",
     "module": "coupled-oscillators",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "normal-modes",
       "molecule"
@@ -7497,7 +7497,7 @@
     "id": "adv-coupled-09",
     "name": "Three-mass chain: lowest mode",
     "module": "coupled-oscillators",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "chain",
       "normal-modes"
@@ -7533,7 +7533,7 @@
     "id": "adv-coupled-11",
     "name": "Three-mass chain: highest mode",
     "module": "coupled-oscillators",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "chain",
       "normal-modes"
@@ -7551,7 +7551,7 @@
     "id": "adv-coupled-12",
     "name": "Four-mass chain",
     "module": "coupled-oscillators",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "chain",
       "dispersion"
@@ -7569,7 +7569,7 @@
     "id": "adv-coupled-13",
     "name": "Driving one cart at a normal frequency",
     "module": "coupled-oscillators",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "driven",
       "normal-modes"
@@ -7604,7 +7604,7 @@
     "id": "adv-coupled-15",
     "name": "Unequal masses between walls",
     "module": "coupled-oscillators",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "normal-modes"
     ],
@@ -7621,7 +7621,7 @@
     "id": "adv-coupled-16",
     "name": "Weak-coupling beat frequency",
     "module": "coupled-oscillators",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "beats",
       "perturbation"
@@ -7639,7 +7639,7 @@
     "id": "adv-coupled-17",
     "name": "Energy transfer time for weak coupling",
     "module": "coupled-oscillators",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "energy-transfer"
     ],
@@ -7656,7 +7656,7 @@
     "id": "adv-coupled-18",
     "name": "Breaking a degeneracy",
     "module": "coupled-oscillators",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "degenerate-modes"
     ],
@@ -7727,7 +7727,7 @@
     "id": "adv-coupled-22",
     "name": "Coupled pendulums of different lengths",
     "module": "coupled-oscillators",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "coupled-pendulums",
       "normal-modes"
@@ -7745,7 +7745,7 @@
     "id": "adv-coupled-23",
     "name": "Amplitude ratio in a normal mode",
     "module": "coupled-oscillators",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "normal-modes",
       "eigenvectors"
@@ -7763,7 +7763,7 @@
     "id": "adv-coupled-24",
     "name": "Wilberforce pendulum",
     "module": "coupled-oscillators",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "beats",
       "energy-transfer"
@@ -7781,7 +7781,7 @@
     "id": "adv-coupled-25",
     "name": "Vibration absorber",
     "module": "coupled-oscillators",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "driven",
       "antiresonance"
@@ -7799,7 +7799,7 @@
     "id": "adv-coupled-26",
     "name": "Response between the two modes",
     "module": "coupled-oscillators",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "driven"
     ],
@@ -7816,7 +7816,7 @@
     "id": "adv-coupled-27",
     "name": "Chain of three unequal masses",
     "module": "coupled-oscillators",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "chain",
       "normal-modes"
@@ -7834,7 +7834,7 @@
     "id": "adv-coupled-28",
     "name": "Lowest mode of the unequal chain",
     "module": "coupled-oscillators",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "chain",
       "normal-modes"
@@ -7852,7 +7852,7 @@
     "id": "adv-coupled-29",
     "name": "Incomplete energy transfer between detuned pendulums",
     "module": "coupled-oscillators",
-    "difficulty": "Very Hard",
+    "difficulty": "Easy",
     "tags": [
       "beats",
       "detuning"
@@ -7870,7 +7870,7 @@
     "id": "adv-coupled-30",
     "name": "Five-mass chain",
     "module": "coupled-oscillators",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "chain",
       "dispersion"
@@ -7888,7 +7888,7 @@
     "id": "adv-bvp-01",
     "name": "Electron above a grounded copper plate",
     "module": "boundary-value-em",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "images",
       "force"
@@ -7924,7 +7924,7 @@
     "id": "adv-bvp-03",
     "name": "Peak induced surface density",
     "module": "boundary-value-em",
-    "difficulty": "Easy",
+    "difficulty": "Normal",
     "tags": [
       "induced charge"
     ],
@@ -7941,7 +7941,7 @@
     "id": "adv-bvp-04",
     "name": "Energy of the charge-plane system",
     "module": "boundary-value-em",
-    "difficulty": "Easy",
+    "difficulty": "Hard",
     "tags": [
       "images",
       "energy"
@@ -7995,7 +7995,7 @@
     "id": "adv-bvp-07",
     "name": "Where half the induced charge lives",
     "module": "boundary-value-em",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "induced charge",
       "symmetry"
@@ -8049,7 +8049,7 @@
     "id": "adv-bvp-10",
     "name": "Location of the sphere image",
     "module": "boundary-value-em",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "images",
       "sphere"
@@ -8086,7 +8086,7 @@
     "id": "adv-bvp-12",
     "name": "Charge midway between two grounded plates",
     "module": "boundary-value-em",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "images",
       "symmetry"
@@ -8122,7 +8122,7 @@
     "id": "adv-bvp-14",
     "name": "Energy of a charge near a grounded sphere",
     "module": "boundary-value-em",
-    "difficulty": "Normal",
+    "difficulty": "Hard",
     "tags": [
       "images",
       "sphere",
@@ -8195,7 +8195,7 @@
     "id": "adv-bvp-18",
     "name": "Capacitance of a wire over a ground plane",
     "module": "boundary-value-em",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "capacitance",
       "images"
@@ -8213,7 +8213,7 @@
     "id": "adv-bvp-19",
     "name": "Two-wire transmission line",
     "module": "boundary-value-em",
-    "difficulty": "Hard",
+    "difficulty": "Very Hard",
     "tags": [
       "capacitance",
       "images"
@@ -8285,7 +8285,7 @@
     "id": "adv-bvp-23",
     "name": "Where the image force equals gravity",
     "module": "boundary-value-em",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "images",
       "force"
@@ -8303,7 +8303,7 @@
     "id": "adv-bvp-24",
     "name": "Induced density off axis",
     "module": "boundary-value-em",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "induced charge"
     ],
@@ -8320,7 +8320,7 @@
     "id": "adv-bvp-25",
     "name": "Electrostatic pressure on the plate",
     "module": "boundary-value-em",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "induced charge",
       "force"
@@ -8338,7 +8338,7 @@
     "id": "adv-bvp-26",
     "name": "Uniqueness in an empty cavity",
     "module": "boundary-value-em",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "uniqueness"
     ],
@@ -8391,7 +8391,7 @@
     "id": "adv-bvp-29",
     "name": "Moving a charge inside a grounded cavity",
     "module": "boundary-value-em",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "images",
       "energy"
@@ -8409,7 +8409,7 @@
     "id": "adv-bvp-30",
     "name": "Charge above a hemispherical boss",
     "module": "boundary-value-em",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "images",
       "sphere",
@@ -8550,7 +8550,7 @@
     "id": "adv-4vec-08",
     "name": "Compton shift at 90 degrees",
     "module": "four-vectors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "compton"
     ],
@@ -8618,7 +8618,7 @@
     "id": "adv-4vec-12",
     "name": "Stellar aberration",
     "module": "four-vectors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "aberration"
     ],
@@ -8635,7 +8635,7 @@
     "id": "adv-4vec-13",
     "name": "Adding rapidities",
     "module": "four-vectors",
-    "difficulty": "Normal",
+    "difficulty": "Easy",
     "tags": [
       "rapidity"
     ],
@@ -8669,7 +8669,7 @@
     "id": "adv-4vec-15",
     "name": "Compton scattering at 60 degrees",
     "module": "four-vectors",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "compton"
     ],
@@ -8686,7 +8686,7 @@
     "id": "adv-4vec-16",
     "name": "Compton edge of a cesium source",
     "module": "four-vectors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "compton"
     ],
@@ -8756,7 +8756,7 @@
     "id": "adv-4vec-20",
     "name": "Speed from a measured redshift",
     "module": "four-vectors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "doppler"
     ],
@@ -8773,7 +8773,7 @@
     "id": "adv-4vec-21",
     "name": "Pion production in a proton beam",
     "module": "four-vectors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "threshold",
       "invariants"
@@ -8791,7 +8791,7 @@
     "id": "adv-4vec-22",
     "name": "Head-on proton collision",
     "module": "four-vectors",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "CM energy",
       "invariants"
@@ -8809,7 +8809,7 @@
     "id": "adv-4vec-23",
     "name": "Lambda decay momentum",
     "module": "four-vectors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "decay",
       "invariants"
@@ -8827,7 +8827,7 @@
     "id": "adv-4vec-24",
     "name": "Splitting the energy evenly",
     "module": "four-vectors",
-    "difficulty": "Hard",
+    "difficulty": "Normal",
     "tags": [
       "compton"
     ],
@@ -8844,7 +8844,7 @@
     "id": "adv-4vec-25",
     "name": "Blueshifted emission from an approaching atom",
     "module": "four-vectors",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "tags": [
       "doppler"
     ],
@@ -8879,7 +8879,7 @@
     "id": "adv-4vec-27",
     "name": "GZK cutoff",
     "module": "four-vectors",
-    "difficulty": "Very Hard",
+    "difficulty": "Hard",
     "tags": [
       "threshold",
       "invariants"
@@ -8897,7 +8897,7 @@
     "id": "adv-4vec-28",
     "name": "Muon pair from a positron beam",
     "module": "four-vectors",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "threshold",
       "invariants"
@@ -8915,7 +8915,7 @@
     "id": "adv-4vec-29",
     "name": "Recoil energy of an emitting nucleus",
     "module": "four-vectors",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "four-momentum",
       "decay"
@@ -8933,7 +8933,7 @@
     "id": "adv-4vec-30",
     "name": "Pair production on a free electron",
     "module": "four-vectors",
-    "difficulty": "Very Hard",
+    "difficulty": "Normal",
     "tags": [
       "threshold",
       "invariants"

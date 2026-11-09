@@ -11,6 +11,38 @@ import { useAuth } from "@/lib/auth";
 import { useTheme } from "@/lib/theme";
 import { ROLE_LABEL } from "@/lib/roles";
 
+/**
+ * Closes a dropdown on a click outside, on focus moving outside (Tab), and on
+ * Escape, which also hands focus back to the button that opened it. Mouse
+ * clicks were the only way out before, so keyboard users had to click.
+ */
+function useDismiss(
+  open: boolean,
+  setOpen: (open: boolean) => void,
+  container: React.RefObject<HTMLElement>,
+  trigger: React.RefObject<HTMLElement>
+) {
+  useEffect(() => {
+    if (!open) return;
+    const outside = (e: Event) => {
+      if (!container.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      trigger.current?.focus();
+    };
+    document.addEventListener("mousedown", outside);
+    document.addEventListener("focusin", outside);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", outside);
+      document.removeEventListener("focusin", outside);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open, setOpen, container, trigger]);
+}
+
 function ThemeToggle() {
   const { resolved, toggle } = useTheme();
   return (
@@ -38,14 +70,8 @@ function AccountMenu() {
   const { ready, configured, session, profile, signOut } = useAuth();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const close = (e: MouseEvent) => {
-      if (!ref.current?.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener("mousedown", close);
-    return () => document.removeEventListener("mousedown", close);
-  }, []);
+  const button = useRef<HTMLButtonElement>(null);
+  useDismiss(open, setOpen, ref, button);
 
   if (!configured) return null;
   if (!ready) return <span className="h-8 w-16" />;
@@ -67,9 +93,11 @@ function AccountMenu() {
   return (
     <div className="relative" ref={ref}>
       <button
+        ref={button}
         onClick={() => setOpen((o) => !o)}
         className="sans flex h-7 w-7 items-center justify-center rounded-full bg-[var(--ink-strong)] text-xs font-semibold text-[var(--paper)]"
         aria-label="Account menu"
+        aria-expanded={open}
       >
         {initial}
       </button>
@@ -135,19 +163,15 @@ function MobileMenu({ links }: { links: { href: string; label: string }[] }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const button = useRef<HTMLButtonElement>(null);
 
   useEffect(() => setOpen(false), [pathname]);
-  useEffect(() => {
-    const close = (e: MouseEvent) => {
-      if (!ref.current?.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener("mousedown", close);
-    return () => document.removeEventListener("mousedown", close);
-  }, []);
+  useDismiss(open, setOpen, ref, button);
 
   return (
     <div className="relative sm:hidden" ref={ref}>
       <button
+        ref={button}
         onClick={() => setOpen((o) => !o)}
         aria-label="Menu"
         aria-expanded={open}
@@ -163,6 +187,7 @@ function MobileMenu({ links }: { links: { href: string; label: string }[] }) {
             <Link prefetch={false}
               key={l.href}
               href={l.href}
+              aria-current={pathname.startsWith(l.href) ? "page" : undefined}
               className={`sans block px-3 py-2 text-sm hover:bg-[var(--paper-2)] ${
                 pathname.startsWith(l.href)
                   ? "font-medium text-[var(--ink-strong)]"
@@ -213,6 +238,8 @@ export default function Nav() {
             <Link prefetch={false}
               key={l.href}
               href={l.href}
+              // the bold link is the current page; say so to screen readers too
+              aria-current={pathname.startsWith(l.href) ? "page" : undefined}
               className={`sans hidden text-sm sm:inline ${
                 pathname.startsWith(l.href)
                   ? "font-medium text-[var(--ink-strong)]"

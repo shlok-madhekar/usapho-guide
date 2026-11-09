@@ -29,7 +29,7 @@ export async function middleware(request: NextRequest) {
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) return NextResponse.next();
+  if (!url || !key) return withCountry(request, NextResponse.next());
 
   let response = NextResponse.next({ request });
 
@@ -51,6 +51,22 @@ export async function middleware(request: NextRequest) {
   });
 
   await supabase.auth.getUser();
+  return withCountry(request, response);
+}
+
+/**
+ * Hands the visitor's country (from Vercel's geo header) to the page as a
+ * cookie, so first-party analytics can record it without another request.
+ */
+function withCountry(request: NextRequest, response: NextResponse) {
+  const country = request.headers.get("x-vercel-ip-country");
+  if (country && request.cookies.get("ug_c")?.value !== country) {
+    response.cookies.set("ug_c", country.slice(0, 8), {
+      path: "/",
+      maxAge: 60 * 60 * 24,
+      sameSite: "lax",
+    });
+  }
   return response;
 }
 

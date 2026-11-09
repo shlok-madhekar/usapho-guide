@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { track } from "@/lib/analytics";
 
 /**
  * A single multiple-choice check. Plain strings so lesson MDX stays readable,
@@ -134,6 +135,7 @@ export default function QuickCheck({
               onClick={() => {
                 interacted.current = true;
                 setChecked(true);
+                track("quickcheck", { ok: picked === answer });
               }}
             >
               Check answer

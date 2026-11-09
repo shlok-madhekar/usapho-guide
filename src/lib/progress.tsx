@@ -10,6 +10,7 @@ import React, {
   useState,
 } from "react";
 import { useAuth } from "@/lib/auth";
+import { track } from "@/lib/analytics";
 
 export type ModuleStatus = "not-started" | "reading" | "practicing" | "complete" | "skipped";
 export type ProblemStatus = "none" | "attempted" | "solved" | "reviewed";
@@ -168,6 +169,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   }, [userId]);
 
   const setModuleStatus = useCallback((slug: string, status: ModuleStatus) => {
+    track("module_status", { slug, status });
     setState((s) => ({ ...s, modules: { ...s.modules, [slug]: status } }));
   }, []);
 

@@ -11,6 +11,7 @@ import React, {
 import type { Session, SupabaseClient } from "@supabase/supabase-js";
 import { authConfigured, createClient } from "@/lib/supabase/client";
 import type { Profile, Role } from "@/lib/roles";
+import { setAnalyticsUser, track } from "@/lib/analytics";
 
 interface AuthValue {
   ready: boolean;
@@ -57,6 +58,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (!client) return;
     client.auth.getSession().then(({ data }) => {
       setSession(data.session);
+      setAnalyticsUser(data.session?.user.id ?? null);
       if (data.session?.user) {
         loadProfile(data.session.user.id, data.session.user.email ?? null).finally(
           () => setReady(true)
@@ -67,6 +69,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     });
     const { data: sub } = client.auth.onAuthStateChange((_event, next) => {
       setSession(next);
+      setAnalyticsUser(next?.user.id ?? null);
       if (next?.user) {
         loadProfile(next.user.id, next.user.email ?? null);
       } else {
@@ -81,6 +84,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (!client) throw new Error("Auth is not configured");
       const { error } = await client.auth.signInWithPassword({ email, password });
       if (error) throw error;
+      track("signin");
     },
     [client]
   );
@@ -94,6 +98,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         options: { data: { display_name: displayName } },
       });
       if (error) throw error;
+      track("signup");
     },
     [client]
   );

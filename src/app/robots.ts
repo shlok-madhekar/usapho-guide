@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/edit", "/account", "/login", "/progress"],
+      disallow: ["/api/", "/edit", "/account", "/login", "/progress", "/stats", "/discord"],
     },
     sitemap: "https://usapho.one/sitemap.xml",
   };

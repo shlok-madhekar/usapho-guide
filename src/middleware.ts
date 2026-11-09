@@ -56,7 +56,10 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // everything except static assets and image files
-    "/((?!_vercel|_next/static|_next/image|favicon.ico|icon.svg|videos|.*\\.(?:svg|png|jpg|jpeg|gif|webp|woff2|mp4)$).*)",
+    // Everything except static files. Data files are excluded too: with a
+    // session, the auth refresh above is a round trip to Supabase, and a
+    // lesson fetches /sims/<id>.json for each figure and the bank fetches
+    // /problems.json, none of which read the session.
+    "/((?!_vercel|_next/static|_next/image|favicon.ico|icon.svg|videos|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff|woff2|mp4|json|pdf)$).*)",
   ],
 };

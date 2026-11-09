@@ -154,6 +154,15 @@ export default function Home() {
             (usapho.one), and keep adaptations under the same license. Past
             exam problems are cited, not copied. Not affiliated with AAPT.
           </p>
+          <p className="mt-2">
+            <Link prefetch={false} href="/privacy" className="link">
+              Privacy
+            </Link>
+            {" · "}
+            <Link prefetch={false} href="/terms" className="link">
+              Terms
+            </Link>
+          </p>
         </footer>
       </main>
     </>

@@ -10,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/guide`, priority: 0.9 },
     { url: `${SITE}/problems`, priority: 0.8 },
     { url: `${SITE}/contributors`, priority: 0.3 },
+    { url: `${SITE}/privacy`, priority: 0.1 },
+    { url: `${SITE}/terms`, priority: 0.1 },
     ...allModules().map(({ module }) => ({
       url: `${SITE}/guide/${module.slug}`,
       priority: 0.7,

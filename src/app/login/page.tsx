@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import Nav from "@/components/Nav";
@@ -128,6 +130,14 @@ function LoginForm() {
             ? "Create account"
             : "Send reset link"}
         </button>
+        {mode === "signup" && (
+          <p className="sans text-xs text-[var(--ink-soft)]">
+            By creating an account you agree to the{" "}
+            <Link prefetch={false} href="/terms" className="link">Terms</Link> and{" "}
+            <Link prefetch={false} href="/privacy" className="link">Privacy Policy</Link>,
+            and confirm you are at least 13.
+          </p>
+        )}
       </form>
 
       {error && (

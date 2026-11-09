@@ -4,7 +4,9 @@ A free course for the F=ma exam and the US Physics Olympiad: the topics in the
 order they build on each other, with worked lessons, simulations and the
 problems worth doing attached to each one.
 
-**Live at [usapho.one](https://usapho.one).**
+**Live at [usapho.one](https://usapho.one).** Questions, study partners and contributor chat live in [the Discord](https://discord.gg/KGWAxqxug2).
+
+[![Discord](https://img.shields.io/discord/1545577098570244116?label=discord&logo=discord&logoColor=white&color=5865F2)](https://discord.gg/KGWAxqxug2)
 
 ## Contributing
 

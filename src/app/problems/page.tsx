@@ -14,6 +14,7 @@ import {
 } from "@/lib/problem-types";
 import { TOTAL_PROBLEMS, TOTAL_SOLVABLE } from "@/lib/problem-counts";
 import { useProgress } from "@/lib/progress";
+import { matchesQuery } from "@/lib/search";
 
 const FILTERS = ["all", "unsolved", "solved", "starred", "solvable"] as const;
 type Filter = (typeof FILTERS)[number];
@@ -139,13 +140,12 @@ export default function ProblemsPage() {
       if (filter === "unsolved" && isSolved) return false;
       if (filter === "starred" && !p.starred) return false;
       if (filter === "solvable" && !isSolvable(p)) return false;
+      // each word may match a different field: "gauss sphere", "2024 rolling"
       if (
         q &&
-        !(
-          p.name.toLowerCase().includes(q) ||
-          p.tags.some((t) => t.includes(q)) ||
-          p.source.toLowerCase().includes(q) ||
-          (moduleTitle[p.module]?.title ?? "").toLowerCase().includes(q)
+        !matchesQuery(
+          `${p.name} ${p.tags.join(" ")} ${p.source} ${moduleTitle[p.module]?.title ?? ""}`,
+          q
         )
       )
         return false;

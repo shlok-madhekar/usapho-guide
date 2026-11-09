@@ -4615,9 +4615,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A $70\\ \\mathrm{kg}$ man hangs from one side of a rope over a frictionless pulley, balanced by a $70\\ \\mathrm{kg}$ counterweight on the other side. He climbs the rope at $0.50\\ \\mathrm{m/s}$ relative to the rope. What is the speed of the center of mass of the man-plus-counterweight system, in m/s?",
-    "answer": 0,
+    "answer": 0.25,
     "unit": "m/s",
-    "solution": "Because the masses are equal and the rope is inextensible, whatever the man does the counterweight mirrors: they move at equal speeds in opposite senses relative to the ground. Their center of mass therefore stays at rest, $v_{\\rm cm} = 0$."
+    "solution": "Both hang from the same rope, so both feel the same tension $T$, and they have equal mass: the net force $T - mg$ on each is the same, so they always have the same upward velocity $v$. The rope on the man's side then moves down at $v$ while he moves up at $v$, so his speed relative to the rope is $2v = 0.50\\ \\mathrm{m/s}$, giving $v = 0.25\\ \\mathrm{m/s}$. Both rise together, so the center of mass rises at $v_{\\rm cm} = 0.25\\ \\mathrm{m/s}$."
   },
   {
     "id": "we-com-30",
@@ -11919,7 +11919,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $2.5$ m section of transmission line carries $12$ A. The Earth-scale field in the region is $0.050$ T and makes a $60^\\circ$ angle with the wire. Find the magnitude of the magnetic force on this section, in N.",
+    "statement": "A $2.5$ m section of transmission line carries $12$ A. The magnetic field in the region is $0.050$ T and makes a $60^\\circ$ angle with the wire. Find the magnitude of the magnetic force on this section, in N.",
     "answer": 1.299,
     "unit": "N",
     "solution": "Use $F = BIL\\sin\\theta$ with $\\theta$ the angle between the current direction and $\\vec{B}$: $F = (0.050)(12)(2.5)\\sin 60^\\circ = 1.299$ N."
@@ -12697,9 +12697,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A wire carries $10$ A in from infinity along the $-x$ axis, bends into a semicircle of radius $5.0$ cm centered at the origin, and then continues out to infinity along the $+x$ axis. Use $\\mu_0 = 4\\pi\\times10^{-7}$ T$\\cdot$m/A. Find the field magnitude at the origin, in T.",
-    "answer": 0.0001028,
+    "answer": 0.00006283,
     "unit": "T",
-    "solution": "The semicircle gives $\\mu_0 I/(4R) = 6.283e-05$ T. Each straight piece is semi-infinite with the field point on its line extended, at perpendicular distance $R$: each gives $\\mu_0 I/(4\\pi R)$. All three contributions point the same way, so $B = \\dfrac{\\mu_0 I}{4R}+\\dfrac{\\mu_0 I}{2\\pi R} = 0.0001028$ T."
+    "solution": "The straight pieces lie along the $x$ axis, and the origin is on that line, so for every element $d\\vec l$ is parallel to $\\hat r$ and $d\\vec l\\times\\hat r = 0$: they contribute nothing. Only the semicircle counts, $B = \\dfrac{\\mu_0 I}{4R} = \\dfrac{(4\\pi\\times10^{-7})(10)}{4(0.050)} = 6.283\\times10^{-5}$ T."
   },
   {
     "id": "mag-bs-20",
@@ -14996,7 +14996,7 @@
     "statement": "A $10$ V battery, a $5.0\\ \\Omega$ resistor and a $0.50$ H inductor are connected in series at $t = 0$. Find the heat dissipated in the resistor between $t = 0$ and $t = \\tau$, where $\\tau = L/R$, in joules.",
     "answer": 0.3362,
     "unit": "J",
-    "solution": "With $I = I_0(1-e^{-t/\\tau})$ and $I_0 = 2.0$ A, $Q = \\int_0^\\tau I^2R\\,dt = I_0^2R\\tau\\left[\\frac{3}{2} - 2e^{-1} + \\frac{1}{2}e^{-2}\\right]$. Numerically $I_0^2R\\tau = 2.0$ J and the bracket is $0.83191$, giving $Q = 0.3362$ J."
+    "solution": "With $I = I_0(1-e^{-t/\\tau})$ and $I_0 = 2.0$ A, $Q = \\int_0^\\tau I^2R\\,dt = I_0^2R\\tau\\left[-\\frac{1}{2} + 2e^{-1} - \\frac{1}{2}e^{-2}\\right]$. Numerically $I_0^2R\\tau = 2.0$ J and the bracket is $0.16809$, giving $Q = 0.3362$ J."
   },
   {
     "id": "mag-ind-30",
@@ -18095,10 +18095,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A monatomic ideal gas is taken around the triangle A $(V = 1.0\\times10^{-3}$ m³, $P = 1.0\\times10^5$ Pa$)$ → B $(3.0\\times10^{-3}$ m³, $1.0\\times10^5$ Pa$)$ → C $(3.0\\times10^{-3}$ m³, $4.0\\times10^5$ Pa$)$ → back to A along a straight line. Heat enters the gas on A→B and on B→C only. What is the efficiency of the cycle?",
-    "answer": 0.1622,
+    "statement": "A monatomic ideal gas is taken around the triangle A $(V = 1.0\\times10^{-3}$ m³, $P = 1.0\\times10^5$ Pa$)$ → C $(3.0\\times10^{-3}$ m³, $4.0\\times10^5$ Pa$)$ along a straight line → B $(3.0\\times10^{-3}$ m³, $1.0\\times10^5$ Pa$)$ → back to A. Heat enters the gas only on A→C. What is the efficiency of the cycle?",
+    "answer": 0.1395,
     "unit": "dimensionless",
-    "solution": "Net work is the triangle's area, $\\tfrac{1}{2}(2.0\\times10^{-3})(3.0\\times10^5) = 300$ J. Heat in: A→B is isobaric, $Q = \\tfrac{5}{2}P\\Delta V = 500$ J; B→C is isochoric, $Q = \\tfrac{3}{2}V\\Delta P = 1350$ J. So $e = 300/1850 = 0.1622$."
+    "solution": "Going A→C→B→A the triangle is traversed clockwise, so the net work done by the gas is its area, $\\tfrac{1}{2}(2.0\\times10^{-3})(3.0\\times10^5) = 300$ J. On A→C, $W = \\tfrac{1}{2}(1.0+4.0)\\times10^5(2.0\\times10^{-3}) = 500$ J and $\\Delta U = \\tfrac{3}{2}\\Delta(PV) = \\tfrac{3}{2}(1200-100) = 1650$ J, so $Q_{\\rm in} = 2150$ J. (Heat enters all along the line: $dQ \\propto 6V - 1.25 > 0$ with $V$ in liters.) So $e = 300/2150 = 0.1395$."
   },
   {
     "id": "th-pv-24",
@@ -19737,9 +19737,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two speakers 2.00 m apart are driven in phase at 1029 Hz ($v=343$ m/s). A listener walks once around them on a large circle far away. The path difference varies continuously from $-2.00$ m to $+2.00$ m and back. How many quiet directions does she pass through in one full loop?",
-    "answer": 12,
+    "answer": 24,
     "unit": "directions",
-    "solution": "Here $\\lambda=343/1029=0.3333$ m, so $d/\\lambda=6.00$. Minima need $\\Delta r=(m+\\tfrac12)\\lambda$ with $|\\Delta r|<2.00$ m, i.e. $m+\\tfrac12=0.5,1.5,\\dots,5.5$: six values on each side of the axis, 12 in all."
+    "solution": "Here $\\lambda=343/1029=0.3333$ m, so $d/\\lambda=6.00$. Far away the path difference is $\\Delta r = d\\cos\\theta$. Minima need $\\Delta r=(m+\\tfrac12)\\lambda$ with $|\\Delta r|<2.00$ m: $\\pm0.5\\lambda, \\pm1.5\\lambda,\\dots,\\pm5.5\\lambda$, which is 12 values. Going once around the circle, $\\cos\\theta$ takes each value in $(-1,1)$ twice (at $\\theta$ and $-\\theta$), so she passes through $2\\times12 = 24$ quiet directions."
   },
   {
     "id": "wv-beat-26",
@@ -29947,7 +29947,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "The binding energy per nucleon curve peaks near iron-56 at its maximum value. What is that value, in MeV per nucleon? (Give the standard textbook figure to three significant figures: $8.79$.)",
+    "statement": "The binding energy per nucleon curve peaks near iron-56. What is its maximum value, in MeV per nucleon, to three significant figures?",
     "answer": 8.79,
     "unit": "MeV",
     "solution": "Iron-56 and nickel-62 sit at the top of the binding energy curve at about $8.79$ MeV per nucleon. Nuclei lighter than iron release energy by fusing, heavier ones by fissioning, which is why iron is the endpoint of stellar burning."
@@ -32939,10 +32939,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A charge $q=+1.0\\ \\text{nC}$ starts at the center of a spherical cavity of radius $10.0\\ \\text{cm}$ inside a grounded conductor and is moved slowly to a point $6.0\\ \\text{cm}$ from the center. Find the work done by the external agent, in nJ.",
-    "answer": 25.3,
+    "statement": "A charge $q=+1.0\\ \\text{nC}$ starts at the center of a spherical cavity of radius $10.0\\ \\text{cm}$ inside a grounded conductor and is moved slowly to a point $6.0\\ \\text{cm}$ from the center. Find the work done by the external agent, in nJ (negative if the agent does negative work).",
+    "answer": -25.3,
     "unit": "nJ",
-    "solution": "Integrating the image force $F(s)=\\frac{kq^2as}{(a^2-s^2)^2}$, the energy is $U(s)=-\\frac{kq^2a}{2(a^2-s^2)}$. Then $W_{ext}=U(s)-U(0)=\\frac{kq^2a}{2}\\left[\\frac{1}{a^2}-\\frac{1}{a^2-s^2}\\right]$, which is negative: the conductor pulls the charge outward. Numerically $W=25.3$ nJ."
+    "solution": "Integrating the image force $F(s)=\\frac{kq^2as}{(a^2-s^2)^2}$, the energy is $U(s)=-\\frac{kq^2a}{2(a^2-s^2)}$. Then $W_{ext}=U(s)-U(0)=\\frac{kq^2a}{2}\\left[\\frac{1}{a^2}-\\frac{1}{a^2-s^2}\\right]$, which is negative: the conductor pulls the charge outward, so the agent holds it back. Numerically $W=\\frac{(8.99\\times10^{-9})(0.100)}{2}(100-156.25)=-25.3$ nJ."
   },
   {
     "id": "adv-bvp-30",
@@ -33148,7 +33148,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A source with $\\gamma=2.00$ moves past a detector. At the instant the source is at its closest approach in the detector's frame, the detector receives light emitted with rest-frame frequency $f_0$. Find the ratio $f/f_0$ of received to emitted frequency.",
+    "statement": "A source with $\\gamma=2.00$ moves past a detector. The detector receives light that the source emitted at the instant it was at its closest approach, as judged in the detector's frame. The light has rest-frame frequency $f_0$. Find the ratio $f/f_0$ of received to emitted frequency.",
     "answer": 0.5,
     "unit": "unitless",
     "solution": "At transverse viewing in the observer's frame there is no first-order Doppler term; the entire effect is time dilation of the source clock, so $f=f_0/\\gamma$. With $\\gamma=2.00$, $f/f_0=0.500$. The shift is a pure redshift, a direct test of time dilation."
@@ -33342,7 +33342,7 @@
     "statement": "Two protons, each with kinetic energy $1000\\ \\text{MeV}$, collide head-on. Using $m_pc^2=938.3\\ \\text{MeV}$, find $\\sqrt{s}$ for the collision, in MeV.",
     "answer": 3876.6,
     "unit": "MeV",
-    "solution": "In a symmetric head-on collision the lab frame is the CM frame, so the total momentum vanishes and $\\sqrt{s}$ is just the total energy: $\\sqrt{s}=2(T+m_pc^2)=2(1938.3)=3876.6$ MeV. Compare a fixed target of the same beam energy, which yields only about 2.9 GeV."
+    "solution": "In a symmetric head-on collision the lab frame is the CM frame, so the total momentum vanishes and $\\sqrt{s}$ is just the total energy: $\\sqrt{s}=2(T+m_pc^2)=2(1938.3)=3876.6$ MeV. Compare a fixed target hit by the same beam: $s = 2m_p^2c^4 + 2m_pc^2E$ gives only about 2.3 GeV."
   },
   {
     "id": "adv-4vec-23",
@@ -33982,9 +33982,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A light string has one end fixed to the ceiling and the other end attached to a spring of stiffness $900\\ \\mathrm{N/m}$ that also hangs from the ceiling. The string passes under a frictionless massless pulley from which a $5.0\\ \\mathrm{kg}$ mass hangs. Find the period of vertical oscillation of the mass in seconds.",
-    "answer": 0.9366,
+    "answer": 0.2342,
     "unit": "s",
-    "solution": "If the mass descends by $x$, the pulley lets out $2x$ of string, so the spring stretches $2x$ and its tension rises by $2kx$. That tension appears in both string segments supporting the pulley only through the single spring end, so the net upward force on the mass changes by $kx/2$: the effective stiffness is $k/4$. Hence $T = 2\\pi\\sqrt{4m/k} = 2\\pi\\sqrt{20/900} = 0.937\\ \\mathrm{s}$."
+    "solution": "If the mass descends by $x$, both string segments under the pulley lengthen by $x$, so the spring stretches $2x$ and the string tension rises by $2kx$. Two segments hold the pulley, so the upward force on the mass rises by $2(2kx) = 4kx$: the effective stiffness is $4k$. Hence $T = 2\\pi\\sqrt{m/4k} = 2\\pi\\sqrt{5.0/3600} = 0.234\\ \\mathrm{s}$."
   },
   {
     "id": "osc-shm-29",
@@ -35520,9 +35520,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A particle orbits in the central potential $U(r) = -k/r^{3/2}$ on a nearly circular orbit. For $U = -k/r^{n}$ the radial oscillation frequency satisfies $\\omega_r/\\omega_\\theta = \\sqrt{2-n}$. What is the angle swept between successive closest approaches, in rad?",
-    "answer": 4.443,
+    "answer": 8.886,
     "unit": "rad",
-    "solution": "The apsidal angle is $\\pi\\,\\omega_\\theta/\\omega_r = \\pi/\\sqrt{2-n}$. With $n = 3/2$, $\\sqrt{2-n} = 0.7071$ and the angle is $\\pi/0.7071 = 4.443$ rad, larger than $2\\pi/2$, so the orbit precesses forward."
+    "solution": "Successive closest approaches are one full radial period $2\\pi/\\omega_r$ apart, during which the angle advances by $2\\pi\\,\\omega_\\theta/\\omega_r = 2\\pi/\\sqrt{2-n}$. With $n = 3/2$, $\\sqrt{2-n} = 0.7071$ and the angle is $2\\pi/0.7071 = 8.886$ rad. That is more than $2\\pi$, so the point of closest approach advances by $2.60$ rad each orbit."
   },
   {
     "id": "osc-pot-25",
@@ -37207,9 +37207,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two small balls hang from the same point on insulating threads of length $0.50$ m. Ball 1 has mass $1.0$ g, ball 2 has mass $3.0$ g, and each carries $+80$ nC. Use $g=9.8$ m/s$^2$ and $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is their equilibrium separation, in m?",
-    "answer": 0.1565,
+    "answer": 0.1571,
     "unit": "m",
-    "solution": "The Coulomb force on the two balls has equal magnitude, so $\\tan\\theta_i=F/(m_ig)$ with $F=kq^2/r^2$ and $r=L(\\sin\\theta_1+\\sin\\theta_2)$; the lighter ball swings out further. Solving the coupled equations numerically gives $\\theta_1\\approx13.5^\\circ$, $\\theta_2\\approx4.6^\\circ$ and $r\\approx0.1565$ m."
+    "solution": "The Coulomb force on the two balls has equal magnitude $F=kq^2/r^2$ but, with unequal masses, the balls hang at different heights, so it is not horizontal. Each thread passes through the pivot, so take torques about the pivot for each ball: gravity and the Coulomb force along the line joining the balls must give zero torque. Solving the two torque equations numerically gives $\\theta_1\\approx13.6^\\circ$, $\\theta_2\\approx4.5^\\circ$ and $r\\approx0.1571$ m. (Treating the force as horizontal gives 0.1565 m, close but not exact.)"
   },
   {
     "id": "es-coul-30",
@@ -39785,7 +39785,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A capacitor has square plates $10.0\\,\\mathrm{cm}$ long and $6.0\\,\\mathrm{cm}$ wide with a $0.40\\,\\mathrm{mm}$ gap, and carries a fixed charge of $20.0\\,\\mathrm{nC}$ (battery disconnected). A slab with $\\kappa=3.0$ is inserted a distance $5.0\\,\\mathrm{cm}$ along the plates. What is the magnitude of the force pulling it in, in mN?",
+    "statement": "A capacitor has rectangular plates $10.0\\,\\mathrm{cm}$ long and $6.0\\,\\mathrm{cm}$ wide with a $0.40\\,\\mathrm{mm}$ gap, and carries a fixed charge of $20.0\\,\\mathrm{nC}$ (battery disconnected). A slab with $\\kappa=3.0$ is inserted a distance $5.0\\,\\mathrm{cm}$ along the plates. What is the magnitude of the force pulling it in, in mN?",
     "answer": 0.007533,
     "unit": "mN",
     "solution": "At fixed charge $U=Q^2/2C$ and $F=-dU/dx=\\dfrac{Q^2}{2C^2}\\dfrac{dC}{dx}$, with $\\dfrac{dC}{dx}=\\dfrac{(\\kappa-1)\\varepsilon_0w}{d}$. Here $C=\\dfrac{\\varepsilon_0w}{d}[L+(\\kappa-1)x]=2.655\\times10^{-10}\\,\\mathrm{F}$ and $dC/dx=2.655\\times10^{-9}\\,\\mathrm{F/m}$, giving $F=(4.0\\times10^{-16})(2.655\\times10^{-9})/[2(7.049\\times10^{-20})]=7.533\\times10^{-6}\\,\\mathrm{N}=0.007533\\,\\mathrm{mN}$."
@@ -41676,7 +41676,7 @@
     "statement": "A $6.0\\ \\mathrm{V}$ battery is connected between $P$ and $Q$. Arm $PA = 100\\ \\Omega$, arm $AQ = 200\\ \\Omega$, arm $PB = 300\\ \\Omega$, arm $BQ = 400\\ \\Omega$, and a galvanometer of resistance $50\\ \\Omega$ connects $A$ to $B$. Find the magnitude of the current through the galvanometer, in amperes.",
     "answer": 0.001983,
     "unit": "A",
-    "solution": "The bridge is unbalanced ($100/200 \\neq 300/400$), so write node equations at $A$ and $B$ with $V_P = 6.0\\ \\mathrm{V}$ and $V_Q = 0$. Solving gives $V_A = 4.099\\ \\mathrm{V}$ and $V_B = 4.000\\ \\mathrm{V}$, so $I = (V_A-V_B)/50 = 1.98\\times10^{-3}\\ \\mathrm{A}$."
+    "solution": "The bridge is unbalanced ($100/200 \\neq 300/400$), so write node equations at $A$ and $B$ with $V_P = 6.0\\ \\mathrm{V}$ and $V_Q = 0$. Solving gives $V_A = 3.868\\ \\mathrm{V}$ and $V_B = 3.769\\ \\mathrm{V}$, so $I = (V_A-V_B)/50 = 1.98\\times10^{-3}\\ \\mathrm{A}$."
   },
   {
     "id": "ci-net-12",
@@ -41997,7 +41997,7 @@
     "statement": "An infinite square grid joins every nearest-neighbour pair of nodes with an identical $10\\ \\Omega$ resistor. Find the resistance between two nodes that are diagonal neighbours (one step across and one step up), in ohms.",
     "answer": 6.366,
     "unit": "ohm",
-    "solution": "Superposition (inject $I$ at one node, extract $I$ at the other, and add the two single-node solutions) reduces the problem to the lattice Green function of the square grid. The standard result for a diagonal pair is $R(1,1) = (2/\\pi)R_0$, which follows from the rotational symmetry of the grid about a node combined with $R(1,0) = R_0/2$. Numerically $R = (2/\\pi)(10) = 6.37\\ \\Omega$."
+    "solution": "Superposition (inject $I$ at one node, extract $I$ at the other, and add the two single-node solutions) reduces the problem to the lattice Green function of the square grid. Unlike the nearest-neighbour result $R(1,0) = R_0/2$, which follows from symmetry alone, the diagonal pair needs the Green function itself; evaluating it gives $R(1,1) = (2/\\pi)R_0$. Numerically $R = (2/\\pi)(10) = 6.37\\ \\Omega$."
   },
   {
     "id": "ci-net-30",

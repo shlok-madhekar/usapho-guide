@@ -64,7 +64,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $2.5$ m section of transmission line carries $12$ A. The Earth-scale field in the region is $0.050$ T and makes a $60^\\circ$ angle with the wire. Find the magnitude of the magnetic force on this section, in N.",
+    "statement": "A $2.5$ m section of transmission line carries $12$ A. The magnetic field in the region is $0.050$ T and makes a $60^\\circ$ angle with the wire. Find the magnitude of the magnetic force on this section, in N.",
     "answer": 1.299,
     "unit": "N",
     "solution": "Use $F = BIL\\sin\\theta$ with $\\theta$ the angle between the current direction and $\\vec{B}$: $F = (0.050)(12)(2.5)\\sin 60^\\circ = 1.299$ N."
@@ -842,9 +842,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A wire carries $10$ A in from infinity along the $-x$ axis, bends into a semicircle of radius $5.0$ cm centered at the origin, and then continues out to infinity along the $+x$ axis. Use $\\mu_0 = 4\\pi\\times10^{-7}$ T$\\cdot$m/A. Find the field magnitude at the origin, in T.",
-    "answer": 0.0001028,
+    "answer": 0.00006283,
     "unit": "T",
-    "solution": "The semicircle gives $\\mu_0 I/(4R) = 6.283e-05$ T. Each straight piece is semi-infinite with the field point on its line extended, at perpendicular distance $R$: each gives $\\mu_0 I/(4\\pi R)$. All three contributions point the same way, so $B = \\dfrac{\\mu_0 I}{4R}+\\dfrac{\\mu_0 I}{2\\pi R} = 0.0001028$ T."
+    "solution": "The straight pieces lie along the $x$ axis, and the origin is on that line, so for every element $d\\vec l$ is parallel to $\\hat r$ and $d\\vec l\\times\\hat r = 0$: they contribute nothing. Only the semicircle counts, $B = \\dfrac{\\mu_0 I}{4R} = \\dfrac{(4\\pi\\times10^{-7})(10)}{4(0.050)} = 6.283\\times10^{-5}$ T."
   },
   {
     "id": "mag-bs-20",
@@ -3141,7 +3141,7 @@
     "statement": "A $10$ V battery, a $5.0\\ \\Omega$ resistor and a $0.50$ H inductor are connected in series at $t = 0$. Find the heat dissipated in the resistor between $t = 0$ and $t = \\tau$, where $\\tau = L/R$, in joules.",
     "answer": 0.3362,
     "unit": "J",
-    "solution": "With $I = I_0(1-e^{-t/\\tau})$ and $I_0 = 2.0$ A, $Q = \\int_0^\\tau I^2R\\,dt = I_0^2R\\tau\\left[\\frac{3}{2} - 2e^{-1} + \\frac{1}{2}e^{-2}\\right]$. Numerically $I_0^2R\\tau = 2.0$ J and the bracket is $0.83191$, giving $Q = 0.3362$ J."
+    "solution": "With $I = I_0(1-e^{-t/\\tau})$ and $I_0 = 2.0$ A, $Q = \\int_0^\\tau I^2R\\,dt = I_0^2R\\tau\\left[-\\frac{1}{2} + 2e^{-1} - \\frac{1}{2}e^{-2}\\right]$. Numerically $I_0^2R\\tau = 2.0$ J and the bracket is $0.16809$, giving $Q = 0.3362$ J."
   },
   {
     "id": "mag-ind-30",
@@ -6240,10 +6240,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A monatomic ideal gas is taken around the triangle A $(V = 1.0\\times10^{-3}$ m³, $P = 1.0\\times10^5$ Pa$)$ → B $(3.0\\times10^{-3}$ m³, $1.0\\times10^5$ Pa$)$ → C $(3.0\\times10^{-3}$ m³, $4.0\\times10^5$ Pa$)$ → back to A along a straight line. Heat enters the gas on A→B and on B→C only. What is the efficiency of the cycle?",
-    "answer": 0.1622,
+    "statement": "A monatomic ideal gas is taken around the triangle A $(V = 1.0\\times10^{-3}$ m³, $P = 1.0\\times10^5$ Pa$)$ → C $(3.0\\times10^{-3}$ m³, $4.0\\times10^5$ Pa$)$ along a straight line → B $(3.0\\times10^{-3}$ m³, $1.0\\times10^5$ Pa$)$ → back to A. Heat enters the gas only on A→C. What is the efficiency of the cycle?",
+    "answer": 0.1395,
     "unit": "dimensionless",
-    "solution": "Net work is the triangle's area, $\\tfrac{1}{2}(2.0\\times10^{-3})(3.0\\times10^5) = 300$ J. Heat in: A→B is isobaric, $Q = \\tfrac{5}{2}P\\Delta V = 500$ J; B→C is isochoric, $Q = \\tfrac{3}{2}V\\Delta P = 1350$ J. So $e = 300/1850 = 0.1622$."
+    "solution": "Going A→C→B→A the triangle is traversed clockwise, so the net work done by the gas is its area, $\\tfrac{1}{2}(2.0\\times10^{-3})(3.0\\times10^5) = 300$ J. On A→C, $W = \\tfrac{1}{2}(1.0+4.0)\\times10^5(2.0\\times10^{-3}) = 500$ J and $\\Delta U = \\tfrac{3}{2}\\Delta(PV) = \\tfrac{3}{2}(1200-100) = 1650$ J, so $Q_{\\rm in} = 2150$ J. (Heat enters all along the line: $dQ \\propto 6V - 1.25 > 0$ with $V$ in liters.) So $e = 300/2150 = 0.1395$."
   },
   {
     "id": "th-pv-24",
@@ -7882,9 +7882,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two speakers 2.00 m apart are driven in phase at 1029 Hz ($v=343$ m/s). A listener walks once around them on a large circle far away. The path difference varies continuously from $-2.00$ m to $+2.00$ m and back. How many quiet directions does she pass through in one full loop?",
-    "answer": 12,
+    "answer": 24,
     "unit": "directions",
-    "solution": "Here $\\lambda=343/1029=0.3333$ m, so $d/\\lambda=6.00$. Minima need $\\Delta r=(m+\\tfrac12)\\lambda$ with $|\\Delta r|<2.00$ m, i.e. $m+\\tfrac12=0.5,1.5,\\dots,5.5$: six values on each side of the axis, 12 in all."
+    "solution": "Here $\\lambda=343/1029=0.3333$ m, so $d/\\lambda=6.00$. Far away the path difference is $\\Delta r = d\\cos\\theta$. Minima need $\\Delta r=(m+\\tfrac12)\\lambda$ with $|\\Delta r|<2.00$ m: $\\pm0.5\\lambda, \\pm1.5\\lambda,\\dots,\\pm5.5\\lambda$, which is 12 values. Going once around the circle, $\\cos\\theta$ takes each value in $(-1,1)$ twice (at $\\theta$ and $-\\theta$), so she passes through $2\\times12 = 24$ quiet directions."
   },
   {
     "id": "wv-beat-26",

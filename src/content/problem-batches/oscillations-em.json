@@ -495,9 +495,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A light string has one end fixed to the ceiling and the other end attached to a spring of stiffness $900\\ \\mathrm{N/m}$ that also hangs from the ceiling. The string passes under a frictionless massless pulley from which a $5.0\\ \\mathrm{kg}$ mass hangs. Find the period of vertical oscillation of the mass in seconds.",
-    "answer": 0.9366,
+    "answer": 0.2342,
     "unit": "s",
-    "solution": "If the mass descends by $x$, the pulley lets out $2x$ of string, so the spring stretches $2x$ and its tension rises by $2kx$. That tension appears in both string segments supporting the pulley only through the single spring end, so the net upward force on the mass changes by $kx/2$: the effective stiffness is $k/4$. Hence $T = 2\\pi\\sqrt{4m/k} = 2\\pi\\sqrt{20/900} = 0.937\\ \\mathrm{s}$."
+    "solution": "If the mass descends by $x$, both string segments under the pulley lengthen by $x$, so the spring stretches $2x$ and the string tension rises by $2kx$. Two segments hold the pulley, so the upward force on the mass rises by $2(2kx) = 4kx$: the effective stiffness is $4k$. Hence $T = 2\\pi\\sqrt{m/4k} = 2\\pi\\sqrt{5.0/3600} = 0.234\\ \\mathrm{s}$."
   },
   {
     "id": "osc-shm-29",
@@ -2033,9 +2033,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "A particle orbits in the central potential $U(r) = -k/r^{3/2}$ on a nearly circular orbit. For $U = -k/r^{n}$ the radial oscillation frequency satisfies $\\omega_r/\\omega_\\theta = \\sqrt{2-n}$. What is the angle swept between successive closest approaches, in rad?",
-    "answer": 4.443,
+    "answer": 8.886,
     "unit": "rad",
-    "solution": "The apsidal angle is $\\pi\\,\\omega_\\theta/\\omega_r = \\pi/\\sqrt{2-n}$. With $n = 3/2$, $\\sqrt{2-n} = 0.7071$ and the angle is $\\pi/0.7071 = 4.443$ rad, larger than $2\\pi/2$, so the orbit precesses forward."
+    "solution": "Successive closest approaches are one full radial period $2\\pi/\\omega_r$ apart, during which the angle advances by $2\\pi\\,\\omega_\\theta/\\omega_r = 2\\pi/\\sqrt{2-n}$. With $n = 3/2$, $\\sqrt{2-n} = 0.7071$ and the angle is $2\\pi/0.7071 = 8.886$ rad. That is more than $2\\pi$, so the point of closest approach advances by $2.60$ rad each orbit."
   },
   {
     "id": "osc-pot-25",
@@ -3720,9 +3720,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Two small balls hang from the same point on insulating threads of length $0.50$ m. Ball 1 has mass $1.0$ g, ball 2 has mass $3.0$ g, and each carries $+80$ nC. Use $g=9.8$ m/s$^2$ and $k=8.99\\times10^{9}$ N·m$^2$/C$^2$. What is their equilibrium separation, in m?",
-    "answer": 0.1565,
+    "answer": 0.1571,
     "unit": "m",
-    "solution": "The Coulomb force on the two balls has equal magnitude, so $\\tan\\theta_i=F/(m_ig)$ with $F=kq^2/r^2$ and $r=L(\\sin\\theta_1+\\sin\\theta_2)$; the lighter ball swings out further. Solving the coupled equations numerically gives $\\theta_1\\approx13.5^\\circ$, $\\theta_2\\approx4.6^\\circ$ and $r\\approx0.1565$ m."
+    "solution": "The Coulomb force on the two balls has equal magnitude $F=kq^2/r^2$ but, with unequal masses, the balls hang at different heights, so it is not horizontal. Each thread passes through the pivot, so take torques about the pivot for each ball: gravity and the Coulomb force along the line joining the balls must give zero torque. Solving the two torque equations numerically gives $\\theta_1\\approx13.6^\\circ$, $\\theta_2\\approx4.5^\\circ$ and $r\\approx0.1571$ m. (Treating the force as horizontal gives 0.1565 m, close but not exact.)"
   },
   {
     "id": "es-coul-30",
@@ -6298,7 +6298,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A capacitor has square plates $10.0\\,\\mathrm{cm}$ long and $6.0\\,\\mathrm{cm}$ wide with a $0.40\\,\\mathrm{mm}$ gap, and carries a fixed charge of $20.0\\,\\mathrm{nC}$ (battery disconnected). A slab with $\\kappa=3.0$ is inserted a distance $5.0\\,\\mathrm{cm}$ along the plates. What is the magnitude of the force pulling it in, in mN?",
+    "statement": "A capacitor has rectangular plates $10.0\\,\\mathrm{cm}$ long and $6.0\\,\\mathrm{cm}$ wide with a $0.40\\,\\mathrm{mm}$ gap, and carries a fixed charge of $20.0\\,\\mathrm{nC}$ (battery disconnected). A slab with $\\kappa=3.0$ is inserted a distance $5.0\\,\\mathrm{cm}$ along the plates. What is the magnitude of the force pulling it in, in mN?",
     "answer": 0.007533,
     "unit": "mN",
     "solution": "At fixed charge $U=Q^2/2C$ and $F=-dU/dx=\\dfrac{Q^2}{2C^2}\\dfrac{dC}{dx}$, with $\\dfrac{dC}{dx}=\\dfrac{(\\kappa-1)\\varepsilon_0w}{d}$. Here $C=\\dfrac{\\varepsilon_0w}{d}[L+(\\kappa-1)x]=2.655\\times10^{-10}\\,\\mathrm{F}$ and $dC/dx=2.655\\times10^{-9}\\,\\mathrm{F/m}$, giving $F=(4.0\\times10^{-16})(2.655\\times10^{-9})/[2(7.049\\times10^{-20})]=7.533\\times10^{-6}\\,\\mathrm{N}=0.007533\\,\\mathrm{mN}$."
@@ -8189,7 +8189,7 @@
     "statement": "A $6.0\\ \\mathrm{V}$ battery is connected between $P$ and $Q$. Arm $PA = 100\\ \\Omega$, arm $AQ = 200\\ \\Omega$, arm $PB = 300\\ \\Omega$, arm $BQ = 400\\ \\Omega$, and a galvanometer of resistance $50\\ \\Omega$ connects $A$ to $B$. Find the magnitude of the current through the galvanometer, in amperes.",
     "answer": 0.001983,
     "unit": "A",
-    "solution": "The bridge is unbalanced ($100/200 \\neq 300/400$), so write node equations at $A$ and $B$ with $V_P = 6.0\\ \\mathrm{V}$ and $V_Q = 0$. Solving gives $V_A = 4.099\\ \\mathrm{V}$ and $V_B = 4.000\\ \\mathrm{V}$, so $I = (V_A-V_B)/50 = 1.98\\times10^{-3}\\ \\mathrm{A}$."
+    "solution": "The bridge is unbalanced ($100/200 \\neq 300/400$), so write node equations at $A$ and $B$ with $V_P = 6.0\\ \\mathrm{V}$ and $V_Q = 0$. Solving gives $V_A = 3.868\\ \\mathrm{V}$ and $V_B = 3.769\\ \\mathrm{V}$, so $I = (V_A-V_B)/50 = 1.98\\times10^{-3}\\ \\mathrm{A}$."
   },
   {
     "id": "ci-net-12",
@@ -8510,7 +8510,7 @@
     "statement": "An infinite square grid joins every nearest-neighbour pair of nodes with an identical $10\\ \\Omega$ resistor. Find the resistance between two nodes that are diagonal neighbours (one step across and one step up), in ohms.",
     "answer": 6.366,
     "unit": "ohm",
-    "solution": "Superposition (inject $I$ at one node, extract $I$ at the other, and add the two single-node solutions) reduces the problem to the lattice Green function of the square grid. The standard result for a diagonal pair is $R(1,1) = (2/\\pi)R_0$, which follows from the rotational symmetry of the grid about a node combined with $R(1,0) = R_0/2$. Numerically $R = (2/\\pi)(10) = 6.37\\ \\Omega$."
+    "solution": "Superposition (inject $I$ at one node, extract $I$ at the other, and add the two single-node solutions) reduces the problem to the lattice Green function of the square grid. Unlike the nearest-neighbour result $R(1,0) = R_0/2$, which follows from symmetry alone, the diagonal pair needs the Green function itself; evaluating it gives $R(1,1) = (2/\\pi)R_0$. Numerically $R = (2/\\pi)(10) = 6.37\\ \\Omega$."
   },
   {
     "id": "ci-net-30",

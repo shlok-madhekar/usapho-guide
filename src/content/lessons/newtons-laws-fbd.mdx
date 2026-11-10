@@ -4,8 +4,8 @@ the looking. Accelerations did not. That is the hint this lesson is built on:
 acceleration is the thing that every non-accelerating observer agrees about,
 and forces are what produce it.
 
-Here is the question. A crate sits on a table. The table pushes up on it, and
-the crate does not move. Now you put the same crate in a lift and the lift
+Start with a puzzle. A crate sits on a table. The table pushes up on it, and
+the crate doesn't move. Now you put the same crate in a lift and the lift
 starts up, and a scale under the crate reads more than it did before, even
 though nothing about the crate changed. Something is deciding, moment by
 moment, how hard the floor pushes. What decides it? The answer is never a
@@ -40,8 +40,8 @@ acceleration. Double the mass instead, halve it.
 
 **Third law.** If A pushes on B, then B pushes on A with the same magnitude in
 the opposite direction. The two forces in such a pair always act on *different
-objects*. That last clause is the whole point, and it is where most of the
-confusion about this law lives.
+objects*. That last clause carries more weight than the rest of the law, and it
+is where most of the confusion lives.
 
 <Aside label="Where this goes wrong" warn>
   The crate on the table feels a downward weight $mg$ and an upward normal
@@ -67,7 +67,7 @@ Four steps, in this order, every time.
    acceleration, because that makes the other component zero.
 4. **Write $\sum F_x = ma_x$ and $\sum F_y = ma_y$** and solve.
 
-Step 2 needs a catalogue, so here is the short list of what can appear.
+Step 2 needs a catalogue. The short list of what can appear:
 
 *Weight*, $W = mg$, always straight down, always present, magnitude $mg$ with
 $g = 9.8$ m/s² near the Earth's surface. *Normal force* $N$, from any surface
@@ -95,7 +95,7 @@ The moment there is more than one body, the discipline pays off. Two blocks of
 mass $m_1 = 2.0$ kg and $m_2 = 3.0$ kg sit touching on a frictionless floor,
 and you push the first with $F = 20$ N so the pair slides together.
 
-<Figure caption={<><b>Figure 1.</b> The applied force only touches the first block. The second one is accelerated entirely by the contact force between them. Slide the masses around and watch the contact force change even though F does not.</>}>
+<Figure caption={<><b>Figure 1.</b> The applied force only touches the first block. The second one is accelerated entirely by the contact force between them. Slide the masses around and watch the contact force change even though F doesn't.</>}>
   <Sim id="newtons-laws-fbd-pair" />
 </Figure>
 
@@ -118,7 +118,7 @@ That cross-check is worth doing while you are learning, because it catches a
 sign error instantly.
 
 <Aside label="Worth remembering">
-  Combine bodies into one system when you want the acceleration and do not
+  Combine bodies into one system when you want the acceleration and don't
   care about the force between them. Split them apart when the force between
   them is what you were asked for. Most two-body problems are one of each,
   done in that order.
@@ -165,15 +165,15 @@ $$N = \frac{mg}{\cos 40°} = \frac{(2)(10)}{0.766} = 26.1\ \text{N}$$
 Horizontal: $F - N \sin 40° = 0$, giving $F = 26.1 \times 0.643 = 16.8$ N,
 which is also $mg\tan 40°$.
 
-Notice that $N$ came out *larger* than $mg$, not $mg\cos\theta = 15.3$ N. The
-horizontal hand is squeezing the block into the ramp. Reaching for
+And $N$ came out *larger* than $mg$, not $mg\cos\theta = 15.3$ N. The
+horizontal hand is squeezing the block into the ramp. Writing
 $mg\cos\theta$ here, out of habit, gets you a number that is wrong by 70%.
 
 <QuickCheck
   question="A block on a frictionless incline is held by a horizontal force. As the incline gets steeper, the normal force:"
   options={["Decreases as cos of the angle", "Stays the same", "Increases without limit", "Increases then decreases"]}
   answer={2}
-  explanation="Vertical equilibrium gives N = mg / cos(angle), which grows as the angle grows and blows up as the ramp approaches vertical. The familiar mg cos(angle) assumes the only other forces lie along the incline. Draw the diagram before reaching for a formula."
+  explanation="Vertical equilibrium gives N = mg / cos(angle), which grows as the angle grows and blows up as the ramp approaches vertical. The familiar mg cos(angle) assumes the only other forces lie along the incline. Draw the diagram before you pick a formula."
 />
 
 ## Apparent weight
@@ -257,18 +257,18 @@ $(3.33)(2.4) = 8.0$ N.
   equations as unknowns.
 </Aside>
 
-## Recognising the technique
+## Where to draw the boundary
 
 Almost every mechanics problem that is not about energy or momentum wants this
 method, so the useful question is not *whether* to draw free body diagrams but
 *how many* and *around what*.
 
 Draw one per object, always, if the problem names more than one object: two
-blocks, a block and a wedge, a painter and a platform. Do not try to hold them
+blocks, a block and a wedge, a painter and a platform. Don't try to hold them
 in your head.
 
-Reach for the **combined system first** when the question asks for an
-acceleration and the bodies clearly move together. Reach for the **split**
+Start with the **combined system** when the question asks for an
+acceleration and the bodies clearly move together. **Split** the system
 when the question asks for a contact force, a tension, or "the force the
 platform exerts on the painter": any force that lives at the boundary between
 two objects. Those words are the signal that the boundary has to become the

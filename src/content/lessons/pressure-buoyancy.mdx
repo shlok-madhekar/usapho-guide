@@ -1,13 +1,14 @@
 Fill a plastic bottle with water, screw the cap on, and hold it under the
 surface of a bath. It fights you. Let go and it sits there, going nowhere.
-Empty the bottle, cap it again, and now you cannot keep it down: it squirts
+Empty the bottle, cap it again, and now you can't keep it down: it squirts
 out of your hand and jumps clear of the water. The bottle is the same size and
 the same shape both times. Only what is inside changed.
 
-The water outside cannot see inside the bottle. Whatever pushes up on it
+The water outside can't see inside the bottle. Whatever pushes up on it
 depends only on the shape and depth of the region the bottle occupies, so that
 upward push is the same both times, and the difference in behaviour is entirely
-a difference in weight. That one observation is the whole of this topic. In the
+a difference in weight. Everything in this topic unpacks from that one
+observation. In the
 [last lesson](/guide/effective-potentials) you found equilibria by asking where
 a potential energy curve flattens out. Here they come from a force balance in a
 fluid, and once you can write that balance down, almost every fluid statics
@@ -44,16 +45,16 @@ atmospheric; tyre gauges, depth gauges and manometers all read it, because they
 compare against the air around them. If a problem says "gauge", drop the $p_0$.
 If it says "absolute" or "total", keep it.
 
-Notice what cancelled: the area, so nothing about the width or shape of the
-container appears. Only the vertical drop $h$, the density, and $g$. Two points
+The area cancelled, so nothing about the width or shape of the
+container appears. Only the vertical drop $h$, the density, and $g$ survive. Two points
 at the same height in the same connected fluid are therefore at the same
 pressure, whatever path the fluid takes between them.
 
-<Figure caption={<><b>Figure 1.</b> The gauge pressure climbs in a straight line with depth. Drag the density slider up to mercury, 13600, and notice how little depth you need for the same pressure.</>}>
+<Figure caption={<><b>Figure 1.</b> The gauge pressure climbs in a straight line with depth. Drag the density slider up to mercury, 13600, and see how little depth you need for the same pressure.</>}>
   <Sim id="pressure-buoyancy-depth" />
 </Figure>
 
-Two consequences. A mercury barometer has vacuum above its sealed top, so
+A mercury barometer runs on this: vacuum above its sealed top, so
 $p_0 = \rho g h$ with no offset and the column stands at $h = p_0/(\rho g)$.
 And in fresh water one atmosphere of gauge pressure arrives at
 $h = 1.01\times10^5 / (1000 \times 9.8) = 10.3$ m: roughly another atmosphere
@@ -160,7 +161,7 @@ A slicker argument covers any shape. Scoop the object out and let the hole fill
 with fluid. That fluid sits in equilibrium, so the push from everything around
 it balances its own weight, $\rho_{\text{fluid}} g V$. Put the object back: the
 surrounding fluid touches the same surface at the same depths, so it pushes
-exactly as hard as before. The push does not know what is inside.
+exactly as hard as before. The push doesn't know what's inside.
 
 <Aside label="Where this goes wrong" warn>
   $V_{\text{disp}}$ is the volume of the region below the waterline, not the
@@ -223,7 +224,7 @@ $\rho_o = 1000 \times 40.0/8.0 = 5000$ kg/m³.
 600 kg/m³, floating in fresh water. What is the largest mass you can put on it
 before water reaches the top surface?*
 
-The phrase "before water reaches the top surface" is the whole problem. It
+Everything hinges on the phrase "before water reaches the top surface". It
 names the limiting state: the raft is submerged right to its top, so
 $V_{\text{sub}}$ equals the full volume of the raft, $V = 2.00 \times 0.200 =
 0.400\ \mathrm{m}^3$. At that limit the buoyant force is at its maximum:
@@ -333,9 +334,9 @@ is denser than the fluid there is no floating solution at all: the fraction
 formula is meaningless and the thing rests on the bottom.
 
 **Air counts.** A balloon displacing 5.00 m³ of air at 1.225 kg/m³ feels
-$1.225 \times 5.00 \times 9.8 = 60.0$ N of lift. Archimedes does not care that
-the fluid is a gas. For solids in air the effect is tiny; for a balloon it is
-the entire point.
+$1.225 \times 5.00 \times 9.8 = 60.0$ N of lift. Archimedes doesn't care that
+the fluid is a gas. For solids in air the effect is tiny; a balloon is nothing
+but that effect.
 
 **Released floats do not stop at the surface.** A ball of density 300 kg/m³
 released 1.20 m down has net upward force $(\rho_w - \rho_o)Vg$ against mass
@@ -351,13 +352,13 @@ for a further $1.20 \times 22.87/9.8 = 2.8$ m.
   explanation="Fraction submerged equals the ratio of average density to fluid density, so half submerged means the average density is half of 1000. The steel's own density, 7800, only comes in afterwards when you work out how large the cavity has to be to dilute it to 500."
 />
 
-## Recognising when this is the technique
+## The density-and-depth signature
 
-Reach for hydrostatics when a problem hands you a **density and a depth**, or a
+Hydrostatics is the tool when a problem hands you a **density and a depth**, or a
 **density and a fluid**. That pairing is the signature.
 
 If it mentions a *depth*, a *level difference*, a *tube*, a *barometer*, a
-*manometer*, or *two liquids that do not mix*, you want $p = p_0 + \rho g h$
+*manometer*, or *two liquids that don't mix*, you want $p = p_0 + \rho g h$
 and the equal-level rule: draw a horizontal line through connected fluid of one
 kind and write the pressure twice.
 

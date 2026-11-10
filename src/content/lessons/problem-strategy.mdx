@@ -9,7 +9,7 @@ The last lesson gave you a way to make hard expressions
 about the step before that: how to set a problem up so that the expressions are
 never hard in the first place. Three decisions do most of the work: what you
 draw a boundary around, which directions you call $x$ and $y$, and which law
-you reach for. Get those three right and most olympiad mechanics becomes
+you lean on. Get those three right and most olympiad mechanics becomes
 bookkeeping.
 
 ## Draw the boundary first
@@ -19,7 +19,7 @@ stuff that you have mentally cut out of the world. Everything inside the
 boundary is the system. Everything outside can only touch the system through
 **external forces**, and only those appear in $\sum F = ma$.
 
-That word *only* is the whole trick. Forces between two parts of the same
+That word *only* is doing all the work. Forces between two parts of the same
 system come in equal and opposite pairs, so they cancel inside the sum and
 vanish from your equation. Move the boundary and a force that was giving you
 trouble can disappear.
@@ -27,7 +27,7 @@ trouble can disappear.
 Take two blocks touching each other on a frictionless table, $m_A = 3.0$ kg in
 front and $m_B = 5.0$ kg behind it, with a horizontal force $F = 12$ N pushing
 on the front block so that both slide together. The blocks push on each other
-with some contact force $C$ that you do not know. If you draw the boundary
+with some contact force $C$ that you don't know. If you draw the boundary
 around *both* blocks, $C$ is internal and never appears:
 
 $$F = (m_A + m_B)\,a \quad\Rightarrow\quad a = \frac{12\ \text{N}}{8.0\ \text{kg}} = 1.5\ \text{m/s}^2.$$
@@ -44,14 +44,14 @@ Two systems, two lines, no simultaneous equations. The general rule: **put the
 boundary around everything when you want the motion, cut through the thing you
 want to know when you want a force.**
 
-<Figure caption={<><b>Figure 1.</b> The same pair of blocks, drawn twice. On the left the dashed boundary encloses both, so the contact force is internal and never enters the equation. On the right the boundary cuts between them and that same force becomes external. Notice that nothing physical changed, only where you drew the line.</>}>
+<Figure caption={<><b>Figure 1.</b> The same pair of blocks, drawn twice. On the left the dashed boundary encloses both, so the contact force is internal and never enters the equation. On the right the boundary cuts between them and that same force becomes external. Nothing physical changed, only where you drew the line.</>}>
   <Sim id="problem-strategy-system-cut" />
 </Figure>
 
 <Aside label="Worth remembering">
   A force belongs on your diagram only if something outside the boundary is
-  touching the system, or it is gravity. If you cannot name the object doing
-  the pushing, the arrow is imaginary and it is costing you the problem.
+  touching the system, or it is gravity. If you can't name the object doing
+  the pushing, the arrow is imaginary and it's costing you the problem.
 </Aside>
 
 <QuickCheck
@@ -73,7 +73,7 @@ normal force and the acceleration both have two components, and you end up
 solving a pair of coupled equations. Tilt the axes instead: let $x$ point down
 along the surface and $y$ point out perpendicular to it. Now the normal force
 is entirely along $y$, and the acceleration is entirely along $x$, because the
-block cannot burrow into the ramp or lift off it. Only the weight needs
+block can't burrow into the ramp or lift off it. Only the weight needs
 splitting.
 
 The weight $mg$ points straight down, at angle $\theta$ from your new $y$ axis.
@@ -88,7 +88,7 @@ Along $x$: $\;mg\sin\theta = ma$, so
 $$a = g\sin\theta = (9.8)(0.500) = 4.9\ \text{m/s}^2.$$
 
 The mass cancelled, which it had to: every object falls the same way on a
-frictionless slope. Along $y$ the block does not accelerate, so the components
+frictionless slope. Along $y$ the block doesn't accelerate, so the components
 must balance:
 
 $$N = mg\cos\theta = (2.0)(9.8)(0.866) = 17.0\ \text{N}.$$
@@ -155,7 +155,7 @@ does that take?
 The block has only two forces on it: gravity $mg$ down and the normal force $N$
 perpendicular to the face. Here tilted axes are the wrong choice, because the
 acceleration is horizontal, not along the slope. Use horizontal and vertical
-axes and let $N$ be the one that splits. Vertically the block does not
+axes and let $N$ be the one that splits. Vertically the block doesn't
 accelerate, so the vertical part of $N$ carries the weight:
 $N\cos\theta = mg$. Horizontally, the leftover part of $N$ is the only force,
 so it supplies the acceleration: $N\sin\theta = ma$. Divide the second by the
@@ -190,7 +190,7 @@ $N$ gives the standard result
 $$A = \frac{m g \sin\theta\cos\theta}{M + m\sin^2\theta}.$$
 
 Before plugging in, test it. If $M \to \infty$ the denominator blows up and
-$A \to 0$: a wedge nailed to the earth does not move. If $\theta \to 0$ the
+$A \to 0$: a wedge nailed to the earth doesn't move. If $\theta \to 0$ the
 face is flat, nothing slides, and $\sin\theta\cos\theta \to 0$ kills $A$. If
 $\theta \to 90^\circ$ the block falls vertically past a vertical face, pushing
 on nothing, and $\cos\theta \to 0$ kills $A$ again. Three checks passed, so
@@ -200,12 +200,12 @@ $$A = \frac{(1.0)(9.8)(0.500)(0.866)}{4.0 + (1.0)(0.500)^2} = \frac{4.244}{4.25}
 
 ## Check the formula before you trust the number
 
-Those three limit checks were not decoration. A symbolic answer is a machine
+Those three limit checks weren't decoration. A symbolic answer is a machine
 that makes predictions, and you can test it in ten seconds against cases whose
 answers you already know.
 
 Run the checks in this order. **Dimensions**: both sides must carry the same
-units, and if they do not, stop. **Limits**: send each variable to zero, to
+units, and if they don't, stop. **Limits**: send each variable to zero, to
 infinity, or to equality with another, and ask whether what comes out is what
 physics demands. **Symmetry**: if swapping two labels leaves the problem
 unchanged, it must leave the answer unchanged. **Sign**: does a positive answer
@@ -230,15 +230,15 @@ the string has to hold back the heavy one and drag up the light one.
 
 <Aside label="Where this goes wrong" warn>
   Plugging numbers in at the start throws away every one of these checks. Once
-  $9.8$ has been multiplied into three other numbers you cannot send the mass
+  $9.8$ has been multiplied into three other numbers you can't send the mass
   to infinity and see what survives. Carry symbols to the last line, then
   substitute once.
 </Aside>
 
-## Recognising which move a problem wants
+## Reading a problem for structure
 
-The problem statement usually tells you, if you read it for structure rather
-than for numbers.
+The problem statement usually tells you which move it wants, if you read it for
+structure rather than for numbers.
 
 If two objects are **joined and forced to move together** (touching blocks, a
 string, a pulley) do the pair first, then cut. If the question asks for a
@@ -259,7 +259,7 @@ one line by symmetry, which is a strong hint about what was intended.
 If the floor or the pivot is **frictionless and nothing external pushes
 sideways**, horizontal momentum is conserved and that is a free equation. If
 the question names a "before" and an "after" and asks nothing about the time in
-between, reach for a conservation law rather than for $F = ma$.
+between, go to a conservation law rather than $F = ma$.
 
 And when the answer is a formula, spend the ten seconds on limits. That habit
 catches more mistakes than any amount of care in the algebra, and it is the one

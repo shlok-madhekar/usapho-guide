@@ -14,9 +14,9 @@ $$
 W = Q_H - Q_C
 $$
 
-Whatever heat goes in and doesn't come out the bottom, comes out the side as work. That single line solves a surprising number of problems. An engine absorbing 2000 J and exhausting 1500 J does 500 J of net work per cycle, and that is the whole calculation.
+Whatever heat goes in and doesn't come out the bottom, comes out the side as work. That single line solves a surprising number of problems. An engine absorbing 2000 J and exhausting 1500 J does 500 J of net work per cycle, and you're done.
 
-<Figure caption={<><b>Figure 1.</b> The pipes are drawn with widths in proportion to the energy flowing through them. Drag the hot reservoir up and watch the work pipe fatten while the waste pipe thins. Notice it never closes.</>}>
+<Figure caption={<><b>Figure 1.</b> The pipes are drawn with widths in proportion to the energy flowing through them. Drag the hot reservoir up and watch the work pipe fatten while the waste pipe thins. It never closes.</>}>
   <Sim id="heat-engines-flow" />
 </Figure>
 
@@ -28,12 +28,12 @@ $$
 e = \frac{W}{Q_H} = \frac{Q_H - Q_C}{Q_H} = 1 - \frac{Q_C}{Q_H}
 $$
 
-It is a pure number between 0 and 1, usually quoted as a percentage. An engine taking in 1000 J and delivering 300 J of work is 30% efficient. Two-thirds of the fuel went out the exhaust pipe.
+It's a pure number between 0 and 1, usually quoted as a percentage. An engine taking in 1000 J and delivering 300 J of work is 30% efficient. Two-thirds of the fuel went out the exhaust pipe.
 
 Read the last form again: $e = 1 - Q_C/Q_H$. To get $e = 1$ you would need $Q_C = 0$, an engine that dumps nothing. Every real engine dumps. The question the rest of this lesson answers is *how much it must dump*.
 
 <Aside label="Worth remembering">
-  Three quantities, one equation between them. Given any two of $Q_H$, $Q_C$, $W$ you have the third, and then $e$ for free. Before reaching for anything clever, write down $W = Q_H - Q_C$ and see whether the problem is already finished.
+  Three quantities, one equation between them. Given any two of $Q_H$, $Q_C$, $W$ you have the third, and then $e$ for free. Before trying anything clever, write down $W = Q_H - Q_C$ and see whether the problem is already finished.
 </Aside>
 
 <QuickCheck
@@ -45,7 +45,7 @@ Read the last form again: $e = 1 - Q_C/Q_H$. To get $e = 1$ you would need $Q_C 
 
 ## The ceiling nobody gets over
 
-Here is the argument Sadi Carnot made in 1824, before anyone knew what heat was.
+The argument is Sadi Carnot's, made in 1824, before anyone knew what heat was.
 
 Suppose you had an engine that beat every other engine running between the same two reservoirs. Run your super-engine forwards to produce work, and use that work to drive an ordinary engine backwards: running an engine backwards is legitimate, it just pushes heat from cold to hot and consumes work, which is what a fridge does. Line the two up so that all the work from the first goes into the second.
 
@@ -164,7 +164,7 @@ $$
 \text{COP}_{\text{fridge, max}} = \frac{T_C}{T_H - T_C}
 $$
 
-A fridge holding 270 K in a 300 K kitchen can at best have COP $270/30 = 9.0$. Notice what happens as the gap shrinks: the COP blows up, which is why heat pumps are cheap to run in mild weather and expensive in a hard frost.
+A fridge holding 270 K in a 300 K kitchen can at best have COP $270/30 = 9.0$. And as the gap shrinks the COP blows up, which is why heat pumps are cheap to run in mild weather and expensive in a hard frost.
 
 <Aside label="Where this goes wrong" warn>
   In the fridge COP the denominator is the temperature *difference*, not the hot temperature. Writing $T_C/T_H$ gives 0.9 instead of 9.0 in the example above: an answer ten times too small, and less than 1, which should immediately look wrong for a fridge.
@@ -196,7 +196,7 @@ $$
 Q_C = (5.00)(625\ \text{J}) = 3125\ \text{J}
 $$
 
-Over 3000 J out of the cold box for 1000 J of fuel. That is not magic: the 3125 J plus the 625 J of work all end up in the 300 K surroundings, which also received 375 J from the engine's exhaust.
+Over 3000 J out of the cold box for 1000 J of fuel. That's not magic: the 3125 J plus the 625 J of work all end up in the 300 K surroundings, which also received 375 J from the engine's exhaust.
 
 The same chaining logic handles two engines in series. A Carnot engine from 900 K to 600 K, feeding everything it rejects into a second from 600 K to 300 K, is exactly equivalent to one Carnot engine from 900 K to 300 K, efficiency $1 - 300/900 = 66.7\%$. The intermediate temperature cancels, which is worth remembering: it is the reason the Carnot efficiency can only depend on the two end temperatures.
 
@@ -204,7 +204,7 @@ The same chaining logic handles two engines in series. A Carnot engine from 900 
 
 *Two identical blocks of heat capacity $C = 5000$ J/K sit at 400 K and 300 K. A reversible engine runs between them until they reach a common temperature. How much work comes out?*
 
-This one takes a real idea. The blocks are not reservoirs: as the engine runs, the hot one cools and the cold one warms, so the efficiency falls to zero by the time they meet. You cannot use a single Carnot efficiency.
+This one takes a real idea. The blocks are not reservoirs: as the engine runs, the hot one cools and the cold one warms, so the efficiency falls to zero by the time they meet. You can't use a single Carnot efficiency.
 
 What you can use is the property that makes an engine reversible. For a reversible engine the heats satisfy $Q_C/Q_H = T_C/T_H$, which rearranged is $Q_H/T_H = Q_C/T_C$. The quantity $Q/T$ taken from the hot side equals the quantity $Q/T$ given to the cold side. That quantity is called entropy, and reversible operation means the total entropy doesn't change. Taking heat $C\,dT$ out of a block at temperature $T$ changes its entropy by $C\,dT/T$, so summing over the whole run from start to the final temperature $T_f$:
 
@@ -230,11 +230,11 @@ $$
 
 Sanity check: the arithmetic mean would have been 350 K, and the geometric mean is lower. The engine has pulled energy out of the pair, so their total must be less than if you had simply let them touch. It is, by exactly 35.9 kJ.
 
-## Recognising which tool a problem wants
+## The four kinds of engine problem
 
 The problems in this topic sort into four kinds, and the first line of the question usually tells you which.
 
-**Only joules mentioned, no temperatures.** Use $W = Q_H - Q_C$ and $e = W/Q_H$. That is the whole toolkit. Power questions live here too: multiply work per cycle by cycles per second, or work backwards from a fuel burn rate times an energy content.
+**Only joules mentioned, no temperatures.** Use $W = Q_H - Q_C$ and $e = W/Q_H$, nothing else. Power questions live here too: multiply work per cycle by cycles per second, or work backwards from a fuel burn rate times an energy content.
 
 **Two temperatures mentioned.** Something is being compared to Carnot. Compute $1 - T_C/T_H$ immediately, in kelvin. If the problem also gives a real efficiency, it wants either the gap ("by how many percentage points") or the ratio ("what fraction of the ideal"). Read which.
 
@@ -242,4 +242,4 @@ The problems in this topic sort into four kinds, and the first line of the quest
 
 **The words fridge, heat pump, cold box, or a COP.** Decide what the machine's user wants (heat removed or heat delivered) before writing anything. Then $\text{COP} = Q/W$ with the right $Q$ on top, and the ceiling $T_C/(T_H - T_C)$ for a fridge.
 
-And one signal that overrides all of these: if the hot or cold object is described with a **heat capacity** rather than a fixed temperature, it is not a reservoir. Its temperature will drift, and you will have to track $Q/T$ through the whole process as in the last example. That is the bridge to the [next lesson](/guide/entropy), where $Q/T$ gets a name of its own and the second law stops being a rule about engines and becomes a statement about everything.
+And one signal that overrides all of these: if the hot or cold object is described with a **heat capacity** rather than a fixed temperature, it isn't a reservoir. Its temperature will drift, and you will have to track $Q/T$ through the whole process as in the last example. That is the bridge to the [next lesson](/guide/entropy), where $Q/T$ gets a name of its own and the second law stops being a rule about engines and becomes a statement about everything.

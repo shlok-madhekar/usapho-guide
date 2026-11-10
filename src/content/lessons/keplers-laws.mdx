@@ -50,7 +50,7 @@ average. Subtract them instead and you get $r_a - r_p = 2ae$, so
 
 $$e = \frac{r_a - r_p}{r_a + r_p}$$
 
-<Figure caption={<><b>Figure 1.</b> The parts of an ellipse. Drag the eccentricity to zero and the two foci and the centre collapse together into a circle; drag it to 0.9 and notice how close the Sun gets to one end. Watch the readout: perihelion is a(1-e) and aphelion is a(1+e), always averaging to a.</>}>
+<Figure caption={<><b>Figure 1.</b> The parts of an ellipse. Drag the eccentricity to zero and the two foci and the centre collapse together into a circle; drag it to 0.9 and watch how close the Sun gets to one end. Watch the readout: perihelion is a(1-e) and aphelion is a(1+e), always averaging to a.</>}>
   <Sim id="keplers-laws-ellipse" />
 </Figure>
 
@@ -82,7 +82,7 @@ areas in equal times.** Near perihelion the line is short, so to sweep the same
 area the planet must race around; near aphelion the line is long and the planet
 crawls.
 
-Here is why it is true. In a short time $dt$ the planet moves by $\vec v\,dt$.
+The proof fits in one paragraph. In a short time $dt$ the planet moves by $\vec v\,dt$.
 The region swept is very nearly a triangle with one vertex at the Sun and two
 sides $\vec r$ and $\vec v\,dt$. The area of a triangle built on two vectors is
 half the magnitude of their cross product, so
@@ -97,9 +97,9 @@ times is conservation of angular momentum wearing a geometric disguise.
 
 Because the argument only used "the force points at the Sun", the second law
 holds for *any* central force. The first and third laws need the force to be
-exactly inverse-square; the second does not.
+exactly inverse-square; the second doesn't.
 
-The practical payoff comes at the two ends of the orbit. At perihelion and at
+Where you'll actually use it is at the two ends of the orbit. At perihelion and at
 aphelion the velocity is perpendicular to $\vec r$ (that is what it means to be
 at the closest or farthest point: the distance is momentarily not changing, so
 there is no radial velocity). With $\vec r \perp \vec v$, the cross product is
@@ -107,7 +107,7 @@ just $rv$, and equating $L$ at the two ends:
 
 $$v_p r_p = v_a r_a \qquad\Longrightarrow\qquad \frac{v_p}{v_a} = \frac{r_a}{r_p} = \frac{1+e}{1-e}$$
 
-<Figure caption={<><b>Figure 2.</b> Two wedges of identical duration, one straddling perihelion and one straddling aphelion. They have equal areas, which the readout confirms. Notice that the perihelion wedge is short and fat and the aphelion one is long and thin, and that the dot visibly hurries through the near end. Raise the eccentricity and the contrast gets extreme.</>}>
+<Figure caption={<><b>Figure 2.</b> Two wedges of identical duration, one straddling perihelion and one straddling aphelion. They have equal areas, which the readout confirms. The perihelion wedge is short and fat, the aphelion one long and thin, and the dot visibly hurries through the near end. Raise the eccentricity and the contrast gets extreme.</>}>
   <Sim id="keplers-laws-areas" />
 </Figure>
 
@@ -206,7 +206,7 @@ law gives the period. Neither one tells you the speed at a general point. For
 that you need energy.
 
 The total energy of a body of mass $m$ in orbit is kinetic plus gravitational
-potential, $E = \tfrac12 mv^2 - GMm/r$, and it is conserved. What is not
+potential, $E = \tfrac12 mv^2 - GMm/r$, and it is conserved. What isn't
 obvious, but is true for every ellipse, is that this energy depends only on the
 semi-major axis:
 
@@ -219,8 +219,8 @@ equal and cancelling $m$ gives the **vis-viva equation**:
 $$v^2 = GM\left(\frac{2}{r} - \frac{1}{a}\right)$$
 
 This is the workhorse. Given the central mass, your current distance $r$, and
-the size $a$ of the orbit you are on, it hands you your speed. Two special
-cases are worth noticing. On a circle $r=a$ and it collapses to
+the size $a$ of the orbit you're on, it hands you your speed. Two special
+cases are worth knowing. On a circle $r=a$ and it collapses to
 $v=\sqrt{GM/r}$, the result from the last lesson. And $a\to\infty$ gives
 $v = \sqrt{2GM/r}$, escape speed: an infinitely large orbit is one that never
 comes back.
@@ -335,7 +335,7 @@ days. No integration required.
   Every orbit problem with two named distances is asking you to add them and
   halve. Perihelion and aphelion, inner and outer transfer circles, launch
   point and apogee, start of a radial fall and the centre: all of them are
-  $2a = r_1 + r_2$. Find $a$ first and the rest falls out.
+  $2a = r_1 + r_2$. Find $a$ first and the rest follows.
 </Aside>
 
 ## Weighing things with the third law
@@ -372,7 +372,7 @@ $T = \sqrt{3\pi/(6.67\times10^{-11}\times5500)} = \sqrt{2.569\times10^{7}}
 = 5070\ \mathrm{s}$, about 84 minutes, which is why every low orbit around
 every rocky body takes roughly an hour and a half.
 
-## How to recognise which law you need
+## Which law the problem is asking for
 
 Read the problem for what it gives you and what it asks.
 

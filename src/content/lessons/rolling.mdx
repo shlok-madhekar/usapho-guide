@@ -1,12 +1,11 @@
 Put a solid ball and a hollow ball of the same mass and the same radius at the
-top of a ramp and let them go together. They do not tie. The solid one wins,
-every time, and the gap does not depend on how heavy they are or how big they
+top of a ramp and let them go together. They don't tie. The solid one wins,
+every time, and the gap doesn't depend on how heavy they are or how big they
 are. Nothing about the ramp cares which is which: same gravity, same slope,
 same height. So the difference has to come from inside the balls.
 
-That is the whole subject of this lesson. When something rolls, the energy you
-give it gets split between moving forward and spinning, and the split is
-decided by how the mass is arranged. In the [previous lesson](/guide/angular-momentum)
+When something rolls, the energy you give it gets split between moving forward
+and spinning, and the split is decided by how the mass is arranged. In the [previous lesson](/guide/angular-momentum)
 you treated rotation on its own: a wheel on a fixed axle, spinning in place. Now
 the axle moves too, and the two motions are locked together by the fact that the
 object is touching the ground.
@@ -33,9 +32,9 @@ Differentiate once more and you get the same link for the accelerations:
 $$a_{cm} = \alpha r$$
 
 where $\alpha$ is the angular acceleration. These two equations are the rolling
-constraint, and almost every problem here uses one of them. Notice what kind of
-statement this is. It is not a law of physics. It is
-geometry, and it is true only while the contact grips. Kick a ball hard along
+constraint, and almost every problem here uses one of them. Mind what kind of
+statement this is: not a law of physics, geometry. It holds only while the
+contact grips. Kick a ball hard along
 the floor and for a while it slides: the centre is moving faster than $\omega r$
 and the constraint is simply false. You will handle that case later in the
 lesson.
@@ -114,8 +113,8 @@ Half of that, $9.0\ \mathrm{J}$, is rotational. Had it been a solid disk
 ## Down a ramp: who wins
 
 Now release an object from rest and let it roll down a slope, dropping a height
-$h$. Static friction is what makes it roll rather than slide, and here is the
-key fact about it: the contact point is not moving, and work is force times the
+$h$. Static friction is what makes it roll rather than slide. But the contact point
+isn't moving, and work is force times the
 displacement *of the point where the force acts*, so static friction does zero
 work. No energy is lost. Mechanical energy is conserved, even though friction is
 essential to the motion.
@@ -221,12 +220,12 @@ $$\mu_s \ge \frac{\beta\tan\theta}{1+\beta}$$
 Worth committing to memory, because it is the check that tells you which of the
 two worlds a problem lives in.
 
-<Figure caption={<><b>Figure 3.</b> The three forces, drawn where they actually act: notice friction is at the contact point, not at the centre. Slide beta from 0.4 up to 1 and watch the acceleration fall while the friction the object demands rises.</>}>
+<Figure caption={<><b>Figure 3.</b> The three forces, drawn where they actually act: friction sits at the contact point, not at the centre. Slide beta from 0.4 up to 1 and watch the acceleration fall while the friction the object demands rises.</>}>
   <Sim id="rolling-incline-fbd" />
 </Figure>
 
 <Aside label="Where this goes wrong" warn>
-  Do not write $f = \mu_s N$ for a rolling object. Static friction takes whatever
+  Don't write $f = \mu_s N$ for a rolling object. Static friction takes whatever
   value the constraint demands, up to that maximum and no more. Solve for $f$
   from the torque equation, then check it against $\mu_s N$. Only when the check
   fails does $\mu$ enter the answer, and then it is $\mu_k$, not $\mu_s$.
@@ -239,7 +238,7 @@ Run the check first. With $\beta = 2/5$, rolling needs
 
 $$\mu_s \ge \frac{(0.4)\tan 40^\circ}{1.4} = \frac{(0.4)(0.8391)}{1.4} = 0.240$$
 
-You only have $0.20$, so the sphere cannot roll without slipping. Throw away the
+You only have $0.20$, so the sphere can't roll without slipping. Throw away the
 constraint. Now the contact really slides, kinetic friction acts at its full
 value $\mu_k N$ up the slope, and the translation no longer knows about $\beta$
 at all:
@@ -257,7 +256,7 @@ which the rolling version never did.
 Bowl a ball down a lane and it leaves your hand with a forward speed $v_0$ and
 essentially no spin. The constraint is badly violated: $v_0 > \omega r = 0$, so
 the contact point is sliding forward. Kinetic friction acts backwards on the
-ball, at the contact. Two things happen at once. The backward force slows the
+ball, at the contact, where it does two jobs at once. It slows the
 centre:
 
 $$v(t) = v_0 - \mu_k g t$$
@@ -302,7 +301,7 @@ $$K_f = \tfrac12 (6.0)(5.714)^2(1.4) = \tfrac12(6.0)(32.653)(1.4) = 137.14\ \mat
 
 $$\Delta K = 192.0 - 137.14 = 54.9\ \mathrm{J}$$
 
-lost to heat at the sliding contact. Do not try to conserve energy here: the
+lost to heat at the sliding contact. Don't try to conserve energy here: the
 contact point moves, so this friction does real work.
 
 <Figure caption={<><b>Figure 4.</b> The falling line is the centre's speed, the rising one is the rim speed omega times R. Rolling begins where they cross. Drag the friction slider: the crossing moves left and right but its height never changes.</>}>
@@ -336,7 +335,7 @@ Torque about the contact point settles it in one line: the normal force and
 friction both act there, so only the tension $T$ has a torque about it. Its
 lever arm is the perpendicular distance from the contact point to the line of
 the cord, which works out to $R\cos\theta - r$. If that is positive the spool
-rolls forward; if negative it rolls back; if zero it does not turn at all:
+rolls forward; if negative it rolls back; if zero it doesn't turn at all:
 
 $$\cos\theta = \frac{r}{R}$$
 
@@ -371,9 +370,9 @@ recognise.
   roll" question, this is much the faster route.
 </Aside>
 
-## Recognising a rolling problem
+## Slipping or not, force or speed, which beta
 
-Three questions sort nearly everything.
+Three questions sort nearly everything in this topic.
 
 **Is the contact slipping?** If the problem says "rolls without slipping", you
 have $v = \omega r$ and $a = \alpha r$ and static friction does no work, so
@@ -394,5 +393,5 @@ the shape first and write the number down before anything else: $2/5$ sphere,
 $1/2$ disk, $2/3$ shell, $1$ hoop. If mass or radius survives to your final
 answer in a problem that gave you neither, you have made an algebra mistake.
 
-And one habit worth building: if the answer to a ramp question does not contain
+And one habit worth building: if the answer to a ramp question doesn't contain
 $1+\beta$ somewhere, look again.

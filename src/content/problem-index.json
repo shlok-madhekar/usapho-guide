@@ -7083,6 +7083,1308 @@
     "solvable": false
   },
   {
+    "id": "hx-rc-01",
+    "name": "Charging with a bleed resistor",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "transients",
+      "thevenin"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-rc-02",
+    "name": "Where the stored energy goes",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "discharge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-rc-03",
+    "name": "Capacitor that discharges itself",
+    "module": "rc-circuits",
+    "difficulty": "Very Hard",
+    "tags": [
+      "leaky dielectric",
+      "time constant"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-pot-01",
+    "name": "Bead launched from a ring's center",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "ring",
+      "energy conservation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-pot-02",
+    "name": "Proton ejected from a charge cloud",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "charged sphere",
+      "energy conservation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-pot-03",
+    "name": "Pull of a grounded sphere",
+    "module": "electric-potential",
+    "difficulty": "Very Hard",
+    "tags": [
+      "image charges",
+      "conductors"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-cur-01",
+    "name": "Resistance of a tapered wire",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "varying cross-section",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-cur-02",
+    "name": "Wire heating to the melting point",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "current density",
+      "heating"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-cur-03",
+    "name": "Resistance between buried electrodes",
+    "module": "current-resistance",
+    "difficulty": "Very Hard",
+    "tags": [
+      "spreading resistance",
+      "electrodes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-kir-01",
+    "name": "Power from the weaker battery",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "two loops",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-kir-02",
+    "name": "Current through an unbalanced bridge",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "wheatstone bridge",
+      "node analysis"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-kir-03",
+    "name": "Infinite ladder of resistors",
+    "module": "kirchhoff",
+    "difficulty": "Very Hard",
+    "tags": [
+      "infinite ladder",
+      "self-similarity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-bs-01",
+    "name": "Field at the center of a hairpin",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "arc",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-bs-02",
+    "name": "Field at the center of a square loop",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "square loop",
+      "finite segment"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-bs-03",
+    "name": "Field of a spinning charged disk",
+    "module": "biot-savart",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rotating disk",
+      "surface current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-mf-01",
+    "name": "Rod held on inclined rails",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "force on wire",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-mf-02",
+    "name": "Separating neon isotopes",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "mass spectrometer",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-mf-03",
+    "name": "Ring oscillating in a magnetic field",
+    "module": "magnetic-force",
+    "difficulty": "Very Hard",
+    "tags": [
+      "magnetic torque",
+      "oscillation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-m1d-01",
+    "name": "Sprinter's top speed",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "kinematics",
+      "phases"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-m1d-02",
+    "name": "Coasting boat with quadratic drag",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "drag",
+      "calculus"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-m1d-03",
+    "name": "Thrust that fades with position",
+    "module": "motion-1d",
+    "difficulty": "Very Hard",
+    "tags": [
+      "calculus",
+      "shm analogy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-mg-01",
+    "name": "Back to the start from a v-t graph",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "graphs",
+      "areas"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-mg-02",
+    "name": "Straight line on a v-x graph",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "graphs",
+      "calculus"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-mg-03",
+    "name": "Quarter-circle acceleration graph",
+    "module": "motion-graphs",
+    "difficulty": "Very Hard",
+    "tags": [
+      "graphs",
+      "work-energy analogy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-ff-01",
+    "name": "Second stone catches the first",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "free-fall",
+      "two objects"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-ff-02",
+    "name": "Twice past the ledge",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "free-fall",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-ff-03",
+    "name": "How long does the bouncing last?",
+    "module": "free-fall",
+    "difficulty": "Very Hard",
+    "tags": [
+      "free-fall",
+      "restitution",
+      "series"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-pe-01",
+    "name": "Tipping a crate over its edge",
+    "module": "potential-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "gravity",
+      "center of mass"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-pe-02",
+    "name": "Fastest point in a potential well",
+    "module": "potential-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "potential curve",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-pe-03",
+    "name": "Peg below the pivot",
+    "module": "potential-energy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "energy",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-wet-01",
+    "name": "Friction that grows with distance",
+    "module": "work-energy-theorem",
+    "difficulty": "Hard",
+    "tags": [
+      "variable force",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-wet-02",
+    "name": "Round trip on a rough ramp",
+    "module": "work-energy-theorem",
+    "difficulty": "Hard",
+    "tags": [
+      "friction",
+      "incline"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-wet-03",
+    "name": "Where the spring-block finally stops",
+    "module": "work-energy-theorem",
+    "difficulty": "Very Hard",
+    "tags": [
+      "spring",
+      "friction",
+      "oscillation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-com-01",
+    "name": "Swapping seats in a canoe",
+    "module": "center-of-mass",
+    "difficulty": "Hard",
+    "tags": [
+      "cm",
+      "recoil"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-com-02",
+    "name": "Shell splits at the top",
+    "module": "center-of-mass",
+    "difficulty": "Hard",
+    "tags": [
+      "cm",
+      "projectile",
+      "explosion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-com-03",
+    "name": "Block leaving a free wedge",
+    "module": "center-of-mass",
+    "difficulty": "Very Hard",
+    "tags": [
+      "momentum",
+      "energy",
+      "constraints"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-ak-01",
+    "name": "When the acceleration tilts to 45 degrees",
+    "module": "angular-kinematics",
+    "difficulty": "Hard",
+    "tags": [
+      "angular acceleration",
+      "centripetal"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-ak-02",
+    "name": "Minute hand catches the hour hand",
+    "module": "angular-kinematics",
+    "difficulty": "Hard",
+    "tags": [
+      "relative angular velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-ak-03",
+    "name": "Path length of a point on a rolling wheel",
+    "module": "angular-kinematics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rolling",
+      "cycloid",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-moi-01",
+    "name": "Square plate with an off-center hole",
+    "module": "moment-of-inertia",
+    "difficulty": "Hard",
+    "tags": [
+      "parallel axis",
+      "subtraction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-moi-02",
+    "name": "Flywheel measured with a falling mass",
+    "module": "moment-of-inertia",
+    "difficulty": "Hard",
+    "tags": [
+      "dynamics",
+      "measurement"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-moi-03",
+    "name": "Nonuniform rod about its center of mass",
+    "module": "moment-of-inertia",
+    "difficulty": "Very Hard",
+    "tags": [
+      "integration",
+      "parallel axis"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-roll-01",
+    "name": "Yo-yo pulled along the floor",
+    "module": "rolling",
+    "difficulty": "Hard",
+    "tags": [
+      "rolling",
+      "torque",
+      "yo-yo"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-roll-02",
+    "name": "Normal force at the bottom of a bowl",
+    "module": "rolling",
+    "difficulty": "Hard",
+    "tags": [
+      "rolling",
+      "energy",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-roll-03",
+    "name": "Backspin shot that comes back",
+    "module": "rolling",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rolling",
+      "friction",
+      "transition to rolling",
+      "angular momentum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-bank-01",
+    "name": "Slow lap on a banked velodrome",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-bank-02",
+    "name": "Conical pendulum at the breaking point",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "conical pendulum",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-bank-03",
+    "name": "Friction coefficient from two speed limits",
+    "module": "banked-curves",
+    "difficulty": "Very Hard",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-unit-01",
+    "name": "Airburst energy from the shock radius",
+    "module": "units-estimation",
+    "difficulty": "Hard",
+    "tags": [
+      "dimensional analysis",
+      "scaling"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-unit-02",
+    "name": "Ripple speed by dimensional analysis",
+    "module": "units-estimation",
+    "difficulty": "Hard",
+    "tags": [
+      "dimensional analysis",
+      "waves"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-unit-03",
+    "name": "Molecules of one ancient breath",
+    "module": "units-estimation",
+    "difficulty": "Very Hard",
+    "tags": [
+      "fermi estimate",
+      "atmosphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-approx-01",
+    "name": "Where classical kinetic energy breaks down",
+    "module": "approximations",
+    "difficulty": "Hard",
+    "tags": [
+      "taylor series",
+      "relativity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-approx-02",
+    "name": "Pendulum clock taken to the mountains",
+    "module": "approximations",
+    "difficulty": "Hard",
+    "tags": [
+      "binomial approximation",
+      "gravitation",
+      "pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-approx-03",
+    "name": "Oscillation frequency from a model potential",
+    "module": "approximations",
+    "difficulty": "Very Hard",
+    "tags": [
+      "taylor series",
+      "oscillations",
+      "potential energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-dgraph-01",
+    "name": "Reading g off a log-log plot",
+    "module": "data-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "log-log",
+      "intercept",
+      "pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-dgraph-02",
+    "name": "Resistance from a semi-log discharge line",
+    "module": "data-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "semi-log",
+      "slope",
+      "circuits"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-dgraph-03",
+    "name": "What a linear 1/ω plot reveals about drag",
+    "module": "data-graphs",
+    "difficulty": "Very Hard",
+    "tags": [
+      "linearization",
+      "rotational dynamics",
+      "drag"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-dunc-01",
+    "name": "Uncertainty in g from a timed pendulum",
+    "module": "data-uncertainty",
+    "difficulty": "Hard",
+    "tags": [
+      "propagation",
+      "powers"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-dunc-02",
+    "name": "Best value from three unequal measurements",
+    "module": "data-uncertainty",
+    "difficulty": "Hard",
+    "tags": [
+      "weighted-average",
+      "statistics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-dunc-03",
+    "name": "Propagating error through the lens equation",
+    "module": "data-uncertainty",
+    "difficulty": "Very Hard",
+    "tags": [
+      "propagation",
+      "partial derivatives"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-kt-01",
+    "name": "Helium leaking into vacuum",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "effusion",
+      "pressure"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-kt-02",
+    "name": "Collision clock of a nitrogen molecule",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "mean free path",
+      "collision frequency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-kt-03",
+    "name": "Pressure ratio in an ultracentrifuge",
+    "module": "kinetic-theory",
+    "difficulty": "Very Hard",
+    "tags": [
+      "boltzmann factor",
+      "pressure",
+      "rotation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-1law-01",
+    "name": "Heating a gas against a spring-loaded piston",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "first law",
+      "work",
+      "spring"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-1law-02",
+    "name": "Heat along a parabolic pressure law",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "first law",
+      "work",
+      "process path"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-1law-03",
+    "name": "Filling a tank from a high-pressure line",
+    "module": "first-law",
+    "difficulty": "Very Hard",
+    "tags": [
+      "first law",
+      "flow work",
+      "adiabatic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-pv-01",
+    "name": "Hottest point on a straight-line process",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "ideal gas law",
+      "maximum temperature"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-pv-02",
+    "name": "Efficiency of a triangular cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "efficiency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-pv-03",
+    "name": "Two isotherms and two isochores, no regenerator",
+    "module": "pv-diagrams",
+    "difficulty": "Very Hard",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "efficiency",
+      "isothermal"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-stand-01",
+    "name": "Taut wire tuned by cooling",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "string",
+      "tension",
+      "thermal stress"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-stand-02",
+    "name": "Kundt's tube driven by a singing rod",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "longitudinal waves",
+      "nodes",
+      "resonance tube"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-stand-03",
+    "name": "Energy stored in a standing wave",
+    "module": "standing-waves",
+    "difficulty": "Very Hard",
+    "tags": [
+      "string",
+      "harmonics",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-diff-01",
+    "name": "How the slit envelope dims a fringe",
+    "module": "diffraction",
+    "difficulty": "Hard",
+    "tags": [
+      "double-slit",
+      "single-slit",
+      "intensity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-diff-02",
+    "name": "Mirror size for a surveillance satellite",
+    "module": "diffraction",
+    "difficulty": "Hard",
+    "tags": [
+      "rayleigh",
+      "resolving-power",
+      "circular aperture"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-diff-03",
+    "name": "Splitting the sodium doublet on a focal plane",
+    "module": "diffraction",
+    "difficulty": "Very Hard",
+    "tags": [
+      "grating",
+      "resolving-power",
+      "spectrometer"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-film-01",
+    "name": "Soap film viewed at 45 degrees",
+    "module": "thin-film",
+    "difficulty": "Hard",
+    "tags": [
+      "soap film",
+      "phase shift",
+      "oblique incidence"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-film-02",
+    "name": "Newton's rings with a wet gap",
+    "module": "thin-film",
+    "difficulty": "Hard",
+    "tags": [
+      "Newtons rings",
+      "interference",
+      "water"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-film-03",
+    "name": "Where two colors agree on an air wedge",
+    "module": "thin-film",
+    "difficulty": "Very Hard",
+    "tags": [
+      "air wedge",
+      "order counting",
+      "two wavelengths"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-photo-01",
+    "name": "Work function from two stopping potentials",
+    "module": "photoelectric",
+    "difficulty": "Hard",
+    "tags": [
+      "stopping-potential",
+      "work-function",
+      "data analysis"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-photo-02",
+    "name": "Photoelectrons bent into circles",
+    "module": "photoelectric",
+    "difficulty": "Hard",
+    "tags": [
+      "work-function",
+      "magnetic field",
+      "electron motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-photo-03",
+    "name": "Energy handed to a backscattering electron",
+    "module": "photoelectric",
+    "difficulty": "Very Hard",
+    "tags": [
+      "compton",
+      "photon-energy",
+      "conservation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-db-01",
+    "name": "Matching an X-ray photon's wavelength",
+    "module": "de-broglie",
+    "difficulty": "Hard",
+    "tags": [
+      "matter-wave",
+      "acceleration",
+      "comparison"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-db-02",
+    "name": "Thermal neutrons meet a crystal",
+    "module": "de-broglie",
+    "difficulty": "Hard",
+    "tags": [
+      "thermal",
+      "matter-wave",
+      "bragg"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-db-03",
+    "name": "When the de Broglie and Compton wavelengths agree",
+    "module": "de-broglie",
+    "difficulty": "Very Hard",
+    "tags": [
+      "matter-wave",
+      "relativistic",
+      "compton-wavelength"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-radio-01",
+    "name": "Radon riding on radium",
+    "module": "radioactivity",
+    "difficulty": "Hard",
+    "tags": [
+      "secular-equilibrium",
+      "activity",
+      "half-life"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-radio-02",
+    "name": "Thermal power of a plutonium generator",
+    "module": "radioactivity",
+    "difficulty": "Hard",
+    "tags": [
+      "activity",
+      "decay energy",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-radio-03",
+    "name": "When the technetium peaks",
+    "module": "radioactivity",
+    "difficulty": "Very Hard",
+    "tags": [
+      "decay-chain",
+      "activity",
+      "half-life"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-bind-01",
+    "name": "How polonium's alpha shares the spoils",
+    "module": "binding-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "q-value",
+      "alpha-decay",
+      "momentum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-bind-02",
+    "name": "Weighing the sunlight",
+    "module": "binding-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "mass-energy",
+      "stellar",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
+    "id": "hx-bind-03",
+    "name": "Burning a kilogram of deuterium completely",
+    "module": "binding-energy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "fusion",
+      "q-value",
+      "energy-per-mass"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "solvable": true
+  },
+  {
     "id": "kin-1d-01",
     "name": "Car speeding up from rest",
     "module": "motion-1d",

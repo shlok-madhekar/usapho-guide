@@ -1,0 +1,326 @@
+[
+  {
+    "id": "hx-rc-01",
+    "name": "Charging with a bleed resistor",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "transients",
+      "thevenin"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $24\\ \\mathrm{V}$ battery charges an initially uncharged capacitor $C = 20\\ \\mu\\mathrm{F}$ through a resistor $R_1 = 100\\ \\mathrm{k\\Omega}$. A second resistor $R_2 = 50\\ \\mathrm{k\\Omega}$ is connected directly across the capacitor. The switch closes at $t = 0$. At what time, in seconds, does the capacitor voltage reach half of its final value?",
+    "answer": 0.462,
+    "unit": "s",
+    "solution": "The capacitor never sees the full battery voltage because $R_2$ bleeds current around it. Replace the battery and both resistors by their Thevenin equivalent as seen from the capacitor terminals: $$V_{th} = \\varepsilon\\,\\frac{R_2}{R_1+R_2} = 24\\cdot\\frac{50}{150} = 8\\ \\mathrm{V}, \\qquad R_{th} = \\frac{R_1 R_2}{R_1+R_2} = \\frac{100\\cdot 50}{150}\\ \\mathrm{k\\Omega} = 33.3\\ \\mathrm{k\\Omega}.$$ The capacitor then charges as a plain RC circuit toward $V_{th}$ with time constant $$\\tau = R_{th}C = (3.33\\times10^{4})(20\\times10^{-6}) = 0.667\\ \\mathrm{s},$$ so $V(t) = V_{th}(1 - e^{-t/\\tau})$. Reaching half the final value means $1 - e^{-t/\\tau} = \\tfrac12$, i.e. $$t = \\tau\\ln 2 = (0.667)(0.693) = 0.462\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-rc-02",
+    "name": "Where the stored energy goes",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "discharge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A capacitor $C = 40\\ \\mu\\mathrm{F}$ is charged to $60\\ \\mathrm{V}$ and then discharged through a network: resistor $R_1 = 10\\ \\Omega$ in series with the parallel combination of $R_2 = 30\\ \\Omega$ and $R_3 = 60\\ \\Omega$. Find the total energy dissipated in $R_2$ during the complete discharge, in J.",
+    "answer": 0.032,
+    "unit": "J",
+    "solution": "All the stored energy ends up as heat, so start from $$U = \\tfrac12 C V_0^2 = \\tfrac12 (40\\times10^{-6})(60)^2 = 0.072\\ \\mathrm{J}.$$ The split between resistors does not depend on time: at every instant the same discharge current $I(t)$ leaves the capacitor, so the ratios of instantaneous powers are fixed, and the same ratios apply to the total energies. The series resistor $R_1$ and the parallel block $R_p = \\frac{30\\cdot 60}{90} = 20\\ \\Omega$ carry the same current, so energy divides in proportion to resistance: the parallel block gets $$U_p = U\\,\\frac{R_p}{R_1+R_p} = 0.072\\cdot\\frac{20}{30} = 0.048\\ \\mathrm{J}.$$ Inside the parallel block, $R_2$ and $R_3$ share the same voltage, so power splits by conductance, i.e. inversely with resistance: $$U_2 = U_p\\,\\frac{R_3}{R_2+R_3} = 0.048\\cdot\\frac{60}{90} = 0.032\\ \\mathrm{J}.$$"
+  },
+  {
+    "id": "hx-rc-03",
+    "name": "Capacitor that discharges itself",
+    "module": "rc-circuits",
+    "difficulty": "Very Hard",
+    "tags": [
+      "leaky dielectric",
+      "time constant"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A parallel-plate capacitor is completely filled with a slightly conducting dielectric of dielectric constant $\\kappa = 5.0$ and resistivity $\\rho = 4.0\\times10^{11}\\ \\Omega\\cdot\\mathrm{m}$. The capacitor is charged and then disconnected from everything, after which it discharges through its own dielectric. Find the time for the stored energy to fall to $10\\%$ of its initial value, in s. The plate area and separation are not given because they are not needed. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\mathrm{F/m}$.",
+    "answer": 20.4,
+    "unit": "s",
+    "solution": "Treat the dielectric slab as both the capacitor's dielectric and the leakage resistor. For plate area $A$ and separation $d$, $$C = \\frac{\\kappa\\varepsilon_0 A}{d}, \\qquad R = \\frac{\\rho d}{A}.$$ The discharge time constant is their product, and the geometry cancels completely: $$\\tau = RC = \\kappa\\varepsilon_0\\rho = (5.0)(8.85\\times10^{-12})(4.0\\times10^{11}) = 17.7\\ \\mathrm{s}.$$ This is why the problem can omit the dimensions: every parallel-plate capacitor made of this material self-discharges at the same rate. The charge decays as $Q = Q_0 e^{-t/\\tau}$, but the question asks about energy, and $U = Q^2/2C \\propto e^{-2t/\\tau}$, so energy decays twice as fast. Setting $e^{-2t/\\tau} = 0.10$: $$t = \\frac{\\tau}{2}\\ln 10 = \\frac{17.7}{2}(2.303) = 20.4\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-pot-01",
+    "name": "Bead launched from a ring's center",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "ring",
+      "energy conservation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A thin ring of radius $R = 10\\ \\mathrm{cm}$ carries charge $Q = 2.0\\ \\mu\\mathrm{C}$ spread uniformly around it. A small ball of charge $q = 50\\ \\mathrm{nC}$ and mass $m = 2.0\\ \\mathrm{g}$ is released from rest at the center of the ring and escapes along the ring's axis. Ignoring gravity, find its speed far from the ring, in m/s. Use $k = 8.99\\times10^{9}\\ \\mathrm{N\\cdot m^2/C^2}$.",
+    "answer": 3.0,
+    "unit": "m/s",
+    "solution": "Every element of the ring is the same distance $R$ from the center, so the potential there is simply $$V_{c} = \\frac{kQ}{R} = \\frac{(8.99\\times10^{9})(2.0\\times10^{-6})}{0.10} = 1.80\\times10^{5}\\ \\mathrm{V},$$ with $V \\to 0$ far away. Note the center is an equilibrium point only in the plane of the ring; along the axis the ball is pushed away, which is why it escapes axially. Energy conservation between the center and infinity gives $$qV_c = \\tfrac12 m v^2 \\quad\\Rightarrow\\quad v = \\sqrt{\\frac{2qV_c}{m}} = \\sqrt{\\frac{2(50\\times10^{-9})(1.80\\times10^{5})}{2.0\\times10^{-3}}}.$$ The numerator is $1.80\\times10^{-2}\\ \\mathrm{J}$ doubled over $2.0\\times10^{-3}\\ \\mathrm{kg}$, giving $v = \\sqrt{8.99} = 3.00\\ \\mathrm{m/s}.$"
+  },
+  {
+    "id": "hx-pot-02",
+    "name": "Proton ejected from a charge cloud",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "charged sphere",
+      "energy conservation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A spherical cloud of radius $R = 5.0\\ \\mathrm{cm}$ carries total charge $Q = +1.0\\ \\mathrm{nC}$ distributed uniformly throughout its volume. A proton is placed at rest at the exact center and moves freely through the cloud (the cloud is tenuous and exerts no drag). Find the proton's speed as it crosses the cloud's surface, in m/s. Use $k = 8.99\\times10^{9}\\ \\mathrm{N\\cdot m^2/C^2}$, $e = 1.6\\times10^{-19}\\ \\mathrm{C}$, $m_p = 1.67\\times10^{-27}\\ \\mathrm{kg}$.",
+    "answer": 131000,
+    "unit": "m/s",
+    "solution": "Inside a uniformly charged sphere the potential is not constant; it is $$V(r) = \\frac{kQ}{2R}\\left(3 - \\frac{r^2}{R^2}\\right),$$ which you can get by integrating the interior field $E = kQr/R^3$ from the surface inward. The drop from center to surface is $$\\Delta V = V(0) - V(R) = \\frac{3kQ}{2R} - \\frac{kQ}{R} = \\frac{kQ}{2R} = \\frac{(8.99\\times10^{9})(1.0\\times10^{-9})}{2(0.050)} = 89.9\\ \\mathrm{V}.$$ The proton falls through this potential difference, so $$\\tfrac12 m_p v^2 = e\\,\\Delta V \\quad\\Rightarrow\\quad v = \\sqrt{\\frac{2e\\,\\Delta V}{m_p}} = \\sqrt{\\frac{2(1.6\\times10^{-19})(89.9)}{1.67\\times10^{-27}}} = \\sqrt{1.72\\times10^{10}} = 1.31\\times10^{5}\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-pot-03",
+    "name": "Pull of a grounded sphere",
+    "module": "electric-potential",
+    "difficulty": "Very Hard",
+    "tags": [
+      "image charges",
+      "conductors"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A point charge $q = 100\\ \\mathrm{nC}$ is held at distance $d = 15\\ \\mathrm{cm}$ from the center of a grounded conducting sphere of radius $R = 5.0\\ \\mathrm{cm}$. Find the magnitude of the electrostatic force attracting the charge toward the sphere, in N. Use $k = 8.99\\times10^{9}\\ \\mathrm{N\\cdot m^2/C^2}$.",
+    "answer": 0.001686,
+    "unit": "N",
+    "solution": "A grounded sphere held at $V = 0$ with a point charge outside can be replaced by a single image charge inside the sphere. Demand that the potential vanish everywhere on the spherical surface: this works if the image has $$q' = -q\\,\\frac{R}{d} = -(100\\ \\mathrm{nC})\\frac{5}{15} = -33.3\\ \\mathrm{nC}$$ placed at distance $$b = \\frac{R^2}{d} = \\frac{(0.050)^2}{0.15} = 0.0167\\ \\mathrm{m}$$ from the center, on the line joining the center to $q$. Outside the sphere the real induced surface charge produces exactly the same field as this image, so the force on $q$ is the Coulomb attraction to $q'$ at separation $$s = d - b = 0.150 - 0.0167 = 0.1333\\ \\mathrm{m}.$$ Then $$F = \\frac{k\\,q\\,|q'|}{s^2} = \\frac{(8.99\\times10^{9})(1.0\\times10^{-7})(3.33\\times10^{-8})}{(0.1333)^2} = 1.69\\times10^{-3}\\ \\mathrm{N}.$$ Equivalently $F = kq^2 Rd/(d^2-R^2)^2$, which gives the same $1.69\\times10^{-3}\\ \\mathrm{N}$."
+  },
+  {
+    "id": "hx-cur-01",
+    "name": "Resistance of a tapered wire",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "varying cross-section",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A copper wire of length $L = 2.0\\ \\mathrm{m}$ tapers smoothly: its radius grows linearly from $a = 1.0\\ \\mathrm{mm}$ at one end to $b = 3.0\\ \\mathrm{mm}$ at the other. The taper is gradual enough that the current density is uniform across each cross-section. Copper's resistivity is $\\rho = 1.7\\times10^{-8}\\ \\Omega\\cdot\\mathrm{m}$. Find the end-to-end resistance, in $\\Omega$.",
+    "answer": 0.00361,
+    "unit": "Ω",
+    "solution": "Slice the wire into disks of thickness $dx$. At position $x$ the radius is $r(x) = a + (b-a)x/L$, and each slice contributes $$dR = \\frac{\\rho\\,dx}{\\pi r(x)^2}.$$ Substituting $u = r(x)$, so $du = \\frac{b-a}{L}dx$: $$R = \\frac{\\rho L}{\\pi(b-a)}\\int_a^b \\frac{du}{u^2} = \\frac{\\rho L}{\\pi(b-a)}\\left(\\frac{1}{a}-\\frac{1}{b}\\right) = \\frac{\\rho L}{\\pi a b}.$$ The clean result $R = \\rho L/(\\pi ab)$ is the uniform-wire formula with the area replaced by $\\pi a b$, the geometric-mean cross-section. Numerically, $$R = \\frac{(1.7\\times10^{-8})(2.0)}{\\pi(1.0\\times10^{-3})(3.0\\times10^{-3})} = \\frac{3.4\\times10^{-8}}{9.42\\times10^{-6}} = 3.61\\times10^{-3}\\ \\Omega.$$"
+  },
+  {
+    "id": "hx-cur-02",
+    "name": "Wire heating to the melting point",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "current density",
+      "heating"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A copper wire at $20\\,^{\\circ}\\mathrm{C}$ suddenly carries a current density $J = 2.0\\times10^{7}\\ \\mathrm{A/m^2}$. Estimate how long until the wire reaches copper's melting point, $1085\\,^{\\circ}\\mathrm{C}$, assuming no heat escapes and ignoring the temperature dependence of resistivity. Copper: resistivity $\\rho_e = 1.7\\times10^{-8}\\ \\Omega\\cdot\\mathrm{m}$, density $\\rho_m = 8960\\ \\mathrm{kg/m^3}$, specific heat $c = 385\\ \\mathrm{J/(kg\\cdot K)}$. Give the time in s.",
+    "answer": 540,
+    "unit": "s",
+    "solution": "Work per unit volume is the natural bookkeeping here, because the wire's length and thickness never enter. The Joule heating power per unit volume is $$p = \\rho_e J^2,$$ which follows from $P = I^2R$ applied to any small cylinder of the wire. With no heat loss, this power raises the temperature of that same volume: $$\\rho_e J^2 = \\rho_m c\\,\\frac{dT}{dt}.$$ The heating rate is constant, so $$t = \\frac{\\rho_m c\\,\\Delta T}{\\rho_e J^2} = \\frac{(8960)(385)(1085-20)}{(1.7\\times10^{-8})(2.0\\times10^{7})^2}.$$ The numerator is $(8960)(385)(1065) = 3.67\\times10^{9}\\ \\mathrm{J/m^3}$ and the denominator is $(1.7\\times10^{-8})(4.0\\times10^{14}) = 6.8\\times10^{6}\\ \\mathrm{W/m^3}$, so $$t = \\frac{3.67\\times10^{9}}{6.8\\times10^{6}} = 540\\ \\mathrm{s},$$ about nine minutes. Notice the answer is independent of the wire's dimensions: double the cross-section and both the heat generated and the mass to heat double together."
+  },
+  {
+    "id": "hx-cur-03",
+    "name": "Resistance between buried electrodes",
+    "module": "current-resistance",
+    "difficulty": "Very Hard",
+    "tags": [
+      "spreading resistance",
+      "electrodes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two small metal spheres, each of radius $a = 10\\ \\mathrm{cm}$, are buried very deep in the ground, far from the surface and separated by a distance much larger than $a$. The ground is uniform with resistivity $\\rho = 150\\ \\Omega\\cdot\\mathrm{m}$, and the spheres are perfect conductors. Find the electrical resistance between the two spheres, in $\\Omega$.",
+    "answer": 239,
+    "unit": "Ω",
+    "solution": "It seems like the resistance should depend on the separation, but it barely does. Current leaving one sphere spreads out radially through the ground; at radius $r$ from that sphere the current density is $J = I/(4\\pi r^2)$ and the field is $E = \\rho J$. The potential drop from the sphere's surface out to a large distance is $$\\Delta V = \\int_a^{\\infty} \\rho\\,\\frac{I}{4\\pi r^2}\\,dr = \\frac{\\rho I}{4\\pi a}.$$ The integral converges: almost all of the resistance is concentrated within a few radii of the small electrode, which is why the separation drops out as long as it is $\\gg a$. Each sphere therefore contributes a spreading resistance $$R_1 = \\frac{\\rho}{4\\pi a},$$ and the two act in series (current exits one, crosses the essentially resistance-free far field, and converges on the other): $$R = 2\\cdot\\frac{\\rho}{4\\pi a} = \\frac{\\rho}{2\\pi a} = \\frac{150}{2\\pi(0.10)} = 239\\ \\Omega.$$"
+  },
+  {
+    "id": "hx-kir-01",
+    "name": "Power from the weaker battery",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "two loops",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two batteries feed a shared load. A $12\\ \\mathrm{V}$ ideal battery in series with $R_1 = 4\\ \\Omega$, and a $9\\ \\mathrm{V}$ ideal battery in series with $R_2 = 6\\ \\Omega$, are both connected (positive terminals together) across a load resistor $R_3 = 3\\ \\Omega$. Find the power delivered by the $9\\ \\mathrm{V}$ battery, in W.",
+    "answer": 4.5,
+    "unit": "W",
+    "solution": "Let $V$ be the potential at the shared positive node (the bottom node is the reference). Kirchhoff's current law at the top node, with both batteries pushing current toward it and the load drawing current away: $$\\frac{12 - V}{4} + \\frac{9 - V}{6} = \\frac{V}{3}.$$ Multiplying through by 12: $$3(12 - V) + 2(9 - V) = 4V \\;\\Rightarrow\\; 36 + 18 = 9V \\;\\Rightarrow\\; V = 6\\ \\mathrm{V}.$$ The current through the $9\\ \\mathrm{V}$ branch is $$I_2 = \\frac{9 - 6}{6} = 0.5\\ \\mathrm{A},$$ and since it is positive, this battery really is discharging (with a weaker EMF it could have been forced to absorb power instead; here it is not). The power it delivers is $$P = \\varepsilon_2 I_2 = (9)(0.5) = 4.5\\ \\mathrm{W}.$$"
+  },
+  {
+    "id": "hx-kir-02",
+    "name": "Current through an unbalanced bridge",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "wheatstone bridge",
+      "node analysis"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $10\\ \\mathrm{V}$ ideal battery drives a bridge circuit. From the positive terminal (node $A$), $R_1 = 10\\ \\Omega$ leads to node $C$ and $R_2 = 20\\ \\Omega$ leads to node $D$. From $C$, $R_3 = 30\\ \\Omega$ returns to the negative terminal (node $B$); from $D$, $R_4 = 10\\ \\Omega$ returns to $B$. A bridge resistor $R_5 = 40\\ \\Omega$ connects $C$ to $D$. Find the current through $R_5$, in A.",
+    "answer": 0.0769,
+    "unit": "A",
+    "solution": "Check balance first: $R_1/R_3 = 1/3$ while $R_2/R_4 = 2$, so the bridge is unbalanced and $R_5$ carries current. Set $V_A = 10$, $V_B = 0$, and write node equations at $C$ and $D$. At $C$: $$\\frac{10 - V_C}{10} = \\frac{V_C}{30} + \\frac{V_C - V_D}{40},$$ and at $D$: $$\\frac{10 - V_D}{20} + \\frac{V_C - V_D}{40} = \\frac{V_D}{10}.$$ Clearing denominators (multiply the first by 120, the second by 40): $$120 = 19V_C - 3V_D, \\qquad 20 + V_C = 7V_D.$$ Substituting $V_D = (20 + V_C)/7$ into the first: $$840 = 133V_C - 3(20 + V_C) \\;\\Rightarrow\\; 900 = 130V_C \\;\\Rightarrow\\; V_C = 6.923\\ \\mathrm{V},$$ and then $V_D = 26.923/7 = 3.846\\ \\mathrm{V}$. The bridge current flows from $C$ to $D$: $$I_5 = \\frac{V_C - V_D}{40} = \\frac{3.077}{40} = 0.0769\\ \\mathrm{A}.$$"
+  },
+  {
+    "id": "hx-kir-03",
+    "name": "Infinite ladder of resistors",
+    "module": "kirchhoff",
+    "difficulty": "Very Hard",
+    "tags": [
+      "infinite ladder",
+      "self-similarity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An infinite ladder network is built from repeating identical cells: each cell consists of a $3\\ \\Omega$ resistor in the top rail followed by a $2\\ \\Omega$ resistor connecting the rails. Find the equivalent resistance between the two input terminals of the ladder, in $\\Omega$.",
+    "answer": 4.37,
+    "unit": "Ω",
+    "solution": "An infinite ladder looks the same if you peel off one cell: removing the first $3\\ \\Omega$ series resistor and the first $2\\ \\Omega$ shunt leaves another infinite ladder with the same resistance $R$. So the whole network satisfies $$R = 3 + \\frac{2R}{2 + R},$$ where the second term is the first shunt in parallel with the rest of the ladder. Multiplying by $(2+R)$: $$R(2 + R) = 3(2 + R) + 2R \\;\\Rightarrow\\; R^2 + 2R = 6 + 3R + 2R \\;\\Rightarrow\\; R^2 - 3R - 6 = 0.$$ The quadratic gives $$R = \\frac{3 + \\sqrt{9 + 24}}{2} = \\frac{3 + \\sqrt{33}}{2} = \\frac{3 + 5.745}{2} = 4.37\\ \\Omega,$$ taking the positive root since resistance cannot be negative. As a sanity check, $R$ must exceed $3\\ \\Omega$ (the first series element alone) but be less than $5\\ \\Omega$ (the first cell with the rest of the ladder removed, $3 + 2$); indeed $4.37$ sits between."
+  },
+  {
+    "id": "hx-bs-01",
+    "name": "Field at the center of a hairpin",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "arc",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A long wire carrying $I = 8.0\\ \\mathrm{A}$ is bent into a hairpin: two very long parallel straight sections joined by a semicircle of radius $R = 2.0\\ \\mathrm{cm}$, with the straight sections tangent to the semicircle's ends. Find the magnitude of the magnetic field at the center of the semicircle, in T. Use $\\mu_0 = 4\\pi\\times10^{-7}\\ \\mathrm{T\\cdot m/A}$.",
+    "answer": 0.000206,
+    "unit": "T",
+    "solution": "Break the hairpin into three pieces whose fields at the center all point the same way (out of or into the page, by the right-hand rule), so the magnitudes add. The semicircle is half a full loop: $$B_{arc} = \\frac{1}{2}\\cdot\\frac{\\mu_0 I}{2R} = \\frac{\\mu_0 I}{4R}.$$ Each straight section is a semi-infinite wire whose end sits closest to the center, at perpendicular distance $R$. A semi-infinite wire ending at the foot of the perpendicular gives half the infinite-wire field: $$B_{straight} = \\frac{1}{2}\\cdot\\frac{\\mu_0 I}{2\\pi R} = \\frac{\\mu_0 I}{4\\pi R},$$ and there are two of them. Adding everything: $$B = \\frac{\\mu_0 I}{4R} + 2\\cdot\\frac{\\mu_0 I}{4\\pi R} = \\frac{\\mu_0 I}{R}\\left(\\frac{1}{4} + \\frac{1}{2\\pi}\\right).$$ With $\\mu_0 I/R = (4\\pi\\times10^{-7})(8.0)/(0.020) = 5.03\\times10^{-4}\\ \\mathrm{T}$: $$B = (5.03\\times10^{-4})(0.250 + 0.159) = 2.06\\times10^{-4}\\ \\mathrm{T}.$$"
+  },
+  {
+    "id": "hx-bs-02",
+    "name": "Field at the center of a square loop",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "square loop",
+      "finite segment"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A square loop of side $a = 10\\ \\mathrm{cm}$ carries current $I = 5.0\\ \\mathrm{A}$. Find the magnitude of the magnetic field at the center of the square, in T. Use $\\mu_0 = 4\\pi\\times10^{-7}\\ \\mathrm{T\\cdot m/A}$.",
+    "answer": 5.66e-05,
+    "unit": "T",
+    "solution": "The field of a finite straight segment at perpendicular distance $d$ from its midpoint, subtending angles $\\pm\\theta$ at the field point, is $$B = \\frac{\\mu_0 I}{4\\pi d}(\\sin\\theta_1 + \\sin\\theta_2),$$ straight from the Biot-Savart integral. For one side of the square seen from the center, $d = a/2$ and the side's ends sit at $45^{\\circ}$ on either side, so $\\sin\\theta_1 = \\sin\\theta_2 = \\frac{1}{\\sqrt2}$: $$B_{side} = \\frac{\\mu_0 I}{4\\pi (a/2)}\\cdot\\frac{2}{\\sqrt2} = \\frac{\\mu_0 I}{\\sqrt2\\,\\pi a}.$$ All four sides push the field the same way at the center (check with the right-hand rule going around the loop), so $$B = 4B_{side} = \\frac{4\\mu_0 I}{\\sqrt2\\,\\pi a} = \\frac{2\\sqrt2\\,\\mu_0 I}{\\pi a}.$$ Numerically, $$B = \\frac{2\\sqrt2\\,(4\\pi\\times10^{-7})(5.0)}{\\pi(0.10)} = 5.66\\times10^{-5}\\ \\mathrm{T},$$ slightly weaker than the $\\mu_0 I/(2r)$ field of a circular loop of radius $a/2$ (which would be $6.28\\times10^{-5}$ T), since the square's corners sit farther from the center."
+  },
+  {
+    "id": "hx-bs-03",
+    "name": "Field of a spinning charged disk",
+    "module": "biot-savart",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rotating disk",
+      "surface current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A thin insulating disk of radius $R = 20\\ \\mathrm{cm}$ carries total charge $Q = 5.0\\ \\mu\\mathrm{C}$ spread uniformly over its surface. The disk spins about its axis at $3000$ revolutions per minute. Find the magnitude of the magnetic field at the center of the disk, in T. Use $\\mu_0 = 4\\pi\\times10^{-7}\\ \\mathrm{T\\cdot m/A}$.",
+    "answer": 1.57e-09,
+    "unit": "T",
+    "solution": "A spinning charged disk is a continuum of circular current loops. The surface charge density is $$\\sigma = \\frac{Q}{\\pi R^2} = \\frac{5.0\\times10^{-6}}{\\pi(0.20)^2} = 3.98\\times10^{-5}\\ \\mathrm{C/m^2},$$ and the angular speed is $\\omega = 3000\\cdot\\frac{2\\pi}{60} = 314.2\\ \\mathrm{rad/s}$. A ring of radius $r$ and width $dr$ holds charge $dq = \\sigma\\,2\\pi r\\,dr$ and completes a revolution every $T = 2\\pi/\\omega$, so it is a loop of current $$dI = \\frac{dq}{T} = \\sigma\\omega r\\,dr.$$ Each loop contributes $dB = \\mu_0\\,dI/(2r)$ at the center, and the $r$ in the loop formula cancels the $r$ in $dI$: $$B = \\int_0^R \\frac{\\mu_0\\,\\sigma\\omega r\\,dr}{2r} = \\frac{\\mu_0\\sigma\\omega}{2}\\int_0^R dr = \\frac{\\mu_0\\sigma\\omega R}{2}.$$ Every annulus contributes equally, the signature of this classic cancellation. Numerically: $$B = \\frac{(4\\pi\\times10^{-7})(3.98\\times10^{-5})(314.2)(0.20)}{2} = 1.57\\times10^{-9}\\ \\mathrm{T}.$$"
+  },
+  {
+    "id": "hx-mf-01",
+    "name": "Rod held on inclined rails",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "force on wire",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A conducting rod of mass $m = 0.25\\ \\mathrm{kg}$ and length $L = 0.50\\ \\mathrm{m}$ rests on two frictionless rails that run up a plane inclined at $30^{\\circ}$ to the horizontal, with the rod horizontal and perpendicular to the rails. A uniform magnetic field $B = 0.80\\ \\mathrm{T}$ points vertically upward. What current through the rod, in A, holds it stationary on the rails? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 3.54,
+    "unit": "A",
+    "solution": "The subtlety is the direction of the magnetic force. The rod is horizontal and the field is vertical, so $\\vec{F} = I\\vec{L}\\times\\vec{B}$ is horizontal, pointing into the slope, not parallel to it. Resolve forces along the incline (the frictionless rails can only supply a normal force). Gravity has component $mg\\sin\\theta$ down the slope; the horizontal magnetic force $F = BIL$ has component $F\\cos\\theta$ up the slope. Equilibrium along the incline requires $$BIL\\cos\\theta = mg\\sin\\theta \\quad\\Rightarrow\\quad I = \\frac{mg\\tan\\theta}{BL}.$$ If you had (wrongly) assumed the magnetic force acts along the incline you would get $\\sin\\theta$ instead of $\\tan\\theta$, a $15\\%$ error at this angle. Plugging in: $$I = \\frac{(0.25)(9.8)\\tan 30^{\\circ}}{(0.80)(0.50)} = \\frac{(2.45)(0.577)}{0.40} = 3.54\\ \\mathrm{A}.$$"
+  },
+  {
+    "id": "hx-mf-02",
+    "name": "Separating neon isotopes",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "mass spectrometer",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Singly ionized neon atoms of masses $20\\,\\mathrm{u}$ and $22\\,\\mathrm{u}$ are accelerated from rest through a potential difference of $3.0\\ \\mathrm{kV}$, then enter a uniform magnetic field $B = 0.60\\ \\mathrm{T}$ perpendicular to their velocity. Each ion travels a semicircle and strikes a detector plate. Find the separation between the two landing points, in mm. Use $e = 1.6\\times10^{-19}\\ \\mathrm{C}$, $1\\,\\mathrm{u} = 1.66\\times10^{-27}\\ \\mathrm{kg}$.",
+    "answer": 5.74,
+    "unit": "mm",
+    "solution": "First the acceleration stage: $qV = \\tfrac12 mv^2$ gives each ion a speed $v = \\sqrt{2qV/m}$, so the lighter isotope moves faster. In the field, the radius is $r = mv/(qB)$. Combining the two, $$r = \\frac{m}{qB}\\sqrt{\\frac{2qV}{m}} = \\frac{1}{B}\\sqrt{\\frac{2mV}{q}},$$ so despite the lighter ion's higher speed, the heavier ion traces the larger circle: $r \\propto \\sqrt{m}$. For the $20\\,\\mathrm{u}$ ion: $$r_{20} = \\frac{1}{0.60}\\sqrt{\\frac{2(20)(1.66\\times10^{-27})(3000)}{1.6\\times10^{-19}}} = 0.0588\\ \\mathrm{m}.$$ The $22\\,\\mathrm{u}$ ion lands at $r_{22} = r_{20}\\sqrt{22/20} = 0.0617\\ \\mathrm{m}$. After a semicircle each ion lands a full diameter $2r$ from the entry slit, so the separation is $$\\Delta = 2(r_{22} - r_{20}) = 2(0.0617 - 0.0588) = 5.74\\times10^{-3}\\ \\mathrm{m} = 5.74\\ \\mathrm{mm}.$$"
+  },
+  {
+    "id": "hx-mf-03",
+    "name": "Ring oscillating in a magnetic field",
+    "module": "magnetic-force",
+    "difficulty": "Very Hard",
+    "tags": [
+      "magnetic torque",
+      "oscillation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A thin rigid ring of mass $m = 10\\ \\mathrm{g}$ and radius $a = 5.0\\ \\mathrm{cm}$ carries a steady current $I = 2.0\\ \\mathrm{A}$ (fed through flexible leads of negligible effect). It is suspended in a uniform magnetic field $B = 0.30\\ \\mathrm{T}$ so that it can rotate freely about a diameter perpendicular to $\\vec{B}$, and it rests in equilibrium with its magnetic moment aligned with the field. Find the period of small oscillations about this equilibrium, in s. Ignore gravity.",
+    "answer": 0.324,
+    "unit": "s",
+    "solution": "When the ring tilts by a small angle $\\theta$ from alignment, the field exerts a restoring torque on its magnetic moment $\\mu = I\\pi a^2$: $$\\tau = -\\mu B\\sin\\theta \\approx -\\mu B\\,\\theta.$$ Rotation is about a diameter, and a thin ring's moment of inertia about a diameter is half of that about its axis: $$I_{rot} = \\tfrac12 m a^2.$$ Newton's second law for rotation, $I_{rot}\\ddot{\\theta} = -\\mu B\\theta$, is simple harmonic motion with $$\\omega^2 = \\frac{\\mu B}{I_{rot}} = \\frac{I\\pi a^2 B}{\\tfrac12 m a^2} = \\frac{2\\pi I B}{m}.$$ The radius cancels entirely, which is worth noticing: a bigger ring has a proportionally bigger magnetic moment and a proportionally bigger moment of inertia. The period is $$T = 2\\pi\\sqrt{\\frac{m}{2\\pi I B}} = 2\\pi\\sqrt{\\frac{0.010}{2\\pi(2.0)(0.30)}} = 2\\pi\\sqrt{2.65\\times10^{-3}} = 0.324\\ \\mathrm{s}.$$"
+  }
+]

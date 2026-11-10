@@ -5,9 +5,9 @@ relative to the water. She is slower than the river, so no matter which way she
 points the bow, she is going downstream. The question is not whether she drifts.
 It is how little she can drift if she chooses her heading well.
 
-You cannot answer that by thinking about speeds alone. Speed is one number, and
+You can't answer that by thinking about speeds alone. Speed is one number, and
 this problem has two independent directions in it: across the river and along
-it. The whole trick is to stop treating the motion as one thing and start
+it. The trick is to stop treating the motion as one thing and start
 treating it as two numbers that evolve separately. That is what a vector is, not an arrow you draw, but a small bundle of independent numbers, one per
 direction. The previous lesson had you [checking that the units of an
 expression made sense](/guide/units-estimation) before trusting it. This one
@@ -22,7 +22,7 @@ $+x$ axis. Now drop a perpendicular line from the tip of $\vec A$ down to the
 $x$ axis. You have made a right triangle whose hypotenuse is $\vec A$, whose
 horizontal leg runs along $x$, and whose vertical leg runs along $y$.
 
-That triangle is the whole story. The hypotenuse has length $A$ (the
+That triangle carries the rest of the lesson. The hypotenuse has length $A$ (the
 *magnitude*, a plain positive number with units). Right-triangle trigonometry
 says the side adjacent to $\theta$ is $A\cos\theta$ and the side opposite is
 $A\sin\theta$. So
@@ -42,7 +42,7 @@ from the *vertical*, then the vertical piece is the adjacent one and gets the
 cosine. Draw the triangle every single time and read it off. That habit costs
 five seconds and removes an entire category of mistake.
 
-<Figure caption={<><b>Figure 1.</b> Drag the angle and watch the two dashed legs trade length while the arrow keeps its length. Notice that past 90 degrees the x-component goes negative, and that the readout's Pythagoras check always returns the magnitude you set.</>}>
+<Figure caption={<><b>Figure 1.</b> Drag the angle and watch the two dashed legs trade length while the arrow keeps its length. Past 90 degrees the x-component goes negative, and the readout's Pythagoras check always returns the magnitude you set.</>}>
   <Sim id="vectors-components" />
 </Figure>
 
@@ -101,9 +101,10 @@ the ground. For the rower, with $x$ downstream and $y$ across:
 
 $$\vec v_{\text{ground}} = \vec v_{\text{water}} + \vec v_{\text{current}}.$$
 
-Here is the key structural fact. The across-river component decides *how long*
+The across-river component decides *how long*
 the crossing takes, and the downstream component decides *how far* she drifts
-during that time. They are independent. If a swimmer moving at 1.6 m/s points
+during that time. They are independent, and that independence is the structure
+the problem hangs on. If a swimmer moving at 1.6 m/s points
 straight across a 40 m river, her crossing time is set by the 1.6 alone, $t =
 40/1.6 = 25$ s, and the 1.2 m/s current carries her $(1.2)(25) = 30$ m
 downstream. The current never slows the crossing.
@@ -134,12 +135,12 @@ the numbers in. Across-speed $v_y = (2.0)(0.7454) = 1.491$ m/s, so $t = 150/1.49
 = 100.6$ s. Downstream speed $v_x = 3.0 - (2.0)(0.6667) = 3.0 - 1.333 = 1.667$
 m/s. Drift $d = (1.667)(100.6) = 168$ m.
 
-Notice what made this tractable: never once did you think about the resultant
+What made this tractable: never once did you think about the resultant
 arrow. You wrote two components, built the time out of one and the distance out
 of the other, and then did ordinary one-variable calculus.
 
 <Aside label="Where this goes wrong" warn>
-  Do not set up the crossing by pointing the *resultant* straight across unless
+  Don't set up the crossing by pointing the *resultant* straight across unless
   the problem says she lands directly opposite. Heading and course are different
   vectors. "She aims across" fixes $\vec v_{\text{water}}$; "she lands opposite"
   fixes $\vec v_{\text{ground}}$. Read which one the problem pins down, and note
@@ -148,7 +149,7 @@ of the other, and then did ordinary one-variable calculus.
 
 ## The dot product: how much of this lies along that
 
-Often you do not want a whole vector, only the part of it pointing some
+Often you don't want the whole vector, only the part of it pointing some
 particular way. The horizontal pull on the sled was exactly that: the part of
 $\vec F$ along the direction of motion. Generalise it. Take any two vectors
 $\vec A$ and $\vec B$ with angle $\theta$ between them. The length of $\vec A$'s
@@ -173,7 +174,7 @@ $\cos\theta = (\vec A\cdot\vec B)/(AB)$.
   <Sim id="vectors-dot" />
 </Figure>
 
-Three things it buys you. Work: $W = \vec F\cdot\vec d$, since only the part of
+You'll use it for three jobs. Work: $W = \vec F\cdot\vec d$, since only the part of
 the force along the displacement does anything. For $\vec F = (12, -5)$ N and
 $\vec d = (3, 4)$ m, $W = (12)(3) + (-5)(4) = 36 - 20 = 16$ J. A
 perpendicularity test: $\vec A\cdot\vec B = 0$ with neither vector zero means
@@ -296,7 +297,7 @@ push makes angle $25^\circ$ with the slope surface, so its along-slope
 along-slope force is $181.3 - 165.6 = 15.6$ N up the slope. Two lines, because
 the axes were chosen to make the normal force irrelevant.
 
-## Recognising when this is the tool
+## Reading the signals in a problem
 
 Some signals to watch for in a problem statement.
 

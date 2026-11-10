@@ -12,10 +12,10 @@ sitting at the middle of it. A current makes a field that closes on itself with
 nothing in the middle to point at. Whatever rule produces $\vec{B}$ from a
 current has to build that sideways-ness in from the start.
 
-The rule is the Biot-Savart law, and it is the magnetic twin of Coulomb's law:
+The rule is the Biot-Savart law, and it's the magnetic twin of Coulomb's law:
 chop the source into tiny pieces, work out what one piece sends to the point
-you care about, add the pieces up as vectors. Everything below is that one
-sentence, applied to wires bent into different shapes.
+you care about, add the pieces up as vectors. Arcs, squares, hairpins, spinning
+disks: every shape below is that recipe run on a different geometry.
 
 ## What one piece of current sends out
 
@@ -27,11 +27,10 @@ ampere-metres.
 
 Pick a field point $P$. Let $\vec{r}$ run from the element to $P$, let $r$ be
 its length, and let $\hat{r}$ be the unit vector along it ($\hat{r} =
-\vec{r}/r$, length one, direction only). Three things have to be true of the
-field $d\vec{B}$ this element makes at $P$. It should grow with the current and
-with the size of the stub. It should fall off with distance the way every
-point-source field does, as $1/r^2$. And it must come out sideways, because the
-compass says so. A cross product is the only clean way to write "sideways to
+\vec{r}/r$, length one, direction only). Whatever field $d\vec{B}$ this element
+makes at $P$ should grow with the current and with the size of the stub. It
+should fall off with distance the way every point-source field does, as
+$1/r^2$. And it must come out sideways, because the compass says so. A cross product is the only clean way to write "sideways to
 both". Put those together:
 
 $$
@@ -73,7 +72,7 @@ magnitudes, and the only question left is how much each element gives.
 
 Measure position along the wire by the angle $\theta$ from the perpendicular
 through $P$, positive on one side and negative on the other. Doing the integral
-(it is a standard one, and the substitution $x = d\tan\theta$ is what makes it
+(it's a standard one, and the substitution $x = d\tan\theta$ is what makes it
 go) gives, for a segment whose ends sit at angles $\theta_1$ and $\theta_2$,
 
 $$
@@ -81,7 +80,7 @@ B = \frac{\mu_0 I}{4\pi d}\left(\sin\theta_2 - \sin\theta_1\right)
 $$
 
 Memorise this one. Nearly every straight-wire problem in the bank is this
-formula used once per segment. Two special cases fall straight out. Let the
+formula used once per segment. Two special cases follow immediately. Let the
 wire run forever both ways: $\theta_2 \to +90^\circ$, $\theta_1 \to -90^\circ$,
 the bracket becomes $1-(-1) = 2$, and
 
@@ -125,12 +124,12 @@ further from the 8 A wire than from the 2 A one, because the ratio of currents
 is four. Check that against your intuition before you move on.
 
 <Aside label="Where this goes wrong" warn>
-  Do not add magnitudes when the directions differ. Three long wires through the
+  Don't add magnitudes when the directions differ. Three long wires through the
   corners of an equilateral triangle, all carrying the same current out of the
   page, produce three equal fields at the centroid, each perpendicular to its own
   radius and each rotated 120 degrees from the next. Three equal vectors at 120
   degrees sum to zero, so the field at the centroid is zero, not three times one
-  wire's field. Draw the arrows before you reach for the calculator.
+  wire's field. Draw the arrows before you touch the calculator.
 </Aside>
 
 ## Arcs, loops and polygons
@@ -150,7 +149,7 @@ A full circle has $\phi = 2\pi$ and gives $B = \mu_0 I/2R$. So an arc gives the
 fraction $\phi/2\pi$ of a full loop: a semicircle gives half, a quarter arc
 gives a quarter. And straight leads that run *radially* in or out from the
 centre contribute nothing at all, since they point along their own $\hat{r}$.
-That is why so many problems are drawn with radial leads: it is a way of
+That's why so many problems are drawn with radial leads: it's a way of
 handing you the arc alone.
 
 **Worked example 2.** A wire carries 10 A in from far away, runs parallel to
@@ -230,7 +229,7 @@ $R^2$ under the root drops out, leaving $B \approx \mu_0 I R^2/2z^3$: the
 $1/z^3$ falloff of a magnetic dipole. For $N$ turns wound close together,
 multiply by $N$: every turn does the same job.
 
-<Figure caption={<><b>Figure 4.</b> Slide the field point out along the axis. Notice how flat the curve is near the centre, which is why a loop is a decent place to put something that needs a uniform field, and how fast it dies past one radius.</>}>
+<Figure caption={<><b>Figure 4.</b> Slide the field point out along the axis. The curve is nearly flat near the centre, which is why a loop is a decent place to put something that needs a uniform field, and it dies fast past one radius.</>}>
   <Sim id="biot-savart-loop" />
 </Figure>
 
@@ -266,7 +265,7 @@ a current.
 $q = 2.0\ \mu$C spread evenly over its face and spins at $\omega = 100$ rad/s.
 Find $B$ at its centre.
 
-You cannot use the ring answer directly, because different parts of the disk
+You can't use the ring answer directly, because different parts of the disk
 sit at different radii. So build it from rings. The surface charge density is
 
 $$
@@ -302,13 +301,13 @@ reasoning handles a sheet of charge sliding sideways, which is where the
 surface current density $K$ (amperes per metre of width) comes from; an
 infinite sheet gives $B = \mu_0 K/2$ on each side, pointing opposite ways.
 
-## Knowing when to reach for it
+## Bent wire or symmetric current: picking the method
 
 The next lesson, [Ampere's law](/guide/amperes-law), gets the same fields far
 faster whenever the geometry is symmetric enough: infinite wires, infinite
 solenoids, coaxial cables. So the real skill is telling the two apart.
 
-Reach for Biot-Savart when the problem names a **shape**: an arc, a square, a
+Biot-Savart is the tool when the problem names a **shape**: an arc, a square, a
 hexagon, a finite segment, a loop seen from a point on its axis, a pair of
 coils. Any time there is a length or a corner or an angle in the statement, the
 field will not be constant along any convenient closed loop, and Ampere's law

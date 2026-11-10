@@ -16,8 +16,8 @@ replaced a swarm of particles by one point, the
 whole. Now you need the other half: how it turns about that point.
 
 Angular position $\theta$ is the angle between some line painted on the body
-and a fixed reference direction. Positive is usually counterclockwise; that is
-a convention, and you are free to pick the other one as long as you keep it.
+and a fixed reference direction. Positive is usually counterclockwise; that's
+a convention, and you're free to pick the other one as long as you keep it.
 
 The unit matters more than it looks. Define the radian by the rule that an
 angle of $\theta$ radians subtends an arc of length
@@ -25,9 +25,9 @@ angle of $\theta$ radians subtends an arc of length
 $$s = r\theta$$
 
 on a circle of radius $r$. A full turn wraps the whole circumference, $s = 2\pi
-r$, so a full turn is $2\pi$ radians. That is the entire content of "one
-revolution equals $2\pi$ rad". Three and a half revolutions is
-$3.5 \times 2\pi = 21.99$ rad.
+r$, so a full turn is $2\pi$ radians. "One revolution equals $2\pi$ rad" isn't a
+separate fact to memorise; it's the circumference restated. Three and a half
+revolutions is $3.5 \times 2\pi = 21.99$ rad.
 
 Every formula below comes out of $s = r\theta$, and $s = r\theta$ is
 only true in radians. Degrees and revolutions are data formats: convert them the
@@ -77,9 +77,9 @@ Differentiate once: $\omega = d\theta/dt = 6t^2 - 5$. At $t = 2.0$,
 $\omega = 6(4) - 5 = 24 - 5 = 19$ rad/s.
 
 Differentiate again: $\alpha = d\omega/dt = 12t$. At $t = 3.0$,
-$\alpha = 12(3.0) = 36$ rad/s². Note that $\alpha$ here is not constant, so the
+$\alpha = 12(3.0) = 36$ rad/s². And $\alpha$ here isn't constant, so the
 constant-acceleration formulas in the next section would give nonsense. Check
-that before you reach for them.
+that before you use them.
 
 <QuickCheck
   question="A wheel has angular velocity omega = -4 rad/s and angular acceleration alpha = +2 rad/s squared. What is it doing?"
@@ -112,7 +112,8 @@ untouched: pick the equation missing the variable you neither know nor want.
 
 A flywheel at 60 rad/s stopped at 5.0 rad/s² takes
 $t = (0 - 60)/(-5.0) = 12$ s. A disk from rest at 4.0 rad/s² turns
-$\theta = \tfrac12 (4.0)(5.0)^2 = 50$ rad in 5.0 s. That is all these are.
+$\theta = \tfrac12 (4.0)(5.0)^2 = 50$ rad in 5.0 s. Both are one-line
+substitutions.
 
 <Figure caption={<><b>Figure 1.</b> The angle is the shaded wedge, and it keeps growing even after the wheel has gone round many times. Set the angular acceleration negative with a positive start and watch the wheel stop, reverse, and unwind the angle it had built up.</>}>
   <Sim id="angular-kinematics-spinup" />
@@ -127,8 +128,8 @@ $$\omega = \frac{8000 \times 2\pi}{60} = \frac{50265}{60} = 837.76\ \text{rad/s}
 
 and the angle turned is $\theta = 220 \times 2\pi = 1382.3$ rad.
 
-You know $\omega_0 = 0$, $\omega$, and $\theta$; you want $\alpha$ and you do
-not know or care about $t$. So use the equation without $t$:
+You know $\omega_0 = 0$, $\omega$, and $\theta$; you want $\alpha$ and you
+don't know or care about $t$. So use the equation without $t$:
 
 $$
 
@@ -246,7 +247,7 @@ relative to the axle points forwards, in the same direction as $v$, so
 $$v_{\text{top}} = v + \omega r = 2v.$$
 
 A wheel of radius 0.30 m rolling at 4.0 m/s has a top point moving at 8.0 m/s.
-This is not a trick: the top of a rolling wheel really does move twice as fast
+This isn't a trick: the top of a rolling wheel really does move twice as fast
 as the car it carries, and the bottom is momentarily stationary.
 
 At the side, level with the axle, the relative motion is *vertical* while the
@@ -271,9 +272,9 @@ $40 \times 2\pi \times 0.34 = 85.5$ m.
 </Figure>
 
 <Aside label="Worth remembering">
-  The bottom of a rolling wheel is instantaneously at rest. That is the whole
-  content of "rolling without slipping", and every other rolling result ($v = \omega r$, the doubled speed at the top, the cusped path) is squeezed
-  out of it.
+  The bottom of a rolling wheel is instantaneously at rest. Every other rolling
+  result ($v = \omega r$, the doubled speed at the top, the cusped path) is
+  squeezed out of that one fact.
 </Aside>
 
 ## When alpha is not constant
@@ -366,9 +367,9 @@ $$
 
 Two runners on a track at 0.16 and 0.10 rad/s have a relative angular speed of
 0.06 rad/s, so the lap happens at $t = 2\pi/0.06 = 104.7$ s. The radius of the
-track, 50 m, never enters: lapping is about angle, not distance. That is a
-good habit to notice: if the question is about who is where, work in angle and
-leave the radius alone until the very end.
+track, 50 m, never enters: lapping is about angle, not distance. So when the
+question is about who is where, work in angle and leave the radius alone until
+the very end.
 
 <Aside label="Worth remembering">
   Angular kinematics has no new physics in it. Every result here is a linear
@@ -377,9 +378,9 @@ leave the radius alone until the very end.
   question asks for them.
 </Aside>
 
-## Recognising the technique
+## The giveaways: rpm, turns, and "does not slip"
 
-You are in an angular kinematics problem when the quantities given are about
+You're in an angular kinematics problem when the quantities given are about
 turning rather than travelling: revolutions, rpm, a period, "how many turns",
 an angle in radians, a radius paired with a rate. Then:
 
@@ -398,7 +399,7 @@ an angle in radians, a radius paired with a rate. Then:
 - **A cord, belt, chain or a wheel on the ground, with "does not slip".** That
   phrase is the equation $v = \omega r$. Write it down first.
 - **$\alpha$ given as a formula.** If it depends on $t$, integrate in $t$. If
-  it depends on $\omega$ or $\theta$, separate variables, and reach for
+  it depends on $\omega$ or $\theta$, separate variables, and switch to
   $\alpha = \omega\, d\omega/d\theta$ the moment the question asks for a total
   angle rather than a time.
 - **Two things going round together.** Work with the difference of the angles,

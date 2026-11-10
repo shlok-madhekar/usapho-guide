@@ -35,7 +35,7 @@ for existing. Anything above that floor is energy of motion, so define the
 $$K = E - E_0 = (\gamma - 1)mc^2$$
 
 That is a definition, not a new law, and it has to agree with $\tfrac12 mv^2$
-when the particle is slow or the whole of mechanics you already learned would
+when the particle is slow, or everything you already learned in mechanics would
 be wrong. Check it. For small $v/c$ the binomial expansion gives
 $\gamma \approx 1 + \tfrac12 v^2/c^2$, so
 
@@ -44,7 +44,7 @@ $$K \approx \left(1 + \tfrac{1}{2}\frac{v^2}{c^2} - 1\right)mc^2 = \tfrac{1}{2}m
 The $c^2$ cancels and Newton reappears. The classical formula was never a
 different theory; it was the first term of this one.
 
-Notice what $K = (\gamma - 1)mc^2$ says about that constant force. As
+Now go back to the constant force with $K = (\gamma - 1)mc^2$ in hand. As
 $v \to c$, $\gamma \to \infty$, so the kinetic energy runs off to infinity while
 the speed creeps towards a wall. The work you do is not lost. It goes into
 $\gamma$, not into $v$.
@@ -73,7 +73,7 @@ few MeV every electron in the machine is moving at essentially $c$ and the speed
 stops carrying information.
 
 <Aside label="Where this goes wrong" warn>
-  Do not write $K = \tfrac12 \gamma m v^2$, and do not invent a
+  Don't write $K = \tfrac12 \gamma m v^2$, and don't invent a
   "relativistic mass" $\gamma m$ that grows with speed. Both survive in old
   books and both will cost you points, because mass is the one quantity every
   observer agrees on. Whenever $\gamma$ appears it belongs to the energy or the
@@ -191,8 +191,8 @@ $$m_\pi c^2 - pc = \sqrt{(pc)^2 + (m_\mu c^2)^2}$$
 
 $$(m_\pi c^2)^2 - 2 m_\pi c^2 \, (pc) + (pc)^2 = (pc)^2 + (m_\mu c^2)^2$$
 
-The $(pc)^2$ cancels on both sides: that cancellation is the whole trick and it
-happens every time one product is massless. Solve:
+The $(pc)^2$ cancels on both sides: that cancellation is what makes the method
+work, and it happens every time one product is massless. Solve:
 
 $$pc = \frac{(m_\pi c^2)^2 - (m_\mu c^2)^2}{2 m_\pi c^2} = \frac{139.6^2 - 105.7^2}{2(139.6)} = \frac{19488 - 11172}{279.2} = \frac{8316}{279.2} = 29.78 \ \text{MeV}$$
 
@@ -215,7 +215,7 @@ roots instead of one.
 
 ## Invariant mass, thresholds and colliders
 
-Here is the technique that cracks the hard problems. Take a whole system of
+Now for the technique that cracks the hard problems. Take a whole system of
 particles, add up their energies to get $E_{\rm tot}$ and add up their momentum
 vectors to get $\vec{p}_{\rm tot}$. Then the quantity
 
@@ -270,7 +270,7 @@ $$K = 1218 - 938.3 = 280 \ \text{MeV}$$
 
 You had to supply $280$ MeV of motion to make $135$ MeV of pion. The surplus is
 not waste: it is the kinetic energy the products are forced to keep, because
-momentum going in was not zero and cannot come out zero.
+momentum going in wasn't zero and can't come out zero.
 
 That surplus is why colliders exist. Fire two beams of energy $E$ head-on and
 the total momentum is zero already, so $\sqrt{s} = 2E$: every joule counts. In a
@@ -284,7 +284,7 @@ which is about $1.9 \times 10^{5}$ GeV. No one is building that.
   At threshold the products are at rest in the centre-of-momentum frame, not in
   the lab. Setting the lab kinetic energy of the products to zero is the most
   common wrong move in this whole topic, and it gives $135$ MeV instead of
-  $280$ MeV above. Also watch the conserved quantum numbers: you cannot make a
+  $280$ MeV above. Also watch the conserved quantum numbers: you can't make a
   lone antiproton, so the cheapest reaction is
   $p + p \to p + p + p + \bar p$, and the products' rest energy in the threshold
   condition is $4 m_p c^2$, not $3 m_p c^2$.
@@ -332,7 +332,7 @@ exactly the problem detector builders have to solve.
   <Sim id="relativistic-energy-decay" />
 </Figure>
 
-## Recognising when this is the tool
+## The MeV giveaways
 
 Some signals, roughly in order of how reliable they are.
 
@@ -357,7 +357,7 @@ energies.
 **Anything asking for an angle or an energy in a different frame.** Solve it in
 the frame where momentum is zero, then boost.
 
-The habit worth building is to stop reaching for $\gamma$ and $v$ at all.
+The habit worth building is to stop hunting for $\gamma$ and $v$ at all.
 Compute in $E$ and $p$, use the triangle to convert between them, and pull out
 $v/c = pc/E$ only at the very end if a problem insists on a speed. Next you will
 meet the photon acting on something solid: [the photoelectric

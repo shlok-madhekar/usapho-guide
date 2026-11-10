@@ -1,6 +1,6 @@
-Hang a grocery bag from a bathroom scale's hook and the needle moves a little. Add another tin and it moves a little more, by the same amount again. Keep going and the marks stay evenly spaced right up until the moment the spring inside gives up and the scale is ruined. That even spacing is the whole reason springs are useful, and it is the reason a spring problem can be solved on paper at all.
+Hang a grocery bag from a bathroom scale's hook and the needle moves a little. Add another tin and it moves a little more, by the same amount again. Keep going and the marks stay evenly spaced right up until the moment the spring inside gives up and the scale is ruined. That even spacing is why springs are useful, and it's why a spring problem can be solved on paper at all.
 
-In the [last lesson](/guide/tension-pulleys) a rope transmitted whatever force the rest of the system demanded. A rope is an ideal that never stretches, so its tension is unknown until you solve for it. A spring is the opposite kind of object. Its force is not an unknown at all: it is fixed by how far the spring has been deformed, and you can read it off before you write a single equation of motion. That swap (from "unknown force, known length" to "known force, changing length") is what this lesson is about.
+In the [last lesson](/guide/tension-pulleys) a rope transmitted whatever force the rest of the system demanded. A rope is an ideal that never stretches, so its tension is unknown until you solve for it. A spring is the opposite kind of object. Its force is not an unknown at all: it's fixed by how far the spring has been deformed, and you can read it off before you write a single equation of motion. That swap (from "unknown force, known length" to "known force, changing length") is what this lesson is about.
 
 ## The restoring force
 
@@ -12,7 +12,7 @@ $k$ is the **spring constant** or stiffness, measured in newtons per metre. A sp
 
 The first real skill is measuring $x$ from the right place. $x$ is the deformation of the spring (its current length minus its natural length) not the position of the block in whatever coordinate system you drew. Get that wrong and every number afterwards is wrong.
 
-Two immediate consequences. First, if you know the stretch you know the force: a spring with $k = 250\;\mathrm{N/m}$ stretched $0.12\;\mathrm{m}$ pulls with $250 \times 0.12 = 30\;\mathrm{N}$, no free body diagram required. Second, you can run it backwards to measure $k$. Hang a $2.0\;\mathrm{kg}$ mass and let it settle; if it stretches $0.080\;\mathrm{m}$, then at rest the spring force equals the weight, so $k(0.080) = (2.0)(9.8) = 19.6\;\mathrm{N}$ and $k = 19.6 / 0.080 = 245\;\mathrm{N/m}$.
+So if you know the stretch you know the force: a spring with $k = 250\;\mathrm{N/m}$ stretched $0.12\;\mathrm{m}$ pulls with $250 \times 0.12 = 30\;\mathrm{N}$, no free body diagram required. And you can run it backwards to measure $k$. Hang a $2.0\;\mathrm{kg}$ mass and let it settle; if it stretches $0.080\;\mathrm{m}$, then at rest the spring force equals the weight, so $k(0.080) = (2.0)(9.8) = 19.6\;\mathrm{N}$ and $k = 19.6 / 0.080 = 245\;\mathrm{N/m}$.
 
 <Aside label="Where this goes wrong" warn>
   Using the block's height, or the spring's total length, as $x$. If a spring of natural length $0.40\;\mathrm{m}$ now measures $0.46\;\mathrm{m}$, then $x = 0.06\;\mathrm{m}$, not $0.46\;\mathrm{m}$. And a spring that has gone slack (a rope-like spring you pushed on, or one whose block has flown off) exerts nothing at all, so check that the deformation you computed is physically possible before trusting it.
@@ -38,7 +38,7 @@ $$F_{\text{net}} = k(x_0 + y) - mg = kx_0 + ky - mg = ky$$
 
 upward, because $kx_0$ and $mg$ were equal and cancelled. Gravity has vanished from the problem. Measured from the hanging equilibrium, a vertical spring behaves exactly like a horizontal one with the same $k$: same restoring law, same everything. That is worth holding on to: a constant force added to a spring force shifts the equilibrium point and changes nothing else.
 
-<Figure caption={<><b>Figure 1.</b> The hanging spring. Notice that the block always oscillates about the equilibrium line, never about the natural length. Turn the stiffness down and watch the sag grow while the arrows stay balanced at the centre; set the amplitude to zero to see the two forces match exactly.</>}>
+<Figure caption={<><b>Figure 1.</b> The hanging spring. The block always oscillates about the equilibrium line, never about the natural length. Turn the stiffness down and watch the sag grow while the arrows stay balanced at the centre; set the amplitude to zero to see the two forces match exactly.</>}>
   <Sim id="springs-hooke-hanging" />
 </Figure>
 
@@ -70,7 +70,7 @@ The same $200$ and $300\;\mathrm{N/m}$ in series give $1/k = 1/200 + 1/300 = 0.0
 This also tells you what happens when you cut a spring. A spring of stiffness $k$ and length $L$ is two half-springs in series, each of stiffness $k'$, and series gives $1/k = 1/k' + 1/k'$, so $k' = 2k$. **Halving a spring doubles its stiffness**, and in general the stiffness of a piece is inversely proportional to its length: cut a $120\;\mathrm{N/m}$ spring into three equal pieces and each piece has $k = 360\;\mathrm{N/m}$.
 
 <Aside label="Worth remembering">
-  Do not pattern-match to resistors; the arithmetic is reversed. Decide from scratch every time by asking which quantity the two springs share. Same displacement means the forces add, so add the $k$'s. Same force means the displacements add, so add the $1/k$'s.
+  Don't pattern-match to resistors; the arithmetic is reversed. Decide from scratch every time by asking which quantity the two springs share. Same displacement means the forces add, so add the $k$'s. Same force means the displacements add, so add the $1/k$'s.
 </Aside>
 
 ## Oscillation: period, frequency and speed
@@ -85,7 +85,7 @@ $$\omega = \sqrt{\frac{k}{m}}, \qquad T = 2\pi\sqrt{\frac{m}{k}}, \qquad f = \fr
 
 $A$ is the **amplitude**, the largest displacement reached. $T$ is the period in seconds, $f$ the frequency in hertz. Nothing in $T$ depends on $A$: a big swing and a small swing take the same time, because a bigger pull comes with a longer trip. A $4.0\;\mathrm{kg}$ block on a $100\;\mathrm{N/m}$ spring has $T = 2\pi\sqrt{4.0/100} = 2\pi (0.2) = 1.257\;\mathrm{s}$.
 
-Two shortcuts fall out. Because $x_0 = mg/k$ for a hanging mass, $m/k = x_0/g$, so $T = 2\pi\sqrt{x_0/g}$: measure the static sag and you know the period without knowing either $m$ or $k$. A sag of $0.050\;\mathrm{m}$ gives $T = 2\pi\sqrt{0.050/9.8} = 2\pi\sqrt{0.005102} = 2\pi(0.07143) = 0.4488\;\mathrm{s}$.
+A couple of shortcuts follow. Because $x_0 = mg/k$ for a hanging mass, $m/k = x_0/g$, so $T = 2\pi\sqrt{x_0/g}$: measure the static sag and you know the period without knowing either $m$ or $k$. A sag of $0.050\;\mathrm{m}$ gives $T = 2\pi\sqrt{0.050/9.8} = 2\pi\sqrt{0.005102} = 2\pi(0.07143) = 0.4488\;\mathrm{s}$.
 
 And because the cosine's derivative brings down a factor $\omega$, the extreme values of speed and acceleration are
 
@@ -124,7 +124,7 @@ $$14.7(0.30 + d) = 600\,d^2 \;\Longrightarrow\; 600d^2 - 14.7d - 4.41 = 0$$
 
 The quadratic formula gives $d = \dfrac{14.7 + \sqrt{14.7^2 + 4(600)(4.41)}}{1200}$. Inside the root: $216.09 + 10584 = 10800.09$, whose square root is $103.923$. So $d = (14.7 + 103.923)/1200 = 118.623/1200 = 0.09885\;\mathrm{m}$.
 
-The negative root is discarded: it corresponds to the spring being stretched upward, which cannot happen here. And notice the sanity check: the static sag is only $14.7/1200 = 0.01225\;\mathrm{m}$, so a $0.30\;\mathrm{m}$ drop buys you about eight times the resting compression, not thirty times. Energy goes as $d^2$, so compression grows slowly.
+The negative root is discarded: it corresponds to the spring being stretched upward, which can't happen here. And run the sanity check: the static sag is only $14.7/1200 = 0.01225\;\mathrm{m}$, so a $0.30\;\mathrm{m}$ drop gets you about eight times the resting compression, not thirty times. Energy goes as $d^2$, so compression grows slowly.
 
 The same equation with $h = 0$ answers "a block is attached to a spring at its natural length and released": then $mgd = \tfrac{1}{2}kd^2$ gives $d = 2mg/k$, exactly **twice** the equilibrium sag. For a $2.0\;\mathrm{kg}$ block on a $400\;\mathrm{N/m}$ spring, $d = 2(2.0)(9.8)/400 = 39.2/400 = 0.098\;\mathrm{m}$. Read that as an oscillation instead and the reasoning is even shorter: the block starts at rest a distance $x_0$ above equilibrium, so the amplitude is $x_0$, so it swings down to $x_0$ below equilibrium, a total of $2x_0$.
 
@@ -148,7 +148,7 @@ Friction can supply at most $f_{\max} = \mu N = \mu m_{\text{top}} g$, since the
 
 $$m_{\text{top}}\,a_{\max} \le \mu m_{\text{top}} g \;\Longrightarrow\; a_{\max} \le \mu g$$
 
-The mass cancels, which is why the answer will not involve the 2.0 kg at all. Now the oscillation's peak acceleration is $a_{\max} = A\omega^2$, and $\omega^2 = k/M$ with $M$ the **total** mass being oscillated, $2.0 + 3.0 = 5.0\;\mathrm{kg}$: $\omega^2 = 200/5.0 = 40\;\mathrm{s^{-2}}$. So
+The mass cancels, which is why the answer won't involve the 2.0 kg at all. Now the oscillation's peak acceleration is $a_{\max} = A\omega^2$, and $\omega^2 = k/M$ with $M$ the **total** mass being oscillated, $2.0 + 3.0 = 5.0\;\mathrm{kg}$: $\omega^2 = 200/5.0 = 40\;\mathrm{s^{-2}}$. So
 
 $$A \le \frac{\mu g}{\omega^2} = \frac{(0.40)(9.8)}{40} = \frac{3.92}{40} = 0.098\;\mathrm{m}$$
 
@@ -156,23 +156,23 @@ Push it past $9.8\;\mathrm{cm}$ and the top block slides at the ends of the swin
 
 ## Springs in a hurry: cut strings and free blocks
 
-Two more situations turn up constantly, and both lean on the fact that a spring's force depends on its length, which cannot change instantly.
+Two more situations turn up constantly, and both lean on the fact that a spring's force depends on its length, which can't change instantly.
 
 A $2.0\;\mathrm{kg}$ block hangs from a spring, and a $3.0\;\mathrm{kg}$ block hangs from it by a string. Cut the string. The spring was holding $5.0\;\mathrm{kg}$, so it was stretched enough to pull with $(5.0)(9.8) = 49\;\mathrm{N}$, and one instant after the cut the spring has not had time to shorten, so it still pulls with $49\;\mathrm{N}$. On the upper block: $49\;\mathrm{N}$ up, its own weight $(2.0)(9.8) = 19.6\;\mathrm{N}$ down, net $29.4\;\mathrm{N}$ up, so $a = 29.4/2.0 = 14.7\;\mathrm{m/s^2}$ upward. A string's tension can jump instantly; a spring's force cannot.
 
 And when a compressed spring throws two free blocks apart on a frictionless floor, use momentum and energy together. The pair starts at rest, so the momenta stay equal and opposite: $m_1v_1 = m_2v_2$. The stored energy $\tfrac{1}{2}kx^2$ becomes the two kinetic energies. With $k = 800\;\mathrm{N/m}$, $x = 0.050\;\mathrm{m}$, $m_1 = 2.0\;\mathrm{kg}$ and $m_2 = 3.0\;\mathrm{kg}$, the energy is $\tfrac{1}{2}(800)(0.0025) = 1.0\;\mathrm{J}$. Substituting $v_2 = m_1v_1/m_2$ into the energy equation and solving gives $v_1 = \sqrt{2E\,m_2 / (m_1(m_1+m_2))} = \sqrt{2(1.0)(3.0)/(2.0 \times 5.0)} = \sqrt{0.6} = 0.7746\;\mathrm{m/s}$. The lighter block comes off faster, as it must to carry equal momentum.
 
-## Recognising a spring problem
+## When a problem hands you a k
 
-The giveaway is a force that is stated as a stiffness rather than a number. The moment a problem hands you a $k$ in N/m, it is telling you that you can compute the force from a length, so your first move is always the same: find the deformation measured from the natural length.
+The giveaway is a force stated as a stiffness rather than a number. The moment a problem quotes a $k$ in N/m, it's telling you that you can compute the force from a length, so your first move is always the same: find the deformation measured from the natural length.
 
 After that, three questions sort out the method.
 
-Does the problem ask for a position where something is at rest or moving steadily? Then it is a balance problem: set $kx$ equal to whatever else pulls, and solve for $x$. That covers equilibrium sag, finding $k$ from a hanging mass, and the whole of series-parallel.
+Does the problem ask for a position where something is at rest or moving steadily? Then it's a balance problem: set $kx$ equal to whatever else pulls, and solve for $x$. That covers equilibrium sag, finding $k$ from a hanging mass, and all the series-parallel work.
 
-Does it ask for a maximum extension, a maximum compression, or a speed at a particular place, with no mention of time? Then it is energy: $\tfrac{1}{2}kx^2$ on one side, gravity and kinetic energy on the other, and remember to include the extra drop $d$ while the spring squashes. If two objects fly apart, add momentum conservation alongside it.
+Does it ask for a maximum extension, a maximum compression, or a speed at a particular place, with no mention of time? Then it's energy: $\tfrac{1}{2}kx^2$ on one side, gravity and kinetic energy on the other, and remember to include the extra drop $d$ while the spring squashes. If two objects fly apart, add momentum conservation alongside it.
 
-Does it ask for a period, a frequency, a maximum acceleration, or whether something slips? Then it is oscillation: find the effective $k$ and the total oscillating $m$, get $\omega = \sqrt{k/m}$, and use $A\omega$ and $A\omega^2$. The word "small oscillations" is a direct instruction to do this.
+Does it ask for a period, a frequency, a maximum acceleration, or whether something slips? Then it's oscillation: find the effective $k$ and the total oscillating $m$, get $\omega = \sqrt{k/m}$, and use $A\omega$ and $A\omega^2$. The word "small oscillations" is a direct instruction to do this.
 
 One warning about that effective $k$: work it out for the actual geometry rather than copying the number off the page. If a spring acts through a movable pulley so that the mass moving a distance $y$ stretches the spring by $2y$ while the spring's pull reaches the mass twice over, the restoring force is $4ky$ and the effective stiffness is $4k$. A spring with $k = 800\;\mathrm{N/m}$ rigged that way and loaded with $2.0\;\mathrm{kg}$ gives $\omega = \sqrt{3200/2.0} = 40\;\mathrm{rad/s}$ and $T = 2\pi/40 = 0.157\;\mathrm{s}$. Always ask how far the spring stretches when the mass moves by one unit.
 

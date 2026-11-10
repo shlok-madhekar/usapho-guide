@@ -3,13 +3,13 @@
 Two cranes lift the same girder to the same rooftop. One takes ten seconds, the
 other takes a hundred. The work done on the girder is identical: same weight,
 same height, same $mgh$. Energy conservation, which you spent the
-[last lesson](/guide/energy-conservation) learning to trust, cannot tell the two
+[last lesson](/guide/energy-conservation) learning to trust, can't tell the two
 cranes apart at all.
 
 Yet one of those cranes costs ten times as much. Something real separates them,
-and energy alone does not capture it. What separates them is *how fast* the
+and energy alone doesn't capture it. What separates them is *how fast* the
 energy gets delivered. That rate is called **power**, and a surprising number of
-hard problems are really about it: a car that cannot go faster no matter how
+hard problems are really about it: a car that can't go faster no matter how
 long you wait, a cyclist whose speed barely improves when she trains harder, a
 conveyor belt whose motor wastes exactly half of what it supplies.
 
@@ -38,7 +38,7 @@ $$W = 60 \times (5.0 \times 3600) = 60 \times 18000 = 1{,}080{,}000\ \text{J}$$
 That is a million joules from one small bulb, which tells you something about
 how stingy a joule is.
 
-Here is a first worked example, the plug-in kind.
+A first worked example, the plug-in kind.
 
 **Example 1.** A worker lifts a 15 kg box 1.4 m onto a shelf in 2.0 s. What is
 her average power output?
@@ -55,7 +55,7 @@ About a hundred watts, sustained. That is roughly a human's comfortable
 long-term output, which is why stacking shelves all day is tiring but possible.
 
 <Aside label="Worth remembering">
-  Average power is always total energy divided by total time. It does not care
+  Average power is always total energy divided by total time. It doesn't care
   what happened in the middle: whether the box went up smoothly or in jerks,
   whether the car accelerated evenly or not. If a problem gives you a start
   state, an end state, and a duration, you can get average power without
@@ -64,7 +64,7 @@ long-term output, which is why stacking shelves all day is tiring but possible.
 
 ## Power equals force times velocity
 
-The definition above needs a work value, and often you do not have one: you
+The definition above needs a work value, and often you don't have one: you
 have a force and a speed. So convert.
 
 Over a tiny time $dt$, an object moving with velocity $\vec v$ shifts by
@@ -139,12 +139,12 @@ Now multiply by the speed:
 
 $$P = 2134.1 \times 22 = 46{,}951\ \text{W} \approx 47\ \text{kW}$$
 
-Notice how little of the setup involved power. The whole problem was a force
+Very little of that setup involved power. Nearly all of it was a force
 balance you could have done in the first unit; power was one multiplication at
 the end. That is typical.
 
 <Aside label="Where this goes wrong" warn>
-  Do not use $mgh/t$ and $Fv$ at the same time and add them. They are two ways
+  Don't use $mgh/t$ and $Fv$ at the same time and add them. They are two ways
   of counting the same energy. In Example 2, the rate of gain of potential
   energy is $mgv\sin\theta = 1434.1 \times 22 = 31.6\ \text{kW}$, and the drag
   eats $700 \times 22 = 15.4\ \text{kW}$. Those two add to 47 kW: they are the
@@ -192,7 +192,7 @@ $$
 And run it backwards to find a speed from a power. If $P = bv^3$ and you double
 the power by adding a second identical rower, the speed goes up by $2^{1/3} =
 1.2599$, so a 3.0 m/s boat reaches $3.0 \times 1.2599 = 3.78\ \text{m/s}$. Twice
-the effort buys 26% more speed. Scaling arguments like that (same $b$, so take
+the effort, 26% more speed. Scaling arguments like that (same $b$, so take
 the ratio and the constant cancels) save you from ever finding $b$.
 
 <QuickCheck
@@ -213,7 +213,7 @@ An engine at full power satisfies $Fv = P$, so the force it can apply is
 $$F = \frac{P}{v}$$
 
 which *falls* as the car speeds up. At 5 m/s a 50 kW engine pushes with 10,000 N;
-at 40 m/s the same engine manages only 1250 N. So a constant-power car does not
+at 40 m/s the same engine manages only 1250 N. So a constant-power car doesn't
 have constant acceleration, and every kinematic equation you know is now
 useless. You have to integrate.
 
@@ -397,7 +397,7 @@ and average power are different animals, and a problem that says "peak" or "at
 that instant" is asking for $Fv$ at one moment, never for total energy over
 total time.
 
-## How to spot a power problem
+## The words that mean watts
 
 A few signals, in rough order of usefulness.
 
@@ -410,15 +410,15 @@ then multiply by $v$. The hill, the elevator, the cyclist, and the locomotive
 were all this problem.
 
 **"Maximum power" or "the engine delivers P" while something accelerates.** Now
-you are in integration territory. Do not reach for the kinematic equations.
-Reach for $\tfrac12 mv^2 = Pt$ if there is no drag, or write
+you are in integration territory. Don't touch the kinematic equations.
+Start from $\tfrac12 mv^2 = Pt$ if there is no drag, or write
 $mv\,dv/dt = P - F_{\text{drag}}(v)$ and separate variables if there is.
 
 **"Top speed" with a drag law.** Set the driving force equal to the drag and
 solve. No calculus needed: top speed is an equilibrium, not a limit process.
 
 **A drag law plus two speeds, or two powers.** Take the ratio. With
-$P \propto v^3$ the unknown constant cancels and you avoid a whole calculation.
+$P \propto v^3$ the unknown constant cancels and you never have to find it.
 
 **Mass arriving per second.** Belt, chain, rocket, hose, falling sand. Find the
 force from $F = (dm/dt)\,v$, then power from $Fv$. Expect the energy bookkeeping

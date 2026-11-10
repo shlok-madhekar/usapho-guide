@@ -27,7 +27,7 @@ Proportional means there's a constant of proportionality. Name it $L$:
 $$N\Phi = LI$$
 
 $L$ is the **self-inductance**, measured in henries (1 H = 1 Wb/A). Because both
-sides scale with $I$ in the same way, $L$ itself does not depend on $I$ at all.
+sides scale with $I$ in the same way, $L$ itself doesn't depend on $I$ at all.
 It depends only on the shape of the coil: how many turns, how big, how long.
 Inductance is geometry, exactly as capacitance is geometry.
 
@@ -66,7 +66,7 @@ Divide by $I$ and the current vanishes, as it must:
 
 $$L = \mu_0 n^2 A \ell$$
 
-<Figure caption={<><b>Figure 1.</b> The chain that defines inductance: current makes field, field makes flux, flux counted once per turn is L times the current. Notice that the current cancels out of the last step, which is why L depends only on the turns, the area and the length.</>}>
+<Figure caption={<><b>Figure 1.</b> The chain that defines inductance: current makes field, field makes flux, flux counted once per turn is L times the current. The current cancels out of the last step, which is why L depends only on the turns, the area and the length.</>}>
   <Sim id="inductance-solenoid" />
 </Figure>
 
@@ -127,7 +127,7 @@ current from 0 up to some final $I$ costs
 
 $$U = \int_0^{I} LI'\,dI' = \tfrac12 L I^2$$
 
-That energy is not lost. It sits in the magnetic field and comes back out when
+That energy isn't lost. It sits in the magnetic field and comes back out when
 the current falls. A 0.20 H coil carrying 3.0 A holds $\tfrac12(0.20)(9.0) =
 0.90$ J.
 
@@ -169,8 +169,8 @@ shells and a logarithm: that combination shows up every time the field goes like
 $1/r$.
 
 <Aside label="Where this goes wrong" warn>
-  An inductor never has a resistance, and it is not a resistor with a delay. Do
-  not write $V = IL$, and do not fold an inductor into a series-parallel
+  An inductor never has a resistance, and it isn't a resistor with a delay.
+  Don't write $V = IL$, and don't fold an inductor into a series-parallel
   reduction with resistors. Its voltage is set by the slope of its current, not
   its value. The only legal moves are to solve the loop equation, or to use the
   two limiting behaviours: at the first instant after a switch flips the
@@ -192,7 +192,7 @@ induce $(0.020)(150) = 3.0$ V in the other.
 
 The practical recipe is to drive whichever coil has the field you can compute.
 For a small 100-turn coil of radius 1.0 cm sitting at the centre of a large
-20-turn coil of radius 0.20 m, do not try to find the little coil's field at the
+20-turn coil of radius 0.20 m, don't try to find the little coil's field at the
 big one. Drive the big coil instead: at its centre $B = \mu_0 N_1 I/(2R) =
 (4\pi\times10^{-7})(20)I/(0.40) = 6.28\times10^{-5}I$ T, essentially uniform over
 the tiny coil. Its area is $\pi(0.010)^2 = 3.14\times10^{-4}$ m², so one turn
@@ -223,7 +223,7 @@ ohms are volts per amp, so the division leaves seconds. And note the direction:
 $\tau$ grows with $L$ but *shrinks* with $R$, opposite to the RC circuit. More
 resistance drives the current to its final value faster.
 
-<Figure caption={<><b>Figure 2.</b> The rise of current in an LR circuit. The straight line is the initial slope, emf over L, and it always hits the final value at exactly one time constant. Drag R up and watch two things happen at once: the final current falls and the curve gets faster.</>}>
+<Figure caption={<><b>Figure 2.</b> The rise of current in an LR circuit. The straight line is the initial slope, emf over L, and it always hits the final value at exactly one time constant. Drag R up and watch: the final current falls and the curve gets faster.</>}>
   <Sim id="inductance-lr-lab" />
 </Figure>
 
@@ -236,7 +236,7 @@ gives $I(t) = I_0 e^{-t/\tau}$. A 0.50 H coil dumping into 20 Ω has $\tau =
 connected in series at $t = 0$. How much heat does the resistor dissipate
 between $t = 0$ and $t = \tau$?
 
-Heat is not $I^2R\tau$, because $I$ is changing the whole time. You have to
+Heat isn't $I^2R\tau$, because $I$ is changing the whole time. You have to
 integrate. First the constants: $I_\infty = 10/5.0 = 2.0$ A and $\tau =
 0.50/5.0 = 0.10$ s. Then
 
@@ -257,7 +257,8 @@ J, so 0.336 J is comfortably smaller, as it must be.
 across a battery at $t = 0$. When does the inductor hold half of its eventual
 energy?
 
-Half the *energy*, not half the current: that's the whole problem. Energy goes
+Half the *energy*, not half the current. Miss that distinction and the rest of
+the arithmetic is pointless. Energy goes
 like $I^2$, so half the energy means $I = I_\infty/\sqrt{2} = 0.7071 I_\infty$.
 Set that equal to the rise curve:
 
@@ -267,7 +268,7 @@ Take logs: $t/\tau = -\ln(0.2929) = 1.228$. With $\tau = 0.40/8.0 = 0.050$ s,
 
 $$t = (1.228)(0.050) = 0.0614\ \text{s}$$
 
-Notice it takes longer than one time constant, because at $t = \tau$ the current
+It takes longer than one time constant, because at $t = \tau$ the current
 is only 63% of final and the energy only $0.63^2 = 40\%$.
 
 <QuickCheck
@@ -281,7 +282,7 @@ That continuity rule also explains the spark. Suppose a 12 V battery sits in
 series with 4.0 Ω, and an ideal inductor is wired in parallel with a 6.0 Ω
 resistor. After a long time the inductor is a plain wire, so it shorts out the
 6.0 Ω and carries the full $12/4.0 = 3.0$ A. Now open the switch. The inductor's
-3.0 A cannot vanish, and the only path left is the 6.0 Ω resistor, so 3.0 A is
+3.0 A can't vanish, and the only path left is the 6.0 Ω resistor, so 3.0 A is
 forced through it: $V = (3.0)(6.0) = 18$ V, larger than the battery that started
 it. Real switches with air gaps and big coils are how you get thousands of
 volts, and a spark.
@@ -339,9 +340,9 @@ $I_{\max} = \sqrt{0.40} = 0.63$ A. Exactly half the stored energy ends up in the
 inductor at that instant: a result worth remembering for any two-capacitor
 sharing problem.
 
-## Recognising it
+## The fingerprints of an inductor problem
 
-Reach for this lesson when you see any of these:
+Suspect an inductor is running the show when you see any of these:
 
 A number given in henries, or a component described as a coil, solenoid, toroid
 or choke. Then $L$ is either handed to you or has to be built from geometry with

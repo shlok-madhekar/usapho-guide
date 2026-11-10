@@ -61,6 +61,28 @@ Warm, plain, and direct. You are a good teacher sitting next to one student.
 - Admit when something is genuinely hard. "This one takes practice" builds more
   trust than pretending it is easy.
 
+### Cadence
+
+A lesson can obey every rule above and still read machine-written, because the
+tells live one level up, in the rhythm. Things that have crept in before and
+get edited back out:
+
+- **Stock framings used across many lessons.** "Notice that...", "Here is
+  the...", "That is the whole story/subject/game", "reach for", "this buys
+  you", "falls straight out". Any of these is fine once; the problem is the
+  fiftieth time. If you have seen the phrase in another lesson, find your own.
+- **The same closing heading everywhere.** Every lesson ends with a section on
+  how to spot the topic in a problem statement, but the heading should be
+  specific to the topic, not "Recognising the technique" for the fortieth time.
+- **The same opener shape everywhere.** A concrete scene is good. A concrete
+  scene that always ends by announcing "that is the puzzle of this lesson" is
+  a template.
+- **Too-even rhythm.** Every paragraph ending on a short punchy sentence, rule-of-three
+  lists, "X, not Y" snaps in every section. Vary the lengths. Let some
+  paragraphs end flat.
+
+Read two other lessons before writing yours, mostly to avoid sounding like them.
+
 ## Continuity
 
 The lessons are a course, read in order, not 82 encyclopedia entries.

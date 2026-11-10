@@ -1,0 +1,390 @@
+[
+  {
+    "id": "hx-roll-01",
+    "name": "Yo-yo pulled along the floor",
+    "module": "rolling",
+    "difficulty": "Hard",
+    "tags": [
+      "rolling",
+      "torque",
+      "yo-yo"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A yo-yo of mass $M = 0.50\\ \\mathrm{kg}$ rests on a horizontal floor. Model it as a uniform disk of outer radius $R = 6.0\\ \\mathrm{cm}$ ($I_{cm} = \\tfrac{1}{2}MR^2$) with a light string wound around an inner axle of radius $r = 2.5\\ \\mathrm{cm}$. The string comes off the underside of the axle and is pulled horizontally with tension $T = 4.0\\ \\mathrm{N}$. The yo-yo rolls without slipping. Find the magnitude of the acceleration of its center, in m/s$^2$.",
+    "answer": 3.11,
+    "unit": "m/s^2",
+    "solution": "Taking torques about the contact point eliminates the unknown friction force. The tension acts horizontally at a height $R - r$ above the floor (the underside of the axle), so its torque about the contact point is $\\tau = T(R-r)$, and it rotates the yo-yo in the forward-rolling sense: the yo-yo accelerates toward the puller.\n\nThe moment of inertia about the contact point is $I_P = \\tfrac{1}{2}MR^2 + MR^2 = \\tfrac{3}{2}MR^2$. Then $\\alpha = \\dfrac{T(R-r)}{\\tfrac{3}{2}MR^2}$ and rolling gives $a = \\alpha R$:\n$$a = \\frac{2T(R-r)}{3MR} = \\frac{2(4.0)(0.060-0.025)}{3(0.50)(0.060)} = \\frac{0.28}{0.090} = 3.11\\ \\mathrm{m/s^2}.$$"
+  },
+  {
+    "id": "hx-roll-02",
+    "name": "Normal force at the bottom of a bowl",
+    "module": "rolling",
+    "difficulty": "Hard",
+    "tags": [
+      "rolling",
+      "energy",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform solid sphere of mass $m = 0.20\\ \\mathrm{kg}$ and radius $r = 5.0\\ \\mathrm{cm}$ rolls without slipping inside a fixed hemispherical bowl of radius $R = 50\\ \\mathrm{cm}$. It is released from rest at the position where the line from the bowl's center to the sphere's center is horizontal. Find the normal force the bowl exerts on the sphere at the lowest point, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 4.76,
+    "unit": "N",
+    "solution": "The sphere's center moves on a circle of radius $R - r$, dropping a height $R - r$ from release to the bottom. Rolling without slipping means $\\omega = v/r$, so the kinetic energy is $\\tfrac{1}{2}mv^2 + \\tfrac{1}{2}\\left(\\tfrac{2}{5}mr^2\\right)\\dfrac{v^2}{r^2} = \\tfrac{7}{10}mv^2$. Energy conservation (friction does no work in rolling):\n$$mg(R-r) = \\tfrac{7}{10}mv^2 \\quad\\Rightarrow\\quad v^2 = \\tfrac{10}{7}g(R-r).$$\nAt the bottom, Newton's second law along the vertical (centripetal) direction for the center's circular path of radius $R - r$:\n$$N - mg = \\frac{mv^2}{R-r} = \\tfrac{10}{7}mg,$$\nso $N = \\tfrac{17}{7}mg$. The radii cancel completely. Numerically,\n$$N = \\tfrac{17}{7}(0.20)(9.8) = 4.76\\ \\mathrm{N}.$$"
+  },
+  {
+    "id": "hx-roll-03",
+    "name": "Backspin shot that comes back",
+    "module": "rolling",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rolling",
+      "friction",
+      "transition to rolling",
+      "angular momentum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform solid ball of radius $R = 0.10\\ \\mathrm{m}$ is thrown onto a horizontal floor so that it initially slides forward at $v_0 = 2.0\\ \\mathrm{m/s}$ while spinning backward (backspin) at $\\omega_0 = 80\\ \\mathrm{rad/s}$. The coefficient of kinetic friction with the floor is $\\mu = 0.40$. The ball eventually rolls without slipping, moving backward, toward the thrower. Find its speed once pure rolling begins, in m/s.",
+    "answer": 0.857,
+    "unit": "m/s",
+    "solution": "Take forward as positive and measure $\\omega$ in the forward-rolling sense, so initially $\\omega = -\\omega_0$. With backspin, the contact point moves forward with speed $v_0 + \\omega_0 R > 0$, so kinetic friction $f = \\mu m g$ acts backward the whole time until rolling starts.\n\nTranslation: $v(t) = v_0 - \\mu g t$. Rotation about the center ($I = \\tfrac{2}{5}mR^2$): the friction torque $\\mu m g R$ spins the ball toward forward rolling, so\n$$\\omega(t) = -\\omega_0 + \\frac{\\mu m g R}{\\tfrac{2}{5}mR^2}\\,t = -\\omega_0 + \\frac{5\\mu g}{2R}t.$$\nPure rolling requires $v = \\omega R$:\n$$v_0 - \\mu g t = -\\omega_0 R + \\tfrac{5}{2}\\mu g t \\quad\\Rightarrow\\quad t = \\frac{2(v_0 + \\omega_0 R)}{7 \\mu g}.$$\nSubstituting back,\n$$v_f = v_0 - \\frac{2(v_0+\\omega_0 R)}{7} = \\frac{5v_0 - 2\\omega_0 R}{7},$$\nwhich is independent of $\\mu$ — the friction coefficient only sets how long the skid lasts. With the numbers,\n$$v_f = \\frac{5(2.0) - 2(80)(0.10)}{7} = \\frac{10 - 16}{7} = -0.857\\ \\mathrm{m/s}.$$\nThe negative sign means the ball rolls back toward the thrower at $0.857\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "hx-bank-01",
+    "name": "Slow lap on a banked velodrome",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velodrome track is banked at $\\theta = 30^\\circ$ with turn radius $R = 25\\ \\mathrm{m}$. The coefficient of static friction between tires and track is $\\mu = 0.25$. A cyclist rides the turn at constant speed. Below a certain minimum speed the bike slides down the banking. Find that minimum speed, in m/s. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 8.37,
+    "unit": "m/s",
+    "solution": "At the minimum speed the bike is on the verge of sliding down, so static friction acts up the slope at its maximum value $f = \\mu N$. Resolve forces with the acceleration $v^2/R$ pointing horizontally toward the center:\n\nVertical: $N\\cos\\theta + \\mu N \\sin\\theta = mg$.\nHorizontal: $N\\sin\\theta - \\mu N \\cos\\theta = \\dfrac{mv^2}{R}$.\n\nDividing the two equations eliminates $N$:\n$$v_{min}^2 = gR\\,\\frac{\\tan\\theta - \\mu}{1 + \\mu\\tan\\theta} = (9.8)(25)\\,\\frac{0.5774 - 0.25}{1 + 0.25(0.5774)} = 245 \\times 0.2861 = 70.1\\ \\mathrm{m^2/s^2},$$\nso $v_{min} = 8.37\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "hx-bank-02",
+    "name": "Conical pendulum at the breaking point",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "conical pendulum",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball of mass $m = 0.30\\ \\mathrm{kg}$ hangs from a string of length $L = 1.2\\ \\mathrm{m}$ and is swung in a horizontal circle as a conical pendulum. The speed is increased very slowly. The string snaps when its tension reaches $T = 6.0\\ \\mathrm{N}$. Find the ball's speed at the instant the string breaks, in m/s. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 4.27,
+    "unit": "m/s",
+    "solution": "Let $\\theta$ be the string's angle from vertical. The vertical equation fixes the angle at the breaking tension:\n$$T\\cos\\theta = mg \\quad\\Rightarrow\\quad \\cos\\theta = \\frac{(0.30)(9.8)}{6.0} = 0.49.$$\nThe horizontal component supplies the centripetal force on the circle of radius $r = L\\sin\\theta$:\n$$T\\sin\\theta = \\frac{mv^2}{L\\sin\\theta} \\quad\\Rightarrow\\quad v^2 = \\frac{TL\\sin^2\\theta}{m} = \\frac{TL(1-\\cos^2\\theta)}{m}.$$\nNumerically, $\\sin^2\\theta = 1 - 0.49^2 = 0.7599$, so\n$$v^2 = \\frac{(6.0)(1.2)(0.7599)}{0.30} = 18.24\\ \\mathrm{m^2/s^2}, \\qquad v = 4.27\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-bank-03",
+    "name": "Friction coefficient from two speed limits",
+    "module": "banked-curves",
+    "difficulty": "Very Hard",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "On a banked circular curve of radius $R = 50\\ \\mathrm{m}$, a car can round the turn without sliding at any constant speed between $v_{min} = 10\\ \\mathrm{m/s}$ and $v_{max} = 25\\ \\mathrm{m/s}$. Below $v_{min}$ it slides down the bank; above $v_{max}$ it slides up. Find the coefficient of static friction between the tires and the road. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 0.367,
+    "unit": "",
+    "solution": "Introduce the friction angle $\\varphi$ defined by $\\tan\\varphi = \\mu$. For a block on a banked turn with friction fully mobilized, combining the force equations $N\\sin\\theta \\pm \\mu N\\cos\\theta = mv^2/R$ and $N\\cos\\theta \\mp \\mu N\\sin\\theta = mg$ and using the angle-addition identity collapses both cases into one clean form:\n$$v_{max}^2 = gR\\tan(\\theta + \\varphi), \\qquad v_{min}^2 = gR\\tan(\\theta - \\varphi).$$\nFrom the data,\n$$\\tan(\\theta+\\varphi) = \\frac{25^2}{(9.8)(50)} = 1.2755 \\Rightarrow \\theta + \\varphi = 51.90^\\circ,$$\n$$\\tan(\\theta-\\varphi) = \\frac{10^2}{(9.8)(50)} = 0.2041 \\Rightarrow \\theta - \\varphi = 11.54^\\circ.$$\nSubtracting, $\\varphi = \\tfrac{1}{2}(51.90^\\circ - 11.54^\\circ) = 20.18^\\circ$, so\n$$\\mu = \\tan(20.18^\\circ) = 0.367.$$\n(The bank angle itself comes out as $\\theta = 31.7^\\circ$, though it was not asked.)"
+  },
+  {
+    "id": "hx-unit-01",
+    "name": "Airburst energy from the shock radius",
+    "module": "units-estimation",
+    "difficulty": "Hard",
+    "tags": [
+      "dimensional analysis",
+      "scaling"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A meteor explodes high in the atmosphere, releasing energy $E$ almost instantaneously into air of density $\\rho = 1.2\\ \\mathrm{kg/m^3}$. At early times the radius $r$ of the expanding spherical shock front can depend only on $E$, $\\rho$, and the elapsed time $t$. High-speed footage shows $r = 140\\ \\mathrm{m}$ at $t = 25\\ \\mathrm{ms}$. Taking the dimensionless constant in the scaling law to be 1, estimate $E$ in kilotons of TNT ($1\\ \\mathrm{kt} = 4.184\\times10^{12}\\ \\mathrm{J}$).",
+    "answer": 24.7,
+    "unit": "kt",
+    "solution": "Write $r = C\\,E^a \\rho^b t^c$ and match dimensions. With $[E] = \\mathrm{kg\\,m^2/s^2}$ and $[\\rho] = \\mathrm{kg/m^3}$:\nmass: $a + b = 0$; length: $2a - 3b = 1$; time: $-2a + c = 0$.\nSolving gives $a = \\tfrac{1}{5}$, $b = -\\tfrac{1}{5}$, $c = \\tfrac{2}{5}$, i.e. the Taylor–Sedov law\n$$r = \\left(\\frac{E t^2}{\\rho}\\right)^{1/5}.$$\nInverting for the energy with $C = 1$:\n$$E = \\frac{\\rho r^5}{t^2} = \\frac{(1.2)(140)^5}{(0.025)^2} = \\frac{(1.2)(5.378\\times10^{10})}{6.25\\times10^{-4}} = 1.03\\times10^{14}\\ \\mathrm{J}.$$\nConverting, $E = \\dfrac{1.033\\times10^{14}}{4.184\\times10^{12}} = 24.7\\ \\mathrm{kt}$."
+  },
+  {
+    "id": "hx-unit-02",
+    "name": "Ripple speed by dimensional analysis",
+    "module": "units-estimation",
+    "difficulty": "Hard",
+    "tags": [
+      "dimensional analysis",
+      "waves"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Very short ripples on water are driven by surface tension, not gravity. Their speed $v$ can depend only on the surface tension $\\sigma$ (units $\\mathrm{N/m}$), the water density $\\rho$, and the wavelength $\\lambda$: $v = C\\,\\sigma^a\\rho^b\\lambda^c$. Determine the exponents by dimensional analysis. Given that the dimensionless constant is $C = \\sqrt{2\\pi}$, compute $v$ for ripples of wavelength $\\lambda = 5.0\\ \\mathrm{mm}$ on water with $\\sigma = 0.072\\ \\mathrm{N/m}$ and $\\rho = 1000\\ \\mathrm{kg/m^3}$, in m/s.",
+    "answer": 0.301,
+    "unit": "m/s",
+    "solution": "Surface tension has dimensions $[\\sigma] = \\mathrm{N/m} = \\mathrm{kg/s^2}$. Matching $\\mathrm{m/s} = (\\mathrm{kg/s^2})^a(\\mathrm{kg/m^3})^b(\\mathrm{m})^c$:\nmass: $a + b = 0$; time: $-2a = -1$; length: $-3b + c = 1$.\nSo $a = \\tfrac{1}{2}$, $b = -\\tfrac{1}{2}$, $c = -\\tfrac{1}{2}$:\n$$v = C\\sqrt{\\frac{\\sigma}{\\rho\\lambda}}.$$\nShorter ripples travel faster — opposite to gravity waves. With $C = \\sqrt{2\\pi}$:\n$$v = \\sqrt{\\frac{2\\pi(0.072)}{(1000)(0.0050)}} = \\sqrt{0.0905} = 0.301\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-unit-03",
+    "name": "Molecules of one ancient breath",
+    "module": "units-estimation",
+    "difficulty": "Very Hard",
+    "tags": [
+      "fermi estimate",
+      "atmosphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A single exhaled breath of air, volume $0.50\\ \\mathrm{L}$ at conditions where one mole occupies $22.4\\ \\mathrm{L}$, was released two thousand years ago and has since mixed uniformly into the entire atmosphere. You now inhale a breath of the same volume. Estimate the expected number of molecules in your breath that were part of that ancient breath. Treat the atmosphere as held to Earth (radius $R = 6.37\\times10^6\\ \\mathrm{m}$) by gravity with uniform sea-level pressure $P = 1.013\\times10^5\\ \\mathrm{Pa}$, take $g = 9.8\\ \\mathrm{m/s^2}$, mean molar mass of air $29\\ \\mathrm{g/mol}$, and $N_A = 6.022\\times10^{23}\\ \\mathrm{mol^{-1}}$.",
+    "answer": 1.65,
+    "unit": "molecules",
+    "solution": "First get the mass of the whole atmosphere from pressure: the weight of the air column above each square meter is $P$, so\n$$M_{atm} = \\frac{4\\pi R^2 P}{g} = \\frac{4\\pi(6.37\\times10^6)^2(1.013\\times10^5)}{9.8} = 5.27\\times10^{18}\\ \\mathrm{kg}.$$\nConvert to molecules:\n$$N_{atm} = \\frac{5.27\\times10^{21}\\ \\mathrm{g}}{29\\ \\mathrm{g/mol}}\\times 6.022\\times10^{23} = 1.094\\times10^{44}.$$\nOne breath contains\n$$N_b = \\frac{0.50}{22.4}\\times 6.022\\times10^{23} = 1.344\\times10^{22}\\ \\text{molecules}.$$\nAfter uniform mixing, the fraction of all air molecules that came from the ancient breath is $N_b/N_{atm}$. Your inhaled breath samples $N_b$ molecules, so the expected overlap is\n$$\\langle n \\rangle = \\frac{N_b^2}{N_{atm}} = \\frac{(1.344\\times10^{22})^2}{1.094\\times10^{44}} = 1.65.$$\nRemarkably, on average more than one molecule of any given historical breath is in each breath you take."
+  },
+  {
+    "id": "hx-approx-01",
+    "name": "Where classical kinetic energy breaks down",
+    "module": "approximations",
+    "difficulty": "Hard",
+    "tags": [
+      "taylor series",
+      "relativity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "The exact kinetic energy of a particle is $K = (\\gamma - 1)mc^2$ with $\\gamma = (1 - v^2/c^2)^{-1/2}$. Expanding $\\gamma$ for small $v/c$ and keeping the first correction beyond the classical term, find the speed at which the classical expression $\\tfrac{1}{2}mv^2$ underestimates the true kinetic energy by $1.0\\%$. Use $c = 3.00\\times10^8\\ \\mathrm{m/s}$ and give the answer in m/s.",
+    "answer": 34600000.0,
+    "unit": "m/s",
+    "solution": "Expand with the binomial series, keeping two terms beyond 1. With $x = v^2/c^2$,\n$$\\gamma = (1-x)^{-1/2} = 1 + \\tfrac{1}{2}x + \\tfrac{3}{8}x^2 + \\cdots$$\nso\n$$K = mc^2(\\gamma - 1) = \\tfrac{1}{2}mv^2 + \\tfrac{3}{8}m\\frac{v^4}{c^2} + \\cdots = \\tfrac{1}{2}mv^2\\left(1 + \\frac{3v^2}{4c^2} + \\cdots\\right).$$\nThe fractional error of the classical formula is therefore $\\dfrac{3v^2}{4c^2}$. Setting this to $0.010$:\n$$v = c\\sqrt{\\frac{4(0.010)}{3}} = (3.00\\times10^8)(0.1155) = 3.46\\times10^7\\ \\mathrm{m/s},$$\nabout $11.5\\%$ of the speed of light."
+  },
+  {
+    "id": "hx-approx-02",
+    "name": "Pendulum clock taken to the mountains",
+    "module": "approximations",
+    "difficulty": "Hard",
+    "tags": [
+      "binomial approximation",
+      "gravitation",
+      "pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A pendulum clock keeps perfect time at sea level, where the gravitational field is $g$. It is moved to a mountain observatory at altitude $h = 3000\\ \\mathrm{m}$, where the field is $g(h) = g(1 + h/R)^{-2}$ with $R = 6.37\\times10^6\\ \\mathrm{m}$. Using binomial approximations, find how many seconds the clock loses per day. (One day is $86400\\ \\mathrm{s}$.)",
+    "answer": 40.7,
+    "unit": "s",
+    "solution": "Two binomial expansions in sequence. First the field:\n$$g(h) = g\\left(1 + \\frac{h}{R}\\right)^{-2} \\approx g\\left(1 - \\frac{2h}{R}\\right).$$\nThe period scales as $T \\propto g^{-1/2}$, so\n$$\\frac{T(h)}{T} = \\left(1 - \\frac{2h}{R}\\right)^{-1/2} \\approx 1 + \\frac{h}{R}.$$\nEach tick is longer by the fraction $h/R$, so in one day the clock falls behind by\n$$\\Delta t = 86400\\,\\frac{h}{R} = 86400 \\times \\frac{3000}{6.37\\times10^6} = 40.7\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-approx-03",
+    "name": "Oscillation frequency from a model potential",
+    "module": "approximations",
+    "difficulty": "Very Hard",
+    "tags": [
+      "taylor series",
+      "oscillations",
+      "potential energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A particle of mass $m = 0.50\\ \\mathrm{kg}$ moves along the $x$-axis ($x > 0$) in the potential\n$$U(x) = \\frac{A}{x^2} - \\frac{B}{x}, \\qquad A = 2.0\\ \\mathrm{J\\,m^2},\\ B = 4.0\\ \\mathrm{J\\,m}.$$\nIt is displaced slightly from its stable equilibrium position and released. Find the angular frequency of the resulting small oscillations, in rad/s.",
+    "answer": 2.83,
+    "unit": "rad/s",
+    "solution": "Near a minimum, a Taylor expansion of $U$ makes the motion simple harmonic with effective spring constant $k = U''(x_0)$. Locate the equilibrium first:\n$$U'(x) = -\\frac{2A}{x^3} + \\frac{B}{x^2} = 0 \\quad\\Rightarrow\\quad x_0 = \\frac{2A}{B} = \\frac{2(2.0)}{4.0} = 1.0\\ \\mathrm{m}.$$\nNow the curvature there:\n$$U''(x) = \\frac{6A}{x^4} - \\frac{2B}{x^3}, \\qquad U''(x_0) = \\frac{6(2.0)}{1.0} - \\frac{2(4.0)}{1.0} = 12 - 8 = 4.0\\ \\mathrm{J/m^2}.$$\n(It is positive, confirming the equilibrium is stable; in general $U''(x_0) = B^4/8A^3$.) The small-oscillation frequency is\n$$\\omega = \\sqrt{\\frac{U''(x_0)}{m}} = \\sqrt{\\frac{4.0}{0.50}} = \\sqrt{8} = 2.83\\ \\mathrm{rad/s}.$$"
+  },
+  {
+    "id": "hx-dgraph-01",
+    "name": "Reading g off a log-log plot",
+    "module": "data-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "log-log",
+      "intercept",
+      "pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A student measures the period $T$ of a simple pendulum for several lengths $L$ and plots $\\log_{10}(T/\\mathrm{s})$ against $\\log_{10}(L/\\mathrm{m})$. The data fall on a straight line of slope $0.50$ with vertical intercept $0.303$. Use the intercept to determine the local gravitational field strength $g$, in m/s$^2$.",
+    "answer": 9.78,
+    "unit": "m/s^2",
+    "solution": "For $T = \\dfrac{2\\pi}{\\sqrt{g}}\\,L^{1/2}$, taking logs gives\n$$\\log_{10} T = \\tfrac{1}{2}\\log_{10} L + \\log_{10}\\!\\left(\\frac{2\\pi}{\\sqrt{g}}\\right).$$\nThe measured slope $0.50$ confirms the square-root law; the intercept is the log of the prefactor:\n$$\\log_{10}\\!\\left(\\frac{2\\pi}{\\sqrt{g}}\\right) = 0.303 \\quad\\Rightarrow\\quad \\frac{2\\pi}{\\sqrt{g}} = 10^{0.303} = 2.009.$$\nSolving,\n$$\\sqrt{g} = \\frac{2\\pi}{2.009} = 3.127, \\qquad g = 9.78\\ \\mathrm{m/s^2}.$$"
+  },
+  {
+    "id": "hx-dgraph-02",
+    "name": "Resistance from a semi-log discharge line",
+    "module": "data-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "semi-log",
+      "slope",
+      "circuits"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A capacitor of capacitance $C = 20\\ \\mu\\mathrm{F}$ discharges through an unknown resistor. The voltage obeys $V(t) = V_0 e^{-t/RC}$. A plot of $\\ln(V/\\mathrm{volt})$ versus $t$ is a straight line passing through the points $(0,\\ 2.303)$ and $(6.0\\ \\mathrm{s},\\ 0.916)$. Determine the resistance $R$, in k$\\Omega$.",
+    "answer": 216,
+    "unit": "kΩ",
+    "solution": "Taking the log of the decay law linearizes it:\n$$\\ln V = \\ln V_0 - \\frac{t}{RC},$$\nso the slope of the plotted line is $-1/RC$. From the two given points,\n$$\\text{slope} = \\frac{0.916 - 2.303}{6.0 - 0} = -0.2312\\ \\mathrm{s^{-1}},$$\ngiving a time constant\n$$RC = \\frac{1}{0.2312} = 4.33\\ \\mathrm{s}.$$\n(The intercept just says $V_0 = e^{2.303} = 10\\ \\mathrm{V}$, which is not needed.) Then\n$$R = \\frac{4.33}{20\\times10^{-6}} = 2.16\\times10^5\\ \\Omega = 216\\ \\mathrm{k\\Omega}.$$"
+  },
+  {
+    "id": "hx-dgraph-03",
+    "name": "What a linear 1/ω plot reveals about drag",
+    "module": "data-graphs",
+    "difficulty": "Very Hard",
+    "tags": [
+      "linearization",
+      "rotational dynamics",
+      "drag"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A flywheel of moment of inertia $I = 0.50\\ \\mathrm{kg\\,m^2}$ is spun up and left to coast, slowing only under air-drag torque. A student discovers that plotting $1/\\omega$ against $t$ gives an excellent straight line with slope $4.0\\times10^{-3}\\ \\mathrm{rad^{-1}}$. Deduce the form of the drag torque from this fact, and find the magnitude of the drag torque when $\\omega = 20\\ \\mathrm{rad/s}$, in N·m.",
+    "answer": 0.8,
+    "unit": "N·m",
+    "solution": "The straight line is the clue. If $1/\\omega = 1/\\omega_0 + st$, differentiating gives $-\\dot{\\omega}/\\omega^2 = s$, i.e. $\\dot{\\omega} = -s\\,\\omega^2$. So the deceleration is proportional to $\\omega^2$, which means the drag torque is quadratic in the angular speed:\n$$I\\dot{\\omega} = -c\\,\\omega^2 \\quad\\Rightarrow\\quad \\frac{d}{dt}\\left(\\frac{1}{\\omega}\\right) = \\frac{c}{I}.$$\nThe slope of the plot is therefore $s = c/I$, so\n$$c = sI = (4.0\\times10^{-3})(0.50) = 2.0\\times10^{-3}\\ \\mathrm{N\\,m\\,s^2}.$$\nAt $\\omega = 20\\ \\mathrm{rad/s}$ the drag torque is\n$$\\tau = c\\,\\omega^2 = (2.0\\times10^{-3})(20)^2 = 0.800\\ \\mathrm{N\\,m}.$$"
+  },
+  {
+    "id": "hx-dunc-01",
+    "name": "Uncertainty in g from a timed pendulum",
+    "module": "data-uncertainty",
+    "difficulty": "Hard",
+    "tags": [
+      "propagation",
+      "powers"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "To measure $g$ with a simple pendulum, a student measures the length $L = 0.850 \\pm 0.005\\ \\mathrm{m}$ and times 50 complete oscillations: $t = 92.5 \\pm 0.4\\ \\mathrm{s}$. Using $g = 4\\pi^2 L/T^2$ with $T = t/50$, find the absolute uncertainty in $g$, in m/s$^2$. Add independent uncertainties in quadrature.",
+    "answer": 0.103,
+    "unit": "m/s^2",
+    "solution": "Timing 50 swings divides both the period and its uncertainty by 50: $T = 1.850\\ \\mathrm{s}$ with $\\delta T = 0.008\\ \\mathrm{s}$ — that is the whole point of counting many oscillations.\n\nFor $g = 4\\pi^2 L T^{-2}$, relative uncertainties combine as\n$$\\frac{\\delta g}{g} = \\sqrt{\\left(\\frac{\\delta L}{L}\\right)^2 + \\left(2\\frac{\\delta T}{T}\\right)^2} = \\sqrt{(0.00588)^2 + (2\\times0.00432)^2} = \\sqrt{3.46\\times10^{-5} + 7.48\\times10^{-5}} = 0.01046.$$\nThe central value is\n$$g = \\frac{4\\pi^2(0.850)}{(1.850)^2} = 9.805\\ \\mathrm{m/s^2},$$\nso\n$$\\delta g = (0.01046)(9.805) = 0.103\\ \\mathrm{m/s^2}.$$"
+  },
+  {
+    "id": "hx-dunc-02",
+    "name": "Best value from three unequal measurements",
+    "module": "data-uncertainty",
+    "difficulty": "Hard",
+    "tags": [
+      "weighted-average",
+      "statistics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Three independent measurements of the same resistance give $100.4 \\pm 0.8\\ \\Omega$, $99.2 \\pm 0.4\\ \\Omega$, and $99.9 \\pm 0.6\\ \\Omega$. Combine them into the statistically best single value using weights $w_i = 1/\\sigma_i^2$, and give that weighted mean, in $\\Omega$.",
+    "answer": 99.56,
+    "unit": "Ω",
+    "solution": "A plain average would waste the information that the second measurement is the most precise. The optimal combination weights each value by the inverse square of its uncertainty:\n$$\\bar{R} = \\frac{\\sum w_i R_i}{\\sum w_i}, \\qquad w_i = \\frac{1}{\\sigma_i^2}.$$\nThe weights are\n$$w_1 = \\frac{1}{0.8^2} = 1.563, \\quad w_2 = \\frac{1}{0.4^2} = 6.250, \\quad w_3 = \\frac{1}{0.6^2} = 2.778,$$\nwith $\\sum w_i = 10.59$. The weighted sum is\n$$\\sum w_i R_i = (1.563)(100.4) + (6.250)(99.2) + (2.778)(99.9) = 1054.4\\ \\Omega,$$\nso\n$$\\bar{R} = \\frac{1054.4}{10.59} = 99.56\\ \\Omega,$$\npulled strongly toward the most precise measurement, as it should be."
+  },
+  {
+    "id": "hx-dunc-03",
+    "name": "Propagating error through the lens equation",
+    "module": "data-uncertainty",
+    "difficulty": "Very Hard",
+    "tags": [
+      "propagation",
+      "partial derivatives"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A student measures a lens's object distance $u = 30.0 \\pm 0.5\\ \\mathrm{cm}$ and image distance $v = 60.0 \\pm 1.0\\ \\mathrm{cm}$, then computes the focal length from $\\dfrac{1}{f} = \\dfrac{1}{u} + \\dfrac{1}{v}$. Propagate the independent uncertainties through this formula (quadrature) and find the absolute uncertainty in $f$, in cm.",
+    "answer": 0.248,
+    "unit": "cm",
+    "solution": "The formula is neither a sum nor a simple power law, so the general propagation rule with partial derivatives is needed. Solving for the focal length,\n$$f = \\frac{uv}{u+v} = \\frac{(30.0)(60.0)}{90.0} = 20.0\\ \\mathrm{cm}.$$\nThe partial derivatives are\n$$\\frac{\\partial f}{\\partial u} = \\frac{v^2}{(u+v)^2} = \\frac{3600}{8100} = 0.4444, \\qquad \\frac{\\partial f}{\\partial v} = \\frac{u^2}{(u+v)^2} = \\frac{900}{8100} = 0.1111.$$\n(Note the asymmetry: $f$ is far more sensitive to the shorter distance.) Combining in quadrature:\n$$\\delta f = \\sqrt{(0.4444\\times0.5)^2 + (0.1111\\times1.0)^2} = \\sqrt{0.04938 + 0.01235} = \\sqrt{0.06173} = 0.248\\ \\mathrm{cm}.$$\nSo $f = 20.0 \\pm 0.2\\ \\mathrm{cm}$, with the object-distance error dominating despite being the smaller absolute uncertainty."
+  },
+  {
+    "id": "hx-kt-01",
+    "name": "Helium leaking into vacuum",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "effusion",
+      "pressure"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A rigid container of volume $V = 0.050\\ \\mathrm{m^3}$ holds helium (molar mass $4.0\\ \\mathrm{g/mol}$) at temperature $T = 300\\ \\mathrm{K}$, surrounded by vacuum. A tiny hole of area $A = 1.0\\times10^{-9}\\ \\mathrm{m^2}$ lets gas effuse out at the rate $\\tfrac{1}{4}n\\bar{v}A$ molecules per second, where $n$ is the number density and $\\bar{v} = \\sqrt{8RT/\\pi M}$. The temperature is held constant. How long until the pressure falls to half its initial value? Give the answer in hours. Use $R = 8.31\\ \\mathrm{J/(mol\\,K)}$.",
+    "answer": 30.6,
+    "unit": "h",
+    "solution": "Because the loss rate is proportional to the number of molecules left, the pressure decays exponentially. With $N$ molecules in the box, $n = N/V$ and\n$$\\frac{dN}{dt} = -\\frac{\\bar{v}A}{4V}\\,N \\quad\\Rightarrow\\quad N(t) = N_0\\,e^{-t/\\tau}, \\qquad \\tau = \\frac{4V}{\\bar{v}A}.$$\nAt constant $T$, pressure tracks $N$, so the half-life is $t_{1/2} = \\tau\\ln 2$.\n\nThe mean speed of helium at 300 K:\n$$\\bar{v} = \\sqrt{\\frac{8(8.31)(300)}{\\pi(0.0040)}} = \\sqrt{1.587\\times10^6} = 1260\\ \\mathrm{m/s}.$$\nThen\n$$\\tau = \\frac{4(0.050)}{(1260)(1.0\\times10^{-9})} = 1.588\\times10^5\\ \\mathrm{s},$$\n$$t_{1/2} = (1.588\\times10^5)(0.6931) = 1.10\\times10^5\\ \\mathrm{s} = 30.6\\ \\mathrm{h}.$$"
+  },
+  {
+    "id": "hx-kt-02",
+    "name": "Collision clock of a nitrogen molecule",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "mean free path",
+      "collision frequency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Nitrogen gas (molar mass $28\\ \\mathrm{g/mol}$, effective molecular diameter $d = 0.37\\ \\mathrm{nm}$) is at $T = 300\\ \\mathrm{K}$ and $P = 1.013\\times10^5\\ \\mathrm{Pa}$. Using the mean free path $\\lambda = \\dfrac{k_B T}{\\sqrt{2}\\,\\pi d^2 P}$ and the mean speed $\\bar{v} = \\sqrt{8RT/\\pi M}$, find how many collisions a single molecule makes per second, in units of $10^9\\ \\mathrm{s^{-1}}$. Use $k_B = 1.38\\times10^{-23}\\ \\mathrm{J/K}$ and $R = 8.31\\ \\mathrm{J/(mol\\,K)}$.",
+    "answer": 7.09,
+    "unit": "10^9 s^-1",
+    "solution": "A molecule travels a mean free path between collisions, so its collision rate is $f = \\bar{v}/\\lambda$. Compute each piece.\n\nMean free path:\n$$\\lambda = \\frac{(1.38\\times10^{-23})(300)}{\\sqrt{2}\\,\\pi\\,(3.7\\times10^{-10})^2\\,(1.013\\times10^5)} = \\frac{4.14\\times10^{-21}}{6.16\\times10^{-14}} = 6.72\\times10^{-8}\\ \\mathrm{m},$$\nabout 180 molecular diameters.\n\nMean speed:\n$$\\bar{v} = \\sqrt{\\frac{8(8.31)(300)}{\\pi(0.028)}} = \\sqrt{2.267\\times10^5} = 476\\ \\mathrm{m/s}.$$\nCollision frequency:\n$$f = \\frac{\\bar{v}}{\\lambda} = \\frac{476}{6.72\\times10^{-8}} = 7.09\\times10^9\\ \\mathrm{s^{-1}},$$\ni.e. $7.09$ in units of $10^9$ collisions per second — a few billion collisions every second."
+  },
+  {
+    "id": "hx-kt-03",
+    "name": "Pressure ratio in an ultracentrifuge",
+    "module": "kinetic-theory",
+    "difficulty": "Very Hard",
+    "tags": [
+      "boltzmann factor",
+      "pressure",
+      "rotation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A sealed tube of length $L = 0.10\\ \\mathrm{m}$ contains air (molar mass $M = 29\\ \\mathrm{g/mol}$) at temperature $T = 300\\ \\mathrm{K}$. The tube lies along a radius of an ultracentrifuge and spins about one end at $60000$ revolutions per minute. In steady state, find the ratio of the gas pressure at the outer end of the tube to the pressure at the rotation axis. Use $R = 8.31\\ \\mathrm{J/(mol\\,K)}$.",
+    "answer": 9.94,
+    "unit": "",
+    "solution": "Work in the rotating frame, where each gas element needs a net inward force to stay on its circle. Consider a slab of gas between $r$ and $r + dr$ with cross-section $S$. The pressure difference across it must supply the centripetal force:\n$$S\\,dP = (\\rho S\\,dr)\\,\\omega^2 r \\quad\\Rightarrow\\quad \\frac{dP}{dr} = \\rho\\,\\omega^2 r.$$\nFor an ideal gas at uniform temperature, $\\rho = PM/RT$, so\n$$\\frac{dP}{P} = \\frac{M\\omega^2}{RT}\\,r\\,dr \\quad\\Rightarrow\\quad P(r) = P(0)\\,\\exp\\!\\left(\\frac{M\\omega^2 r^2}{2RT}\\right),$$\nthe Boltzmann factor for the centrifugal potential energy $-\\tfrac{1}{2}m\\omega^2 r^2$.\n\nThe angular speed is $\\omega = 2\\pi(60000/60) = 6283\\ \\mathrm{rad/s}$. The exponent at $r = L$:\n$$\\frac{M\\omega^2 L^2}{2RT} = \\frac{(0.029)(6283)^2(0.10)^2}{2(8.31)(300)} = \\frac{1.145\\times10^4}{4986} = 2.296.$$\nTherefore\n$$\\frac{P(L)}{P(0)} = e^{2.296} = 9.94.$$"
+  }
+]

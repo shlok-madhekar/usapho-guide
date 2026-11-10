@@ -2,10 +2,10 @@
 
 A banked curve works because the track can tilt and push sideways. The previous
 lesson was about finding which force, in a real contraption, happens to point at
-the centre of the circle. Gravity is the case where you do not have to hunt: the
+the centre of the circle. Gravity is the case where you don't have to hunt: the
 force points at the centre because the centre is where the other mass sits.
 
-Here is the question that took Newton twenty years. Drop a stone and it hits the
+Now for the question that took Newton twenty years. Drop a stone and it hits the
 ground in under a second. The Moon is also falling toward Earth (it has to be,
 or it would fly off in a straight line) and it has been falling for four
 billion years without arriving. Why does one land and the other not? The answer
@@ -77,7 +77,7 @@ g = \frac{(6.67\times10^{-11})(5.97\times10^{24})}{(6.37\times10^6)^2}
 
 $$
 
-The whole "objects fall at the same rate" fact sits in that division: the mass
+That division is where "objects fall at the same rate" comes from: the mass
 being pulled cancelled out. A feather and an anvil get the same $g$ because both
 the pull and the resistance to being pulled scale with the same $m$.
 
@@ -99,7 +99,7 @@ about 89 per cent of its surface value.
   switching off.
 </Aside>
 
-For a small change in height, do not subtract two nearly equal big numbers: you will lose all your significant figures. Expand instead. With $h \ll R$,
+For a small change in height, don't subtract two nearly equal big numbers: you will lose all your significant figures. Expand instead. With $h \ll R$,
 
 $$
 
@@ -164,9 +164,8 @@ Cancel one $m$ and one $r$:
 $$v = \sqrt{\frac{GM}{r}}$$
 
 The satellite's own mass vanished. A loose bolt and a 400-tonne station in the
-same orbit move identically, which is why they stay side by side. And notice the
-sign of the dependence: higher orbits are **slower**. That is the opposite of
-what most people guess.
+same orbit move identically, which is why they stay side by side. And the
+dependence runs backwards from intuition: higher orbits are **slower**.
 
 The period comes from the fact that one lap is $2\pi r$ at speed $v$:
 
@@ -238,7 +237,7 @@ Escape speed is $\sqrt2$ times the circular speed at the same radius: always,
 for any body. At Earth's surface,
 $v_{\text{esc}} = \sqrt{2(3.982\times10^{14})/6.37\times10^6}
 = \sqrt{1.250\times10^8} = 1.118\times10^4$ m/s. Energy is a scalar, so the
-direction of launch does not matter, only the speed.
+direction of launch doesn't matter, only the speed.
 
 **Worked example: falling from two Earth radii.** An object is released from
 rest at $r_i = 2R = 1.274\times10^7$ m and falls to the surface,
@@ -247,7 +246,7 @@ is zero:
 
 $$0 - \frac{GMm}{r_i} = \tfrac12 mv^2 - \frac{GMm}{r_f}$$
 
-Every term carries $m$, so divide it out: the answer cannot depend on what you
+Every term carries $m$, so divide it out: the answer can't depend on what you
 dropped:
 
 $$
@@ -260,15 +259,15 @@ $$
 So $v = \sqrt{GM/R}$, which is exactly the circular orbital speed at the
 surface. Numerically
 $v = \sqrt{3.982\times10^{14}/6.37\times10^6} = \sqrt{6.251\times10^7}
-= 7.91\times10^3$ m/s. Notice how much cheaper that was than integrating the
-varying force over the fall.
+= 7.91\times10^3$ m/s. Compare that with integrating the varying force over
+the fall, which is what you'd be stuck doing without the potential.
 
 **The total energy of an orbit.** In a circular orbit, $v^2 = GM/r$, so
 $K = \tfrac12 m v^2 = GMm/2r$. Add the potential:
 
 $$E = K + U = \frac{GMm}{2r} - \frac{GMm}{r} = -\frac{GMm}{2r}$$
 
-Three things worth keeping. $E$ is negative, and negative total energy is what
+Keep what this says. $E$ is negative, and negative total energy is what
 "bound" means. $E = -K$, so the kinetic energy alone tells you the binding.
 And $E$ depends only on $r$.
 
@@ -338,9 +337,9 @@ $$
 About 84 minutes for a round trip: the same as the period of a satellite
 skimming the surface, which is not a coincidence.
 
-## Recognising the technique
+## Sorting a gravitation problem
 
-Three questions sort almost every gravitation problem.
+Three questions sort almost every one of them.
 
 **Is the distance changing?** If the body moves in a circle at fixed $r$, use
 force: $GMm/r^2 = mv^2/r$, and everything about speed, period and radius follows
@@ -354,7 +353,7 @@ line, resolve into components first.
 centre. Inside, only the mass closer to the centre than you counts, which turns
 the inverse square into a straight line in $r$.
 
-Two small habits save a lot of time. Group $GM$ into a single number for each
+A couple of habits save time too. Group $GM$ into a single number for each
 body ($3.98\times10^{14}$ for Earth) because it appears in every formula and
 is often known better than $M$ alone. And if the problem gives you surface $g$
 rather than $M$, use $GM = g_0R^2$ and skip $G$ entirely.

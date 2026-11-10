@@ -5,22 +5,22 @@ per second of falling apart, and you followed the population with
 $N = N_0 e^{-\lambda t}$. It never asked the more basic question. Why does a
 nucleus hold together at all, and why does one sometimes pay to break?
 
-Here is the experiment that answers it. Take a helium-4 nucleus and put it on
+One experiment settles it. Take a helium-4 nucleus and put it on
 the most precise scale ever built. Then weigh two free protons and two free
 neutrons separately and add those four numbers up. The two results are not the
 same. The assembled nucleus is lighter: by about half a percent, far more than
 any measurement error.
 
 Half a percent of a nucleus is enormous by the standards of chemistry, and it
-is not an accounting slip. Mass went somewhere. What happened is that when
+isn't an accounting slip. Mass went somewhere. What happened is that when
 those four nucleons snapped together, the strong force pulled them into a
 bound state and a burst of energy left the system. By $E = mc^2$, energy
 leaving means mass leaving. The nucleus you are holding is the parts *minus*
 what escaped.
 
-That missing mass is the whole subject. It tells you how tightly a nucleus is
-held, which nuclei are stable, and how much energy comes out of a reactor or a
-star.
+That missing mass tells you how tightly a nucleus is held, which nuclei are
+stable, and how much energy comes out of a reactor or a star. Everything in
+this lesson is a way of reading it.
 
 ## Mass defect and binding energy
 
@@ -39,15 +39,14 @@ have to *supply* to pull that nucleus completely apart into free nucleons at
 rest. Big $E_B$ means hard to take apart. It is not stored in the nucleus
 waiting to come out; it is energy already gone.
 
-Two practical points make this arithmetic bearable. First, nuclear masses come
-in atomic mass units, defined so that a neutral carbon-12 atom weighs exactly
+In practice, nuclear masses come in atomic mass units, defined so that a neutral carbon-12 atom weighs exactly
 $12$ u. The conversion you will use constantly is
 
 $$1\ \text{u} = 931.5\ \text{MeV}/c^2$$
 
 so a mass defect quoted in u becomes an energy in MeV by one multiplication.
 
-Second, published tables give **atomic** masses (nucleus plus its $Z$
+One more wrinkle: published tables give **atomic** masses (nucleus plus its $Z$
 electrons) not bare nuclear masses. Rather than subtracting electrons, use
 $m_H = 1.007825$ u, the mass of a whole hydrogen *atom*, in place of the
 proton. Then the $Z$ electrons on the left cancel the $Z$ electrons carried
@@ -58,7 +57,7 @@ $$E_B = \left[Z m_H + (A - Z) m_n - m_{\text{atom}}\right] c^2$$
 The electron binding energies you are ignoring here are a few eV against
 millions, so the cancellation is exact for any purpose you have.
 
-<Figure caption={<><b>Figure 1.</b> The two weighings side by side. Drag the proton and neutron sliders and watch the gap between the bars. Notice that the gap is a much larger fraction of the total for a medium nucleus than for a very light one.</>}>
+<Figure caption={<><b>Figure 1.</b> The two weighings side by side. Drag the proton and neutron sliders and watch the gap between the bars. The gap is a much larger fraction of the total for a medium nucleus than for a very light one.</>}>
   <Sim id="binding-energy-defect" />
 </Figure>
 
@@ -104,7 +103,8 @@ helium-4 and about $7.9$ at oxygen-16, flattens into a broad maximum of
 $8.79$ MeV per nucleon near iron-56, then sags slowly back down to $7.57$ MeV
 at uranium-238.
 
-Two competing forces make that shape, and you can reason both out. The strong
+That shape is a tug-of-war between two forces, and you can reason both sides
+out. The strong
 nuclear force is powerful but very short ranged, reaching barely past a
 nucleon's nearest neighbours. So each nucleon binds to a fixed number of
 partners no matter how big the nucleus gets, and total binding grows roughly
@@ -115,7 +115,7 @@ ratio drops. Coulomb repulsion, by contrast, has unlimited range: every proton
 pushes on every other one, so that penalty grows like $Z^2$ and eventually
 wins. That is the long decline at the heavy end.
 
-<Figure caption={<><b>Figure 2.</b> Binding energy per nucleon against mass number. Drag A and read the live value. Note that both ends of the curve are lower than the middle, so nuclei can release energy by moving toward iron from either side.</>}>
+<Figure caption={<><b>Figure 2.</b> Binding energy per nucleon against mass number. Drag A and read the live value. Both ends of the curve sit lower than the middle, so nuclei can release energy by moving toward iron from either side.</>}>
   <Sim id="binding-energy-curve" />
 </Figure>
 
@@ -127,7 +127,7 @@ $$Q = \left(\sum m_{\text{initial}} - \sum m_{\text{final}}\right) c^2$$
 
 Positive $Q$ means energy comes out, carried off as kinetic energy of the
 products and gamma rays. Negative $Q$ means you must feed energy in and the
-reaction will not go by itself. Use atomic masses throughout and the electrons
+reaction won't go by itself. Use atomic masses throughout and the electrons
 take care of themselves, with one exception noted below.
 
 **Worked example 2: D-T fusion.** Deuterium plus tritium gives helium-4 plus a
@@ -187,14 +187,14 @@ mutual Coulomb repulsion.
 **Worked example 3: is splitting uranium-238 in half worth it?** Suppose
 $^{238}$U, at $7.57$ MeV per nucleon, split into two identical $^{119}$Pd
 fragments at $8.50$ MeV per nucleon. Work with totals, not per-nucleon figures,
-or you will get lost.
+or you'll get lost.
 
 Parent: $238 \times 7.57 = 1801.7$ MeV of binding.
 Fragments: $2 \times 119 \times 8.50 = 2023.0$ MeV.
 
 The products are bound *more* tightly by
 $2023.0 - 1801.7 = 221$ MeV, so that much energy comes out. The reaction is
-allowed as far as energy is concerned. It does not happen appreciably anyway,
+allowed as far as energy is concerned. It doesn't happen appreciably anyway,
 because the nucleus has to stretch through a badly bound intermediate shape
 first, and that barrier is what a slow neutron helps a $^{235}$U nucleus over.
 Energetically allowed and actually happening are different questions, and this
@@ -281,12 +281,12 @@ $$Z_{\min} = \frac{A}{2 + (a_c/2a_{\text{sym}})A^{2/3}}$$
 For $A = 125$: $125^{2/3} = 25.0$, and $a_c/2a_{\text{sym}} = 0.711/47.4 = 0.0150$,
 so the denominator is $2 + 0.0150 \times 25.0 = 2.375$ and
 $Z_{\min} = 125/2.375 = 52.6$. The real stable nuclide at $A = 125$ is
-tellurium, $Z = 52$. Notice what the formula says: for light nuclei the
+tellurium, $Z = 52$. Read off what the formula is saying: for light nuclei the
 denominator is close to $2$ and $Z \approx A/2$, equal numbers of each. For
 heavy nuclei the Coulomb term pushes the ratio toward more neutrons, which is
 why the valley of stability bends away from the $N = Z$ line.
 
-## Recognising the technique
+## The six-decimal-place giveaway
 
 You are in binding-energy territory whenever a problem hands you masses to more
 than four decimal places. That precision is only ever there so you can subtract

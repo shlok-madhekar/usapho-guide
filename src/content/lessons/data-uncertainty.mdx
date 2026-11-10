@@ -2,7 +2,7 @@
 
 You time twenty swings of a pendulum, divide by twenty, and get a period. You
 put it into $g = 4\pi^2 L/T^2$ and out comes 9.81 m/s². It looks like an
-answer. It is not one yet, because you have no idea whether the next student
+answer. It isn't one yet, because you have no idea whether the next student
 down the bench would have got 9.80 or 9.4.
 
 Everything below is about that gap. A measured number is really a
@@ -34,7 +34,7 @@ $$
 $$
 
 Here that is $\sqrt{0.03^2 + 0.04^2} = \sqrt{0.0009 + 0.0016} = \sqrt{0.0025}
-= 0.05$ m. So $3.70 \pm 0.05$ m. Notice the total error is smaller than the sum
+= 0.05$ m. So $3.70 \pm 0.05$ m. The total error lands smaller than the sum
 and larger than either piece alone.
 
 The same formula holds for a difference, because an error of unknown sign does
@@ -48,7 +48,7 @@ $0.071/0.17 = 42$ percent.
   Subtracting two nearly equal measured numbers destroys precision. The
   absolute error stays the same size while the quantity you are dividing by
   collapses. If a problem hands you a difference of close numbers, that
-  collapse is usually the whole point of the problem, and the fix in a real lab
+  collapse is usually what the problem is actually about, and the fix in a real lab
   is to redesign the experiment so it measures the small difference directly
   rather than as the gap between two large readings.
 </Aside>
@@ -58,7 +58,7 @@ $0.071/0.17 = 42$ percent.
 Sums combine absolute errors. Products combine *fractional* errors, which are
 the error divided by the quantity, usually quoted as a percent.
 
-Here is why. Write the area of a plate as $A = ab$. Nudge $a$ by $\delta a$ and
+To see why, write the area of a plate as $A = ab$. Nudge $a$ by $\delta a$ and
 $b$ by $\delta b$:
 
 $$
@@ -93,9 +93,9 @@ so $\delta A/A = \sqrt{1.667^2 + 3.75^2} = \sqrt{2.78 + 14.06} = \sqrt{16.84} =
 4.1\%$.
 
 <Figure caption={<><b>Figure 1.</b> An error budget for a Young modulus
-measurement. Notice how the diameter, measured to a tight 1.5 percent, still
+measurement. The diameter, measured to a tight 1.5 percent, still
 contributes as much as the extension at 3 percent, because the diameter enters
-squared. Notice also that the 0.5 percent term is invisible.</>}>
+squared. And the 0.5 percent term is invisible.</>}>
   <Sim id="data-uncertainty-budget" />
 </Figure>
 
@@ -147,10 +147,10 @@ rules out.
   to time before you start.
 </Aside>
 
-## Averaging, and how much averaging buys you
+## Averaging, and what it costs
 
 Repeat a measurement $N$ times and you get a spread. The standard deviation
-$\sigma$ of that spread describes a single reading, and it does not shrink as
+$\sigma$ of that spread describes a single reading, and it doesn't shrink as
 you take more data. What shrinks is the uncertainty of the *mean*, called the
 standard error:
 
@@ -173,7 +173,7 @@ independently, so a count of $N$ has uncertainty $\sqrt{N}$. Record 2500
 decays and the fractional uncertainty is $\sqrt{2500}/2500 = 50/2500 = 2.0\%$.
 To halve that you need four times the counts.
 
-When you have two results of *different* quality, do not average them plainly.
+When you have two results of *different* quality, don't average them plainly.
 Weight each by $w_i = 1/\sigma_i^2$, so a measurement twice as precise counts
 four times as much:
 
@@ -245,8 +245,8 @@ student's line passes through $(1/x, 1/y) = (1.00, 2.00)$ and $(0.250, 1.00)$.
 The slope is $(2.00 - 1.00)/(1.00 - 0.250) = 1.00/0.750 = 1.333$. Since the
 slope is $1/a$, you get $a = 1/1.333 = 0.75$.
 
-Two habits make this kind of problem quick. Always ask what the slope *means*
-in terms of the constants before you compute it, and always check whether the
+What makes this kind of problem quick is asking what the slope *means*
+in terms of the constants before you compute it, and then checking whether the
 constant you want is the slope, its reciprocal, or the intercept divided by the
 slope.
 
@@ -269,7 +269,7 @@ $m = \sum x_i y_i / \sum x_i^2$.
 <Figure caption={<><b>Figure 3.</b> The five points from the worked example
 below, with your trial line and its residuals drawn as thick bars. Drag the
 slope and intercept and try to drive the sum of squared residuals below 0.072.
-You cannot: that number is the least-squares minimum.</>}>
+You can't: that number is the least-squares minimum.</>}>
   <Sim id="data-uncertainty-fit" />
 </Figure>
 
@@ -350,7 +350,7 @@ Finally, significant figures. A quotient carries the figures of its worst
 input. With $I = 0.035$ A (two figures) and $V = 12.0$ V (three),
 $R = 12.0/0.035 = 342.857$, which you report as 340 ohm.
 
-## How to recognise these problems
+## What the wording of a question gives away
 
 The tells are blunt once you know them.
 

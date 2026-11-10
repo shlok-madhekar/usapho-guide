@@ -3,10 +3,10 @@
 A child starts at rest at the top of a slide 3.2 m high and arrives at the
 bottom moving. If you attack that with forces you need the shape of the slide,
 the angle at every point, the normal force at every point, and an integration
-you cannot do by hand. Yet the answer is one line long, and it does not depend
+you can't do by hand. Yet the answer is one line long, and it doesn't depend
 on the shape of the slide at all.
 
-That is what conservation of energy buys you. It ignores the middle of the
+Conservation of energy is the tool that ignores the middle of the
 problem. You take a snapshot at the start, a snapshot at the end, and demand
 that one number match. Everything that happened in between (the curving, the
 speeding up, the changing direction) never has to be described.
@@ -31,7 +31,7 @@ conservative forces, and work done by everything else.
 
 $$W_{\text{cons}} + W_{\text{other}} = \Delta K .$$
 
-The whole point of a potential energy is that $W_{\text{cons}} = -\Delta U$.
+A potential energy exists precisely so that $W_{\text{cons}} = -\Delta U$.
 Gravity doing $+50$ J of work on a falling rock is the same statement as the
 gravitational potential energy dropping by 50 J. Substitute that in and move it
 across:
@@ -49,7 +49,7 @@ what you end with. When no such force does work, $W_{\text{other}} = 0$ and
 
 $$\tfrac12 m v_i^2 + U_i = \tfrac12 m v_f^2 + U_f .$$
 
-Two snapshots, one equation. Notice what is *not* in it: time, distance along
+Two snapshots, one equation. Look at what's *not* in it: time, distance along
 the path, the shape of the track, or the direction of motion. Energy is a
 scalar. It has no components and no signs to chase.
 
@@ -61,7 +61,7 @@ scalar. It has no components and no signs to chase.
   The zero of potential energy is yours to choose. Put $y = 0$ at the bottom of
   the slide, at the top, at sea level: the answer cannot depend on it, because
   only the *difference* $U_f - U_i$ ever appears. Choose the level that makes
-  the most terms vanish, then write it down explicitly so you do not forget it
+  the most terms vanish, then write it down explicitly so you don't forget it
   halfway through.
 </Aside>
 
@@ -99,12 +99,12 @@ equation.
 $W_{\text{other}}$ is usually friction, and friction is the one non-conservative
 force you will meet constantly. A kinetic friction force of magnitude
 $f_k = \mu_k N$ opposes the motion at every instant, so over a path of length
-$d$ it does work $-f_k d$. The minus sign is the whole story: friction always
-withdraws from the account.
+$d$ it does work $-f_k d$. Mind the sign: friction always
+withdraws from the account, never deposits.
 
-Notice the $d$. Unlike gravity, friction cares about the *length of the path*,
+And mind the $d$. Unlike gravity, friction cares about the *length of the path*,
 not the displacement. Take a longer route and you lose more. That is exactly
-the property that makes it non-conservative, and it means you cannot define a
+the property that makes it non-conservative, and it means you can't define a
 "friction potential energy".
 
 **Worked example 2.** A 1.0 kg block slides down a frictionless ramp from 2.0 m
@@ -162,7 +162,7 @@ Quadratic formula: $x = \dfrac{8.03 + \sqrt{8.03^2 + 4(1000)(12.05)}}{2000}
 = 0.114\ \text{m}.$
 
 Take the positive root; the negative one describes a spring stretched the wrong
-way, which the setup does not allow.
+way, which the setup doesn't allow.
 
 <Figure caption={<><b>Figure 2.</b> The bookkeeping for that example, drawn. Both snapshots have zero kinetic energy, so the whole gravitational drop on the left has to reappear on the right as spring energy plus heat. Before you do any algebra, sketch these two columns and label every block you expect. If a block is missing on one side, your equation is wrong.</>}>
   <Sim id="energy-conservation-snapshots" />
@@ -214,7 +214,7 @@ losing 0.30 J to friction needs, at the bottom,
 $$\tfrac12 m v_b^2 = \tfrac12 m (gR) + mg(2R) + Q = \tfrac12(0.40)(9.8)(0.50) + (0.40)(9.8)(1.0) + 0.30$$
 $$\tfrac12(0.40)v_b^2 = 0.98 + 3.92 + 0.30 = 5.20 \quad\Rightarrow\quad v_b^2 = 26.0,\ v_b = 5.10\ \text{m/s}.$$
 
-<Figure caption={<><b>Figure 3.</b> Drag the release height and watch the cart run the loop. Below 2.5 times the radius it peels off the track partway up, and the readout tells you the speed it has at the top against the speed it needs. Notice that changing the radius changes both numbers, but the critical height is always exactly 2.5R.</>}>
+<Figure caption={<><b>Figure 3.</b> Drag the release height and watch the cart run the loop. Below 2.5 times the radius it peels off the track partway up, and the readout tells you the speed it has at the top against the speed it needs. Changing the radius changes both numbers, but the critical height is always exactly 2.5R.</>}>
   <Sim id="energy-conservation-loop" />
 </Figure>
 
@@ -261,10 +261,10 @@ $$m_2 g d = \tfrac12 (m_1 + m_2) v^2$$
 $$(2.0)(9.8)(0.80) = \tfrac12 (5.0) v^2$$
 $$15.68 = 2.5 v^2 \quad\Rightarrow\quad v^2 = 6.272,\ v = 2.50\ \text{m/s}.$$
 
-Two more wrinkles show up in harder versions of this. First, if the system can
+Harder versions add wrinkles. If the system can
 recoil (a block sliding down a wedge that is itself free to slide) momentum
 in the free direction is conserved too, and you need both equations, because
-the wedge carries away some of the kinetic energy. Second, for an extended
+the wedge carries away some of the kinetic energy. And for an extended
 object like a chain or a rope, the gravitational potential energy is
 $Mgy_{\text{cm}}$, using the height of the **centre of mass**.
 
@@ -272,7 +272,7 @@ $Mgy_{\text{cm}}$, using the height of the **centre of mass**.
 table with one end at the edge, and slides off over a smooth peg. How fast is
 it moving when the last link leaves the table?
 
-You cannot track the links one at a time. But you do not have to: the whole
+You can't track the links one at a time. But you don't have to: the whole
 chain always moves at one speed, so $K = \tfrac12 M v^2$ no matter how it is
 draped. Initially it lies flat on the table, so its centre of mass is at table
 height, $y_{\text{cm},i} = 0$. Finally it hangs straight down from the edge, a
@@ -287,14 +287,14 @@ of $L/2$.
   A leaky bucket, a chain piling onto the floor, a rocket (anything shedding or
   gathering mass) is not a closed energy account. Material that lands and stops
   dead loses its kinetic energy to the impact, exactly like a collision. If a
-  problem says mass leaves or joins the moving system, do not assume mechanical
+  problem says mass leaves or joins the moving system, don't assume mechanical
   energy is conserved. Write momentum or force equations for the mass transfer
   and use energy only on the stretches where the system is intact.
 </Aside>
 
-## How to recognise that this is the technique
+## What an energy problem looks like
 
-Reach for energy conservation when a problem gives you **two states and asks
+Use energy conservation when a problem gives you **two states and asks
 for a speed, a height, a compression, or a distance** connecting them, and says
 nothing about time. The giveaway phrases: "released from rest", "how fast at
 the bottom", "how high does it rise", "maximum compression", "how far before it
@@ -303,7 +303,7 @@ probably the wrong tool and kinematics or $F = ma$ is the right one.
 
 A second signal is a track whose shape you are not told. A curved slide, a
 bowl, a ski jump, a rope swing: the problem is deliberately withholding the
-geometry because the answer does not need it. That is energy telling you what
+geometry because the answer doesn't need it. That is energy telling you what
 it is.
 
 The procedure, every time: pick your two snapshots and put them as far apart as

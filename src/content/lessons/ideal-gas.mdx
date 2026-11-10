@@ -67,7 +67,7 @@ kinetic energy cannot be negative.
 
 <Aside label="Where this goes wrong" warn>
   Putting celsius into $PV = nRT$ is the single most common error in this
-  topic, and it does not announce itself: you get a plausible-looking number
+  topic, and it doesn't announce itself: you get a plausible-looking number
   that is wrong by a factor of a few. Convert first, every time: $T(\text{K}) =
   T(^\circ\text{C}) + 273$. The same goes for gauge pressure. A tyre gauge
   reading $2.00\times10^5$ Pa means the gas is at $2.00\times10^5 +
@@ -164,7 +164,7 @@ L_2 = L_1 \frac{P_1}{P_2} = 20.0 \times \frac{85.0}{65.0}
 = 20.0 \times 1.3077 = 26.2\ \text{cm}.
 $$
 
-The sign of the $10.0$ is the whole problem. Ask each time: is the mercury
+Everything hinges on the sign of that $10.0$. Ask each time: is the mercury
 sitting on the gas, or hanging off it?
 
 <Aside label="Worth remembering">
@@ -225,8 +225,8 @@ The rule is remarkable. In thermal equilibrium, every independent term in a
 molecule's energy that is *quadratic* in some coordinate or velocity carries an
 average of $\tfrac12 k_B T$: each $\tfrac12 m v_x^2$, each
 $\tfrac12 I\omega^2$, each $\tfrac12 k x^2$ of a vibrating bond. Call the
-number of such terms $f$, the degrees of freedom. Note what a degree of freedom
-is, not a way of moving, but a quadratic energy term.
+number of such terms $f$, the degrees of freedom. A degree of freedom is a
+quadratic energy term, which is not the same thing as a way of moving.
 
 A single atom has three, one for motion along each of $x$, $y$, $z$. So $f = 3$
 and $\overline{K} = \tfrac32 k_B T$, which is the definition of temperature you
@@ -238,7 +238,7 @@ the moment of inertia is minuscule and the energy to excite it is far above
 $k_BT$. Heat the gas to a few thousand kelvin and the bond vibrates, adding a
 kinetic and a potential term, so $f = 7$.
 
-<Figure caption={<><b>Figure 2.</b> Counting the quadratic energy terms for the three standard cases. Notice that the vibrational mode counts twice, once for the kinetic term and once for the potential term of the bond spring.</>}>
+<Figure caption={<><b>Figure 2.</b> Counting the quadratic energy terms for the three standard cases. The vibrational mode counts twice, once for the kinetic term and once for the potential term of the bond spring.</>}>
   <Sim id="ideal-gas-dof" />
 </Figure>
 
@@ -249,9 +249,9 @@ $$
 U = \tfrac{f}{2} n R T.
 $$
 
-Two things follow. First, $U$ depends on temperature alone, not on volume or
-pressure. Second, heating at constant volume does no work, so all the heat goes
-into $U$, and the molar heat capacity at constant volume is
+So $U$ depends on temperature alone, not on volume or pressure. And since
+heating at constant volume does no work, all the heat goes into $U$, which
+makes the molar heat capacity at constant volume
 
 $$
 C_V = \frac{1}{n}\frac{dU}{dT} = \tfrac{f}{2} R.
@@ -343,14 +343,14 @@ $$
 
 Work through it: $\tfrac32 \times 8.31 = 12.465$ J/(mol·K), times $2.00$ mol is
 $24.93$ J/K, times $200$ K is $4986$ J. The gas does about $4.99$ kJ of work.
-Notice you never needed the volumes, the pressures, or $\gamma$, just the
-temperature drop.
+You never needed the volumes, the pressures, or $\gamma$, just the temperature
+drop.
 
 For a temperature question instead, use $TV^{\gamma-1}$. Air at $300$ K
 compressed 18-fold with $\gamma = 1.40$ reaches $T_2 = 300 \times
 18^{0.40}$. Since $\ln 18 = 2.890$, $0.40 \times 2.890 = 1.156$, and
 $e^{1.156} = 3.178$, giving $T_2 = 953$ K. That is hot enough to ignite diesel
-without a spark plug, which is the entire point of a diesel engine.
+without a spark plug, which is exactly what a diesel engine is built around.
 
 ## The atmosphere: two different questions
 
@@ -419,7 +419,7 @@ $$
 
 Since $2^{2/3} = e^{0.6667 \times 0.6931} = e^{0.4621} = 1.5874$, the answer is
 $T_R = 300 \times 1.5874 = 476$ K. The left gas is hotter still, but the
-question did not ask, and you did not need it.
+question didn't ask, and you didn't need it.
 
 <QuickCheck
   question="A gas is compressed to half its volume, once slowly in a water bath at fixed temperature and once quickly in an insulated cylinder. Which ends at the higher pressure?"
@@ -428,13 +428,13 @@ question did not ask, and you did not need it.
   explanation="Pressure scales as one over V for the isotherm and one over V to the gamma for the adiabat, and gamma is greater than 1. The adiabatic compression also heats the gas, and that extra temperature adds extra pressure."
 />
 
-## Recognising which tool a problem wants
+## Which equation the wording points at
 
 Almost every problem in this unit announces itself in one line.
 
 If the problem gives you a gas in one state and asks about another state of the
-*same* gas, reach for $P_1V_1/T_1 = P_2V_2/T_2$ and cross out whatever is held
-fixed. You will not need $R$.
+*same* gas, start from $P_1V_1/T_1 = P_2V_2/T_2$ and cross out whatever is held
+fixed. You won't need $R$.
 
 If it asks for moles, molecules, mass, density or molar mass, you need the full
 $PV = nRT$ or $PV = Nk_BT$, and probably $\rho = MP/RT$. Anything mentioning

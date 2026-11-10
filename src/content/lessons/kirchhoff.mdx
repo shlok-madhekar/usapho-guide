@@ -10,7 +10,7 @@ node S, two resistors run from S down to two middle nodes A and B, two more run
 from A and B down to ground, and a fifth resistor bridges A straight across to
 B. Look for a series pair. There isn't one: every resistor has a third wire
 landing on one of its ends. Look for a parallel pair. There isn't one of those
-either. The network is perfectly ordinary and it cannot be simplified by
+either. The network is perfectly ordinary and it can't be simplified by
 inspection at all.
 
 That is the situation Kirchhoff's two rules exist for. They never fail and
@@ -71,17 +71,17 @@ A battery of emf $\mathcal{E}$ holds its positive plate $\mathcal{E}$ volts
 above its negative plate, no matter which way the current runs through it. Walk
 in at the minus plate and out at the plus plate and you have climbed, so the
 term is $+\mathcal{E}$. Walk in at the plus and out at the minus and the term
-is $-\mathcal{E}$. Notice that this has nothing to do with the current
+is $-\mathcal{E}$. None of this has anything to do with the current
 direction, only with which plate you meet first.
 
 <Figure caption={<><b>Figure 1.</b> The only four terms that ever appear in a loop equation. The blue arrow is the direction you chose to walk. For the resistors, the sign depends on the current; for the batteries it depends on which plate you meet first.</>}>
   <Sim id="kirchhoff-signs" />
 </Figure>
 
-Those four cases are the whole of it. Write them down once, and every loop
+There are no cases beyond those four. Write them down once, and every loop
 equation you ever write is an exercise in reading a diagram carefully.
 
-Here is the rule in action on the simplest circuit that needs it: two batteries
+Try the rule on the simplest circuit that needs it: two batteries
 in one loop, pointing against each other, with total resistance $R$. Walk
 clockwise, taking $I$ clockwise too. You meet $\mathcal{E}_1$ minus-plate
 first, so $+\mathcal{E}_1$. You meet the resistor along the current, so $-IR$.
@@ -243,7 +243,7 @@ It runs from A to B, because $V_A$ came out the higher. Two nodes, two
 equations, and the circuit that had no series or parallel pair anywhere in it
 is finished.
 
-One thing that fell out for free: if $V_A$ had equalled $V_B$, no current would
+You also got something for free: if $V_A$ had equalled $V_B$, no current would
 cross, whatever the galvanometer's resistance. That happens when the two
 dividers split the supply in the same ratio, which works out to
 $R_1R_4 = R_2R_3$ for the four outer arms. That is the balanced Wheatstone
@@ -281,9 +281,9 @@ identical currents.
   lowest or highest potential you'd expect it to be.
 </Aside>
 
-## Recognising when to reach for this
+## The circuits that force Kirchhoff on you
 
-You are looking at a Kirchhoff problem when any one of these is true.
+You're looking at a Kirchhoff problem when any one of these is true.
 
 **More than one source.** Two batteries in different branches, or a battery
 buried inside one arm of a parallel pair, kills the series-parallel method
@@ -291,7 +291,7 @@ outright. Any question about which battery is charging which is this.
 
 **A bridging element.** A galvanometer, a voltmeter, or a resistor connected
 across the middle of two dividers. Trace the circuit and try to name a series
-pair or a parallel pair. If you cannot, stop trying and write node equations.
+pair or a parallel pair. If you can't, stop trying and write node equations.
 
 **The question asks for one branch, not the total.** "What current flows in
 the $6.00\ \Omega$ resistor" in a multi-branch network is a node-voltage

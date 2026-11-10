@@ -2,19 +2,19 @@
 
 Put a cup of water on a stove and it gets hotter. Now take the same cup, seal it, and shake it hard for ten minutes. It also gets hotter. Nothing touched a flame. The energy came out of your arms.
 
-That is the whole starting point of thermodynamics. Energy can cross the boundary of a system in two different ways: as *heat*, which flows because one side is hotter than the other, and as *work*, which is a force pushing something through a distance. Once the energy is inside, the water has no memory of which door it came through. A joule delivered by a paddle wheel and a joule delivered by a Bunsen burner raise the temperature by exactly the same amount.
+Thermodynamics starts with that shaken cup. Energy can cross the boundary of a system in two different ways: as *heat*, which flows because one side is hotter than the other, and as *work*, which is a force pushing something through a distance. Once the energy is inside, the water has no memory of which door it came through. A joule delivered by a paddle wheel and a joule delivered by a Bunsen burner raise the temperature by exactly the same amount.
 
-The last few lessons tracked energy sloshing between a capacitor and an inductor, where none of it was ever lost. Here energy is still conserved, but you now have to count a channel that mechanics ignored. This lesson is the bookkeeping for that count, and most of the difficulty is not the physics. It is signs.
+The last few lessons tracked energy sloshing between a capacitor and an inductor, where none of it was ever lost. Here energy is still conserved, but you now have to count a channel that mechanics ignored. This lesson is the bookkeeping for that count, and most of the difficulty isn't the physics. It's signs.
 
 ## The first law
 
 Call the energy stored inside the system its **internal energy** $U$. For a gas, this is the total kinetic energy of all the molecules jiggling about, plus whatever energy is stored in their mutual attraction. You almost never need its absolute value, only how much it changes.
 
-Two things change it. Heat $Q$ added to the system raises $U$. Work $W$ done *by* the system on its surroundings lowers $U$, because the system spent that energy pushing on the outside world. Conservation of energy then says the change in $U$ is what went in minus what went out:
+Only two currencies cross the boundary. Heat $Q$ added to the system raises $U$. Work $W$ done *by* the system on its surroundings lowers $U$, because the system spent that energy pushing on the outside world. Conservation of energy then says the change in $U$ is what went in minus what went out:
 
 $$\Delta U = Q - W$$
 
-That is the first law of thermodynamics. It is not a new principle; it is energy conservation with the heat channel written down explicitly.
+That is the first law of thermodynamics. It isn't a new principle; it's energy conservation with the heat channel written down explicitly.
 
 Read the signs off the definitions every time. $Q > 0$ means heat flows *into* the system. $W > 0$ means the system *expands and pushes outward*. A gas that is compressed does negative work, and $-W$ then becomes a positive contribution to $U$: squeeze a gas and it warms up, which is exactly what the equation says.
 
@@ -51,13 +51,13 @@ $$W = \int_{V_1}^{V_2} P\,dV$$
 
 So the work done by a gas is the **area under its path on a $P$–$V$ diagram**. That single sentence is worth more than the integral sign. If the path is a straight line, you get the area of a trapezoid without doing any calculus.
 
-Two consequences follow at once. If the volume does not change, the gas does no work at all, whatever the pressure. And if two different processes connect the same starting state to the same finishing state, the areas under them are different, so the work is different.
+Right away you get two facts for free. If the volume doesn't change, the gas does no work at all, whatever the pressure. And if two different processes connect the same starting state to the same finishing state, the areas under them are different, so the work is different.
 
 <Figure caption={<><b>Figure 2.</b> Three routes from state A to state B. Move the slider through all three and watch the shaded area change while the endpoints stay put. The number in the readout is the work, and it is different every time.</>}>
   <Sim id="first-law-pv-paths" />
 </Figure>
 
-Here is the deep point hiding in that figure. $U$ is a **state function**: fix the gas and fix its pressure and volume, and $U$ is determined, no matter how the gas got there. So $\Delta U$ is the same for all three paths. But $W$ is clearly not the same. Since $Q = \Delta U + W$, the heat cannot be the same either. Heat and work are properties of a *process*, not of a state. Only their difference belongs to the gas.
+There's a deep point hiding in that figure. $U$ is a **state function**: fix the gas and fix its pressure and volume, and $U$ is determined, no matter how the gas got there. So $\Delta U$ is the same for all three paths. But $W$ is clearly not the same. Since $Q = \Delta U + W$, the heat cannot be the same either. Heat and work are properties of a *process*, not of a state. Only their difference belongs to the gas.
 
 That turns some awkward-looking problems into one line. A gas goes from A to B absorbing 900 J and doing 400 J of work, so $\Delta U = 900 - 400 = 500$ J. Along a completely different route from A to B it does 700 J of work. The internal energy change must still be 500 J, so $Q = \Delta U + W = 500 + 700 = 1200$ J. You never needed to know either path.
 
@@ -79,7 +79,7 @@ The volume increased, the answer is positive, and the gas did work on the world.
 
 ## What the ideal gas keeps inside
 
-For an ideal gas the molecules do not attract each other, so there is no energy stored in how far apart they are. All of $U$ is molecular kinetic energy, and that depends only on temperature. Pull the walls apart and the molecules spread out without slowing down.
+For an ideal gas the molecules don't attract each other, so there is no energy stored in how far apart they are. All of $U$ is molecular kinetic energy, and that depends only on temperature. Pull the walls apart and the molecules spread out without slowing down.
 
 Measure the heat needed to warm a gas at constant volume. No work is done, so all of it goes into $U$, and you define the **molar heat capacity at constant volume** $C_V$ by $Q = nC_V\Delta T$, where $n$ is the number of moles. Then
 
@@ -152,9 +152,9 @@ Negative, as it must be: the gas was compressed, so work was done on it.
 
 $$W_{\text{total}} = 2255 - 1372 = 883\ \text{J}.$$
 
-Notice the gas ends at the same volume but a much lower temperature, and still came out ahead on work. The compression was cheap because it happened cold.
+The gas ends at the same volume but a much lower temperature, and still came out ahead on work. The compression was cheap because it happened cold.
 
-## Heat that does not change the temperature
+## Heat that doesn't change the temperature
 
 Not every joule of heat raises a temperature. Two more pieces of vocabulary close the gap.
 
@@ -188,9 +188,9 @@ About 24 grams, which is a small amount of steam for a large temperature rise. L
   Forgetting that the condensed steam keeps cooling after it becomes water. If you use only $mL_v$ you get 0.0259 kg, and the answer looks plausible enough to keep. Whenever a substance crosses a phase boundary, write the journey as a list of legs (warm to the boiling point, change phase, warm again) and give every leg its own term.
 </Aside>
 
-## Recognising which tool a problem wants
+## Four questions to ask before the calculator
 
-The topic looks like a pile of formulas. It is really four questions asked in order.
+The topic looks like a pile of formulas. It's really four questions asked in order.
 
 **Is the system a gas in a cylinder, or a lump of stuff being warmed?** Gas in a cylinder means $P$–$V$ work, $C_V$ and $C_P$, and the four processes. A lump of stuff means $mc\Delta T$, latent heats, and calorimetry. The words "insulated container", "final temperature" and "specific heat" point hard at the second.
 

@@ -146,28 +146,45 @@ export interface PullRequest {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+interface RepoRef {
+  full_name: string;
+  fork?: boolean;
+  parent?: { full_name: string };
+}
+
 /**
  * Make sure the contributor has a fork of the upstream repo, waiting for
  * GitHub to finish creating it. Returns "owner/name" of the fork.
+ *
+ * The fork is not always at login/<upstream name>: people rename forks, and
+ * someone may own an unrelated repository with that name, in which case
+ * GitHub names the fork name-1. Assuming the name sent edits into the wrong
+ * repository, or polled for a fork that would never appear there. Ask GitHub
+ * instead: the create-fork call answers with the fork it made or already had.
  */
 async function ensureFork(token: string, login: string): Promise<string> {
   const name = REPO.split("/")[1];
-  const fork = `${login}/${name}`;
+  const isOurFork = (r: RepoRef) =>
+    Boolean(r.fork) && r.parent?.full_name.toLowerCase() === REPO.toLowerCase();
+
+  // the usual case, and the only lookup most contributors need
   try {
-    await gh(token, `/repos/${fork}`);
-    return fork;
-  } catch {
-    // not there yet, ask GitHub to create it
+    const repo = await gh<RepoRef>(token, `/repos/${login}/${name}`);
+    if (isOurFork(repo)) return repo.full_name;
+  } catch (e) {
+    if (!(e instanceof GitHubError && e.status === 404)) throw e;
   }
-  await gh(token, `/repos/${REPO}/forks`, { method: "POST" });
+
+  const fork = (await gh<RepoRef>(token, `/repos/${REPO}/forks`, { method: "POST" }))
+    .full_name;
   for (let i = 0; i < 15; i++) {
-    await sleep(2000);
     try {
       await gh(token, `/repos/${fork}`);
       return fork;
     } catch {
       /* still forking */
     }
+    await sleep(2000);
   }
   throw new Error("GitHub is still creating your fork. Try saving again shortly.");
 }

@@ -25,6 +25,19 @@ FILLER = [
     "it's important to note", "it is important to note",
 ]
 
+# phrasings that are fine once but got stamped across dozens of lessons by
+# earlier drafts. One use in a file is tolerated; repeats are flagged.
+CADENCE = [
+    "notice that", "that is the whole", "that is the entire",
+    "the whole story", "reach for", "buys you", "falls straight out",
+    "the payoff is",
+]
+
+# the near-identical closing heading forty lessons once shared
+GENERIC_HEADING = re.compile(
+    r"^##\s+(recognis|how to recognise|knowing when to reach)", re.I | re.M
+)
+
 
 def slugs() -> set[str]:
     curriculum = json.loads(CURRICULUM.read_text())
@@ -85,6 +98,16 @@ def check(path: pathlib.Path, valid: set[str]) -> list[str]:
     for phrase in FILLER:
         if phrase in lowered:
             problems.append(f"filler phrase: {phrase!r}")
+
+    for phrase in CADENCE:
+        n = lowered.count(phrase)
+        if n > 1:
+            problems.append(f"stock phrasing used {n} times: {phrase!r} (once is fine)")
+
+    if GENERIC_HEADING.search(text):
+        problems.append(
+            "generic 'Recognising the technique' heading: retitle it for the topic"
+        )
 
     if "<Aside" not in text:
         problems.append("no <Aside> (each lesson should name a pitfall or a note)")

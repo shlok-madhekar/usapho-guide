@@ -1,6 +1,6 @@
 A camera flash takes a couple of seconds to charge and then dumps everything it has in about a millisecond. Same capacitor, same energy, two wildly different timescales. What changed was the resistance the charge had to squeeze through on its way in and on its way out.
 
-That is the whole subject. In [Kirchhoff's Laws](/guide/kirchhoff) you solved networks where every current was fixed the moment the switch closed and stayed there forever. Put a capacitor in and that stops being true: the circuit has a memory, and the currents drift from one set of values to another over a time you can predict.
+Everything below is about that one quantity, the timescale. In [Kirchhoff's Laws](/guide/kirchhoff) you solved networks where every current was fixed the moment the switch closed and stayed there forever. Put a capacitor in and that stops being true: the circuit has a memory, and the currents drift from one set of values to another over a time you can predict.
 
 ## The capacitor's one rule
 
@@ -46,7 +46,7 @@ $$Q(t) = Q_0 e^{-t/RC}, \qquad V_C(t) = V_0 e^{-t/RC}, \qquad I(t) = \frac{V_0}{
 
 The current decays identically in both cases. Only the charge differs, because charging climbs to something and discharging falls to nothing.
 
-<Figure caption={<><b>Figure 1.</b> Charging in real time. The rising curve is the capacitor voltage, the falling one the current. Drag the resistance and the capacitance and watch the shape stay exactly the same while the clock stretches. Notice the curve always passes through 63 percent of its final value at one time constant, whatever you set.</>}>
+<Figure caption={<><b>Figure 1.</b> Charging in real time. The rising curve is the capacitor voltage, the falling one the current. Drag the resistance and the capacitance and watch the shape stay exactly the same while the clock stretches. The curve always passes through 63 percent of its final value at one time constant, whatever you set.</>}>
   <Sim id="rc-circuits-charge-lab" />
 </Figure>
 
@@ -82,7 +82,7 @@ Then the half-life:
 
 $$t = \tau\ln 2 = (0.22)(0.6931) = 0.1525\ \mathrm{s}$$
 
-Notice the starting voltage never entered. Every exponential decay halves in the same time no matter where you start it, which is why the question could leave that number out.
+The starting voltage never entered. Every exponential decay halves in the same time no matter where you start it, which is why the question could leave that number out.
 
 <QuickCheck
   question="A capacitor discharging through a resistor has fallen to half its initial voltage. How much longer until it reaches one quarter?"
@@ -93,7 +93,7 @@ Notice the starting voltage never entered. Every exponential decay halves in the
 
 ## The two limits answer most questions
 
-Before you reach for $e^{-t/\tau}$, check whether the question only asks about $t = 0^+$ or $t \to \infty$. It usually does, and those two cases need no calculus at all, just two resistive circuits you already know how to solve.
+Before you write $e^{-t/\tau}$, check whether the question only asks about $t = 0^+$ or $t \to \infty$. It usually does, and those two cases need no calculus at all: they're two resistive circuits you already know how to solve.
 
 **Immediately after the switch closes**, the capacitor's voltage is still whatever it was a moment earlier. If it started empty, that voltage is zero, and a component with zero volts across it is a plain wire. Redraw the circuit with the capacitor replaced by a **short** and solve.
 
@@ -197,7 +197,7 @@ $$\tfrac{1}{2}(200\times10^{-6})(2500) = 0.250\ \mathrm{J}, \qquad 1 - e^{-2} = 
 
 $$W_R = (0.250)(0.8647) = 0.216\ \mathrm{J}$$
 
-So 86 percent of the waste heat appears in the first time constant. The resistance never appeared, and it could not have: the answer depends only on how far along the process you are, and $\tau$ measures exactly that.
+So 86 percent of the waste heat appears in the first time constant. The resistance never appeared, and it couldn't have: the answer depends only on how far along the process you are, and $\tau$ measures exactly that.
 
 <Aside label="Worth remembering">
   Energy in a capacitor goes as $V^2$, so the stored energy decays as $e^{-2t/\tau}$ and halves in $\tfrac{\tau}{2}\ln 2$, not $\tau\ln 2$. The same factor of two applies to dissipated power. Whenever a question asks about energy or power rather than voltage or charge, expect $2t/\tau$ in the exponent.
@@ -213,11 +213,11 @@ $$\tau = R\,\frac{C_1C_2}{C_1 + C_2}$$
 
 For $C_1 = 12\ \mu\mathrm{F}$, $C_2 = 4.0\ \mu\mathrm{F}$, $R = 2.2\ \mathrm{k\Omega}$: the series combination is $(12)(4)/16 = 3.0\ \mu\mathrm{F}$, so $\tau = (2200)(3.0\times10^{-6}) = 0.0066\ \mathrm{s}$.
 
-For the energy lost, do not chase the integral. Let $q$ be the charge that has moved when the current finally stops. At that moment the loop voltage is zero, so $V_0 - q/C_1 - q/C_2 = 0$, giving $q = C_s V_0$ where $C_s$ is that same series combination. The energy dissipated is the drop in stored energy, and grinding through the algebra leaves a clean result:
+For the energy lost, don't chase the integral. Let $q$ be the charge that has moved when the current finally stops. At that moment the loop voltage is zero, so $V_0 - q/C_1 - q/C_2 = 0$, giving $q = C_s V_0$ where $C_s$ is that same series combination. The energy dissipated is the drop in stored energy, and grinding through the algebra leaves a clean result:
 
 $$W_R = \tfrac{1}{2}C_s\,(\Delta V_0)^2$$
 
-where $\Delta V_0$ is the initial voltage mismatch around the loop. Two $10\ \mu\mathrm{F}$ capacitors, one at 100 V and one empty, have $C_s = 5.0\ \mu\mathrm{F}$ and $\Delta V_0 = 100\ \mathrm{V}$, so $W_R = \tfrac12(5.0\times10^{-6})(10^4) = 0.025\ \mathrm{J}$. A quarter of the original 0.05 J is gone, and the resistance does not appear. Replace the wire with a better conductor and you lose exactly the same energy in a shorter, fiercer pulse.
+where $\Delta V_0$ is the initial voltage mismatch around the loop. Two $10\ \mu\mathrm{F}$ capacitors, one at 100 V and one empty, have $C_s = 5.0\ \mu\mathrm{F}$ and $\Delta V_0 = 100\ \mathrm{V}$, so $W_R = \tfrac12(5.0\times10^{-6})(10^4) = 0.025\ \mathrm{J}$. A quarter of the original 0.05 J is gone, and the resistance doesn't appear. Replace the wire with a better conductor and you lose exactly the same energy in a shorter, fiercer pulse.
 
 **Worked example 4.** An uncharged $100\ \mu\mathrm{F}$ capacitor charges through a $10\ \mathrm{k\Omega}$ resistor from a $20\ \mathrm{V}$ battery. At $t = 1.0\ \mathrm{s}$ the battery is swapped for a plain wire, so the capacitor now discharges through the same resistor. Find $V_C$ at $t = 2.0\ \mathrm{s}$.
 
@@ -229,24 +229,24 @@ $$\tau = (10\times10^{3})(100\times10^{-6}) = 1.0\ \mathrm{s}$$
 
 $$V_C(1.0) = 20\left(1 - e^{-1.0/1.0}\right) = 20(1 - 0.3679) = 20(0.6321) = 12.64\ \mathrm{V}$$
 
-*Phase two.* The capacitor's voltage cannot jump, so 12.64 V is the starting value for the discharge. Reset the clock: one more second elapses, which is again one time constant.
+*Phase two.* The capacitor's voltage can't jump, so 12.64 V is the starting value for the discharge. Reset the clock: one more second elapses, which is again one time constant.
 
 $$V_C(2.0) = 12.64\,e^{-1.0/1.0} = (12.64)(0.3679) = 4.65\ \mathrm{V}$$
 
 Two exponentials, each handled on its own, stitched together by the one thing that carries across the switch: the capacitor voltage. That is the pattern for every multi-stage transient. Find the voltage at the moment of the change, then start a fresh problem with that as the initial condition and whatever new $\tau$ and final value the new circuit has.
 
-## Recognising the technique
+## What flags an RC problem
 
-Reach for this machinery when you see any of these.
+Use this machinery when you see any of these.
 
 **A capacitor plus the words "switch", "at $t=0$", "just after", or "a long time".** That is a transient question, and the two-limit sketches come first. If the question only asks about one of those two moments, you are done without an exponential.
 
 **A number that is a fraction of a final value** (90 percent charged, down to a tenth, within 1 percent) means you want $t = -\tau\ln(1-f)$ or $t = \tau\ln(1/f)$. Settling to 1 percent of final takes $-\ln(0.01) = 4.6$ time constants.
 
-**More than one resistor around a capacitor.** Do not guess which one sets $\tau$. Kill the sources and find the resistance across the capacitor's terminals. If a question gives you a network and asks for a time constant, that is the whole point of the question.
+**More than one resistor around a capacitor.** Don't guess which one sets $\tau$. Kill the sources and find the resistance across the capacitor's terminals. If a question gives you a network and asks for a time constant, that reduction is what's being tested.
 
 **The words energy, heat, or power.** Then you are in $e^{-2t/\tau}$ territory, and often you can skip the integral entirely with $\tfrac12 CV^2$ before and after.
 
-**Two capacitors connected to each other.** Conserve charge, find the final common state, and use $\tfrac12C_s\Delta V^2$ for the heat. The resistor's value will not matter, and a question that omits it is telling you so.
+**Two capacitors connected to each other.** Conserve charge, find the final common state, and use $\tfrac12C_s\Delta V^2$ for the heat. The resistor's value won't matter, and a question that omits it is telling you so.
 
 A capacitor turns an algebra problem into the same algebra problem plus a clock. Solve the circuit at the start, solve it at the end, and $\tau$ fills in the middle. Next you will meet networks where even the steady-state algebra fights back (bridges, ladders, and symmetry tricks) in [Tricky Networks](/guide/tricky-networks).

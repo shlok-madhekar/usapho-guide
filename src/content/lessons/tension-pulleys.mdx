@@ -6,7 +6,7 @@ touching. The only thing they share is a rope.
 That rope is doing something worth understanding. It carries a force from one
 object to another, it changes the direction of that force when it goes round the
 wheel, and it forces the two objects to move in lockstep. Get those three ideas
-straight and a whole family of problems (Atwood machines, blocks on inclines,
+straight and a large family of problems (Atwood machines, blocks on inclines,
 trains of blocks, block and tackle, monkeys climbing ropes) becomes the same
 problem wearing different clothes.
 
@@ -17,7 +17,7 @@ constraint) to close the system.
 
 ## What a rope can and cannot do
 
-A rope pulls. It never pushes. That is the whole of it, and it is the first
+A rope pulls. It never pushes. There's no third option, and that's the first
 thing to check when a sign comes out wrong: if your algebra hands you a negative
 tension, the rope has gone slack and your model is broken, not merely off by a
 minus sign.
@@ -37,12 +37,12 @@ $$T_{\text{above}} - T_{\text{below}} - \delta m\, g = \delta m\, a.$$
 
 So the tensions differ by $\delta m\,(g+a)$. Set $\delta m = 0$ (a **massless**
 or "light" rope) and the difference vanishes. The tension is the same
-everywhere along a single massless rope. That is the entire content of the word
-"light" in a problem statement, and it is why you are allowed to write one
+everywhere along a single massless rope. That's all the word
+"light" in a problem statement means, and it's why you are allowed to write one
 symbol $T$ instead of a different one at every point.
 
 An **ideal pulley** carries this round a corner. It has no mass and no bearing
-friction, so it needs no net torque to spin, so the rope does not have to pull
+friction, so it needs no net torque to spin, so the rope doesn't have to pull
 harder on one side than the other. A pulley changes the *direction* of the
 tension and nothing else.
 
@@ -59,7 +59,7 @@ Two masses, $m_1$ and $m_2$, hang from the ends of a light rope over an ideal
 pulley. Say $m_1 > m_2$, so $m_1$ goes down and $m_2$ goes up.
 
 Draw each block on its own. On $m_1$: weight $m_1 g$ down, tension $T$ up. On
-$m_2$: weight $m_2 g$ down, the same $T$ up. Now the constraint. The rope cannot
+$m_2$: weight $m_2 g$ down, the same $T$ up. Now the constraint. The rope can't
 stretch, so whatever distance $m_1$ falls, $m_2$ rises: same distance, same
 speed, same magnitude of acceleration $a$.
 
@@ -82,15 +82,15 @@ denominator $m_1 + m_2$ is all the mass that has to be moved. Equal masses give
 $a = 0$ and $T = m g$, a stalemate. Let $m_2 \to 0$ and you get $a \to g$ and
 $T \to 0$: free fall, with a rope that has forgotten it exists.
 
-<Figure caption={<><b>Figure 1.</b> Drag the two masses. Notice that the
-tension is never as big as the heavier weight and never as small as the lighter
+<Figure caption={<><b>Figure 1.</b> Drag the two masses. The tension is never
+as big as the heavier weight and never as small as the lighter
 one: it always sits between them. Set them equal and watch the tension jump to
 the full weight of one side.</>}>
   <Sim id="tension-pulleys-atwood" />
 </Figure>
 
 That tension result is worth staring at. $T$ lies strictly between $m_2 g$ and
-$m_1 g$. It cannot equal $m_1 g$, because then $m_1$ would not accelerate. A
+$m_1 g$. It can't equal $m_1 g$, because then $m_1$ would not accelerate. A
 very common wrong answer is "the tension is the weight of the lighter block".
 It is not, unless nothing is moving.
 
@@ -145,7 +145,7 @@ $a$. But you can only do it when nothing internal is asked for: the moment a
 question says "find the tension", you need the individual equations back.
 
 <Aside label="Where this goes wrong" warn>
-Do not put the weight of the table block into the horizontal equation. Its
+Don't put the weight of the table block into the horizontal equation. Its
 $Mg$ is cancelled by the normal force and contributes nothing to the motion. A
 frictionless table block of $4\;\mathrm{kg}$ and one of $400\;\mathrm{kg}$
 differ only in inertia. That is also why friction changes the answer so much:
@@ -190,7 +190,7 @@ from nowhere.
 
 <Figure caption={<><b>Figure 3.</b> Drag the "free end pulled down" slider and
 watch the readout: the load always rises half as far as you pull. Then change
-the load mass and notice the holding force is always half its weight. Force
+the load mass: the holding force is always half its weight. Force
 gained, distance lost.</>}>
   <Sim id="tension-pulleys-movable" />
 </Figure>
@@ -261,7 +261,7 @@ only horizontal force on it is that tension, so
 
 $$T = (3.0)(3.0) = 9.0\;\mathrm{N}.$$
 
-Choosing which side of the cut to take is the whole skill. Take the side with
+The skill is choosing which side of the cut to take: the side with
 fewer forces on it. Had you taken the $1.0 + 2.0$ side instead you would write
 $18 - T = (3.0)(3.0)$ and get the same $9.0\;\mathrm{N}$, with more chances to
 slip.
@@ -338,13 +338,13 @@ $a_{\text{monkey}} = a_{\text{rel}} - a_{\text{block}}$ when the block rises.
   explanation="For the monkey, T minus mg equals m a, so T = 20(9.8) + 20(1.2) = 196 + 24 = 220 N. The counterweight then has 220 N up against 245 N down, so it accelerates downward at 1.0 m/s squared."
 />
 
-## How to recognise this technique
+## What marks a problem as a connected system
 
-Reach for connected-system methods when a problem statement contains any of
-these signals.
+Any of these signals in a problem statement puts you in connected-system
+territory.
 
 A **rope, string, cord or cable joining two things that both move**. The
-giveaway is that you cannot solve either object alone: each free body diagram
+giveaway is that you can't solve either object alone: each free body diagram
 has an unknown $T$ in it, so you need both diagrams plus a constraint.
 
 The words **light**, **massless**, **ideal** or **frictionless pulley**. These
@@ -368,9 +368,9 @@ of $78.4\;\mathrm{N}$ because part of the system is accelerating downward.
 
 Your routine, every time: draw a separate free body diagram for each object,
 choose a positive direction for each one in the direction you expect it to
-move, write $F = ma$ for each, write the length constraint, then solve. Do not
-skip the constraint and do not merge objects together until you have checked
-that the question does not ask about the force between them.
+move, write $F = ma$ for each, write the length constraint, then solve. Don't
+skip the constraint, and don't merge objects together until you have checked
+that the question doesn't ask about the force between them.
 
 Next you will meet a connector that is not rigid at all, one whose pull depends
 on how far you stretch it: [springs and Hooke's law](/guide/springs-hooke).

@@ -13,9 +13,9 @@ network has only five resistors in it.
 
 That shape is the Wheatstone bridge, the smallest network that defeats
 series-parallel reduction. A cube of twelve resistors defeats it too, and so does
-a ladder that repeats forever. Here are the tools that take over: symmetry, the
-balance condition, the delta-to-Y conversion, self-similarity, and the
-brute-force fallback that always works.
+a ladder that repeats forever. This lesson covers the tools that take over:
+symmetry, the balance condition, the delta-to-Y conversion, self-similarity, and
+the brute-force fallback that always works.
 
 ## Equal potentials, and what you may do to them
 
@@ -40,7 +40,7 @@ three corners next to $A$ among themselves, so those three share a potential, an
 it cycles the three corners next to $G$ among themselves, so those share a
 second.
 
-<Figure caption={<><b>Figure 1.</b> The cube seen as three tiers. Every corner labelled 1 is one step from A, every corner labelled 2 is one step from G. Notice that no edge ever joins two corners with the same label, so merging the tiers loses nothing.</>}>
+<Figure caption={<><b>Figure 1.</b> The cube seen as three tiers. Every corner labelled 1 is one step from A, every corner labelled 2 is one step from G. No edge ever joins two corners with the same label, so merging the tiers loses nothing.</>}>
   <Sim id="tricky-networks-cube" />
 </Figure>
 
@@ -145,9 +145,9 @@ $300/450 = 120/BQ$, so $BQ = 120 \times 450 / 300 = 180\ \Omega$.
   <i>opposite</i> arms, not adjacent ones.
 </Aside>
 
-## When the bridge will not balance: delta to Y
+## When the bridge won't balance: delta to Y
 
-If the ratios do not match, current crosses the bridge and you cannot delete
+If the ratios don't match, current crosses the bridge and you can't delete
 anything. You need a real transformation, and the useful one turns a triangle of
 resistors into a three-spoked star.
 
@@ -324,10 +324,10 @@ node. The shunt currents run $I_0/2$, $I_0/4$, $I_0/8$: the third carries
 $0.125\,I_0$.
 
 <Aside label="Where this goes wrong" warn>
-  Self-similarity is the entire trick, so it fails the instant the sections stop
-  being identical. A ladder whose resistors halve every stage is a genuine
-  infinite series, not a fixed point. But if the sections scale by a constant
-  factor, self-similarity comes back in a new form.
+  The method leans on self-similarity and on nothing else, so it fails the
+  instant the sections stop being identical. A ladder whose resistors halve
+  every stage is a genuine infinite series, not a fixed point. But if the
+  sections scale by a constant factor, self-similarity comes back in a new form.
 </Aside>
 
 **Worked example 6.** Section $n$ has series $100 \cdot 2^n\ \Omega$ and shunt
@@ -376,33 +376,33 @@ done this way, because the potential drop between them runs through many edges
 rather than one. The Fourier-integral result, worth knowing rather than deriving
 here, is $R_{\text{diag}} = 2R/\pi$; for $10\ \Omega$ that is $6.366\ \Omega$.
 
-## Recognising which tool a problem wants
+## Matching the network to the tool
 
 Count the resistors and look at the junctions. If every junction has exactly two
 wires, reduce as usual and stop reading.
 
-**Reach for symmetry** when the network is named after a shape (cube, square,
+**Try symmetry** when the network is named after a shape (cube, square,
 hexagon, octahedron, tetrahedron) or when the resistors are all identical. Ask
 what rigid motion of the shape leaves both terminals alone, then find the nodes
 it swaps. Those are your equipotentials.
 
-**Reach for the balance condition** the moment you see five resistors in a bridge
+**Test the balance condition** the moment you see five resistors in a bridge
 pattern, or a resistor bridging the midpoints of two dividers. Compute the two
 ratios first; the cost is two divisions. "Galvanometer reads zero" or "null" is a
 direct instruction to use it.
 
-**Reach for delta-to-Y** when balance fails and the question asks only for
+**Go to delta-to-Y** when balance fails and the question asks only for
 equivalent resistance. Pick the triangle containing the terminal you measure
-from, so the fold-away node is one you do not care about.
+from, so the fold-away node is one you don't care about.
 
-**Reach for node voltages** when the question asks for a current or a power
+**Write node voltages** when the question asks for a current or a power
 *inside* the network. The shortcuts give the resistance and destroy the interior;
 only the node equations keep it.
 
-**Reach for self-similarity** at the words "infinite", "repeating", "forever", or
+**Think self-similarity** at the words "infinite", "repeating", "forever", or
 a ladder drawn with dots trailing off the page. Identical sections give
 $R = R_s + R_p \parallel R$. Sections scaling by a constant factor give the same
-kind of equation once you relate section 1 to section 0. Sections that do not
+kind of equation once you relate section 1 to section 0. Sections that don't
 scale at all leave you a series to sum, not a fixed point to find.
 
 One habit beats all five: check the size of your answer. If two nodes are joined

@@ -1,6 +1,6 @@
 Until now every charge you met was sitting still. You put charge on a conductor, waited for it to stop moving, then found the field. In a [dielectric](/guide/dielectrics) you asked how the material rearranged itself once everything had settled.
 
-Now nothing settles. A battery holds a steady potential difference across a wire, charge keeps moving through it, and yet the state of the wire stops changing. A torch runs for an hour at the same brightness. Something sets how much charge goes past per second, and the answer splits cleanly in two: what the material is made of, and what shape you cut it into. That split is the whole lesson.
+Now nothing settles. A battery holds a steady potential difference across a wire, charge keeps moving through it, and yet the state of the wire stops changing. A torch runs for an hour at the same brightness. Something sets how much charge goes past per second, and the answer splits cleanly in two: what the material is made of, and what shape you cut it into. Everything below lands on one side of that split or the other.
 
 ## Current is a flow rate, not a substance
 
@@ -61,7 +61,7 @@ $$R = \frac{(1.68\times10^{-8})(30)}{2.087\times10^{-6}} = \frac{5.04\times10^{-
 
 The trap here is the factor of two in the length. Current has to come back.
 
-<Figure caption={<><b>Figure 1.</b> A wire with the resistance formula made visible. Drag the length and the diameter and watch the readout. Notice that halving the diameter quarters the area and so quadruples the resistance, while doubling the length only doubles it.</>}>
+<Figure caption={<><b>Figure 1.</b> A wire with the resistance formula made visible. Drag the length and the diameter and watch the readout. Halving the diameter quarters the area and so quadruples the resistance, while doubling the length only doubles it.</>}>
   <Sim id="current-resistance-wire" />
 </Figure>
 
@@ -139,7 +139,7 @@ $$P = I^2R = \frac{V^2}{R}$$
 
 A hair dryer drawing $12.5\ \mathrm{A}$ from $120\ \mathrm{V}$ consumes $12.5 \times 120 = 1500\ \mathrm{W}$. A welding cable of $8.0\ \Omega$ carrying $3.0\ \mathrm{A}$ wastes $3.0^2 \times 8.0 = 72\ \mathrm{W}$. A toaster rated $1200\ \mathrm{W}$ at $120\ \mathrm{V}$ has element resistance $V^2/P = 14400/1200 = 12\ \Omega$.
 
-Two resistors joined end to end carry the same current, since charge cannot leak away in between. The drops add, so $V = IR_1 + IR_2 = I(R_1+R_2)$, and the pair behaves as one resistor with
+Two resistors joined end to end carry the same current, since charge can't leak away in between. The drops add, so $V = IR_1 + IR_2 = I(R_1+R_2)$, and the pair behaves as one resistor with
 
 $$R_{\text{series}} = R_1 + R_2 + \cdots$$
 
@@ -170,7 +170,7 @@ A real battery is not an ideal voltage source. Chemistry sets an **emf** $\mathc
 
 $$I = \frac{\mathcal{E}}{R + r}$$
 
-A AA cell of $1.50\ \mathrm{V}$ and $r = 0.30\ \Omega$ feeding a $2.70\ \Omega$ lamp drives $I = 1.50/3.00 = 0.50\ \mathrm{A}$. The terminal voltage you would measure is not $1.50\ \mathrm{V}$ but $IR = 1.35\ \mathrm{V}$; the missing $0.15\ \mathrm{V}$ is dropped inside the cell.
+A AA cell of $1.50\ \mathrm{V}$ and $r = 0.30\ \Omega$ feeding a $2.70\ \Omega$ lamp drives $I = 1.50/3.00 = 0.50\ \mathrm{A}$. The terminal voltage you'd measure is not $1.50\ \mathrm{V}$ but $IR = 1.35\ \mathrm{V}$; the missing $0.15\ \mathrm{V}$ is dropped inside the cell.
 
 **Worked example 4: the best load.** A generator of emf $24.0\ \mathrm{V}$ and internal resistance $0.500\ \Omega$ feeds a load through a cable of total resistance $1.50\ \Omega$. You may choose $R$ freely. What is the greatest power you can deliver to the load?
 
@@ -207,15 +207,15 @@ $$10.0 = 30.0 \times \frac{R_p}{R_p + 20.0} \quad\Rightarrow\quad R_p + 20.0 = 3
 
 Now undo the parallel combination: $1/10.0 = 1/R + 1/50.0$, so $1/R = 0.1 - 0.02 = 0.08$, and $R = 12.5\ \mathrm{k}\Omega$. Without the meter, $R$ would have read $12.0\ \mathrm{V}$; the meter pulled the reading down by stealing current. An ammeter does the mirror image: it adds a small resistance in series and so reads slightly less than the current that flowed before it was inserted.
 
-Two network tricks belong here, and neither needs anything beyond series and parallel. **Self-similarity:** an infinite ladder looks identical after you strip one cell off the front, so $R_{in} = R_1 + (R_2 R_{in})/(R_2 + R_{in})$, a quadratic. With $R_1 = 2.00$ and $R_2 = 3.00$ it gives $R_{in} \approx 3.65\ \Omega$. **Symmetry:** in a cube of twelve equal resistors driven corner to opposite corner, the three edges at the input carry equal current, as do the three at the output, leaving six in the middle to split the current six ways. Summing drops along a path gives $R = R_e(1/3 + 1/6 + 1/3) = (5/6)R_e$, so $5.00\ \Omega$ for $6.00\ \Omega$ edges. Nodes at equal potential can be merged or cut apart freely, and spotting that is usually the whole problem.
+Two network tricks belong here, and neither needs anything beyond series and parallel. **Self-similarity:** an infinite ladder looks identical after you strip one cell off the front, so $R_{in} = R_1 + (R_2 R_{in})/(R_2 + R_{in})$, a quadratic. With $R_1 = 2.00$ and $R_2 = 3.00$ it gives $R_{in} \approx 3.65\ \Omega$. **Symmetry:** in a cube of twelve equal resistors driven corner to opposite corner, the three edges at the input carry equal current, as do the three at the output, leaving six in the middle to split the current six ways. Summing drops along a path gives $R = R_e(1/3 + 1/6 + 1/3) = (5/6)R_e$, so $5.00\ \Omega$ for $6.00\ \Omega$ edges. Nodes at equal potential can be merged or cut apart freely, and spotting that is usually most of the work.
 
-## Recognising these problems
+## Matching the givens to the formula
 
 The signals are unusually clean here.
 
-If the problem mentions amps and seconds and asks for coulombs or a number of electrons, it wants $I = Q/t$ and nothing more. If it gives $n$, a wire diameter and a current, it wants $I = nqv_dA$, and the answer will be absurdly small: that is the point.
+If the problem mentions amps and seconds and asks for coulombs or a number of electrons, it wants $I = Q/t$ and nothing more. If it gives $n$, a wire diameter and a current, it wants $I = nqv_dA$, and the answer will be absurdly small: that's the point.
 
-If a length, an area or a diameter appears alongside a material name or a resistivity, it wants $R = \rho L/A$. If the shape changes at constant volume, remember $R$ scales as the length ratio squared. If the cross-section varies along the wire, or the current spreads radially outward, you cannot use $L/A$ directly: set up $\int \rho\,dx/A(x)$ with $A(x)$ being whatever area the current crosses at that position.
+If a length, an area or a diameter appears alongside a material name or a resistivity, it wants $R = \rho L/A$. If the shape changes at constant volume, remember $R$ scales as the length ratio squared. If the cross-section varies along the wire, or the current spreads radially outward, you can't use $L/A$ directly: set up $\int \rho\,dx/A(x)$ with $A(x)$ being whatever area the current crosses at that position.
 
 If a temperature or an $\alpha$ appears, it is the linear $R = R_0[1+\alpha\Delta T]$, run forwards or backwards.
 

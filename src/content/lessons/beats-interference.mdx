@@ -10,8 +10,8 @@ one place, and their displacements add. In
 travelled opposite ways, and the result was fixed in space: nodes that never
 move. Here the two waves have slightly *different* frequencies, or they come
 from two places instead of one. Loosen either of those conditions and the
-pattern starts to move, or spreads out across a room. That is all beats and
-two-source interference are.
+pattern starts to move, or spreads out across a room. Beats and two-source
+interference are both just superposition with one condition relaxed.
 
 ## Two frequencies at one point
 
@@ -23,8 +23,8 @@ $$y(t) = A\cos(2\pi f_1 t) + A\cos(2\pi f_2 t)$$
 Here $A$ is the amplitude each wave would have alone, $f_1$ and $f_2$ are the
 two frequencies in hertz, and $t$ is time in seconds.
 
-Nothing about that sum looks like throbbing yet. To see the throb, rewrite it.
-The identity you need is the sum-to-product rule,
+Nothing about that sum looks like throbbing yet. To see the throb you have to
+rewrite it. The identity you need is the sum-to-product rule,
 $\cos X + \cos Y = 2\cos\!\left(\frac{X-Y}{2}\right)\cos\!\left(\frac{X+Y}{2}\right)$.
 Put $X = 2\pi f_1 t$ and $Y = 2\pi f_2 t$:
 
@@ -70,7 +70,7 @@ Beats are the most sensitive measurement in acoustics. Your ear cannot tell
 second, and you can count that in your sleep.
 
 The catch is the absolute value. Three beats per second against a 440 Hz fork
-means the string is at 437 Hz or 443 Hz, and the sound alone will not say which.
+means the string is at 437 Hz or 443 Hz, and the sound alone won't say which.
 You need a second experiment. Tighten the string a little: tightening raises
 pitch, because a stretched string carries waves at $v=\sqrt{T/\mu}$ and its
 fundamental is $f = v/2L$, so $f \propto \sqrt{T}$. If the beats speed up, you
@@ -120,10 +120,10 @@ $$f_1 = \frac{343}{2(0.500)} = \frac{343}{1.000} = 343.000\ \text{Hz}$$
 
 $$f_2 = \frac{343}{2(0.510)} = \frac{343}{1.020} = 336.275\ \text{Hz}$$
 
-The beat frequency is $343.000 - 336.275 = 6.725$ Hz. Notice that rounding $f_2$
-to 336 Hz would have given 7 Hz, a 4% error in the answer from a 0.08% error in
-an intermediate. Beat problems subtract two nearly equal numbers, so carry
-digits you would normally throw away.
+The beat frequency is $343.000 - 336.275 = 6.725$ Hz. Rounding $f_2$ to 336 Hz
+would have given 7 Hz, a 4% error in the answer from a 0.08% error in an
+intermediate. Beat problems subtract two nearly equal numbers, so carry digits
+you would normally throw away.
 
 ## The same idea in space
 
@@ -140,8 +140,8 @@ $2\pi$ per $\lambda$, so
 
 $$\Delta\phi = \frac{2\pi}{\lambda}\,\Delta r$$
 
-That single line is the whole of two-source interference, and it is worth saying
-in words: *phase difference is path difference measured in wavelengths, times
+Every two-source problem runs through that line, so say it in words until it
+sticks: *phase difference is path difference measured in wavelengths, times
 $2\pi$*.
 
 Two waves reinforce when they are a whole number of cycles apart and cancel when
@@ -183,7 +183,7 @@ distances to the two speakers are
 
 $$r_1 = \sqrt{4.00^2 + (y+1.50)^2}, \qquad r_2 = \sqrt{4.00^2 + (y-1.50)^2}$$
 
-and you want $r_1 - r_2 = 0.3430$ m. There is no tidy way to unpick those square
+and you want $r_1 - r_2 = 0.3430$ m. There's no tidy way to unpick those square
 roots, so close in on $y$ numerically. At $y = 0$ the paths are equal and the
 difference is zero, so walk outward and watch it grow.
 
@@ -203,10 +203,9 @@ Check it: $r_1 = \sqrt{16 + 1.9913^2} = 4.46825$, $r_2 = \sqrt{16 + 1.0087^2} =
 4.12522$, difference 0.34303 m. That is the half wavelength you wanted, so the
 first quiet spot is 0.491 m from the centre line.
 
-Two habits from that problem carry everywhere. First, convert to a wavelength
-before you touch the geometry. Second, if the algebra fights you, bracket the
-answer with two guesses and interpolate: that is a legitimate method, not a
-retreat.
+That problem teaches two habits worth keeping. Convert to a wavelength before
+you touch the geometry. And if the algebra fights you, bracket the answer with
+two guesses and interpolate: that's a legitimate method, not a retreat.
 
 <Aside label="Where this goes wrong" warn>
   A minimum is quiet, not silent. Perfect cancellation needs equal amplitudes as
@@ -218,7 +217,7 @@ retreat.
 
 ## When the sources are not in step
 
-Everything above assumed the two sources start together. They need not. Wire one
+Everything above assumed the two sources start together. They don't have to. Wire one
 speaker with its terminals reversed and it pushes when the other pulls: the
 sources carry a built-in phase difference of $\phi_0 = \pi$.
 
@@ -314,17 +313,17 @@ The structure is what to take from this. A beat problem never has a trick in the
 subtraction. The work is always in getting the two frequencies right, and a
 reflector is best treated as two events: a listener, then a fresh source.
 
-## Recognising the technique
+## Sorting a beat problem from a path problem
 
-Reach for **beats** when a problem names two sources of nearly the same
-frequency and asks for a rate, a throb, a count of loud moments, or a time
-between them. The signatures: "beats per second", "sounded together", "how many
-beats in 10 seconds", a fork plus anything, two pipes of almost equal length,
-two sources with one of them moving. Method: compute each frequency separately
-to five figures, subtract, take the absolute value. If the problem asks *which*
-is higher, look for the second piece of information that breaks the tie.
+Use **beats** when a problem names two sources of nearly the same frequency
+and asks for a rate, a throb, a count of loud moments, or a time between them.
+The signatures: "beats per second", "sounded together", "how many beats in 10
+seconds", a fork plus anything, two pipes of almost equal length, two sources
+with one of them moving. Method: compute each frequency separately to five
+figures, subtract, take the absolute value. If the problem asks *which* is
+higher, look for the second piece of information that breaks the tie.
 
-Reach for **path difference** when there is one frequency and two places, and
+Go to **path difference** when there is one frequency and two places, and
 the question is about *where* rather than *when*. The signatures: two speakers,
 a listener who walks or stands at a named spot, a Quincke tube whose slider
 moves, "the lowest frequency for which she hears nothing", "how many frequencies
@@ -334,12 +333,13 @@ $\Delta r = (m+\frac{1}{2})\lambda$, so $f = (m+\frac{1}{2})v/\Delta r$, and
 running $m = 0, 1, 2, \dots$ lists every frequency that works and lets you count
 the ones under a cutoff.
 
-Two more habits close the gap on the harder problems. When a problem specifies
+On the harder problems, two more habits close the gap. When a problem specifies
 how the sources are wired, write $\Delta\phi_{\text{total}} = \phi_0 + 2\pi\Delta
 r/\lambda$ before anything else, and never start from a memorised $m\lambda$.
 And when it asks for an amplitude rather than a position, you want
 $2A|\cos(\Delta\phi/2)|$, which means you need the phase difference itself, not
 only whether it is loud or quiet.
 
-Both halves of this lesson are one idea. Beats are interference in time; two
-speakers are interference in space. The next lesson takes the remaining piece (what motion does to a frequency) and makes it exact.
+Both halves of this lesson are one idea seen twice: beats are interference in
+time, two speakers are interference in space. The next lesson takes the
+remaining piece (what motion does to a frequency) and makes it exact.

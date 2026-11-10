@@ -40,7 +40,7 @@ m\ddot x_2 = -kx_2 - k_c(x_2-x_1)
 $$
 
 Neither line can be solved by itself: each one contains the other cart's
-coordinate. That is what "coupled" means, and it is the entire difficulty.
+coordinate. That's what "coupled" means.
 
 There is a cheap trick here that shows you the way out. Add the two equations.
 The $k_c$ terms cancel exactly, and with $s = x_1+x_2$ you get
@@ -65,7 +65,7 @@ The antiphase mode is always the faster one, because it is the one that
 deforms the coupling spring. Turn the coupling up and the two frequencies
 spread apart, with the in-phase one pinned in place.
 
-<Figure caption={<><b>Figure 1.</b> The two normal modes of the coupled carts, and what each does to the middle spring. Notice that in the in-phase mode the middle spring keeps its natural length the whole time, which is why its stiffness never appears in that frequency.</>}>
+<Figure caption={<><b>Figure 1.</b> The two normal modes of the coupled carts, and what each does to the middle spring. In the in-phase mode the middle spring keeps its natural length the whole time, which is why its stiffness never appears in that frequency.</>}>
   <Sim id="coupled-oscillators-modes" />
 </Figure>
 
@@ -100,8 +100,8 @@ $$
 \omega_-=\sqrt{\frac{200+2(50)}{0.50}}=\sqrt{\frac{300}{0.50}}=\sqrt{600}=24.49\ \text{rad/s}
 $$
 
-That is the whole calculation for the easy version of this problem. Write down
-the two shapes, ask what each does to the coupling spring, read off the
+For the symmetric version of this problem, that's the full calculation. Write
+down the two shapes, ask what each does to the coupling spring, read off the
 effective stiffness.
 
 ## Any motion at all is a sum of the modes
@@ -156,7 +156,7 @@ $t_{\text{transfer}} = 1/(2\Delta f)$ and $T_{\text{beat}}=1/\Delta f$.
 <Aside label="Where this goes wrong" warn>
 The beat period is set by the difference of the two mode frequencies, not by
 either frequency and not by their average. And the energy has moved across in
-*half* a beat period, because energy does not care about the sign of the
+*half* a beat period, because energy doesn't care about the sign of the
 amplitude. Two modes at 3.00 Hz and 3.20 Hz give $\Delta f = 0.20$ Hz, a beat
 period of 5.0 s, and complete transfer after 2.5 s.
 </Aside>
@@ -266,7 +266,7 @@ springs has the zero translation mode plus a doubly degenerate mode at
 $\omega=\sqrt{3k/m}$. For $m=0.50$ kg and $k=200$ N/m that is $\sqrt{1200}=34.6$
 rad/s. The counting works: three masses, three modes, one of them zero.
 
-<Figure caption={<><b>Figure 3.</b> Mode shapes of a uniform chain. Drag the number of beads and the mode number and watch the shape stay a sine that is pinned at both walls; the readout gives the frequency. Notice how the highest mode has neighbours moving in opposite directions, which is why it is the stiffest.</>}>
+<Figure caption={<><b>Figure 3.</b> Mode shapes of a uniform chain. Drag the number of beads and the mode number and watch the shape stay a sine that is pinned at both walls; the readout gives the frequency. In the highest mode, neighbours move in opposite directions, which is why it is the stiffest.</>}>
   <Sim id="coupled-oscillators-chain" />
 </Figure>
 
@@ -329,13 +329,12 @@ $$
 
 With $\kappa = 0.40$ rad/s and $\delta = 0.60$ rad/s, that is
 $0.16/(0.16+0.36)=0.16/0.52 = 0.308$. Not even a third of the energy gets
-across, no matter how long you wait. Detuning kills transfer; that is the whole
-reason a tuning fork rings a matched fork across the room and ignores a
-mismatched one.
+across, no matter how long you wait. Detuning kills transfer, and that's why a
+tuning fork rings a matched fork across the room and ignores a mismatched one.
 
 <Aside label="Worth remembering">
 Two nearly degenerate oscillators joined by any coupling at all split into two
-modes and trade energy back and forth. It does not matter that one mode is a
+modes and trade energy back and forth. It doesn't matter that one mode is a
 vertical bounce and the other a twist, as in a Wilberforce pendulum. Measure
 the two mode frequencies, take the difference, and every timing question
 follows: modes at $1.480$ and $1.560$ Hz differ by $0.080$ Hz, so pure bounce
@@ -382,9 +381,9 @@ $$
   explanation="The undriven cart's equation gives X2 over X1 equal to kc divided by k plus kc minus m omega squared. Between the modes that denominator passes through small values, so the undriven cart can swing far more than the driven one. It is not zero: the coupling spring is the force on cart 2."
 />
 
-## Recognising the technique
+## Spotting a normal-mode problem
 
-Reach for normal modes the moment a problem has **more than one thing that can
+Go to normal modes the moment a problem has **more than one thing that can
 oscillate and a spring, string, or torque linking them**. The specific
 giveaways:
 

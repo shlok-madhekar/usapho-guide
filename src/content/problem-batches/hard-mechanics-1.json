@@ -1,0 +1,438 @@
+[
+  {
+    "id": "hx-m1d-01",
+    "name": "Sprinter's top speed",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "kinematics",
+      "phases"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A sprinter accelerates uniformly from rest to a top speed $v$, then holds that speed for the rest of a $100\\ \\mathrm{m}$ race, finishing in exactly $10.0\\ \\mathrm{s}$. The acceleration phase covers the first $25\\ \\mathrm{m}$. Find $v$, in m/s.",
+    "answer": 12.5,
+    "unit": "m/s",
+    "solution": "During uniform acceleration from rest the average speed is $v/2$, so the first phase takes $t_1 = \\frac{25}{v/2} = \\frac{50}{v}$. The remaining $75\\ \\mathrm{m}$ at full speed takes $t_2 = \\frac{75}{v}$. The total time is $$\\frac{50}{v} + \\frac{75}{v} = \\frac{125}{v} = 10.0\\ \\mathrm{s},$$ so $v = 12.5\\ \\mathrm{m/s}$. Notice the acceleration itself never needed to be computed."
+  },
+  {
+    "id": "hx-m1d-02",
+    "name": "Coasting boat with quadratic drag",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "drag",
+      "calculus"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A boat's engine is cut while it moves at $10.0\\ \\mathrm{m/s}$. Water drag gives it a deceleration proportional to the square of its speed, $a = -kv^2$. After coasting $50\\ \\mathrm{m}$ the boat has slowed to $5.0\\ \\mathrm{m/s}$. How long did it take to cover those $50\\ \\mathrm{m}$, in s?",
+    "answer": 7.21,
+    "unit": "s",
+    "solution": "Since the distance (not time) is given, write the acceleration as $a = v\\,\\frac{dv}{dx}$. Then $v\\,\\frac{dv}{dx} = -kv^2$ gives $\\frac{dv}{dx} = -kv$, so $v(x) = v_0 e^{-kx}$. The speed halves over $50\\ \\mathrm{m}$, so $k = \\frac{\\ln 2}{50} = 0.01386\\ \\mathrm{m^{-1}}$. For the time, $\\frac{dx}{dt} = v_0 e^{-kx}$ separates into $e^{kx}\\,dx = v_0\\,dt$. Integrating from $x=0$ to $x=50\\ \\mathrm{m}$: $$t = \\frac{e^{50k}-1}{k v_0} = \\frac{2-1}{(0.01386)(10.0)} = 7.21\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-m1d-03",
+    "name": "Thrust that fades with position",
+    "module": "motion-1d",
+    "difficulty": "Very Hard",
+    "tags": [
+      "calculus",
+      "shm analogy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A test sled starts from rest at $x=0$ on a straight track. Its acceleration decreases linearly with position, $a = a_0\\left(1 - \\frac{x}{L}\\right)$, with $a_0 = 8.0\\ \\mathrm{m/s^2}$ and $L = 2.0\\ \\mathrm{m}$. Find the time for the sled to first reach $x = L$, in s.",
+    "answer": 0.785,
+    "unit": "s",
+    "solution": "The trick is to recognize the form of the force law. Rewrite $$a = -\\frac{a_0}{L}(x - L).$$ This is simple harmonic motion centered at $x = L$ with $\\omega = \\sqrt{a_0/L}$. Starting from rest at $x = 0$ means the amplitude is $L$, so $x(t) = L(1 - \\cos\\omega t)$. The sled first reaches $x = L$ when $\\omega t = \\pi/2$: $$t = \\frac{\\pi}{2}\\sqrt{\\frac{L}{a_0}} = \\frac{\\pi}{2}\\sqrt{\\frac{2.0}{8.0}} = 0.785\\ \\mathrm{s}.$$ (Trying to use constant-acceleration formulas here fails; the SHM mapping is the whole problem.)"
+  },
+  {
+    "id": "hx-mg-01",
+    "name": "Back to the start from a v-t graph",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "graphs",
+      "areas"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A particle's velocity-time graph reads: $v = +6.0\\ \\mathrm{m/s}$ (constant) from $t=0$ to $t=4.0\\ \\mathrm{s}$; then $v$ falls along a straight line to $-4.0\\ \\mathrm{m/s}$ at $t=9.0\\ \\mathrm{s}$; then $v$ stays constant at $-4.0\\ \\mathrm{m/s}$. At what time does the particle return to its starting position, in s?",
+    "answer": 16.25,
+    "unit": "s",
+    "solution": "Position is the signed area under the graph, so track it segment by segment. By $t=4.0\\ \\mathrm{s}$: $x = 6.0\\times4.0 = 24\\ \\mathrm{m}$. On the sloped segment the slope is $\\frac{-4-6}{5} = -2\\ \\mathrm{m/s^2}$, so $v$ crosses zero at $t = 7.0\\ \\mathrm{s}$; the triangle from $t=4$ to $7$ adds $\\frac{1}{2}(3.0)(6.0) = 9\\ \\mathrm{m}$, putting the particle at its farthest point $x = 33\\ \\mathrm{m}$. From $t=7$ to $9$ the negative triangle contributes $\\frac{1}{2}(2.0)(-4.0) = -4\\ \\mathrm{m}$, so $x(9) = 29\\ \\mathrm{m}$. After that the particle moves backward at a steady $4.0\\ \\mathrm{m/s}$ and needs $\\frac{29}{4.0} = 7.25\\ \\mathrm{s}$ more: $$t = 9.0 + 7.25 = 16.25\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-mg-02",
+    "name": "Straight line on a v-x graph",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "graphs",
+      "calculus"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A particle's velocity is plotted against its position, and the graph is a straight line from $(x, v) = (0,\\ 2.0\\ \\mathrm{m/s})$ to $(8.0\\ \\mathrm{m},\\ 6.0\\ \\mathrm{m/s})$. How long does the particle take to move from $x = 0$ to $x = 8.0\\ \\mathrm{m}$, in s?",
+    "answer": 2.2,
+    "unit": "s",
+    "solution": "The graph gives $v(x) = 2.0 + 0.50x$ (SI units). A velocity-position graph does not give time by areas; instead use $v = \\frac{dx}{dt}$ and separate: $$t = \\int_0^{8.0} \\frac{dx}{2.0 + 0.50x} = \\frac{1}{0.50}\\ln\\!\\left(\\frac{2.0 + 0.50(8.0)}{2.0}\\right) = 2\\ln 3 = 2.20\\ \\mathrm{s}.$$ A common trap is to average the endpoint speeds ($4.0\\ \\mathrm{m/s}$, giving $2.0\\ \\mathrm{s}$); that is only valid when $v$ is linear in time, which it is not here."
+  },
+  {
+    "id": "hx-mg-03",
+    "name": "Quarter-circle acceleration graph",
+    "module": "motion-graphs",
+    "difficulty": "Very Hard",
+    "tags": [
+      "graphs",
+      "work-energy analogy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A particle starts from rest at $x = 0$. Its acceleration-position graph is a quarter circle: $a = a_0\\sqrt{1 - (x/L)^2}$, starting at $a_0 = 6.0\\ \\mathrm{m/s^2}$ at $x=0$ and falling to zero at $x = L = 4.0\\ \\mathrm{m}$. What is the particle's speed at $x = L$, in m/s?",
+    "answer": 6.14,
+    "unit": "m/s",
+    "solution": "The area under an acceleration-position graph has a physical meaning: from $a = v\\,\\frac{dv}{dx}$, $$\\int_0^L a\\,dx = \\int_0^{v} v'\\,dv' = \\frac{v^2}{2}.$$ The graph is a quarter of an ellipse with semi-axes $L$ (horizontal) and $a_0$ (vertical), so its area is $\\frac{\\pi}{4} a_0 L = \\frac{\\pi}{4}(6.0)(4.0) = 18.85\\ \\mathrm{m^2/s^2}$. Therefore $$v = \\sqrt{2 \\times 18.85} = 6.14\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-ff-01",
+    "name": "Second stone catches the first",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "free-fall",
+      "two objects"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A stone is dropped from rest off a bridge $45\\ \\mathrm{m}$ above the water. Exactly $1.0\\ \\mathrm{s}$ later a second stone is thrown straight down from the same point, and both stones hit the water at the same instant. What was the second stone's launch speed, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 12.2,
+    "unit": "m/s",
+    "solution": "First find how long each stone is in the air. The dropped stone takes $t_1 = \\sqrt{\\frac{2(45)}{9.8}} = 3.03\\ \\mathrm{s}$, so the second stone has only $t_2 = 3.03 - 1.0 = 2.03\\ \\mathrm{s}$ of flight. It must still cover $45\\ \\mathrm{m}$: $$45 = v_0 t_2 + \\frac{1}{2}g t_2^2 = v_0(2.03) + 4.9(2.03)^2.$$ The gravity term is $20.2\\ \\mathrm{m}$, leaving $v_0 = \\frac{45 - 20.2}{2.03} = 12.2\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "hx-ff-02",
+    "name": "Twice past the ledge",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "free-fall",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball thrown straight up from the ground passes a window ledge $15\\ \\mathrm{m}$ above the launch point, and passes the same ledge again $2.0\\ \\mathrm{s}$ later on the way down. What was the launch speed, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 19.7,
+    "unit": "m/s",
+    "solution": "Use the symmetry of the flight about the peak. If the ball passes the ledge moving upward at speed $v_1$, it returns past the ledge at the same speed, and the time between passes is $\\Delta t = \\frac{2v_1}{g}$. So $$v_1 = \\frac{g\\,\\Delta t}{2} = \\frac{(9.8)(2.0)}{2} = 9.8\\ \\mathrm{m/s}.$$ Now relate the ledge back to the ground with energy (or kinematics): $v_0^2 = v_1^2 + 2gh = (9.8)^2 + 2(9.8)(15) = 390$, giving $$v_0 = \\sqrt{390} = 19.7\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-ff-03",
+    "name": "How long does the bouncing last?",
+    "module": "free-fall",
+    "difficulty": "Very Hard",
+    "tags": [
+      "free-fall",
+      "restitution",
+      "series"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is dropped from rest from a height of $5.0\\ \\mathrm{m}$ onto a hard floor. Each bounce reverses its velocity and shrinks its speed by the factor $e = 0.80$. Find the total time from release until the bouncing stops, in s. Use $g = 9.8\\ \\mathrm{m/s^2}$. (The infinite sequence of bounces takes a finite time.)",
+    "answer": 9.09,
+    "unit": "s",
+    "solution": "The first drop takes $t_0 = \\sqrt{\\frac{2h}{g}} = \\sqrt{\\frac{2(5.0)}{9.8}} = 1.010\\ \\mathrm{s}$ and ends at speed $v_0 = g t_0 = 9.90\\ \\mathrm{m/s}$. After the $n$-th bounce the ball leaves the floor at $e^n v_0$, and a full up-and-down flight at launch speed $u$ lasts $\\frac{2u}{g}$. So the total time is $$T = t_0 + \\frac{2v_0}{g}\\left(e + e^2 + e^3 + \\cdots\\right) = t_0 + \\frac{2v_0}{g}\\cdot\\frac{e}{1-e}.$$ Since $\\frac{2v_0}{g} = 2t_0$, this is $T = t_0\\left(1 + \\frac{2e}{1-e}\\right) = t_0\\,\\frac{1+e}{1-e} = 1.010 \\times \\frac{1.8}{0.2} = 9.09\\ \\mathrm{s}.$"
+  },
+  {
+    "id": "hx-pe-01",
+    "name": "Tipping a crate over its edge",
+    "module": "potential-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "gravity",
+      "center of mass"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform cubical crate of side $s = 0.40\\ \\mathrm{m}$ and mass $10\\ \\mathrm{kg}$ rests on the floor. What is the minimum work required to tip it over about one bottom edge, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 8.12,
+    "unit": "J",
+    "solution": "Tipping means rotating the cube about a bottom edge until its center of mass passes directly over that edge; after that, gravity finishes the job on its own. The center of mass starts at height $\\frac{s}{2}$ and sits a distance $\\frac{s\\sqrt{2}}{2}$ from the pivot edge (half the face diagonal). At the balance point that full distance is vertical, so the center of mass is at height $\\frac{s\\sqrt{2}}{2}$. The minimum work equals the rise in potential energy: $$W = mg\\left(\\frac{s\\sqrt{2}}{2} - \\frac{s}{2}\\right) = \\frac{mgs}{2}(\\sqrt{2}-1) = \\frac{(10)(9.8)(0.40)}{2}(0.4142) = 8.12\\ \\mathrm{J}.$$"
+  },
+  {
+    "id": "hx-pe-02",
+    "name": "Fastest point in a potential well",
+    "module": "potential-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "potential curve",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A particle of mass $0.50\\ \\mathrm{kg}$ moves along the $x$-axis with potential energy $$U(x) = \\frac{4.0}{x^2} - \\frac{6.0}{x}$$ ($U$ in joules, $x$ in meters, $x > 0$). It is released from rest at $x = 1.0\\ \\mathrm{m}$. What is its maximum speed, in m/s?",
+    "answer": 1.0,
+    "unit": "m/s",
+    "solution": "The particle moves fastest where $U$ is lowest, i.e. at the bottom of the well. Setting $\\frac{dU}{dx} = -\\frac{8.0}{x^3} + \\frac{6.0}{x^2} = 0$ gives $x = \\frac{8.0}{6.0} = \\frac{4}{3}\\ \\mathrm{m}$. Evaluate the potential at the start and at the bottom: $$U(1.0) = 4.0 - 6.0 = -2.00\\ \\mathrm{J}, \\qquad U(4/3) = \\frac{4.0}{16/9} - \\frac{6.0}{4/3} = 2.25 - 4.50 = -2.25\\ \\mathrm{J}.$$ Energy conservation gives $K_{max} = U(1.0) - U(4/3) = 0.25\\ \\mathrm{J}$, so $$v = \\sqrt{\\frac{2(0.25)}{0.50}} = 1.00\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-pe-03",
+    "name": "Peg below the pivot",
+    "module": "potential-energy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "energy",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A small ball hangs from a light string of length $L = 1.0\\ \\mathrm{m}$. It is pulled aside until the string is horizontal and released from rest. A thin peg is fixed a distance $d$ directly below the pivot; when the string catches on it, the ball whirls in a circle about the peg. What is the minimum $d$ for the ball to complete a full vertical circle around the peg, in m?",
+    "answer": 0.6,
+    "unit": "m",
+    "solution": "After the string catches the peg, the ball circles with radius $r = L - d$. Measure heights from the lowest point of the swing. The ball starts at height $L$ (string horizontal), and the top of the small circle is at height $2r$. Energy conservation between those points: $$v_{top}^2 = 2g(L - 2r).$$ For the string to stay taut at the top, gravity can be no more than the required centripetal force: $v_{top}^2 \\ge gr$. At minimum $d$ these are equal: $$2g(L - 2r) = gr \\implies r = \\frac{2L}{5}.$$ Therefore $d = L - r = \\frac{3L}{5} = 0.60\\ \\mathrm{m}$. (Note the string condition, not $v_{top}=0$, sets the limit.)"
+  },
+  {
+    "id": "hx-wet-01",
+    "name": "Friction that grows with distance",
+    "module": "work-energy-theorem",
+    "difficulty": "Hard",
+    "tags": [
+      "variable force",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A puck is launched at $6.0\\ \\mathrm{m/s}$ across a horizontal floor whose friction coefficient increases with distance from the launch point: $\\mu(x) = cx$ with $c = 0.50\\ \\mathrm{m^{-1}}$. How far does the puck travel before stopping, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 2.71,
+    "unit": "m",
+    "solution": "The friction force is not constant, so integrate the work it does. Over a stopping distance $d$: $$W_f = \\int_0^d \\mu(x)\\,mg\\,dx = mgc\\int_0^d x\\,dx = \\frac{mgc\\,d^2}{2}.$$ The work-energy theorem sets this equal to the initial kinetic energy: $$\\frac{1}{2}mv_0^2 = \\frac{mgc\\,d^2}{2} \\implies d = \\frac{v_0}{\\sqrt{gc}} = \\frac{6.0}{\\sqrt{(9.8)(0.50)}} = 2.71\\ \\mathrm{m}.$$ The mass drops out, as it should."
+  },
+  {
+    "id": "hx-wet-02",
+    "name": "Round trip on a rough ramp",
+    "module": "work-energy-theorem",
+    "difficulty": "Hard",
+    "tags": [
+      "friction",
+      "incline"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A block is launched at $8.0\\ \\mathrm{m/s}$ up a ramp inclined at $30^\\circ$, with kinetic friction coefficient $\\mu_k = 0.25$. Find its speed when it slides back down to the launch point, in m/s. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 5.03,
+    "unit": "m/s",
+    "solution": "Friction acts down the slope on the way up and up the slope on the way down, so the two legs have different effective accelerations. Going up: $a_{up} = g(\\sin\\theta + \\mu_k\\cos\\theta) = 9.8(0.500 + 0.2165) = 7.02\\ \\mathrm{m/s^2}$, so the block climbs $$d = \\frac{v_0^2}{2a_{up}} = \\frac{64}{14.04} = 4.56\\ \\mathrm{m}.$$ Coming down: $a_{down} = g(\\sin\\theta - \\mu_k\\cos\\theta) = 9.8(0.2835) = 2.78\\ \\mathrm{m/s^2}$, so $$v = \\sqrt{2a_{down}d} = \\sqrt{2(2.78)(4.56)} = 5.03\\ \\mathrm{m/s}.$$ Equivalently, $v = v_0\\sqrt{\\frac{\\sin\\theta - \\mu_k\\cos\\theta}{\\sin\\theta + \\mu_k\\cos\\theta}}$."
+  },
+  {
+    "id": "hx-wet-03",
+    "name": "Where the spring-block finally stops",
+    "module": "work-energy-theorem",
+    "difficulty": "Very Hard",
+    "tags": [
+      "spring",
+      "friction",
+      "oscillation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1.0\\ \\mathrm{kg}$ block on a horizontal surface ($\\mu_s = \\mu_k = 0.50$) is attached to a spring of stiffness $k = 98\\ \\mathrm{N/m}$. The spring is compressed $0.30\\ \\mathrm{m}$ from its natural length and the block is released from rest. Find the total path length the block travels before it is permanently at rest, in m. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 0.9,
+    "unit": "m",
+    "solution": "The friction force is $f = \\mu mg = 4.9\\ \\mathrm{N}$. Between one turning point at $|x_1|$ and the next at $|x_2|$ (on the opposite side), work-energy gives $\\frac{1}{2}k(x_1^2 - x_2^2) = f(x_1 + x_2)$, which simplifies to a fixed decrement: $$x_1 - x_2 = \\frac{2f}{k} = \\frac{2(4.9)}{98} = 0.10\\ \\mathrm{m}.$$ So the turning points are $0.30 \\to 0.20 \\to 0.10 \\to 0$. At $0.20\\ \\mathrm{m}$ and $0.10\\ \\mathrm{m}$ the spring force ($19.6$ and $9.8\\ \\mathrm{N}$) exceeds the maximum static friction ($4.9\\ \\mathrm{N}$), so the block keeps going; it arrives at $x = 0$ with exactly zero speed (check: $\\frac{1}{2}k(0.10)^2 = 0.49\\ \\mathrm{J} = f \\times 0.10\\ \\mathrm{m}$) and stays there, since the spring is relaxed. The path length is $0.50 + 0.30 + 0.10 = 0.90\\ \\mathrm{m}$. As a global check, $f\\,d_{tot} = \\frac{1}{2}k x_0^2 = 4.41\\ \\mathrm{J}$ gives $d_{tot} = \\frac{4.41}{4.9} = 0.90\\ \\mathrm{m}$."
+  },
+  {
+    "id": "hx-com-01",
+    "name": "Swapping seats in a canoe",
+    "module": "center-of-mass",
+    "difficulty": "Hard",
+    "tags": [
+      "cm",
+      "recoil"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $60\\ \\mathrm{kg}$ paddler sits at the left end and an $80\\ \\mathrm{kg}$ paddler at the right end of a uniform $100\\ \\mathrm{kg}$ canoe of length $4.0\\ \\mathrm{m}$, floating at rest on still water. They carefully swap ends. How far does the canoe move, in m? (The water exerts no horizontal force.)",
+    "answer": 0.333,
+    "unit": "m",
+    "solution": "With no external horizontal force, the center of mass of the whole system stays put. Put the origin at the canoe's initial left end, so the people sit at $0$ and $4.0\\ \\mathrm{m}$ and the canoe's center is at $2.0\\ \\mathrm{m}$. The system CM is at $$x_{cm} = \\frac{60(0) + 80(4.0) + 100(2.0)}{240} = \\frac{520}{240}\\ \\mathrm{m}.$$ Let the canoe shift by $s$ (positive rightward). After the swap, the $60\\ \\mathrm{kg}$ paddler is at $4.0 + s$, the $80\\ \\mathrm{kg}$ paddler at $s$, and the canoe center at $2.0 + s$: $$\\frac{60(4.0+s) + 80s + 100(2.0+s)}{240} = \\frac{440 + 240s}{240}.$$ Setting this equal to $\\frac{520}{240}$ gives $s = \\frac{80}{240} = 0.333\\ \\mathrm{m}$ (toward the lighter paddler's original end)."
+  },
+  {
+    "id": "hx-com-02",
+    "name": "Shell splits at the top",
+    "module": "center-of-mass",
+    "difficulty": "Hard",
+    "tags": [
+      "cm",
+      "projectile",
+      "explosion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A shell is fired from level ground at $40\\ \\mathrm{m/s}$ at $60^\\circ$ above the horizontal. At the top of its flight it explodes into two fragments of equal mass. One fragment is left momentarily at rest and falls straight down. How far from the launch point does the other fragment land, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$ and neglect air resistance.",
+    "answer": 212.0,
+    "unit": "m",
+    "solution": "At the apex the shell moves horizontally, so after the explosion both fragments have zero vertical velocity; they fall for the same time and land at the same instant. That means the center of mass, which keeps following the original parabola, lands exactly at the unbroken range: $$R = \\frac{v_0^2\\sin 2\\theta}{g} = \\frac{(40)^2 \\sin 120^\\circ}{9.8} = 141.4\\ \\mathrm{m}.$$ The resting fragment drops at the apex, $x_1 = R/2 = 70.7\\ \\mathrm{m}$. With equal masses, $$\\frac{x_1 + x_2}{2} = R \\implies x_2 = 2R - \\frac{R}{2} = \\frac{3R}{2} = 212\\ \\mathrm{m}.$$"
+  },
+  {
+    "id": "hx-com-03",
+    "name": "Block leaving a free wedge",
+    "module": "center-of-mass",
+    "difficulty": "Very Hard",
+    "tags": [
+      "momentum",
+      "energy",
+      "constraints"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.0\\ \\mathrm{kg}$ block starts from rest at the top of a $30^\\circ$ frictionless wedge of mass $8.0\\ \\mathrm{kg}$, which itself sits on a frictionless floor. The block descends a vertical height of $0.50\\ \\mathrm{m}$ as it slides to the bottom. What is the speed of the wedge at that moment, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 0.588,
+    "unit": "m/s",
+    "solution": "Two conservation laws and one constraint. Let $V$ be the wedge's speed (leftward, say) and $u$ the block's speed relative to the wedge, directed along the incline. The block's lab velocity is $(u\\cos\\theta - V,\\ -u\\sin\\theta)$. Horizontal momentum is conserved from rest: $$m(u\\cos\\theta - V) = MV \\implies u\\cos\\theta = \\frac{M+m}{m}V = 5V.$$ Energy conservation: $$mgh = \\frac{1}{2}m\\left[(u\\cos\\theta - V)^2 + (u\\sin\\theta)^2\\right] + \\frac{1}{2}MV^2.$$ Substituting $u\\cos\\theta = 5V$ (so $u\\cos\\theta - V = 4V$ and $u\\sin\\theta = 5V\\tan\\theta = 2.887V$): $$(2.0)(9.8)(0.50) = \\frac{1}{2}(2.0)\\left[16V^2 + 8.333V^2\\right] + \\frac{1}{2}(8.0)V^2 = 28.33\\,V^2.$$ So $V = \\sqrt{9.8/28.33} = 0.588\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "hx-ak-01",
+    "name": "When the acceleration tilts to 45 degrees",
+    "module": "angular-kinematics",
+    "difficulty": "Hard",
+    "tags": [
+      "angular acceleration",
+      "centripetal"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A grinding wheel starts from rest and spins up with constant angular acceleration $\\alpha = 0.50\\ \\mathrm{rad/s^2}$. At what time does the total linear acceleration of a point on the rim make a $45^\\circ$ angle with the radius to that point, in s?",
+    "answer": 1.41,
+    "unit": "s",
+    "solution": "A rim point at radius $r$ has two perpendicular acceleration components: tangential $a_t = \\alpha r$ (constant) and centripetal $a_c = \\omega^2 r = (\\alpha t)^2 r$ (growing). The total acceleration makes $45^\\circ$ with the radius when the two are equal: $$\\alpha r = \\alpha^2 t^2 r \\implies t = \\frac{1}{\\sqrt{\\alpha}} = \\frac{1}{\\sqrt{0.50}} = 1.41\\ \\mathrm{s}.$$ Notice the radius cancels; every point on the wheel reaches $45^\\circ$ at the same moment."
+  },
+  {
+    "id": "hx-ak-02",
+    "name": "Minute hand catches the hour hand",
+    "module": "angular-kinematics",
+    "difficulty": "Hard",
+    "tags": [
+      "relative angular velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Starting exactly at 3:00, how many seconds pass before the minute hand of a clock first points in the same direction as the hour hand, in s?",
+    "answer": 982.0,
+    "unit": "s",
+    "solution": "Treat the two hands as rotating objects and work with their relative angular velocity. The minute hand turns at $6^\\circ$ per minute, the hour hand at $0.5^\\circ$ per minute, so the minute hand gains on the hour hand at $5.5^\\circ$ per minute. At 3:00 the hour hand leads by $90^\\circ$. The catch-up time is $$t = \\frac{90^\\circ}{5.5^\\circ/\\mathrm{min}} = 16.36\\ \\mathrm{min} = 982\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-ak-03",
+    "name": "Path length of a point on a rolling wheel",
+    "module": "angular-kinematics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rolling",
+      "cycloid",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A wheel of radius $R = 0.40\\ \\mathrm{m}$ rolls without slipping along a road at constant speed. How far does a point on the rim travel through space during one complete revolution of the wheel, in m? (Not the distance the wheel advances.)",
+    "answer": 3.2,
+    "unit": "m",
+    "solution": "The rim point traces a cycloid, and its speed through space is far from constant: it is momentarily zero at the road and $2v$ at the top, where $v$ is the wheel's speed. In general, if $\\theta$ is the rotation angle measured from the moment the point touches the road, the point's speed is $$|\\vec{v}| = 2v\\sin\\frac{\\theta}{2}$$ (the velocity is the rotation about the instantaneous contact point, at distance $2R\\sin\\frac{\\theta}{2}$). The path length over one revolution, using $\\theta = \\omega t$ and $v = \\omega R$: $$L = \\int_0^{2\\pi} 2v\\sin\\frac{\\theta}{2}\\,\\frac{d\\theta}{\\omega} = 2R\\left[-2\\cos\\frac{\\theta}{2}\\right]_0^{2\\pi} = 8R = 8(0.40) = 3.20\\ \\mathrm{m}.$$ This exceeds the $2\\pi R = 2.51\\ \\mathrm{m}$ the wheel itself advances."
+  },
+  {
+    "id": "hx-moi-01",
+    "name": "Square plate with an off-center hole",
+    "module": "moment-of-inertia",
+    "difficulty": "Hard",
+    "tags": [
+      "parallel axis",
+      "subtraction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform square plate of side $0.60\\ \\mathrm{m}$ has mass $12\\ \\mathrm{kg}$ before machining. A circular hole of radius $0.10\\ \\mathrm{m}$ is then drilled through it, centered $0.20\\ \\mathrm{m}$ from the plate's center. Find the moment of inertia of the drilled plate about the axis perpendicular to the plate through its center, in kg m^2.",
+    "answer": 0.673,
+    "unit": "kg m^2",
+    "solution": "Treat the hole as negative mass. The intact square plate has $$I_{sq} = \\frac{M(a^2 + a^2)}{12} = \\frac{Ma^2}{6} = \\frac{(12)(0.60)^2}{6} = 0.720\\ \\mathrm{kg\\,m^2}.$$ The removed disk has mass $m = \\sigma\\pi r^2$ with $\\sigma = \\frac{12}{0.36} = 33.3\\ \\mathrm{kg/m^2}$, so $m = 33.3\\,\\pi(0.10)^2 = 1.047\\ \\mathrm{kg}$. About the plate's central axis, by the parallel-axis theorem: $$I_{hole} = \\frac{1}{2}mr^2 + md^2 = \\frac{1}{2}(1.047)(0.10)^2 + (1.047)(0.20)^2 = 0.00524 + 0.04189 = 0.0471\\ \\mathrm{kg\\,m^2}.$$ Subtracting: $$I = 0.720 - 0.0471 = 0.673\\ \\mathrm{kg\\,m^2}.$$"
+  },
+  {
+    "id": "hx-moi-02",
+    "name": "Flywheel measured with a falling mass",
+    "module": "moment-of-inertia",
+    "difficulty": "Hard",
+    "tags": [
+      "dynamics",
+      "measurement"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "To measure a flywheel's moment of inertia, a light string is wrapped around its drum of radius $0.10\\ \\mathrm{m}$ and a $2.0\\ \\mathrm{kg}$ mass is hung from it. Released from rest, the mass descends $1.5\\ \\mathrm{m}$ in $3.0\\ \\mathrm{s}$. The bearing is frictionless. Find the flywheel's moment of inertia, in kg m^2. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 0.568,
+    "unit": "kg m^2",
+    "solution": "From the kinematics of the falling mass: $h = \\frac{1}{2}at^2$ gives $$a = \\frac{2(1.5)}{(3.0)^2} = 0.333\\ \\mathrm{m/s^2}.$$ Newton's second law on the hanging mass gives the string tension: $$T = m(g - a) = 2.0(9.8 - 0.333) = 18.93\\ \\mathrm{N}.$$ The torque on the flywheel is $Tr$, and the no-slip string means $\\alpha = a/r$: $$Tr = I\\alpha = I\\frac{a}{r} \\implies I = \\frac{Tr^2}{a} = \\frac{(18.93)(0.10)^2}{0.333} = 0.568\\ \\mathrm{kg\\,m^2}.$$ (A common error is to use $T = mg$, which overestimates $I$.)"
+  },
+  {
+    "id": "hx-moi-03",
+    "name": "Nonuniform rod about its center of mass",
+    "module": "moment-of-inertia",
+    "difficulty": "Very Hard",
+    "tags": [
+      "integration",
+      "parallel axis"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A rod of length $L = 1.2\\ \\mathrm{m}$ and total mass $3.0\\ \\mathrm{kg}$ has a linear mass density proportional to the distance from its lighter end: $\\lambda(x) = cx$. Find its moment of inertia about an axis perpendicular to the rod through its center of mass, in kg m^2.",
+    "answer": 0.24,
+    "unit": "kg m^2",
+    "solution": "First pin down the constant: $M = \\int_0^L cx\\,dx = \\frac{cL^2}{2}$, so $c = \\frac{2M}{L^2}$. The moment of inertia about the light end is $$I_{end} = \\int_0^L x^2(cx)\\,dx = \\frac{cL^4}{4} = \\frac{ML^2}{2} = \\frac{(3.0)(1.2)^2}{2} = 2.16\\ \\mathrm{kg\\,m^2}.$$ The center of mass sits at $$x_{cm} = \\frac{1}{M}\\int_0^L x(cx)\\,dx = \\frac{cL^3/3}{cL^2/2} = \\frac{2L}{3} = 0.80\\ \\mathrm{m}.$$ Now use the parallel-axis theorem in reverse: $$I_{cm} = I_{end} - Mx_{cm}^2 = 2.16 - (3.0)(0.80)^2 = 2.16 - 1.92 = 0.240\\ \\mathrm{kg\\,m^2}.$$ (Note this is $\\frac{ML^2}{18}$, smaller than the uniform rod's $\\frac{ML^2}{12}$, since the mass is concentrated nearer the heavy end.)"
+  }
+]

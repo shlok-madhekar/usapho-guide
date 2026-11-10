@@ -1,7 +1,7 @@
 ## A fingerprint made of light
 
 Heat a tube of hydrogen gas until it glows, send the light through a prism, and
-you do not get a rainbow. You get four sharp coloured lines on a black
+you don't get a rainbow. You get four sharp coloured lines on a black
 background (red, blue-green, violet, deep violet) and nothing in between.
 Heat sodium instead and you get a different set of lines. Mercury, a third set.
 Every element has its own pattern, always the same, whether the gas is in a lab
@@ -42,7 +42,7 @@ $$
 E = K + U = \frac{ke^2}{2r} - \frac{ke^2}{r} = -\frac{ke^2}{2r}
 $$
 
-Notice what fell out: $K = -U/2$, and $E = U/2 = -K$. That relation holds for
+Along the way you got $K = -U/2$, and $E = U/2 = -K$. That relation holds for
 any inverse-square orbit: it is the same one you met for satellites in
 [gravitation](/guide/gravitation), and it is called the *virial theorem*. It
 will save you arithmetic later. If a problem hands you the total energy of a
@@ -59,7 +59,7 @@ hydrogen cannot exist.
 ## Bohr's one extra rule
 
 In 1913 Bohr added a single restriction and changed nothing else. The
-electron's orbital angular momentum, $L = mvr$, cannot take any value. It comes
+electron's orbital angular momentum, $L = mvr$, can't take any value. It comes
 in whole multiples of $\hbar = h/2\pi = 1.055 \times 10^{-34}$ J·s:
 
 $$
@@ -100,7 +100,7 @@ constant*. In the ground state the electron moves at $c/137 = 2.19 \times 10^6$
 m/s, fast but only 0.7% of light speed, which is why ignoring relativity works
 as well as it does.
 
-<Figure caption={<><b>Figure 1.</b> The allowed orbits, drawn to scale with each other. Drag the quantum number and watch the radius grow as n squared while the electron slows down and the orbit period stretches. Try raising Z to 2 and notice the whole atom shrinks by half.</>}>
+<Figure caption={<><b>Figure 1.</b> The allowed orbits, drawn to scale with each other. Drag the quantum number and watch the radius grow as n squared while the electron slows down and the orbit period stretches. Then raise Z to 2: the whole atom shrinks by half.</>}>
   <Sim id="bohr-model-orbits" />
 </Figure>
 
@@ -209,13 +209,13 @@ $$
 \lambda = \frac{1240}{1.511} = 820\ \text{nm}
 $$
 
-820 nm is longer than 656 nm, so the two series do not overlap: there is a
+820 nm is longer than 656 nm, so the two series don't overlap: there is a
 clean gap between them. This is general: because the series limit of one series
 always sits at longer wavelength than the longest line of the series below it,
 the hydrogen spectrum sorts itself into separated blocks. That is what makes a
 barcode identifiable.
 
-<Figure caption={<><b>Figure 3.</b> Where the three lowest series actually sit on the wavelength axis, drawn on a logarithmic scale. Notice that each series crowds up against its own short-wavelength limit, and that the blocks never touch.</>}>
+<Figure caption={<><b>Figure 3.</b> Where the three lowest series actually sit on the wavelength axis, drawn on a logarithmic scale. Each series crowds up against its own short-wavelength limit, and the blocks never touch.</>}>
   <Sim id="bohr-model-series" />
 </Figure>
 
@@ -233,7 +233,7 @@ Three corrections turn up often enough that you should recognise them.
 **Nuclear charge.** Already covered: multiply the whole ladder by $Z^2$ and
 divide the radii by $Z$.
 
-**Reduced mass.** The derivation assumed the nucleus stays put. It does not
+**Reduced mass.** The derivation assumed the nucleus stays put. It doesn't,
 quite; both particles orbit their common centre of mass. The fix is to replace
 the electron mass $m$ by the *reduced mass*
 
@@ -293,13 +293,13 @@ one of them to $n = 2$?
 
 The naive answer is 10.2 eV, the $1 \to 2$ gap. It is wrong, and the reason is
 momentum. The incoming atom carries momentum, and momentum is conserved, so the
-pair cannot end up at rest. Whatever kinetic energy they keep is unavailable
+pair can't end up at rest. Whatever kinetic energy they keep is unavailable
 for exciting anything.
 
 The cheapest outcome is the one where they keep as little as possible, which is
 when both atoms end up moving together with the same velocity: a perfectly
 inelastic collision, the same idea you used in
-[collisions](/guide/collisions). Let each atom have mass $M$ and let the
+[collisions](/guide/collisions). Let each atom have mass $M$, and let the
 incoming one have speed $v$. Momentum gives the common final speed:
 
 $$
@@ -325,8 +325,8 @@ in reverse when an atom *emits*: the atom recoils, so the photon gets slightly
 less than the full gap. The recoil energy is $E_\gamma^2/(2Mc^2)$, and for a
 10.2 eV photon off a hydrogen atom whose rest energy is 938 MeV that is
 $10.2^2/(2 \times 938 \times 10^6) = 5.5 \times 10^{-8}$ eV. Utterly
-negligible here, but the same term is the whole story in nuclear gamma
-emission.
+negligible here, but the same term dominates nuclear gamma emission, where the
+photon carries MeV instead of eV.
 
 <Aside label="Worth remembering">
   For very large $n$ the gap between neighbours is tiny and you can get it by
@@ -343,7 +343,7 @@ Keep the ladder, distrust the orbits. The energies $E_n = -13.6\,Z^2/n^2$ are
 exactly what full quantum mechanics gives, and they are right. Everything else
 in the picture is scaffolding.
 
-The model says nothing about how *bright* a line is, so it cannot tell you
+The model says nothing about how *bright* a line is, so it can't tell you
 which transitions dominate. It gives no reason the orbits are stable despite
 the electron accelerating. It fails completely for any atom with more than one
 electron. And the crisp circular path itself is fiction: the electron has no
@@ -351,9 +351,9 @@ trajectory, and in the true ground state its angular momentum is zero, not
 $\hbar$. Bohr's rule gets the right answer for the wrong reason, which happens
 more often in physics than anyone likes to admit.
 
-## Recognising a Bohr problem
+## When to pull out the ladder
 
-Reach for this machinery when you see any of these:
+Use this machinery when you see any of these:
 
 - **Integers attached to an atom.** "$n = 3$ to $n = 2$", "the $n = 4$ level",
   "the upper state". Quantum numbers in the problem statement mean the ladder.

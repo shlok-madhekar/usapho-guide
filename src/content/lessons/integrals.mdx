@@ -16,7 +16,7 @@ every one of them is solved the same way.
 
 ## Slice it, add it, shrink it
 
-Here is the trick, and it never changes. Chop the ten seconds into slivers so
+The trick never changes. Chop the ten seconds into slivers so
 short that over one sliver the velocity has no time to change. Call a sliver
 $\Delta t$. Over that sliver the car really does move $v\,\Delta t$, because
 for that instant it may as well be moving at constant speed. Add the slivers:
@@ -37,7 +37,7 @@ is in m/s and $dt$ is in s, every term in the sum is in metres, so the answer
 is in metres. Checking that the integrand times $dx$ has the units of your
 answer is the fastest error check you own.
 
-<Figure caption={<><b>Figure 1.</b> Each rectangle is one sliver: height v, width delta-t, area v times delta-t. Drag the slice count up from 1 and watch the error readout collapse. That collapse is the whole of integration.</>}>
+<Figure caption={<><b>Figure 1.</b> Each rectangle is one sliver: height v, width delta-t, area v times delta-t. Drag the slice count up from 1 and watch the error readout collapse. Integration is that collapse taken to the limit.</>}>
   <Sim id="integrals-riemann" />
 </Figure>
 
@@ -48,11 +48,11 @@ subtract from your displacement.
 
 ## When the graph is made of straight lines, just find the area
 
-You do not need any calculus to integrate a triangle. A great many problems
+You don't need any calculus to integrate a triangle. A great many problems
 hand you a graph built from straight segments and expect you to break it into
 rectangles and triangles and add.
 
-<Figure caption={<><b>Figure 2.</b> A train speeding up, cruising, then stopping. Notice that you never needed a formula: three areas, added. The triangle areas are one half base times height.</>}>
+<Figure caption={<><b>Figure 2.</b> A train speeding up, cruising, then stopping. No formula needed: three areas, added. The triangle areas are one half base times height.</>}>
   <Sim id="integrals-trapezoid" />
 </Figure>
 
@@ -111,7 +111,7 @@ $$x(t) = \int_0^{t}(12t' - 2t'^2)\,dt' = 6t^2 - \frac{2t^3}{3}$$
 At $t = 3.0$ s: $6(9) = 54$ and $\tfrac{2}{3}(27) = 18$, so
 $x = 54 - 18 = 36$ m.
 
-Notice what you did *not* do: you did not reach for $x = \tfrac12 at^2$. That
+One thing you did *not* do: pull out $x = \tfrac12 at^2$. That
 formula is itself the result of integrating a *constant* $a$, and here $a$ is
 not constant. Using it would have been a guess.
 
@@ -124,7 +124,7 @@ not constant. Using it would have been a guess.
 
 ## Any product with a varying factor
 
-Once you see the pattern, it is everywhere. Take the defining relationship,
+Once you see the pattern, it's everywhere. Take the defining relationship,
 write it for an infinitesimal piece, and add the pieces up.
 
 Impulse is force times time, so for a changing force
@@ -137,7 +137,7 @@ $$W = \int_{x_1}^{x_2} F(x)\,dx$$
 
 A spring pulls back with $F = kx$ when stretched a distance $x$, so the work
 you must do to stretch it from its natural length out to $x$ is
-$\int_0^{x} kx'\,dx' = \tfrac12 kx^2$. That is not a formula to memorise; it is
+$\int_0^{x} kx'\,dx' = \tfrac12 kx^2$. That's not a formula to memorise; it's
 the area of a triangle of base $x$ and height $kx$. With $k = 250$ N/m and
 $x = 0.12$ m: $\tfrac12(250)(0.12)^2 = \tfrac12(250)(0.0144) = 1.8$ J.
 
@@ -146,7 +146,7 @@ $x = 0.12$ m: $\tfrac12(250)(0.12)^2 = \tfrac12(250)(0.0144) = 1.8$ J.
 </Figure>
 
 A capacitor works the same way. Pushing charge $dq$ onto a capacitor already
-holding $q$ costs $dW = (q/C)\,dq$, because $q/C$ is the voltage it is already
+holding $q$ costs $dW = (q/C)\,dq$, because $q/C$ is the voltage it's already
 fighting. So the stored energy is $\int_0^{Q} q\,dq/C = Q^2/2C = \tfrac12 CV^2$.
 With $C = 4.7\ \mu$F and $V = 200$ V:
 $\tfrac12(4.7\times10^{-6})(200)^2 = \tfrac12(4.7\times10^{-6})(4\times10^{4}) = 0.094$ J.
@@ -178,7 +178,7 @@ point on it is the same distance from the axis. Its area is circumference
 times thickness, $2\pi r\,dr$, so its mass is
 $dm = \sigma_0 r \cdot 2\pi r\,dr = 2\pi\sigma_0 r^2\,dr$.
 
-You do not know $\sigma_0$, so get it from the total mass:
+You don't know $\sigma_0$, so get it from the total mass:
 
 $$M = \int_0^{R} 2\pi\sigma_0 r^2\,dr = \frac{2\pi\sigma_0 R^3}{3}$$
 
@@ -246,13 +246,14 @@ Multiply by $GM_Em = 1.993\times10^{17}$ to get $2.28\times10^{9}$ J. Using
 $mgh$ instead would have given $2.45\times10^{9}$ J, about 8% high, because
 gravity weakens on the way up.
 
-## How to recognise that you need an integral
+## Where integrals hide in problem statements
 
-Reach for this machinery when you see any of these:
+Expect an integral when you see any of these:
 
 - **A quantity that is normally a product, with one factor varying.** Force
   times distance, current times time, density times length. If the varying
-  factor were frozen you would just multiply; since it is not, you integrate.
+  factor were frozen you would multiply and be done; since it isn't, you
+  integrate.
 - **A graph you are asked for a total from.** "How far", "what impulse", "how
   much work" off a plot means area, and signed area at that.
 - **A rate given as a function of time.** $a(t)$, $i(t)$, a burn rate. You want
@@ -263,7 +264,7 @@ Reach for this machinery when you see any of these:
   applies. Either integrate $F\,dx$ for energy, or use $a = v\,dv/dx$.
 
 And the negative signal: if the acceleration is genuinely constant and nothing
-is extended or non-uniform, do not integrate. The kinematic equations already
+is extended or non-uniform, don't integrate. The kinematic equations already
 did it for you.
 
 Derivatives and integrals are now both in hand. The next tool is the one that

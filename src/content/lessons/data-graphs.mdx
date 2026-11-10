@@ -29,7 +29,7 @@ for.
 
 <Figure caption={<><b>Figure 1.</b> The slope triangle gives the acceleration
 on the rising segment; the shaded trapezium gives the total displacement.
-Notice that you never needed a formula: a ruler and the area of a trapezium
+No kinematics formula needed: a ruler and the area of a trapezium
 were enough.</>}>
   <Sim id="data-graphs-vt" />
 </Figure>
@@ -55,8 +55,8 @@ slope means physically.
 ## Make the graph straight before you read it
 
 A straight line is the only shape your eye judges reliably. You can spot one
-point that has strayed off a line. You cannot spot one point that has strayed
-off a curve, because you do not know what the curve should have been. So the
+point that has strayed off a line. You can't spot one point that has strayed
+off a curve, because you don't know what the curve should have been. So the
 first move with any dataset is to plot it in whatever variables make the
 expected relation a straight line.
 
@@ -126,10 +126,10 @@ apart and so the least affected by the wobble in any single reading:
 
 $$m = \frac{6.150 - 1.538}{1.00 - 0.25} = \frac{4.612}{0.75} = 6.149\ \text{m/s}^2$$
 
-The slope is $2a$, so $a = 6.149/2 = 3.07$ m/s². Two things to notice. The
-squaring was not a trick, it came from the kinematics you already know. And the
-line passing through the origin confirms the cart really did start from rest;
-a positive intercept would have meant it was given a push.
+The slope is $2a$, so $a = 6.149/2 = 3.07$ m/s². The squaring was not a trick,
+it came from the kinematics you already know. And the line passing through the
+origin confirms the cart really did start from rest; a positive intercept
+would have meant it was given a push.
 
 ## Worked example 2: the answer lives in the intercept
 
@@ -224,7 +224,7 @@ $s$ measures how far a typical single reading falls from the mean:
 
 $$s = \sqrt{\frac{\sum (x_i - \bar{x})^2}{N-1}}$$
 
-But you do not report a single reading, you report the mean, and the mean is
+But you don't report a single reading, you report the mean, and the mean is
 better than any one reading. Its uncertainty is the **standard error**
 
 $$\sigma_{\bar{x}} = \frac{s}{\sqrt{N}}$$
@@ -240,8 +240,8 @@ That $\sqrt{N}$ is also the answer to "how many trials do I need". Rearranged,
 $N = (s/\sigma_{\bar x})^2$. To pull a spread of $0.24$ s down to a standard
 error of $0.05$ s you need $N = (0.24/0.05)^2 = 4.8^2 = 23.04$. A count has to
 be a whole number, and $23$ would leave the standard error just above target,
-so round *up*: 24 trials. Notice how brutal the square root is: cutting the uncertainty in half
-costs four times the work.
+so round *up*: 24 trials. The square root is brutal here: cutting the
+uncertainty in half costs four times the work.
 
 <Figure caption={<><b>Figure 3.</b> Each dot is one timing. Drag N up and the
 dots stay just as scattered, but the shaded band (one standard error either
@@ -252,7 +252,7 @@ and check that the band narrows by about a factor of two, not four.</>}>
 
 ## Carrying uncertainty through a calculation
 
-Uncertainties combine, and they do not simply add. Two independent errors are
+Uncertainties combine, and they don't simply add. Two independent errors are
 unlikely to both be at their worst in the same direction, so you add them **in
 quadrature**, which means squaring, adding, and taking the root.
 
@@ -304,10 +304,10 @@ the experiment agrees with the accepted value.
   $b/m$, which you can now report as a finding instead of a mistake.
 </Aside>
 
-## Recognising that this is the technique
+## What marks a question as a data question
 
-You are being asked a data-analysis question, and should reach for this
-toolkit, whenever one of these shows up.
+Any of the following in a problem statement means you're meant to use this
+toolkit.
 
 **A table of pairs and the word "plot", "graph", "slope" or "intercept".** Even
 if the word is absent, four or five $(x, y)$ pairs in the problem statement
@@ -332,7 +332,7 @@ problems in disguise, and the fix is either to subtract a constant before
 fitting or to read the constant off the intercept.
 
 The equipment in these questions changes every time (lenses, springs, filters,
-counters) but the moves do not. Get the relation into a straight line, decide
+counters) but the moves don't. Get the relation into a straight line, decide
 in advance what the slope and the intercept mean, take the slope from
 well-separated points, and never quote a number without saying how well you
 know it.

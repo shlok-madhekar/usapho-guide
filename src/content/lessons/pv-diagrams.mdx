@@ -2,9 +2,8 @@ A gas sealed under a piston is a machine with exactly two knobs. You can change
 how much room it has, and you can change how hot it is. Everything else (the
 pressure it pushes with, the energy stored inside it, the work it delivers to
 the crankshaft) follows from those two. So if you draw a picture with volume
-across the bottom and pressure up the side, one dot on that picture is the
-complete story of the gas at one instant, and a curve is the complete story of
-a process.
+across the bottom and pressure up the side, one dot on that picture pins the
+gas down completely at one instant, and a curve records a whole process.
 
 That picture is the PV diagram, and it is the single most useful drawing in
 thermodynamics. Once you can read it, a question like "how much heat does this
@@ -61,7 +60,7 @@ Almost every cycle in a problem is built from four kinds of leg, and each has a
 recognisable shape.
 
 An **isochoric** leg holds the volume fixed. The piston is locked, so the dot
-moves straight up or down. The gas cannot push anything through a distance, so
+moves straight up or down. The gas can't push anything through a distance, so
 the work is zero.
 
 An **isobaric** leg holds the pressure fixed. The dot moves horizontally. The
@@ -143,7 +142,7 @@ $P_i = nRT/V_i = 2.49\times10^6$ Pa, which would be 2493 J. The isotherm gives
 less because the pressure sags as the gas expands.
 
 <Aside label="Where this goes wrong" warn>
-  Reaching for $W = P\,\Delta V$ on a leg where the pressure is not constant.
+  Using $W = P\,\Delta V$ on a leg where the pressure isn't constant.
   That formula is the isobaric case and nothing else. On an isotherm use
   $nRT\ln(V_f/V_i)$; on a straight slanted line use the trapezium; on an adiabat
   use $W = -\Delta U = -nC_V\Delta T$, which is far less painful than
@@ -163,7 +162,7 @@ heat on any leg is $Q = \Delta U + W$, and for a monatomic gas that is
 
 $$Q = \tfrac{3}{2}(P_fV_f - P_iV_i) + W$$
 
-Three consequences drop out at once. On an isochore, $W = 0$, so
+Specialise that to each leg. On an isochore, $W = 0$, so
 $Q = \Delta U = \tfrac{3}{2}V\,\Delta P$. On an isotherm, $\Delta U = 0$, so
 $Q = W$. On an adiabat, $Q = 0$, so $W = -\Delta U$.
 
@@ -252,7 +251,7 @@ An engine's **efficiency** is what you get divided by what you pay for:
 
 $$\eta = \frac{W_{\text{net}}}{Q_{\text{in}}}$$
 
-$Q_{\text{in}}$ is the sum of only the positive heats. Do not use the net heat
+$Q_{\text{in}}$ is the sum of only the positive heats. Don't use the net heat
 in the denominator: the whole point is that you paid for all the heat that went
 in, including the part you later threw away. For the rectangle above,
 $\eta = 900/3900 = 0.231$.
@@ -304,7 +303,7 @@ demands. The heat column sums to $500 + 1350 - 2150 = -300$ J, equal to the net
 work, which is the closing check.
 
 The efficiency the question wants is the useful output over the gross heat paid
-for, $300/1850 = 0.162$, and the sense of travel does not change either number's
+for, $300/1850 = 0.162$, and the sense of travel doesn't change either number's
 size.
 
 <Aside label="Where this goes wrong" warn>
@@ -347,7 +346,7 @@ $8.0\times10^{-4}$ m³ to $1.0\times10^{-4}$ m³, a ratio of 8, and with
 $\gamma - 1 = 2/3$ you get $8^{2/3} = 4$, so
 $\eta = 1 - \tfrac{1}{4} = 0.750$.
 
-## Recognising the technique
+## When to draw the loop
 
 A problem wants PV-diagram bookkeeping when it hands you a list of states as
 $(V, P)$ pairs, or describes a sequence of legs by name (isobaric, isochoric,

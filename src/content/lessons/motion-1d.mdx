@@ -1,6 +1,6 @@
 A car is doing 25 m/s and the driver stands on the brakes. Before the car
 stops it travels a certain distance. Double the speed to 50 m/s, brake just as
-hard, and the car does not travel twice as far. It travels four times as far.
+hard, and the car doesn't travel twice as far. It travels four times as far.
 Nothing in that sentence is about forces or engines or tyres. It follows from
 the bookkeeping of position, velocity and time alone.
 
@@ -24,8 +24,8 @@ $$\bar v = \frac{x_2 - x_1}{t_2 - t_1} = \frac{\Delta x}{\Delta t}.$$
 
 Shrink the interval until it is vanishingly small and you get the velocity at
 one instant, which is written $v = dx/dt$. That is the derivative of $x$ with
-respect to $t$, and if you have not met derivatives, here is all you need for
-now: the derivative of $t^n$ is $nt^{n-1}$, and the derivative of a sum is the
+respect to $t$, and if you haven't met derivatives, two facts cover this whole
+unit: the derivative of $t^n$ is $nt^{n-1}$, and the derivative of a sum is the
 sum of the derivatives. So if $x(t) = 3 + 4t - t^2$ in metres, then
 $v(t) = 4 - 2t$ in m/s, and at $t = 3.0$ s that is $4 - 6 = -2.0$ m/s. Negative:
 the cart is heading back toward the origin.
@@ -109,7 +109,7 @@ $\Delta x = v_0^2/(2|a|)$, which goes as the square of the speed.
 at 1.2 m/s² over the next 60 m. What is her final speed?
 
 Write down what you have: $v_0 = 4.0$ m/s, $a = 1.2$ m/s², $\Delta x = 60$ m,
-and $v$ is wanted. No time appears anywhere, so reach for the timeless
+and $v$ is wanted. No time appears anywhere, so go straight to the timeless
 equation.
 
 $$v^2 = v_0^2 + 2a\Delta x = (4.0)^2 + 2(1.2)(60) = 16 + 144 = 160\ \mathrm{m^2/s^2}.$$
@@ -157,7 +157,7 @@ together.
 
 The acceleration is almost never the hard part. The initial condition is. An
 object released from a moving platform leaves with the platform's velocity: it
-does not start at rest just because you let go of it.
+doesn't start at rest just because you let go of it.
 
 **Worked example 2.** A balloon rises at a steady 5 m/s. At a height of 60 m a
 sandbag is released. With $g = 10$ m/s², how long until it hits the ground?
@@ -173,7 +173,7 @@ The bag lands when $y = 0$:
 $$5t^2 - 5t - 60 = 0 \quad\Longrightarrow\quad t^2 - t - 12 = 0 \quad\Longrightarrow\quad (t-4)(t+3) = 0.$$
 
 So $t = 4.0$ s, discarding the negative root, which describes a time before the
-bag existed. Notice that the bag first goes *up*: its velocity is zero at
+bag existed. And the bag first goes *up*: its velocity is zero at
 $t = v_0/g = 0.5$ s, at a height of $60 + 5(0.5) - 5(0.25) = 61.25$ m. If you
 had set $v_0 = 0$ you would have got $t = \sqrt{12} = 3.46$ s, too small.
 
@@ -267,25 +267,25 @@ $$\Delta x = \frac{20}{0.50} = 40\ \mathrm{m}.$$
 
 The boat takes forever to stop but only ever travels 40 m.
 
-## Recognising what a problem wants
+## Five symbols, three knowns
 
 Before you write any equation, list the five constant-acceleration symbols and
 mark which you know: $v_0$, $v$, $a$, $t$, $\Delta x$. Three knowns pick the
 equation for you.
 
-- **No time mentioned, and none wanted** (use $v^2 = v_0^2 + 2a\Delta x$.
+- **No time mentioned, and none wanted**: use $v^2 = v_0^2 + 2a\Delta x$.
   "Stopping distance", "final speed over this stretch", "how high does it go".
-- **Time is given or asked for, and one velocity is missing**) use
+- **Time is given or asked for, and one velocity is missing**: use
   $\Delta x = v_0t + \tfrac12 at^2$ or, more cheaply, the trapezoid form.
 - **Total distance with no way to find the individual stages**: look for the
   area of the velocity-time graph as a whole shape. Triangle and trapezoid areas
   solve a surprising number of problems in one line.
-- **The word "maximum" or "minimum" with two acceleration limits** (the answer
+- **The word "maximum" or "minimum" with two acceleration limits**: the answer
   is the bang-bang trip: full acceleration, then full braking, possibly with a
   cruise if there is a speed limit.
-- **Two moving objects, or a head start, or a delay**) one origin, one clock,
+- **Two moving objects, or a head start, or a delay**: one origin, one clock,
   two position functions, set equal.
-- **Acceleration given as a formula in $t$ or $v$**: the equations do not
+- **Acceleration given as a formula in $t$ or $v$**: the equations don't
   apply. Integrate, or use $a = v\,dv/dx$ if $a$ depends on $v$.
 - **"Distance" rather than "displacement", or anything that turns around**: find where $v = 0$ and split the calculation there.
 

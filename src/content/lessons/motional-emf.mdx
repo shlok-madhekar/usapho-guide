@@ -3,11 +3,11 @@ when the lamp is switched off, and the moment you switch the lamp on the pedals
 get heavier. Nothing about the magnet changed. Nothing about the coil changed.
 The only thing you did was give the current somewhere to go.
 
-That is the whole subject of this lesson. In [Faraday's law](/guide/faraday-lenz)
+Why the pedals get heavier is this lesson. In [Faraday's law](/guide/faraday-lenz)
 you had a fixed circuit and a changing field. Here the field is constant and it
 is the circuit that moves, so the flux changes because the area does. The
-algebra is easier than Faraday's, but there is a second half that Faraday alone
-does not give you: the moving conductor gets pushed back, and working out how
+algebra is easier than Faraday's, but there's a second half that Faraday alone
+doesn't give you: the moving conductor gets pushed back, and working out how
 hard is what most problems are really asking.
 
 ## The rod on rails
@@ -34,7 +34,7 @@ in metres per second, and $\mathcal{E}$ the emf in volts. Double any one of them
 and the emf doubles. If the rod stops, the emf is zero: a static circuit in a
 static field produces nothing, no matter how strong $B$ is.
 
-<Figure caption={<><b>Figure 1.</b> The rod, the rails and the resistor. Push the speed slider up and watch the emf, the current and the braking force all rise together. Then halve the resistance and notice that only the emf stays put.</>}>
+<Figure caption={<><b>Figure 1.</b> The rod, the rails and the resistor. Push the speed slider up and watch the emf, the current and the braking force all rise together. Then halve the resistance: only the emf stays put.</>}>
   <Sim id="motional-emf-rails" />
 </Figure>
 
@@ -91,7 +91,7 @@ Ohm's law
 
 $$I = \frac{\mathcal{E}}{R} = \frac{0.60}{2.0} = 0.30\ \text{A}$$
 
-Now the part that Faraday's law alone does not hand you. The rod is a
+Now the part that Faraday's law alone doesn't hand you. The rod is a
 current-carrying wire sitting in a magnetic field, so it feels a force
 $F = BIL$:
 
@@ -118,7 +118,7 @@ drag, and it means every result you know about drag transfers over: terminal
 velocity, exponential decay, the lot.
 
 <Aside label="Where this goes wrong" warn>
-  Do not put the magnetic force into your energy ledger as a source or a sink.
+  Don't put the magnetic force into your energy ledger as a source or a sink.
   A magnetic force never does net work: it only redirects work done by
   whatever is moving the rod. The correct accounting has exactly two entries:
   mechanical work in, resistive heat out. Adding a third term for "work done by
@@ -212,7 +212,7 @@ and that impulse equals the momentum lost, $mv_0$. So
 
 $$q = \frac{mv_0}{BL} = \frac{(0.050)(4.0)}{(0.40)(0.50)} = \frac{0.20}{0.20} = 1.0\ \text{C}$$
 
-Resistance genuinely does not appear: a smaller $R$ gives a bigger current for a
+Resistance genuinely doesn't appear: a smaller $R$ gives a bigger current for a
 shorter time, and the product is fixed.
 
 The other charge formula worth keeping is the flux version. Since
@@ -229,7 +229,7 @@ the external element are in series.
 Not every conductor slides in a straight line. Pin one end of a rod and spin it
 at angular speed $\omega$, with its far end brushing a circular rail and the
 field parallel to the rotation axis. Now different parts of the rod move at
-different speeds, so $BLv$ cannot be used as it stands. The integral version
+different speeds, so $BLv$ can't be used as it stands. The integral version
 handles it. A little piece of rod at radius $r$, of length $dr$, moves at
 $v = \omega r$ and contributes $B\omega r\,dr$ to the emf. Add them up from the
 pivot out to the tip:
@@ -305,10 +305,10 @@ energy went missing.
   explanation="Momentum is conserved because the magnetic forces on the two rods are equal and opposite. Current flows only while the relative speed is non-zero, so it stops when they match, which by momentum conservation is half the original speed for equal masses."
 />
 
-## Recognising it
+## What a motional-emf problem looks like
 
-Reach for motional emf when the problem has a **conductor physically moving**
-through a field that is not itself changing. The tell-tales:
+The defining feature is a **conductor physically moving** through a field that
+is not itself changing. The tell-tales:
 
 - A rod, bar, wire or wingspan with a length and a speed, in a field described
   as perpendicular. Start with $\mathcal{E} = BLv$.

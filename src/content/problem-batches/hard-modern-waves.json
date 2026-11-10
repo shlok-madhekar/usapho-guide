@@ -1,0 +1,516 @@
+[
+  {
+    "id": "hx-1law-01",
+    "name": "Heating a gas against a spring-loaded piston",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "first law",
+      "work",
+      "spring"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A horizontal cylinder closed by a frictionless piston of area $A = 0.010$ m$^2$ contains $5.0\\times10^{-3}$ m$^3$ of monatomic ideal gas. Outside the piston is the atmosphere at $P_0 = 1.00\\times10^5$ Pa, and a spring of stiffness $k = 2.0\\times10^4$ N/m connects the piston to a wall; the spring is initially relaxed, so the gas starts at pressure $P_0$. The gas is heated slowly until the piston has moved out a distance $d = 0.10$ m. How much heat was added, in J?",
+    "answer": 2150,
+    "unit": "J",
+    "solution": "As the piston moves out a distance $x$, force balance on it gives the gas pressure $P(x) = P_0 + kx/A$. At the end, $P_2 = 1.00\\times10^5 + (2.0\\times10^4)(0.10)/0.010 = 3.0\\times10^5$ Pa, and $V_2 = 5.0\\times10^{-3} + Ad = 6.0\\times10^{-3}$ m$^3$. The work done by the gas goes partly into pushing the atmosphere and partly into the spring: $W = P_0 A d + \\tfrac{1}{2}kd^2 = (10^5)(0.010)(0.10) + \\tfrac{1}{2}(2.0\\times10^4)(0.10)^2 = 100 + 100 = 200$ J. For a monatomic gas $U = \\tfrac{3}{2}PV$, so $\\Delta U = \\tfrac{3}{2}(P_2V_2 - P_1V_1) = \\tfrac{3}{2}(1800 - 500) = 1950$ J. The first law then gives $Q = \\Delta U + W = 1950 + 200 = 2150$ J."
+  },
+  {
+    "id": "hx-1law-02",
+    "name": "Heat along a parabolic pressure law",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "first law",
+      "work",
+      "process path"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A monatomic ideal gas is expanded along the path $P = \\alpha V^2$ with $\\alpha = 5.0\\times10^{10}$ Pa/m$^6$, from $V_1 = 1.0\\times10^{-3}$ m$^3$ to $V_2 = 2.0\\times10^{-3}$ m$^3$. How much heat does the gas absorb during the expansion, in J?",
+    "answer": 642,
+    "unit": "J",
+    "solution": "Two pieces are needed: the path work and the internal-energy change. The work is the integral along the given path, $W = \\int_{V_1}^{V_2} \\alpha V^2\\,dV = \\frac{\\alpha}{3}(V_2^3 - V_1^3) = \\frac{5.0\\times10^{10}}{3}(8\\times10^{-9} - 1\\times10^{-9}) = \\frac{350}{3} = 116.7$ J. For a monatomic gas $U = \\tfrac{3}{2}PV = \\tfrac{3}{2}\\alpha V^3$, so $\\Delta U = \\tfrac{3}{2}\\alpha(V_2^3 - V_1^3) = \\tfrac{3}{2}(350) = 525$ J. Then $Q = \\Delta U + W = 525 + 116.7 = 641.7 \\approx 642$ J. Note that this process has an effective molar heat capacity of $\\tfrac{11}{6}R$, between isochoric and isobaric values."
+  },
+  {
+    "id": "hx-1law-03",
+    "name": "Filling a tank from a high-pressure line",
+    "module": "first-law",
+    "difficulty": "Very Hard",
+    "tags": [
+      "first law",
+      "flow work",
+      "adiabatic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A rigid, thermally insulated tank of volume $0.050$ m$^3$ contains diatomic ideal gas ($\\gamma = 7/5$) at $P_1 = 1.0\\times10^5$ Pa and $T_0 = 300$ K. It is connected through a valve to a large supply line carrying the same gas at $P_0 = 5.0\\times10^5$ Pa and $T_0 = 300$ K; the line conditions do not change. The valve is opened and gas flows in until the tank pressure reaches $5.0\\times10^5$ Pa, then the valve is closed. Find the final gas temperature in the tank, in K.",
+    "answer": 389,
+    "unit": "K",
+    "solution": "The subtlety is that gas pushed into the tank carries not just its internal energy but also the flow work the line does on it, i.e. each mole enters with enthalpy $c_p T_0$, not just $c_v T_0$. Energy balance for the insulated rigid tank: $n_2 c_v T_2 - n_1 c_v T_0 = (n_2 - n_1)c_p T_0$. Using $nT = PV/R$ with the fixed volume $V$, the left side is $\\frac{c_v V}{R}(P_2 - P_1)$, and $n_2 = P_2 V/(R T_2)$, $n_1 = P_1 V/(R T_0)$. Substituting and cancelling $V/R$: $c_v(P_2 - P_1) = c_p T_0\\left(\\frac{P_2}{T_2} - \\frac{P_1}{T_0}\\right)$. Solving for $T_2$: $T_2 = \\frac{\\gamma T_0 P_2}{P_2 - P_1 + \\gamma P_1}$. Numerically, $T_2 = \\frac{1.4 \\times 300 \\times 5.0\\times10^5}{5.0\\times10^5 - 1.0\\times10^5 + 1.4\\times10^5} = \\frac{2.1\\times10^8}{5.4\\times10^5} = 389$ K. (If the tank started evacuated this would reduce to the familiar $T_2 = \\gamma T_0 = 420$ K.)"
+  },
+  {
+    "id": "hx-pv-01",
+    "name": "Hottest point on a straight-line process",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "ideal gas law",
+      "maximum temperature"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "On a PV diagram, $0.25$ mol of monatomic ideal gas is taken along a straight line from state 1 at $P = 4.0\\times10^5$ Pa, $V = 1.0\\times10^{-3}$ m$^3$ to state 2 at $P = 1.0\\times10^5$ Pa, $V = 4.0\\times10^{-3}$ m$^3$. Find the maximum temperature reached during the process, in K. Use $R = 8.314$ J/(mol$\\cdot$K).",
+    "answer": 301,
+    "unit": "K",
+    "solution": "The temperature at any point is $T = PV/nR$, so we need the point on the line where the product $PV$ is largest, which is generally in the middle of the segment, not at an endpoint. The line has slope $\\frac{\\Delta P}{\\Delta V} = \\frac{-3.0\\times10^5}{3.0\\times10^{-3}} = -1.0\\times10^8$ Pa/m$^3$, so $P(V) = 5.0\\times10^5 - 1.0\\times10^8\\,V$. Then $PV = 5.0\\times10^5 V - 1.0\\times10^8 V^2$ is a downward parabola, maximized where its derivative vanishes: $V^* = \\frac{5.0\\times10^5}{2\\times10^8} = 2.5\\times10^{-3}$ m$^3$, which lies between the endpoints. There $P^* = 2.5\\times10^5$ Pa and $P^*V^* = 625$ J. Finally $T_{max} = \\frac{625}{0.25 \\times 8.314} = 301$ K."
+  },
+  {
+    "id": "hx-pv-02",
+    "name": "Efficiency of a triangular cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "efficiency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A monatomic ideal gas runs the cycle A$\\to$B$\\to$C$\\to$A: A is at $P = 1.0\\times10^5$ Pa, $V = 2.0\\times10^{-3}$ m$^3$; B is at $3.0\\times10^5$ Pa, $2.0\\times10^{-3}$ m$^3$; C is at $1.0\\times10^5$ Pa, $6.0\\times10^{-3}$ m$^3$. A$\\to$B is a vertical segment, B$\\to$C a straight line, C$\\to$A a horizontal segment. Define the efficiency as the net work per cycle divided by the total heat absorbed on the legs where the gas gains net heat. Find the efficiency, in %.",
+    "answer": 28.6,
+    "unit": "%",
+    "solution": "The net work is the enclosed triangle area: $W_{net} = \\tfrac{1}{2}(3.0\\times10^5 - 1.0\\times10^5)(6.0\\times10^{-3} - 2.0\\times10^{-3}) = 400$ J, traversed clockwise so it is positive. Now find the net heat on each leg. A$\\to$B (isochoric): $Q = \\Delta U = \\tfrac{3}{2}V\\Delta P = \\tfrac{3}{2}(2.0\\times10^{-3})(2.0\\times10^5) = 600$ J, absorbed. B$\\to$C: the work is the trapezoid under the line, $W = \\tfrac{1}{2}(3.0\\times10^5 + 1.0\\times10^5)(4.0\\times10^{-3}) = 800$ J, while $\\Delta U = \\tfrac{3}{2}(P_CV_C - P_BV_B) = \\tfrac{3}{2}(600 - 600) = 0$, so $Q = 800$ J, absorbed. C$\\to$A (isobaric compression): $Q = \\tfrac{5}{2}P\\Delta V = \\tfrac{5}{2}(1.0\\times10^5)(-4.0\\times10^{-3}) = -1000$ J, rejected. The heat input is $Q_{in} = 600 + 800 = 1400$ J, so $\\eta = \\frac{400}{1400} = 0.286 = 28.6\\%$."
+  },
+  {
+    "id": "hx-pv-03",
+    "name": "Two isotherms and two isochores, no regenerator",
+    "module": "pv-diagrams",
+    "difficulty": "Very Hard",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "efficiency",
+      "isothermal"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An ideal monatomic gas engine runs this cycle: (1) isothermal expansion at $T_h = 600$ K from volume $V_0$ to $4V_0$; (2) isochoric cooling to $T_c = 300$ K; (3) isothermal compression at $T_c$ back to $V_0$; (4) isochoric heating back to $T_h$. All heat for step 4 comes from the hot reservoir (there is no regenerator). Find the thermal efficiency of the cycle, in %. Use $\\ln 4 = 1.386$.",
+    "answer": 32.4,
+    "unit": "%",
+    "solution": "Work is done only on the isotherms. Per mole: $W_1 = RT_h\\ln 4$ (by the gas) and $W_3 = -RT_c\\ln 4$, so $W_{net} = R(T_h - T_c)\\ln 4 = 8.314 \\times 300 \\times 1.386 = 3457$ J. Heat is absorbed on two legs: the hot isotherm, where $\\Delta U = 0$ so $Q_1 = RT_h\\ln 4 = 8.314 \\times 600 \\times 1.386 = 6915$ J, and the isochoric heating, where $Q_4 = c_v(T_h - T_c) = \\tfrac{3}{2}(8.314)(300) = 3741$ J. Because there is no regenerator to recycle the heat dumped in step 2, step 4's heat counts against the engine. So $\\eta = \\frac{W_{net}}{Q_1 + Q_4} = \\frac{3457}{6915 + 3741} = \\frac{3457}{10656} = 0.324 = 32.4\\%$, well below the Carnot value of $50\\%$ between the same reservoirs."
+  },
+  {
+    "id": "hx-stand-01",
+    "name": "Taut wire tuned by cooling",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "string",
+      "tension",
+      "thermal stress"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A steel wire is stretched between two rigid walls $L = 0.80$ m apart. At $20^\\circ$C it is perfectly straight but under negligible tension. The temperature then drops by $\\Delta T = 20$ K. Since the walls do not move, thermal contraction puts the wire under stress $\\sigma = E\\alpha\\,\\Delta T$. For steel, $E = 2.0\\times10^{11}$ Pa, $\\alpha = 1.2\\times10^{-5}$ K$^{-1}$, and density $\\rho = 7800$ kg/m$^3$. Find the fundamental frequency of the cooled wire, in Hz.",
+    "answer": 49.0,
+    "unit": "Hz",
+    "solution": "The wire cannot contract, so it develops tension $F = \\sigma A = EA\\alpha\\,\\Delta T$, where $A$ is its cross-sectional area. The wave speed is $v = \\sqrt{F/\\mu}$ with $\\mu = \\rho A$, and the area cancels: $v = \\sqrt{\\frac{EA\\alpha\\,\\Delta T}{\\rho A}} = \\sqrt{\\frac{E\\alpha\\,\\Delta T}{\\rho}}$. Numerically, $E\\alpha\\,\\Delta T = (2.0\\times10^{11})(1.2\\times10^{-5})(20) = 4.8\\times10^7$ Pa, so $v = \\sqrt{4.8\\times10^7/7800} = 78.4$ m/s. The fundamental of a string fixed at both ends is $f_1 = \\frac{v}{2L} = \\frac{78.4}{1.6} = 49.0$ Hz. Notice the answer is independent of how thick the wire is."
+  },
+  {
+    "id": "hx-stand-02",
+    "name": "Kundt's tube driven by a singing rod",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "longitudinal waves",
+      "nodes",
+      "resonance tube"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An aluminum rod of length $1.2$ m is clamped at its midpoint and stroked so it vibrates in its fundamental longitudinal mode (free ends, node at the clamp). The speed of longitudinal waves in aluminum is $v = \\sqrt{E/\\rho}$ with $E = 6.9\\times10^{10}$ Pa and $\\rho = 2700$ kg/m$^3$. One end of the rod drives the air in a Kundt's tube, where cork dust settles into piles at the displacement nodes of the standing sound wave. Taking the speed of sound in air as $343$ m/s, find the spacing between adjacent dust piles, in cm.",
+    "answer": 8.14,
+    "unit": "cm",
+    "solution": "First get the rod's frequency. With both ends free and a node forced at the center, the fundamental has half a wavelength on the rod: $\\lambda_{rod} = 2L = 2.4$ m. The speed in aluminum is $v_{rod} = \\sqrt{6.9\\times10^{10}/2700} = 5055$ m/s, so $f = \\frac{v_{rod}}{2L} = \\frac{5055}{2.4} = 2106$ Hz. The air column oscillates at this same frequency, so the sound wavelength in air is $\\lambda_{air} = \\frac{343}{2106} = 0.1629$ m. Dust piles sit at displacement nodes, which are spaced half a wavelength apart: $\\Delta x = \\frac{\\lambda_{air}}{2} = 0.0814$ m $= 8.14$ cm."
+  },
+  {
+    "id": "hx-stand-03",
+    "name": "Energy stored in a standing wave",
+    "module": "standing-waves",
+    "difficulty": "Very Hard",
+    "tags": [
+      "string",
+      "harmonics",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A string of length $L = 1.2$ m and linear density $\\mu = 5.0$ g/m is fixed at both ends and oscillates in its third harmonic at $f = 180$ Hz with antinode amplitude $A = 4.0$ mm, so $y(x,t) = A\\sin(kx)\\cos(\\omega t)$. Find the total mechanical energy of the vibration, in J.",
+    "answer": 0.0307,
+    "unit": "J",
+    "solution": "The clean way in is to catch the string at the instant it passes through flat: then all the energy is kinetic. From $y = A\\sin(kx)\\cos(\\omega t)$, the transverse velocity is $\\dot y = -A\\omega\\sin(kx)\\sin(\\omega t)$, which has its largest magnitude when $\\sin(\\omega t) = \\pm 1$, exactly when $y \\equiv 0$ everywhere. At that instant $E = \\int_0^L \\tfrac{1}{2}\\mu\\,\\dot y^2\\,dx = \\tfrac{1}{2}\\mu A^2\\omega^2\\int_0^L \\sin^2(kx)\\,dx$. For a harmonic with a whole number of half-wavelengths on the string, $\\int_0^L \\sin^2(kx)\\,dx = L/2$, so $E = \\tfrac{1}{4}\\mu L\\,\\omega^2 A^2$. With $\\omega = 2\\pi(180) = 1131$ s$^{-1}$: $E = \\tfrac{1}{4}(0.0050)(1.2)(1131)^2(0.0040)^2 = 0.0307$ J."
+  },
+  {
+    "id": "hx-diff-01",
+    "name": "How the slit envelope dims a fringe",
+    "module": "diffraction",
+    "difficulty": "Hard",
+    "tags": [
+      "double-slit",
+      "single-slit",
+      "intensity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A double slit has center-to-center separation $d = 0.240$ mm, and each slit has width $a = 0.080$ mm. It is illuminated at normal incidence by monochromatic light. Find the ratio of the intensity at the second-order interference maximum ($d\\sin\\theta = 2\\lambda$) to the intensity at the central maximum. The answer is dimensionless.",
+    "answer": 0.171,
+    "unit": "",
+    "solution": "The two-slit pattern is modulated by the single-slit envelope: $I(\\theta) = I_0\\cos^2\\!\\left(\\frac{\\pi d\\sin\\theta}{\\lambda}\\right)\\left[\\frac{\\sin\\beta}{\\beta}\\right]^2$ with $\\beta = \\frac{\\pi a\\sin\\theta}{\\lambda}$. At the second-order maximum the $\\cos^2$ factor is 1, so only the envelope matters. There $\\sin\\theta = 2\\lambda/d$, so $\\beta = \\frac{\\pi a}{\\lambda}\\cdot\\frac{2\\lambda}{d} = \\frac{2\\pi a}{d} = \\frac{2\\pi(0.080)}{0.240} = \\frac{2\\pi}{3}$, independent of the wavelength. Then $\\frac{I}{I_0} = \\left[\\frac{\\sin(2\\pi/3)}{2\\pi/3}\\right]^2 = \\left[\\frac{0.866}{2.094}\\right]^2 = (0.4135)^2 = 0.171$. Since $d = 3a$ exactly, the third-order maximum is missing entirely: there $\\beta = \\pi$ and the envelope has a zero."
+  },
+  {
+    "id": "hx-diff-02",
+    "name": "Mirror size for a surveillance satellite",
+    "module": "diffraction",
+    "difficulty": "Hard",
+    "tags": [
+      "rayleigh",
+      "resolving-power",
+      "circular aperture"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A camera on a satellite orbits at altitude $h = 250$ km and must resolve two points on the ground separated by $0.30$ m, using light of wavelength $550$ nm. Treating the limit as set by diffraction through the circular objective (Rayleigh criterion $\\theta_{min} = 1.22\\,\\lambda/D$), find the minimum diameter $D$ of the objective, in m.",
+    "answer": 0.559,
+    "unit": "m",
+    "solution": "The two ground points subtend an angle $\\theta = \\frac{x}{h} = \\frac{0.30}{2.5\\times10^5} = 1.2\\times10^{-6}$ rad at the satellite (small-angle approximation is excellent here). Rayleigh's criterion requires this to be at least $1.22\\,\\lambda/D$, so $D = \\frac{1.22\\,\\lambda h}{x} = \\frac{1.22 \\times 550\\times10^{-9} \\times 2.5\\times10^5}{0.30} = 0.559$ m. Anything smaller and the two Airy disks blur together regardless of how good the sensor is."
+  },
+  {
+    "id": "hx-diff-03",
+    "name": "Splitting the sodium doublet on a focal plane",
+    "module": "diffraction",
+    "difficulty": "Very Hard",
+    "tags": [
+      "grating",
+      "resolving-power",
+      "spectrometer"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "In a grating spectrograph, light passes through a diffraction grating with $1200$ lines/mm and is then focused by a lens of focal length $f = 0.50$ m placed just behind the grating; light diffracted at angle $\\theta$ comes to a focus at transverse position $x = f\\tan\\theta$ on the focal plane. The sodium doublet at $\\lambda_1 = 589.0$ nm and $\\lambda_2 = 589.6$ nm is observed in first order. Find the separation of the two focused lines on the focal plane, in mm.",
+    "answer": 1.02,
+    "unit": "mm",
+    "solution": "The grating spacing is $d = \\frac{1}{1200}$ mm $= 833.3$ nm. In first order, $\\sin\\theta = \\lambda/d$, so $\\sin\\theta_1 = \\frac{589.0}{833.3} = 0.7068$ and $\\sin\\theta_2 = \\frac{589.6}{833.3} = 0.7075$, i.e. $\\theta \\approx 45.0^\\circ$ — far too steep to use small-angle shortcuts blindly. Each line lands at $x = f\\tan\\theta$. Differentiating the pair of relations: $\\cos\\theta\\,d\\theta = d(\\sin\\theta) = \\frac{\\Delta\\lambda}{d}$ and $\\Delta x = f\\sec^2\\theta\\,d\\theta = \\frac{f\\,\\Delta\\lambda}{d\\cos^3\\theta}$. With $\\cos\\theta = \\sqrt{1 - 0.7068^2} = 0.7074$: $\\Delta x = \\frac{0.50 \\times 0.6\\times10^{-9}}{833.3\\times10^{-9}\\times(0.7074)^3} = 1.02\\times10^{-3}$ m $= 1.02$ mm. The $1/\\cos^3\\theta$ factor nearly triples the naive $f\\Delta\\lambda/d$ estimate."
+  },
+  {
+    "id": "hx-film-01",
+    "name": "Soap film viewed at 45 degrees",
+    "module": "thin-film",
+    "difficulty": "Hard",
+    "tags": [
+      "soap film",
+      "phase shift",
+      "oblique incidence"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A soap film ($n = 1.33$, thickness $t = 500$ nm, air on both sides) is illuminated by white light incident at $45^\\circ$ from the normal. For light reflected at this angle, which visible wavelength (400–700 nm, vacuum) is most strongly reflected? Answer in nm.",
+    "answer": 451,
+    "unit": "nm",
+    "solution": "At oblique incidence the path difference depends on the angle inside the film. Snell's law gives $\\sin\\theta_t = \\frac{\\sin 45^\\circ}{1.33} = 0.5317$, so $\\cos\\theta_t = 0.8470$. The optical path difference between the two reflected rays is $2nt\\cos\\theta_t = 2(1.33)(500)(0.8470) = 1126$ nm. Only the top-surface reflection (air to film) suffers a half-wave phase flip, so constructive reflection requires $2nt\\cos\\theta_t = (m - \\tfrac{1}{2})\\lambda$. Trying integers: $m = 2$ gives $\\lambda = 1126/1.5 = 751$ nm (just outside the visible); $m = 3$ gives $\\lambda = 1126/2.5 = 451$ nm, which is visible; $m = 4$ gives $322$ nm (ultraviolet). So the film reflects most strongly at $451$ nm — blue-violet."
+  },
+  {
+    "id": "hx-film-02",
+    "name": "Newton's rings with a wet gap",
+    "module": "thin-film",
+    "difficulty": "Hard",
+    "tags": [
+      "Newtons rings",
+      "interference",
+      "water"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A plano-convex lens of radius of curvature $R = 2.0$ m rests on a flat glass plate and is illuminated from above at normal incidence with sodium light, $\\lambda = 589$ nm. The thin gap between lens and plate is filled with water, $n = 1.33$ (the glass on both sides has a higher index than water). Find the radius of the 10th dark ring, in mm.",
+    "answer": 2.98,
+    "unit": "mm",
+    "solution": "For a gap of thickness $t$, the reflection off the bottom of the gap picks up a half-wave shift (water to glass, low to high index) while the top reflection (glass to water, high to low) does not, so dark rings in reflection occur at $2nt = m\\lambda$. The standard sag relation for a lens of radius $R$ gives $t = \\frac{r^2}{2R}$ at distance $r$ from the contact point. Combining: $\\frac{n r^2}{R} = m\\lambda$, so $r = \\sqrt{\\frac{m\\lambda R}{n}}$. For $m = 10$: $r = \\sqrt{\\frac{10 \\times 589\\times10^{-9} \\times 2.0}{1.33}} = \\sqrt{8.86\\times10^{-6}} = 2.98\\times10^{-3}$ m $= 2.98$ mm. The water shrinks the whole ring pattern by a factor $\\sqrt{n}$ compared with an air gap."
+  },
+  {
+    "id": "hx-film-03",
+    "name": "Where two colors agree on an air wedge",
+    "module": "thin-film",
+    "difficulty": "Very Hard",
+    "tags": [
+      "air wedge",
+      "order counting",
+      "two wavelengths"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two flat glass plates, each $10.0$ cm long, touch at one end and are separated by a $40.0$ $\\mu$m hair at the other end, forming an air wedge. The wedge is illuminated at normal incidence simultaneously with two wavelengths, $600$ nm and $450$ nm. At certain positions along the wedge, a dark fringe of one wavelength coincides with a dark fringe of the other, and the fringe pattern there looks dark for both colors. Find the distance between adjacent such coincidence positions, in mm.",
+    "answer": 2.25,
+    "unit": "mm",
+    "solution": "With one phase flip in the air wedge, dark fringes of each color sit where $2t = m\\lambda$. A coincidence needs $2t$ to be simultaneously an integer multiple of $600$ nm and of $450$ nm, i.e. a multiple of their least common multiple. Since $600 = 4\\times150$ and $450 = 3\\times150$, $\\mathrm{lcm} = 12\\times150 = 1800$ nm. So coincidences occur at $2t = 1800k$ nm, i.e. the gap thickness steps by $\\Delta t = 900$ nm between adjacent coincidences. The wedge geometry is linear: $t(x) = \\frac{40.0\\times10^{-6}}{0.100}\\,x = 4.00\\times10^{-4}\\,x$. Therefore $\\Delta x = \\frac{\\Delta t}{4.00\\times10^{-4}} = \\frac{9.00\\times10^{-7}}{4.00\\times10^{-4}} = 2.25\\times10^{-3}$ m $= 2.25$ mm."
+  },
+  {
+    "id": "hx-photo-01",
+    "name": "Work function from two stopping potentials",
+    "module": "photoelectric",
+    "difficulty": "Hard",
+    "tags": [
+      "stopping-potential",
+      "work-function",
+      "data analysis"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "In a photoelectric experiment, light of wavelength $450$ nm gives a stopping potential of $0.60$ V, and light of wavelength $300$ nm gives $1.80$ V. Treating Planck's constant as unknown and determined by this data, find the work function of the metal, in eV.",
+    "answer": 1.8,
+    "unit": "eV",
+    "solution": "Einstein's equation at each wavelength reads $eV_s = \\frac{hc}{\\lambda} - \\phi$. Subtracting the two equations eliminates the unknown work function and solves for $hc$ as this experiment measures it: $e(V_2 - V_1) = hc\\left(\\frac{1}{\\lambda_2} - \\frac{1}{\\lambda_1}\\right)$. In eV and nm units: $1.20 = hc\\left(\\frac{1}{300} - \\frac{1}{450}\\right) = \\frac{hc}{900}$, so $hc = 1080$ eV$\\cdot$nm. Substituting back at $450$ nm: $\\phi = \\frac{1080}{450} - 0.60 = 2.40 - 0.60 = 1.80$ eV. This is exactly how Millikan extracted $h$ and $\\phi$ — from the slope and intercept of $V_s$ versus $1/\\lambda$."
+  },
+  {
+    "id": "hx-photo-02",
+    "name": "Photoelectrons bent into circles",
+    "module": "photoelectric",
+    "difficulty": "Hard",
+    "tags": [
+      "work-function",
+      "magnetic field",
+      "electron motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Ultraviolet light of wavelength $200$ nm illuminates a metal surface with work function $2.50$ eV. The emitted electrons enter a region of uniform magnetic field $B = 5.0\\times10^{-4}$ T, moving perpendicular to the field. Find the radius of the circular path of the fastest electrons, in cm. Use $hc = 1240$ eV$\\cdot$nm, $m_e = 9.11\\times10^{-31}$ kg, $e = 1.60\\times10^{-19}$ C.",
+    "answer": 1.3,
+    "unit": "cm",
+    "solution": "The photon energy is $\\frac{hc}{\\lambda} = \\frac{1240}{200} = 6.20$ eV, so the fastest electrons leave with $K_{max} = 6.20 - 2.50 = 3.70$ eV $= 5.92\\times10^{-19}$ J. Their speed follows from $K = \\tfrac{1}{2}mv^2$: $v = \\sqrt{\\frac{2(5.92\\times10^{-19})}{9.11\\times10^{-31}}} = 1.14\\times10^6$ m/s (comfortably non-relativistic). In the magnetic field the electron moves on a circle with $r = \\frac{mv}{eB} = \\frac{(9.11\\times10^{-31})(1.14\\times10^6)}{(1.60\\times10^{-19})(5.0\\times10^{-4})} = 1.30\\times10^{-2}$ m $= 1.30$ cm. Measuring this radius is a practical way to get $K_{max}$ without a retarding voltage."
+  },
+  {
+    "id": "hx-photo-03",
+    "name": "Energy handed to a backscattering electron",
+    "module": "photoelectric",
+    "difficulty": "Very Hard",
+    "tags": [
+      "compton",
+      "photon-energy",
+      "conservation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An X-ray photon of wavelength $50.0$ pm strikes a free electron at rest and Compton-scatters straight backward ($180^\\circ$). Find the kinetic energy of the recoiling electron, in keV. Use the Compton wavelength $h/m_ec = 2.43$ pm and $hc = 1.24\\times10^6$ eV$\\cdot$pm.",
+    "answer": 2.2,
+    "unit": "keV",
+    "solution": "Backscattering is the maximum-transfer case, since $1 - \\cos\\theta$ is largest at $\\theta = 180^\\circ$. The Compton shift is $\\Delta\\lambda = \\frac{h}{m_ec}(1 - \\cos 180^\\circ) = 2\\times 2.43 = 4.86$ pm, so the scattered photon has $\\lambda' = 50.0 + 4.86 = 54.86$ pm. Energy conservation gives the electron everything the photon lost: $K_e = \\frac{hc}{\\lambda} - \\frac{hc}{\\lambda'} = 1.24\\times10^6\\left(\\frac{1}{50.0} - \\frac{1}{54.86}\\right) = 1.24\\times10^6 \\times 1.772\\times10^{-3} = 2197$ eV $\\approx 2.20$ keV. Only about 9% of the photon's 24.8 keV is transferred — even a head-on photon is a poor hammer against an electron when $\\lambda \\gg \\lambda_C$ is not strongly violated."
+  },
+  {
+    "id": "hx-db-01",
+    "name": "Matching an X-ray photon's wavelength",
+    "module": "de-broglie",
+    "difficulty": "Hard",
+    "tags": [
+      "matter-wave",
+      "acceleration",
+      "comparison"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Through what potential difference, in V, must an electron be accelerated from rest so that its de Broglie wavelength equals the wavelength of a $10.0$ keV X-ray photon? Use $hc = 1240$ eV$\\cdot$nm, $h = 6.63\\times10^{-34}$ J$\\cdot$s, $m_e = 9.11\\times10^{-31}$ kg, $e = 1.60\\times10^{-19}$ C.",
+    "answer": 97.9,
+    "unit": "V",
+    "solution": "First the target wavelength: for a photon, $\\lambda = \\frac{hc}{E} = \\frac{1240}{10000} = 0.124$ nm. For the electron, the de Broglie wavelength is set by its momentum, $\\lambda = h/p$, with $p = \\sqrt{2m_e eV}$ after acceleration through $V$. Setting $\\frac{h}{\\sqrt{2m_e eV}} = 1.24\\times10^{-10}$ m and solving: $V = \\frac{h^2}{2m_e e\\lambda^2} = \\frac{(6.63\\times10^{-34})^2}{2(9.11\\times10^{-31})(1.60\\times10^{-19})(1.24\\times10^{-10})^2} = 97.9$ V. The electron needs only about $100$ eV to match the wavelength of a $10{,}000$ eV photon — matter waves are far 'cheaper' per nanometer, which is why electron microscopes win."
+  },
+  {
+    "id": "hx-db-02",
+    "name": "Thermal neutrons meet a crystal",
+    "module": "de-broglie",
+    "difficulty": "Hard",
+    "tags": [
+      "thermal",
+      "matter-wave",
+      "bragg"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Neutrons in thermal equilibrium at $T = 300$ K (take kinetic energy $\\tfrac{3}{2}kT$) strike a crystal whose atomic planes are spaced $d = 0.282$ nm apart. Find the angle $\\theta$ (measured from the planes, Bragg convention) for first-order reflection, in degrees. Use $h = 6.63\\times10^{-34}$ J$\\cdot$s, $m_n = 1.675\\times10^{-27}$ kg, $k = 1.38\\times10^{-23}$ J/K.",
+    "answer": 14.9,
+    "unit": "degrees",
+    "solution": "The neutron's momentum comes from its thermal energy: $\\frac{p^2}{2m} = \\frac{3}{2}kT$ gives $p = \\sqrt{3mkT} = \\sqrt{3(1.675\\times10^{-27})(1.38\\times10^{-23})(300)} = 4.56\\times10^{-24}$ kg$\\cdot$m/s. The de Broglie wavelength is $\\lambda = \\frac{h}{p} = \\frac{6.63\\times10^{-34}}{4.56\\times10^{-24}} = 1.45\\times10^{-10}$ m $= 0.145$ nm — comparable to the plane spacing, which is exactly why reactors make good diffraction sources. Bragg's law $2d\\sin\\theta = n\\lambda$ with $n = 1$: $\\sin\\theta = \\frac{0.145}{2\\times0.282} = 0.258$, so $\\theta = 14.9^\\circ$."
+  },
+  {
+    "id": "hx-db-03",
+    "name": "When the de Broglie and Compton wavelengths agree",
+    "module": "de-broglie",
+    "difficulty": "Very Hard",
+    "tags": [
+      "matter-wave",
+      "relativistic",
+      "compton-wavelength"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "How fast must an electron move, in m/s, for its de Broglie wavelength $h/p$ to equal its Compton wavelength $h/m_ec$? Treat the problem relativistically. Use $c = 3.00\\times10^8$ m/s.",
+    "answer": 212000000.0,
+    "unit": "m/s",
+    "solution": "Setting $\\frac{h}{p} = \\frac{h}{m_ec}$ requires $p = m_ec$. A non-relativistic reading, $m_ev = m_ec$, would give $v = c$, a red flag that relativity is mandatory here. The correct momentum is $p = \\gamma m_e v$, so the condition is $\\gamma v = c$, i.e. $\\frac{v}{\\sqrt{1 - v^2/c^2}} = c$. Squaring: $v^2 = c^2(1 - v^2/c^2)$, so $2v^2 = c^2$ and $v = \\frac{c}{\\sqrt 2} = 0.707c = 2.12\\times10^8$ m/s. At this speed the electron's kinetic energy is $(\\gamma - 1)m_ec^2 = (\\sqrt2 - 1)(511\\ \\mathrm{keV}) \\approx 212$ keV — deeply relativistic, as anticipated."
+  },
+  {
+    "id": "hx-radio-01",
+    "name": "Radon riding on radium",
+    "module": "radioactivity",
+    "difficulty": "Hard",
+    "tags": [
+      "secular-equilibrium",
+      "activity",
+      "half-life"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A sealed source contains $1.00$ g of radium-226 (half-life $1600$ yr). Its daughter radon-222 (half-life $3.82$ d) accumulates until it reaches secular equilibrium, where the radon decays as fast as it is produced. Find the mass of radon-222 then present, in $\\mu$g. Use $N_A = 6.022\\times10^{23}$, 1 yr $= 3.156\\times10^7$ s.",
+    "answer": 6.42,
+    "unit": "ug",
+    "solution": "Because the parent half-life dwarfs the daughter's, equilibrium means equal activities: $\\lambda_{Rn}N_{Rn} = \\lambda_{Ra}N_{Ra}$. The radium activity: $N_{Ra} = \\frac{1.00}{226}(6.022\\times10^{23}) = 2.665\\times10^{21}$ atoms, $\\lambda_{Ra} = \\frac{\\ln 2}{1600\\times3.156\\times10^7} = 1.373\\times10^{-11}$ s$^{-1}$, so $A = 3.66\\times10^{10}$ Bq (this is essentially the original definition of the curie). The radon decay constant: $\\lambda_{Rn} = \\frac{\\ln 2}{3.82\\times86400} = 2.10\\times10^{-6}$ s$^{-1}$. Then $N_{Rn} = \\frac{A}{\\lambda_{Rn}} = \\frac{3.66\\times10^{10}}{2.10\\times10^{-6}} = 1.74\\times10^{16}$ atoms, and the mass is $m = \\frac{1.74\\times10^{16}}{6.022\\times10^{23}}\\times 222 = 6.42\\times10^{-6}$ g $= 6.42\\ \\mu$g. A gram of radium carries only micrograms of radon, yet they match it decay for decay."
+  },
+  {
+    "id": "hx-radio-02",
+    "name": "Thermal power of a plutonium generator",
+    "module": "radioactivity",
+    "difficulty": "Hard",
+    "tags": [
+      "activity",
+      "decay energy",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Radioisotope generators on deep-space probes use plutonium-238, which decays by alpha emission with half-life $87.7$ yr, depositing $5.59$ MeV of heat per decay. Find the initial thermal power of $1.00$ kg of pure Pu-238, in W. Use $N_A = 6.022\\times10^{23}$, 1 yr $= 3.156\\times10^7$ s, $1$ eV $= 1.602\\times10^{-19}$ J.",
+    "answer": 567,
+    "unit": "W",
+    "solution": "Count the atoms, find the decay rate, multiply by the energy per decay. The atom count: $N = \\frac{1000}{238}(6.022\\times10^{23}) = 2.530\\times10^{24}$. The decay constant: $\\lambda = \\frac{\\ln 2}{87.7 \\times 3.156\\times10^7} = 2.504\\times10^{-10}$ s$^{-1}$. So the activity is $A = \\lambda N = 6.34\\times10^{14}$ Bq. Each decay deposits $5.59\\times10^6 \\times 1.602\\times10^{-19} = 8.96\\times10^{-13}$ J, giving $P = (6.34\\times10^{14})(8.96\\times10^{-13}) = 567$ W. This is why a kilogram brick of Pu-238 glows red-hot with no chain reaction at all; after one half-life (87.7 yr) the power is down to about 284 W."
+  },
+  {
+    "id": "hx-radio-03",
+    "name": "When the technetium peaks",
+    "module": "radioactivity",
+    "difficulty": "Very Hard",
+    "tags": [
+      "decay-chain",
+      "activity",
+      "half-life"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Molybdenum-99 (half-life $66.0$ h) decays to technetium-99m (half-life $6.00$ h), the workhorse isotope of nuclear medicine. A generator starts with freshly purified Mo-99 and no Tc-99m. Find the time at which the Tc-99m activity is maximum, in h.",
+    "answer": 22.8,
+    "unit": "h",
+    "solution": "Let $\\lambda_1 = \\ln 2/66.0 = 0.01050$ h$^{-1}$ (Mo) and $\\lambda_2 = \\ln 2/6.00 = 0.1155$ h$^{-1}$ (Tc). The daughter population obeys $\\frac{dN_2}{dt} = \\lambda_1 N_1 - \\lambda_2 N_2$, whose solution with $N_2(0) = 0$ is $N_2(t) = \\frac{\\lambda_1 N_{10}}{\\lambda_2 - \\lambda_1}\\left(e^{-\\lambda_1 t} - e^{-\\lambda_2 t}\\right)$. The daughter activity $\\lambda_2 N_2$ peaks where $\\frac{dN_2}{dt} = 0$, i.e. where production equals loss — equivalently where the two activities momentarily agree. Setting the derivative of the bracket to zero: $\\lambda_1 e^{-\\lambda_1 t} = \\lambda_2 e^{-\\lambda_2 t}$, so $t^* = \\frac{\\ln(\\lambda_2/\\lambda_1)}{\\lambda_2 - \\lambda_1} = \\frac{\\ln(11.0)}{0.1155 - 0.01050} = \\frac{2.398}{0.1050} = 22.8$ h. Hospitals 'milk' the generator on roughly this daily rhythm."
+  },
+  {
+    "id": "hx-bind-01",
+    "name": "How polonium's alpha shares the spoils",
+    "module": "binding-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "q-value",
+      "alpha-decay",
+      "momentum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Polonium-210 at rest alpha-decays to lead-206. The atomic masses are $m(^{210}\\mathrm{Po}) = 209.982874$ u, $m(^{206}\\mathrm{Pb}) = 205.974465$ u, $m(^4\\mathrm{He}) = 4.002603$ u, with $1$ u $= 931.5$ MeV$/c^2$. Find the kinetic energy of the alpha particle, in MeV.",
+    "answer": 5.31,
+    "unit": "MeV",
+    "solution": "The mass defect sets the total energy released: $\\Delta m = 209.982874 - (205.974465 + 4.002603) = 0.005806$ u, so $Q = 0.005806 \\times 931.5 = 5.408$ MeV. But the alpha does not get all of it — momentum conservation forces the lead nucleus to recoil. With the parent at rest, $p_\\alpha = p_{Pb}$, and since both are non-relativistic, $K = p^2/2m$ means the kinetic energies divide inversely with mass: $\\frac{K_\\alpha}{Q} = \\frac{m_{Pb}}{m_{Pb} + m_\\alpha} \\approx \\frac{206}{210}$. Therefore $K_\\alpha = 5.408 \\times \\frac{206}{210} = 5.31$ MeV, with the remaining $0.10$ MeV carried by the recoiling lead. This 2% correction is exactly what precision alpha spectroscopy measures."
+  },
+  {
+    "id": "hx-bind-02",
+    "name": "Weighing the sunlight",
+    "module": "binding-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "mass-energy",
+      "stellar",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "At Earth's distance from the Sun, $d = 1.50\\times10^{11}$ m, the solar intensity is $1360$ W/m$^2$. Assuming the Sun radiates equally in all directions, find the rate at which the Sun loses mass through radiation, in kg/s. Use $c = 3.00\\times10^8$ m/s.",
+    "answer": 4270000000.0,
+    "unit": "kg/s",
+    "solution": "The intensity at Earth samples a sphere of radius $d$ centered on the Sun, so the total luminosity is $L = 4\\pi d^2 I = 4\\pi(1.50\\times10^{11})^2(1360) = 3.85\\times10^{26}$ W. Every joule radiated carries mass $E/c^2$ away, so $\\frac{dm}{dt} = \\frac{L}{c^2} = \\frac{3.85\\times10^{26}}{(3.00\\times10^8)^2} = 4.27\\times10^9$ kg/s. Four million tonnes a second sounds catastrophic, but against the Sun's $2\\times10^{30}$ kg it amounts to less than $0.01\\%$ of its mass over its entire ten-billion-year life."
+  },
+  {
+    "id": "hx-bind-03",
+    "name": "Burning a kilogram of deuterium completely",
+    "module": "binding-energy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "fusion",
+      "q-value",
+      "energy-per-mass"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "In a future reactor, deuterium is consumed through four reactions: $\\mathrm{D+D \\to {}^3He + n}$ ($Q = 3.27$ MeV), $\\mathrm{D+D \\to T + p}$ ($Q = 4.03$ MeV), $\\mathrm{D+T \\to {}^4He + n}$ ($Q = 17.59$ MeV), and $\\mathrm{D+{}^3He \\to {}^4He + p}$ ($Q = 18.35$ MeV). The two D+D branches occur equally often, and every triton and helium-3 nucleus produced is burned in the latter two reactions. Find the total energy released when $1.00$ kg of deuterium is fully consumed, in J. Deuterium molar mass: $2.014$ g/mol; $N_A = 6.022\\times10^{23}$; $1$ eV $= 1.602\\times10^{-19}$ J.",
+    "answer": 345000000000000.0,
+    "unit": "J",
+    "solution": "Follow six deuterons through the chain. Two go into $\\mathrm{D+D \\to {}^3He+n}$ and two into $\\mathrm{D+D \\to T+p}$ (the branches being equally likely), releasing $3.27 + 4.03$ MeV and producing one $^3$He and one T. The fifth deuteron burns the triton ($17.59$ MeV) and the sixth burns the $^3$He ($18.35$ MeV). Total: $3.27 + 4.03 + 17.59 + 18.35 = 43.24$ MeV per six deuterons, or $7.207$ MeV per deuteron — more than the famous D-T reaction's $17.59/5 \\approx 3.5$ MeV per fuel nucleon pair would suggest at first glance. A kilogram contains $N = \\frac{1000}{2.014}(6.022\\times10^{23}) = 2.990\\times10^{26}$ deuterons, so $E = 2.990\\times10^{26} \\times 7.207\\times10^6 \\times 1.602\\times10^{-19} = 3.45\\times10^{14}$ J — roughly the output of a large power plant running for four days, from a kilogram of heavy-water fuel."
+  }
+]

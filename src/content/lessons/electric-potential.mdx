@@ -6,9 +6,9 @@ six and a half million metres per second. Nobody told you the shape of the
 field inside the tube, how the wires are bent, or what path the electron took.
 Yet the speed is fixed, and you can get it in one line.
 
-That is what this lesson buys you. In [Gauss's law](/guide/gauss-law) you found
+That one-line calculation is where you're headed. In [Gauss's law](/guide/gauss-law) you found
 $\vec E$, a vector at every point, and adding two fields meant adding two sets
-of components. Now you will trade that vector for a single number at each point
+of components. Now you'll trade that vector for a single number at each point
 in space. The number carries almost all the same information, adds like ordinary
 arithmetic, and plugs straight into energy conservation. Most electrostatics
 problems that look brutal in terms of field are short in terms of potential.
@@ -29,9 +29,9 @@ endpoints, not on the wiggly path you take between them. So you can define a
 potential energy $U$ with $W_{A\to B} = U_A - U_B$, exactly as you did for
 gravity.
 
-Here is the useful observation. Double the charge you are pushing and the force
+Now a useful observation. Double the charge you are pushing and the force
 doubles, so the work doubles, so $U$ doubles. The energy is proportional to $q$.
-Divide it out and what is left belongs to the field alone. That quantity is the
+Divide it out and what's left belongs to the field alone. That quantity is the
 **electric potential** $V$:
 
 $$
@@ -46,12 +46,12 @@ $$
 
 The unit of potential is the **volt**, one joule per coulomb. A 9 V battery
 means each coulomb of charge that crosses from one terminal to the other gains
-or loses 9 joules. That is the whole definition.
+or loses 9 joules. Nothing more is hiding in the definition.
 
-Two consequences fall straight out. First, only *differences* of $V$ are
+Two consequences. Only *differences* of $V$ are
 physical, because only differences of energy are. You are free to call any one
 point zero, and for a charge distribution of finite size the convenient choice
-is $V = 0$ infinitely far away. Second, if nothing but the electric force acts,
+is $V = 0$ infinitely far away. And if nothing but the electric force acts,
 
 $$
 \tfrac12 m v_B^2 - \tfrac12 m v_A^2 = -q(V_B - V_A)
@@ -126,7 +126,7 @@ $$
 Four numbers added, with their signs. Compare that with adding four field
 vectors and resolving each into components.
 
-<Figure caption={<><b>Figure 1.</b> Potential along the line through two charges. Drag the probe: the readout shows both V and the slope of the curve. Set the right charge to the same sign as the left and watch the curve stop crossing zero; set them opposite and notice the point where V is zero but the curve is still steep, so the field there is not zero.</>}>
+<Figure caption={<><b>Figure 1.</b> Potential along the line through two charges. Drag the probe: the readout shows both V and the slope of the curve. Set the right charge to the same sign as the left and watch the curve stop crossing zero; set them opposite and find the point where V is zero but the curve is still steep, so the field there is not zero.</>}>
   <Sim id="electric-potential-two-charge" />
 </Figure>
 
@@ -223,7 +223,7 @@ Surfaces on which $V$ is constant are called **equipotentials**. Since moving
 along one costs no energy, $\vec E$ must be perpendicular to them everywhere.
 Around a point charge they are spheres; near a metal surface they hug the metal.
 
-<Figure caption={<><b>Figure 2.</b> One positive charge. Each ring is the same step in potential, so the spacing of the rings measures the field strength. Notice the rings crowd near the charge, where E is large, and spread out far away. Every field line meets every ring at a right angle.</>}>
+<Figure caption={<><b>Figure 2.</b> One positive charge. Each ring is the same step in potential, so the spacing of the rings measures the field strength. The rings crowd near the charge, where E is large, and spread out far away. Every field line meets every ring at a right angle.</>}>
   <Sim id="electric-potential-equipotentials" />
 </Figure>
 
@@ -261,7 +261,7 @@ vanishes, and so the whole conductor is one equipotential at $V = kQ/R$.
 $2.0\ \text{cm}$ and $9.0\ \text{cm}$, sit far apart and are joined by a thin
 wire. What is the ratio of the surface fields?
 
-The wire forces them to the same potential: that is the whole content of the
+The wire forces them to the same potential, and that single fact is the
 problem. So $kQ_1/r_1 = kQ_2/r_2$, which gives $Q_1/Q_2 = r_1/r_2$: the big
 sphere hoards most of the charge. But the surface field is $E = kQ/r^2$, so
 
@@ -293,7 +293,7 @@ $U = 3(8.99\times10^{9})(16\times10^{-18})/0.30 = 3(4.79\times10^{-7}) =
 1.44\times10^{-6}\ \text{J}$, and that is exactly the work you must do to
 assemble them.
 
-Counting pairs is the whole skill. On a cube of edge $a$ with eight identical
+The skill here is counting pairs without missing or double-counting any. On a cube of edge $a$ with eight identical
 charges there are $\binom82 = 28$ pairs: 12 along edges at distance $a$, 12 face
 diagonals at $a\sqrt2$, and 4 body diagonals at $a\sqrt3$. So
 
@@ -305,7 +305,7 @@ $$
 $R = 10\ \text{cm}$ to a final charge $Q = 2.0\ \mu\text{C}$, uniformly through
 its volume. How much work does it take?
 
-You cannot count pairs here, so build the ball in shells. Suppose you have got
+You can't count pairs here, so build the ball in shells. Suppose you have got
 as far as radius $r$, carrying $q = Q r^3/R^3$. Its surface is at potential
 $kq/r$. The next shell of thickness $dr$ carries
 $dq = \rho\,4\pi r^2\,dr = 3Q r^2 dr/R^3$, and bringing it in from infinity
@@ -389,11 +389,11 @@ $\tfrac12 m v^2 = (1.6\times10^{-19})(899) = 1.438\times10^{-16}\ \text{J}$,
 and $v = \sqrt{2(1.438\times10^{-16})/1.67\times10^{-27}} =
 \sqrt{1.72\times10^{11}} = 4.2\times10^{5}\ \text{m/s}$. The perpendicular
 bisector in the problem statement is a red herring for the energy: the path
-does not matter, only the endpoint potentials do.
+doesn't matter, only the endpoint potentials do.
 
-## How to know this is the tool
+## When to work in volts instead of fields
 
-Reach for potential when you see any of these.
+Switch to potential when you see any of these.
 
 - **The question asks for a speed, a work, or an energy** and gives you charges
   and distances. Energy methods skip the trajectory entirely. If a problem
@@ -403,7 +403,7 @@ Reach for potential when you see any of these.
   are energy-conservation signals. "Just barely reaches" means $v = 0$ there.
 - **You need a field but the geometry has no symmetry Gauss's law can use.**
   Compute $V$ by adding scalars, then differentiate. The ring's axial field
-  falls out of $V = kQ/\sqrt{z^2+R^2}$ in one derivative.
+  comes straight from $V = kQ/\sqrt{z^2+R^2}$ in one derivative.
 - **Several charges and a single point.** Adding $kq_i/r_i$ with signs is far
   faster than adding vectors, and a question that asks for $V$ at the centre of
   something symmetric is usually trivial.

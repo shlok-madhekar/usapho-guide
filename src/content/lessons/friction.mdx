@@ -3,7 +3,7 @@ Push harder again and suddenly it breaks loose and slides more easily than it
 took to start it. Somewhere in there the floor was pushing back on the crate
 with exactly the force you were applying, and then it stopped being able to.
 
-That "exactly the force you were applying" is the whole lesson. In the previous
+Everything here hangs on that "exactly the force you were applying". In the previous
 lesson you drew free body diagrams and every force on them had a known size:
 weight was $mg$, the normal force was whatever the surface pressed with.
 Friction is the first force you will meet whose size is not handed to you. Most
@@ -23,7 +23,7 @@ $$f_k = \mu_k N$$
 Here $N$ is the normal force, the perpendicular push of the surface on the
 object, and $\mu_k$ is the coefficient of kinetic friction: a dimensionless
 number, usually between 0.05 and 1, that depends on what the two materials are.
-Notice what is *not* in that formula: the speed, the area of contact, the
+Look at what's missing from that formula: the speed, the area of contact, the
 weight. Only $N$ and the materials. A brick lying flat and the same brick
 standing on end feel the same kinetic friction.
 
@@ -46,7 +46,7 @@ $f_s = \mu_s N$.
 <Aside label="Where this goes wrong" warn>
   Writing $f_s = \mu_s N$ for an object sitting in ordinary equilibrium. That
   equation describes the threshold of slipping, not every static contact. If the
-  problem does not say "maximum", "minimum", "just barely", or "on the verge",
+  problem doesn't say "maximum", "minimum", "just barely", or "on the verge",
   treat $f_s$ as an unknown and let Newton's second law tell you what it is.
   A 5.0 kg block resting on a 30° slope with $\mu_s = 0.70$ feels a friction
   force of $mg\sin 30^\circ = 24.5$ N, not $\mu_s mg\cos 30^\circ = 29.7$ N.
@@ -178,7 +178,7 @@ $$T_{\min} = \frac{\mu_k mg}{\sqrt{1+\mu_k^2}} = \frac{(0.50)(25)(9.8)}{\sqrt{1.
 Pulling flat would have cost 122.5 N. The curve is flat near its minimum, which
 is why nobody has to be precise about it in real life.
 
-<Figure caption={<><b>Figure 3.</b> Tension against rope angle. Drag the angle and watch the readout; notice the curve is shallow near the bottom, so being 10 degrees off costs you almost nothing, while pulling at 60 degrees costs a lot.</>}>
+<Figure caption={<><b>Figure 3.</b> Tension against rope angle. Drag the angle and watch the readout; the curve is shallow near the bottom, so being 10 degrees off costs you almost nothing, while pulling at 60 degrees costs a lot.</>}>
   <Sim id="friction-pull-angle" />
 </Figure>
 
@@ -241,7 +241,7 @@ When the floor is rough too, there are two contacts to check and the loser is
 not always the obvious one. Put a 2.0 kg block on a 4.0 kg block on the ground,
 $\mu_s = 0.30$ between them and $0.20$ underneath, and push the *top* block.
 The top block slips once $F > (0.30)(2.0)(9.8) = 5.88$ N. The ground contact
-carries all 6.0 kg, so it does not give until $F > (0.20)(6.0)(9.8) = 11.8$ N.
+carries all 6.0 kg, so it doesn't give until $F > (0.20)(6.0)(9.8) = 11.8$ N.
 The upper surface fails first at 5.88 N, even though it is the one with the
 larger coefficient.
 
@@ -306,7 +306,7 @@ $v^2 = 2(3.20)(3.0) = 19.2\ \mathrm{m^2/s^2}$. On the floor,
 $a = -\mu_k g = -3.43\ \mathrm{m/s^2}$, so $d = 19.2/(2 \times 3.43) = 2.80$ m.
 You never need $v$ itself, only $v^2$.
 
-## How to recognise a friction problem
+## What the problem's wording licenses
 
 The word "friction" is usually there, but the useful signal is finer than that.
 
@@ -319,8 +319,8 @@ the only work left is getting the direction right: opposite the velocity, not
 opposite the applied force. Blocks moving up a rough slope are where this
 bites.
 
-If the object is **at rest and the problem asks for the friction force**, do not
-use either coefficient until you have checked. Solve the equilibrium equations
+If the object is **at rest and the problem asks for the friction force**, don't
+use either coefficient until you've checked. Solve the equilibrium equations
 for $f$, then compare with $\mu_s N$ to confirm it is affordable.
 
 If there is **more than one contact surface**, expect to assume no slipping,

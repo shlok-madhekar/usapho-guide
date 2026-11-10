@@ -1,4 +1,4 @@
-Drop a small bar magnet down a vertical copper pipe. It does not clatter down
+Drop a small bar magnet down a vertical copper pipe. It doesn't clatter down
 in a fifth of a second the way a pebble does. It drifts, taking several
 seconds, and when it finally appears at the bottom it is moving slowly and
 steadily. Copper is not magnetic. Nothing is touching the magnet. Nothing is
@@ -34,7 +34,7 @@ and the flux is zero. The unit is the weber: $1\ \text{Wb} = 1\ \text{T}\cdot
 
 A circular loop of radius $0.10$ m lying square-on to a $0.40$ T field has
 $A = \pi(0.10)^2 = 0.0314\ \text{m}^2$ and $\Phi_B = (0.40)(0.0314) = 0.0126$ Wb.
-That is the whole calculation. The integral sign in the definition only earns
+Nothing more to it in the uniform case. The integral sign in the definition only earns
 its keep when $\vec B$ varies across the loop, which happens later in this
 lesson and is worth waiting for.
 
@@ -65,7 +65,7 @@ current the same way a battery would:
 
 $$I = \frac{\mathcal{E}}{R}$$
 
-<Figure caption={<><b>Figure 1.</b> A loop in a field that is changing at a rate you control. Push the rate slider to zero and the current stops even though the field is still there. Then take the rate negative and watch the current reverse. Notice that doubling the radius quadruples the EMF, because area goes as r squared.</>}>
+<Figure caption={<><b>Figure 1.</b> A loop in a field that is changing at a rate you control. Push the rate slider to zero and the current stops even though the field is still there. Then take the rate negative and watch the current reverse. Doubling the radius quadruples the EMF, because area goes as r squared.</>}>
   <Sim id="faraday-lenz-ramp" />
 </Figure>
 
@@ -79,7 +79,7 @@ moving:
 $$|\mathcal{E}| = N A \frac{dB}{dt} = (200)(0.0050\ \text{m}^2)(1.2\ \text{T/s}) = 1.2\ \text{V}$$
 
 Two hundred turns of small coil produce more than a volt out of a field change
-you could not feel. That is why pickup coils have many turns.
+you couldn't feel. That's why pickup coils have many turns.
 
 <QuickCheck
   question="A loop sits in a strong, perfectly steady magnetic field. What current flows in it?"
@@ -93,13 +93,13 @@ you could not feel. That is why pickup coils have many turns.
 The minus sign says: **the induced current flows in whatever direction fights
 the change that produced it.** Not the field: the *change*.
 
-That is a statement about energy, not about sign conventions. If the induced
-current helped the change along, the change would drive more current, which
-would help more, and a nudge would run away into infinite energy. The universe
-does not offer that. So the loop always pushes back, and if you want to keep
-changing the flux you have to keep paying.
+Underneath, this is a statement about energy. If the induced current helped
+the change along, the change would drive more current, which would help more,
+and a nudge would run away into infinite energy. The universe doesn't offer
+that. So the loop always pushes back, and if you want to keep changing the
+flux you have to keep paying.
 
-Here is a recipe that works every time. Three steps, in order:
+A recipe that works every time, three steps in order:
 
 1. Which way does the existing flux point through the loop, and is it growing
    or shrinking?
@@ -214,9 +214,9 @@ Only the lower edge is in the field and only it contributes EMF, so $L = 0.25$ m
 
 $$v_t = \frac{(0.020)(9.8)(0.60)}{(0.50)^2(0.25)^2} = \frac{0.1176}{0.015625} = 7.53\ \text{m/s}$$
 
-For the heat, resist the urge to compute $I^2R$ and multiply by a time you do
-not know. At terminal speed the kinetic energy is not changing, so every joule
-gravity delivers goes into the resistor:
+For the heat, resist the urge to compute $I^2R$ and multiply by a time you
+don't know. At terminal speed the kinetic energy is not changing, so every
+joule gravity delivers goes into the resistor:
 
 $$Q = mgh = (0.020)(9.8)(0.80) = 0.157\ \text{J}$$
 
@@ -255,7 +255,7 @@ Forgetting the factor of two on a flip is the single most common slip here.
 
 ## The field with no wire in it
 
-One last idea, and it is the deep one. The loop in Figure 1 does not know
+One last idea, and it's the deep one. The loop in Figure 1 doesn't know
 whether the wire is there. The changing magnetic field creates a circulating
 *electric* field in space, and the wire only reveals it by letting charge move.
 Written for the field itself, Faraday's law is
@@ -279,9 +279,9 @@ region where $\vec B$ is zero. Compare this to the charge case: an electric
 field made this way has no start and no end, and pushing a charge once around a
 closed path gains it energy. There is no potential here.
 
-## Recognising it
+## What an induction problem looks like
 
-Reach for Faraday's law when a problem mentions a loop, coil, ring, rail or
+Faraday's law is the tool when a problem mentions a loop, coil, ring, rail or
 disk *and* something in the setup is changing with time. The trigger words are
 "increasing at", "per second", "is pulled out of", "spins at", "collapses",
 "falls through".
@@ -299,8 +299,8 @@ Then sort it by what is changing, because that decides the algebra:
 - **$B$ varies across the loop.** Slice into strips and integrate, as with the
   long wire.
 
-Finally, watch what is being asked for. If it is a charge, use $q = N\Delta\Phi/R$
-and do not touch the timing. If it is a force or a terminal speed, go in order:
-EMF, then current, then $F = BIL$, then balance. If it is heat, ask whether the
+Finally, watch what is being asked for. If it's a charge, use $q = N\Delta\Phi/R$
+and don't touch the timing. If it's a force or a terminal speed, go in order:
+EMF, then current, then $F = BIL$, then balance. If it's heat, ask whether the
 kinetic energy is constant: if it is, the work done against the drag is the
 heat, and you never need the current at all.

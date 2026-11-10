@@ -1,6 +1,6 @@
 Hold a charged rod near a metal doorknob and the knob pulls back, even though
 the knob is neutral. Nothing was added to it. The charge that was already
-inside it moved, and the moving is the whole story. A conductor is a material
+inside it moved. That's all that happened, and it's enough. A conductor is a material
 with charges free to wander, and that one property is enough to fix where
 every last bit of charge ends up: no force balance, no integration, just one
 condition applied over and over.
@@ -20,8 +20,8 @@ moving until they had piled up somewhere that cancelled the field. So once
 things settle (electrostatics means settled) the field inside the metal is
 zero. Not small. Zero.
 
-Three things follow, and you should be able to get all three back from that
-one sentence.
+Everything else about conductors follows from that sentence. There are three
+facts below, and you should be able to recover each one from it.
 
 First, there is no net charge anywhere inside the metal. Draw any closed
 surface entirely inside the conductor. The field is zero on it, so the flux is
@@ -36,7 +36,7 @@ its surface, its interior, and any face of it you cannot see.
 
 Third, just outside the surface the field is perpendicular to it. If it had a
 component along the surface, charges would slide along the surface, and things
-would not be settled. To get its size, put a tiny pillbox across a patch of
+wouldn't be settled. To get its size, put a tiny pillbox across a patch of
 the surface with area $\Delta A$, one face just outside and one just inside.
 The inside face contributes nothing, the sides contribute nothing because $E$
 is perpendicular to the surface, and the outside face contributes
@@ -84,7 +84,7 @@ exactly the field of a charge $Q+q$ sitting at the centre: regardless of
 where in the cavity the charge actually is, and regardless of the cavity's
 shape. The shell hides the details. That is electrostatic shielding.
 
-<Figure caption={<><b>Figure 1.</b> The dashed circle is a Gaussian surface drawn inside the metal, where the field is zero, so it must enclose no net charge. Drag the cavity charge and the shell charge and watch the two surfaces rearrange. Notice that the number of field lines outside depends only on the sum.</>}>
+<Figure caption={<><b>Figure 1.</b> The dashed circle is a Gaussian surface drawn inside the metal, where the field is zero, so it must enclose no net charge. Drag the cavity charge and the shell charge and watch the two surfaces rearrange. The number of field lines outside depends only on the sum.</>}>
   <Sim id="conductors-capacitance-shell" />
 </Figure>
 
@@ -96,7 +96,7 @@ vanishes entirely. The inner wall still holds $-q$, because rule 1 never
 changed.
 
 <Aside label="Where this goes wrong" warn>
-  Grounded does not mean uncharged. It means $V=0$ with charge free to arrive.
+  Grounded doesn't mean uncharged. It means $V=0$ with charge free to arrive.
   A grounded plate near a positive charge carries a large *negative* induced
   charge. If you set the charge on a grounded conductor to zero, you have
   thrown away the whole problem.
@@ -133,7 +133,7 @@ The big sphere holds four times the charge and has a field four times weaker.
 
 Put $+Q$ on one conductor and $-Q$ on a second nearby one. Double both charges
 and every field doubles, so every potential difference doubles. The ratio
-$Q/\Delta V$ therefore does not depend on how much charge you put on. It
+$Q/\Delta V$ therefore doesn't depend on how much charge you put on. It
 depends only on the shapes and their spacing. Give the ratio a name:
 
 $$C = \frac{Q}{V}$$
@@ -192,7 +192,7 @@ $V$. Charges add: $Q = C_1V + C_2V$, so $C_\text{eq} = C_1 + C_2$. A
 $4.7\,\mu\mathrm{F}$ and a $2.2\,\mu\mathrm{F}$ in parallel give
 $6.9\,\mu\mathrm{F}$.
 
-**Series.** Here is the part worth understanding rather than memorising. The
+**Series.** This one is worth understanding rather than memorising. The
 stretch of conductor between two capacitors in a chain is isolated: it started
 neutral and nothing can reach it. So if $+Q$ arrives on the left plate of the
 first capacitor, $-Q$ appears on its right plate, and the same $+Q$ must sit
@@ -252,7 +252,7 @@ $u = \tfrac12 (8.85\times10^{-12})(9.0\times10^{12}) = 39.8\,\mathrm{J/m^3}$.
 That is the ceiling on how much energy an air-gap capacitor can store per
 cubic metre, and it is why capacitors lose to batteries for storing energy.
 
-Now the force. Opposite plates attract, but do not write $F = QE$ with
+Now the force. Opposite plates attract, but don't write $F = QE$ with
 $E = \sigma/\varepsilon_0$: that counts the plate's own field pushing on
 itself. The field one plate makes at the other's location is only
 $\sigma/2\varepsilon_0$. So
@@ -310,8 +310,8 @@ from which quantity the two elements share, never from the picture.
 ## Images: replacing a conductor with a fake charge
 
 A point charge $+q$ a height $h$ above a large grounded plate is a genuinely
-hard problem, because the induced surface charge is spread out in a way you do
-not know in advance. Here is the trick that dissolves it.
+hard problem, because the induced surface charge is spread out in a way you
+don't know in advance. A trick dissolves it.
 
 Forget the plate. Put $-q$ at depth $h$ *below* where the plate was. The plane
 halfway between two equal and opposite charges is at $V=0$ everywhere, by
@@ -326,7 +326,7 @@ apart:
 
 $$F = \frac{kq^2}{(2h)^2} = \frac{kq^2}{4h^2}$$
 
-directed toward the plate. Energy takes one more step. You cannot write
+directed toward the plate. Energy takes one more step. You can't write
 $U = -kq^2/2h$, because as you move the real charge the image moves too, and
 only half the usual work is done. Integrate the force instead:
 
@@ -357,17 +357,17 @@ $8.000 - 1.125 = 6.875\,\mathrm{cm}$. So
 
 $$F = \frac{k|qq'|}{(0.06875)^2} = \frac{(8.99\times10^{9})(5.0\times10^{-9})(1.875\times10^{-9})}{4.727\times10^{-3}} = \frac{8.43\times10^{-8}}{4.727\times10^{-3}} = 1.78\times10^{-5}\,\mathrm{N}$$
 
-The formula does not care whether the charge is outside the sphere or inside a
+The formula doesn't care whether the charge is outside the sphere or inside a
 grounded cavity of radius $R$; with $d < R$ the image simply lands outside,
 at $b = R^2/d > R$, and the force still pulls the charge toward the nearest
 wall.
 
-## How to tell which tool a problem wants
+## Which setup is which
 
 The signals are unusually clean here.
 
-*The word "conductor", "metal" or "grounded" with charges near it.* Reach for
-the two bookkeeping rules. Draw a Gaussian surface inside the metal, set the
+*The word "conductor", "metal" or "grounded" with charges near it.* Go
+straight to the two bookkeeping rules. Draw a Gaussian surface inside the metal, set the
 enclosed charge to zero, then conserve charge, unless it is grounded, in
 which case drop conservation and impose $V=0$ instead.
 

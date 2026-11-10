@@ -24,7 +24,7 @@ $$\frac{Q_C}{Q_H} = \frac{T_C}{T_H}$$
 
 Rearrange that into $Q_H/T_H = Q_C/T_C$. Count heat going *into* the working
 substance as positive and heat leaving as negative, and the two terms cancel:
-the sum of $Q/T$ around the whole cycle is zero. Heat itself does not come back
+the sum of $Q/T$ around the whole cycle is zero. Heat itself doesn't come back
 to zero over a cycle: the engine absorbed more than it rejected, that was the
 point. But heat divided by the temperature at which it crossed does.
 
@@ -61,7 +61,7 @@ Almost every entropy calculation in a problem set is one of three shapes.
 **A reservoir, or anything at fixed temperature.** If $T$ never changes, it
 comes out of the integral and $\Delta S = Q/T$. A "large bath", a "huge
 reservoir", a furnace wall "held at 400 K": these are all telling you that the
-body is big enough that the heat you give it does not shift its temperature.
+body is big enough that the heat you give it doesn't shift its temperature.
 Melting and boiling are in this family too, because a phase change happens at
 one fixed temperature: $\Delta S = mL/T$.
 
@@ -70,7 +70,7 @@ integral. With heat capacity $C = mc$ held constant, $dQ = C\,dT$, and
 
 $$\Delta S = \int_{T_i}^{T_f} \frac{C\,dT}{T} = C\ln\frac{T_f}{T_i}$$
 
-That is the whole of the calculus you need here: the integral of $1/T$ is
+That's all the calculus this topic asks of you: the integral of $1/T$ is
 $\ln T$. If you have not met logarithms in this role, all you need is that
 $\ln(a/b) = \ln a - \ln b$ and that $\ln$ of a number less than 1 is negative, so cooling gives negative entropy change, as it should.
 
@@ -109,7 +109,7 @@ at no instant does the system have one temperature you could put in a
 denominator. So do not use the real process. Write down the initial state and
 the final state, throw away everything that happened in between, and invent a
 slow reversible path connecting the same two states. The number you get is the
-entropy change of the real process, because entropy does not know the
+entropy change of the real process, because entropy doesn't know the
 difference.
 
 Take the standard case. One mole of ideal gas sits behind a partition in an
@@ -133,7 +133,7 @@ J/K. That is the answer for the free expansion too.
 
 ## Entropy of the universe, and why it only goes up
 
-The system is never the whole story. Add up the entropy change of everything
+The system by itself is only half the ledger. Add up the entropy change of everything
 involved (the system plus every reservoir it touched) and call it
 $\Delta S_{univ}$. The second law, in its most usable form, says this total is
 zero for a reversible process and strictly positive for a real one. It never
@@ -147,7 +147,7 @@ $$\Delta S_{univ} = \frac{Q}{T_C} - \frac{Q}{T_H} = Q\left(\frac{1}{T_C} - \frac
 
 Positive whenever $T_H > T_C$, which is the only direction it runs. Try it
 backwards and the expression flips sign, which is the ban you were looking for
-at the start. And notice what happens as $T_H \to T_C$: the entropy generated
+at the start. And as $T_H \to T_C$ the entropy generated
 goes to zero. That is why reversible heat transfer has to happen across a
 vanishing temperature difference, and hence infinitely slowly.
 
@@ -179,12 +179,12 @@ right one to pick: that is the signal that the log is required.
 $100^\circ$C, dropped into a very large water bath held at $20^\circ$C. Find
 the entropy change of ball plus bath.
 
-Two bodies, two different treatments, and that is the whole lesson of this
-example. The ball's temperature slides from 373 K to 293 K, so it gets the log:
+Two bodies, two different treatments: that's what this example is for.
+The ball's temperature slides from 373 K to 293 K, so it gets the log:
 
 $$\Delta S_{ball} = (0.50)(128)\ln\frac{293}{373} = 64 \ln(0.7855) = 64 \times (-0.2414) = -15.45 \text{ J/K}$$
 
-The bath does not change temperature, so it gets $Q/T$. The heat it receives is
+The bath doesn't change temperature, so it gets $Q/T$. The heat it receives is
 what the ball gave up, $Q = 64 \times 80 = 5120$ J, arriving at 293 K:
 
 $$\Delta S_{bath} = \frac{5120}{293} = +17.47 \text{ J/K}$$
@@ -213,7 +213,7 @@ $c = 386$ J/kg·K, starts at 500 K and is used as the hot source of a
 *reversible* engine whose cold reservoir is a huge bath at 300 K. The engine
 runs until the block has cooled to 300 K. How much work comes out?
 
-You cannot use $1 - T_C/T_H$ directly, because $T_H$ is falling the whole time.
+You can't use $1 - T_C/T_H$ directly, because $T_H$ is falling the whole time.
 Use entropy instead. Reversible means $\Delta S_{univ} = 0$, and that one
 equation is enough.
 
@@ -269,9 +269,9 @@ twice as many places to be, so $\Omega$ is multiplied by $2^N$ and
 $\Delta S = k_B N \ln 2$. For a mole, $k_B N_A = R$, and you are back to
 $R\ln 2$. Two routes, the same number.
 
-## Recognising an entropy problem
+## Four invitations to compute an entropy
 
-Reach for entropy when you see any of these.
+Entropy is the tool when you see any of these.
 
 The question asks directly for "the entropy change of the universe", or of a
 body, in J/K. That is the obvious one, and the work is just deciding, for each

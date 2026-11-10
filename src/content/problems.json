@@ -9238,6 +9238,1668 @@
     "solution": ""
   },
   {
+    "id": "hx-rc-01",
+    "name": "Charging with a bleed resistor",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "transients",
+      "thevenin"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $24\\ \\mathrm{V}$ battery charges an initially uncharged capacitor $C = 20\\ \\mu\\mathrm{F}$ through a resistor $R_1 = 100\\ \\mathrm{k\\Omega}$. A second resistor $R_2 = 50\\ \\mathrm{k\\Omega}$ is connected directly across the capacitor. The switch closes at $t = 0$. At what time, in seconds, does the capacitor voltage reach half of its final value?",
+    "answer": 0.462,
+    "unit": "s",
+    "solution": "The capacitor never sees the full battery voltage because $R_2$ bleeds current around it. Replace the battery and both resistors by their Thevenin equivalent as seen from the capacitor terminals: $$V_{th} = \\varepsilon\\,\\frac{R_2}{R_1+R_2} = 24\\cdot\\frac{50}{150} = 8\\ \\mathrm{V}, \\qquad R_{th} = \\frac{R_1 R_2}{R_1+R_2} = \\frac{100\\cdot 50}{150}\\ \\mathrm{k\\Omega} = 33.3\\ \\mathrm{k\\Omega}.$$ The capacitor then charges as a plain RC circuit toward $V_{th}$ with time constant $$\\tau = R_{th}C = (3.33\\times10^{4})(20\\times10^{-6}) = 0.667\\ \\mathrm{s},$$ so $V(t) = V_{th}(1 - e^{-t/\\tau})$. Reaching half the final value means $1 - e^{-t/\\tau} = \\tfrac12$, i.e. $$t = \\tau\\ln 2 = (0.667)(0.693) = 0.462\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-rc-02",
+    "name": "Where the stored energy goes",
+    "module": "rc-circuits",
+    "difficulty": "Hard",
+    "tags": [
+      "energy",
+      "discharge"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A capacitor $C = 40\\ \\mu\\mathrm{F}$ is charged to $60\\ \\mathrm{V}$ and then discharged through a network: resistor $R_1 = 10\\ \\Omega$ in series with the parallel combination of $R_2 = 30\\ \\Omega$ and $R_3 = 60\\ \\Omega$. Find the total energy dissipated in $R_2$ during the complete discharge, in J.",
+    "answer": 0.032,
+    "unit": "J",
+    "solution": "All the stored energy ends up as heat, so start from $$U = \\tfrac12 C V_0^2 = \\tfrac12 (40\\times10^{-6})(60)^2 = 0.072\\ \\mathrm{J}.$$ The split between resistors does not depend on time: at every instant the same discharge current $I(t)$ leaves the capacitor, so the ratios of instantaneous powers are fixed, and the same ratios apply to the total energies. The series resistor $R_1$ and the parallel block $R_p = \\frac{30\\cdot 60}{90} = 20\\ \\Omega$ carry the same current, so energy divides in proportion to resistance: the parallel block gets $$U_p = U\\,\\frac{R_p}{R_1+R_p} = 0.072\\cdot\\frac{20}{30} = 0.048\\ \\mathrm{J}.$$ Inside the parallel block, $R_2$ and $R_3$ share the same voltage, so power splits by conductance, i.e. inversely with resistance: $$U_2 = U_p\\,\\frac{R_3}{R_2+R_3} = 0.048\\cdot\\frac{60}{90} = 0.032\\ \\mathrm{J}.$$"
+  },
+  {
+    "id": "hx-rc-03",
+    "name": "Capacitor that discharges itself",
+    "module": "rc-circuits",
+    "difficulty": "Very Hard",
+    "tags": [
+      "leaky dielectric",
+      "time constant"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A parallel-plate capacitor is completely filled with a slightly conducting dielectric of dielectric constant $\\kappa = 5.0$ and resistivity $\\rho = 4.0\\times10^{11}\\ \\Omega\\cdot\\mathrm{m}$. The capacitor is charged and then disconnected from everything, after which it discharges through its own dielectric. Find the time for the stored energy to fall to $10\\%$ of its initial value, in s. The plate area and separation are not given because they are not needed. Use $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\mathrm{F/m}$.",
+    "answer": 20.4,
+    "unit": "s",
+    "solution": "Treat the dielectric slab as both the capacitor's dielectric and the leakage resistor. For plate area $A$ and separation $d$, $$C = \\frac{\\kappa\\varepsilon_0 A}{d}, \\qquad R = \\frac{\\rho d}{A}.$$ The discharge time constant is their product, and the geometry cancels completely: $$\\tau = RC = \\kappa\\varepsilon_0\\rho = (5.0)(8.85\\times10^{-12})(4.0\\times10^{11}) = 17.7\\ \\mathrm{s}.$$ This is why the problem can omit the dimensions: every parallel-plate capacitor made of this material self-discharges at the same rate. The charge decays as $Q = Q_0 e^{-t/\\tau}$, but the question asks about energy, and $U = Q^2/2C \\propto e^{-2t/\\tau}$, so energy decays twice as fast. Setting $e^{-2t/\\tau} = 0.10$: $$t = \\frac{\\tau}{2}\\ln 10 = \\frac{17.7}{2}(2.303) = 20.4\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-pot-01",
+    "name": "Bead launched from a ring's center",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "ring",
+      "energy conservation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A thin ring of radius $R = 10\\ \\mathrm{cm}$ carries charge $Q = 2.0\\ \\mu\\mathrm{C}$ spread uniformly around it. A small ball of charge $q = 50\\ \\mathrm{nC}$ and mass $m = 2.0\\ \\mathrm{g}$ is released from rest at the center of the ring and escapes along the ring's axis. Ignoring gravity, find its speed far from the ring, in m/s. Use $k = 8.99\\times10^{9}\\ \\mathrm{N\\cdot m^2/C^2}$.",
+    "answer": 3,
+    "unit": "m/s",
+    "solution": "Every element of the ring is the same distance $R$ from the center, so the potential there is simply $$V_{c} = \\frac{kQ}{R} = \\frac{(8.99\\times10^{9})(2.0\\times10^{-6})}{0.10} = 1.80\\times10^{5}\\ \\mathrm{V},$$ with $V \\to 0$ far away. Note the center is an equilibrium point only in the plane of the ring; along the axis the ball is pushed away, which is why it escapes axially. Energy conservation between the center and infinity gives $$qV_c = \\tfrac12 m v^2 \\quad\\Rightarrow\\quad v = \\sqrt{\\frac{2qV_c}{m}} = \\sqrt{\\frac{2(50\\times10^{-9})(1.80\\times10^{5})}{2.0\\times10^{-3}}}.$$ The numerator is $1.80\\times10^{-2}\\ \\mathrm{J}$ doubled over $2.0\\times10^{-3}\\ \\mathrm{kg}$, giving $v = \\sqrt{8.99} = 3.00\\ \\mathrm{m/s}.$"
+  },
+  {
+    "id": "hx-pot-02",
+    "name": "Proton ejected from a charge cloud",
+    "module": "electric-potential",
+    "difficulty": "Hard",
+    "tags": [
+      "charged sphere",
+      "energy conservation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A spherical cloud of radius $R = 5.0\\ \\mathrm{cm}$ carries total charge $Q = +1.0\\ \\mathrm{nC}$ distributed uniformly throughout its volume. A proton is placed at rest at the exact center and moves freely through the cloud (the cloud is tenuous and exerts no drag). Find the proton's speed as it crosses the cloud's surface, in m/s. Use $k = 8.99\\times10^{9}\\ \\mathrm{N\\cdot m^2/C^2}$, $e = 1.6\\times10^{-19}\\ \\mathrm{C}$, $m_p = 1.67\\times10^{-27}\\ \\mathrm{kg}$.",
+    "answer": 131000,
+    "unit": "m/s",
+    "solution": "Inside a uniformly charged sphere the potential is not constant; it is $$V(r) = \\frac{kQ}{2R}\\left(3 - \\frac{r^2}{R^2}\\right),$$ which you can get by integrating the interior field $E = kQr/R^3$ from the surface inward. The drop from center to surface is $$\\Delta V = V(0) - V(R) = \\frac{3kQ}{2R} - \\frac{kQ}{R} = \\frac{kQ}{2R} = \\frac{(8.99\\times10^{9})(1.0\\times10^{-9})}{2(0.050)} = 89.9\\ \\mathrm{V}.$$ The proton falls through this potential difference, so $$\\tfrac12 m_p v^2 = e\\,\\Delta V \\quad\\Rightarrow\\quad v = \\sqrt{\\frac{2e\\,\\Delta V}{m_p}} = \\sqrt{\\frac{2(1.6\\times10^{-19})(89.9)}{1.67\\times10^{-27}}} = \\sqrt{1.72\\times10^{10}} = 1.31\\times10^{5}\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-pot-03",
+    "name": "Pull of a grounded sphere",
+    "module": "electric-potential",
+    "difficulty": "Very Hard",
+    "tags": [
+      "image charges",
+      "conductors"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A point charge $q = 100\\ \\mathrm{nC}$ is held at distance $d = 15\\ \\mathrm{cm}$ from the center of a grounded conducting sphere of radius $R = 5.0\\ \\mathrm{cm}$. Find the magnitude of the electrostatic force attracting the charge toward the sphere, in N. Use $k = 8.99\\times10^{9}\\ \\mathrm{N\\cdot m^2/C^2}$.",
+    "answer": 0.001686,
+    "unit": "N",
+    "solution": "A grounded sphere held at $V = 0$ with a point charge outside can be replaced by a single image charge inside the sphere. Demand that the potential vanish everywhere on the spherical surface: this works if the image has $$q' = -q\\,\\frac{R}{d} = -(100\\ \\mathrm{nC})\\frac{5}{15} = -33.3\\ \\mathrm{nC}$$ placed at distance $$b = \\frac{R^2}{d} = \\frac{(0.050)^2}{0.15} = 0.0167\\ \\mathrm{m}$$ from the center, on the line joining the center to $q$. Outside the sphere the real induced surface charge produces exactly the same field as this image, so the force on $q$ is the Coulomb attraction to $q'$ at separation $$s = d - b = 0.150 - 0.0167 = 0.1333\\ \\mathrm{m}.$$ Then $$F = \\frac{k\\,q\\,|q'|}{s^2} = \\frac{(8.99\\times10^{9})(1.0\\times10^{-7})(3.33\\times10^{-8})}{(0.1333)^2} = 1.69\\times10^{-3}\\ \\mathrm{N}.$$ Equivalently $F = kq^2 Rd/(d^2-R^2)^2$, which gives the same $1.69\\times10^{-3}\\ \\mathrm{N}$."
+  },
+  {
+    "id": "hx-cur-01",
+    "name": "Resistance of a tapered wire",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "varying cross-section",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A copper wire of length $L = 2.0\\ \\mathrm{m}$ tapers smoothly: its radius grows linearly from $a = 1.0\\ \\mathrm{mm}$ at one end to $b = 3.0\\ \\mathrm{mm}$ at the other. The taper is gradual enough that the current density is uniform across each cross-section. Copper's resistivity is $\\rho = 1.7\\times10^{-8}\\ \\Omega\\cdot\\mathrm{m}$. Find the end-to-end resistance, in $\\Omega$.",
+    "answer": 0.00361,
+    "unit": "Ω",
+    "solution": "Slice the wire into disks of thickness $dx$. At position $x$ the radius is $r(x) = a + (b-a)x/L$, and each slice contributes $$dR = \\frac{\\rho\\,dx}{\\pi r(x)^2}.$$ Substituting $u = r(x)$, so $du = \\frac{b-a}{L}dx$: $$R = \\frac{\\rho L}{\\pi(b-a)}\\int_a^b \\frac{du}{u^2} = \\frac{\\rho L}{\\pi(b-a)}\\left(\\frac{1}{a}-\\frac{1}{b}\\right) = \\frac{\\rho L}{\\pi a b}.$$ The clean result $R = \\rho L/(\\pi ab)$ is the uniform-wire formula with the area replaced by $\\pi a b$, the geometric-mean cross-section. Numerically, $$R = \\frac{(1.7\\times10^{-8})(2.0)}{\\pi(1.0\\times10^{-3})(3.0\\times10^{-3})} = \\frac{3.4\\times10^{-8}}{9.42\\times10^{-6}} = 3.61\\times10^{-3}\\ \\Omega.$$"
+  },
+  {
+    "id": "hx-cur-02",
+    "name": "Wire heating to the melting point",
+    "module": "current-resistance",
+    "difficulty": "Hard",
+    "tags": [
+      "current density",
+      "heating"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A copper wire at $20\\,^{\\circ}\\mathrm{C}$ suddenly carries a current density $J = 2.0\\times10^{7}\\ \\mathrm{A/m^2}$. Estimate how long until the wire reaches copper's melting point, $1085\\,^{\\circ}\\mathrm{C}$, assuming no heat escapes and ignoring the temperature dependence of resistivity. Copper: resistivity $\\rho_e = 1.7\\times10^{-8}\\ \\Omega\\cdot\\mathrm{m}$, density $\\rho_m = 8960\\ \\mathrm{kg/m^3}$, specific heat $c = 385\\ \\mathrm{J/(kg\\cdot K)}$. Give the time in s.",
+    "answer": 540,
+    "unit": "s",
+    "solution": "Work per unit volume is the natural bookkeeping here, because the wire's length and thickness never enter. The Joule heating power per unit volume is $$p = \\rho_e J^2,$$ which follows from $P = I^2R$ applied to any small cylinder of the wire. With no heat loss, this power raises the temperature of that same volume: $$\\rho_e J^2 = \\rho_m c\\,\\frac{dT}{dt}.$$ The heating rate is constant, so $$t = \\frac{\\rho_m c\\,\\Delta T}{\\rho_e J^2} = \\frac{(8960)(385)(1085-20)}{(1.7\\times10^{-8})(2.0\\times10^{7})^2}.$$ The numerator is $(8960)(385)(1065) = 3.67\\times10^{9}\\ \\mathrm{J/m^3}$ and the denominator is $(1.7\\times10^{-8})(4.0\\times10^{14}) = 6.8\\times10^{6}\\ \\mathrm{W/m^3}$, so $$t = \\frac{3.67\\times10^{9}}{6.8\\times10^{6}} = 540\\ \\mathrm{s},$$ about nine minutes. Notice the answer is independent of the wire's dimensions: double the cross-section and both the heat generated and the mass to heat double together."
+  },
+  {
+    "id": "hx-cur-03",
+    "name": "Resistance between buried electrodes",
+    "module": "current-resistance",
+    "difficulty": "Very Hard",
+    "tags": [
+      "spreading resistance",
+      "electrodes"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two small metal spheres, each of radius $a = 10\\ \\mathrm{cm}$, are buried very deep in the ground, far from the surface and separated by a distance much larger than $a$. The ground is uniform with resistivity $\\rho = 150\\ \\Omega\\cdot\\mathrm{m}$, and the spheres are perfect conductors. Find the electrical resistance between the two spheres, in $\\Omega$.",
+    "answer": 239,
+    "unit": "Ω",
+    "solution": "It seems like the resistance should depend on the separation, but it barely does. Current leaving one sphere spreads out radially through the ground; at radius $r$ from that sphere the current density is $J = I/(4\\pi r^2)$ and the field is $E = \\rho J$. The potential drop from the sphere's surface out to a large distance is $$\\Delta V = \\int_a^{\\infty} \\rho\\,\\frac{I}{4\\pi r^2}\\,dr = \\frac{\\rho I}{4\\pi a}.$$ The integral converges: almost all of the resistance is concentrated within a few radii of the small electrode, which is why the separation drops out as long as it is $\\gg a$. Each sphere therefore contributes a spreading resistance $$R_1 = \\frac{\\rho}{4\\pi a},$$ and the two act in series (current exits one, crosses the essentially resistance-free far field, and converges on the other): $$R = 2\\cdot\\frac{\\rho}{4\\pi a} = \\frac{\\rho}{2\\pi a} = \\frac{150}{2\\pi(0.10)} = 239\\ \\Omega.$$"
+  },
+  {
+    "id": "hx-kir-01",
+    "name": "Power from the weaker battery",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "two loops",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two batteries feed a shared load. A $12\\ \\mathrm{V}$ ideal battery in series with $R_1 = 4\\ \\Omega$, and a $9\\ \\mathrm{V}$ ideal battery in series with $R_2 = 6\\ \\Omega$, are both connected (positive terminals together) across a load resistor $R_3 = 3\\ \\Omega$. Find the power delivered by the $9\\ \\mathrm{V}$ battery, in W.",
+    "answer": 4.5,
+    "unit": "W",
+    "solution": "Let $V$ be the potential at the shared positive node (the bottom node is the reference). Kirchhoff's current law at the top node, with both batteries pushing current toward it and the load drawing current away: $$\\frac{12 - V}{4} + \\frac{9 - V}{6} = \\frac{V}{3}.$$ Multiplying through by 12: $$3(12 - V) + 2(9 - V) = 4V \\;\\Rightarrow\\; 36 + 18 = 9V \\;\\Rightarrow\\; V = 6\\ \\mathrm{V}.$$ The current through the $9\\ \\mathrm{V}$ branch is $$I_2 = \\frac{9 - 6}{6} = 0.5\\ \\mathrm{A},$$ and since it is positive, this battery really is discharging (with a weaker EMF it could have been forced to absorb power instead; here it is not). The power it delivers is $$P = \\varepsilon_2 I_2 = (9)(0.5) = 4.5\\ \\mathrm{W}.$$"
+  },
+  {
+    "id": "hx-kir-02",
+    "name": "Current through an unbalanced bridge",
+    "module": "kirchhoff",
+    "difficulty": "Hard",
+    "tags": [
+      "wheatstone bridge",
+      "node analysis"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $10\\ \\mathrm{V}$ ideal battery drives a bridge circuit. From the positive terminal (node $A$), $R_1 = 10\\ \\Omega$ leads to node $C$ and $R_2 = 20\\ \\Omega$ leads to node $D$. From $C$, $R_3 = 30\\ \\Omega$ returns to the negative terminal (node $B$); from $D$, $R_4 = 10\\ \\Omega$ returns to $B$. A bridge resistor $R_5 = 40\\ \\Omega$ connects $C$ to $D$. Find the current through $R_5$, in A.",
+    "answer": 0.0769,
+    "unit": "A",
+    "solution": "Check balance first: $R_1/R_3 = 1/3$ while $R_2/R_4 = 2$, so the bridge is unbalanced and $R_5$ carries current. Set $V_A = 10$, $V_B = 0$, and write node equations at $C$ and $D$. At $C$: $$\\frac{10 - V_C}{10} = \\frac{V_C}{30} + \\frac{V_C - V_D}{40},$$ and at $D$: $$\\frac{10 - V_D}{20} + \\frac{V_C - V_D}{40} = \\frac{V_D}{10}.$$ Clearing denominators (multiply the first by 120, the second by 40): $$120 = 19V_C - 3V_D, \\qquad 20 + V_C = 7V_D.$$ Substituting $V_D = (20 + V_C)/7$ into the first: $$840 = 133V_C - 3(20 + V_C) \\;\\Rightarrow\\; 900 = 130V_C \\;\\Rightarrow\\; V_C = 6.923\\ \\mathrm{V},$$ and then $V_D = 26.923/7 = 3.846\\ \\mathrm{V}$. The bridge current flows from $C$ to $D$: $$I_5 = \\frac{V_C - V_D}{40} = \\frac{3.077}{40} = 0.0769\\ \\mathrm{A}.$$"
+  },
+  {
+    "id": "hx-kir-03",
+    "name": "Infinite ladder of resistors",
+    "module": "kirchhoff",
+    "difficulty": "Very Hard",
+    "tags": [
+      "infinite ladder",
+      "self-similarity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An infinite ladder network is built from repeating identical cells: each cell consists of a $3\\ \\Omega$ resistor in the top rail followed by a $2\\ \\Omega$ resistor connecting the rails. Find the equivalent resistance between the two input terminals of the ladder, in $\\Omega$.",
+    "answer": 4.37,
+    "unit": "Ω",
+    "solution": "An infinite ladder looks the same if you peel off one cell: removing the first $3\\ \\Omega$ series resistor and the first $2\\ \\Omega$ shunt leaves another infinite ladder with the same resistance $R$. So the whole network satisfies $$R = 3 + \\frac{2R}{2 + R},$$ where the second term is the first shunt in parallel with the rest of the ladder. Multiplying by $(2+R)$: $$R(2 + R) = 3(2 + R) + 2R \\;\\Rightarrow\\; R^2 + 2R = 6 + 3R + 2R \\;\\Rightarrow\\; R^2 - 3R - 6 = 0.$$ The quadratic gives $$R = \\frac{3 + \\sqrt{9 + 24}}{2} = \\frac{3 + \\sqrt{33}}{2} = \\frac{3 + 5.745}{2} = 4.37\\ \\Omega,$$ taking the positive root since resistance cannot be negative. As a sanity check, $R$ must exceed $3\\ \\Omega$ (the first series element alone) but be less than $5\\ \\Omega$ (the first cell with the rest of the ladder removed, $3 + 2$); indeed $4.37$ sits between."
+  },
+  {
+    "id": "hx-bs-01",
+    "name": "Field at the center of a hairpin",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "arc",
+      "superposition"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A long wire carrying $I = 8.0\\ \\mathrm{A}$ is bent into a hairpin: two very long parallel straight sections joined by a semicircle of radius $R = 2.0\\ \\mathrm{cm}$, with the straight sections tangent to the semicircle's ends. Find the magnitude of the magnetic field at the center of the semicircle, in T. Use $\\mu_0 = 4\\pi\\times10^{-7}\\ \\mathrm{T\\cdot m/A}$.",
+    "answer": 0.000206,
+    "unit": "T",
+    "solution": "Break the hairpin into three pieces whose fields at the center all point the same way (out of or into the page, by the right-hand rule), so the magnitudes add. The semicircle is half a full loop: $$B_{arc} = \\frac{1}{2}\\cdot\\frac{\\mu_0 I}{2R} = \\frac{\\mu_0 I}{4R}.$$ Each straight section is a semi-infinite wire whose end sits closest to the center, at perpendicular distance $R$. A semi-infinite wire ending at the foot of the perpendicular gives half the infinite-wire field: $$B_{straight} = \\frac{1}{2}\\cdot\\frac{\\mu_0 I}{2\\pi R} = \\frac{\\mu_0 I}{4\\pi R},$$ and there are two of them. Adding everything: $$B = \\frac{\\mu_0 I}{4R} + 2\\cdot\\frac{\\mu_0 I}{4\\pi R} = \\frac{\\mu_0 I}{R}\\left(\\frac{1}{4} + \\frac{1}{2\\pi}\\right).$$ With $\\mu_0 I/R = (4\\pi\\times10^{-7})(8.0)/(0.020) = 5.03\\times10^{-4}\\ \\mathrm{T}$: $$B = (5.03\\times10^{-4})(0.250 + 0.159) = 2.06\\times10^{-4}\\ \\mathrm{T}.$$"
+  },
+  {
+    "id": "hx-bs-02",
+    "name": "Field at the center of a square loop",
+    "module": "biot-savart",
+    "difficulty": "Hard",
+    "tags": [
+      "square loop",
+      "finite segment"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A square loop of side $a = 10\\ \\mathrm{cm}$ carries current $I = 5.0\\ \\mathrm{A}$. Find the magnitude of the magnetic field at the center of the square, in T. Use $\\mu_0 = 4\\pi\\times10^{-7}\\ \\mathrm{T\\cdot m/A}$.",
+    "answer": 0.0000566,
+    "unit": "T",
+    "solution": "The field of a finite straight segment at perpendicular distance $d$ from its midpoint, subtending angles $\\pm\\theta$ at the field point, is $$B = \\frac{\\mu_0 I}{4\\pi d}(\\sin\\theta_1 + \\sin\\theta_2),$$ straight from the Biot-Savart integral. For one side of the square seen from the center, $d = a/2$ and the side's ends sit at $45^{\\circ}$ on either side, so $\\sin\\theta_1 = \\sin\\theta_2 = \\frac{1}{\\sqrt2}$: $$B_{side} = \\frac{\\mu_0 I}{4\\pi (a/2)}\\cdot\\frac{2}{\\sqrt2} = \\frac{\\mu_0 I}{\\sqrt2\\,\\pi a}.$$ All four sides push the field the same way at the center (check with the right-hand rule going around the loop), so $$B = 4B_{side} = \\frac{4\\mu_0 I}{\\sqrt2\\,\\pi a} = \\frac{2\\sqrt2\\,\\mu_0 I}{\\pi a}.$$ Numerically, $$B = \\frac{2\\sqrt2\\,(4\\pi\\times10^{-7})(5.0)}{\\pi(0.10)} = 5.66\\times10^{-5}\\ \\mathrm{T},$$ slightly weaker than the $\\mu_0 I/(2r)$ field of a circular loop of radius $a/2$ (which would be $6.28\\times10^{-5}$ T), since the square's corners sit farther from the center."
+  },
+  {
+    "id": "hx-bs-03",
+    "name": "Field of a spinning charged disk",
+    "module": "biot-savart",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rotating disk",
+      "surface current"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A thin insulating disk of radius $R = 20\\ \\mathrm{cm}$ carries total charge $Q = 5.0\\ \\mu\\mathrm{C}$ spread uniformly over its surface. The disk spins about its axis at $3000$ revolutions per minute. Find the magnitude of the magnetic field at the center of the disk, in T. Use $\\mu_0 = 4\\pi\\times10^{-7}\\ \\mathrm{T\\cdot m/A}$.",
+    "answer": 1.57e-9,
+    "unit": "T",
+    "solution": "A spinning charged disk is a continuum of circular current loops. The surface charge density is $$\\sigma = \\frac{Q}{\\pi R^2} = \\frac{5.0\\times10^{-6}}{\\pi(0.20)^2} = 3.98\\times10^{-5}\\ \\mathrm{C/m^2},$$ and the angular speed is $\\omega = 3000\\cdot\\frac{2\\pi}{60} = 314.2\\ \\mathrm{rad/s}$. A ring of radius $r$ and width $dr$ holds charge $dq = \\sigma\\,2\\pi r\\,dr$ and completes a revolution every $T = 2\\pi/\\omega$, so it is a loop of current $$dI = \\frac{dq}{T} = \\sigma\\omega r\\,dr.$$ Each loop contributes $dB = \\mu_0\\,dI/(2r)$ at the center, and the $r$ in the loop formula cancels the $r$ in $dI$: $$B = \\int_0^R \\frac{\\mu_0\\,\\sigma\\omega r\\,dr}{2r} = \\frac{\\mu_0\\sigma\\omega}{2}\\int_0^R dr = \\frac{\\mu_0\\sigma\\omega R}{2}.$$ Every annulus contributes equally, the signature of this classic cancellation. Numerically: $$B = \\frac{(4\\pi\\times10^{-7})(3.98\\times10^{-5})(314.2)(0.20)}{2} = 1.57\\times10^{-9}\\ \\mathrm{T}.$$"
+  },
+  {
+    "id": "hx-mf-01",
+    "name": "Rod held on inclined rails",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "force on wire",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A conducting rod of mass $m = 0.25\\ \\mathrm{kg}$ and length $L = 0.50\\ \\mathrm{m}$ rests on two frictionless rails that run up a plane inclined at $30^{\\circ}$ to the horizontal, with the rod horizontal and perpendicular to the rails. A uniform magnetic field $B = 0.80\\ \\mathrm{T}$ points vertically upward. What current through the rod, in A, holds it stationary on the rails? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 3.54,
+    "unit": "A",
+    "solution": "The subtlety is the direction of the magnetic force. The rod is horizontal and the field is vertical, so $\\vec{F} = I\\vec{L}\\times\\vec{B}$ is horizontal, pointing into the slope, not parallel to it. Resolve forces along the incline (the frictionless rails can only supply a normal force). Gravity has component $mg\\sin\\theta$ down the slope; the horizontal magnetic force $F = BIL$ has component $F\\cos\\theta$ up the slope. Equilibrium along the incline requires $$BIL\\cos\\theta = mg\\sin\\theta \\quad\\Rightarrow\\quad I = \\frac{mg\\tan\\theta}{BL}.$$ If you had (wrongly) assumed the magnetic force acts along the incline you would get $\\sin\\theta$ instead of $\\tan\\theta$, a $15\\%$ error at this angle. Plugging in: $$I = \\frac{(0.25)(9.8)\\tan 30^{\\circ}}{(0.80)(0.50)} = \\frac{(2.45)(0.577)}{0.40} = 3.54\\ \\mathrm{A}.$$"
+  },
+  {
+    "id": "hx-mf-02",
+    "name": "Separating neon isotopes",
+    "module": "magnetic-force",
+    "difficulty": "Hard",
+    "tags": [
+      "mass spectrometer",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Singly ionized neon atoms of masses $20\\,\\mathrm{u}$ and $22\\,\\mathrm{u}$ are accelerated from rest through a potential difference of $3.0\\ \\mathrm{kV}$, then enter a uniform magnetic field $B = 0.60\\ \\mathrm{T}$ perpendicular to their velocity. Each ion travels a semicircle and strikes a detector plate. Find the separation between the two landing points, in mm. Use $e = 1.6\\times10^{-19}\\ \\mathrm{C}$, $1\\,\\mathrm{u} = 1.66\\times10^{-27}\\ \\mathrm{kg}$.",
+    "answer": 5.74,
+    "unit": "mm",
+    "solution": "First the acceleration stage: $qV = \\tfrac12 mv^2$ gives each ion a speed $v = \\sqrt{2qV/m}$, so the lighter isotope moves faster. In the field, the radius is $r = mv/(qB)$. Combining the two, $$r = \\frac{m}{qB}\\sqrt{\\frac{2qV}{m}} = \\frac{1}{B}\\sqrt{\\frac{2mV}{q}},$$ so despite the lighter ion's higher speed, the heavier ion traces the larger circle: $r \\propto \\sqrt{m}$. For the $20\\,\\mathrm{u}$ ion: $$r_{20} = \\frac{1}{0.60}\\sqrt{\\frac{2(20)(1.66\\times10^{-27})(3000)}{1.6\\times10^{-19}}} = 0.0588\\ \\mathrm{m}.$$ The $22\\,\\mathrm{u}$ ion lands at $r_{22} = r_{20}\\sqrt{22/20} = 0.0617\\ \\mathrm{m}$. After a semicircle each ion lands a full diameter $2r$ from the entry slit, so the separation is $$\\Delta = 2(r_{22} - r_{20}) = 2(0.0617 - 0.0588) = 5.74\\times10^{-3}\\ \\mathrm{m} = 5.74\\ \\mathrm{mm}.$$"
+  },
+  {
+    "id": "hx-mf-03",
+    "name": "Ring oscillating in a magnetic field",
+    "module": "magnetic-force",
+    "difficulty": "Very Hard",
+    "tags": [
+      "magnetic torque",
+      "oscillation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A thin rigid ring of mass $m = 10\\ \\mathrm{g}$ and radius $a = 5.0\\ \\mathrm{cm}$ carries a steady current $I = 2.0\\ \\mathrm{A}$ (fed through flexible leads of negligible effect). It is suspended in a uniform magnetic field $B = 0.30\\ \\mathrm{T}$ so that it can rotate freely about a diameter perpendicular to $\\vec{B}$, and it rests in equilibrium with its magnetic moment aligned with the field. Find the period of small oscillations about this equilibrium, in s. Ignore gravity.",
+    "answer": 0.324,
+    "unit": "s",
+    "solution": "When the ring tilts by a small angle $\\theta$ from alignment, the field exerts a restoring torque on its magnetic moment $\\mu = I\\pi a^2$: $$\\tau = -\\mu B\\sin\\theta \\approx -\\mu B\\,\\theta.$$ Rotation is about a diameter, and a thin ring's moment of inertia about a diameter is half of that about its axis: $$I_{rot} = \\tfrac12 m a^2.$$ Newton's second law for rotation, $I_{rot}\\ddot{\\theta} = -\\mu B\\theta$, is simple harmonic motion with $$\\omega^2 = \\frac{\\mu B}{I_{rot}} = \\frac{I\\pi a^2 B}{\\tfrac12 m a^2} = \\frac{2\\pi I B}{m}.$$ The radius cancels entirely, which is worth noticing: a bigger ring has a proportionally bigger magnetic moment and a proportionally bigger moment of inertia. The period is $$T = 2\\pi\\sqrt{\\frac{m}{2\\pi I B}} = 2\\pi\\sqrt{\\frac{0.010}{2\\pi(2.0)(0.30)}} = 2\\pi\\sqrt{2.65\\times10^{-3}} = 0.324\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-m1d-01",
+    "name": "Sprinter's top speed",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "kinematics",
+      "phases"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A sprinter accelerates uniformly from rest to a top speed $v$, then holds that speed for the rest of a $100\\ \\mathrm{m}$ race, finishing in exactly $10.0\\ \\mathrm{s}$. The acceleration phase covers the first $25\\ \\mathrm{m}$. Find $v$, in m/s.",
+    "answer": 12.5,
+    "unit": "m/s",
+    "solution": "During uniform acceleration from rest the average speed is $v/2$, so the first phase takes $t_1 = \\frac{25}{v/2} = \\frac{50}{v}$. The remaining $75\\ \\mathrm{m}$ at full speed takes $t_2 = \\frac{75}{v}$. The total time is $$\\frac{50}{v} + \\frac{75}{v} = \\frac{125}{v} = 10.0\\ \\mathrm{s},$$ so $v = 12.5\\ \\mathrm{m/s}$. Notice the acceleration itself never needed to be computed."
+  },
+  {
+    "id": "hx-m1d-02",
+    "name": "Coasting boat with quadratic drag",
+    "module": "motion-1d",
+    "difficulty": "Hard",
+    "tags": [
+      "drag",
+      "calculus"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A boat's engine is cut while it moves at $10.0\\ \\mathrm{m/s}$. Water drag gives it a deceleration proportional to the square of its speed, $a = -kv^2$. After coasting $50\\ \\mathrm{m}$ the boat has slowed to $5.0\\ \\mathrm{m/s}$. How long did it take to cover those $50\\ \\mathrm{m}$, in s?",
+    "answer": 7.21,
+    "unit": "s",
+    "solution": "Since the distance (not time) is given, write the acceleration as $a = v\\,\\frac{dv}{dx}$. Then $v\\,\\frac{dv}{dx} = -kv^2$ gives $\\frac{dv}{dx} = -kv$, so $v(x) = v_0 e^{-kx}$. The speed halves over $50\\ \\mathrm{m}$, so $k = \\frac{\\ln 2}{50} = 0.01386\\ \\mathrm{m^{-1}}$. For the time, $\\frac{dx}{dt} = v_0 e^{-kx}$ separates into $e^{kx}\\,dx = v_0\\,dt$. Integrating from $x=0$ to $x=50\\ \\mathrm{m}$: $$t = \\frac{e^{50k}-1}{k v_0} = \\frac{2-1}{(0.01386)(10.0)} = 7.21\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-m1d-03",
+    "name": "Thrust that fades with position",
+    "module": "motion-1d",
+    "difficulty": "Very Hard",
+    "tags": [
+      "calculus",
+      "shm analogy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A test sled starts from rest at $x=0$ on a straight track. Its acceleration decreases linearly with position, $a = a_0\\left(1 - \\frac{x}{L}\\right)$, with $a_0 = 8.0\\ \\mathrm{m/s^2}$ and $L = 2.0\\ \\mathrm{m}$. Find the time for the sled to first reach $x = L$, in s.",
+    "answer": 0.785,
+    "unit": "s",
+    "solution": "The trick is to recognize the form of the force law. Rewrite $$a = -\\frac{a_0}{L}(x - L).$$ This is simple harmonic motion centered at $x = L$ with $\\omega = \\sqrt{a_0/L}$. Starting from rest at $x = 0$ means the amplitude is $L$, so $x(t) = L(1 - \\cos\\omega t)$. The sled first reaches $x = L$ when $\\omega t = \\pi/2$: $$t = \\frac{\\pi}{2}\\sqrt{\\frac{L}{a_0}} = \\frac{\\pi}{2}\\sqrt{\\frac{2.0}{8.0}} = 0.785\\ \\mathrm{s}.$$ (Trying to use constant-acceleration formulas here fails; the SHM mapping is the whole problem.)"
+  },
+  {
+    "id": "hx-mg-01",
+    "name": "Back to the start from a v-t graph",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "graphs",
+      "areas"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A particle's velocity-time graph reads: $v = +6.0\\ \\mathrm{m/s}$ (constant) from $t=0$ to $t=4.0\\ \\mathrm{s}$; then $v$ falls along a straight line to $-4.0\\ \\mathrm{m/s}$ at $t=9.0\\ \\mathrm{s}$; then $v$ stays constant at $-4.0\\ \\mathrm{m/s}$. At what time does the particle return to its starting position, in s?",
+    "answer": 16.25,
+    "unit": "s",
+    "solution": "Position is the signed area under the graph, so track it segment by segment. By $t=4.0\\ \\mathrm{s}$: $x = 6.0\\times4.0 = 24\\ \\mathrm{m}$. On the sloped segment the slope is $\\frac{-4-6}{5} = -2\\ \\mathrm{m/s^2}$, so $v$ crosses zero at $t = 7.0\\ \\mathrm{s}$; the triangle from $t=4$ to $7$ adds $\\frac{1}{2}(3.0)(6.0) = 9\\ \\mathrm{m}$, putting the particle at its farthest point $x = 33\\ \\mathrm{m}$. From $t=7$ to $9$ the negative triangle contributes $\\frac{1}{2}(2.0)(-4.0) = -4\\ \\mathrm{m}$, so $x(9) = 29\\ \\mathrm{m}$. After that the particle moves backward at a steady $4.0\\ \\mathrm{m/s}$ and needs $\\frac{29}{4.0} = 7.25\\ \\mathrm{s}$ more: $$t = 9.0 + 7.25 = 16.25\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-mg-02",
+    "name": "Straight line on a v-x graph",
+    "module": "motion-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "graphs",
+      "calculus"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A particle's velocity is plotted against its position, and the graph is a straight line from $(x, v) = (0,\\ 2.0\\ \\mathrm{m/s})$ to $(8.0\\ \\mathrm{m},\\ 6.0\\ \\mathrm{m/s})$. How long does the particle take to move from $x = 0$ to $x = 8.0\\ \\mathrm{m}$, in s?",
+    "answer": 2.2,
+    "unit": "s",
+    "solution": "The graph gives $v(x) = 2.0 + 0.50x$ (SI units). A velocity-position graph does not give time by areas; instead use $v = \\frac{dx}{dt}$ and separate: $$t = \\int_0^{8.0} \\frac{dx}{2.0 + 0.50x} = \\frac{1}{0.50}\\ln\\!\\left(\\frac{2.0 + 0.50(8.0)}{2.0}\\right) = 2\\ln 3 = 2.20\\ \\mathrm{s}.$$ A common trap is to average the endpoint speeds ($4.0\\ \\mathrm{m/s}$, giving $2.0\\ \\mathrm{s}$); that is only valid when $v$ is linear in time, which it is not here."
+  },
+  {
+    "id": "hx-mg-03",
+    "name": "Quarter-circle acceleration graph",
+    "module": "motion-graphs",
+    "difficulty": "Very Hard",
+    "tags": [
+      "graphs",
+      "work-energy analogy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A particle starts from rest at $x = 0$. Its acceleration-position graph is a quarter circle: $a = a_0\\sqrt{1 - (x/L)^2}$, starting at $a_0 = 6.0\\ \\mathrm{m/s^2}$ at $x=0$ and falling to zero at $x = L = 4.0\\ \\mathrm{m}$. What is the particle's speed at $x = L$, in m/s?",
+    "answer": 6.14,
+    "unit": "m/s",
+    "solution": "The area under an acceleration-position graph has a physical meaning: from $a = v\\,\\frac{dv}{dx}$, $$\\int_0^L a\\,dx = \\int_0^{v} v'\\,dv' = \\frac{v^2}{2}.$$ The graph is a quarter of an ellipse with semi-axes $L$ (horizontal) and $a_0$ (vertical), so its area is $\\frac{\\pi}{4} a_0 L = \\frac{\\pi}{4}(6.0)(4.0) = 18.85\\ \\mathrm{m^2/s^2}$. Therefore $$v = \\sqrt{2 \\times 18.85} = 6.14\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-ff-01",
+    "name": "Second stone catches the first",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "free-fall",
+      "two objects"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A stone is dropped from rest off a bridge $45\\ \\mathrm{m}$ above the water. Exactly $1.0\\ \\mathrm{s}$ later a second stone is thrown straight down from the same point, and both stones hit the water at the same instant. What was the second stone's launch speed, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 12.2,
+    "unit": "m/s",
+    "solution": "First find how long each stone is in the air. The dropped stone takes $t_1 = \\sqrt{\\frac{2(45)}{9.8}} = 3.03\\ \\mathrm{s}$, so the second stone has only $t_2 = 3.03 - 1.0 = 2.03\\ \\mathrm{s}$ of flight. It must still cover $45\\ \\mathrm{m}$: $$45 = v_0 t_2 + \\frac{1}{2}g t_2^2 = v_0(2.03) + 4.9(2.03)^2.$$ The gravity term is $20.2\\ \\mathrm{m}$, leaving $v_0 = \\frac{45 - 20.2}{2.03} = 12.2\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "hx-ff-02",
+    "name": "Twice past the ledge",
+    "module": "free-fall",
+    "difficulty": "Hard",
+    "tags": [
+      "free-fall",
+      "symmetry"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball thrown straight up from the ground passes a window ledge $15\\ \\mathrm{m}$ above the launch point, and passes the same ledge again $2.0\\ \\mathrm{s}$ later on the way down. What was the launch speed, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 19.7,
+    "unit": "m/s",
+    "solution": "Use the symmetry of the flight about the peak. If the ball passes the ledge moving upward at speed $v_1$, it returns past the ledge at the same speed, and the time between passes is $\\Delta t = \\frac{2v_1}{g}$. So $$v_1 = \\frac{g\\,\\Delta t}{2} = \\frac{(9.8)(2.0)}{2} = 9.8\\ \\mathrm{m/s}.$$ Now relate the ledge back to the ground with energy (or kinematics): $v_0^2 = v_1^2 + 2gh = (9.8)^2 + 2(9.8)(15) = 390$, giving $$v_0 = \\sqrt{390} = 19.7\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-ff-03",
+    "name": "How long does the bouncing last?",
+    "module": "free-fall",
+    "difficulty": "Very Hard",
+    "tags": [
+      "free-fall",
+      "restitution",
+      "series"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball is dropped from rest from a height of $5.0\\ \\mathrm{m}$ onto a hard floor. Each bounce reverses its velocity and shrinks its speed by the factor $e = 0.80$. Find the total time from release until the bouncing stops, in s. Use $g = 9.8\\ \\mathrm{m/s^2}$. (The infinite sequence of bounces takes a finite time.)",
+    "answer": 9.09,
+    "unit": "s",
+    "solution": "The first drop takes $t_0 = \\sqrt{\\frac{2h}{g}} = \\sqrt{\\frac{2(5.0)}{9.8}} = 1.010\\ \\mathrm{s}$ and ends at speed $v_0 = g t_0 = 9.90\\ \\mathrm{m/s}$. After the $n$-th bounce the ball leaves the floor at $e^n v_0$, and a full up-and-down flight at launch speed $u$ lasts $\\frac{2u}{g}$. So the total time is $$T = t_0 + \\frac{2v_0}{g}\\left(e + e^2 + e^3 + \\cdots\\right) = t_0 + \\frac{2v_0}{g}\\cdot\\frac{e}{1-e}.$$ Since $\\frac{2v_0}{g} = 2t_0$, this is $T = t_0\\left(1 + \\frac{2e}{1-e}\\right) = t_0\\,\\frac{1+e}{1-e} = 1.010 \\times \\frac{1.8}{0.2} = 9.09\\ \\mathrm{s}.$"
+  },
+  {
+    "id": "hx-pe-01",
+    "name": "Tipping a crate over its edge",
+    "module": "potential-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "gravity",
+      "center of mass"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform cubical crate of side $s = 0.40\\ \\mathrm{m}$ and mass $10\\ \\mathrm{kg}$ rests on the floor. What is the minimum work required to tip it over about one bottom edge, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 8.12,
+    "unit": "J",
+    "solution": "Tipping means rotating the cube about a bottom edge until its center of mass passes directly over that edge; after that, gravity finishes the job on its own. The center of mass starts at height $\\frac{s}{2}$ and sits a distance $\\frac{s\\sqrt{2}}{2}$ from the pivot edge (half the face diagonal). At the balance point that full distance is vertical, so the center of mass is at height $\\frac{s\\sqrt{2}}{2}$. The minimum work equals the rise in potential energy: $$W = mg\\left(\\frac{s\\sqrt{2}}{2} - \\frac{s}{2}\\right) = \\frac{mgs}{2}(\\sqrt{2}-1) = \\frac{(10)(9.8)(0.40)}{2}(0.4142) = 8.12\\ \\mathrm{J}.$$"
+  },
+  {
+    "id": "hx-pe-02",
+    "name": "Fastest point in a potential well",
+    "module": "potential-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "potential curve",
+      "equilibrium"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A particle of mass $0.50\\ \\mathrm{kg}$ moves along the $x$-axis with potential energy $$U(x) = \\frac{4.0}{x^2} - \\frac{6.0}{x}$$ ($U$ in joules, $x$ in meters, $x > 0$). It is released from rest at $x = 1.0\\ \\mathrm{m}$. What is its maximum speed, in m/s?",
+    "answer": 1,
+    "unit": "m/s",
+    "solution": "The particle moves fastest where $U$ is lowest, i.e. at the bottom of the well. Setting $\\frac{dU}{dx} = -\\frac{8.0}{x^3} + \\frac{6.0}{x^2} = 0$ gives $x = \\frac{8.0}{6.0} = \\frac{4}{3}\\ \\mathrm{m}$. Evaluate the potential at the start and at the bottom: $$U(1.0) = 4.0 - 6.0 = -2.00\\ \\mathrm{J}, \\qquad U(4/3) = \\frac{4.0}{16/9} - \\frac{6.0}{4/3} = 2.25 - 4.50 = -2.25\\ \\mathrm{J}.$$ Energy conservation gives $K_{max} = U(1.0) - U(4/3) = 0.25\\ \\mathrm{J}$, so $$v = \\sqrt{\\frac{2(0.25)}{0.50}} = 1.00\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-pe-03",
+    "name": "Peg below the pivot",
+    "module": "potential-energy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "energy",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A small ball hangs from a light string of length $L = 1.0\\ \\mathrm{m}$. It is pulled aside until the string is horizontal and released from rest. A thin peg is fixed a distance $d$ directly below the pivot; when the string catches on it, the ball whirls in a circle about the peg. What is the minimum $d$ for the ball to complete a full vertical circle around the peg, in m?",
+    "answer": 0.6,
+    "unit": "m",
+    "solution": "After the string catches the peg, the ball circles with radius $r = L - d$. Measure heights from the lowest point of the swing. The ball starts at height $L$ (string horizontal), and the top of the small circle is at height $2r$. Energy conservation between those points: $$v_{top}^2 = 2g(L - 2r).$$ For the string to stay taut at the top, gravity can be no more than the required centripetal force: $v_{top}^2 \\ge gr$. At minimum $d$ these are equal: $$2g(L - 2r) = gr \\implies r = \\frac{2L}{5}.$$ Therefore $d = L - r = \\frac{3L}{5} = 0.60\\ \\mathrm{m}$. (Note the string condition, not $v_{top}=0$, sets the limit.)"
+  },
+  {
+    "id": "hx-wet-01",
+    "name": "Friction that grows with distance",
+    "module": "work-energy-theorem",
+    "difficulty": "Hard",
+    "tags": [
+      "variable force",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A puck is launched at $6.0\\ \\mathrm{m/s}$ across a horizontal floor whose friction coefficient increases with distance from the launch point: $\\mu(x) = cx$ with $c = 0.50\\ \\mathrm{m^{-1}}$. How far does the puck travel before stopping, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 2.71,
+    "unit": "m",
+    "solution": "The friction force is not constant, so integrate the work it does. Over a stopping distance $d$: $$W_f = \\int_0^d \\mu(x)\\,mg\\,dx = mgc\\int_0^d x\\,dx = \\frac{mgc\\,d^2}{2}.$$ The work-energy theorem sets this equal to the initial kinetic energy: $$\\frac{1}{2}mv_0^2 = \\frac{mgc\\,d^2}{2} \\implies d = \\frac{v_0}{\\sqrt{gc}} = \\frac{6.0}{\\sqrt{(9.8)(0.50)}} = 2.71\\ \\mathrm{m}.$$ The mass drops out, as it should."
+  },
+  {
+    "id": "hx-wet-02",
+    "name": "Round trip on a rough ramp",
+    "module": "work-energy-theorem",
+    "difficulty": "Hard",
+    "tags": [
+      "friction",
+      "incline"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A block is launched at $8.0\\ \\mathrm{m/s}$ up a ramp inclined at $30^\\circ$, with kinetic friction coefficient $\\mu_k = 0.25$. Find its speed when it slides back down to the launch point, in m/s. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 5.03,
+    "unit": "m/s",
+    "solution": "Friction acts down the slope on the way up and up the slope on the way down, so the two legs have different effective accelerations. Going up: $a_{up} = g(\\sin\\theta + \\mu_k\\cos\\theta) = 9.8(0.500 + 0.2165) = 7.02\\ \\mathrm{m/s^2}$, so the block climbs $$d = \\frac{v_0^2}{2a_{up}} = \\frac{64}{14.04} = 4.56\\ \\mathrm{m}.$$ Coming down: $a_{down} = g(\\sin\\theta - \\mu_k\\cos\\theta) = 9.8(0.2835) = 2.78\\ \\mathrm{m/s^2}$, so $$v = \\sqrt{2a_{down}d} = \\sqrt{2(2.78)(4.56)} = 5.03\\ \\mathrm{m/s}.$$ Equivalently, $v = v_0\\sqrt{\\frac{\\sin\\theta - \\mu_k\\cos\\theta}{\\sin\\theta + \\mu_k\\cos\\theta}}$."
+  },
+  {
+    "id": "hx-wet-03",
+    "name": "Where the spring-block finally stops",
+    "module": "work-energy-theorem",
+    "difficulty": "Very Hard",
+    "tags": [
+      "spring",
+      "friction",
+      "oscillation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $1.0\\ \\mathrm{kg}$ block on a horizontal surface ($\\mu_s = \\mu_k = 0.50$) is attached to a spring of stiffness $k = 98\\ \\mathrm{N/m}$. The spring is compressed $0.30\\ \\mathrm{m}$ from its natural length and the block is released from rest. Find the total path length the block travels before it is permanently at rest, in m. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 0.9,
+    "unit": "m",
+    "solution": "The friction force is $f = \\mu mg = 4.9\\ \\mathrm{N}$. Between one turning point at $|x_1|$ and the next at $|x_2|$ (on the opposite side), work-energy gives $\\frac{1}{2}k(x_1^2 - x_2^2) = f(x_1 + x_2)$, which simplifies to a fixed decrement: $$x_1 - x_2 = \\frac{2f}{k} = \\frac{2(4.9)}{98} = 0.10\\ \\mathrm{m}.$$ So the turning points are $0.30 \\to 0.20 \\to 0.10 \\to 0$. At $0.20\\ \\mathrm{m}$ and $0.10\\ \\mathrm{m}$ the spring force ($19.6$ and $9.8\\ \\mathrm{N}$) exceeds the maximum static friction ($4.9\\ \\mathrm{N}$), so the block keeps going; it arrives at $x = 0$ with exactly zero speed (check: $\\frac{1}{2}k(0.10)^2 = 0.49\\ \\mathrm{J} = f \\times 0.10\\ \\mathrm{m}$) and stays there, since the spring is relaxed. The path length is $0.50 + 0.30 + 0.10 = 0.90\\ \\mathrm{m}$. As a global check, $f\\,d_{tot} = \\frac{1}{2}k x_0^2 = 4.41\\ \\mathrm{J}$ gives $d_{tot} = \\frac{4.41}{4.9} = 0.90\\ \\mathrm{m}$."
+  },
+  {
+    "id": "hx-com-01",
+    "name": "Swapping seats in a canoe",
+    "module": "center-of-mass",
+    "difficulty": "Hard",
+    "tags": [
+      "cm",
+      "recoil"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $60\\ \\mathrm{kg}$ paddler sits at the left end and an $80\\ \\mathrm{kg}$ paddler at the right end of a uniform $100\\ \\mathrm{kg}$ canoe of length $4.0\\ \\mathrm{m}$, floating at rest on still water. They carefully swap ends. How far does the canoe move, in m? (The water exerts no horizontal force.)",
+    "answer": 0.333,
+    "unit": "m",
+    "solution": "With no external horizontal force, the center of mass of the whole system stays put. Put the origin at the canoe's initial left end, so the people sit at $0$ and $4.0\\ \\mathrm{m}$ and the canoe's center is at $2.0\\ \\mathrm{m}$. The system CM is at $$x_{cm} = \\frac{60(0) + 80(4.0) + 100(2.0)}{240} = \\frac{520}{240}\\ \\mathrm{m}.$$ Let the canoe shift by $s$ (positive rightward). After the swap, the $60\\ \\mathrm{kg}$ paddler is at $4.0 + s$, the $80\\ \\mathrm{kg}$ paddler at $s$, and the canoe center at $2.0 + s$: $$\\frac{60(4.0+s) + 80s + 100(2.0+s)}{240} = \\frac{440 + 240s}{240}.$$ Setting this equal to $\\frac{520}{240}$ gives $s = \\frac{80}{240} = 0.333\\ \\mathrm{m}$ (toward the lighter paddler's original end)."
+  },
+  {
+    "id": "hx-com-02",
+    "name": "Shell splits at the top",
+    "module": "center-of-mass",
+    "difficulty": "Hard",
+    "tags": [
+      "cm",
+      "projectile",
+      "explosion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A shell is fired from level ground at $40\\ \\mathrm{m/s}$ at $60^\\circ$ above the horizontal. At the top of its flight it explodes into two fragments of equal mass. One fragment is left momentarily at rest and falls straight down. How far from the launch point does the other fragment land, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$ and neglect air resistance.",
+    "answer": 212,
+    "unit": "m",
+    "solution": "At the apex the shell moves horizontally, so after the explosion both fragments have zero vertical velocity; they fall for the same time and land at the same instant. That means the center of mass, which keeps following the original parabola, lands exactly at the unbroken range: $$R = \\frac{v_0^2\\sin 2\\theta}{g} = \\frac{(40)^2 \\sin 120^\\circ}{9.8} = 141.4\\ \\mathrm{m}.$$ The resting fragment drops at the apex, $x_1 = R/2 = 70.7\\ \\mathrm{m}$. With equal masses, $$\\frac{x_1 + x_2}{2} = R \\implies x_2 = 2R - \\frac{R}{2} = \\frac{3R}{2} = 212\\ \\mathrm{m}.$$"
+  },
+  {
+    "id": "hx-com-03",
+    "name": "Block leaving a free wedge",
+    "module": "center-of-mass",
+    "difficulty": "Very Hard",
+    "tags": [
+      "momentum",
+      "energy",
+      "constraints"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A $2.0\\ \\mathrm{kg}$ block starts from rest at the top of a $30^\\circ$ frictionless wedge of mass $8.0\\ \\mathrm{kg}$, which itself sits on a frictionless floor. The block descends a vertical height of $0.50\\ \\mathrm{m}$ as it slides to the bottom. What is the speed of the wedge at that moment, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 0.588,
+    "unit": "m/s",
+    "solution": "Two conservation laws and one constraint. Let $V$ be the wedge's speed (leftward, say) and $u$ the block's speed relative to the wedge, directed along the incline. The block's lab velocity is $(u\\cos\\theta - V,\\ -u\\sin\\theta)$. Horizontal momentum is conserved from rest: $$m(u\\cos\\theta - V) = MV \\implies u\\cos\\theta = \\frac{M+m}{m}V = 5V.$$ Energy conservation: $$mgh = \\frac{1}{2}m\\left[(u\\cos\\theta - V)^2 + (u\\sin\\theta)^2\\right] + \\frac{1}{2}MV^2.$$ Substituting $u\\cos\\theta = 5V$ (so $u\\cos\\theta - V = 4V$ and $u\\sin\\theta = 5V\\tan\\theta = 2.887V$): $$(2.0)(9.8)(0.50) = \\frac{1}{2}(2.0)\\left[16V^2 + 8.333V^2\\right] + \\frac{1}{2}(8.0)V^2 = 28.33\\,V^2.$$ So $V = \\sqrt{9.8/28.33} = 0.588\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "hx-ak-01",
+    "name": "When the acceleration tilts to 45 degrees",
+    "module": "angular-kinematics",
+    "difficulty": "Hard",
+    "tags": [
+      "angular acceleration",
+      "centripetal"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A grinding wheel starts from rest and spins up with constant angular acceleration $\\alpha = 0.50\\ \\mathrm{rad/s^2}$. At what time does the total linear acceleration of a point on the rim make a $45^\\circ$ angle with the radius to that point, in s?",
+    "answer": 1.41,
+    "unit": "s",
+    "solution": "A rim point at radius $r$ has two perpendicular acceleration components: tangential $a_t = \\alpha r$ (constant) and centripetal $a_c = \\omega^2 r = (\\alpha t)^2 r$ (growing). The total acceleration makes $45^\\circ$ with the radius when the two are equal: $$\\alpha r = \\alpha^2 t^2 r \\implies t = \\frac{1}{\\sqrt{\\alpha}} = \\frac{1}{\\sqrt{0.50}} = 1.41\\ \\mathrm{s}.$$ Notice the radius cancels; every point on the wheel reaches $45^\\circ$ at the same moment."
+  },
+  {
+    "id": "hx-ak-02",
+    "name": "Minute hand catches the hour hand",
+    "module": "angular-kinematics",
+    "difficulty": "Hard",
+    "tags": [
+      "relative angular velocity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Starting exactly at 3:00, how many seconds pass before the minute hand of a clock first points in the same direction as the hour hand, in s?",
+    "answer": 982,
+    "unit": "s",
+    "solution": "Treat the two hands as rotating objects and work with their relative angular velocity. The minute hand turns at $6^\\circ$ per minute, the hour hand at $0.5^\\circ$ per minute, so the minute hand gains on the hour hand at $5.5^\\circ$ per minute. At 3:00 the hour hand leads by $90^\\circ$. The catch-up time is $$t = \\frac{90^\\circ}{5.5^\\circ/\\mathrm{min}} = 16.36\\ \\mathrm{min} = 982\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-ak-03",
+    "name": "Path length of a point on a rolling wheel",
+    "module": "angular-kinematics",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rolling",
+      "cycloid",
+      "integration"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A wheel of radius $R = 0.40\\ \\mathrm{m}$ rolls without slipping along a road at constant speed. How far does a point on the rim travel through space during one complete revolution of the wheel, in m? (Not the distance the wheel advances.)",
+    "answer": 3.2,
+    "unit": "m",
+    "solution": "The rim point traces a cycloid, and its speed through space is far from constant: it is momentarily zero at the road and $2v$ at the top, where $v$ is the wheel's speed. In general, if $\\theta$ is the rotation angle measured from the moment the point touches the road, the point's speed is $$|\\vec{v}| = 2v\\sin\\frac{\\theta}{2}$$ (the velocity is the rotation about the instantaneous contact point, at distance $2R\\sin\\frac{\\theta}{2}$). The path length over one revolution, using $\\theta = \\omega t$ and $v = \\omega R$: $$L = \\int_0^{2\\pi} 2v\\sin\\frac{\\theta}{2}\\,\\frac{d\\theta}{\\omega} = 2R\\left[-2\\cos\\frac{\\theta}{2}\\right]_0^{2\\pi} = 8R = 8(0.40) = 3.20\\ \\mathrm{m}.$$ This exceeds the $2\\pi R = 2.51\\ \\mathrm{m}$ the wheel itself advances."
+  },
+  {
+    "id": "hx-moi-01",
+    "name": "Square plate with an off-center hole",
+    "module": "moment-of-inertia",
+    "difficulty": "Hard",
+    "tags": [
+      "parallel axis",
+      "subtraction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform square plate of side $0.60\\ \\mathrm{m}$ has mass $12\\ \\mathrm{kg}$ before machining. A circular hole of radius $0.10\\ \\mathrm{m}$ is then drilled through it, centered $0.20\\ \\mathrm{m}$ from the plate's center. Find the moment of inertia of the drilled plate about the axis perpendicular to the plate through its center, in kg m^2.",
+    "answer": 0.673,
+    "unit": "kg m^2",
+    "solution": "Treat the hole as negative mass. The intact square plate has $$I_{sq} = \\frac{M(a^2 + a^2)}{12} = \\frac{Ma^2}{6} = \\frac{(12)(0.60)^2}{6} = 0.720\\ \\mathrm{kg\\,m^2}.$$ The removed disk has mass $m = \\sigma\\pi r^2$ with $\\sigma = \\frac{12}{0.36} = 33.3\\ \\mathrm{kg/m^2}$, so $m = 33.3\\,\\pi(0.10)^2 = 1.047\\ \\mathrm{kg}$. About the plate's central axis, by the parallel-axis theorem: $$I_{hole} = \\frac{1}{2}mr^2 + md^2 = \\frac{1}{2}(1.047)(0.10)^2 + (1.047)(0.20)^2 = 0.00524 + 0.04189 = 0.0471\\ \\mathrm{kg\\,m^2}.$$ Subtracting: $$I = 0.720 - 0.0471 = 0.673\\ \\mathrm{kg\\,m^2}.$$"
+  },
+  {
+    "id": "hx-moi-02",
+    "name": "Flywheel measured with a falling mass",
+    "module": "moment-of-inertia",
+    "difficulty": "Hard",
+    "tags": [
+      "dynamics",
+      "measurement"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "To measure a flywheel's moment of inertia, a light string is wrapped around its drum of radius $0.10\\ \\mathrm{m}$ and a $2.0\\ \\mathrm{kg}$ mass is hung from it. Released from rest, the mass descends $1.5\\ \\mathrm{m}$ in $3.0\\ \\mathrm{s}$. The bearing is frictionless. Find the flywheel's moment of inertia, in kg m^2. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 0.568,
+    "unit": "kg m^2",
+    "solution": "From the kinematics of the falling mass: $h = \\frac{1}{2}at^2$ gives $$a = \\frac{2(1.5)}{(3.0)^2} = 0.333\\ \\mathrm{m/s^2}.$$ Newton's second law on the hanging mass gives the string tension: $$T = m(g - a) = 2.0(9.8 - 0.333) = 18.93\\ \\mathrm{N}.$$ The torque on the flywheel is $Tr$, and the no-slip string means $\\alpha = a/r$: $$Tr = I\\alpha = I\\frac{a}{r} \\implies I = \\frac{Tr^2}{a} = \\frac{(18.93)(0.10)^2}{0.333} = 0.568\\ \\mathrm{kg\\,m^2}.$$ (A common error is to use $T = mg$, which overestimates $I$.)"
+  },
+  {
+    "id": "hx-moi-03",
+    "name": "Nonuniform rod about its center of mass",
+    "module": "moment-of-inertia",
+    "difficulty": "Very Hard",
+    "tags": [
+      "integration",
+      "parallel axis"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A rod of length $L = 1.2\\ \\mathrm{m}$ and total mass $3.0\\ \\mathrm{kg}$ has a linear mass density proportional to the distance from its lighter end: $\\lambda(x) = cx$. Find its moment of inertia about an axis perpendicular to the rod through its center of mass, in kg m^2.",
+    "answer": 0.24,
+    "unit": "kg m^2",
+    "solution": "First pin down the constant: $M = \\int_0^L cx\\,dx = \\frac{cL^2}{2}$, so $c = \\frac{2M}{L^2}$. The moment of inertia about the light end is $$I_{end} = \\int_0^L x^2(cx)\\,dx = \\frac{cL^4}{4} = \\frac{ML^2}{2} = \\frac{(3.0)(1.2)^2}{2} = 2.16\\ \\mathrm{kg\\,m^2}.$$ The center of mass sits at $$x_{cm} = \\frac{1}{M}\\int_0^L x(cx)\\,dx = \\frac{cL^3/3}{cL^2/2} = \\frac{2L}{3} = 0.80\\ \\mathrm{m}.$$ Now use the parallel-axis theorem in reverse: $$I_{cm} = I_{end} - Mx_{cm}^2 = 2.16 - (3.0)(0.80)^2 = 2.16 - 1.92 = 0.240\\ \\mathrm{kg\\,m^2}.$$ (Note this is $\\frac{ML^2}{18}$, smaller than the uniform rod's $\\frac{ML^2}{12}$, since the mass is concentrated nearer the heavy end.)"
+  },
+  {
+    "id": "hx-roll-01",
+    "name": "Yo-yo pulled along the floor",
+    "module": "rolling",
+    "difficulty": "Hard",
+    "tags": [
+      "rolling",
+      "torque",
+      "yo-yo"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A yo-yo of mass $M = 0.50\\ \\mathrm{kg}$ rests on a horizontal floor. Model it as a uniform disk of outer radius $R = 6.0\\ \\mathrm{cm}$ ($I_{cm} = \\tfrac{1}{2}MR^2$) with a light string wound around an inner axle of radius $r = 2.5\\ \\mathrm{cm}$. The string comes off the underside of the axle and is pulled horizontally with tension $T = 4.0\\ \\mathrm{N}$. The yo-yo rolls without slipping. Find the magnitude of the acceleration of its center, in m/s$^2$.",
+    "answer": 3.11,
+    "unit": "m/s^2",
+    "solution": "Taking torques about the contact point eliminates the unknown friction force. The tension acts horizontally at a height $R - r$ above the floor (the underside of the axle), so its torque about the contact point is $\\tau = T(R-r)$, and it rotates the yo-yo in the forward-rolling sense: the yo-yo accelerates toward the puller.\n\nThe moment of inertia about the contact point is $I_P = \\tfrac{1}{2}MR^2 + MR^2 = \\tfrac{3}{2}MR^2$. Then $\\alpha = \\dfrac{T(R-r)}{\\tfrac{3}{2}MR^2}$ and rolling gives $a = \\alpha R$:\n$$a = \\frac{2T(R-r)}{3MR} = \\frac{2(4.0)(0.060-0.025)}{3(0.50)(0.060)} = \\frac{0.28}{0.090} = 3.11\\ \\mathrm{m/s^2}.$$"
+  },
+  {
+    "id": "hx-roll-02",
+    "name": "Normal force at the bottom of a bowl",
+    "module": "rolling",
+    "difficulty": "Hard",
+    "tags": [
+      "rolling",
+      "energy",
+      "circular motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform solid sphere of mass $m = 0.20\\ \\mathrm{kg}$ and radius $r = 5.0\\ \\mathrm{cm}$ rolls without slipping inside a fixed hemispherical bowl of radius $R = 50\\ \\mathrm{cm}$. It is released from rest at the position where the line from the bowl's center to the sphere's center is horizontal. Find the normal force the bowl exerts on the sphere at the lowest point, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 4.76,
+    "unit": "N",
+    "solution": "The sphere's center moves on a circle of radius $R - r$, dropping a height $R - r$ from release to the bottom. Rolling without slipping means $\\omega = v/r$, so the kinetic energy is $\\tfrac{1}{2}mv^2 + \\tfrac{1}{2}\\left(\\tfrac{2}{5}mr^2\\right)\\dfrac{v^2}{r^2} = \\tfrac{7}{10}mv^2$. Energy conservation (friction does no work in rolling):\n$$mg(R-r) = \\tfrac{7}{10}mv^2 \\quad\\Rightarrow\\quad v^2 = \\tfrac{10}{7}g(R-r).$$\nAt the bottom, Newton's second law along the vertical (centripetal) direction for the center's circular path of radius $R - r$:\n$$N - mg = \\frac{mv^2}{R-r} = \\tfrac{10}{7}mg,$$\nso $N = \\tfrac{17}{7}mg$. The radii cancel completely. Numerically,\n$$N = \\tfrac{17}{7}(0.20)(9.8) = 4.76\\ \\mathrm{N}.$$"
+  },
+  {
+    "id": "hx-roll-03",
+    "name": "Backspin shot that comes back",
+    "module": "rolling",
+    "difficulty": "Very Hard",
+    "tags": [
+      "rolling",
+      "friction",
+      "transition to rolling",
+      "angular momentum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A uniform solid ball of radius $R = 0.10\\ \\mathrm{m}$ is thrown onto a horizontal floor so that it initially slides forward at $v_0 = 2.0\\ \\mathrm{m/s}$ while spinning backward (backspin) at $\\omega_0 = 80\\ \\mathrm{rad/s}$. The coefficient of kinetic friction with the floor is $\\mu = 0.40$. The ball eventually rolls without slipping, moving backward, toward the thrower. Find its speed once pure rolling begins, in m/s.",
+    "answer": 0.857,
+    "unit": "m/s",
+    "solution": "Take forward as positive and measure $\\omega$ in the forward-rolling sense, so initially $\\omega = -\\omega_0$. With backspin, the contact point moves forward with speed $v_0 + \\omega_0 R > 0$, so kinetic friction $f = \\mu m g$ acts backward the whole time until rolling starts.\n\nTranslation: $v(t) = v_0 - \\mu g t$. Rotation about the center ($I = \\tfrac{2}{5}mR^2$): the friction torque $\\mu m g R$ spins the ball toward forward rolling, so\n$$\\omega(t) = -\\omega_0 + \\frac{\\mu m g R}{\\tfrac{2}{5}mR^2}\\,t = -\\omega_0 + \\frac{5\\mu g}{2R}t.$$\nPure rolling requires $v = \\omega R$:\n$$v_0 - \\mu g t = -\\omega_0 R + \\tfrac{5}{2}\\mu g t \\quad\\Rightarrow\\quad t = \\frac{2(v_0 + \\omega_0 R)}{7 \\mu g}.$$\nSubstituting back,\n$$v_f = v_0 - \\frac{2(v_0+\\omega_0 R)}{7} = \\frac{5v_0 - 2\\omega_0 R}{7},$$\nwhich is independent of $\\mu$ — the friction coefficient only sets how long the skid lasts. With the numbers,\n$$v_f = \\frac{5(2.0) - 2(80)(0.10)}{7} = \\frac{10 - 16}{7} = -0.857\\ \\mathrm{m/s}.$$\nThe negative sign means the ball rolls back toward the thrower at $0.857\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "hx-bank-01",
+    "name": "Slow lap on a banked velodrome",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A velodrome track is banked at $\\theta = 30^\\circ$ with turn radius $R = 25\\ \\mathrm{m}$. The coefficient of static friction between tires and track is $\\mu = 0.25$. A cyclist rides the turn at constant speed. Below a certain minimum speed the bike slides down the banking. Find that minimum speed, in m/s. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 8.37,
+    "unit": "m/s",
+    "solution": "At the minimum speed the bike is on the verge of sliding down, so static friction acts up the slope at its maximum value $f = \\mu N$. Resolve forces with the acceleration $v^2/R$ pointing horizontally toward the center:\n\nVertical: $N\\cos\\theta + \\mu N \\sin\\theta = mg$.\nHorizontal: $N\\sin\\theta - \\mu N \\cos\\theta = \\dfrac{mv^2}{R}$.\n\nDividing the two equations eliminates $N$:\n$$v_{min}^2 = gR\\,\\frac{\\tan\\theta - \\mu}{1 + \\mu\\tan\\theta} = (9.8)(25)\\,\\frac{0.5774 - 0.25}{1 + 0.25(0.5774)} = 245 \\times 0.2861 = 70.1\\ \\mathrm{m^2/s^2},$$\nso $v_{min} = 8.37\\ \\mathrm{m/s}$."
+  },
+  {
+    "id": "hx-bank-02",
+    "name": "Conical pendulum at the breaking point",
+    "module": "banked-curves",
+    "difficulty": "Hard",
+    "tags": [
+      "conical pendulum",
+      "tension"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A ball of mass $m = 0.30\\ \\mathrm{kg}$ hangs from a string of length $L = 1.2\\ \\mathrm{m}$ and is swung in a horizontal circle as a conical pendulum. The speed is increased very slowly. The string snaps when its tension reaches $T = 6.0\\ \\mathrm{N}$. Find the ball's speed at the instant the string breaks, in m/s. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 4.27,
+    "unit": "m/s",
+    "solution": "Let $\\theta$ be the string's angle from vertical. The vertical equation fixes the angle at the breaking tension:\n$$T\\cos\\theta = mg \\quad\\Rightarrow\\quad \\cos\\theta = \\frac{(0.30)(9.8)}{6.0} = 0.49.$$\nThe horizontal component supplies the centripetal force on the circle of radius $r = L\\sin\\theta$:\n$$T\\sin\\theta = \\frac{mv^2}{L\\sin\\theta} \\quad\\Rightarrow\\quad v^2 = \\frac{TL\\sin^2\\theta}{m} = \\frac{TL(1-\\cos^2\\theta)}{m}.$$\nNumerically, $\\sin^2\\theta = 1 - 0.49^2 = 0.7599$, so\n$$v^2 = \\frac{(6.0)(1.2)(0.7599)}{0.30} = 18.24\\ \\mathrm{m^2/s^2}, \\qquad v = 4.27\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-bank-03",
+    "name": "Friction coefficient from two speed limits",
+    "module": "banked-curves",
+    "difficulty": "Very Hard",
+    "tags": [
+      "banking",
+      "friction"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "On a banked circular curve of radius $R = 50\\ \\mathrm{m}$, a car can round the turn without sliding at any constant speed between $v_{min} = 10\\ \\mathrm{m/s}$ and $v_{max} = 25\\ \\mathrm{m/s}$. Below $v_{min}$ it slides down the bank; above $v_{max}$ it slides up. Find the coefficient of static friction between the tires and the road. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
+    "answer": 0.367,
+    "unit": "",
+    "solution": "Introduce the friction angle $\\varphi$ defined by $\\tan\\varphi = \\mu$. For a block on a banked turn with friction fully mobilized, combining the force equations $N\\sin\\theta \\pm \\mu N\\cos\\theta = mv^2/R$ and $N\\cos\\theta \\mp \\mu N\\sin\\theta = mg$ and using the angle-addition identity collapses both cases into one clean form:\n$$v_{max}^2 = gR\\tan(\\theta + \\varphi), \\qquad v_{min}^2 = gR\\tan(\\theta - \\varphi).$$\nFrom the data,\n$$\\tan(\\theta+\\varphi) = \\frac{25^2}{(9.8)(50)} = 1.2755 \\Rightarrow \\theta + \\varphi = 51.90^\\circ,$$\n$$\\tan(\\theta-\\varphi) = \\frac{10^2}{(9.8)(50)} = 0.2041 \\Rightarrow \\theta - \\varphi = 11.54^\\circ.$$\nSubtracting, $\\varphi = \\tfrac{1}{2}(51.90^\\circ - 11.54^\\circ) = 20.18^\\circ$, so\n$$\\mu = \\tan(20.18^\\circ) = 0.367.$$\n(The bank angle itself comes out as $\\theta = 31.7^\\circ$, though it was not asked.)"
+  },
+  {
+    "id": "hx-unit-01",
+    "name": "Airburst energy from the shock radius",
+    "module": "units-estimation",
+    "difficulty": "Hard",
+    "tags": [
+      "dimensional analysis",
+      "scaling"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A meteor explodes high in the atmosphere, releasing energy $E$ almost instantaneously into air of density $\\rho = 1.2\\ \\mathrm{kg/m^3}$. At early times the radius $r$ of the expanding spherical shock front can depend only on $E$, $\\rho$, and the elapsed time $t$. High-speed footage shows $r = 140\\ \\mathrm{m}$ at $t = 25\\ \\mathrm{ms}$. Taking the dimensionless constant in the scaling law to be 1, estimate $E$ in kilotons of TNT ($1\\ \\mathrm{kt} = 4.184\\times10^{12}\\ \\mathrm{J}$).",
+    "answer": 24.7,
+    "unit": "kt",
+    "solution": "Write $r = C\\,E^a \\rho^b t^c$ and match dimensions. With $[E] = \\mathrm{kg\\,m^2/s^2}$ and $[\\rho] = \\mathrm{kg/m^3}$:\nmass: $a + b = 0$; length: $2a - 3b = 1$; time: $-2a + c = 0$.\nSolving gives $a = \\tfrac{1}{5}$, $b = -\\tfrac{1}{5}$, $c = \\tfrac{2}{5}$, i.e. the Taylor–Sedov law\n$$r = \\left(\\frac{E t^2}{\\rho}\\right)^{1/5}.$$\nInverting for the energy with $C = 1$:\n$$E = \\frac{\\rho r^5}{t^2} = \\frac{(1.2)(140)^5}{(0.025)^2} = \\frac{(1.2)(5.378\\times10^{10})}{6.25\\times10^{-4}} = 1.03\\times10^{14}\\ \\mathrm{J}.$$\nConverting, $E = \\dfrac{1.033\\times10^{14}}{4.184\\times10^{12}} = 24.7\\ \\mathrm{kt}$."
+  },
+  {
+    "id": "hx-unit-02",
+    "name": "Ripple speed by dimensional analysis",
+    "module": "units-estimation",
+    "difficulty": "Hard",
+    "tags": [
+      "dimensional analysis",
+      "waves"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Very short ripples on water are driven by surface tension, not gravity. Their speed $v$ can depend only on the surface tension $\\sigma$ (units $\\mathrm{N/m}$), the water density $\\rho$, and the wavelength $\\lambda$: $v = C\\,\\sigma^a\\rho^b\\lambda^c$. Determine the exponents by dimensional analysis. Given that the dimensionless constant is $C = \\sqrt{2\\pi}$, compute $v$ for ripples of wavelength $\\lambda = 5.0\\ \\mathrm{mm}$ on water with $\\sigma = 0.072\\ \\mathrm{N/m}$ and $\\rho = 1000\\ \\mathrm{kg/m^3}$, in m/s.",
+    "answer": 0.301,
+    "unit": "m/s",
+    "solution": "Surface tension has dimensions $[\\sigma] = \\mathrm{N/m} = \\mathrm{kg/s^2}$. Matching $\\mathrm{m/s} = (\\mathrm{kg/s^2})^a(\\mathrm{kg/m^3})^b(\\mathrm{m})^c$:\nmass: $a + b = 0$; time: $-2a = -1$; length: $-3b + c = 1$.\nSo $a = \\tfrac{1}{2}$, $b = -\\tfrac{1}{2}$, $c = -\\tfrac{1}{2}$:\n$$v = C\\sqrt{\\frac{\\sigma}{\\rho\\lambda}}.$$\nShorter ripples travel faster — opposite to gravity waves. With $C = \\sqrt{2\\pi}$:\n$$v = \\sqrt{\\frac{2\\pi(0.072)}{(1000)(0.0050)}} = \\sqrt{0.0905} = 0.301\\ \\mathrm{m/s}.$$"
+  },
+  {
+    "id": "hx-unit-03",
+    "name": "Molecules of one ancient breath",
+    "module": "units-estimation",
+    "difficulty": "Very Hard",
+    "tags": [
+      "fermi estimate",
+      "atmosphere"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A single exhaled breath of air, volume $0.50\\ \\mathrm{L}$ at conditions where one mole occupies $22.4\\ \\mathrm{L}$, was released two thousand years ago and has since mixed uniformly into the entire atmosphere. You now inhale a breath of the same volume. Estimate the expected number of molecules in your breath that were part of that ancient breath. Treat the atmosphere as held to Earth (radius $R = 6.37\\times10^6\\ \\mathrm{m}$) by gravity with uniform sea-level pressure $P = 1.013\\times10^5\\ \\mathrm{Pa}$, take $g = 9.8\\ \\mathrm{m/s^2}$, mean molar mass of air $29\\ \\mathrm{g/mol}$, and $N_A = 6.022\\times10^{23}\\ \\mathrm{mol^{-1}}$.",
+    "answer": 1.65,
+    "unit": "molecules",
+    "solution": "First get the mass of the whole atmosphere from pressure: the weight of the air column above each square meter is $P$, so\n$$M_{atm} = \\frac{4\\pi R^2 P}{g} = \\frac{4\\pi(6.37\\times10^6)^2(1.013\\times10^5)}{9.8} = 5.27\\times10^{18}\\ \\mathrm{kg}.$$\nConvert to molecules:\n$$N_{atm} = \\frac{5.27\\times10^{21}\\ \\mathrm{g}}{29\\ \\mathrm{g/mol}}\\times 6.022\\times10^{23} = 1.094\\times10^{44}.$$\nOne breath contains\n$$N_b = \\frac{0.50}{22.4}\\times 6.022\\times10^{23} = 1.344\\times10^{22}\\ \\text{molecules}.$$\nAfter uniform mixing, the fraction of all air molecules that came from the ancient breath is $N_b/N_{atm}$. Your inhaled breath samples $N_b$ molecules, so the expected overlap is\n$$\\langle n \\rangle = \\frac{N_b^2}{N_{atm}} = \\frac{(1.344\\times10^{22})^2}{1.094\\times10^{44}} = 1.65.$$\nRemarkably, on average more than one molecule of any given historical breath is in each breath you take."
+  },
+  {
+    "id": "hx-approx-01",
+    "name": "Where classical kinetic energy breaks down",
+    "module": "approximations",
+    "difficulty": "Hard",
+    "tags": [
+      "taylor series",
+      "relativity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "The exact kinetic energy of a particle is $K = (\\gamma - 1)mc^2$ with $\\gamma = (1 - v^2/c^2)^{-1/2}$. Expanding $\\gamma$ for small $v/c$ and keeping the first correction beyond the classical term, find the speed at which the classical expression $\\tfrac{1}{2}mv^2$ underestimates the true kinetic energy by $1.0\\%$. Use $c = 3.00\\times10^8\\ \\mathrm{m/s}$ and give the answer in m/s.",
+    "answer": 34600000,
+    "unit": "m/s",
+    "solution": "Expand with the binomial series, keeping two terms beyond 1. With $x = v^2/c^2$,\n$$\\gamma = (1-x)^{-1/2} = 1 + \\tfrac{1}{2}x + \\tfrac{3}{8}x^2 + \\cdots$$\nso\n$$K = mc^2(\\gamma - 1) = \\tfrac{1}{2}mv^2 + \\tfrac{3}{8}m\\frac{v^4}{c^2} + \\cdots = \\tfrac{1}{2}mv^2\\left(1 + \\frac{3v^2}{4c^2} + \\cdots\\right).$$\nThe fractional error of the classical formula is therefore $\\dfrac{3v^2}{4c^2}$. Setting this to $0.010$:\n$$v = c\\sqrt{\\frac{4(0.010)}{3}} = (3.00\\times10^8)(0.1155) = 3.46\\times10^7\\ \\mathrm{m/s},$$\nabout $11.5\\%$ of the speed of light."
+  },
+  {
+    "id": "hx-approx-02",
+    "name": "Pendulum clock taken to the mountains",
+    "module": "approximations",
+    "difficulty": "Hard",
+    "tags": [
+      "binomial approximation",
+      "gravitation",
+      "pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A pendulum clock keeps perfect time at sea level, where the gravitational field is $g$. It is moved to a mountain observatory at altitude $h = 3000\\ \\mathrm{m}$, where the field is $g(h) = g(1 + h/R)^{-2}$ with $R = 6.37\\times10^6\\ \\mathrm{m}$. Using binomial approximations, find how many seconds the clock loses per day. (One day is $86400\\ \\mathrm{s}$.)",
+    "answer": 40.7,
+    "unit": "s",
+    "solution": "Two binomial expansions in sequence. First the field:\n$$g(h) = g\\left(1 + \\frac{h}{R}\\right)^{-2} \\approx g\\left(1 - \\frac{2h}{R}\\right).$$\nThe period scales as $T \\propto g^{-1/2}$, so\n$$\\frac{T(h)}{T} = \\left(1 - \\frac{2h}{R}\\right)^{-1/2} \\approx 1 + \\frac{h}{R}.$$\nEach tick is longer by the fraction $h/R$, so in one day the clock falls behind by\n$$\\Delta t = 86400\\,\\frac{h}{R} = 86400 \\times \\frac{3000}{6.37\\times10^6} = 40.7\\ \\mathrm{s}.$$"
+  },
+  {
+    "id": "hx-approx-03",
+    "name": "Oscillation frequency from a model potential",
+    "module": "approximations",
+    "difficulty": "Very Hard",
+    "tags": [
+      "taylor series",
+      "oscillations",
+      "potential energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A particle of mass $m = 0.50\\ \\mathrm{kg}$ moves along the $x$-axis ($x > 0$) in the potential\n$$U(x) = \\frac{A}{x^2} - \\frac{B}{x}, \\qquad A = 2.0\\ \\mathrm{J\\,m^2},\\ B = 4.0\\ \\mathrm{J\\,m}.$$\nIt is displaced slightly from its stable equilibrium position and released. Find the angular frequency of the resulting small oscillations, in rad/s.",
+    "answer": 2.83,
+    "unit": "rad/s",
+    "solution": "Near a minimum, a Taylor expansion of $U$ makes the motion simple harmonic with effective spring constant $k = U''(x_0)$. Locate the equilibrium first:\n$$U'(x) = -\\frac{2A}{x^3} + \\frac{B}{x^2} = 0 \\quad\\Rightarrow\\quad x_0 = \\frac{2A}{B} = \\frac{2(2.0)}{4.0} = 1.0\\ \\mathrm{m}.$$\nNow the curvature there:\n$$U''(x) = \\frac{6A}{x^4} - \\frac{2B}{x^3}, \\qquad U''(x_0) = \\frac{6(2.0)}{1.0} - \\frac{2(4.0)}{1.0} = 12 - 8 = 4.0\\ \\mathrm{J/m^2}.$$\n(It is positive, confirming the equilibrium is stable; in general $U''(x_0) = B^4/8A^3$.) The small-oscillation frequency is\n$$\\omega = \\sqrt{\\frac{U''(x_0)}{m}} = \\sqrt{\\frac{4.0}{0.50}} = \\sqrt{8} = 2.83\\ \\mathrm{rad/s}.$$"
+  },
+  {
+    "id": "hx-dgraph-01",
+    "name": "Reading g off a log-log plot",
+    "module": "data-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "log-log",
+      "intercept",
+      "pendulum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A student measures the period $T$ of a simple pendulum for several lengths $L$ and plots $\\log_{10}(T/\\mathrm{s})$ against $\\log_{10}(L/\\mathrm{m})$. The data fall on a straight line of slope $0.50$ with vertical intercept $0.303$. Use the intercept to determine the local gravitational field strength $g$, in m/s$^2$.",
+    "answer": 9.78,
+    "unit": "m/s^2",
+    "solution": "For $T = \\dfrac{2\\pi}{\\sqrt{g}}\\,L^{1/2}$, taking logs gives\n$$\\log_{10} T = \\tfrac{1}{2}\\log_{10} L + \\log_{10}\\!\\left(\\frac{2\\pi}{\\sqrt{g}}\\right).$$\nThe measured slope $0.50$ confirms the square-root law; the intercept is the log of the prefactor:\n$$\\log_{10}\\!\\left(\\frac{2\\pi}{\\sqrt{g}}\\right) = 0.303 \\quad\\Rightarrow\\quad \\frac{2\\pi}{\\sqrt{g}} = 10^{0.303} = 2.009.$$\nSolving,\n$$\\sqrt{g} = \\frac{2\\pi}{2.009} = 3.127, \\qquad g = 9.78\\ \\mathrm{m/s^2}.$$"
+  },
+  {
+    "id": "hx-dgraph-02",
+    "name": "Resistance from a semi-log discharge line",
+    "module": "data-graphs",
+    "difficulty": "Hard",
+    "tags": [
+      "semi-log",
+      "slope",
+      "circuits"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A capacitor of capacitance $C = 20\\ \\mu\\mathrm{F}$ discharges through an unknown resistor. The voltage obeys $V(t) = V_0 e^{-t/RC}$. A plot of $\\ln(V/\\mathrm{volt})$ versus $t$ is a straight line passing through the points $(0,\\ 2.303)$ and $(6.0\\ \\mathrm{s},\\ 0.916)$. Determine the resistance $R$, in k$\\Omega$.",
+    "answer": 216,
+    "unit": "kΩ",
+    "solution": "Taking the log of the decay law linearizes it:\n$$\\ln V = \\ln V_0 - \\frac{t}{RC},$$\nso the slope of the plotted line is $-1/RC$. From the two given points,\n$$\\text{slope} = \\frac{0.916 - 2.303}{6.0 - 0} = -0.2312\\ \\mathrm{s^{-1}},$$\ngiving a time constant\n$$RC = \\frac{1}{0.2312} = 4.33\\ \\mathrm{s}.$$\n(The intercept just says $V_0 = e^{2.303} = 10\\ \\mathrm{V}$, which is not needed.) Then\n$$R = \\frac{4.33}{20\\times10^{-6}} = 2.16\\times10^5\\ \\Omega = 216\\ \\mathrm{k\\Omega}.$$"
+  },
+  {
+    "id": "hx-dgraph-03",
+    "name": "What a linear 1/ω plot reveals about drag",
+    "module": "data-graphs",
+    "difficulty": "Very Hard",
+    "tags": [
+      "linearization",
+      "rotational dynamics",
+      "drag"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A flywheel of moment of inertia $I = 0.50\\ \\mathrm{kg\\,m^2}$ is spun up and left to coast, slowing only under air-drag torque. A student discovers that plotting $1/\\omega$ against $t$ gives an excellent straight line with slope $4.0\\times10^{-3}\\ \\mathrm{rad^{-1}}$. Deduce the form of the drag torque from this fact, and find the magnitude of the drag torque when $\\omega = 20\\ \\mathrm{rad/s}$, in N·m.",
+    "answer": 0.8,
+    "unit": "N·m",
+    "solution": "The straight line is the clue. If $1/\\omega = 1/\\omega_0 + st$, differentiating gives $-\\dot{\\omega}/\\omega^2 = s$, i.e. $\\dot{\\omega} = -s\\,\\omega^2$. So the deceleration is proportional to $\\omega^2$, which means the drag torque is quadratic in the angular speed:\n$$I\\dot{\\omega} = -c\\,\\omega^2 \\quad\\Rightarrow\\quad \\frac{d}{dt}\\left(\\frac{1}{\\omega}\\right) = \\frac{c}{I}.$$\nThe slope of the plot is therefore $s = c/I$, so\n$$c = sI = (4.0\\times10^{-3})(0.50) = 2.0\\times10^{-3}\\ \\mathrm{N\\,m\\,s^2}.$$\nAt $\\omega = 20\\ \\mathrm{rad/s}$ the drag torque is\n$$\\tau = c\\,\\omega^2 = (2.0\\times10^{-3})(20)^2 = 0.800\\ \\mathrm{N\\,m}.$$"
+  },
+  {
+    "id": "hx-dunc-01",
+    "name": "Uncertainty in g from a timed pendulum",
+    "module": "data-uncertainty",
+    "difficulty": "Hard",
+    "tags": [
+      "propagation",
+      "powers"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "To measure $g$ with a simple pendulum, a student measures the length $L = 0.850 \\pm 0.005\\ \\mathrm{m}$ and times 50 complete oscillations: $t = 92.5 \\pm 0.4\\ \\mathrm{s}$. Using $g = 4\\pi^2 L/T^2$ with $T = t/50$, find the absolute uncertainty in $g$, in m/s$^2$. Add independent uncertainties in quadrature.",
+    "answer": 0.103,
+    "unit": "m/s^2",
+    "solution": "Timing 50 swings divides both the period and its uncertainty by 50: $T = 1.850\\ \\mathrm{s}$ with $\\delta T = 0.008\\ \\mathrm{s}$ — that is the whole point of counting many oscillations.\n\nFor $g = 4\\pi^2 L T^{-2}$, relative uncertainties combine as\n$$\\frac{\\delta g}{g} = \\sqrt{\\left(\\frac{\\delta L}{L}\\right)^2 + \\left(2\\frac{\\delta T}{T}\\right)^2} = \\sqrt{(0.00588)^2 + (2\\times0.00432)^2} = \\sqrt{3.46\\times10^{-5} + 7.48\\times10^{-5}} = 0.01046.$$\nThe central value is\n$$g = \\frac{4\\pi^2(0.850)}{(1.850)^2} = 9.805\\ \\mathrm{m/s^2},$$\nso\n$$\\delta g = (0.01046)(9.805) = 0.103\\ \\mathrm{m/s^2}.$$"
+  },
+  {
+    "id": "hx-dunc-02",
+    "name": "Best value from three unequal measurements",
+    "module": "data-uncertainty",
+    "difficulty": "Hard",
+    "tags": [
+      "weighted-average",
+      "statistics"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Three independent measurements of the same resistance give $100.4 \\pm 0.8\\ \\Omega$, $99.2 \\pm 0.4\\ \\Omega$, and $99.9 \\pm 0.6\\ \\Omega$. Combine them into the statistically best single value using weights $w_i = 1/\\sigma_i^2$, and give that weighted mean, in $\\Omega$.",
+    "answer": 99.56,
+    "unit": "Ω",
+    "solution": "A plain average would waste the information that the second measurement is the most precise. The optimal combination weights each value by the inverse square of its uncertainty:\n$$\\bar{R} = \\frac{\\sum w_i R_i}{\\sum w_i}, \\qquad w_i = \\frac{1}{\\sigma_i^2}.$$\nThe weights are\n$$w_1 = \\frac{1}{0.8^2} = 1.563, \\quad w_2 = \\frac{1}{0.4^2} = 6.250, \\quad w_3 = \\frac{1}{0.6^2} = 2.778,$$\nwith $\\sum w_i = 10.59$. The weighted sum is\n$$\\sum w_i R_i = (1.563)(100.4) + (6.250)(99.2) + (2.778)(99.9) = 1054.4\\ \\Omega,$$\nso\n$$\\bar{R} = \\frac{1054.4}{10.59} = 99.56\\ \\Omega,$$\npulled strongly toward the most precise measurement, as it should be."
+  },
+  {
+    "id": "hx-dunc-03",
+    "name": "Propagating error through the lens equation",
+    "module": "data-uncertainty",
+    "difficulty": "Very Hard",
+    "tags": [
+      "propagation",
+      "partial derivatives"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A student measures a lens's object distance $u = 30.0 \\pm 0.5\\ \\mathrm{cm}$ and image distance $v = 60.0 \\pm 1.0\\ \\mathrm{cm}$, then computes the focal length from $\\dfrac{1}{f} = \\dfrac{1}{u} + \\dfrac{1}{v}$. Propagate the independent uncertainties through this formula (quadrature) and find the absolute uncertainty in $f$, in cm.",
+    "answer": 0.248,
+    "unit": "cm",
+    "solution": "The formula is neither a sum nor a simple power law, so the general propagation rule with partial derivatives is needed. Solving for the focal length,\n$$f = \\frac{uv}{u+v} = \\frac{(30.0)(60.0)}{90.0} = 20.0\\ \\mathrm{cm}.$$\nThe partial derivatives are\n$$\\frac{\\partial f}{\\partial u} = \\frac{v^2}{(u+v)^2} = \\frac{3600}{8100} = 0.4444, \\qquad \\frac{\\partial f}{\\partial v} = \\frac{u^2}{(u+v)^2} = \\frac{900}{8100} = 0.1111.$$\n(Note the asymmetry: $f$ is far more sensitive to the shorter distance.) Combining in quadrature:\n$$\\delta f = \\sqrt{(0.4444\\times0.5)^2 + (0.1111\\times1.0)^2} = \\sqrt{0.04938 + 0.01235} = \\sqrt{0.06173} = 0.248\\ \\mathrm{cm}.$$\nSo $f = 20.0 \\pm 0.2\\ \\mathrm{cm}$, with the object-distance error dominating despite being the smaller absolute uncertainty."
+  },
+  {
+    "id": "hx-kt-01",
+    "name": "Helium leaking into vacuum",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "effusion",
+      "pressure"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A rigid container of volume $V = 0.050\\ \\mathrm{m^3}$ holds helium (molar mass $4.0\\ \\mathrm{g/mol}$) at temperature $T = 300\\ \\mathrm{K}$, surrounded by vacuum. A tiny hole of area $A = 1.0\\times10^{-9}\\ \\mathrm{m^2}$ lets gas effuse out at the rate $\\tfrac{1}{4}n\\bar{v}A$ molecules per second, where $n$ is the number density and $\\bar{v} = \\sqrt{8RT/\\pi M}$. The temperature is held constant. How long until the pressure falls to half its initial value? Give the answer in hours. Use $R = 8.31\\ \\mathrm{J/(mol\\,K)}$.",
+    "answer": 30.6,
+    "unit": "h",
+    "solution": "Because the loss rate is proportional to the number of molecules left, the pressure decays exponentially. With $N$ molecules in the box, $n = N/V$ and\n$$\\frac{dN}{dt} = -\\frac{\\bar{v}A}{4V}\\,N \\quad\\Rightarrow\\quad N(t) = N_0\\,e^{-t/\\tau}, \\qquad \\tau = \\frac{4V}{\\bar{v}A}.$$\nAt constant $T$, pressure tracks $N$, so the half-life is $t_{1/2} = \\tau\\ln 2$.\n\nThe mean speed of helium at 300 K:\n$$\\bar{v} = \\sqrt{\\frac{8(8.31)(300)}{\\pi(0.0040)}} = \\sqrt{1.587\\times10^6} = 1260\\ \\mathrm{m/s}.$$\nThen\n$$\\tau = \\frac{4(0.050)}{(1260)(1.0\\times10^{-9})} = 1.588\\times10^5\\ \\mathrm{s},$$\n$$t_{1/2} = (1.588\\times10^5)(0.6931) = 1.10\\times10^5\\ \\mathrm{s} = 30.6\\ \\mathrm{h}.$$"
+  },
+  {
+    "id": "hx-kt-02",
+    "name": "Collision clock of a nitrogen molecule",
+    "module": "kinetic-theory",
+    "difficulty": "Hard",
+    "tags": [
+      "mean free path",
+      "collision frequency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Nitrogen gas (molar mass $28\\ \\mathrm{g/mol}$, effective molecular diameter $d = 0.37\\ \\mathrm{nm}$) is at $T = 300\\ \\mathrm{K}$ and $P = 1.013\\times10^5\\ \\mathrm{Pa}$. Using the mean free path $\\lambda = \\dfrac{k_B T}{\\sqrt{2}\\,\\pi d^2 P}$ and the mean speed $\\bar{v} = \\sqrt{8RT/\\pi M}$, find how many collisions a single molecule makes per second, in units of $10^9\\ \\mathrm{s^{-1}}$. Use $k_B = 1.38\\times10^{-23}\\ \\mathrm{J/K}$ and $R = 8.31\\ \\mathrm{J/(mol\\,K)}$.",
+    "answer": 7.09,
+    "unit": "10^9 s^-1",
+    "solution": "A molecule travels a mean free path between collisions, so its collision rate is $f = \\bar{v}/\\lambda$. Compute each piece.\n\nMean free path:\n$$\\lambda = \\frac{(1.38\\times10^{-23})(300)}{\\sqrt{2}\\,\\pi\\,(3.7\\times10^{-10})^2\\,(1.013\\times10^5)} = \\frac{4.14\\times10^{-21}}{6.16\\times10^{-14}} = 6.72\\times10^{-8}\\ \\mathrm{m},$$\nabout 180 molecular diameters.\n\nMean speed:\n$$\\bar{v} = \\sqrt{\\frac{8(8.31)(300)}{\\pi(0.028)}} = \\sqrt{2.267\\times10^5} = 476\\ \\mathrm{m/s}.$$\nCollision frequency:\n$$f = \\frac{\\bar{v}}{\\lambda} = \\frac{476}{6.72\\times10^{-8}} = 7.09\\times10^9\\ \\mathrm{s^{-1}},$$\ni.e. $7.09$ in units of $10^9$ collisions per second — a few billion collisions every second."
+  },
+  {
+    "id": "hx-kt-03",
+    "name": "Pressure ratio in an ultracentrifuge",
+    "module": "kinetic-theory",
+    "difficulty": "Very Hard",
+    "tags": [
+      "boltzmann factor",
+      "pressure",
+      "rotation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A sealed tube of length $L = 0.10\\ \\mathrm{m}$ contains air (molar mass $M = 29\\ \\mathrm{g/mol}$) at temperature $T = 300\\ \\mathrm{K}$. The tube lies along a radius of an ultracentrifuge and spins about one end at $60000$ revolutions per minute. In steady state, find the ratio of the gas pressure at the outer end of the tube to the pressure at the rotation axis. Use $R = 8.31\\ \\mathrm{J/(mol\\,K)}$.",
+    "answer": 9.94,
+    "unit": "",
+    "solution": "Work in the rotating frame, where each gas element needs a net inward force to stay on its circle. Consider a slab of gas between $r$ and $r + dr$ with cross-section $S$. The pressure difference across it must supply the centripetal force:\n$$S\\,dP = (\\rho S\\,dr)\\,\\omega^2 r \\quad\\Rightarrow\\quad \\frac{dP}{dr} = \\rho\\,\\omega^2 r.$$\nFor an ideal gas at uniform temperature, $\\rho = PM/RT$, so\n$$\\frac{dP}{P} = \\frac{M\\omega^2}{RT}\\,r\\,dr \\quad\\Rightarrow\\quad P(r) = P(0)\\,\\exp\\!\\left(\\frac{M\\omega^2 r^2}{2RT}\\right),$$\nthe Boltzmann factor for the centrifugal potential energy $-\\tfrac{1}{2}m\\omega^2 r^2$.\n\nThe angular speed is $\\omega = 2\\pi(60000/60) = 6283\\ \\mathrm{rad/s}$. The exponent at $r = L$:\n$$\\frac{M\\omega^2 L^2}{2RT} = \\frac{(0.029)(6283)^2(0.10)^2}{2(8.31)(300)} = \\frac{1.145\\times10^4}{4986} = 2.296.$$\nTherefore\n$$\\frac{P(L)}{P(0)} = e^{2.296} = 9.94.$$"
+  },
+  {
+    "id": "hx-1law-01",
+    "name": "Heating a gas against a spring-loaded piston",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "first law",
+      "work",
+      "spring"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A horizontal cylinder closed by a frictionless piston of area $A = 0.010$ m$^2$ contains $5.0\\times10^{-3}$ m$^3$ of monatomic ideal gas. Outside the piston is the atmosphere at $P_0 = 1.00\\times10^5$ Pa, and a spring of stiffness $k = 2.0\\times10^4$ N/m connects the piston to a wall; the spring is initially relaxed, so the gas starts at pressure $P_0$. The gas is heated slowly until the piston has moved out a distance $d = 0.10$ m. How much heat was added, in J?",
+    "answer": 2150,
+    "unit": "J",
+    "solution": "As the piston moves out a distance $x$, force balance on it gives the gas pressure $P(x) = P_0 + kx/A$. At the end, $P_2 = 1.00\\times10^5 + (2.0\\times10^4)(0.10)/0.010 = 3.0\\times10^5$ Pa, and $V_2 = 5.0\\times10^{-3} + Ad = 6.0\\times10^{-3}$ m$^3$. The work done by the gas goes partly into pushing the atmosphere and partly into the spring: $W = P_0 A d + \\tfrac{1}{2}kd^2 = (10^5)(0.010)(0.10) + \\tfrac{1}{2}(2.0\\times10^4)(0.10)^2 = 100 + 100 = 200$ J. For a monatomic gas $U = \\tfrac{3}{2}PV$, so $\\Delta U = \\tfrac{3}{2}(P_2V_2 - P_1V_1) = \\tfrac{3}{2}(1800 - 500) = 1950$ J. The first law then gives $Q = \\Delta U + W = 1950 + 200 = 2150$ J."
+  },
+  {
+    "id": "hx-1law-02",
+    "name": "Heat along a parabolic pressure law",
+    "module": "first-law",
+    "difficulty": "Hard",
+    "tags": [
+      "first law",
+      "work",
+      "process path"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A monatomic ideal gas is expanded along the path $P = \\alpha V^2$ with $\\alpha = 5.0\\times10^{10}$ Pa/m$^6$, from $V_1 = 1.0\\times10^{-3}$ m$^3$ to $V_2 = 2.0\\times10^{-3}$ m$^3$. How much heat does the gas absorb during the expansion, in J?",
+    "answer": 642,
+    "unit": "J",
+    "solution": "Two pieces are needed: the path work and the internal-energy change. The work is the integral along the given path, $W = \\int_{V_1}^{V_2} \\alpha V^2\\,dV = \\frac{\\alpha}{3}(V_2^3 - V_1^3) = \\frac{5.0\\times10^{10}}{3}(8\\times10^{-9} - 1\\times10^{-9}) = \\frac{350}{3} = 116.7$ J. For a monatomic gas $U = \\tfrac{3}{2}PV = \\tfrac{3}{2}\\alpha V^3$, so $\\Delta U = \\tfrac{3}{2}\\alpha(V_2^3 - V_1^3) = \\tfrac{3}{2}(350) = 525$ J. Then $Q = \\Delta U + W = 525 + 116.7 = 641.7 \\approx 642$ J. Note that this process has an effective molar heat capacity of $\\tfrac{11}{6}R$, between isochoric and isobaric values."
+  },
+  {
+    "id": "hx-1law-03",
+    "name": "Filling a tank from a high-pressure line",
+    "module": "first-law",
+    "difficulty": "Very Hard",
+    "tags": [
+      "first law",
+      "flow work",
+      "adiabatic"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A rigid, thermally insulated tank of volume $0.050$ m$^3$ contains diatomic ideal gas ($\\gamma = 7/5$) at $P_1 = 1.0\\times10^5$ Pa and $T_0 = 300$ K. It is connected through a valve to a large supply line carrying the same gas at $P_0 = 5.0\\times10^5$ Pa and $T_0 = 300$ K; the line conditions do not change. The valve is opened and gas flows in until the tank pressure reaches $5.0\\times10^5$ Pa, then the valve is closed. Find the final gas temperature in the tank, in K.",
+    "answer": 389,
+    "unit": "K",
+    "solution": "The subtlety is that gas pushed into the tank carries not just its internal energy but also the flow work the line does on it, i.e. each mole enters with enthalpy $c_p T_0$, not just $c_v T_0$. Energy balance for the insulated rigid tank: $n_2 c_v T_2 - n_1 c_v T_0 = (n_2 - n_1)c_p T_0$. Using $nT = PV/R$ with the fixed volume $V$, the left side is $\\frac{c_v V}{R}(P_2 - P_1)$, and $n_2 = P_2 V/(R T_2)$, $n_1 = P_1 V/(R T_0)$. Substituting and cancelling $V/R$: $c_v(P_2 - P_1) = c_p T_0\\left(\\frac{P_2}{T_2} - \\frac{P_1}{T_0}\\right)$. Solving for $T_2$: $T_2 = \\frac{\\gamma T_0 P_2}{P_2 - P_1 + \\gamma P_1}$. Numerically, $T_2 = \\frac{1.4 \\times 300 \\times 5.0\\times10^5}{5.0\\times10^5 - 1.0\\times10^5 + 1.4\\times10^5} = \\frac{2.1\\times10^8}{5.4\\times10^5} = 389$ K. (If the tank started evacuated this would reduce to the familiar $T_2 = \\gamma T_0 = 420$ K.)"
+  },
+  {
+    "id": "hx-pv-01",
+    "name": "Hottest point on a straight-line process",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "ideal gas law",
+      "maximum temperature"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "On a PV diagram, $0.25$ mol of monatomic ideal gas is taken along a straight line from state 1 at $P = 4.0\\times10^5$ Pa, $V = 1.0\\times10^{-3}$ m$^3$ to state 2 at $P = 1.0\\times10^5$ Pa, $V = 4.0\\times10^{-3}$ m$^3$. Find the maximum temperature reached during the process, in K. Use $R = 8.314$ J/(mol$\\cdot$K).",
+    "answer": 301,
+    "unit": "K",
+    "solution": "The temperature at any point is $T = PV/nR$, so we need the point on the line where the product $PV$ is largest, which is generally in the middle of the segment, not at an endpoint. The line has slope $\\frac{\\Delta P}{\\Delta V} = \\frac{-3.0\\times10^5}{3.0\\times10^{-3}} = -1.0\\times10^8$ Pa/m$^3$, so $P(V) = 5.0\\times10^5 - 1.0\\times10^8\\,V$. Then $PV = 5.0\\times10^5 V - 1.0\\times10^8 V^2$ is a downward parabola, maximized where its derivative vanishes: $V^* = \\frac{5.0\\times10^5}{2\\times10^8} = 2.5\\times10^{-3}$ m$^3$, which lies between the endpoints. There $P^* = 2.5\\times10^5$ Pa and $P^*V^* = 625$ J. Finally $T_{max} = \\frac{625}{0.25 \\times 8.314} = 301$ K."
+  },
+  {
+    "id": "hx-pv-02",
+    "name": "Efficiency of a triangular cycle",
+    "module": "pv-diagrams",
+    "difficulty": "Hard",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "efficiency"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A monatomic ideal gas runs the cycle A$\\to$B$\\to$C$\\to$A: A is at $P = 1.0\\times10^5$ Pa, $V = 2.0\\times10^{-3}$ m$^3$; B is at $3.0\\times10^5$ Pa, $2.0\\times10^{-3}$ m$^3$; C is at $1.0\\times10^5$ Pa, $6.0\\times10^{-3}$ m$^3$. A$\\to$B is a vertical segment, B$\\to$C a straight line, C$\\to$A a horizontal segment. Define the efficiency as the net work per cycle divided by the total heat absorbed on the legs where the gas gains net heat. Find the efficiency, in %.",
+    "answer": 28.6,
+    "unit": "%",
+    "solution": "The net work is the enclosed triangle area: $W_{net} = \\tfrac{1}{2}(3.0\\times10^5 - 1.0\\times10^5)(6.0\\times10^{-3} - 2.0\\times10^{-3}) = 400$ J, traversed clockwise so it is positive. Now find the net heat on each leg. A$\\to$B (isochoric): $Q = \\Delta U = \\tfrac{3}{2}V\\Delta P = \\tfrac{3}{2}(2.0\\times10^{-3})(2.0\\times10^5) = 600$ J, absorbed. B$\\to$C: the work is the trapezoid under the line, $W = \\tfrac{1}{2}(3.0\\times10^5 + 1.0\\times10^5)(4.0\\times10^{-3}) = 800$ J, while $\\Delta U = \\tfrac{3}{2}(P_CV_C - P_BV_B) = \\tfrac{3}{2}(600 - 600) = 0$, so $Q = 800$ J, absorbed. C$\\to$A (isobaric compression): $Q = \\tfrac{5}{2}P\\Delta V = \\tfrac{5}{2}(1.0\\times10^5)(-4.0\\times10^{-3}) = -1000$ J, rejected. The heat input is $Q_{in} = 600 + 800 = 1400$ J, so $\\eta = \\frac{400}{1400} = 0.286 = 28.6\\%$."
+  },
+  {
+    "id": "hx-pv-03",
+    "name": "Two isotherms and two isochores, no regenerator",
+    "module": "pv-diagrams",
+    "difficulty": "Very Hard",
+    "tags": [
+      "pv diagram",
+      "cycle",
+      "efficiency",
+      "isothermal"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An ideal monatomic gas engine runs this cycle: (1) isothermal expansion at $T_h = 600$ K from volume $V_0$ to $4V_0$; (2) isochoric cooling to $T_c = 300$ K; (3) isothermal compression at $T_c$ back to $V_0$; (4) isochoric heating back to $T_h$. All heat for step 4 comes from the hot reservoir (there is no regenerator). Find the thermal efficiency of the cycle, in %. Use $\\ln 4 = 1.386$.",
+    "answer": 32.4,
+    "unit": "%",
+    "solution": "Work is done only on the isotherms. Per mole: $W_1 = RT_h\\ln 4$ (by the gas) and $W_3 = -RT_c\\ln 4$, so $W_{net} = R(T_h - T_c)\\ln 4 = 8.314 \\times 300 \\times 1.386 = 3457$ J. Heat is absorbed on two legs: the hot isotherm, where $\\Delta U = 0$ so $Q_1 = RT_h\\ln 4 = 8.314 \\times 600 \\times 1.386 = 6915$ J, and the isochoric heating, where $Q_4 = c_v(T_h - T_c) = \\tfrac{3}{2}(8.314)(300) = 3741$ J. Because there is no regenerator to recycle the heat dumped in step 2, step 4's heat counts against the engine. So $\\eta = \\frac{W_{net}}{Q_1 + Q_4} = \\frac{3457}{6915 + 3741} = \\frac{3457}{10656} = 0.324 = 32.4\\%$, well below the Carnot value of $50\\%$ between the same reservoirs."
+  },
+  {
+    "id": "hx-stand-01",
+    "name": "Taut wire tuned by cooling",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "string",
+      "tension",
+      "thermal stress"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A steel wire is stretched between two rigid walls $L = 0.80$ m apart. At $20^\\circ$C it is perfectly straight but under negligible tension. The temperature then drops by $\\Delta T = 20$ K. Since the walls do not move, thermal contraction puts the wire under stress $\\sigma = E\\alpha\\,\\Delta T$. For steel, $E = 2.0\\times10^{11}$ Pa, $\\alpha = 1.2\\times10^{-5}$ K$^{-1}$, and density $\\rho = 7800$ kg/m$^3$. Find the fundamental frequency of the cooled wire, in Hz.",
+    "answer": 49,
+    "unit": "Hz",
+    "solution": "The wire cannot contract, so it develops tension $F = \\sigma A = EA\\alpha\\,\\Delta T$, where $A$ is its cross-sectional area. The wave speed is $v = \\sqrt{F/\\mu}$ with $\\mu = \\rho A$, and the area cancels: $v = \\sqrt{\\frac{EA\\alpha\\,\\Delta T}{\\rho A}} = \\sqrt{\\frac{E\\alpha\\,\\Delta T}{\\rho}}$. Numerically, $E\\alpha\\,\\Delta T = (2.0\\times10^{11})(1.2\\times10^{-5})(20) = 4.8\\times10^7$ Pa, so $v = \\sqrt{4.8\\times10^7/7800} = 78.4$ m/s. The fundamental of a string fixed at both ends is $f_1 = \\frac{v}{2L} = \\frac{78.4}{1.6} = 49.0$ Hz. Notice the answer is independent of how thick the wire is."
+  },
+  {
+    "id": "hx-stand-02",
+    "name": "Kundt's tube driven by a singing rod",
+    "module": "standing-waves",
+    "difficulty": "Hard",
+    "tags": [
+      "longitudinal waves",
+      "nodes",
+      "resonance tube"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An aluminum rod of length $1.2$ m is clamped at its midpoint and stroked so it vibrates in its fundamental longitudinal mode (free ends, node at the clamp). The speed of longitudinal waves in aluminum is $v = \\sqrt{E/\\rho}$ with $E = 6.9\\times10^{10}$ Pa and $\\rho = 2700$ kg/m$^3$. One end of the rod drives the air in a Kundt's tube, where cork dust settles into piles at the displacement nodes of the standing sound wave. Taking the speed of sound in air as $343$ m/s, find the spacing between adjacent dust piles, in cm.",
+    "answer": 8.14,
+    "unit": "cm",
+    "solution": "First get the rod's frequency. With both ends free and a node forced at the center, the fundamental has half a wavelength on the rod: $\\lambda_{rod} = 2L = 2.4$ m. The speed in aluminum is $v_{rod} = \\sqrt{6.9\\times10^{10}/2700} = 5055$ m/s, so $f = \\frac{v_{rod}}{2L} = \\frac{5055}{2.4} = 2106$ Hz. The air column oscillates at this same frequency, so the sound wavelength in air is $\\lambda_{air} = \\frac{343}{2106} = 0.1629$ m. Dust piles sit at displacement nodes, which are spaced half a wavelength apart: $\\Delta x = \\frac{\\lambda_{air}}{2} = 0.0814$ m $= 8.14$ cm."
+  },
+  {
+    "id": "hx-stand-03",
+    "name": "Energy stored in a standing wave",
+    "module": "standing-waves",
+    "difficulty": "Very Hard",
+    "tags": [
+      "string",
+      "harmonics",
+      "energy"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A string of length $L = 1.2$ m and linear density $\\mu = 5.0$ g/m is fixed at both ends and oscillates in its third harmonic at $f = 180$ Hz with antinode amplitude $A = 4.0$ mm, so $y(x,t) = A\\sin(kx)\\cos(\\omega t)$. Find the total mechanical energy of the vibration, in J.",
+    "answer": 0.0307,
+    "unit": "J",
+    "solution": "The clean way in is to catch the string at the instant it passes through flat: then all the energy is kinetic. From $y = A\\sin(kx)\\cos(\\omega t)$, the transverse velocity is $\\dot y = -A\\omega\\sin(kx)\\sin(\\omega t)$, which has its largest magnitude when $\\sin(\\omega t) = \\pm 1$, exactly when $y \\equiv 0$ everywhere. At that instant $E = \\int_0^L \\tfrac{1}{2}\\mu\\,\\dot y^2\\,dx = \\tfrac{1}{2}\\mu A^2\\omega^2\\int_0^L \\sin^2(kx)\\,dx$. For a harmonic with a whole number of half-wavelengths on the string, $\\int_0^L \\sin^2(kx)\\,dx = L/2$, so $E = \\tfrac{1}{4}\\mu L\\,\\omega^2 A^2$. With $\\omega = 2\\pi(180) = 1131$ s$^{-1}$: $E = \\tfrac{1}{4}(0.0050)(1.2)(1131)^2(0.0040)^2 = 0.0307$ J."
+  },
+  {
+    "id": "hx-diff-01",
+    "name": "How the slit envelope dims a fringe",
+    "module": "diffraction",
+    "difficulty": "Hard",
+    "tags": [
+      "double-slit",
+      "single-slit",
+      "intensity"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A double slit has center-to-center separation $d = 0.240$ mm, and each slit has width $a = 0.080$ mm. It is illuminated at normal incidence by monochromatic light. Find the ratio of the intensity at the second-order interference maximum ($d\\sin\\theta = 2\\lambda$) to the intensity at the central maximum. The answer is dimensionless.",
+    "answer": 0.171,
+    "unit": "",
+    "solution": "The two-slit pattern is modulated by the single-slit envelope: $I(\\theta) = I_0\\cos^2\\!\\left(\\frac{\\pi d\\sin\\theta}{\\lambda}\\right)\\left[\\frac{\\sin\\beta}{\\beta}\\right]^2$ with $\\beta = \\frac{\\pi a\\sin\\theta}{\\lambda}$. At the second-order maximum the $\\cos^2$ factor is 1, so only the envelope matters. There $\\sin\\theta = 2\\lambda/d$, so $\\beta = \\frac{\\pi a}{\\lambda}\\cdot\\frac{2\\lambda}{d} = \\frac{2\\pi a}{d} = \\frac{2\\pi(0.080)}{0.240} = \\frac{2\\pi}{3}$, independent of the wavelength. Then $\\frac{I}{I_0} = \\left[\\frac{\\sin(2\\pi/3)}{2\\pi/3}\\right]^2 = \\left[\\frac{0.866}{2.094}\\right]^2 = (0.4135)^2 = 0.171$. Since $d = 3a$ exactly, the third-order maximum is missing entirely: there $\\beta = \\pi$ and the envelope has a zero."
+  },
+  {
+    "id": "hx-diff-02",
+    "name": "Mirror size for a surveillance satellite",
+    "module": "diffraction",
+    "difficulty": "Hard",
+    "tags": [
+      "rayleigh",
+      "resolving-power",
+      "circular aperture"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A camera on a satellite orbits at altitude $h = 250$ km and must resolve two points on the ground separated by $0.30$ m, using light of wavelength $550$ nm. Treating the limit as set by diffraction through the circular objective (Rayleigh criterion $\\theta_{min} = 1.22\\,\\lambda/D$), find the minimum diameter $D$ of the objective, in m.",
+    "answer": 0.559,
+    "unit": "m",
+    "solution": "The two ground points subtend an angle $\\theta = \\frac{x}{h} = \\frac{0.30}{2.5\\times10^5} = 1.2\\times10^{-6}$ rad at the satellite (small-angle approximation is excellent here). Rayleigh's criterion requires this to be at least $1.22\\,\\lambda/D$, so $D = \\frac{1.22\\,\\lambda h}{x} = \\frac{1.22 \\times 550\\times10^{-9} \\times 2.5\\times10^5}{0.30} = 0.559$ m. Anything smaller and the two Airy disks blur together regardless of how good the sensor is."
+  },
+  {
+    "id": "hx-diff-03",
+    "name": "Splitting the sodium doublet on a focal plane",
+    "module": "diffraction",
+    "difficulty": "Very Hard",
+    "tags": [
+      "grating",
+      "resolving-power",
+      "spectrometer"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "In a grating spectrograph, light passes through a diffraction grating with $1200$ lines/mm and is then focused by a lens of focal length $f = 0.50$ m placed just behind the grating; light diffracted at angle $\\theta$ comes to a focus at transverse position $x = f\\tan\\theta$ on the focal plane. The sodium doublet at $\\lambda_1 = 589.0$ nm and $\\lambda_2 = 589.6$ nm is observed in first order. Find the separation of the two focused lines on the focal plane, in mm.",
+    "answer": 1.02,
+    "unit": "mm",
+    "solution": "The grating spacing is $d = \\frac{1}{1200}$ mm $= 833.3$ nm. In first order, $\\sin\\theta = \\lambda/d$, so $\\sin\\theta_1 = \\frac{589.0}{833.3} = 0.7068$ and $\\sin\\theta_2 = \\frac{589.6}{833.3} = 0.7075$, i.e. $\\theta \\approx 45.0^\\circ$ — far too steep to use small-angle shortcuts blindly. Each line lands at $x = f\\tan\\theta$. Differentiating the pair of relations: $\\cos\\theta\\,d\\theta = d(\\sin\\theta) = \\frac{\\Delta\\lambda}{d}$ and $\\Delta x = f\\sec^2\\theta\\,d\\theta = \\frac{f\\,\\Delta\\lambda}{d\\cos^3\\theta}$. With $\\cos\\theta = \\sqrt{1 - 0.7068^2} = 0.7074$: $\\Delta x = \\frac{0.50 \\times 0.6\\times10^{-9}}{833.3\\times10^{-9}\\times(0.7074)^3} = 1.02\\times10^{-3}$ m $= 1.02$ mm. The $1/\\cos^3\\theta$ factor nearly triples the naive $f\\Delta\\lambda/d$ estimate."
+  },
+  {
+    "id": "hx-film-01",
+    "name": "Soap film viewed at 45 degrees",
+    "module": "thin-film",
+    "difficulty": "Hard",
+    "tags": [
+      "soap film",
+      "phase shift",
+      "oblique incidence"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A soap film ($n = 1.33$, thickness $t = 500$ nm, air on both sides) is illuminated by white light incident at $45^\\circ$ from the normal. For light reflected at this angle, which visible wavelength (400–700 nm, vacuum) is most strongly reflected? Answer in nm.",
+    "answer": 451,
+    "unit": "nm",
+    "solution": "At oblique incidence the path difference depends on the angle inside the film. Snell's law gives $\\sin\\theta_t = \\frac{\\sin 45^\\circ}{1.33} = 0.5317$, so $\\cos\\theta_t = 0.8470$. The optical path difference between the two reflected rays is $2nt\\cos\\theta_t = 2(1.33)(500)(0.8470) = 1126$ nm. Only the top-surface reflection (air to film) suffers a half-wave phase flip, so constructive reflection requires $2nt\\cos\\theta_t = (m - \\tfrac{1}{2})\\lambda$. Trying integers: $m = 2$ gives $\\lambda = 1126/1.5 = 751$ nm (just outside the visible); $m = 3$ gives $\\lambda = 1126/2.5 = 451$ nm, which is visible; $m = 4$ gives $322$ nm (ultraviolet). So the film reflects most strongly at $451$ nm — blue-violet."
+  },
+  {
+    "id": "hx-film-02",
+    "name": "Newton's rings with a wet gap",
+    "module": "thin-film",
+    "difficulty": "Hard",
+    "tags": [
+      "Newtons rings",
+      "interference",
+      "water"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A plano-convex lens of radius of curvature $R = 2.0$ m rests on a flat glass plate and is illuminated from above at normal incidence with sodium light, $\\lambda = 589$ nm. The thin gap between lens and plate is filled with water, $n = 1.33$ (the glass on both sides has a higher index than water). Find the radius of the 10th dark ring, in mm.",
+    "answer": 2.98,
+    "unit": "mm",
+    "solution": "For a gap of thickness $t$, the reflection off the bottom of the gap picks up a half-wave shift (water to glass, low to high index) while the top reflection (glass to water, high to low) does not, so dark rings in reflection occur at $2nt = m\\lambda$. The standard sag relation for a lens of radius $R$ gives $t = \\frac{r^2}{2R}$ at distance $r$ from the contact point. Combining: $\\frac{n r^2}{R} = m\\lambda$, so $r = \\sqrt{\\frac{m\\lambda R}{n}}$. For $m = 10$: $r = \\sqrt{\\frac{10 \\times 589\\times10^{-9} \\times 2.0}{1.33}} = \\sqrt{8.86\\times10^{-6}} = 2.98\\times10^{-3}$ m $= 2.98$ mm. The water shrinks the whole ring pattern by a factor $\\sqrt{n}$ compared with an air gap."
+  },
+  {
+    "id": "hx-film-03",
+    "name": "Where two colors agree on an air wedge",
+    "module": "thin-film",
+    "difficulty": "Very Hard",
+    "tags": [
+      "air wedge",
+      "order counting",
+      "two wavelengths"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Two flat glass plates, each $10.0$ cm long, touch at one end and are separated by a $40.0$ $\\mu$m hair at the other end, forming an air wedge. The wedge is illuminated at normal incidence simultaneously with two wavelengths, $600$ nm and $450$ nm. At certain positions along the wedge, a dark fringe of one wavelength coincides with a dark fringe of the other, and the fringe pattern there looks dark for both colors. Find the distance between adjacent such coincidence positions, in mm.",
+    "answer": 2.25,
+    "unit": "mm",
+    "solution": "With one phase flip in the air wedge, dark fringes of each color sit where $2t = m\\lambda$. A coincidence needs $2t$ to be simultaneously an integer multiple of $600$ nm and of $450$ nm, i.e. a multiple of their least common multiple. Since $600 = 4\\times150$ and $450 = 3\\times150$, $\\mathrm{lcm} = 12\\times150 = 1800$ nm. So coincidences occur at $2t = 1800k$ nm, i.e. the gap thickness steps by $\\Delta t = 900$ nm between adjacent coincidences. The wedge geometry is linear: $t(x) = \\frac{40.0\\times10^{-6}}{0.100}\\,x = 4.00\\times10^{-4}\\,x$. Therefore $\\Delta x = \\frac{\\Delta t}{4.00\\times10^{-4}} = \\frac{9.00\\times10^{-7}}{4.00\\times10^{-4}} = 2.25\\times10^{-3}$ m $= 2.25$ mm."
+  },
+  {
+    "id": "hx-photo-01",
+    "name": "Work function from two stopping potentials",
+    "module": "photoelectric",
+    "difficulty": "Hard",
+    "tags": [
+      "stopping-potential",
+      "work-function",
+      "data analysis"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "In a photoelectric experiment, light of wavelength $450$ nm gives a stopping potential of $0.60$ V, and light of wavelength $300$ nm gives $1.80$ V. Treating Planck's constant as unknown and determined by this data, find the work function of the metal, in eV.",
+    "answer": 1.8,
+    "unit": "eV",
+    "solution": "Einstein's equation at each wavelength reads $eV_s = \\frac{hc}{\\lambda} - \\phi$. Subtracting the two equations eliminates the unknown work function and solves for $hc$ as this experiment measures it: $e(V_2 - V_1) = hc\\left(\\frac{1}{\\lambda_2} - \\frac{1}{\\lambda_1}\\right)$. In eV and nm units: $1.20 = hc\\left(\\frac{1}{300} - \\frac{1}{450}\\right) = \\frac{hc}{900}$, so $hc = 1080$ eV$\\cdot$nm. Substituting back at $450$ nm: $\\phi = \\frac{1080}{450} - 0.60 = 2.40 - 0.60 = 1.80$ eV. This is exactly how Millikan extracted $h$ and $\\phi$ — from the slope and intercept of $V_s$ versus $1/\\lambda$."
+  },
+  {
+    "id": "hx-photo-02",
+    "name": "Photoelectrons bent into circles",
+    "module": "photoelectric",
+    "difficulty": "Hard",
+    "tags": [
+      "work-function",
+      "magnetic field",
+      "electron motion"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Ultraviolet light of wavelength $200$ nm illuminates a metal surface with work function $2.50$ eV. The emitted electrons enter a region of uniform magnetic field $B = 5.0\\times10^{-4}$ T, moving perpendicular to the field. Find the radius of the circular path of the fastest electrons, in cm. Use $hc = 1240$ eV$\\cdot$nm, $m_e = 9.11\\times10^{-31}$ kg, $e = 1.60\\times10^{-19}$ C.",
+    "answer": 1.3,
+    "unit": "cm",
+    "solution": "The photon energy is $\\frac{hc}{\\lambda} = \\frac{1240}{200} = 6.20$ eV, so the fastest electrons leave with $K_{max} = 6.20 - 2.50 = 3.70$ eV $= 5.92\\times10^{-19}$ J. Their speed follows from $K = \\tfrac{1}{2}mv^2$: $v = \\sqrt{\\frac{2(5.92\\times10^{-19})}{9.11\\times10^{-31}}} = 1.14\\times10^6$ m/s (comfortably non-relativistic). In the magnetic field the electron moves on a circle with $r = \\frac{mv}{eB} = \\frac{(9.11\\times10^{-31})(1.14\\times10^6)}{(1.60\\times10^{-19})(5.0\\times10^{-4})} = 1.30\\times10^{-2}$ m $= 1.30$ cm. Measuring this radius is a practical way to get $K_{max}$ without a retarding voltage."
+  },
+  {
+    "id": "hx-photo-03",
+    "name": "Energy handed to a backscattering electron",
+    "module": "photoelectric",
+    "difficulty": "Very Hard",
+    "tags": [
+      "compton",
+      "photon-energy",
+      "conservation"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "An X-ray photon of wavelength $50.0$ pm strikes a free electron at rest and Compton-scatters straight backward ($180^\\circ$). Find the kinetic energy of the recoiling electron, in keV. Use the Compton wavelength $h/m_ec = 2.43$ pm and $hc = 1.24\\times10^6$ eV$\\cdot$pm.",
+    "answer": 2.2,
+    "unit": "keV",
+    "solution": "Backscattering is the maximum-transfer case, since $1 - \\cos\\theta$ is largest at $\\theta = 180^\\circ$. The Compton shift is $\\Delta\\lambda = \\frac{h}{m_ec}(1 - \\cos 180^\\circ) = 2\\times 2.43 = 4.86$ pm, so the scattered photon has $\\lambda' = 50.0 + 4.86 = 54.86$ pm. Energy conservation gives the electron everything the photon lost: $K_e = \\frac{hc}{\\lambda} - \\frac{hc}{\\lambda'} = 1.24\\times10^6\\left(\\frac{1}{50.0} - \\frac{1}{54.86}\\right) = 1.24\\times10^6 \\times 1.772\\times10^{-3} = 2197$ eV $\\approx 2.20$ keV. Only about 9% of the photon's 24.8 keV is transferred — even a head-on photon is a poor hammer against an electron when $\\lambda \\gg \\lambda_C$ is not strongly violated."
+  },
+  {
+    "id": "hx-db-01",
+    "name": "Matching an X-ray photon's wavelength",
+    "module": "de-broglie",
+    "difficulty": "Hard",
+    "tags": [
+      "matter-wave",
+      "acceleration",
+      "comparison"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Through what potential difference, in V, must an electron be accelerated from rest so that its de Broglie wavelength equals the wavelength of a $10.0$ keV X-ray photon? Use $hc = 1240$ eV$\\cdot$nm, $h = 6.63\\times10^{-34}$ J$\\cdot$s, $m_e = 9.11\\times10^{-31}$ kg, $e = 1.60\\times10^{-19}$ C.",
+    "answer": 97.9,
+    "unit": "V",
+    "solution": "First the target wavelength: for a photon, $\\lambda = \\frac{hc}{E} = \\frac{1240}{10000} = 0.124$ nm. For the electron, the de Broglie wavelength is set by its momentum, $\\lambda = h/p$, with $p = \\sqrt{2m_e eV}$ after acceleration through $V$. Setting $\\frac{h}{\\sqrt{2m_e eV}} = 1.24\\times10^{-10}$ m and solving: $V = \\frac{h^2}{2m_e e\\lambda^2} = \\frac{(6.63\\times10^{-34})^2}{2(9.11\\times10^{-31})(1.60\\times10^{-19})(1.24\\times10^{-10})^2} = 97.9$ V. The electron needs only about $100$ eV to match the wavelength of a $10{,}000$ eV photon — matter waves are far 'cheaper' per nanometer, which is why electron microscopes win."
+  },
+  {
+    "id": "hx-db-02",
+    "name": "Thermal neutrons meet a crystal",
+    "module": "de-broglie",
+    "difficulty": "Hard",
+    "tags": [
+      "thermal",
+      "matter-wave",
+      "bragg"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Neutrons in thermal equilibrium at $T = 300$ K (take kinetic energy $\\tfrac{3}{2}kT$) strike a crystal whose atomic planes are spaced $d = 0.282$ nm apart. Find the angle $\\theta$ (measured from the planes, Bragg convention) for first-order reflection, in degrees. Use $h = 6.63\\times10^{-34}$ J$\\cdot$s, $m_n = 1.675\\times10^{-27}$ kg, $k = 1.38\\times10^{-23}$ J/K.",
+    "answer": 14.9,
+    "unit": "degrees",
+    "solution": "The neutron's momentum comes from its thermal energy: $\\frac{p^2}{2m} = \\frac{3}{2}kT$ gives $p = \\sqrt{3mkT} = \\sqrt{3(1.675\\times10^{-27})(1.38\\times10^{-23})(300)} = 4.56\\times10^{-24}$ kg$\\cdot$m/s. The de Broglie wavelength is $\\lambda = \\frac{h}{p} = \\frac{6.63\\times10^{-34}}{4.56\\times10^{-24}} = 1.45\\times10^{-10}$ m $= 0.145$ nm — comparable to the plane spacing, which is exactly why reactors make good diffraction sources. Bragg's law $2d\\sin\\theta = n\\lambda$ with $n = 1$: $\\sin\\theta = \\frac{0.145}{2\\times0.282} = 0.258$, so $\\theta = 14.9^\\circ$."
+  },
+  {
+    "id": "hx-db-03",
+    "name": "When the de Broglie and Compton wavelengths agree",
+    "module": "de-broglie",
+    "difficulty": "Very Hard",
+    "tags": [
+      "matter-wave",
+      "relativistic",
+      "compton-wavelength"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "How fast must an electron move, in m/s, for its de Broglie wavelength $h/p$ to equal its Compton wavelength $h/m_ec$? Treat the problem relativistically. Use $c = 3.00\\times10^8$ m/s.",
+    "answer": 212000000,
+    "unit": "m/s",
+    "solution": "Setting $\\frac{h}{p} = \\frac{h}{m_ec}$ requires $p = m_ec$. A non-relativistic reading, $m_ev = m_ec$, would give $v = c$, a red flag that relativity is mandatory here. The correct momentum is $p = \\gamma m_e v$, so the condition is $\\gamma v = c$, i.e. $\\frac{v}{\\sqrt{1 - v^2/c^2}} = c$. Squaring: $v^2 = c^2(1 - v^2/c^2)$, so $2v^2 = c^2$ and $v = \\frac{c}{\\sqrt 2} = 0.707c = 2.12\\times10^8$ m/s. At this speed the electron's kinetic energy is $(\\gamma - 1)m_ec^2 = (\\sqrt2 - 1)(511\\ \\mathrm{keV}) \\approx 212$ keV — deeply relativistic, as anticipated."
+  },
+  {
+    "id": "hx-radio-01",
+    "name": "Radon riding on radium",
+    "module": "radioactivity",
+    "difficulty": "Hard",
+    "tags": [
+      "secular-equilibrium",
+      "activity",
+      "half-life"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "A sealed source contains $1.00$ g of radium-226 (half-life $1600$ yr). Its daughter radon-222 (half-life $3.82$ d) accumulates until it reaches secular equilibrium, where the radon decays as fast as it is produced. Find the mass of radon-222 then present, in $\\mu$g. Use $N_A = 6.022\\times10^{23}$, 1 yr $= 3.156\\times10^7$ s.",
+    "answer": 6.42,
+    "unit": "ug",
+    "solution": "Because the parent half-life dwarfs the daughter's, equilibrium means equal activities: $\\lambda_{Rn}N_{Rn} = \\lambda_{Ra}N_{Ra}$. The radium activity: $N_{Ra} = \\frac{1.00}{226}(6.022\\times10^{23}) = 2.665\\times10^{21}$ atoms, $\\lambda_{Ra} = \\frac{\\ln 2}{1600\\times3.156\\times10^7} = 1.373\\times10^{-11}$ s$^{-1}$, so $A = 3.66\\times10^{10}$ Bq (this is essentially the original definition of the curie). The radon decay constant: $\\lambda_{Rn} = \\frac{\\ln 2}{3.82\\times86400} = 2.10\\times10^{-6}$ s$^{-1}$. Then $N_{Rn} = \\frac{A}{\\lambda_{Rn}} = \\frac{3.66\\times10^{10}}{2.10\\times10^{-6}} = 1.74\\times10^{16}$ atoms, and the mass is $m = \\frac{1.74\\times10^{16}}{6.022\\times10^{23}}\\times 222 = 6.42\\times10^{-6}$ g $= 6.42\\ \\mu$g. A gram of radium carries only micrograms of radon, yet they match it decay for decay."
+  },
+  {
+    "id": "hx-radio-02",
+    "name": "Thermal power of a plutonium generator",
+    "module": "radioactivity",
+    "difficulty": "Hard",
+    "tags": [
+      "activity",
+      "decay energy",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Radioisotope generators on deep-space probes use plutonium-238, which decays by alpha emission with half-life $87.7$ yr, depositing $5.59$ MeV of heat per decay. Find the initial thermal power of $1.00$ kg of pure Pu-238, in W. Use $N_A = 6.022\\times10^{23}$, 1 yr $= 3.156\\times10^7$ s, $1$ eV $= 1.602\\times10^{-19}$ J.",
+    "answer": 567,
+    "unit": "W",
+    "solution": "Count the atoms, find the decay rate, multiply by the energy per decay. The atom count: $N = \\frac{1000}{238}(6.022\\times10^{23}) = 2.530\\times10^{24}$. The decay constant: $\\lambda = \\frac{\\ln 2}{87.7 \\times 3.156\\times10^7} = 2.504\\times10^{-10}$ s$^{-1}$. So the activity is $A = \\lambda N = 6.34\\times10^{14}$ Bq. Each decay deposits $5.59\\times10^6 \\times 1.602\\times10^{-19} = 8.96\\times10^{-13}$ J, giving $P = (6.34\\times10^{14})(8.96\\times10^{-13}) = 567$ W. This is why a kilogram brick of Pu-238 glows red-hot with no chain reaction at all; after one half-life (87.7 yr) the power is down to about 284 W."
+  },
+  {
+    "id": "hx-radio-03",
+    "name": "When the technetium peaks",
+    "module": "radioactivity",
+    "difficulty": "Very Hard",
+    "tags": [
+      "decay-chain",
+      "activity",
+      "half-life"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Molybdenum-99 (half-life $66.0$ h) decays to technetium-99m (half-life $6.00$ h), the workhorse isotope of nuclear medicine. A generator starts with freshly purified Mo-99 and no Tc-99m. Find the time at which the Tc-99m activity is maximum, in h.",
+    "answer": 22.8,
+    "unit": "h",
+    "solution": "Let $\\lambda_1 = \\ln 2/66.0 = 0.01050$ h$^{-1}$ (Mo) and $\\lambda_2 = \\ln 2/6.00 = 0.1155$ h$^{-1}$ (Tc). The daughter population obeys $\\frac{dN_2}{dt} = \\lambda_1 N_1 - \\lambda_2 N_2$, whose solution with $N_2(0) = 0$ is $N_2(t) = \\frac{\\lambda_1 N_{10}}{\\lambda_2 - \\lambda_1}\\left(e^{-\\lambda_1 t} - e^{-\\lambda_2 t}\\right)$. The daughter activity $\\lambda_2 N_2$ peaks where $\\frac{dN_2}{dt} = 0$, i.e. where production equals loss — equivalently where the two activities momentarily agree. Setting the derivative of the bracket to zero: $\\lambda_1 e^{-\\lambda_1 t} = \\lambda_2 e^{-\\lambda_2 t}$, so $t^* = \\frac{\\ln(\\lambda_2/\\lambda_1)}{\\lambda_2 - \\lambda_1} = \\frac{\\ln(11.0)}{0.1155 - 0.01050} = \\frac{2.398}{0.1050} = 22.8$ h. Hospitals 'milk' the generator on roughly this daily rhythm."
+  },
+  {
+    "id": "hx-bind-01",
+    "name": "How polonium's alpha shares the spoils",
+    "module": "binding-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "q-value",
+      "alpha-decay",
+      "momentum"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "Polonium-210 at rest alpha-decays to lead-206. The atomic masses are $m(^{210}\\mathrm{Po}) = 209.982874$ u, $m(^{206}\\mathrm{Pb}) = 205.974465$ u, $m(^4\\mathrm{He}) = 4.002603$ u, with $1$ u $= 931.5$ MeV$/c^2$. Find the kinetic energy of the alpha particle, in MeV.",
+    "answer": 5.31,
+    "unit": "MeV",
+    "solution": "The mass defect sets the total energy released: $\\Delta m = 209.982874 - (205.974465 + 4.002603) = 0.005806$ u, so $Q = 0.005806 \\times 931.5 = 5.408$ MeV. But the alpha does not get all of it — momentum conservation forces the lead nucleus to recoil. With the parent at rest, $p_\\alpha = p_{Pb}$, and since both are non-relativistic, $K = p^2/2m$ means the kinetic energies divide inversely with mass: $\\frac{K_\\alpha}{Q} = \\frac{m_{Pb}}{m_{Pb} + m_\\alpha} \\approx \\frac{206}{210}$. Therefore $K_\\alpha = 5.408 \\times \\frac{206}{210} = 5.31$ MeV, with the remaining $0.10$ MeV carried by the recoiling lead. This 2% correction is exactly what precision alpha spectroscopy measures."
+  },
+  {
+    "id": "hx-bind-02",
+    "name": "Weighing the sunlight",
+    "module": "binding-energy",
+    "difficulty": "Hard",
+    "tags": [
+      "mass-energy",
+      "stellar",
+      "power"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "At Earth's distance from the Sun, $d = 1.50\\times10^{11}$ m, the solar intensity is $1360$ W/m$^2$. Assuming the Sun radiates equally in all directions, find the rate at which the Sun loses mass through radiation, in kg/s. Use $c = 3.00\\times10^8$ m/s.",
+    "answer": 4270000000,
+    "unit": "kg/s",
+    "solution": "The intensity at Earth samples a sphere of radius $d$ centered on the Sun, so the total luminosity is $L = 4\\pi d^2 I = 4\\pi(1.50\\times10^{11})^2(1360) = 3.85\\times10^{26}$ W. Every joule radiated carries mass $E/c^2$ away, so $\\frac{dm}{dt} = \\frac{L}{c^2} = \\frac{3.85\\times10^{26}}{(3.00\\times10^8)^2} = 4.27\\times10^9$ kg/s. Four million tonnes a second sounds catastrophic, but against the Sun's $2\\times10^{30}$ kg it amounts to less than $0.01\\%$ of its mass over its entire ten-billion-year life."
+  },
+  {
+    "id": "hx-bind-03",
+    "name": "Burning a kilogram of deuterium completely",
+    "module": "binding-energy",
+    "difficulty": "Very Hard",
+    "tags": [
+      "fusion",
+      "q-value",
+      "energy-per-mass"
+    ],
+    "starred": false,
+    "origin": "original",
+    "source": "USAPhO Guide",
+    "url": "",
+    "statement": "In a future reactor, deuterium is consumed through four reactions: $\\mathrm{D+D \\to {}^3He + n}$ ($Q = 3.27$ MeV), $\\mathrm{D+D \\to T + p}$ ($Q = 4.03$ MeV), $\\mathrm{D+T \\to {}^4He + n}$ ($Q = 17.59$ MeV), and $\\mathrm{D+{}^3He \\to {}^4He + p}$ ($Q = 18.35$ MeV). The two D+D branches occur equally often, and every triton and helium-3 nucleus produced is burned in the latter two reactions. Find the total energy released when $1.00$ kg of deuterium is fully consumed, in J. Deuterium molar mass: $2.014$ g/mol; $N_A = 6.022\\times10^{23}$; $1$ eV $= 1.602\\times10^{-19}$ J.",
+    "answer": 345000000000000,
+    "unit": "J",
+    "solution": "Follow six deuterons through the chain. Two go into $\\mathrm{D+D \\to {}^3He+n}$ and two into $\\mathrm{D+D \\to T+p}$ (the branches being equally likely), releasing $3.27 + 4.03$ MeV and producing one $^3$He and one T. The fifth deuteron burns the triton ($17.59$ MeV) and the sixth burns the $^3$He ($18.35$ MeV). Total: $3.27 + 4.03 + 17.59 + 18.35 = 43.24$ MeV per six deuterons, or $7.207$ MeV per deuteron — more than the famous D-T reaction's $17.59/5 \\approx 3.5$ MeV per fuel nucleon pair would suggest at first glance. A kilogram contains $N = \\frac{1000}{2.014}(6.022\\times10^{23}) = 2.990\\times10^{26}$ deuterons, so $E = 2.990\\times10^{26} \\times 7.207\\times10^6 \\times 1.602\\times10^{-19} = 3.45\\times10^{14}$ J — roughly the output of a large power plant running for four days, from a kilogram of heavy-water fuel."
+  },
+  {
     "id": "kin-1d-01",
     "name": "Car speeding up from rest",
     "module": "motion-1d",

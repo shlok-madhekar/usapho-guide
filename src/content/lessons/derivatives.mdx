@@ -1,8 +1,8 @@
 ## The question: how fast, right now?
 
-A speedometer reads 27 m/s. That number is strange if you think about it. Speed is distance over time, but at the instant you glance down, no time has passed and no distance has been covered. Zero over zero. Whatever the needle is reporting, it is not an ordinary division.
+A speedometer reads 27 m/s. That number is strange if you think about it. Speed is distance over time, but at the instant you glance down, no time has passed and no distance has been covered. Zero over zero. Whatever the needle is reporting, it isn't an ordinary division.
 
-Something similar showed up in the [last lesson](/guide/vectors), where a vector had a definite direction at a point even though direction is a property of a whole line. Here the trick is the same: get the exact answer by watching an approximate one settle down. The tool that does this is the derivative, and it is the entire language kinematics is written in. Position, velocity, acceleration are not three separate things you memorize formulas about. They are one function and its first two derivatives.
+Something similar showed up in the [last lesson](/guide/vectors), where a vector had a definite direction at a point even though direction is a property of a whole line. Here the trick is the same: get the exact answer by watching an approximate one settle down. The tool that does this is the derivative, and kinematics is written in it from start to finish. Position, velocity, acceleration are not three separate things you memorize formulas about. They are one function and its first two derivatives.
 
 ## From average to instantaneous
 
@@ -18,13 +18,13 @@ The $3t^2$, the $-4t$ and the $2$ all cancel, leaving $6th + 3h^2 - 4h$ on top. 
 
 $$\frac{x(t+h)-x(t)}{h} = 6t + 3h - 4$$
 
-Now look at what happens as the interval shrinks. The $3h$ term is the only place $h$ survives, and it goes to zero. The average velocity over a shorter and shorter window does not thrash around; it walks calmly toward $6t - 4$. That limiting value is the **derivative** of $x$ with respect to $t$, written $dx/dt$ or $\dot{x}$, and it is what the speedometer reads:
+Now shrink the interval. The $3h$ term is the only place $h$ survives, and it goes to zero. The average velocity over a shorter and shorter window doesn't thrash around; it walks calmly toward $6t - 4$. That limiting value is the **derivative** of $x$ with respect to $t$, written $dx/dt$ or $\dot{x}$, and it is what the speedometer reads:
 
 $$v(t) = \frac{dx}{dt} = \lim_{h \to 0}\frac{x(t+h) - x(t)}{h} = 6t - 4$$
 
 On a graph of $x$ against $t$, the ratio you just computed is the slope of the straight line through two points on the curve: a *secant*. As the two points slide together, the secant tips over into the **tangent** at a single point. So the derivative is the slope of the tangent line, and the velocity at an instant is the steepness of the position graph there.
 
-<Figure caption={<><b>Figure 1.</b> The dashed line is the true tangent at t0; the solid line is the secant through t0 and t0 + h. Drag h down toward 0.02 s and watch the gap in the readout collapse: that collapse is the whole definition of a derivative.</>}>
+<Figure caption={<><b>Figure 1.</b> The dashed line is the true tangent at t0; the solid line is the secant through t0 and t0 + h. Drag h down toward 0.02 s and watch the gap in the readout collapse: that collapse is the limit the definition talks about.</>}>
   <Sim id="derivatives-tangent" />
 </Figure>
 
@@ -81,11 +81,11 @@ A cousin of this problem: a bead has $x(t) = 5t^3 - 2t$. Then $v = 15t^2 - 2$ an
 
 ## Maxima: the slope is zero at the top
 
-Here is the second job derivatives do, and in olympiad problems it is the more common one. At a smooth peak, the curve is momentarily flat: coming up it had positive slope, going down it has negative slope, so right at the top the slope is zero. Same at a trough. So to find where a quantity is largest, differentiate it and set the derivative to zero.
+Derivatives have a second job, and in olympiad problems it's the more common one. At a smooth peak, the curve is momentarily flat: coming up it had positive slope, going down it has negative slope, so right at the top the slope is zero. Same at a trough. So to find where a quantity is largest, differentiate it and set the derivative to zero.
 
 Which one you found (peak or trough) you settle by checking the second derivative, or more cheaply by evaluating the function just either side.
 
-<Figure caption={<><b>Figure 2.</b> The top panel is position, the bottom is its derivative. Notice what lines up: the peak of x sits exactly above the zero crossing of v, not above the peak of v. The maximum of a thing is a zero of its rate of change.</>}>
+<Figure caption={<><b>Figure 2.</b> The top panel is position, the bottom is its derivative. Look at what lines up: the peak of x sits exactly above the zero crossing of v, not above the peak of v. The maximum of a thing is a zero of its rate of change.</>}>
   <Sim id="derivatives-extremum" />
 </Figure>
 
@@ -106,7 +106,7 @@ This is also how "what angle gives the longest range" problems work. For a level
   explanation="A horizontal tangent means the slope of x versus t is zero, and that slope is the velocity. The acceleration is the curvature there, which can be anything: a ball at the top of its flight has v = 0 and a = -g."
 />
 
-## Related rates: when the chain rule is the whole problem
+## Related rates: the chain rule doing all the work
 
 A large family of problems gives you one rate and asks for another. A ladder's base is dragged out; how fast does the top fall? A balloon inflates at a known rate; how fast does its volume grow? Nothing is hard about these once you see the pattern, because the pattern is always the same three steps.
 
@@ -148,7 +148,7 @@ With $u = 0.60$ m/s, $L = 5.0$ m, $y = 4.0$ m:
 
 $$\frac{d^2y}{dt^2} = -\frac{(0.60)^2(25)}{64} = -\frac{9.0}{64} = -0.141\ \mathrm{m/s^2}$$
 
-So the magnitude is $0.141\ \mathrm{m/s^2}$. Note what the $y^3$ in the denominator promises: as the top nears the floor, $y \to 0$ and both its speed and its acceleration blow up. A constant push at the base makes a wildly non-constant motion at the top. That is the physical content of the whole problem.
+So the magnitude is $0.141\ \mathrm{m/s^2}$. And the $y^3$ in the denominator makes a promise: as the top nears the floor, $y \to 0$ and both its speed and its acceleration blow up. A constant push at the base makes a wildly non-constant motion at the top, which is the real physics of this problem.
 
 <Figure caption={<><b>Figure 3.</b> The base slides at a constant speed but the bar on the right, and the readout, show the top accelerating without bound as y shrinks. Set L to 5.0 m and the base speed to 0.60 m/s, and read off the acceleration as the base passes 3.0 m.</>}>
   <Sim id="derivatives-ladder" />
@@ -192,9 +192,9 @@ Here $dv/dx = 2.0\cdot\tfrac{1}{2}x^{-1/2} = 1/\sqrt{x}$, so $a = 2.0\sqrt{x}\cd
 
 **Circular motion.** If a particle moves on a circle of radius $r$ with angle $\theta(t)$, the arc travelled is $s = r\theta$, so its speed is $v = r\,d\theta/dt$. For $\theta = 0.50t^2$ on $r = 3.0$ m, $d\theta/dt = 1.0t$, so $v = 3.0t$ and $v(4.0) = 12\ \mathrm{m/s}$. Its acceleration has two perpendicular pieces: $a_t = dv/dt$ along the path, and $a_c = v^2/r$ toward the center. The total magnitude is $\sqrt{a_t^2 + a_c^2}$, because they are perpendicular vectors: that is the dot-product machinery from the previous lesson doing its job.
 
-## How to recognise a derivative problem
+## Four phrasings that mean "differentiate"
 
-Four phrasings should make you reach for $d/dt$ before you read the rest of the sentence.
+Each of these should have you writing $d/dt$ before you finish reading the sentence.
 
 **"At the instant..." or "at $t = $..."** paired with a formula for position or velocity. Differentiate, then substitute, in that order.
 
@@ -204,6 +204,6 @@ Four phrasings should make you reach for $d/dt$ before you read the rest of the 
 
 **Two changing quantities and one given rate.** Ladders, shadows, balloons, ropes being winched in, radar tracking. These are related rates: find the geometric relation, differentiate it in time, substitute last.
 
-The one habit that will save you most often is the ordering. Set up symbolically, differentiate symbolically, and only put numbers in at the final line. It is faster, it is less error-prone, and the symbolic answer usually tells you something: like that $-u^2L^2/y^3$, which explained the ladder better than $-0.141$ ever could.
+The one habit that will save you most often is the ordering. Set up symbolically, differentiate symbolically, and only put numbers in at the final line. It's faster, it's less error-prone, and the symbolic answer usually tells you something: like that $-u^2L^2/y^3$, which explained the ladder better than $-0.141$ ever could.
 
 Derivatives take a rule and give you the motion. The [next lesson](/guide/integrals) runs the machine backwards: given the acceleration, recover the velocity and the position.

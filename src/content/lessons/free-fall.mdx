@@ -16,8 +16,8 @@ that the acceleration is a known constant, the graphs from the
 Call the downward acceleration $g$. Near the Earth's surface $g = 9.8$ m/s²,
 which means a falling object gains 9.8 m/s of downward speed every second. After
 one second of falling from rest it is moving at 9.8 m/s, after two seconds
-19.6 m/s, after three seconds 29.4 m/s. That is the whole answer to "a wrench is
-dropped and falls for 3.0 s, how fast is it going".
+19.6 m/s, after three seconds 29.4 m/s. "A wrench is dropped and falls for
+3.0 s, how fast is it going" is already answered.
 
 $g$ is a positive number, always. Whether gravity speeds an object up or slows
 it down is decided by the sign you attach to it, not by $g$ itself. Choose a
@@ -27,7 +27,7 @@ positive direction first and write it on your paper. From here on,
 $$a = -g = -9.8\ \mathrm{m/s^2}$$
 
 and it is $-9.8$ on the way up, at the very top, and on the way down. Gravity
-does not know or care which way the object happens to be moving.
+doesn't know or care which way the object happens to be moving.
 
 Now recall the three constant-acceleration results from the previous lesson.
 Velocity changes at a steady rate, so it is linear in time. Position is the area
@@ -45,7 +45,7 @@ $$v^2 = v_0^2 - 2g(y - y_0)$$
 Read them in words. The first says the velocity falls steadily from whatever it
 started at. The second says the height is where you started, plus how far you
 would have drifted at the old velocity, minus the sag that gravity adds. The
-third is the one to reach for whenever a problem mentions two heights and two
+third is the one to use whenever a problem mentions two heights and two
 speeds but never mentions time.
 
 <Aside label="Worth remembering">
@@ -64,7 +64,7 @@ Every vertical-motion problem here has the same three graphs behind it. The acce
 straight line sloping down at that rate, crossing zero at the top of the flight.
 The height graph is a parabola whose peak sits directly above that crossing.
 
-Two facts fall straight out of the velocity line. First, the object reaches its
+The velocity line hands you two facts. First, the object reaches its
 highest point when $v = 0$, which by $v = v_0 - gt$ happens at
 
 $$t_{\text{top}} = \frac{v_0}{g}$$
@@ -77,11 +77,11 @@ ball thrown up from the ground at 25 m/s takes $25/9.8 = 2.55$ s to rise, and
 the same again to come back, giving 5.1 s in the air.
 
 Put $v = 0$ into the third equation and the maximum rise above the launch point
-is $v_0^2/2g$. For $v_0 = 20$ m/s that is $400/19.6 = 20.4$ m. Notice it goes as
+is $v_0^2/2g$. For $v_0 = 20$ m/s that is $400/19.6 = 20.4$ m. It goes as
 the square of the launch speed: throw twice as fast and you go four times as
 high.
 
-<Figure caption={<><b>Figure 2.</b> The same motion, three ways. The dotted cursor marks one instant in all three panels at once. Notice the acceleration panel never moves as you drag the launch speed, and that the velocity line crosses zero exactly under the peak of the height curve.</>}>
+<Figure caption={<><b>Figure 2.</b> The same motion, three ways. The dotted cursor marks one instant in all three panels at once. The acceleration panel never moves as you drag the launch speed, and the velocity line crosses zero exactly under the peak of the height curve.</>}>
   <Sim id="free-fall-graphs" />
 </Figure>
 
@@ -107,17 +107,17 @@ $$v^2 = 225 - 2(9.8)(-30) = 225 + 588 = 813$$
 
 $$v = \sqrt{813} = 28.5\ \mathrm{m/s}$$
 
-The square root is what makes this work: $v^2$ does not care about the sign of
+The square root is what makes this work: $v^2$ doesn't care about the sign of
 $v$, so the answer covers both the upward and the downward pass, and here only
 the downward one is below the tower top. The question asked for a speed, so
 28.5 m/s is the answer. Had it asked for velocity, the answer would be
 $-28.5$ m/s.
 
-Also notice that the launch direction dropped out. Thrown *down* at 15 m/s from
-the same tower, the ball passes 20 m at exactly the same speed, because $v_0$
-appears only as $v_0^2$.
+And the launch direction dropped out along the way. Thrown *down* at 15 m/s
+from the same tower, the ball passes 20 m at exactly the same speed, because
+$v_0$ appears only as $v_0^2$.
 
-## When you cannot avoid the quadratic
+## When you can't avoid the quadratic
 
 Sometimes a problem insists on a time, and then you have to solve
 $y = y_0 + v_0 t - \tfrac12 g t^2$ for $t$, which is a quadratic. That is not a
@@ -206,7 +206,7 @@ $4.9 + 9.8(2.0) = 24.5$ m.
 
 Many of the harder problems are not one motion but two glued together. The rule
 is the same every time: solve the first stage completely, then use its final
-position and final velocity as the starting conditions of the second. Do not try
+position and final velocity as the starting conditions of the second. Don't try
 to write one equation across the join, because the acceleration is different on
 each side of it.
 
@@ -263,7 +263,7 @@ leg took $40.7/340 = 0.12$ s, which is small but not nothing.
 
 ## When the acceleration refuses to stay constant
 
-Everything so far assumed no air. Real falls do not keep accelerating forever;
+Everything so far assumed no air. Real falls don't keep accelerating forever;
 a skydiver levels off near 55 m/s and a raindrop near 9 m/s. Drag pushes back
 against the motion and grows with speed, so the net downward force shrinks as
 the object speeds up. Write the slow-speed case, where drag is proportional to
@@ -277,7 +277,7 @@ accelerating and falls forever at a fixed rate:
 
 $$v_t = \frac{mg}{b}$$
 
-You do not need calculus to find $v_t$: set the net force to zero and solve.
+You don't need calculus to find $v_t$: set the net force to zero and solve.
 Getting the whole history $v(t)$ does need calculus, and the result you will be
 given is
 
@@ -325,9 +325,9 @@ the way there you are.
   why a hammer beats a feather in air and ties with it in vacuum.
 </Aside>
 
-## Recognising a free-fall problem
+## Three questions that pick the equation
 
-The tell is that gravity is the only thing acting and the motion is along one
+The tell for the whole topic is that gravity is the only thing acting and the motion is along one
 vertical line. Words like dropped, released, thrown straight up, falls freely,
 neglect air resistance all point here. Once you are sure, three questions pick
 the equation for you.

@@ -20,7 +20,7 @@ becomes a one-line calculation whenever the geometry is symmetric enough.
 
 ## Circulation, and what the law says
 
-Take any closed path in space: any loop at all, it does not have to be a wire
+Take any closed path in space: any loop at all, it doesn't have to be a wire
 or follow a field line. Walk around it, and at each step multiply the component
 of $\vec{B}$ along your direction of travel by the length of the step. Add up
 all those products as you go round once. That sum is written
@@ -39,9 +39,9 @@ $$\oint \vec{B}\cdot d\vec{\ell} = \mu_0 I_{enc}$$
 
 Here $\mu_0 = 4\pi\times10^{-7}$ T·m/A is the permeability of free space, the
 same constant that appeared in Biot-Savart, and $I_{enc}$ is the net current
-passing through any surface bounded by the loop. That is all. The shape of the
-loop does not matter, the distance to the wires does not matter, and (this is
-the surprising part) currents *outside* the loop do not matter.
+passing through any surface bounded by the loop. The shape of the
+loop doesn't matter, the distance to the wires doesn't matter, and (this is
+the surprising part) currents *outside* the loop don't matter either.
 
 A current outside your loop certainly makes a field at every point on the loop.
 But as you walk round, it helps you along one part of the path by exactly as
@@ -204,7 +204,7 @@ radius, and your position inside it. Only turns per metre. A solenoid $0.50$ m
 long with $800$ turns has $n = 1600$ m⁻¹, so at $1.5$ A,
 $B = (4\pi\times10^{-7})(1600)(1.5) = 3.0\times10^{-3}$ T.
 
-<Figure caption={<><b>Figure 2.</b> The dashed rectangle is the Amperian loop. Side 1 runs along the field and contributes B times L. Sides 2 and 4 cross the field at right angles and contribute nothing. Side 3 sits outside, where the field of a long solenoid is negligible. Notice that the loop catches n L turns no matter how far out you push side 3.</>}>
+<Figure caption={<><b>Figure 2.</b> The dashed rectangle is the Amperian loop. Side 1 runs along the field and contributes B times L. Sides 2 and 4 cross the field at right angles and contribute nothing. Side 3 sits outside, where the field of a long solenoid is negligible. The loop catches n L turns no matter how far out you push side 3.</>}>
   <Sim id="amperes-law-solenoid-loop" />
 </Figure>
 
@@ -241,7 +241,7 @@ field really is zero.
 $a = 0.10$ m to outer radius $b = 0.14$ m, stands $h = 0.040$ m tall, has
 $N = 800$ turns and carries $I = 5.0$ A. Find the flux through one cross-section.
 
-You cannot write flux as $B \times \text{area}$, because $B$ changes across the
+You can't write flux as $B \times \text{area}$, because $B$ changes across the
 face. Strip the square into vertical slivers of height $h$ and width $dr$, over
 each of which $B$ is effectively constant:
 
@@ -267,7 +267,7 @@ carrying $I_2$ back. A circle at radius $r$ still has the full rotational
 symmetry, so $B = \mu_0 I_{enc}/2\pi r$ everywhere; all you have to do is count
 correctly. Between the conductors, $I_{enc} = I_1$. Outside both,
 $I_{enc} = I_1 - I_2$, which is zero for a properly matched cable and is why
-coax does not radiate into the room. If only $5.0$ A returns for $7.0$ A sent,
+coax doesn't radiate into the room. If only $5.0$ A returns for $7.0$ A sent,
 then at $r = 8.0$ mm you enclose $2.0$ A and
 $B = (2\times10^{-7})(2.0)/0.0080 = 5.0\times10^{-5}$ T. If a miswired cable
 sends $10$ A and $4.0$ A the *same* way, you enclose $14$ A, and at
@@ -287,7 +287,7 @@ uniform current density $J$ out of the page. A cylindrical hole of any radius is
 bored parallel to the axis, its centre offset by $\vec{d}$ from the conductor's
 axis. Find the field inside the hole.
 
-A drilled cylinder has no symmetry, so Ampere's law cannot touch it directly.
+A drilled cylinder has no symmetry, so Ampere's law can't touch it directly.
 But a solid cylinder of density $J$ *plus* a smaller cylinder of density $-J$
 filling the hole is exactly the same current distribution: inside the hole the
 two densities cancel to zero, and everywhere else the full $J$ survives. Each
@@ -303,14 +303,15 @@ and $\vec{s}_2$ from the hole's axis to $P$. Adding:
 
 $$\vec{B} = \tfrac{1}{2}\mu_0\vec{J}\times\vec{s}_1 - \tfrac{1}{2}\mu_0\vec{J}\times\vec{s}_2 = \tfrac{1}{2}\mu_0\vec{J}\times(\vec{s}_1 - \vec{s}_2)$$
 
-and $\vec{s}_1 - \vec{s}_2$ is just $\vec{d}$, the offset between the two axes.
-It does not contain $P$ at all. The field everywhere inside the hole is the same
+and $\vec{s}_1 - \vec{s}_2$ is $\vec{d}$, the offset between the two axes.
+It doesn't contain $P$ at all. The field everywhere inside the hole is the same
 vector:
 
 $$B = \frac{\mu_0 J d}{2}$$
 
-perpendicular to $\vec{d}$. A uniform field inside a bored cavity: a genuinely
-surprising result, and one that falls out of two lines of superposition. With
+perpendicular to $\vec{d}$. A uniform field inside a bored cavity, from two
+lines of superposition. Griffiths puts this one on problem sets because nobody
+believes the answer until they've done it. With
 $J = 2.0\times10^{6}$ A/m² and $d = 1.0$ cm:
 
 $$B = \frac{(4\pi\times10^{-7})(2.0\times10^{6})(0.010)}{2} = 1.26\times10^{-2}\ \text{T}$$
@@ -334,7 +335,7 @@ $$B = \frac{(4\pi\times10^{-7})(6.37\times10^{4})(0.0050)}{2} = 2.0\times10^{-4}
   Amperian loop would ever crack it.
 </Aside>
 
-## Knowing when to reach for it
+## What an Ampere's law problem looks like
 
 Ampere's law is the right tool when the problem hands you one of a very short
 list of shapes, in a form that hints the answer should be clean.
@@ -348,9 +349,9 @@ Look for a question asked at a radius or a depth rather than at a named point: "
 author expects $B$ to depend on one coordinate only, which is exactly the
 condition that makes the circulation collapse to $B$ times a length.
 
-Look for a current density given as a function, $J(r)$, or a total current on a
-thick conductor. That is an invitation to integrate $J$ over the enclosed area
-and nothing more.
+A current density given as a function, $J(r)$, or a total current on a thick
+conductor, is an invitation to integrate $J$ over the enclosed area and nothing
+more.
 
 And when the geometry is nearly but not quite symmetric (a hole off the axis,
 an unbalanced shield) do not abandon the law. Split the object into symmetric
@@ -358,7 +359,7 @@ pieces and add.
 
 If instead you are given a finite segment of wire, a single circular loop, a
 point off the axis of a coil, or any shape with no repeating symmetry, Ampere's
-law is still true but it will not give you $B$. Go back to
+law is still true but it won't give you $B$. Go back to
 [Biot-Savart](/guide/biot-savart) and integrate.
 
 Everything above quietly assumed the currents were steady. Next that assumption

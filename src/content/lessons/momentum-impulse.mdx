@@ -1,7 +1,7 @@
 A baseball leaves a pitcher's hand at 40 m/s and a catcher stops it dead. For
 the few milliseconds the ball is squashing into the leather, the force between
-them is enormous, wildly non-constant, and completely unknown. You cannot write
-$F = ma$ for that, because you do not know $F$ at any instant, and $a$ changes
+them is enormous, wildly non-constant, and completely unknown. You can't write
+$F = ma$ for that, because you don't know $F$ at any instant, and $a$ changes
 from zero to something huge and back again in the time it takes a fly to beat
 its wings.
 
@@ -73,7 +73,7 @@ whether it hands you a distance or a duration.
 If the force is constant, the integral is a rectangle and $\vec J = \vec F\Delta t$.
 A 40 N force acting for 0.25 s delivers $40 \times 0.25 = 10\ \mathrm{N\cdot s}$.
 And $\mathrm{N\cdot s}$ is the same unit as $\mathrm{kg\cdot m/s}$, since
-$1\ \mathrm{N} = 1\ \mathrm{kg\cdot m/s^2}$. That is not a coincidence; it is the
+$1\ \mathrm{N} = 1\ \mathrm{kg\cdot m/s^2}$. That's not a coincidence; it's the
 theorem.
 
 If the force is not constant, you still want the area, and you can define an
@@ -103,7 +103,7 @@ Now the numbers:
 
 $$J = \frac{2 \times 900 \times 0.040}{\pi} = \frac{72.0}{3.14159} = 22.9\ \mathrm{N\cdot s}$$
 
-Notice the average force that hides in there: $\bar F = J/T = 22.9/0.040 = 573\ \mathrm{N}$,
+An average force hides in there: $\bar F = J/T = 22.9/0.040 = 573\ \mathrm{N}$,
 which is $2/\pi \approx 0.637$ of the peak. A half-sine hump is about two-thirds
 as effective as a square pulse of the same height.
 
@@ -290,7 +290,7 @@ Integrate from the initial mass $m_0$ to the final mass $m_f$:
 $$\Delta v = -u\int_{m_0}^{m_f}\frac{dm}{m} = u\ln\!\frac{m_0}{m_f}$$
 
 That is the rocket equation. What it says is brutal: speed grows only with the
-*logarithm* of the mass ratio, so doubling your fuel does not double your speed.
+*logarithm* of the mass ratio, so doubling your fuel doesn't double your speed.
 A 2000 kg rocket burning down to 800 kg with $u = 2800$ m/s, starting from rest,
 reaches
 
@@ -316,16 +316,16 @@ $9.8 \times 50 = 490\ \mathrm{m/s}$, leaving $1709\ \mathrm{m/s}$.
   answer comes out negative you have the ratio upside down.
 </Aside>
 
-## How to tell this is an impulse problem
+## The words that say "impulse"
 
-Reach for impulse and momentum when you see any of these:
+Switch to impulse and momentum when you see any of these:
 
 - **A duration, a contact time, or an average force.** "Stopped over 0.08 s",
   "the bat is in contact for 1.2 ms". Energy methods want a distance; this one
   wants a time.
 - **A force given as a function of time**, or a force-time graph. The question
   is asking you for an area.
-- **You are not told the force and do not want to know it.** Collisions,
+- **You're not told the force and don't want to know it.** Collisions,
   catches, kicks, explosions. You know the before and the after, and the middle
   is a mess you are allowed to skip.
 - **Mass per second.** "kg/s", "20 balls per second", "burns fuel at a constant

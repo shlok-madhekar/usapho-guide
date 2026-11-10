@@ -8,7 +8,7 @@ purple sheen on a camera lens.
 
 The [double slit](/guide/diffraction) gave you interference between two beams
 that left the same source and travelled different distances. A thin film does
-exactly that, with one difference worth the whole lesson: here the two beams
+exactly that, with one difference that changes everything downstream: here the two beams
 are made by the film itself. Light hits the top surface, and part of it bounces
 straight back. The rest goes in, crosses the film, bounces off the bottom
 surface, and comes back out travelling alongside the first beam. Two waves,
@@ -23,7 +23,7 @@ thickness $t$ and refractive index $n$. Call the wavelength in vacuum $\lambda$.
 The second beam crosses the film twice, down and back, so it travels an extra
 distance $2t$. What matters for interference is not the distance but how many
 wavelengths fit into it, and inside the film the wavelength is not $\lambda$.
-The frequency of light cannot change when it enters glass (the atoms at the
+The frequency of light can't change when it enters glass (the atoms at the
 surface are driven at the frequency they are hit with) but the speed drops to
 $v = c/n$. Since $\lambda_n = v/f$ and $\lambda = c/f$,
 
@@ -46,8 +46,8 @@ product, or putting it in twice.
 
 ## The flip
 
-If that were the whole story, a film would be bright whenever $2nt$ was a whole
-number of wavelengths. It is not the whole story, and the reason is something
+If that were all there was to it, a film would be bright whenever $2nt$ was a whole
+number of wavelengths. There is one more ingredient, and it is something
 you have already met on a rope.
 
 Send a pulse down a rope tied to a wall. The pulse comes back upside down. Send
@@ -61,8 +61,8 @@ reflection off a medium of lower index does not.** An inversion is a phase shift
 of half a cycle, so it is worth exactly $\lambda/2$ of extra path. People call
 it the half-wave loss; this lesson will call it a flip.
 
-Now there are two reflections to check, and each one either flips or it does
-not. Write the three indices down in order (above the film, the film, below
+Now there are two reflections to check, and each one either flips or it
+doesn't. Write the three indices down in order (above the film, the film, below
 the film) and compare across each boundary.
 
 <Figure caption={<><b>Figure 1.</b> The two rays and the two boundaries. Raise the substrate index above the film index and watch the lower reflection switch to a flip. Set the film to 1.33 and the substrate to 1.00 for soap in air, then set the substrate to 1.52 for a coating on glass.</>}>
@@ -85,7 +85,7 @@ these two lines, and memorising which is which for soap will hurt you the first
 time a problem puts the film on glass instead of air. Count the flips every
 time.
 
-Soap in air is air-soap-air: $1.00 \to 1.33$ flips, $1.33 \to 1.00$ does not.
+Soap in air is air-soap-air: $1.00 \to 1.33$ flips, $1.33 \to 1.00$ doesn't.
 One flip. Oil on water is $1.00 \to 1.46 \to 1.33$: still one flip. A magnesium
 fluoride coating on glass is $1.00 \to 1.38 \to 1.52$, rising all the way: two
 flips.
@@ -108,8 +108,8 @@ smallest nonzero thickness comes from the smallest order, $m = 0$:
 
 $$2(1.33)t = \tfrac{1}{2}(550\text{ nm}) = 275\text{ nm}$$
 
-so $t = 275/2.66 = 103.4$ nm. Round to 103 nm. Notice the shape of the answer:
-$t = \lambda/(4n)$. A quarter of the in-film wavelength, because the light
+so $t = 275/2.66 = 103.4$ nm. Round to 103 nm. The shape of the answer is worth
+a pause: $t = \lambda/(4n)$. A quarter of the in-film wavelength, because the light
 crosses it twice and a half-wave round trip is what the single flip needs.
 
 **Example 2. The coating on a camera lens.** Glass of index 1.52 is coated with
@@ -123,7 +123,7 @@ wave:
 
 $$t = \frac{\lambda}{4n} = \frac{550\text{ nm}}{4(1.38)} = 99.6\text{ nm}$$
 
-Same arithmetic, opposite meaning. That is the whole reason to count flips
+Same arithmetic, opposite meaning. That is why you count flips
 rather than memorise.
 
 A quarter-wave coating always sets the two reflected waves half a cycle apart,
@@ -229,13 +229,13 @@ $r^2/R = m\lambda$, so $r = \sqrt{m\lambda R}$:
 
 $$r = \sqrt{10 \times (589\times10^{-9}\text{ m}) \times 2.00\text{ m}} = \sqrt{1.178\times10^{-5}} = 3.43\times10^{-3}\text{ m}$$
 
-That is 3.43 mm. Two things fall out of $r = \sqrt{m\lambda R}$ for free. The
+That is 3.43 mm. The formula $r = \sqrt{m\lambda R}$ gives you more for free. The
 rings crowd together as you go out, because $r$ grows like $\sqrt{m}$. And if a
 liquid of index $n$ fills the gap, replace $\lambda$ by $\lambda/n$, so every
 ring shrinks by $\sqrt{n}$: a 3.00 mm ring in air becomes
 $3.00/\sqrt{1.33} = 2.60$ mm under water.
 
-<Figure caption={<><b>Figure 3.</b> Newton's rings from above, with the moving marker stepping through the orders. Notice how the rings bunch up outward, and how filling the gap with liquid pulls them all inward.</>}>
+<Figure caption={<><b>Figure 3.</b> Newton's rings from above, with the moving marker stepping through the orders. The rings bunch up outward, and filling the gap with liquid pulls them all inward.</>}>
   <Sim id="thin-film-newton" />
 </Figure>
 
@@ -269,7 +269,7 @@ $t = \lambda/(2n)$ at the smallest nonzero thickness, 188 nm for 500 nm light.
 
 ## How to spot one of these
 
-Reach for thin-film interference when a problem mentions a film, coating,
+Think thin film when a problem mentions a film, coating,
 slick, bubble, gap, or wedge whose thickness is comparable to a wavelength (tens to a couple of thousand nanometres) and then asks about colour, missing
 wavelengths, brightness, or darkness in reflected or transmitted light. Three
 indices in a stack is the giveaway.

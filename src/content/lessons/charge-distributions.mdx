@@ -22,15 +22,16 @@ from the chunk towards your field point. Add up every chunk:
 
 $$\vec E = \int d\vec E$$
 
-That is the whole physics. It is one line and it is already finished. What
+The physics ends there, one line in. What
 remains is bookkeeping, but the bookkeeping is where people lose the
-problem, so it is worth having a fixed routine.
+problem, so it's worth having a fixed routine.
 
 How much charge is in a chunk depends on how the charge is spread. On a wire
 you quote charge per unit length, $\lambda$, in C/m, so $dq = \lambda\,dx$. On
 a surface you quote charge per unit area, $\sigma$, in C/m², so
 $dq = \sigma\,dA$. Through a solid you quote charge per unit volume, $\rho$,
-in C/m³, so $dq = \rho\,dV$. Those three letters are the whole vocabulary.
+in C/m³, so $dq = \rho\,dV$. Three letters, three geometries, and you won't
+need a fourth.
 
 ## The three decisions
 
@@ -42,7 +43,7 @@ field, a disk is just a stack of rings and you never have to do a double
 integral.
 
 **Two: kill a component before you integrate.** $d\vec E$ is a vector, and you
-cannot integrate a vector by integrating its length. Look for symmetry first.
+can't integrate a vector by integrating its length. Look for symmetry first.
 If every element has a partner whose sideways contribution points the opposite
 way, those sideways parts cancel in pairs, and you only need the surviving
 component: $dE_\parallel = dE\cos\theta$. Now you are integrating a scalar,
@@ -89,7 +90,7 @@ $z^2 + R^2 = 3z^2$ and
 
 $$z_{\text{peak}} = \frac{R}{\sqrt 2}$$
 
-<Figure caption={<><b>Figure 1.</b> Drag the probe along the axis and watch the arrow and the curve below. The field is zero at the centre, zero far away, and largest at z = R/sqrt(2). Change R and notice that the peak moves with it but the shape does not.</>}>
+<Figure caption={<><b>Figure 1.</b> Drag the probe along the axis and watch the arrow and the curve below. The field is zero at the centre, zero far away, and largest at z = R/sqrt(2). Change R: the peak moves with it but the shape does not.</>}>
   <Sim id="charge-distributions-ring" />
 </Figure>
 
@@ -106,8 +107,8 @@ $z \ll R$, the denominator is just $R^3$, so $E_z \approx kQz/R^3$: a field
 that grows *linearly* with displacement. A charge $-q$ of mass $m$ on the axis
 then feels a restoring force $-kQqz/R^3$, which is Hooke's law with
 $k_{\text{eff}} = kQq/R^3$. It oscillates, with
-$\omega = \sqrt{kQq/(mR^3)}$. That is the whole solution to any "bead through
-a ring" problem you meet.
+$\omega = \sqrt{kQq/(mR^3)}$. Every "bead through a ring" problem you meet
+comes down to this calculation.
 
 <QuickCheck
   question="You double the radius of a ring while keeping its total charge fixed. The peak field on the axis changes by what factor?"
@@ -131,11 +132,11 @@ $\cos\theta = y/\sqrt{x^2+y^2}$. So
 
 $$E = \int_{-L/2}^{L/2} \frac{k\lambda\,dx}{x^2+y^2}\cdot\frac{y}{\sqrt{x^2+y^2}} = k\lambda y\int_{-L/2}^{L/2}\frac{dx}{(x^2+y^2)^{3/2}}$$
 
-<Figure caption={<><b>Figure 2.</b> The setup that makes the rod integral work. Notice that the two dE arrows have the same horizontal part and opposite vertical parts: that is what lets you throw away one component before integrating.</>}>
+<Figure caption={<><b>Figure 2.</b> The setup that makes the rod integral work. The two dE arrows have the same horizontal part and opposite vertical parts: that is what lets you throw away one component before integrating.</>}>
   <Sim id="charge-distributions-rod-setup" />
 </Figure>
 
-That integral is a standard one, and it is worth knowing where it comes from:
+That integral is a standard one, and it's worth knowing where it comes from:
 substitute $x = y\tan\theta$, so $dx = y\sec^2\theta\,d\theta$ and
 $(x^2+y^2)^{3/2} = y^3\sec^3\theta$, and the integrand collapses to
 $\cos\theta\,d\theta/y^2$. Integrating gives $\sin\theta/y^2$, and
@@ -143,7 +144,7 @@ $\sin\theta = x/\sqrt{x^2+y^2}$. So
 
 $$E = \frac{k\lambda}{y}\left[\frac{x}{\sqrt{x^2+y^2}}\right]_{-L/2}^{L/2} = \frac{2k\lambda}{y}\cdot\frac{L/2}{\sqrt{y^2+L^2/4}} = \frac{kQ}{y\sqrt{y^2+L^2/4}}$$
 
-Two limits fall straight out. If $y \gg L$ the square root is just $y$ and you
+Push the formula to its limits. If $y \gg L$ the square root is just $y$ and you
 get $kQ/y^2$: a point charge again. If $y \ll L$ the square root is $L/2$ and
 the $L$ cancels, leaving
 
@@ -203,7 +204,7 @@ to 1:
 
 $$E_{\text{sheet}} = \frac{\sigma}{2\varepsilon_0}$$
 
-which does not depend on distance at all. Two parallel plates with $+\sigma$
+which doesn't depend on distance at all. Two parallel plates with $+\sigma$
 and $-\sigma$ each contribute this, in the same direction between them and in
 opposite directions outside, so the gap field is $\sigma/\varepsilon_0$ and
 the outside field is zero. The same $\sigma/\varepsilon_0$ shows up just
@@ -226,7 +227,7 @@ another is often faster than any integral.
 *not* uniform: $\sigma(r) = \sigma_0 r/R$ with $\sigma_0 = 5.0\times10^{-7}$
 C/m². Find $E$ on the axis at $z = 6.0$ cm.
 
-You cannot use the uniform-disk answer, but the ring decomposition still
+You can't use the uniform-disk answer, but the ring decomposition still
 works, because $\sigma$ is constant around any one ring. The ring at radius
 $s$ carries $dq = \sigma(s)\,2\pi s\,ds = 2\pi\sigma_0 s^2\,ds/R$, so
 
@@ -326,9 +327,9 @@ and it comes out of two lines of subtraction.
   changes how the rest of the charge arranges itself.
 </Aside>
 
-## Recognising which tool the problem wants
+## Read the geometry before the numbers
 
-Read the geometry first, not the numbers.
+The shape of the object decides the method, so look at it first.
 
 If every piece of charge is the same distance from the field point (a ring on
 its axis, an arc at its centre, a shell at a point outside) the integral is

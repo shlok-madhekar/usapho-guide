@@ -9,7 +9,7 @@ electrons pile up into a thin layer of negative surface charge, and that layer
 attracts the charge. To find the force you need the surface charge density
 $\sigma$ at every point of the plate. But $\sigma$ arranges itself in response
 to the total field, and the total field includes the field of $\sigma$ itself.
-You cannot integrate your way in from the outside. This is a *boundary-value
+You can't integrate your way in from the outside. This is a *boundary-value
 problem*: you are not told the charge everywhere, you are told a condition on a
 surface, and you have to build the field that satisfies it.
 
@@ -26,8 +26,8 @@ $\nabla^2 V = 0$ wherever there is no charge. The **uniqueness theorem** says:
 if you specify the charge inside a region and the value of $V$ on every
 boundary of that region, then at most one potential satisfies both.
 
-Read what that buys you. You are allowed to find the solution *any way you
-like*, including inventing fictitious charges out of thin air. If your
+That's a bigger licence than it sounds. You're allowed to find the solution
+*any way you like*, including inventing fictitious charges out of thin air. If your
 construction (a) puts the same real charges in the region you care about and
 (b) produces the correct potential on the boundary, it is the answer. There is
 nothing left to check. A guess that passes those two tests is a proof.
@@ -111,7 +111,7 @@ electron out of a metal.
 
 ## Energy: the factor of one half
 
-Here is the trap. Two real charges $+q$ and $-q$ separated by $2d$ have
+Now the trap. Two real charges $+q$ and $-q$ separated by $2d$ have
 interaction energy $-kq^2/2d$. That is *not* the energy of the charge-plane
 system.
 
@@ -166,7 +166,7 @@ charges in total counting the real one, so you need $360^\circ/\theta - 1$
 images. A $30^\circ$ wedge needs $12 - 1 = 11$. If $360^\circ/\theta$ is not an
 integer the images never close up and the method fails outright.
 
-<Figure caption={<><b>Figure 2.</b> The right-angle corner. Two negative images and one positive one, with the force each exerts on the real charge. Notice that the far positive image pushes outward and partly cancels the two attractions.</>}>
+<Figure caption={<><b>Figure 2.</b> The right-angle corner. Two negative images and one positive one, with the force each exerts on the real charge. The far positive image pushes outward and partly cancels the two attractions.</>}>
   <Sim id="boundary-value-em-corner" />
 </Figure>
 
@@ -180,7 +180,7 @@ pair is an infinite series rather than a closed formula.
 
 One special case you can do in your head: a charge exactly midway between two
 grounded plates. Every image on the left has a partner at the mirror distance
-on the right, so every force cancels in pairs and the net force is zero. It is
+on the right, so every force cancels in pairs and the net force is zero. It's
 an unstable equilibrium.
 
 ### Example 3: charge between two grounded plates
@@ -208,15 +208,15 @@ $4.00 - 0.444 - 0.250 = 3.31\times10^{-5}$ N to the left, and the remaining
 terms add back about $10\%$. Summing the whole ladder gives $3.66\times10^{-5}$
 N, or $36.6$ $\mu$N, toward the near plate.
 
-You will not be asked to sum an infinite series by hand under time pressure.
-You will be asked to write down the ladder correctly and evaluate enough terms
-to answer to two figures.
+You won't be asked to sum an infinite series by hand under time pressure. What
+you will be asked for is the ladder written down correctly, with enough terms
+evaluated to answer to two figures.
 
 ## The grounded sphere
 
 The sphere is the other geometry worth memorising. Put $q$ a distance $a$ from
 the centre of a grounded sphere of radius $R$, with $a > R$. One image still
-works, but it is neither equal in size nor at the mirror point. Put
+works, but it's neither equal in size nor at the mirror point. Put
 
 $$q' = -\frac{R}{a}\,q \qquad \text{at a distance} \qquad b = \frac{R^2}{a}$$
 
@@ -224,7 +224,8 @@ from the centre, on the line joining the centre to $q$. Those two numbers are
 forced: writing the potential at a surface point at angle $\alpha$ from that
 line and demanding it vanish for *all* $\alpha$ gives exactly this pair.
 
-Three things follow. The total induced charge on a grounded sphere is $q'$
+That pair of numbers hands you several results at once. The total induced
+charge on a grounded sphere is $q'$
 itself, since all the field lines from $q$ that land on the sphere must
 terminate on that much charge. The force is the attraction between $q$ and
 $q'$, separated by $a - b$:
@@ -236,7 +237,7 @@ $U = -kq^2R/\left[2(a^2-R^2)\right]$.
 
 Two variants come up constantly:
 
-- **Isolated and neutral.** The sphere cannot take on net charge $q'$, so add a
+- **Isolated and neutral.** The sphere can't take on net charge $q'$, so add a
   second image $+\frac{R}{a}q$ at the centre. A charge at the centre gives the
   same potential at every surface point, so the surface is still an
   equipotential (just not at zero), and the net image charge is now zero.
@@ -309,9 +310,9 @@ at the mirror point. When $\varepsilon_r \to \infty$ you recover the perfect
 conductor, $q' = -q$. The bound surface charge density follows the same shape
 as $\sigma$ did for the conductor, with $q$ replaced by $q'$.
 
-## Recognising a boundary-value problem
+## Spotting an image-charge setup
 
-Reach for images when a problem has all three of these features.
+Use images when a problem has all three of these features.
 
 **A conductor, or a dielectric surface, with a symmetric shape.** Plane,
 sphere, cylinder, or a corner built from planes. Anything else and the images
@@ -323,8 +324,8 @@ loudest possible signal: it means $V = 0$ on that surface, which is exactly
 what an image is built to enforce.
 
 **A question about force, energy, induced charge, or capacitance** on a charge
-that sits outside the conductor. Gauss's law cannot touch these, because the
-induced charge is not uniform and there is no surface on which $E$ is constant.
+that sits outside the conductor. Gauss's law can't touch these, because the
+induced charge isn't uniform and there is no surface on which $E$ is constant.
 
 Then run the checklist. Identify the region you care about. Put images only
 *outside* it. Verify $V$ on the boundary. Use the full formula for force,

@@ -6,7 +6,7 @@ acceleration, then use a kinematic equation. Now curve the ramp so the slope
 changes as the block climbs. The acceleration is no longer constant, the
 kinematic equations die, and the honest route is a differential equation.
 
-But something has not changed. The block started with a certain amount of
+But something hasn't changed. The block started with a certain amount of
 motion and ended with none, and gravity and friction were what drained it. If
 you can keep an account of how much each force takes out of that stock of
 motion, you get the answer without ever knowing the acceleration at any instant.
@@ -23,8 +23,8 @@ that trade is bookkeeping.
 
 Push a crate $4.0\ \mathrm{m}$ across the floor with a steady $25\ \mathrm{N}$
 in the direction it moves, and you have done $25 \times 4.0 = 100\
-\mathrm{J}$ of work. One joule is one newton-metre. That is the whole
-definition when the force and the motion point the same way.
+\mathrm{J}$ of work. One joule is one newton-metre. With force and motion
+aligned, work is force times distance, full stop.
 
 Now tilt your push. A child drags a sled with a rope at $30^\circ$ above the
 horizontal. The rope pulls partly forward and partly upward, and the sled only
@@ -41,7 +41,7 @@ angle between them. For the sled, $W = 40 \times 6.0 \times \cos 30^\circ$.
 In vector language this is the dot product, $W = \vec F \cdot \vec d$, which is
 the machine that picks out "the part of one vector along another".
 
-Three consequences fall straight out of the cosine. At $\theta = 0$ you get
+The cosine does three jobs. At $\theta = 0$ you get
 $W = Fd$, the most work a force of that size can do. At $\theta = 90^\circ$,
 $\cos\theta = 0$ and the work is **exactly zero**: a normal force on a sliding
 block, the tension in a string swinging a ball in a circle, the track pressing
@@ -90,7 +90,7 @@ the force is effectively constant across each, multiply force by step, and add.
 
 $$W = \int_{A}^{B} \vec F \cdot d\vec r$$
 
-If you have not met an integral, read the symbol as "the area under the curve of
+If you haven't met an integral, read the symbol as "the area under the curve of
 $F$ against $x$". That is not a metaphor: it is what the sum of
 $(\text{height}) \times (\text{width})$ strips converges to. **Area under an
 $F$ versus $x$ graph is work**, and area below the axis counts as negative.
@@ -123,7 +123,7 @@ and watch the total work stop growing.</>}>
 </Figure>
 
 <Aside label="Where this goes wrong" warn>
-  When a force reverses sign partway along the path, do not take the area of
+  When a force reverses sign partway along the path, don't take the area of
   the whole shape and call it done. Split at the crossing point, and subtract
   the part below the axis instead of adding it. A sketch of $F$ against $x$
   before you integrate costs ten seconds and catches this every time.
@@ -131,7 +131,7 @@ and watch the total work stop growing.</>}>
 
 ## Net work is the change in kinetic energy
 
-Here is why any of this is worth tracking. Start from $F_{\text{net}} = ma$ for
+Now for why any of this is worth tracking. Start from $F_{\text{net}} = ma$ for
 motion along a line and compute the work done by the net force:
 
 $$W_{\text{net}} = \int F_{\text{net}}\,dx = \int m\frac{dv}{dt}\,dx$$
@@ -152,14 +152,14 @@ the total equals the change in its $\tfrac12 mv^2$. Speed up and the net work
 was positive. Slow down and it was negative. Move at constant speed, even
 around a corner, and the net work was zero.
 
-Notice what is absent. There is no time in that equation, and no acceleration.
-That is the whole reason to use it. A $1200\ \mathrm{kg}$ car at $20\
+Look at what's absent: no time in that equation, and no acceleration. That
+absence is the reason to use it. A $1200\ \mathrm{kg}$ car at $20\
 \mathrm{m/s}$ comes to a stop; the brakes did $0 - \tfrac12(1200)(20)^2 =
--240{,}000\ \mathrm{J}$ of work, and you do not need to know whether it took
+-240{,}000\ \mathrm{J}$ of work, and you don't need to know whether it took
 two seconds or ten.
 
 <Aside label="Where this goes wrong" warn>
-  Do not compute $W_{\text{net}}$ from the net force and then add the
+  Don't compute $W_{\text{net}}$ from the net force and then add the
   individual works on top of it. Pick one route: either sum the forces as
   vectors and dot the result with the displacement, or work out each force's
   contribution separately and add the numbers. Doing both double counts, and
@@ -185,7 +185,7 @@ friction. Gravity and the normal force are both perpendicular to the motion, so
 they do no work and you can drop them from the energy account, but you still
 need the normal force's *size*, because friction depends on it.
 
-Vertically the sled does not accelerate, so
+Vertically the sled doesn't accelerate, so
 $N = mg - T\sin 25^\circ = (25)(9.8) - 90(0.4226) = 245 - 38.0 = 207.0\
 \mathrm{N}$. That upward tug of the rope matters: friction is
 $f = \mu_k N = 0.15 \times 207.0 = 31.05\ \mathrm{N}$.
@@ -201,7 +201,7 @@ $v_f^2 = 2(606.2)/25 = 48.5$ and $v_f = 6.96\ \mathrm{m/s}$.
 rest is pushed along the $x$-axis by $F = 4x^2$ newtons, with $x$ in metres,
 from $x = 0$ to $x = 3.0\ \mathrm{m}$. Find the final speed.
 
-You cannot use $Fd$, because $F$ runs from $0$ to $4(3.0)^2 = 36\ \mathrm{N}$.
+You can't use $Fd$, because $F$ runs from $0$ to $4(3.0)^2 = 36\ \mathrm{N}$.
 Take the area instead. With $n = 2$, the area under $4x^2$ from $0$ to $3.0$ is
 $4 \times 3.0^3/3 = 4 \times 27/3 = 36\ \mathrm{J}$.
 
@@ -218,7 +218,7 @@ nightmare with $F = ma$.
 \mathrm{kg}$ and length $2.0\ \mathrm{m}$ hangs from a hook. How much work does
 it take to pull all of it up onto the hook?
 
-The trap is to reach for $mgh$ and not know what to use for $h$. Different
+The trap is to grab $mgh$ and not know what to use for $h$. Different
 pieces of the chain have to be lifted different distances: the top link barely
 moves, the bottom link travels the full $2.0\ \mathrm{m}$. So slice it.
 
@@ -242,7 +242,7 @@ $mg \times (\text{rise of the centre of mass})$.
 The centre-of-mass shortcut earns its keep whenever only part of an object
 moves. Suppose a length $\ell$ of a chain lying on a table hangs over the edge,
 with mass per unit length $\lambda$. The part on the table is already at table
-height and does not need lifting. The hanging part has mass $\lambda \ell$ and
+height and doesn't need lifting. The hanging part has mass $\lambda \ell$ and
 its centre of mass sits $\ell/2$ below the edge, so pulling it all back up
 costs
 
@@ -294,7 +294,7 @@ block comes back with the speed it left with.</>}>
   <Sim id="work-energy-theorem-ramp" />
 </Figure>
 
-## How to recognise a work-energy problem
+## No clock in the question
 
 Look for these signals in the problem statement.
 
@@ -313,7 +313,7 @@ wants you tracking the direction of motion. Add up the work.
 **Something that moves in pieces**, like a chain or a rope, where "the distance
 moved" is different for different parts. Slice it, or use the centre of mass.
 
-Reach for $F = ma$ instead when the question asks *when* something happens,
+Go back to $F = ma$ when the question asks *when* something happens,
 or asks for a force, or for an acceleration at a specific instant. Work-energy
 throws away the timeline in exchange for a scalar equation, which is a very
 good trade right up until the timeline is what you were asked about.

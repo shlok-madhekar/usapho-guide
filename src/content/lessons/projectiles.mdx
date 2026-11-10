@@ -6,13 +6,13 @@ the table edge and drop it at the exact moment the first one leaves. They hit
 the floor together. Not roughly together: together, every time, no matter how
 fast you rolled the first one.
 
-That is the whole subject in one experiment. Moving sideways does nothing to
-how fast you fall. Falling does nothing to how fast you move sideways. So a
-problem that looks two-dimensional and frightening is really two
+One experiment, and it carries everything that follows. Moving sideways does
+nothing to how fast you fall. Falling does nothing to how fast you move
+sideways. So a problem that looks two-dimensional and frightening is really two
 one-dimensional problems you already solved in the last lesson, running side by
 side and sharing a single clock.
 
-<Figure caption={<><b>Figure 1.</b> Drop one ball, launch the other sideways at the same instant. The dashed tie line joins them: they are at the same height at every moment. Slide the launch speed all the way to 30 m/s and watch the readout: the height column does not change.</>}>
+<Figure caption={<><b>Figure 1.</b> Drop one ball, launch the other sideways at the same instant. The dashed tie line joins them: they are at the same height at every moment. Slide the launch speed all the way to 30 m/s and watch the readout: the height column doesn't change.</>}>
   <Sim id="projectiles-independence" />
 </Figure>
 
@@ -46,7 +46,7 @@ thing they share is $t$.
 That sharing is the engine of every projectile problem. One direction tells you
 the time; you hand that time to the other direction.
 
-<Figure caption={<><b>Figure 2.</b> The same flight with the velocity broken into parts at launch, at the top, and at landing. Notice that the teal horizontal arrow is identical at all three points, and that the vertical arrow at landing is the launch one flipped over.</>}>
+<Figure caption={<><b>Figure 2.</b> The same flight with the velocity broken into parts at launch, at the top, and at landing. The teal horizontal arrow is identical at all three points, and the vertical arrow at landing is the launch one flipped over.</>}>
   <Sim id="projectiles-components" />
 </Figure>
 
@@ -105,10 +105,10 @@ into $x(t)$ and $T/2$ into $y(t)$ gives the other two:
 
 $$R = \frac{v_0^2\sin 2\theta}{g}, \qquad H = \frac{v_0^2\sin^2\theta}{2g}$$
 
-using $2\sin\theta\cos\theta = \sin 2\theta$. Two consequences get tested
-constantly. First, $\sin 2\theta$ is largest when $2\theta = 90^\circ$, so the
-range peaks at $\theta = 45^\circ$ with $R_{\max} = v_0^2/g$. Second,
-$\sin 2\theta$ is symmetric about that peak: $\sin(2 \times 25^\circ)$ equals
+using $2\sin\theta\cos\theta = \sin 2\theta$. Exams keep coming back to two
+consequences of that $\sin 2\theta$. It is largest when $2\theta = 90^\circ$, so
+the range peaks at $\theta = 45^\circ$ with $R_{\max} = v_0^2/g$. And it is
+symmetric about that peak: $\sin(2 \times 25^\circ)$ equals
 $\sin(2 \times 65^\circ)$. Any two angles that add to $90^\circ$ give the same
 range at the same speed. The steep one takes longer and climbs higher; it just
 lands in the same place.
@@ -134,7 +134,7 @@ is the top.
 <Aside label="Where this goes wrong" warn>
   $R$, $H$ and $T$ above assume the projectile lands at exactly its launch
   height. A cliff, a slope, a wall or a raised target breaks that assumption,
-  and the range formula does not fail loudly: it hands you a confident wrong
+  and the range formula doesn't fail loudly: it hands you a confident wrong
   number. The moment the landing height differs from the launch height, throw
   the formulas away and go back to $x(t)$ and $y(t)$.
 </Aside>
@@ -290,14 +290,14 @@ speed quadruples the range.
   explanation="The fall time is set by the cliff height alone and does not change, so the horizontal distance scales directly with the launch speed. The v squared rule belongs to the level-ground range formula, where the launch speed also changes the time in the air."
 />
 
-## How to recognise it
+## Spotting a projectile, and picking the route
 
 You are looking at a projectile problem when something is released or launched
 and then nothing but gravity acts on it: no thrust, no friction, no rope, no
 contact. The giveaways in the wording: "thrown", "kicked", "fired", "launched",
 "neglect air resistance", "leaves the edge".
 
-Once you know it is one, the sentence that tells you *which* method:
+Once you know it's one, the sentence that tells you *which* method:
 
 - Launch and landing at the same height, asking for range, height or flight
   time: use $R$, $H$, $T$ directly.
@@ -313,8 +313,8 @@ Once you know it is one, the sentence that tells you *which* method:
   speed.
 
 The universal fallback, when nothing above fits, is always available: write
-$x(t)$ and $y(t)$, write down the condition the problem states, and solve. It
-is slower than a remembered formula and it has never once given a wrong answer.
+$x(t)$ and $y(t)$, write down the condition the problem states, and solve. It's
+slower than a remembered formula and it has never once given a wrong answer.
 
 Everything here assumed you were standing still watching the flight. Next you
 will ask what the same parabola looks like to someone on a moving train, which

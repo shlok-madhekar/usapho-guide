@@ -83,7 +83,7 @@ Read it the way you read $F = ma$. Double the torque and you double the angular
 acceleration. Double $I$, by moving the same mass further out, and you halve it
 for the same torque. Zero net torque means constant $\omega$, not zero $\omega$.
 
-Two more results fall out. If a torque turns a body through a small angle
+The same multiplication gives you work and power. If a torque turns a body through a small angle
 $d\theta$, the force's application point moves $ds = r\,d\theta$, so
 $dW = F_\perp\,ds = (rF_\perp)\,d\theta$, giving $W = \tau\theta$ for a constant
 torque and $P = \tau\omega$ for the power: the mirrors of $W = Fd$ and
@@ -91,7 +91,7 @@ $P = Fv$. A torque of 8.0 N·m through 25 rad does 200 J; 14 N·m at 50 rad/s
 delivers 700 W.
 
 <Aside label="Worth remembering">
-  The whole rotational toolkit is the linear one with three swaps: $F \to \tau$,
+  The rotational toolkit is the linear one with three swaps: $F \to \tau$,
   $m \to I$, $a \to \alpha$. So $W = \tau\theta$, $P = \tau\omega$,
   $K = \tfrac12 I\omega^2$, and the constant-$\alpha$ kinematics
   $\omega = \omega_0 + \alpha t$ and $\theta = \omega_0 t + \tfrac12\alpha t^2$
@@ -141,11 +141,11 @@ The block feels gravity down and tension up. Taking down as positive,
 $$mg - T = ma$$
 
 The pulley feels the cord pulling tangentially at its rim with the same $T$
-(the cord does not stretch or slip), so the torque on it is $TR$, and
+(the cord doesn't stretch or slip), so the torque on it is $TR$, and
 
 $$TR = I\alpha, \qquad I = \tfrac12 MR^2$$
 
-The constraint: the cord does not slip on the rim, so the speed of the cord
+The constraint: the cord doesn't slip on the rim, so the speed of the cord
 equals the speed of the rim, $v = \omega R$, and differentiating,
 $a = \alpha R$, so $\alpha = a/R$. Substitute that into the pulley equation:
 
@@ -160,7 +160,7 @@ With numbers, $a = (3.0)(9.8)/(3.0 + 1.0) = 29.4/4.0 = 7.35\ \mathrm{m/s^2}$.
 The tension follows: $T = \tfrac12 Ma = (1.0)(7.35) = 7.35\ \mathrm{N}$, well
 under the block's weight of 29.4 N.
 
-Notice the shape of the answer. The pulley contributes $I/R^2 = \tfrac12 M$ to
+The answer has a shape worth pausing on. The pulley contributes $I/R^2 = \tfrac12 M$ to
 the denominator, as if the system carried an extra $\tfrac12 M$ of mass that has
 to be accelerated. That "effective mass" $I/R^2$ is worth carrying in your head.
 
@@ -212,7 +212,7 @@ $1.0\ \mathrm{kg}$ disk gives
 $a = (4.0 - 2.0)(9.8)/(4.0 + 2.0 + 0.5) = 19.6/6.5 = 3.02\ \mathrm{m/s^2}$ in one
 line.
 
-<Figure caption={<><b>Figure 3.</b> The forces in that problem, drawn out. Notice that the two cord tensions are labelled separately: T2 minus T1 is what supplies the pulley's torque, and it is zero only if the pulley is massless.</>}>
+<Figure caption={<><b>Figure 3.</b> The forces in that problem, drawn out. The two cord tensions are labelled separately: T2 minus T1 is what supplies the pulley's torque, and it is zero only if the pulley is massless.</>}>
   <Sim id="rotational-dynamics-fbd" />
 </Figure>
 
@@ -251,8 +251,8 @@ $$\alpha = \frac{\tau}{I} = \frac{MgL/2}{ML^2/3} = \frac{3g}{2L}$$
 
 For $L = 1.2\ \mathrm{m}$, that is $\alpha = 3(9.8)/(2)(1.2) = 12.25\ \mathrm{rad/s^2}$.
 
-Two things here. The mass cancelled, as it always does when gravity is the only
-thing acting. And the centre of mass
+The mass cancelled, as it always does when gravity is the only thing acting.
+More interesting: the centre of mass
 accelerates at $a_{cm} = \alpha(L/2) = 3g/4 = 7.35\ \mathrm{m/s^2}$, which is
 *less* than $g$. Something must be holding the rod up, and it is the hinge.
 Apply $F = ma$ to the rod as a whole, taking down as positive:
@@ -260,8 +260,8 @@ Apply $F = ma$ to the rod as a whole, taking down as positive:
 $$Mg - F_{\text{hinge}} = M a_{cm} = M\tfrac34 g \quad\Longrightarrow\quad F_{\text{hinge}} = \tfrac14 Mg$$
 
 For $M = 2.0\ \mathrm{kg}$ that is $(0.25)(2.0)(9.8) = 4.9\ \mathrm{N}$ upward.
-Note what did *not* happen: the hinge does not support the full weight. A rod
-being released is not a rod in equilibrium.
+And note what did *not* happen: the hinge doesn't support the full weight. A
+rod being released is not a rod in equilibrium.
 
 Now the harder question. Once the rod starts swinging, $\theta$ changes, so the
 lever arm $(L/2)\cos\theta$ changes, so $\alpha$ changes every instant. You
@@ -304,7 +304,7 @@ conservation for something rolling from a height $h$ reads
 $$mgh = \tfrac12 mv^2 + \tfrac12 I\omega^2 = \tfrac12 mv^2\left(1 + \frac{I}{mR^2}\right)$$
 
 using $\omega = v/R$. Only the dimensionless ratio $I/mR^2$ survives, so mass
-and radius do not matter in a rolling race. A solid sphere has
+and radius don't matter in a rolling race. A solid sphere has
 $I/mR^2 = 2/5$, so from $h = 2\ \mathrm{m}$ with $g = 10\ \mathrm{m/s^2}$,
 $v = \sqrt{2(10)(2)/1.4} = \sqrt{28.6} = 5.35\ \mathrm{m/s}$. A disk (ratio
 $1/2$) is slower, a hoop (ratio 1) slower still.
@@ -341,9 +341,9 @@ properly in [angular momentum](/guide/angular-momentum).
   will give a wrong answer that looks reasonable.
 </Aside>
 
-## Recognising the technique
+## When a problem is asking for torque
 
-Reach for $\tau = I\alpha$ when a problem gives you a moment of inertia, or
+$\tau = I\alpha$ is the tool when a problem gives you a moment of inertia, or
 gives you enough to compute one (a mass and a shape name: disk, hoop, rod,
 sphere), and then asks for a rate of change: an angular acceleration, a time to
 stop, a linear acceleration in a system that includes something rotating.

@@ -1,8 +1,8 @@
 ## A skater who speeds up without pushing
 
 A figure skater finishes a spin by pulling her arms in against her chest. She
-spins faster. Nobody pushed her. The ice is slippery, so friction is not doing
-it. She did not wind herself up. She just changed her shape, and the spin rate
+spins faster. Nobody pushed her. The ice is slippery, so friction isn't doing
+it. She didn't wind herself up. She just changed her shape, and the spin rate
 went up by a factor of three.
 
 Something about her motion refused to change while everything else did. Her
@@ -36,11 +36,11 @@ form $\vec{L} = \vec{r} \times \vec{p}$, where $\vec{r}$ points from $O$ to the
 particle, but for everything here the motion lies in a plane and
 $L = mvr_\perp$ with a sign is all you need.
 
-Two things about that formula surprise people. First, the particle does not
+That formula hides a couple of surprises. The particle doesn't
 have to be going in a circle. A ball rolling in a straight line at
 $4.0\ \mathrm{m/s}$ past a point $3.0\ \mathrm{m}$ off to the side has
 $L = (1.0)(4.0)(3.0) = 12\ \mathrm{kg\,m^2/s}$ about that point, and since it
-is not accelerating, that number never changes. Second, $L$ depends entirely
+is not accelerating, that number never changes. And $L$ depends entirely
 on which point you picked. About a point on the line of motion, $r_\perp = 0$
 and the same ball has $L = 0$. Angular momentum is not a property of an
 object. It is a property of an object *and* an origin.
@@ -76,7 +76,7 @@ $$L = \sum m_i \omega r_i^2 = \left(\sum m_i r_i^2\right)\omega = I\omega$$
 The sum in brackets is the moment of inertia $I$ from the last lesson. So
 $L = I\omega$ is not a new law; it is $L = mvr_\perp$ summed over a rigid body.
 A wheel with $I = 0.60\ \mathrm{kg\,m^2}$ spinning at $25\ \mathrm{rad/s}$ has
-$L = 15\ \mathrm{kg\,m^2/s}$, and that is the whole calculation.
+$L = 15\ \mathrm{kg\,m^2/s}$. No new physics, no new work.
 
 Keep both forms in your head. In almost every hard problem you will need
 $mvr_\perp$ for the free-flying object and $I\omega$ for the spinning one, in
@@ -97,16 +97,16 @@ be. Run it backwards and a flywheel whose $L$ climbs from $40$ to
 $70\ \mathrm{kg\,m^2/s}$ in $5.0\ \mathrm{s}$ felt an average torque of
 $30/5.0 = 6.0\ \mathrm{N\,m}$.
 
-The payoff is the contrapositive. **If the net external torque about a point is
-zero, the total angular momentum about that point does not change.** That is
+Now run that statement backwards. **If the net external torque about a point is
+zero, the total angular momentum about that point does not change.** That's
 conservation of angular momentum, and it is the most useful sentence in
 rotational mechanics.
 
 ## Pick the point before you write anything down
 
-Here is the move that makes hard problems easy. Angular momentum is conserved
-about *some* points and not others in the very same problem, so you choose the
-point deliberately, before you write a single equation.
+One move makes hard problems easy, and it happens before you write a single
+equation. Angular momentum is conserved about *some* points and not others in
+the very same problem, so you choose the point deliberately.
 
 The rule: **pick the point that the forces you cannot evaluate pass through.**
 A force pointing straight at your chosen point has zero lever arm, so it exerts
@@ -210,7 +210,7 @@ $$\omega = \frac{L_i}{I} = \frac{1.5}{0.1692} = 8.87\ \mathrm{rad/s}$$
 Check the energy if you want to see how violent this is: before,
 $\tfrac12(0.010)(300)^2 = 450\ \mathrm{J}$; after,
 $\tfrac12(0.1692)(8.87)^2 = 6.7\ \mathrm{J}$. Over $98\%$ of the energy went
-into deforming the wood. Good thing you did not try to conserve it.
+into deforming the wood. Good thing you didn't try to conserve it.
 
 <Figure caption={<><b>Figure 3.</b> Fire a bullet into a rod and watch the rod take off. Slide the pivot from the centre to the end and the same bullet produces a different spin: the lever arm grows, but so does the rod's moment of inertia. Try to predict which effect wins before you drag it.</>}>
   <Sim id="angular-momentum-rod" />
@@ -222,10 +222,10 @@ A $20\ \mathrm{g}$ bullet at $100\ \mathrm{m/s}$ embeds in the bottom end of a
 $1.0\ \mathrm{m}$ uniform rod ($M = 1.5\ \mathrm{kg}$) hanging from a pivot at
 its top. Through what angle does the rod swing?
 
-This is a two-stage problem, and recognising that is the whole difficulty.
-Stage one is the impact: fast, violent, energy destroyed, angular momentum
-conserved. Stage two is the swing: slow, smooth, gravity does the work, energy
-conserved. You must not mix them. Solve stage one for $\omega$, then hand
+This is a two-stage problem, and spotting the seam between the stages is most
+of the difficulty. Stage one is the impact: fast, violent, energy destroyed,
+angular momentum conserved. Stage two is the swing: slow, smooth, gravity does
+the work, energy conserved. You must not mix them. Solve stage one for $\omega$, then hand
 $\omega$ to stage two as an initial condition.
 
 **Stage one.** About the pivot, the bullet has
@@ -354,9 +354,10 @@ $m = 2.0\ \mathrm{kg}$, $d = 0.15\ \mathrm{m}$: $\Omega =
 wheel faster and it precesses slower, which is why a fast top stands up and a
 slow one falls over.
 
-## How to recognise an angular momentum problem
+## Signs you should be conserving L
 
-Reach for $L$ when you see any of these.
+Any of the following in a problem statement means angular momentum is doing
+the work.
 
 **Something sticks, catches, or couples.** Putty, clay, bullets, a child
 jumping onto a merry-go-round, a disk dropped onto another disk. Sticking means
@@ -380,7 +381,7 @@ climb. Angular momentum across the impact, energy across the swing. Never one
 law for both.
 
 And the counter-signal: if you know all the forces and they act for a known
-stretch of time, you do not need conservation at all: go back to
+stretch of time, you don't need conservation at all: go back to
 $\tau = I\alpha$ from the previous lesson and integrate.
 
 Next you will look at the case where a spinning object also travels, and the

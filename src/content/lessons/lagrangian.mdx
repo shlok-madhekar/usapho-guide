@@ -1,6 +1,6 @@
 A block slides down the face of a wedge, and the wedge is free to slide on the floor. Try that with a free body diagram. The block pushes on the wedge, the wedge pushes back, the floor pushes up, and the block's acceleration is measured in the ground frame while its motion is naturally described along a face that is itself accelerating. Three unknown forces, two frames, a lot of sign errors.
 
-Now notice something. The normal force between block and wedge is the only thing coupling them, it is the thing you had to solve for, and it does not appear anywhere in the answer. That is the pattern. In constrained problems most of the forces you work hardest to find are bookkeeping. Lagrangian mechanics is a way of writing the equations of motion in which those forces never get written down at all. You pay for it with a little calculus, and the calculus is the same every time.
+But look at the answer once you have it. The normal force between block and wedge is the only thing coupling them, it is the thing you had to solve for, and it doesn't appear anywhere in the result. That is the pattern. In constrained problems most of the forces you work hardest to find are bookkeeping. Lagrangian mechanics is a way of writing the equations of motion in which those forces never get written down at all. You pay for it with a little calculus, and the calculus is the same every time.
 
 ## Generalized coordinates
 
@@ -41,7 +41,7 @@ The recipe, once and for all:
 Step 2 is the one people skip, and it is the one that goes wrong.
 
 <Aside label="Where this goes wrong" warn>
-  Kinetic energy must be measured in an inertial frame. If a pendulum hangs from a cart that is itself moving, the bob's speed is not $\ell\dot\theta$. Write the bob's position as $x_{\text{cart}} + \ell\sin\theta$ and $-\ell\cos\theta$, differentiate both, then square and add. You will get a cross term, and that cross term is the entire physics of the coupling. Losing it is the most common way to get a wrong answer that still looks plausible.
+  Kinetic energy must be measured in an inertial frame. If a pendulum hangs from a cart that is itself moving, the bob's speed is not $\ell\dot\theta$. Write the bob's position as $x_{\text{cart}} + \ell\sin\theta$ and $-\ell\cos\theta$, differentiate both, then square and add. You will get a cross term, and the coupling between the two bodies lives in that cross term. Losing it is the most common way to get a wrong answer that still looks plausible.
 </Aside>
 
 ## Example 1: a pendulum, from scratch
@@ -81,7 +81,7 @@ There is the cross term. The kinetic energy is $T = \tfrac12 M\dot X^2 + \tfrac1
 
 $$L = \tfrac12(M+m)\dot X^2 + m\dot X\dot s\cos\alpha + \tfrac12 m\dot s^2 + mgs\sin\alpha$$
 
-Coordinate $X$ does not appear in $L$, only $\dot X$ does. So $\partial L/\partial X = 0$ and the Euler–Lagrange equation says $(M+m)\dot X + m\dot s\cos\alpha$ stays constant. That is just horizontal momentum conservation, handed to you for free. Differentiating once,
+Coordinate $X$ doesn't appear in $L$, only $\dot X$ does. So $\partial L/\partial X = 0$ and the Euler–Lagrange equation says $(M+m)\dot X + m\dot s\cos\alpha$ stays constant. That is just horizontal momentum conservation, handed to you for free. Differentiating once,
 
 $$(M+m)\ddot X + m\ddot s\cos\alpha = 0$$
 
@@ -200,9 +200,9 @@ Numbers: $9.80(2.5)/(2.0 \times 0.80) = 24.5/1.60 = 15.3$, so $\omega = 3.91$ ra
 
 The double pendulum works the same way, with $\theta_1$ and $\theta_2$; the only extra care is writing the lower bob's position as the sum of two rod vectors before differentiating. For two equal masses on two equal rods of length $L$ the determinant gives $\omega^2 = (2 \mp \sqrt2)g/L$, which for $L = 1.00$ m is $2.40$ rad/s and $5.78$ rad/s.
 
-## Recognising when to reach for this
+## The signals that say Lagrangian
 
-Four signals, any one of which is enough:
+There are four, and any one of them is enough:
 
 **More than one body, tied together.** Carts with pendulums, wedges with blocks, double Atwood machines, a chain sliding off a table. Each internal tension or normal force you would otherwise have to name is a reason to switch.
 
@@ -212,6 +212,6 @@ Four signals, any one of which is enough:
 
 **Something rotates or is forced at a fixed rate.** A spinning hoop, a rotating rod, a turntable groove. Fold the imposed motion into $T$, sweep the $\theta$-only terms into an effective potential, and read equilibria off its minima.
 
-The counter-signal matters too. If a problem asks for a constraint force (the tension in the rod, the normal force from the sphere, the angle where a block leaves a surface) the Lagrangian will not hand it to you directly, because you deliberately threw it away. Get the motion from the Lagrangian, then go back to $F = ma$ in the radial direction for that one force. That is exactly how the block-leaving-a-sphere problem goes: energy conservation gives $v^2$ as a function of angle, then $mg\cos\theta - N = mv^2/R$ with $N = 0$ gives $\cos\theta = 2/3$, so $\theta = 48.2^\circ$.
+The counter-signal matters too. If a problem asks for a constraint force (the tension in the rod, the normal force from the sphere, the angle where a block leaves a surface) the Lagrangian won't hand it to you directly, because you deliberately threw it away. Get the motion from the Lagrangian, then go back to $F = ma$ in the radial direction for that one force. That is exactly how the block-leaving-a-sphere problem goes: energy conservation gives $v^2$ as a function of angle, then $mg\cos\theta - N = mv^2/R$ with $N = 0$ gives $\cos\theta = 2/3$, so $\theta = 48.2^\circ$.
 
 The effective-potential idea you met with the spinning hoop is the same machinery that governs orbits, and the two-coordinate determinant is the engine behind [coupled oscillators and normal modes](/guide/coupled-oscillators), which is where this goes next.

@@ -4,32 +4,32 @@
     "total": 30
   },
   "angular-kinematics": {
-    "solvable": 30,
-    "total": 31
+    "solvable": 33,
+    "total": 34
   },
   "angular-momentum": {
     "solvable": 30,
     "total": 31
   },
   "approximations": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "banked-curves": {
-    "solvable": 30,
-    "total": 31
+    "solvable": 33,
+    "total": 34
   },
   "beats-interference": {
     "solvable": 30,
     "total": 30
   },
   "binding-energy": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "biot-savart": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "bohr-model": {
     "solvable": 30,
@@ -40,8 +40,8 @@
     "total": 30
   },
   "center-of-mass": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "charge-distributions": {
     "solvable": 30,
@@ -68,20 +68,20 @@
     "total": 30
   },
   "current-resistance": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "data-graphs": {
-    "solvable": 30,
-    "total": 31
+    "solvable": 33,
+    "total": 34
   },
   "data-uncertainty": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "de-broglie": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "derivatives": {
     "solvable": 30,
@@ -92,8 +92,8 @@
     "total": 31
   },
   "diffraction": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "doppler": {
     "solvable": 30,
@@ -104,8 +104,8 @@
     "total": 31
   },
   "electric-potential": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "energy-conservation": {
     "solvable": 31,
@@ -120,16 +120,16 @@
     "total": 32
   },
   "first-law": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "four-vectors": {
     "solvable": 30,
     "total": 30
   },
   "free-fall": {
-    "solvable": 30,
-    "total": 32
+    "solvable": 33,
+    "total": 35
   },
   "friction": {
     "solvable": 30,
@@ -164,12 +164,12 @@
     "total": 31
   },
   "kinetic-theory": {
-    "solvable": 31,
-    "total": 32
+    "solvable": 34,
+    "total": 35
   },
   "kirchhoff": {
-    "solvable": 31,
-    "total": 32
+    "solvable": 34,
+    "total": 35
   },
   "lagrangian": {
     "solvable": 30,
@@ -180,24 +180,24 @@
     "total": 32
   },
   "magnetic-force": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "moment-of-inertia": {
-    "solvable": 30,
-    "total": 31
+    "solvable": 33,
+    "total": 34
   },
   "momentum-impulse": {
     "solvable": 31,
     "total": 33
   },
   "motion-1d": {
-    "solvable": 33,
-    "total": 34
+    "solvable": 36,
+    "total": 37
   },
   "motion-graphs": {
-    "solvable": 30,
-    "total": 33
+    "solvable": 33,
+    "total": 36
   },
   "motional-emf": {
     "solvable": 30,
@@ -224,12 +224,12 @@
     "total": 34
   },
   "photoelectric": {
-    "solvable": 32,
-    "total": 32
+    "solvable": 35,
+    "total": 35
   },
   "potential-energy": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "power": {
     "solvable": 30,
@@ -248,16 +248,16 @@
     "total": 39
   },
   "pv-diagrams": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "radioactivity": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "rc-circuits": {
-    "solvable": 31,
-    "total": 31
+    "solvable": 34,
+    "total": 34
   },
   "reflection-refraction": {
     "solvable": 30,
@@ -272,8 +272,8 @@
     "total": 30
   },
   "rolling": {
-    "solvable": 30,
-    "total": 33
+    "solvable": 33,
+    "total": 36
   },
   "rotational-dynamics": {
     "solvable": 33,
@@ -292,16 +292,16 @@
     "total": 32
   },
   "standing-waves": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "tension-pulleys": {
     "solvable": 30,
     "total": 31
   },
   "thin-film": {
-    "solvable": 30,
-    "total": 30
+    "solvable": 33,
+    "total": 33
   },
   "torque-equilibrium": {
     "solvable": 30,
@@ -312,8 +312,8 @@
     "total": 30
   },
   "units-estimation": {
-    "solvable": 30,
-    "total": 32
+    "solvable": 33,
+    "total": 35
   },
   "vectors": {
     "solvable": 33,
@@ -324,7 +324,7 @@
     "total": 33
   },
   "work-energy-theorem": {
-    "solvable": 30,
-    "total": 31
+    "solvable": 33,
+    "total": 34
   }
 }

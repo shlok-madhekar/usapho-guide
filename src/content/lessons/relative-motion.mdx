@@ -9,9 +9,9 @@ It is a comparison between an object and something you have chosen to call
 In [projectile motion](/guide/projectiles) you never had to think about this.
 The ground was the frame, always, and the only thing moving was the ball. Now
 two things move at once: a boat and the river under it, a plane and the air
-around it, you and the rain. The whole difficulty of these problems is
+around it, you and the rain. The difficulty in these problems is pure
 bookkeeping: keeping straight which velocity is measured against what. Get a
-notation that makes that impossible to forget and most of these problems become
+notation that makes that impossible to forget and most of them become
 one triangle and a bit of trigonometry.
 
 ## The subscript chain
@@ -29,12 +29,13 @@ by the second and you have the rule:
 $$\vec{v}_{A/C} = \vec{v}_{A/B} + \vec{v}_{B/C}$$
 
 The inner labels match and drop out, leaving the outer pair: like cancelling
-in a fraction. That is the whole trick. If the chain of subscripts doesn't
-close up like that, you have made an error before doing any arithmetic.
+in a fraction. There is nothing more to the rule than that. If the chain of
+subscripts doesn't close up like that, you have made an error before doing any
+arithmetic.
 
-Two consequences you will use constantly. First, reversing a pair flips the
+Two consequences you'll use constantly. Reversing a pair flips the
 sign: $\vec{v}_{B/A} = -\vec{v}_{A/B}$. If B sees A approaching at 8 m/s east,
-A sees B approaching at 8 m/s west. Second, these are **vector** sums, not
+A sees B approaching at 8 m/s west. And these are **vector** sums, not
 number sums. A plane whose velocity relative to the air is 200 km/h north, in
 air moving east at 50 km/h, has a ground velocity with components
 (50 east, 200 north), so its ground speed is
@@ -63,7 +64,7 @@ angle the downstream drift cancels exactly.</>}>
 
 ## Crossing a river
 
-This is the situation the whole topic is built on, so get comfortable with it.
+This is the situation the topic is built around, so get comfortable with it.
 A boat can do speed $u$ **relative to the water**. The river runs at $v$
 relative to the bank, and the channel is $w$ wide. The boat's nose points at
 angle $\theta$ upstream from the straight-across direction.
@@ -86,21 +87,21 @@ Those two formulas answer every river question. Three cases matter.
 
 **Quickest crossing.** Minimise $t$, which means maximise $u\cos\theta$, which
 means $\theta = 0$. Aim straight across, and $t = w/u$ *no matter how fast the
-river runs*. That surprises people. The current is entirely sideways; it cannot
+river runs*. That surprises people. The current is entirely sideways; it can't
 slow down your progress toward the far bank.
 
 **Land directly opposite.** Set the drift to zero: $v - u\sin\theta = 0$, so
 $\sin\theta = v/u$. The across-component left over is
 $u\cos\theta = u\sqrt{1-(v/u)^2} = \sqrt{u^2-v^2}$, and the trip takes
 $t = w/\sqrt{u^2-v^2}$. Note this only has a solution when $u > v$. A swimmer
-slower than the current cannot land opposite, ever.
+slower than the current can't land opposite, ever.
 
-**Least drift when $u < v$.** You cannot get the drift to zero, so make it as
+**Least drift when $u < v$.** You can't get the drift to zero, so make it as
 small as you can. From the drift formula,
 $x/w = \frac{v}{u}\sec\theta - \tan\theta$. Differentiate with respect to
 $\theta$ and set it to zero: $\frac{v}{u}\sec\theta\tan\theta - \sec^2\theta = 0$,
-which tidies to $\sin\theta = u/v$. Notice the ratio is upside down compared to
-the "land opposite" case, which is a good sanity check on which regime you are in.
+which tidies to $\sin\theta = u/v$. The ratio is upside down compared to
+the "land opposite" case, a good sanity check on which regime you're in.
 
 <Figure caption={<><b>Figure 2.</b> Set the current above the boat speed and
 drag the heading: the landing point moves upstream, reaches a leftmost limit,
@@ -138,7 +139,7 @@ needed.
 relative to the water must land at a point 50 m downstream of the point
 opposite its start. How long does the crossing take?
 
-Now the drift is prescribed, so you cannot pick $\theta$ freely. Write both
+Now the drift is prescribed, so you can't pick $\theta$ freely. Write both
 components in terms of the unknown time $t$. Across: $3.0\cos\theta \cdot t = 200$.
 Along: $(2.0 - 3.0\sin\theta)\,t = 50$.
 
@@ -224,7 +225,7 @@ component along your own motion: the vertical part is the same for everyone.
 
 ## Stand on one of them
 
-The real payoff is that a well-chosen frame can delete most of a problem. If
+A well-chosen frame can delete most of a problem. If
 two things are moving, sit on one. It is now at rest, and only one object is
 left moving.
 
@@ -239,7 +240,7 @@ the frame of one of them the other has **zero** acceleration: gravity cancels
 out of the relative motion. Throw a ball up at 20 m/s from the ground at the
 instant another is dropped from rest 50 m above it. Relative to the dropped
 ball, the thrown ball moves at a constant 20 m/s upward, closing a fixed 50 m
-gap. They meet at $t = 50/20 = 2.5$ s. That is the whole solution.
+gap. They meet at $t = 50/20 = 2.5$ s. Done, in two lines.
 
 The same cancelling idea handles the four ants. Four ants sit at the corners of
 a 1.50 m square, each crawling at 0.020 m/s straight at the ant counterclockwise
@@ -287,7 +288,7 @@ Escalators and walkways are the same rule at its gentlest. Walk up a 24 m
 escalator at 0.80 m/s relative to the steps while the steps rise at 0.60 m/s:
 your ground speed is $0.80 + 0.60 = 1.40$ m/s, so the trip takes
 $24/1.40 = 17.1$ s. Chain the subscripts (you relative to steps, steps
-relative to ground) and you cannot get the sign wrong.
+relative to ground) and you can't get the sign wrong.
 
 <Figure caption={<><b>Figure 3.</b> The same two ships twice. On the left both
 move and the separation wobbles confusingly; on the right A is pinned down and
@@ -306,7 +307,7 @@ Drag the speeds and watch both readouts agree.</>}>
   as long as the roads continue.
 </Aside>
 
-## How to recognise one of these
+## The wording that flags a frame problem
 
 Three signals, any one of which should make you write subscripts on every
 velocity before doing anything else.
@@ -317,7 +318,7 @@ and air, walker and escalator, you and the rain. The giveaway wording is
 you were handed is not a ground speed.
 
 **The question asks for a distance or time between two moving objects.**
-Closest approach, time to overtake, how long to pass, when do they meet. Do not
+Closest approach, time to overtake, how long to pass, when do they meet. Don't
 track both positions in the ground frame. Sit on one of them, get
 $\vec{v}_{B/A}$, and the problem collapses to one object moving in a straight
 line from a known starting offset.

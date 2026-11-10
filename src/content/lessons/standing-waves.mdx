@@ -15,7 +15,7 @@ frequency dies from that interference. A few survive. Those are the notes.
 
 Start with the rule that makes all of this work. **Superposition**: when two
 waves overlap, the displacement at a point is the sum of what each wave would
-have given on its own. Waves do not collide or push each other aside. They add,
+have given on its own. Waves don't collide or push each other aside. They add,
 pass through, and come out the other side unchanged.
 
 Take the wave from the last lesson, $y = A\sin(kx - \omega t)$, moving in the
@@ -29,7 +29,7 @@ $$
 
 Use $\sin(P) + \sin(Q) = 2\sin\!\big(\tfrac{P+Q}{2}\big)\cos\!\big(\tfrac{P-Q}{2}\big)$,
 with $P = kx - \omega t$ and $Q = kx + \omega t$. The half-sum is $kx$ and the
-half-difference is $-\omega t$, and cosine does not care about that sign. So
+half-difference is $-\omega t$, and cosine doesn't care about that sign. So
 
 $$
 y(x,t) = 2A\sin(kx)\,\cos(\omega t)
@@ -40,9 +40,9 @@ together inside one bracket, which is what made the shape travel. Now they sit
 in separate factors. Nothing moves along the string any more. Every point
 oscillates in time as $\cos(\omega t)$, all in step, and the only thing that
 changes from place to place is the size of the swing, $2A\sin(kx)$. That is a
-**standing wave**, and the factorising is the whole of it.
+**standing wave**, and the factorising is what the name is describing.
 
-<Figure caption={<><b>Figure 1.</b> The top pair are the two travelling waves; the bottom curve is their sum, with its envelope dashed. Watch the bottom curve: it grows and shrinks in place but never slides sideways. Drag the loop count and notice the dots never move.</>}>
+<Figure caption={<><b>Figure 1.</b> The top pair are the two travelling waves; the bottom curve is their sum, with its envelope dashed. Watch the bottom curve: it grows and shrinks in place but never slides sideways. Drag the loop count; the dots never move.</>}>
   <Sim id="standing-waves-superposition" />
 </Figure>
 
@@ -76,7 +76,7 @@ apart.
 
 ## A string fixed at both ends
 
-Now add the ends. A string clamped at $x = 0$ and $x = L$ cannot move at either
+Now add the ends. A string clamped at $x = 0$ and $x = L$ can't move at either
 clamp, so both ends have to be nodes. The $x = 0$ end is already a node in
 $2A\sin(kx)$. The other end costs you something: you need $\sin(kL) = 0$, so
 $kL = n\pi$ for some whole number $n = 1, 2, 3, \dots$
@@ -133,9 +133,10 @@ Air in a pipe does the same thing, with one change in the boundary conditions.
 A sound wave is a longitudinal wave, so "displacement" means how far a slab of
 air slides back and forth along the pipe.
 
-A **closed** end is a solid wall. Air there cannot slide, so a closed end is a
+A **closed** end is a solid wall. Air there can't slide, so a closed end is a
 displacement **node**. An **open** end is free to breathe in and out against the
-open air, so it is a displacement **antinode**. That is the whole rule.
+open air, so it is a displacement **antinode**. Those two statements are the
+only new physics in pipes.
 
 A pipe open at both ends needs an antinode at each end. Antinode to antinode,
 like node to node, is half a wavelength, so the condition is identical to the
@@ -156,19 +157,19 @@ $$
 L = \frac{(2n-1)\lambda}{4}, \qquad f_n = \frac{(2n-1)v}{4L}
 $$
 
-Two consequences, both of which problems test. First, the fundamental of a
+Problems test both consequences of this. The fundamental of a
 stopped pipe is $v/4L$, half that of an open pipe the same length: stopping one
-end drops the pitch an octave. Second, only the **odd** harmonics exist. After
+end drops the pitch an octave. And only the **odd** harmonics exist. After
 $f_1$ comes $3f_1$, then $5f_1$. There is no $2f_1$, because that mode would
 need a node at the open end.
 
-<Figure caption={<><b>Figure 3.</b> Displacement envelopes for the two kinds of pipe at the same length. Notice the stopped pipe is pinched to zero at its closed end and swinging at its open end. Step the mode number and read off how the two frequency ladders differ.</>}>
+<Figure caption={<><b>Figure 3.</b> Displacement envelopes for the two kinds of pipe at the same length. The stopped pipe is pinched to zero at its closed end and swinging at its open end. Step the mode number and read off how the two frequency ladders differ.</>}>
   <Sim id="standing-waves-pipes" />
 </Figure>
 
 <Aside label="Where this goes wrong" warn>
   Pressure and displacement are a quarter wavelength out of step. A
-  displacement node is a **pressure** antinode: air cannot move there, so it
+  displacement node is a **pressure** antinode: air can't move there, so it
   gets squeezed hardest. If a diagram is labelled as a pressure wave and you
   read its zeros as the fixed ends, every mode number comes out wrong. Decide
   which quantity the picture shows before you count anything.
@@ -176,7 +177,7 @@ need a node at the open end.
 
 There is one more boundary pair worth naming, because it turns up on strings
 too. Clamp a string at one end and tie the other to a light ring that slides
-freely on a frictionless rod. The free end cannot be held down, so it is a
+freely on a frictionless rod. The free end can't be held down, so it is a
 displacement antinode. Node at one end, antinode at the other: exactly the
 stopped-pipe geometry. So $f_n = (2n-1)v/4L$ there as well, odd harmonics only.
 Whenever the two ends are different in kind, you get quarter wavelengths and odd
@@ -231,7 +232,7 @@ Work through the list: $n = 1$ gives 0.195 m, $n = 2$ gives 0.585 m, $n = 3$
 gives 0.974 m, and $n = 4$ would need 1.364 m, which is longer than the tube.
 The first three all fit inside 1.00 m, so you hear **three** resonances.
 
-Notice the spacing of those positions: 0.390 m each time, exactly
+Look at the spacing of those positions: 0.390 m each time, exactly
 $\lambda/2$. That is a general result and a fast way to measure the speed of
 sound in a lab: find two neighbouring resonance lengths, double the gap to get
 $\lambda$, and multiply by the fork's frequency.
@@ -245,7 +246,7 @@ $\lambda$, and multiply by the fork's frequency.
   $750 = 5 \times 150$ and $1050 = 7 \times 150$.
 </Aside>
 
-## How to recognise one of these
+## When a problem hands you two ends
 
 The giveaway word is *resonates*, but the real signal is a **length with two
 ends**: a string between bridges, an air column above water, a pipe, a wire on
@@ -253,8 +254,8 @@ a sonometer. Whenever a problem fixes a length and then asks for a frequency,
 or fixes a frequency and asks for a length, it is a standing-wave problem and
 the recipe never changes.
 
-1. Decide what each end is. Fixed, clamped, closed, in water (that is a node.
-   Open, free, sliding on a frictionless rod) that is an antinode.
+1. Decide what each end is. Fixed, clamped, closed, in water: that is a node.
+   Open, free, sliding on a frictionless rod: that is an antinode.
 2. Same at both ends, use $L = n\lambda/2$ and $f_n = nv/2L$, all harmonics.
    Different at the two ends, use $L = (2n-1)\lambda/4$ and
    $f_n = (2n-1)v/4L$, odd harmonics only.
@@ -268,6 +269,6 @@ Where students actually lose the marks is step 1 and step 3: calling a stopped
 pipe an open one, or putting the speed of sound into a string formula. Write
 down the two boundary conditions before you write anything else.
 
-So far the two waves you added had the same frequency. What if they do not
-quite? Then the interference pattern cannot stand still, and what you hear is a
+So far the two waves you added had the same frequency. What if they don't
+quite? Then the interference pattern can't stand still, and what you hear is a
 throb: that is [beats and interference](/guide/beats-interference).

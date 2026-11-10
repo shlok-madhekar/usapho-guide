@@ -8,11 +8,11 @@ far a block gets before it stops, or what happens to the swing when you drop a
 lump of putty on it. Solving those with $x(t) = A\cos\omega t$ means finding
 the phase, differentiating, and hoping the algebra closes.
 
-There is a shortcut, and it is the single most useful tool in this unit. An
-oscillator has a fixed budget of energy. It spends that budget on stretching
-the spring and on moving the mass, and the split between the two changes
-constantly while the total sits still. Track the budget instead of the clock
-and most of these questions collapse to one line of algebra.
+There's a shortcut, and once you have it you'll rarely go back. An oscillator
+has a fixed budget of energy. It spends that budget on stretching the spring
+and on moving the mass, and the split between the two changes constantly while
+the total sits still. Track the budget instead of the clock and most of these
+questions collapse to one line of algebra.
 
 ## A constant total, traded back and forth
 
@@ -42,8 +42,8 @@ $$
 $$
 
 The $\omega = \sqrt{k/m}$ is the same angular frequency from the last two
-lessons, which is a decent sign the bookkeeping is right. Notice what the
-energy statement does not contain: $t$. It connects a position to a speed
+lessons, which is a decent sign the bookkeeping is right. And look at what the
+energy statement doesn't contain: $t$. It connects a position to a speed
 directly, which is exactly the connection those problems ask for.
 
 <Figure caption={<><b>Figure 1.</b> The two energy bars swap twice per cycle
@@ -70,7 +70,7 @@ Read that as a sentence. The speed is largest at $x=0$, falls to zero at $x =
 on the way out and on the way back. The mass never appears except inside
 $\omega$.
 
-Two ratio facts follow immediately, and problems love them because they need no
+Two ratio facts drop out, and problems love them because they need no
 numbers at all. The potential share is
 $U/E = (\tfrac12 kx^2)/(\tfrac12 kA^2) = x^2/A^2$, so the kinetic share is
 $K/E = 1 - x^2/A^2$. At $x = 0.60A$ the kinetic fraction is
@@ -149,7 +149,7 @@ $v = \sqrt{2(9.8)(1.20)(0.0341)} = \sqrt{0.8014} = 0.895$ m/s.
 from vertical. At the lowest point, what is the ratio of string tension to
 weight?
 
-Energy alone will not answer this, because tension does no work and so never
+Energy alone won't answer this, because tension does no work and so never
 appears in the energy equation. It gives you the speed; Newton's second law
 turns the speed into a force. Do them in that order.
 
@@ -255,13 +255,13 @@ behave completely differently.
 
 **Sliding friction** takes a fixed amount per metre travelled. A kinetic
 friction force $f = \mu m g$ opposing the motion removes $f\,d$ of energy over
-a path length $d$, no matter how fast the block is going. That single sentence
-solves a whole family of problems.
+a path length $d$, no matter how fast the block is going. Most friction-decay
+problems are that one sentence in disguise.
 
-Two consequences worth deriving. First, the block stops for good once its total
+It has two consequences worth deriving. The block stops for good once its total
 energy has drained, so the total path length is
 $d_{\text{tot}} = E_0/(\mu m g)$ up to the small energy still stored where it
-finally stalls. Second, over one half-cycle the block travels from amplitude
+finally stalls. And over one half-cycle the block travels from amplitude
 $A_n$ to amplitude $A_{n+1}$, a distance $A_n + A_{n+1}$, so
 
 $$\tfrac12 kA_n^2 - \tfrac12 kA_{n+1}^2 = \mu m g\,(A_n + A_{n+1})$$
@@ -352,9 +352,9 @@ that forces $A^2 \propto \omega \propto m^{-1/2}$, so $A \propto m^{-1/4}$.
 Lose three quarters of the sand and the amplitude grows by
 $4^{1/4} = \sqrt2$.
 
-## Recognising that this is the tool
+## When to drop the clock and track the budget
 
-Reach for energy, not for $x(t)$, when a problem shows any of these:
+Go to energy, not to $x(t)$, when a problem shows any of these:
 
 - It asks for a **speed at a stated position**, or a position where the speed
   takes some value, and never mentions the time. That is $v = \omega\sqrt{A^2-x^2}$.
@@ -368,8 +368,8 @@ Reach for energy, not for $x(t)$, when a problem shows any of these:
 - It asks for a **force** at some point in the swing. Energy first for the
   speed, then $\sum F = mv^2/r$.
 
-Time-domain methods answer "when". Energy answers everything else, and it does
-not care whether the restoring force came from a spring, from gravity on a
+Time-domain methods answer "when". Energy answers everything else, and it
+doesn't care whether the restoring force came from a spring, from gravity on a
 pendulum, or from something stranger. That last point is the opening for the
 [next lesson](/guide/effective-potentials), where you stop assuming the
 potential is a parabola and start finding out what oscillates near the bottom

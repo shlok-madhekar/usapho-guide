@@ -269,7 +269,7 @@ export default function Nav() {
           ))}
           <DiscordLink
             from="nav"
-            className="sans hidden text-sm font-medium text-[#5865F2] hover:text-[#4752c4] sm:inline"
+            className="sans hidden text-sm font-medium text-[var(--discord)] hover:text-[var(--discord-hover)] sm:inline"
           >
             Discord
           </DiscordLink>

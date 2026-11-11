@@ -24,6 +24,55 @@ function TypesetLabel({ text }: { text: string }) {
 }
 
 /**
+ * A slider's unit as the lesson text sets it. Units are written in plain
+ * ASCII in the sim files (m/s^2, uC, kohm, 1e-10 m, cm2); this turns powers
+ * into superscripts, u into µ, ohm into Ω and a leading 1eN into × 10^N, with
+ * a real minus sign in exponents.
+ */
+function unitRuns(unit: string): { text: string; sup?: boolean }[] {
+  const text = unit
+    .replace(/\bk?ohm\b/g, (m) => (m[0] === "k" ? "kΩ" : "Ω"))
+    .replace(/\bu(?=(?:C|F|m|s|A|T|J|V|H|W|g)\b)/g, "µ")
+    .replace(/\b1e(-?\d+)\b/g, "10^$1")
+    .replace(/\b(mm|cm|km|m)([23])\b/g, "$1^$2")
+    // a scale factor reads as one: 1.7 × 10⁻⁸ Ω m, not 1.7 10⁻⁸ Ω m
+    .replace(/^10\^/, "× 10^");
+  const runs: { text: string; sup?: boolean }[] = [];
+  const re = /\^(-?\d+)/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text))) {
+    if (m.index > last) runs.push({ text: text.slice(last, m.index) });
+    runs.push({ text: m[1].replace("-", "\u2212"), sup: true });
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) runs.push({ text: text.slice(last) });
+  return runs;
+}
+
+/** A slider reading: the value, with a true minus sign, and its unit. */
+function Reading({ value, unit }: { value: number | undefined; unit: string }) {
+  const shown = value === undefined ? "" : String(value).replace(/^-/, "\u2212");
+  // degrees sit against the number, as in 30°
+  if (unit === "deg") return <>{shown}°</>;
+  return (
+    <>
+      {shown}
+      {unit && " "}
+      {unitRuns(unit).map((r, i) =>
+        r.sup ? (
+          <sup key={i} style={{ fontSize: "0.7em" }}>
+            {r.text}
+          </sup>
+        ) : (
+          <span key={i}>{r.text}</span>
+        )
+      )}
+    </>
+  );
+}
+
+/**
  * Reads the site's sans family from a real element, once. Canvas cannot read
  * CSS variables, so the family name has to be resolved here.
  */
@@ -255,7 +304,7 @@ export function SimRunner({
               <span className="sans flex justify-between text-xs text-[var(--ink-soft)]">
                 <span><TypesetLabel text={param.label} /></span>
                 <span className="tabular text-[var(--ink-strong)]">
-                  {values[param.key]} {param.unit}
+                  <Reading value={values[param.key]} unit={param.unit} />
                 </span>
               </span>
               <input

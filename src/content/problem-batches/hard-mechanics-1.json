@@ -91,7 +91,7 @@
   },
   {
     "id": "hx-mg-03",
-    "name": "Quarter-circle acceleration graph",
+    "name": "Quarter-ellipse acceleration graph",
     "module": "motion-graphs",
     "difficulty": "Very Hard",
     "tags": [
@@ -102,7 +102,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A particle starts from rest at $x = 0$. Its acceleration-position graph is a quarter circle: $a = a_0\\sqrt{1 - (x/L)^2}$, starting at $a_0 = 6.0\\ \\mathrm{m/s^2}$ at $x=0$ and falling to zero at $x = L = 4.0\\ \\mathrm{m}$. What is the particle's speed at $x = L$, in m/s?",
+    "statement": "A particle starts from rest at $x = 0$. Its acceleration-position graph is a quarter ellipse: $a = a_0\\sqrt{1 - (x/L)^2}$, starting at $a_0 = 6.0\\ \\mathrm{m/s^2}$ at $x=0$ and falling to zero at $x = L = 4.0\\ \\mathrm{m}$. What is the particle's speed at $x = L$, in m/s?",
     "answer": 6.14,
     "unit": "m/s",
     "solution": "The area under an acceleration-position graph has a physical meaning: from $a = v\\,\\frac{dv}{dx}$, $$\\int_0^L a\\,dx = \\int_0^{v} v'\\,dv' = \\frac{v^2}{2}.$$ The graph is a quarter of an ellipse with semi-axes $L$ (horizontal) and $a_0$ (vertical), so its area is $\\frac{\\pi}{4} a_0 L = \\frac{\\pi}{4}(6.0)(4.0) = 18.85\\ \\mathrm{m^2/s^2}$. Therefore $$v = \\sqrt{2 \\times 18.85} = 6.14\\ \\mathrm{m/s}.$$"
@@ -287,7 +287,7 @@
     "statement": "A $60\\ \\mathrm{kg}$ paddler sits at the left end and an $80\\ \\mathrm{kg}$ paddler at the right end of a uniform $100\\ \\mathrm{kg}$ canoe of length $4.0\\ \\mathrm{m}$, floating at rest on still water. They carefully swap ends. How far does the canoe move, in m? (The water exerts no horizontal force.)",
     "answer": 0.333,
     "unit": "m",
-    "solution": "With no external horizontal force, the center of mass of the whole system stays put. Put the origin at the canoe's initial left end, so the people sit at $0$ and $4.0\\ \\mathrm{m}$ and the canoe's center is at $2.0\\ \\mathrm{m}$. The system CM is at $$x_{cm} = \\frac{60(0) + 80(4.0) + 100(2.0)}{240} = \\frac{520}{240}\\ \\mathrm{m}.$$ Let the canoe shift by $s$ (positive rightward). After the swap, the $60\\ \\mathrm{kg}$ paddler is at $4.0 + s$, the $80\\ \\mathrm{kg}$ paddler at $s$, and the canoe center at $2.0 + s$: $$\\frac{60(4.0+s) + 80s + 100(2.0+s)}{240} = \\frac{440 + 240s}{240}.$$ Setting this equal to $\\frac{520}{240}$ gives $s = \\frac{80}{240} = 0.333\\ \\mathrm{m}$ (toward the lighter paddler's original end)."
+    "solution": "With no external horizontal force, the center of mass of the whole system stays put. Put the origin at the canoe's initial left end, so the people sit at $0$ and $4.0\\ \\mathrm{m}$ and the canoe's center is at $2.0\\ \\mathrm{m}$. The system CM is at $$x_{cm} = \\frac{60(0) + 80(4.0) + 100(2.0)}{240} = \\frac{520}{240}\\ \\mathrm{m}.$$ Let the canoe shift by $s$ (positive rightward). After the swap, the $60\\ \\mathrm{kg}$ paddler is at $4.0 + s$, the $80\\ \\mathrm{kg}$ paddler at $s$, and the canoe center at $2.0 + s$: $$\\frac{60(4.0+s) + 80s + 100(2.0+s)}{240} = \\frac{440 + 240s}{240}.$$ Setting this equal to $\\frac{520}{240}$ gives $s = \\frac{80}{240} = 0.333\\ \\mathrm{m}$ (rightward, toward the heavier paddler's original end: the heavier paddler moves left, so the canoe moves right)."
   },
   {
     "id": "hx-com-02",

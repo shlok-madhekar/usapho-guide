@@ -9304,10 +9304,10 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A thin ring of radius $R = 10\\ \\mathrm{cm}$ carries charge $Q = 2.0\\ \\mu\\mathrm{C}$ spread uniformly around it. A small ball of charge $q = 50\\ \\mathrm{nC}$ and mass $m = 2.0\\ \\mathrm{g}$ is released from rest at the center of the ring and escapes along the ring's axis. Ignoring gravity, find its speed far from the ring, in m/s. Use $k = 8.99\\times10^{9}\\ \\mathrm{N\\cdot m^2/C^2}$.",
+    "statement": "A thin ring of radius $R = 10\\ \\mathrm{cm}$ carries charge $Q = 2.0\\ \\mu\\mathrm{C}$ spread uniformly around it. A small ball of charge $q = 50\\ \\mathrm{nC}$ and mass $m = 2.0\\ \\mathrm{g}$ starts at rest at the center of the ring and, given a negligible nudge along the ring's axis, escapes along the axis. Ignoring gravity, find its speed far from the ring, in m/s. Use $k = 8.99\\times10^{9}\\ \\mathrm{N\\cdot m^2/C^2}$.",
     "answer": 3,
     "unit": "m/s",
-    "solution": "Every element of the ring is the same distance $R$ from the center, so the potential there is simply $$V_{c} = \\frac{kQ}{R} = \\frac{(8.99\\times10^{9})(2.0\\times10^{-6})}{0.10} = 1.80\\times10^{5}\\ \\mathrm{V},$$ with $V \\to 0$ far away. Note the center is an equilibrium point only in the plane of the ring; along the axis the ball is pushed away, which is why it escapes axially. Energy conservation between the center and infinity gives $$qV_c = \\tfrac12 m v^2 \\quad\\Rightarrow\\quad v = \\sqrt{\\frac{2qV_c}{m}} = \\sqrt{\\frac{2(50\\times10^{-9})(1.80\\times10^{5})}{2.0\\times10^{-3}}}.$$ The numerator is $1.80\\times10^{-2}\\ \\mathrm{J}$ doubled over $2.0\\times10^{-3}\\ \\mathrm{kg}$, giving $v = \\sqrt{8.99} = 3.00\\ \\mathrm{m/s}.$"
+    "solution": "Every element of the ring is the same distance $R$ from the center, so the potential there is simply $$V_{c} = \\frac{kQ}{R} = \\frac{(8.99\\times10^{9})(2.0\\times10^{-6})}{0.10} = 1.80\\times10^{5}\\ \\mathrm{V},$$ with $V \\to 0$ far away. The center is an equilibrium point, since the pulls from opposite sides of the ring cancel, but it is stable only for displacements in the plane of the ring. Along the axis it is unstable: any slight displacement grows, which is why the ball escapes axially. Energy conservation between the center and infinity gives $$qV_c = \\tfrac12 m v^2 \\quad\\Rightarrow\\quad v = \\sqrt{\\frac{2qV_c}{m}} = \\sqrt{\\frac{2(50\\times10^{-9})(1.80\\times10^{5})}{2.0\\times10^{-3}}}.$$ The numerator is $2qV_c = 1.80\\times10^{-2}\\ \\mathrm{J}$; dividing by $2.0\\times10^{-3}\\ \\mathrm{kg}$ gives $v = \\sqrt{8.99} = 3.00\\ \\mathrm{m/s}.$"
   },
   {
     "id": "hx-pot-02",
@@ -9322,7 +9322,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A spherical cloud of radius $R = 5.0\\ \\mathrm{cm}$ carries total charge $Q = +1.0\\ \\mathrm{nC}$ distributed uniformly throughout its volume. A proton is placed at rest at the exact center and moves freely through the cloud (the cloud is tenuous and exerts no drag). Find the proton's speed as it crosses the cloud's surface, in m/s. Use $k = 8.99\\times10^{9}\\ \\mathrm{N\\cdot m^2/C^2}$, $e = 1.6\\times10^{-19}\\ \\mathrm{C}$, $m_p = 1.67\\times10^{-27}\\ \\mathrm{kg}$.",
+    "statement": "A spherical cloud of radius $R = 5.0\\ \\mathrm{cm}$ carries total charge $Q = +1.0\\ \\mathrm{nC}$ distributed uniformly throughout its volume. A proton starts at rest at the exact center, an unstable equilibrium; given a negligible nudge, it moves freely through the cloud (the cloud is tenuous and exerts no drag). Find the proton's speed as it crosses the cloud's surface, in m/s. Use $k = 8.99\\times10^{9}\\ \\mathrm{N\\cdot m^2/C^2}$, $e = 1.6\\times10^{-19}\\ \\mathrm{C}$, $m_p = 1.67\\times10^{-27}\\ \\mathrm{kg}$.",
     "answer": 131000,
     "unit": "m/s",
     "solution": "Inside a uniformly charged sphere the potential is not constant; it is $$V(r) = \\frac{kQ}{2R}\\left(3 - \\frac{r^2}{R^2}\\right),$$ which you can get by integrating the interior field $E = kQr/R^3$ from the surface inward. The drop from center to surface is $$\\Delta V = V(0) - V(R) = \\frac{3kQ}{2R} - \\frac{kQ}{R} = \\frac{kQ}{2R} = \\frac{(8.99\\times10^{9})(1.0\\times10^{-9})}{2(0.050)} = 89.9\\ \\mathrm{V}.$$ The proton falls through this potential difference, so $$\\tfrac12 m_p v^2 = e\\,\\Delta V \\quad\\Rightarrow\\quad v = \\sqrt{\\frac{2e\\,\\Delta V}{m_p}} = \\sqrt{\\frac{2(1.6\\times10^{-19})(89.9)}{1.67\\times10^{-27}}} = \\sqrt{1.72\\times10^{10}} = 1.31\\times10^{5}\\ \\mathrm{m/s}.$$"
@@ -9653,7 +9653,7 @@
   },
   {
     "id": "hx-mg-03",
-    "name": "Quarter-circle acceleration graph",
+    "name": "Quarter-ellipse acceleration graph",
     "module": "motion-graphs",
     "difficulty": "Very Hard",
     "tags": [
@@ -9664,7 +9664,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A particle starts from rest at $x = 0$. Its acceleration-position graph is a quarter circle: $a = a_0\\sqrt{1 - (x/L)^2}$, starting at $a_0 = 6.0\\ \\mathrm{m/s^2}$ at $x=0$ and falling to zero at $x = L = 4.0\\ \\mathrm{m}$. What is the particle's speed at $x = L$, in m/s?",
+    "statement": "A particle starts from rest at $x = 0$. Its acceleration-position graph is a quarter ellipse: $a = a_0\\sqrt{1 - (x/L)^2}$, starting at $a_0 = 6.0\\ \\mathrm{m/s^2}$ at $x=0$ and falling to zero at $x = L = 4.0\\ \\mathrm{m}$. What is the particle's speed at $x = L$, in m/s?",
     "answer": 6.14,
     "unit": "m/s",
     "solution": "The area under an acceleration-position graph has a physical meaning: from $a = v\\,\\frac{dv}{dx}$, $$\\int_0^L a\\,dx = \\int_0^{v} v'\\,dv' = \\frac{v^2}{2}.$$ The graph is a quarter of an ellipse with semi-axes $L$ (horizontal) and $a_0$ (vertical), so its area is $\\frac{\\pi}{4} a_0 L = \\frac{\\pi}{4}(6.0)(4.0) = 18.85\\ \\mathrm{m^2/s^2}$. Therefore $$v = \\sqrt{2 \\times 18.85} = 6.14\\ \\mathrm{m/s}.$$"
@@ -9849,7 +9849,7 @@
     "statement": "A $60\\ \\mathrm{kg}$ paddler sits at the left end and an $80\\ \\mathrm{kg}$ paddler at the right end of a uniform $100\\ \\mathrm{kg}$ canoe of length $4.0\\ \\mathrm{m}$, floating at rest on still water. They carefully swap ends. How far does the canoe move, in m? (The water exerts no horizontal force.)",
     "answer": 0.333,
     "unit": "m",
-    "solution": "With no external horizontal force, the center of mass of the whole system stays put. Put the origin at the canoe's initial left end, so the people sit at $0$ and $4.0\\ \\mathrm{m}$ and the canoe's center is at $2.0\\ \\mathrm{m}$. The system CM is at $$x_{cm} = \\frac{60(0) + 80(4.0) + 100(2.0)}{240} = \\frac{520}{240}\\ \\mathrm{m}.$$ Let the canoe shift by $s$ (positive rightward). After the swap, the $60\\ \\mathrm{kg}$ paddler is at $4.0 + s$, the $80\\ \\mathrm{kg}$ paddler at $s$, and the canoe center at $2.0 + s$: $$\\frac{60(4.0+s) + 80s + 100(2.0+s)}{240} = \\frac{440 + 240s}{240}.$$ Setting this equal to $\\frac{520}{240}$ gives $s = \\frac{80}{240} = 0.333\\ \\mathrm{m}$ (toward the lighter paddler's original end)."
+    "solution": "With no external horizontal force, the center of mass of the whole system stays put. Put the origin at the canoe's initial left end, so the people sit at $0$ and $4.0\\ \\mathrm{m}$ and the canoe's center is at $2.0\\ \\mathrm{m}$. The system CM is at $$x_{cm} = \\frac{60(0) + 80(4.0) + 100(2.0)}{240} = \\frac{520}{240}\\ \\mathrm{m}.$$ Let the canoe shift by $s$ (positive rightward). After the swap, the $60\\ \\mathrm{kg}$ paddler is at $4.0 + s$, the $80\\ \\mathrm{kg}$ paddler at $s$, and the canoe center at $2.0 + s$: $$\\frac{60(4.0+s) + 80s + 100(2.0+s)}{240} = \\frac{440 + 240s}{240}.$$ Setting this equal to $\\frac{520}{240}$ gives $s = \\frac{80}{240} = 0.333\\ \\mathrm{m}$ (rightward, toward the heavier paddler's original end: the heavier paddler moves left, so the canoe moves right)."
   },
   {
     "id": "hx-com-02",
@@ -10107,7 +10107,7 @@
     "statement": "On a banked circular curve of radius $R = 50\\ \\mathrm{m}$, a car can round the turn without sliding at any constant speed between $v_{min} = 10\\ \\mathrm{m/s}$ and $v_{max} = 25\\ \\mathrm{m/s}$. Below $v_{min}$ it slides down the bank; above $v_{max}$ it slides up. Find the coefficient of static friction between the tires and the road. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.367,
     "unit": "",
-    "solution": "Introduce the friction angle $\\varphi$ defined by $\\tan\\varphi = \\mu$. For a block on a banked turn with friction fully mobilized, combining the force equations $N\\sin\\theta \\pm \\mu N\\cos\\theta = mv^2/R$ and $N\\cos\\theta \\mp \\mu N\\sin\\theta = mg$ and using the angle-addition identity collapses both cases into one clean form:\n$$v_{max}^2 = gR\\tan(\\theta + \\varphi), \\qquad v_{min}^2 = gR\\tan(\\theta - \\varphi).$$\nFrom the data,\n$$\\tan(\\theta+\\varphi) = \\frac{25^2}{(9.8)(50)} = 1.2755 \\Rightarrow \\theta + \\varphi = 51.90^\\circ,$$\n$$\\tan(\\theta-\\varphi) = \\frac{10^2}{(9.8)(50)} = 0.2041 \\Rightarrow \\theta - \\varphi = 11.54^\\circ.$$\nSubtracting, $\\varphi = \\tfrac{1}{2}(51.90^\\circ - 11.54^\\circ) = 20.18^\\circ$, so\n$$\\mu = \\tan(20.18^\\circ) = 0.367.$$\n(The bank angle itself comes out as $\\theta = 31.7^\\circ$, though it was not asked.)"
+    "solution": "Introduce the friction angle $\\varphi$ defined by $\\tan\\varphi = \\mu$. For a car on a banked turn with friction fully mobilized, combining the force equations $N\\sin\\theta \\pm \\mu N\\cos\\theta = mv^2/R$ and $N\\cos\\theta \\mp \\mu N\\sin\\theta = mg$ and using the angle-addition identity collapses both cases into one clean form:\n$$v_{max}^2 = gR\\tan(\\theta + \\varphi), \\qquad v_{min}^2 = gR\\tan(\\theta - \\varphi).$$\nFrom the data,\n$$\\tan(\\theta+\\varphi) = \\frac{25^2}{(9.8)(50)} = 1.2755 \\Rightarrow \\theta + \\varphi = 51.90^\\circ,$$\n$$\\tan(\\theta-\\varphi) = \\frac{10^2}{(9.8)(50)} = 0.2041 \\Rightarrow \\theta - \\varphi = 11.54^\\circ.$$\nSubtracting, $\\varphi = \\tfrac{1}{2}(51.90^\\circ - 11.54^\\circ) = 20.18^\\circ$, so\n$$\\mu = \\tan(20.18^\\circ) = 0.367.$$\n(The bank angle itself comes out as $\\theta = 31.7^\\circ$, though it was not asked.)"
   },
   {
     "id": "hx-unit-01",
@@ -10383,7 +10383,7 @@
     "statement": "A sealed tube of length $L = 0.10\\ \\mathrm{m}$ contains air (molar mass $M = 29\\ \\mathrm{g/mol}$) at temperature $T = 300\\ \\mathrm{K}$. The tube lies along a radius of an ultracentrifuge and spins about one end at $60000$ revolutions per minute. In steady state, find the ratio of the gas pressure at the outer end of the tube to the pressure at the rotation axis. Use $R = 8.31\\ \\mathrm{J/(mol\\,K)}$.",
     "answer": 9.94,
     "unit": "",
-    "solution": "Work in the rotating frame, where each gas element needs a net inward force to stay on its circle. Consider a slab of gas between $r$ and $r + dr$ with cross-section $S$. The pressure difference across it must supply the centripetal force:\n$$S\\,dP = (\\rho S\\,dr)\\,\\omega^2 r \\quad\\Rightarrow\\quad \\frac{dP}{dr} = \\rho\\,\\omega^2 r.$$\nFor an ideal gas at uniform temperature, $\\rho = PM/RT$, so\n$$\\frac{dP}{P} = \\frac{M\\omega^2}{RT}\\,r\\,dr \\quad\\Rightarrow\\quad P(r) = P(0)\\,\\exp\\!\\left(\\frac{M\\omega^2 r^2}{2RT}\\right),$$\nthe Boltzmann factor for the centrifugal potential energy $-\\tfrac{1}{2}m\\omega^2 r^2$.\n\nThe angular speed is $\\omega = 2\\pi(60000/60) = 6283\\ \\mathrm{rad/s}$. The exponent at $r = L$:\n$$\\frac{M\\omega^2 L^2}{2RT} = \\frac{(0.029)(6283)^2(0.10)^2}{2(8.31)(300)} = \\frac{1.145\\times10^4}{4986} = 2.296.$$\nTherefore\n$$\\frac{P(L)}{P(0)} = e^{2.296} = 9.94.$$"
+    "solution": "In the lab frame each gas element moves on a circle, so it needs a net inward force. Consider a slab of gas between $r$ and $r + dr$ with cross-section $S$. The pressure difference across it must supply the centripetal force:\n$$S\\,dP = (\\rho S\\,dr)\\,\\omega^2 r \\quad\\Rightarrow\\quad \\frac{dP}{dr} = \\rho\\,\\omega^2 r.$$\nFor an ideal gas at uniform temperature, $\\rho = PM/RT$, so\n$$\\frac{dP}{P} = \\frac{M\\omega^2}{RT}\\,r\\,dr \\quad\\Rightarrow\\quad P(r) = P(0)\\,\\exp\\!\\left(\\frac{M\\omega^2 r^2}{2RT}\\right),$$\nthe Boltzmann factor for the centrifugal potential energy $-\\tfrac{1}{2}m\\omega^2 r^2$.\n\nThe angular speed is $\\omega = 2\\pi(60000/60) = 6283\\ \\mathrm{rad/s}$. The exponent at $r = L$:\n$$\\frac{M\\omega^2 L^2}{2RT} = \\frac{(0.029)(6283)^2(0.10)^2}{2(8.31)(300)} = \\frac{1.145\\times10^4}{4986} = 2.296.$$\nTherefore\n$$\\frac{P(L)}{P(0)} = e^{2.296} = 9.94.$$"
   },
   {
     "id": "hx-1law-01",
@@ -10647,7 +10647,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A plano-convex lens of radius of curvature $R = 2.0$ m rests on a flat glass plate and is illuminated from above at normal incidence with sodium light, $\\lambda = 589$ nm. The thin gap between lens and plate is filled with water, $n = 1.33$ (the glass on both sides has a higher index than water). Find the radius of the 10th dark ring, in mm.",
+    "statement": "A plano-convex lens of radius of curvature $R = 2.0$ m rests on a flat glass plate and is illuminated from above at normal incidence with sodium light, $\\lambda = 589$ nm. The thin gap between lens and plate is filled with water, $n = 1.33$ (the glass on both sides has a higher index than water). Find the radius of the 10th dark ring (not counting the dark spot at the center), in mm.",
     "answer": 2.98,
     "unit": "mm",
     "solution": "For a gap of thickness $t$, the reflection off the bottom of the gap picks up a half-wave shift (water to glass, low to high index) while the top reflection (glass to water, high to low) does not, so dark rings in reflection occur at $2nt = m\\lambda$. The standard sag relation for a lens of radius $R$ gives $t = \\frac{r^2}{2R}$ at distance $r$ from the contact point. Combining: $\\frac{n r^2}{R} = m\\lambda$, so $r = \\sqrt{\\frac{m\\lambda R}{n}}$. For $m = 10$: $r = \\sqrt{\\frac{10 \\times 589\\times10^{-9} \\times 2.0}{1.33}} = \\sqrt{8.86\\times10^{-6}} = 2.98\\times10^{-3}$ m $= 2.98$ mm. The water shrinks the whole ring pattern by a factor $\\sqrt{n}$ compared with an air gap."
@@ -10726,7 +10726,7 @@
     "statement": "An X-ray photon of wavelength $50.0$ pm strikes a free electron at rest and Compton-scatters straight backward ($180^\\circ$). Find the kinetic energy of the recoiling electron, in keV. Use the Compton wavelength $h/m_ec = 2.43$ pm and $hc = 1.24\\times10^6$ eV$\\cdot$pm.",
     "answer": 2.2,
     "unit": "keV",
-    "solution": "Backscattering is the maximum-transfer case, since $1 - \\cos\\theta$ is largest at $\\theta = 180^\\circ$. The Compton shift is $\\Delta\\lambda = \\frac{h}{m_ec}(1 - \\cos 180^\\circ) = 2\\times 2.43 = 4.86$ pm, so the scattered photon has $\\lambda' = 50.0 + 4.86 = 54.86$ pm. Energy conservation gives the electron everything the photon lost: $K_e = \\frac{hc}{\\lambda} - \\frac{hc}{\\lambda'} = 1.24\\times10^6\\left(\\frac{1}{50.0} - \\frac{1}{54.86}\\right) = 1.24\\times10^6 \\times 1.772\\times10^{-3} = 2197$ eV $\\approx 2.20$ keV. Only about 9% of the photon's 24.8 keV is transferred — even a head-on photon is a poor hammer against an electron when $\\lambda \\gg \\lambda_C$ is not strongly violated."
+    "solution": "Backscattering is the maximum-transfer case, since $1 - \\cos\\theta$ is largest at $\\theta = 180^\\circ$. The Compton shift is $\\Delta\\lambda = \\frac{h}{m_ec}(1 - \\cos 180^\\circ) = 2\\times 2.43 = 4.86$ pm, so the scattered photon has $\\lambda' = 50.0 + 4.86 = 54.86$ pm. Energy conservation gives the electron everything the photon lost: $K_e = \\frac{hc}{\\lambda} - \\frac{hc}{\\lambda'} = 1.24\\times10^6\\left(\\frac{1}{50.0} - \\frac{1}{54.86}\\right) = 1.24\\times10^6 \\times 1.772\\times10^{-3} = 2197$ eV $\\approx 2.20$ keV. Only about 9% of the photon's 24.8 keV is transferred — with $\\lambda = 50$ pm much longer than $\\lambda_C = 2.43$ pm, even a head-on collision hands the electron only a small fraction of the photon's energy."
   },
   {
     "id": "hx-db-01",
@@ -10743,9 +10743,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Through what potential difference, in V, must an electron be accelerated from rest so that its de Broglie wavelength equals the wavelength of a $10.0$ keV X-ray photon? Use $hc = 1240$ eV$\\cdot$nm, $h = 6.63\\times10^{-34}$ J$\\cdot$s, $m_e = 9.11\\times10^{-31}$ kg, $e = 1.60\\times10^{-19}$ C.",
-    "answer": 97.9,
+    "answer": 98.1,
     "unit": "V",
-    "solution": "First the target wavelength: for a photon, $\\lambda = \\frac{hc}{E} = \\frac{1240}{10000} = 0.124$ nm. For the electron, the de Broglie wavelength is set by its momentum, $\\lambda = h/p$, with $p = \\sqrt{2m_e eV}$ after acceleration through $V$. Setting $\\frac{h}{\\sqrt{2m_e eV}} = 1.24\\times10^{-10}$ m and solving: $V = \\frac{h^2}{2m_e e\\lambda^2} = \\frac{(6.63\\times10^{-34})^2}{2(9.11\\times10^{-31})(1.60\\times10^{-19})(1.24\\times10^{-10})^2} = 97.9$ V. The electron needs only about $100$ eV to match the wavelength of a $10{,}000$ eV photon — matter waves are far 'cheaper' per nanometer, which is why electron microscopes win."
+    "solution": "First the target wavelength: for a photon, $\\lambda = \\frac{hc}{E} = \\frac{1240}{10000} = 0.124$ nm. For the electron, the de Broglie wavelength is set by its momentum, $\\lambda = h/p$, with $p = \\sqrt{2m_e eV}$ after acceleration through $V$. Setting $\\frac{h}{\\sqrt{2m_e eV}} = 1.24\\times10^{-10}$ m and solving: $V = \\frac{h^2}{2m_e e\\lambda^2} = \\frac{(6.63\\times10^{-34})^2}{2(9.11\\times10^{-31})(1.60\\times10^{-19})(1.24\\times10^{-10})^2} = 98.1$ V. The electron needs only about $100$ eV to match the wavelength of a $10{,}000$ eV photon — matter waves are far 'cheaper' per nanometer, which is why electron microscopes win."
   },
   {
     "id": "hx-db-02",
@@ -10878,7 +10878,7 @@
     "statement": "At Earth's distance from the Sun, $d = 1.50\\times10^{11}$ m, the solar intensity is $1360$ W/m$^2$. Assuming the Sun radiates equally in all directions, find the rate at which the Sun loses mass through radiation, in kg/s. Use $c = 3.00\\times10^8$ m/s.",
     "answer": 4270000000,
     "unit": "kg/s",
-    "solution": "The intensity at Earth samples a sphere of radius $d$ centered on the Sun, so the total luminosity is $L = 4\\pi d^2 I = 4\\pi(1.50\\times10^{11})^2(1360) = 3.85\\times10^{26}$ W. Every joule radiated carries mass $E/c^2$ away, so $\\frac{dm}{dt} = \\frac{L}{c^2} = \\frac{3.85\\times10^{26}}{(3.00\\times10^8)^2} = 4.27\\times10^9$ kg/s. Four million tonnes a second sounds catastrophic, but against the Sun's $2\\times10^{30}$ kg it amounts to less than $0.01\\%$ of its mass over its entire ten-billion-year life."
+    "solution": "The intensity at Earth samples a sphere of radius $d$ centered on the Sun, so the total luminosity is $L = 4\\pi d^2 I = 4\\pi(1.50\\times10^{11})^2(1360) = 3.85\\times10^{26}$ W. Every joule radiated carries mass $E/c^2$ away, so $\\frac{dm}{dt} = \\frac{L}{c^2} = \\frac{3.85\\times10^{26}}{(3.00\\times10^8)^2} = 4.27\\times10^9$ kg/s. Four million tonnes a second sounds catastrophic, but against the Sun's $2\\times10^{30}$ kg it amounts to less than $0.1\\%$ of its mass over its entire ten-billion-year life."
   },
   {
     "id": "hx-bind-03",
@@ -10897,7 +10897,7 @@
     "statement": "In a future reactor, deuterium is consumed through four reactions: $\\mathrm{D+D \\to {}^3He + n}$ ($Q = 3.27$ MeV), $\\mathrm{D+D \\to T + p}$ ($Q = 4.03$ MeV), $\\mathrm{D+T \\to {}^4He + n}$ ($Q = 17.59$ MeV), and $\\mathrm{D+{}^3He \\to {}^4He + p}$ ($Q = 18.35$ MeV). The two D+D branches occur equally often, and every triton and helium-3 nucleus produced is burned in the latter two reactions. Find the total energy released when $1.00$ kg of deuterium is fully consumed, in J. Deuterium molar mass: $2.014$ g/mol; $N_A = 6.022\\times10^{23}$; $1$ eV $= 1.602\\times10^{-19}$ J.",
     "answer": 345000000000000,
     "unit": "J",
-    "solution": "Follow six deuterons through the chain. Two go into $\\mathrm{D+D \\to {}^3He+n}$ and two into $\\mathrm{D+D \\to T+p}$ (the branches being equally likely), releasing $3.27 + 4.03$ MeV and producing one $^3$He and one T. The fifth deuteron burns the triton ($17.59$ MeV) and the sixth burns the $^3$He ($18.35$ MeV). Total: $3.27 + 4.03 + 17.59 + 18.35 = 43.24$ MeV per six deuterons, or $7.207$ MeV per deuteron — more than the famous D-T reaction's $17.59/5 \\approx 3.5$ MeV per fuel nucleon pair would suggest at first glance. A kilogram contains $N = \\frac{1000}{2.014}(6.022\\times10^{23}) = 2.990\\times10^{26}$ deuterons, so $E = 2.990\\times10^{26} \\times 7.207\\times10^6 \\times 1.602\\times10^{-19} = 3.45\\times10^{14}$ J — roughly the output of a large power plant running for four days, from a kilogram of heavy-water fuel."
+    "solution": "Follow six deuterons through the chain. Two go into $\\mathrm{D+D \\to {}^3He+n}$ and two into $\\mathrm{D+D \\to T+p}$ (the branches being equally likely), releasing $3.27 + 4.03$ MeV and producing one $^3$He and one T. The fifth deuteron burns the triton ($17.59$ MeV) and the sixth burns the $^3$He ($18.35$ MeV). Total: $3.27 + 4.03 + 17.59 + 18.35 = 43.24$ MeV per six deuterons, or $7.207$ MeV per deuteron. That is $43.24/12 \\approx 3.6$ MeV per nucleon of fuel, about the same as the famous D-T reaction's $17.59/5 \\approx 3.5$ MeV per nucleon. A kilogram contains $N = \\frac{1000}{2.014}(6.022\\times10^{23}) = 2.990\\times10^{26}$ deuterons, so $E = 2.990\\times10^{26} \\times 7.207\\times10^6 \\times 1.602\\times10^{-19} = 3.45\\times10^{14}$ J — roughly the output of a large power plant running for four days, from a kilogram of deuterium."
   },
   {
     "id": "kin-1d-01",

@@ -7406,7 +7406,7 @@
   },
   {
     "id": "hx-mg-03",
-    "name": "Quarter-circle acceleration graph",
+    "name": "Quarter-ellipse acceleration graph",
     "module": "motion-graphs",
     "difficulty": "Very Hard",
     "tags": [

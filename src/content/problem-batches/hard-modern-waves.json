@@ -261,7 +261,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A plano-convex lens of radius of curvature $R = 2.0$ m rests on a flat glass plate and is illuminated from above at normal incidence with sodium light, $\\lambda = 589$ nm. The thin gap between lens and plate is filled with water, $n = 1.33$ (the glass on both sides has a higher index than water). Find the radius of the 10th dark ring, in mm.",
+    "statement": "A plano-convex lens of radius of curvature $R = 2.0$ m rests on a flat glass plate and is illuminated from above at normal incidence with sodium light, $\\lambda = 589$ nm. The thin gap between lens and plate is filled with water, $n = 1.33$ (the glass on both sides has a higher index than water). Find the radius of the 10th dark ring (not counting the dark spot at the center), in mm.",
     "answer": 2.98,
     "unit": "mm",
     "solution": "For a gap of thickness $t$, the reflection off the bottom of the gap picks up a half-wave shift (water to glass, low to high index) while the top reflection (glass to water, high to low) does not, so dark rings in reflection occur at $2nt = m\\lambda$. The standard sag relation for a lens of radius $R$ gives $t = \\frac{r^2}{2R}$ at distance $r$ from the contact point. Combining: $\\frac{n r^2}{R} = m\\lambda$, so $r = \\sqrt{\\frac{m\\lambda R}{n}}$. For $m = 10$: $r = \\sqrt{\\frac{10 \\times 589\\times10^{-9} \\times 2.0}{1.33}} = \\sqrt{8.86\\times10^{-6}} = 2.98\\times10^{-3}$ m $= 2.98$ mm. The water shrinks the whole ring pattern by a factor $\\sqrt{n}$ compared with an air gap."
@@ -340,7 +340,7 @@
     "statement": "An X-ray photon of wavelength $50.0$ pm strikes a free electron at rest and Compton-scatters straight backward ($180^\\circ$). Find the kinetic energy of the recoiling electron, in keV. Use the Compton wavelength $h/m_ec = 2.43$ pm and $hc = 1.24\\times10^6$ eV$\\cdot$pm.",
     "answer": 2.2,
     "unit": "keV",
-    "solution": "Backscattering is the maximum-transfer case, since $1 - \\cos\\theta$ is largest at $\\theta = 180^\\circ$. The Compton shift is $\\Delta\\lambda = \\frac{h}{m_ec}(1 - \\cos 180^\\circ) = 2\\times 2.43 = 4.86$ pm, so the scattered photon has $\\lambda' = 50.0 + 4.86 = 54.86$ pm. Energy conservation gives the electron everything the photon lost: $K_e = \\frac{hc}{\\lambda} - \\frac{hc}{\\lambda'} = 1.24\\times10^6\\left(\\frac{1}{50.0} - \\frac{1}{54.86}\\right) = 1.24\\times10^6 \\times 1.772\\times10^{-3} = 2197$ eV $\\approx 2.20$ keV. Only about 9% of the photon's 24.8 keV is transferred — even a head-on photon is a poor hammer against an electron when $\\lambda \\gg \\lambda_C$ is not strongly violated."
+    "solution": "Backscattering is the maximum-transfer case, since $1 - \\cos\\theta$ is largest at $\\theta = 180^\\circ$. The Compton shift is $\\Delta\\lambda = \\frac{h}{m_ec}(1 - \\cos 180^\\circ) = 2\\times 2.43 = 4.86$ pm, so the scattered photon has $\\lambda' = 50.0 + 4.86 = 54.86$ pm. Energy conservation gives the electron everything the photon lost: $K_e = \\frac{hc}{\\lambda} - \\frac{hc}{\\lambda'} = 1.24\\times10^6\\left(\\frac{1}{50.0} - \\frac{1}{54.86}\\right) = 1.24\\times10^6 \\times 1.772\\times10^{-3} = 2197$ eV $\\approx 2.20$ keV. Only about 9% of the photon's 24.8 keV is transferred — with $\\lambda = 50$ pm much longer than $\\lambda_C = 2.43$ pm, even a head-on collision hands the electron only a small fraction of the photon's energy."
   },
   {
     "id": "hx-db-01",
@@ -357,9 +357,9 @@
     "source": "USAPhO Guide",
     "url": "",
     "statement": "Through what potential difference, in V, must an electron be accelerated from rest so that its de Broglie wavelength equals the wavelength of a $10.0$ keV X-ray photon? Use $hc = 1240$ eV$\\cdot$nm, $h = 6.63\\times10^{-34}$ J$\\cdot$s, $m_e = 9.11\\times10^{-31}$ kg, $e = 1.60\\times10^{-19}$ C.",
-    "answer": 97.9,
+    "answer": 98.1,
     "unit": "V",
-    "solution": "First the target wavelength: for a photon, $\\lambda = \\frac{hc}{E} = \\frac{1240}{10000} = 0.124$ nm. For the electron, the de Broglie wavelength is set by its momentum, $\\lambda = h/p$, with $p = \\sqrt{2m_e eV}$ after acceleration through $V$. Setting $\\frac{h}{\\sqrt{2m_e eV}} = 1.24\\times10^{-10}$ m and solving: $V = \\frac{h^2}{2m_e e\\lambda^2} = \\frac{(6.63\\times10^{-34})^2}{2(9.11\\times10^{-31})(1.60\\times10^{-19})(1.24\\times10^{-10})^2} = 97.9$ V. The electron needs only about $100$ eV to match the wavelength of a $10{,}000$ eV photon — matter waves are far 'cheaper' per nanometer, which is why electron microscopes win."
+    "solution": "First the target wavelength: for a photon, $\\lambda = \\frac{hc}{E} = \\frac{1240}{10000} = 0.124$ nm. For the electron, the de Broglie wavelength is set by its momentum, $\\lambda = h/p$, with $p = \\sqrt{2m_e eV}$ after acceleration through $V$. Setting $\\frac{h}{\\sqrt{2m_e eV}} = 1.24\\times10^{-10}$ m and solving: $V = \\frac{h^2}{2m_e e\\lambda^2} = \\frac{(6.63\\times10^{-34})^2}{2(9.11\\times10^{-31})(1.60\\times10^{-19})(1.24\\times10^{-10})^2} = 98.1$ V. The electron needs only about $100$ eV to match the wavelength of a $10{,}000$ eV photon — matter waves are far 'cheaper' per nanometer, which is why electron microscopes win."
   },
   {
     "id": "hx-db-02",
@@ -492,7 +492,7 @@
     "statement": "At Earth's distance from the Sun, $d = 1.50\\times10^{11}$ m, the solar intensity is $1360$ W/m$^2$. Assuming the Sun radiates equally in all directions, find the rate at which the Sun loses mass through radiation, in kg/s. Use $c = 3.00\\times10^8$ m/s.",
     "answer": 4270000000.0,
     "unit": "kg/s",
-    "solution": "The intensity at Earth samples a sphere of radius $d$ centered on the Sun, so the total luminosity is $L = 4\\pi d^2 I = 4\\pi(1.50\\times10^{11})^2(1360) = 3.85\\times10^{26}$ W. Every joule radiated carries mass $E/c^2$ away, so $\\frac{dm}{dt} = \\frac{L}{c^2} = \\frac{3.85\\times10^{26}}{(3.00\\times10^8)^2} = 4.27\\times10^9$ kg/s. Four million tonnes a second sounds catastrophic, but against the Sun's $2\\times10^{30}$ kg it amounts to less than $0.01\\%$ of its mass over its entire ten-billion-year life."
+    "solution": "The intensity at Earth samples a sphere of radius $d$ centered on the Sun, so the total luminosity is $L = 4\\pi d^2 I = 4\\pi(1.50\\times10^{11})^2(1360) = 3.85\\times10^{26}$ W. Every joule radiated carries mass $E/c^2$ away, so $\\frac{dm}{dt} = \\frac{L}{c^2} = \\frac{3.85\\times10^{26}}{(3.00\\times10^8)^2} = 4.27\\times10^9$ kg/s. Four million tonnes a second sounds catastrophic, but against the Sun's $2\\times10^{30}$ kg it amounts to less than $0.1\\%$ of its mass over its entire ten-billion-year life."
   },
   {
     "id": "hx-bind-03",
@@ -511,6 +511,6 @@
     "statement": "In a future reactor, deuterium is consumed through four reactions: $\\mathrm{D+D \\to {}^3He + n}$ ($Q = 3.27$ MeV), $\\mathrm{D+D \\to T + p}$ ($Q = 4.03$ MeV), $\\mathrm{D+T \\to {}^4He + n}$ ($Q = 17.59$ MeV), and $\\mathrm{D+{}^3He \\to {}^4He + p}$ ($Q = 18.35$ MeV). The two D+D branches occur equally often, and every triton and helium-3 nucleus produced is burned in the latter two reactions. Find the total energy released when $1.00$ kg of deuterium is fully consumed, in J. Deuterium molar mass: $2.014$ g/mol; $N_A = 6.022\\times10^{23}$; $1$ eV $= 1.602\\times10^{-19}$ J.",
     "answer": 345000000000000.0,
     "unit": "J",
-    "solution": "Follow six deuterons through the chain. Two go into $\\mathrm{D+D \\to {}^3He+n}$ and two into $\\mathrm{D+D \\to T+p}$ (the branches being equally likely), releasing $3.27 + 4.03$ MeV and producing one $^3$He and one T. The fifth deuteron burns the triton ($17.59$ MeV) and the sixth burns the $^3$He ($18.35$ MeV). Total: $3.27 + 4.03 + 17.59 + 18.35 = 43.24$ MeV per six deuterons, or $7.207$ MeV per deuteron — more than the famous D-T reaction's $17.59/5 \\approx 3.5$ MeV per fuel nucleon pair would suggest at first glance. A kilogram contains $N = \\frac{1000}{2.014}(6.022\\times10^{23}) = 2.990\\times10^{26}$ deuterons, so $E = 2.990\\times10^{26} \\times 7.207\\times10^6 \\times 1.602\\times10^{-19} = 3.45\\times10^{14}$ J — roughly the output of a large power plant running for four days, from a kilogram of heavy-water fuel."
+    "solution": "Follow six deuterons through the chain. Two go into $\\mathrm{D+D \\to {}^3He+n}$ and two into $\\mathrm{D+D \\to T+p}$ (the branches being equally likely), releasing $3.27 + 4.03$ MeV and producing one $^3$He and one T. The fifth deuteron burns the triton ($17.59$ MeV) and the sixth burns the $^3$He ($18.35$ MeV). Total: $3.27 + 4.03 + 17.59 + 18.35 = 43.24$ MeV per six deuterons, or $7.207$ MeV per deuteron. That is $43.24/12 \\approx 3.6$ MeV per nucleon of fuel, about the same as the famous D-T reaction's $17.59/5 \\approx 3.5$ MeV per nucleon. A kilogram contains $N = \\frac{1000}{2.014}(6.022\\times10^{23}) = 2.990\\times10^{26}$ deuterons, so $E = 2.990\\times10^{26} \\times 7.207\\times10^6 \\times 1.602\\times10^{-19} = 3.45\\times10^{14}$ J — roughly the output of a large power plant running for four days, from a kilogram of deuterium."
   }
 ]

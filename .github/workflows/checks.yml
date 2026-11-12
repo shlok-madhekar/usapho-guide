@@ -58,6 +58,9 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # the site renders bad TeX as red text instead of failing the build
+      - name: Every formula renders
+        run: node scripts/check-math.mjs
       - name: Type check
         run: npx tsc --noEmit
       - name: Lint

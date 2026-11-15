@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE, priority: 1 },
     { url: `${SITE}/guide`, priority: 0.9 },
     { url: `${SITE}/problems`, priority: 0.8 },
+    { url: `${SITE}/daily`, priority: 0.8, changeFrequency: "daily" },
     { url: `${SITE}/contributors`, priority: 0.3 },
     { url: `${SITE}/privacy`, priority: 0.1 },
     { url: `${SITE}/terms`, priority: 0.1 },

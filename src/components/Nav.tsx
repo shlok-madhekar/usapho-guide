@@ -170,7 +170,7 @@ function MobileMenu({ links }: { links: { href: string; label: string }[] }) {
   useDismiss(open, setOpen, ref, button);
 
   return (
-    <div className="relative sm:hidden" ref={ref}>
+    <div className="relative lg:hidden" ref={ref}>
       <button
         ref={button}
         onClick={() => setOpen((o) => !o)}
@@ -221,9 +221,11 @@ export default function Nav() {
   const links = [
     { href: "/guide", label: "Course" },
     { href: "/problems", label: "Problems" },
+    { href: "/daily", label: "Daily" },
     { href: "/progress", label: "Progress" },
-    { href: "/edit", label: "Contribute" },
-    { href: "/contributors", label: "Contributors" },
+    // these two only on wide screens; they stay in the mobile menu
+    { href: "/edit", label: "Contribute", wide: true },
+    { href: "/contributors", label: "Contributors", wide: true },
   ];
   const external = [
     { href: "https://github.com/shlok-madhekar/usapho-guide", label: "GitHub" },
@@ -247,7 +249,9 @@ export default function Nav() {
               href={l.href}
               // the bold link is the current page; say so to screen readers too
               aria-current={pathname.startsWith(l.href) ? "page" : undefined}
-              className={`sans hidden text-sm sm:inline ${
+              // below md the links move into the menu, so the bar never
+              // runs wider than the screen
+              className={`sans hidden text-sm ${l.wide ? "lg:inline" : "md:inline"} ${
                 pathname.startsWith(l.href)
                   ? "font-medium text-[var(--ink-strong)]"
                   : "text-[var(--ink-soft)] hover:text-[var(--ink)]"

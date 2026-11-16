@@ -23,6 +23,7 @@ PROBLEMS = ROOT / "src/content/problems.json"
 INDEX = ROOT / "src/content/problem-index.json"
 COUNTS = ROOT / "src/content/problem-counts.json"
 PUBLIC = ROOT / "public/problems.json"
+MODULE_IDS = ROOT / "public/problem-modules.json"
 SEED = ROOT / "src/content/problem-seed.json"
 CURRICULUM = ROOT / "src/content/curriculum.json"
 
@@ -229,6 +230,13 @@ def main() -> int:
     # served as a static file so the problem bank can fetch it on demand
     PUBLIC.parent.mkdir(parents=True, exist_ok=True)
     PUBLIC.write_text(dumps(merged, None))
+
+    # each lesson's problem ids, small enough for the progress page to fetch
+    # so it can show how many of a lesson's problems the reader has solved
+    ids: dict[str, list[str]] = {}
+    for p in merged:
+        ids.setdefault(p["module"], []).append(p["id"])
+    MODULE_IDS.write_text(dumps(dict(sorted(ids.items())), None))
 
     by_module: dict[str, int] = {}
     for problem in merged:

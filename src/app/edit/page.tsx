@@ -662,7 +662,7 @@ function Problems({ api }: { api: Api }) {
             <div>
               <p className="label mb-2">Preview</p>
               <div className="border-t border-[var(--rule-strong)]">
-                <BankProblem problem={current} />
+                <BankProblem problem={current} linkable={false} />
               </div>
             </div>
 

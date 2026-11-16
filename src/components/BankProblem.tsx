@@ -133,15 +133,48 @@ function readAnswer(raw: string, unit: string): { value: number } | { note: stri
 }
 
 /**
+ * Copies the problem's own page, usapho.one/problems/<id>, so one problem can
+ * be sent to someone. Where the clipboard is unavailable it opens that page
+ * instead, and the address bar has the link.
+ */
+function CopyLink({ id }: { id: string }) {
+  const [copied, setCopied] = useState(false);
+  const href = `/problems/${id}`;
+  return (
+    <a
+      href={href}
+      onClick={(e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || !navigator.clipboard) return;
+        e.preventDefault();
+        navigator.clipboard.writeText(`${window.location.origin}${href}`).then(
+          () => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+          },
+          () => window.location.assign(href)
+        );
+      }}
+      title="Copy a link to this problem"
+      className="sans shrink-0 text-xs text-[var(--ink-soft)] underline-offset-2 hover:text-[var(--accent)] hover:underline print:hidden"
+    >
+      <span aria-live="polite">{copied ? "Copied" : "Copy link"}</span>
+    </a>
+  );
+}
+
+/**
  * One problem in the bank. Problems written for this guide are solvable in
  * place; past-exam problems are cited and linked rather than reproduced.
  */
 function BankProblemInner({
   problem: p,
   index,
+  linkable = true,
 }: {
   problem: Problem;
   index?: number;
+  /** false for a draft in the editor, which has no page of its own yet */
+  linkable?: boolean;
 }) {
   const { problems, setProblem } = useProgress();
   const status = problems[p.id] ?? "none";
@@ -201,6 +234,7 @@ function BankProblemInner({
             {status === "reviewed" ? "Reviewed" : "Solved"}
           </span>
         )}
+        {linkable && <CopyLink id={p.id} />}
       </header>
 
       {isSolvable(p) ? (

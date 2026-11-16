@@ -1,18 +1,42 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import { DIVISIONS, allModules } from "@/lib/curriculum";
 import { MODULE_STATUS_META, ModuleStatus, useProgress } from "@/lib/progress";
-import { TOTAL_PROBLEMS, TOTAL_SOLVABLE } from "@/lib/problem-counts";
+import { TOTAL_PROBLEMS, TOTAL_SOLVABLE, countFor } from "@/lib/problem-counts";
 import { useAuth } from "@/lib/auth";
 
 const STATUSES: ModuleStatus[] = ["reading", "practicing", "complete", "skipped"];
+
+/**
+ * Each lesson's problem ids, from a small file the content build writes, so
+ * the page can count solved problems per lesson without the problems
+ * themselves. Null until it arrives; the rows simply leave the count out.
+ */
+function useLessonProblemIds() {
+  const [ids, setIds] = useState<Record<string, string[]> | null>(null);
+  useEffect(() => {
+    let live = true;
+    fetch("/problem-modules.json")
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("not found"))))
+      .then((data: Record<string, string[]>) => live && setIds(data))
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, []);
+  return ids;
+}
 
 export default function ProgressPage() {
   const { modules, problems, reset, ready, synced, syncing } = useProgress();
   const { configured, session } = useAuth();
   const mods = allModules();
+  const lessonIds = useLessonProblemIds();
+  const isSolved = (id: string) =>
+    problems[id] === "solved" || problems[id] === "reviewed";
 
   const solved = Object.values(problems).filter(
     (s) => s === "solved" || s === "reviewed"
@@ -77,6 +101,8 @@ export default function ProgressPage() {
                   {course.sections.flatMap((s) =>
                     s.modules.map((m) => {
                       const st = modules[m.slug] ?? "not-started";
+                      const total = countFor(m.slug).total;
+                      const done = lessonIds?.[m.slug]?.filter(isSolved).length;
                       return (
                         <li
                           key={m.slug}
@@ -92,7 +118,18 @@ export default function ProgressPage() {
                           >
                             {m.title}
                           </Link>
-                          <span className="label shrink-0">
+                          {done != null && total > 0 && (
+                            <span
+                              className={`sans tabular shrink-0 text-xs ${
+                                done > 0 ? "text-[var(--ink)]" : "text-[var(--ink-faint)]"
+                              }`}
+                              title={`${done} of ${total} problems solved`}
+                            >
+                              <span className="sr-only">{done} of {total} problems solved</span>
+                              <span aria-hidden>{done}/{total}</span>
+                            </span>
+                          )}
+                          <span className="label w-20 shrink-0 text-right">
                             {MODULE_STATUS_META[st].label}
                           </span>
                         </li>

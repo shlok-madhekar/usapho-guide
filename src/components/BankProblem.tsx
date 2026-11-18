@@ -12,10 +12,14 @@ import {
   isSolvable,
 } from "@/lib/problem-types";
 
-/** A plain decimal, or scientific notation written 3.75e10 or 3.75x10^10. */
+/**
+ * A plain decimal, or scientific notation written 3.75e10, 3.75x10^10,
+ * 3.75·10^10, or a bare power of ten like 10^-3.
+ */
 function parseScalar(text: string): number | null {
-  const sci = text.match(/^([+-]?\d*\.?\d+)[x×*]10\^?([+-]?\d+)$/i);
-  if (sci) return Number(sci[1]) * Math.pow(10, Number(sci[2]));
+  const sci = text.match(/^(?:([+-]?\d*\.?\d+)[x×*·⋅])?10\^?([+-]?\d+)$/i);
+  if (sci && (sci[1] !== undefined || text.includes("^")))
+    return Number(sci[1] ?? 1) * Math.pow(10, Number(sci[2]));
   const val = Number(text);
   return Number.isFinite(val) ? val : null;
 }
@@ -26,16 +30,31 @@ function parseScalar(text: string): number | null {
  * pi like pi, 2pi, pi/2 or 3pi/4 (also written π). Returns null if it is not
  * one clean number, so a wrong-format entry is never read as a stray value.
  */
+const SUPERSCRIPT: Record<string, string> = {
+  "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4",
+  "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9", "⁻": "-", "⁺": "+",
+};
+
+/** 1,000 and 12,345.6 group thousands; 3,5 is a decimal comma, not 35. */
+const THOUSANDS = /^[+-]?\d{1,3}(,\d{3})+(\.\d+)?$/;
+
 function parseAnswer(raw: string): number | null {
-  const text = raw
+  let text = raw
     .trim()
-    .replace(/,/g, "")
+    // pasted from a typeset page or written in LaTeX: 1.6 × 10⁻¹⁹, 1.6 \times 10^{-19}
+    .replace(/\\(?:times|cdot)/g, "x")
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]+/g, (sup) => "^" + sup.split("").map((c) => SUPERSCRIPT[c]).join(""))
+    .replace(/\*\*/g, "^")
     .replace(/\s+/g, "")
     .replace(/π/g, "pi")
     // a pasted typographic minus, and LaTeX-style exponents: 10^{-3}
     .replace(/\u2212/g, "-")
     .replace(/[{}]/g, "");
   if (!text) return null;
+  if (text.includes(",")) {
+    if (!THOUSANDS.test(text)) return null;
+    text = text.replace(/,/g, "");
+  }
 
   // a multiple of pi: [coef]pi[/denom], e.g. pi, -2pi, pi/2, 3pi/4
   const pi = text.match(/^([+-]?\d*\.?\d*)pi(?:\/(\d*\.?\d+))?$/i);
@@ -120,6 +139,11 @@ function readAnswer(raw: string, unit: string): { value: number } | { note: stri
       }
     }
   }
+
+  // without this, 3,5 used to be read as 35 and marked wrong
+  const comma = raw.trim().match(/^[+-]?\d*,\d+(?![\d,.])/)?.[0];
+  if (comma && !THOUSANDS.test(comma))
+    return { note: `Use a point for decimals: ${comma.replace(",", ".")}.` };
 
   // a number followed by some other unit gets told which unit to use
   const split = raw.trim().match(/^(.*\d\.?)\s*([A-Za-zµμΩ°%].*)$/);
@@ -226,7 +250,7 @@ function BankProblemInner({
               onKeyDown={(e) => e.key === "Enter" && check()}
               placeholder="Answer"
               aria-label={p.unit ? `Answer in ${p.unit}` : "Answer"}
-              title="You can enter 3.75e10, 3.75x10^10, a fraction like 3/4, or a multiple of pi like pi/2"
+              title="You can enter 3.75e10, 3.75x10^10, 10^-3, a fraction like 3/4, or a multiple of pi like pi/2"
               className="w-32"
               style={
                 verdict === "right"

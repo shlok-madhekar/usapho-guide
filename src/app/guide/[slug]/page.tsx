@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
 import BankProblem from "@/components/BankProblem";
+import LessonProblems from "@/components/LessonProblems";
 import { FreqMeter, StatusPicker } from "@/components/ModuleBits";
 import ModuleSidebar from "@/components/ModuleSidebar";
 import ExportPdfButton from "@/components/ExportPdfButton";
@@ -118,14 +119,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
               <h2 className="text-xl font-bold text-[var(--ink-strong)]">
                 Problems
               </h2>
-              <p className="mt-1 text-sm text-[var(--ink-soft)]">
-                Work these on paper, then check your answer here.
-              </p>
-              <div className="mt-4 border-t border-[var(--rule-strong)]">
-                {solvable.map((p, i) => (
-                  <BankProblem key={p.id} problem={p} index={i + 1} />
-                ))}
-              </div>
+              <LessonProblems problems={solvable} />
             </section>
           )}
 

@@ -252,7 +252,7 @@ function BankProblemInner({
             </span>
             <button
               onClick={() => setShowSolution((v) => !v)}
-              className="sans ml-auto text-sm text-[var(--accent)] underline underline-offset-2"
+              className="sans ml-auto text-sm text-[var(--accent)] underline underline-offset-2 tap-target"
             >
               {showSolution ? "Hide solution" : "Solution"}
             </button>
@@ -267,7 +267,7 @@ function BankProblemInner({
               {!solved && (
                 <button
                   onClick={() => setProblem(p.id, "reviewed")}
-                  className="sans mt-2 text-sm text-[var(--accent)] underline underline-offset-2"
+                  className="sans mt-2 text-sm text-[var(--accent)] underline underline-offset-2 tap-target"
                 >
                   Mark as reviewed
                 </button>

@@ -133,25 +133,6 @@ function readAnswer(raw: string, unit: string): { value: number } | { note: stri
 }
 
 /**
- * A nudge for a wrong answer that is the right number in the wrong form:
- * the right size with the wrong sign, degrees where radians were wanted (or
- * the reverse), or right apart from a power of ten (a missed prefix: grams
- * for kilograms, cm for m, mA for A). It names the kind of slip without
- * giving the answer away.
- */
-function wrongAnswerHint(value: number, answer: number): string | null {
-  if (value === 0 || answer === 0) return null;
-  const close = (v: number) => Math.abs(v - answer) <= Math.abs(answer) * 0.02;
-  if (close(-value)) return "Right size, wrong sign.";
-  if (close((value * Math.PI) / 180) || close((value * 180) / Math.PI))
-    return "Check degrees against radians.";
-  const power = Math.round(Math.log10(Math.abs(value / answer)));
-  if (power !== 0 && Math.abs(power) <= 12 && (close(value / 10 ** power) || close(-value / 10 ** power)))
-    return "Off by a power of ten. Check your units and prefixes.";
-  return null;
-}
-
-/**
  * One problem in the bank. Problems written for this guide are solvable in
  * place; past-exam problems are cited and linked rather than reproduced.
  */
@@ -349,6 +330,25 @@ function BankProblemInner({
   );
 }
 
+
+/**
+ * A nudge for a wrong answer that is the right number in the wrong form:
+ * the right size with the wrong sign, degrees where radians were wanted (or
+ * the reverse), or right apart from a power of ten (a missed prefix: grams
+ * for kilograms, cm for m, mA for A). It names the kind of slip without
+ * giving the answer away.
+ */
+function wrongAnswerHint(value: number, answer: number): string | null {
+  if (value === 0 || answer === 0) return null;
+  const close = (v: number) => Math.abs(v - answer) <= Math.abs(answer) * 0.02;
+  if (close(-value)) return "Right size, wrong sign.";
+  if (close((value * Math.PI) / 180) || close((value * 180) / Math.PI))
+    return "Check degrees against radians.";
+  const power = Math.round(Math.log10(Math.abs(value / answer)));
+  if (power !== 0 && Math.abs(power) <= 12 && (close(value / 10 ** power) || close(-value / 10 ** power)))
+    return "Off by a power of ten. Check your units and prefixes.";
+  return null;
+}
 
 /**
  * Filtering the bank re-renders the visible list; a problem whose data has

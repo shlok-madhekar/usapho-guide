@@ -47,7 +47,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $20\\ \\mathrm{kg}$ box slides $5.0\\ \\mathrm{m}$ across a level floor with coefficient of kinetic friction $\\mu_k = 0.30$. How much work does friction do on the box, in J? (Give the signed value.)",
+    "statement": "A $20\\ \\mathrm{kg}$ box slides $5.0\\ \\mathrm{m}$ across a level floor with coefficient of kinetic friction $\\mu_k = 0.30$. How much work does friction do on the box, in J? (Give the signed value.) Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": -294,
     "unit": "J",
     "solution": "Friction has magnitude $f = \\mu_k m g = (0.30)(20)(9.8) = 58.8\\ \\mathrm{N}$ and points opposite the motion, so its work is negative: $W_f = -fd = -(58.8)(5.0) = -294\\ \\mathrm{J}$."
@@ -99,7 +99,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A worker raises a $12\\ \\mathrm{kg}$ bucket $8.0\\ \\mathrm{m}$ up a well at constant speed. How much work does the worker do on the bucket, in J?",
+    "statement": "A worker raises a $12\\ \\mathrm{kg}$ bucket $8.0\\ \\mathrm{m}$ up a well at constant speed. How much work does the worker do on the bucket, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 940.8,
     "unit": "J",
     "solution": "At constant speed the applied force equals the weight, $mg = 117.6\\ \\mathrm{N}$, and it acts along the displacement. So $W = mgh = (12)(9.8)(8.0) = 940.8\\ \\mathrm{J}$."
@@ -117,7 +117,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $0.50\\ \\mathrm{kg}$ ball falls $3.0\\ \\mathrm{m}$. How much work does gravity do on it, in J?",
+    "statement": "A $0.50\\ \\mathrm{kg}$ ball falls $3.0\\ \\mathrm{m}$. How much work does gravity do on it, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 14.7,
     "unit": "J",
     "solution": "Gravity points along the displacement, so $W = mgh = (0.50)(9.8)(3.0) = 14.7\\ \\mathrm{J}$."
@@ -135,7 +135,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $4.0\\ \\mathrm{kg}$ block is pushed $3.0\\ \\mathrm{m}$ up a $30^\\circ$ incline. How much work does gravity do on the block, in J? (Give the signed value.)",
+    "statement": "A $4.0\\ \\mathrm{kg}$ block is pushed $3.0\\ \\mathrm{m}$ up a $30^\\circ$ incline. How much work does gravity do on the block, in J? (Give the signed value.) Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": -58.8,
     "unit": "J",
     "solution": "The block rises $h = (3.0)\\sin 30^\\circ = 1.5\\ \\mathrm{m}$. Gravity opposes the rise, so $W_g = -mgh = -(4.0)(9.8)(1.5) = -58.8\\ \\mathrm{J}$."
@@ -293,7 +293,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $0.40\\ \\mathrm{kg}$ hockey puck sliding at $12\\ \\mathrm{m/s}$ is brought to rest by friction with $\\mu_k = 0.10$. How far does it travel, in m?",
+    "statement": "A $0.40\\ \\mathrm{kg}$ hockey puck sliding at $12\\ \\mathrm{m/s}$ is brought to rest by friction with $\\mu_k = 0.10$. How far does it travel, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 73.4694,
     "unit": "m",
     "solution": "Friction removes all the kinetic energy: $\\mu_k m g d = \\tfrac12 m v^2$, so $d = v^2/(2\\mu_k g)$. The mass cancels: $d = 144/(2 \\cdot 0.10 \\cdot 9.8) = 73.5\\ \\mathrm{m}$."
@@ -403,7 +403,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A uniform chain of mass $4.0\\ \\mathrm{kg}$ and length $2.0\\ \\mathrm{m}$ lies on a frictionless table with $0.50\\ \\mathrm{m}$ of it hanging over the edge. How much work must be done to pull the hanging part back onto the table, in J?",
+    "statement": "A uniform chain of mass $4.0\\ \\mathrm{kg}$ and length $2.0\\ \\mathrm{m}$ lies on a frictionless table with $0.50\\ \\mathrm{m}$ of it hanging over the edge. How much work must be done to pull the hanging part back onto the table, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.45,
     "unit": "J",
     "solution": "Track the center of mass of the hanging piece. Its mass is $\\lambda \\ell = (2.0)(0.50) = 1.0\\ \\mathrm{kg}$ and its center of mass sits $\\ell/2 = 0.25\\ \\mathrm{m}$ below the tabletop. Raising that piece to the tabletop requires $W = m g (\\ell/2) = (1.0)(9.8)(0.25) = 2.45\\ \\mathrm{J}$."
@@ -421,7 +421,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A uniform rope of mass $6.0\\ \\mathrm{kg}$ and length $3.0\\ \\mathrm{m}$ hangs from a hook. How much work is needed to reel the whole rope up onto the hook, in J?",
+    "statement": "A uniform rope of mass $6.0\\ \\mathrm{kg}$ and length $3.0\\ \\mathrm{m}$ hangs from a hook. How much work is needed to reel the whole rope up onto the hook, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 88.2,
     "unit": "J",
     "solution": "The rope's center of mass starts $1.5\\ \\mathrm{m}$ below the hook and ends at the hook. So $W = Mg\\,\\Delta h_{\\rm cm} = (6.0)(9.8)(1.5) = 88.2\\ \\mathrm{J}$."
@@ -494,7 +494,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A block is launched up a $30^\\circ$ incline at $8.0\\ \\mathrm{m/s}$; the coefficient of kinetic friction is $0.25$. How far along the incline does it travel before stopping, in m?",
+    "statement": "A block is launched up a $30^\\circ$ incline at $8.0\\ \\mathrm{m/s}$; the coefficient of kinetic friction is $0.25$. How far along the incline does it travel before stopping, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 4.5573,
     "unit": "m",
     "solution": "Going up, both gravity and friction remove energy: $\\tfrac12 v^2 = g d(\\sin\\theta + \\mu_k\\cos\\theta)$. So $d = \\frac{64}{2(9.8)(0.500+0.2165)} = 4.56\\ \\mathrm{m}$. Mass cancels."
@@ -531,7 +531,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A uniform chain of length $L = 2.0\\ \\mathrm{m}$ rests on a frictionless table with a length $0.40\\ \\mathrm{m}$ hanging over the edge. It is released and slides off. What is the speed of the chain at the instant the last link leaves the table, in m/s?",
+    "statement": "A uniform chain of length $L = 2.0\\ \\mathrm{m}$ rests on a frictionless table with a length $0.40\\ \\mathrm{m}$ hanging over the edge. It is released and slides off. What is the speed of the chain at the instant the last link leaves the table, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 4.3377,
     "unit": "m/s",
     "solution": "With $y$ hanging, the potential energy is $U = -\\tfrac12\\lambda g y^2$ (the hanging mass $\\lambda y$ with center of mass $y/2$ below the table). Energy conservation gives $\\tfrac12 \\lambda L v^2 = \\tfrac12\\lambda g (L^2 - y_0^2)$, so $v = \\sqrt{g(L^2-y_0^2)/L} = \\sqrt{9.8(4-0.16)/2} = 4.34\\ \\mathrm{m/s}$."
@@ -548,7 +548,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $1.5\\ \\mathrm{kg}$ book sits on a shelf $2.2\\ \\mathrm{m}$ above the floor. Taking the floor as the zero of potential energy, what is the book's gravitational potential energy, in J?",
+    "statement": "A $1.5\\ \\mathrm{kg}$ book sits on a shelf $2.2\\ \\mathrm{m}$ above the floor. Taking the floor as the zero of potential energy, what is the book's gravitational potential energy, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 32.34,
     "unit": "J",
     "solution": "Near Earth's surface $U = mgh$, so $U = (1.5)(9.8)(2.2) = 32.3\\ \\mathrm{J}$."
@@ -599,7 +599,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $60\\ \\mathrm{kg}$ student climbs a flight of $18$ stairs, each $0.18\\ \\mathrm{m}$ high. How much gravitational potential energy does the student gain, in J?",
+    "statement": "A $60\\ \\mathrm{kg}$ student climbs a flight of $18$ stairs, each $0.18\\ \\mathrm{m}$ high. How much gravitational potential energy does the student gain, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1905.12,
     "unit": "J",
     "solution": "The total rise is $18(0.18) = 3.24\\ \\mathrm{m}$, so $\\Delta U = mgh = (60)(9.8)(3.24) = 1905\\ \\mathrm{J}$."
@@ -617,7 +617,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $0.80\\ \\mathrm{kg}$ stone is dropped from ground level into a well and falls $12\\ \\mathrm{m}$. Taking ground level as $U=0$, what is its potential energy at the bottom, in J?",
+    "statement": "A $0.80\\ \\mathrm{kg}$ stone is dropped from ground level into a well and falls $12\\ \\mathrm{m}$. Taking ground level as $U=0$, what is its potential energy at the bottom, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": -94.08,
     "unit": "J",
     "solution": "Below the reference point the potential energy is negative: $U = -mgh = -(0.80)(9.8)(12) = -94.1\\ \\mathrm{J}$."
@@ -670,7 +670,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $2.0\\ \\mathrm{kg}$ mass hangs at rest from a spring with $k = 140\\ \\mathrm{N/m}$. By how much is the spring stretched, in m?",
+    "statement": "A $2.0\\ \\mathrm{kg}$ mass hangs at rest from a spring with $k = 140\\ \\mathrm{N/m}$. By how much is the spring stretched, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.14,
     "unit": "m",
     "solution": "At equilibrium the spring force balances the weight: $kx = mg$, so $x = (2.0)(9.8)/140 = 0.14\\ \\mathrm{m}$."
@@ -688,7 +688,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $25\\ \\mathrm{kg}$ box is carried to a loading dock $1.2\\ \\mathrm{m}$ high, once straight up and once along a $6.0\\ \\mathrm{m}$ ramp. What is the change in gravitational potential energy along the ramp, in J?",
+    "statement": "A $25\\ \\mathrm{kg}$ box is carried to a loading dock $1.2\\ \\mathrm{m}$ high, once straight up and once along a $6.0\\ \\mathrm{m}$ ramp. What is the change in gravitational potential energy along the ramp, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 294,
     "unit": "J",
     "solution": "Gravity is conservative, so $\\Delta U$ depends only on the height change, not the path: $\\Delta U = (25)(9.8)(1.2) = 294\\ \\mathrm{J}$ either way."
@@ -723,7 +723,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $0.30\\ \\mathrm{kg}$ pendulum bob on a $1.2\\ \\mathrm{m}$ string is pulled aside until the string makes $40^\\circ$ with the vertical. How much gravitational potential energy has it gained relative to the lowest point, in J?",
+    "statement": "A $0.30\\ \\mathrm{kg}$ pendulum bob on a $1.2\\ \\mathrm{m}$ string is pulled aside until the string makes $40^\\circ$ with the vertical. How much gravitational potential energy has it gained relative to the lowest point, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.8254,
     "unit": "J",
     "solution": "The bob rises $h = \\ell(1-\\cos\\theta) = 1.2(1-0.766) = 0.281\\ \\mathrm{m}$. Then $\\Delta U = mgh = (0.30)(9.8)(0.281) = 0.826\\ \\mathrm{J}$."
@@ -848,7 +848,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $1.0\\ \\mathrm{kg}$ block is placed gently on top of a vertical spring ($k = 200\\ \\mathrm{N/m}$) and released from rest at the spring's natural length. What is the maximum compression, in m?",
+    "statement": "A $1.0\\ \\mathrm{kg}$ block is placed gently on top of a vertical spring ($k = 200\\ \\mathrm{N/m}$) and released from rest at the spring's natural length. What is the maximum compression, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.098,
     "unit": "m",
     "solution": "At maximum compression the block is momentarily at rest, so $mgx = \\tfrac12 kx^2$, giving $x = 2mg/k = 2(9.8)/200 = 0.098\\ \\mathrm{m}$. Note this is twice the equilibrium sag."
@@ -1180,7 +1180,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $2.0\\ \\mathrm{kg}$ ball is dropped from $8.0\\ \\mathrm{m}$. What is its kinetic energy when it has fallen $6.0\\ \\mathrm{m}$, in J?",
+    "statement": "A $2.0\\ \\mathrm{kg}$ ball is dropped from $8.0\\ \\mathrm{m}$. What is its kinetic energy when it has fallen $6.0\\ \\mathrm{m}$, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 117.6,
     "unit": "J",
     "solution": "Kinetic energy equals the potential energy lost: $K = mg(6.0) = (2.0)(9.8)(6.0) = 117.6\\ \\mathrm{J}$."
@@ -1231,7 +1231,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $0.20\\ \\mathrm{kg}$ ball dropped from $1.5\\ \\mathrm{m}$ rebounds to $1.1\\ \\mathrm{m}$. How much mechanical energy was lost, in J?",
+    "statement": "A $0.20\\ \\mathrm{kg}$ ball dropped from $1.5\\ \\mathrm{m}$ rebounds to $1.1\\ \\mathrm{m}$. How much mechanical energy was lost, in J? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.784,
     "unit": "J",
     "solution": "The loss is the drop in gravitational potential energy between the two high points: $mg\\Delta h = (0.20)(9.8)(0.40) = 0.784\\ \\mathrm{J}$."
@@ -1356,7 +1356,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $0.25\\ \\mathrm{kg}$ ball rests on a vertical spring ($k = 320\\ \\mathrm{N/m}$) that is compressed $0.15\\ \\mathrm{m}$ below its natural length. When released, how high above the release point does the ball rise, in m?",
+    "statement": "A $0.25\\ \\mathrm{kg}$ ball rests on a vertical spring ($k = 320\\ \\mathrm{N/m}$) that is compressed $0.15\\ \\mathrm{m}$ below its natural length. When released, how high above the release point does the ball rise, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1.4694,
     "unit": "m",
     "solution": "The spring energy $\\tfrac12 kx^2 = 3.6\\ \\mathrm{J}$ becomes gravitational energy: $h = 3.6/(0.25\\cdot 9.8) = 1.47\\ \\mathrm{m}$ above the release point."
@@ -1427,7 +1427,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $12\\ \\mathrm{kg}$ sled is pushed up a $20^\\circ$ slope at $9.0\\ \\mathrm{m/s}$; $\\mu_k = 0.12$. It slides up, stops, and slides back down. What is its speed when it returns to the start, in m/s?",
+    "statement": "A $12\\ \\mathrm{kg}$ sled is pushed up a $20^\\circ$ slope at $9.0\\ \\mathrm{m/s}$; $\\mu_k = 0.12$. It slides up, stops, and slides back down. What is its speed when it returns to the start, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 6.39,
     "unit": "m/s",
     "solution": "Going up, $d = v_0^2/[2g(\\sin\\theta+\\mu\\cos\\theta)] = 81/(2\\cdot9.8\\cdot0.4548) = 9.09\\ \\mathrm{m}$. Coming down, friction now helps gravity less: $v^2 = 2gd(\\sin\\theta-\\mu\\cos\\theta) = 2(9.8)(9.09)(0.2293)$, so $v = 6.39\\ \\mathrm{m/s}$."
@@ -1479,7 +1479,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A block slides from rest off a frictionless sphere of radius $2.4\\ \\mathrm{m}$. What is its speed at the moment it leaves the surface, in m/s?",
+    "statement": "A block slides from rest off a frictionless sphere of radius $2.4\\ \\mathrm{m}$. What is its speed at the moment it leaves the surface, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 3.9598,
     "unit": "m/s",
     "solution": "Leaving happens at $\\cos\\theta = 2/3$, where $v^2 = gR\\cos\\theta = 2gR/3$. So $v = \\sqrt{2(9.8)(2.4)/3} = 3.96\\ \\mathrm{m/s}$."
@@ -1570,7 +1570,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $1.0\\ \\mathrm{kg}$ block slides down a frictionless $4.0\\ \\mathrm{kg}$ wedge of height $0.60\\ \\mathrm{m}$; the wedge is free to slide on a frictionless floor. What is the block's speed relative to the ground when it reaches the bottom, in m/s? (The block moves horizontally at the bottom.)",
+    "statement": "A $1.0\\ \\mathrm{kg}$ block slides down a frictionless $4.0\\ \\mathrm{kg}$ wedge of height $0.60\\ \\mathrm{m}$; the wedge is free to slide on a frictionless floor. What is the block's speed relative to the ground when it reaches the bottom, in m/s? (The block moves horizontally at the bottom.) Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 3.0672,
     "unit": "m/s",
     "solution": "Horizontal momentum stays zero: $m v_1 = M v_2$. Energy: $\\tfrac12 m v_1^2 + \\tfrac12 M v_2^2 = mgh$. Substituting $v_2 = (m/M)v_1$ gives $v_1^2(1+m/M) = 2gh$, so $v_1 = \\sqrt{2(9.8)(0.60)/1.25} = 3.07\\ \\mathrm{m/s}$."
@@ -1605,7 +1605,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A worker lifts a $15\\ \\mathrm{kg}$ box $1.4\\ \\mathrm{m}$ onto a shelf in $2.0\\ \\mathrm{s}$. What is the average power output, in W?",
+    "statement": "A worker lifts a $15\\ \\mathrm{kg}$ box $1.4\\ \\mathrm{m}$ onto a shelf in $2.0\\ \\mathrm{s}$. What is the average power output, in W? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 102.9,
     "unit": "W",
     "solution": "$P = W/t = mgh/t = (15)(9.8)(1.4)/2.0 = 102.9\\ \\mathrm{W}$."
@@ -1674,7 +1674,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $65\\ \\mathrm{kg}$ runner climbs $12\\ \\mathrm{m}$ of stairs in $9.0\\ \\mathrm{s}$. What is the average power, in W?",
+    "statement": "A $65\\ \\mathrm{kg}$ runner climbs $12\\ \\mathrm{m}$ of stairs in $9.0\\ \\mathrm{s}$. What is the average power, in W? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 849.3333,
     "unit": "W",
     "solution": "$P = mgh/t = (65)(9.8)(12)/9.0 = 849\\ \\mathrm{W}$."
@@ -1691,7 +1691,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A pump raises $200\\ \\mathrm{kg}$ of water $18\\ \\mathrm{m}$ every minute. What is its output power, in W?",
+    "statement": "A pump raises $200\\ \\mathrm{kg}$ of water $18\\ \\mathrm{m}$ every minute. What is its output power, in W? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 588,
     "unit": "W",
     "solution": "$P = mgh/t = (200)(9.8)(18)/60 = 588\\ \\mathrm{W}$."
@@ -1760,7 +1760,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $2.0\\ \\mathrm{kg}$ ball has fallen for $3.0\\ \\mathrm{s}$ from rest. What is the instantaneous power delivered by gravity at that moment, in W?",
+    "statement": "A $2.0\\ \\mathrm{kg}$ ball has fallen for $3.0\\ \\mathrm{s}$ from rest. What is the instantaneous power delivered by gravity at that moment, in W? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 576.24,
     "unit": "W",
     "solution": "Its speed is $v = gt = 29.4\\ \\mathrm{m/s}$ and gravity acts along $v$, so $P = mgv = (2.0)(9.8)(29.4) = 576\\ \\mathrm{W}$."
@@ -1934,7 +1934,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "Water flows over a dam at $500\\ \\mathrm{kg/s}$ from a height of $60\\ \\mathrm{m}$, and the turbines are $85\\%$ efficient. What electrical power is produced, in W?",
+    "statement": "Water flows over a dam at $500\\ \\mathrm{kg/s}$ from a height of $60\\ \\mathrm{m}$, and the turbines are $85\\%$ efficient. What electrical power is produced, in W? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 249900,
     "unit": "W",
     "solution": "The gravitational power available is $\\dot m g h = (500)(9.8)(60) = 2.94\\times10^5\\ \\mathrm{W}$. At $85\\%$ efficiency the output is $2.50\\times10^5\\ \\mathrm{W}$."
@@ -2057,7 +2057,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A uniform chain of linear density $2.0\\ \\mathrm{kg/m}$ lies coiled on the floor. One end is raised at a constant $1.5\\ \\mathrm{m/s}$. What is the power needed at the moment $3.0\\ \\mathrm{m}$ of chain is off the floor? Include only the weight of the lifted chain, in W.",
+    "statement": "A uniform chain of linear density $2.0\\ \\mathrm{kg/m}$ lies coiled on the floor. One end is raised at a constant $1.5\\ \\mathrm{m/s}$. What is the power needed at the moment $3.0\\ \\mathrm{m}$ of chain is off the floor? Include only the weight of the lifted chain, in W. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 88.2,
     "unit": "W",
     "solution": "The lifted weight is $\\lambda y g = (2.0)(3.0)(9.8) = 58.8\\ \\mathrm{N}$, moving at $1.5\\ \\mathrm{m/s}$, so $P = 88.2\\ \\mathrm{W}$. (A full treatment adds a small term $\\lambda v^3$ for accelerating new links.)"
@@ -2266,7 +2266,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $0.60\\ \\mathrm{kg}$ ball is in free flight for $1.8\\ \\mathrm{s}$. What is the magnitude of the impulse gravity delivers, in N·s?",
+    "statement": "A $0.60\\ \\mathrm{kg}$ ball is in free flight for $1.8\\ \\mathrm{s}$. What is the magnitude of the impulse gravity delivers, in N·s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 10.584,
     "unit": "N s",
     "solution": "$J = mg\\Delta t = (0.60)(9.8)(1.8) = 10.6\\ \\mathrm{N\\,s}$, directed downward."
@@ -2336,7 +2336,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $0.055\\ \\mathrm{kg}$ egg falls $1.2\\ \\mathrm{m}$ and is stopped by a pillow over $0.15\\ \\mathrm{s}$. What is the average force the pillow exerts, in N? (Include gravity acting during the stop.)",
+    "statement": "A $0.055\\ \\mathrm{kg}$ egg falls $1.2\\ \\mathrm{m}$ and is stopped by a pillow over $0.15\\ \\mathrm{s}$. What is the average force the pillow exerts, in N? (Include gravity acting during the stop.) Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.3172,
     "unit": "N",
     "solution": "Impact speed is $v = \\sqrt{2(9.8)(1.2)} = 4.85\\ \\mathrm{m/s}$. Over the stop, $(N - mg)\\Delta t = mv$, so $N = mv/\\Delta t + mg = 1.78 + 0.54 = 2.32\\ \\mathrm{N}$. A hard floor stopping the egg in $1\\ \\mathrm{ms}$ would need over $250\\ \\mathrm{N}$."
@@ -2441,7 +2441,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $0.30\\ \\mathrm{kg}$ projectile is launched at $25\\ \\mathrm{m/s}$ at $40^\\circ$ and lands at the same height. What is the magnitude of the total impulse gravity delivered during the flight, in N·s?",
+    "statement": "A $0.30\\ \\mathrm{kg}$ projectile is launched at $25\\ \\mathrm{m/s}$ at $40^\\circ$ and lands at the same height. What is the magnitude of the total impulse gravity delivered during the flight, in N·s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 9.6418,
     "unit": "N s",
     "solution": "Flight time is $t = 2v_0\\sin\\theta/g = 2(25)(0.643)/9.8 = 3.28\\ \\mathrm{s}$. Then $J = mgt = (0.30)(9.8)(3.28) = 9.64\\ \\mathrm{N\\,s}$, which equals the reversal of vertical momentum, $2mv_0\\sin\\theta$."
@@ -2615,7 +2615,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A rocket starts from rest on the launch pad and burns fuel at a constant rate so that its mass drops from $5000\\ \\mathrm{kg}$ to $2000\\ \\mathrm{kg}$ over $50\\ \\mathrm{s}$; the exhaust speed is $2400\\ \\mathrm{m/s}$. Ignoring drag but including gravity, what is its speed at burnout, in m/s?",
+    "statement": "A rocket starts from rest on the launch pad and burns fuel at a constant rate so that its mass drops from $5000\\ \\mathrm{kg}$ to $2000\\ \\mathrm{kg}$ over $50\\ \\mathrm{s}$; the exhaust speed is $2400\\ \\mathrm{m/s}$. Ignoring drag but including gravity, what is its speed at burnout, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1709.0978,
     "unit": "m/s",
     "solution": "With gravity, $\\Delta v = v_{\\rm ex}\\ln(m_i/m_f) - g t_b = 2400\\ln(2.5) - (9.8)(50) = 2199 - 490 = 1709\\ \\mathrm{m/s}$."
@@ -4390,7 +4390,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A uniform $30\\ \\mathrm{kg}$ plank $5.0\\ \\mathrm{m}$ long rests on supports at each end. A $70\\ \\mathrm{kg}$ person stands $1.5\\ \\mathrm{m}$ from the left support. What upward force does the right support provide, in N?",
+    "statement": "A uniform $30\\ \\mathrm{kg}$ plank $5.0\\ \\mathrm{m}$ long rests on supports at each end. A $70\\ \\mathrm{kg}$ person stands $1.5\\ \\mathrm{m}$ from the left support. What upward force does the right support provide, in N? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 352.8,
     "unit": "N",
     "solution": "Take torques about the left support: $R(5.0) = (30)(9.8)(2.5) + (70)(9.8)(1.5) = 735 + 1029$. So $R = 1764/5.0 = 352.8\\ \\mathrm{N}$."
@@ -4407,7 +4407,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "For the same $5.0\\ \\mathrm{m}$, $30\\ \\mathrm{kg}$ plank on end supports with a $70\\ \\mathrm{kg}$ person $1.5\\ \\mathrm{m}$ from the left end, what force does the left support provide, in N?",
+    "statement": "For the same $5.0\\ \\mathrm{m}$, $30\\ \\mathrm{kg}$ plank on end supports with a $70\\ \\mathrm{kg}$ person $1.5\\ \\mathrm{m}$ from the left end, what force does the left support provide, in N? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 627.2,
     "unit": "N",
     "solution": "Vertical equilibrium: the two supports carry the total weight $100(9.8) = 980\\ \\mathrm{N}$. With the right support at $352.8\\ \\mathrm{N}$, the left one carries $627.2\\ \\mathrm{N}$."
@@ -4583,7 +4583,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A biceps attaches $0.050\\ \\mathrm{m}$ from the elbow and holds a $6.0\\ \\mathrm{kg}$ weight in the hand, $0.35\\ \\mathrm{m}$ from the elbow. Neglecting the forearm's weight, what muscle force is required, in N?",
+    "statement": "A biceps attaches $0.050\\ \\mathrm{m}$ from the elbow and holds a $6.0\\ \\mathrm{kg}$ weight in the hand, $0.35\\ \\mathrm{m}$ from the elbow. Neglecting the forearm's weight, what muscle force is required, in N? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 411.6,
     "unit": "N",
     "solution": "Torque about the elbow: $F(0.050) = (6.0)(9.8)(0.35)$, so $F = 20.58/0.050 = 411.6\\ \\mathrm{N}$. Short lever arms cost a lot of force."
@@ -5450,7 +5450,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "For a $3.0\\ \\mathrm{kg}$ block hanging over a solid-disk pulley of mass $2.0\\ \\mathrm{kg}$, what is the cord tension, in N?",
+    "statement": "For a $3.0\\ \\mathrm{kg}$ block hanging over a solid-disk pulley of mass $2.0\\ \\mathrm{kg}$, what is the cord tension, in N? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 7.35,
     "unit": "N",
     "solution": "From the block, $T = m(g-a) = 3.0(9.8-7.35) = 7.35\\ \\mathrm{N}$. It is less than the weight $29.4\\ \\mathrm{N}$ because the pulley must be spun up."
@@ -5467,7 +5467,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "An Atwood machine has $4.0\\ \\mathrm{kg}$ and $2.0\\ \\mathrm{kg}$ blocks over a solid-disk pulley of mass $1.0\\ \\mathrm{kg}$. What is the acceleration, in m/s²?",
+    "statement": "An Atwood machine has $4.0\\ \\mathrm{kg}$ and $2.0\\ \\mathrm{kg}$ blocks over a solid-disk pulley of mass $1.0\\ \\mathrm{kg}$. What is the acceleration, in m/s²? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 3.0154,
     "unit": "m/s^2",
     "solution": "$a = \\frac{(m_1-m_2)g}{m_1+m_2+M/2} = \\frac{2(9.8)}{6.5} = 3.02\\ \\mathrm{m/s^2}$."
@@ -5607,7 +5607,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $1.0\\ \\mathrm{kg}$ mass hangs from a cord wrapped around a wheel with $I = 0.050\\ \\mathrm{kg\\,m^2}$ and radius $0.10\\ \\mathrm{m}$. How long does the mass take to fall $2.0\\ \\mathrm{m}$ from rest, in s?",
+    "statement": "A $1.0\\ \\mathrm{kg}$ mass hangs from a cord wrapped around a wheel with $I = 0.050\\ \\mathrm{kg\\,m^2}$ and radius $0.10\\ \\mathrm{m}$. How long does the mass take to fall $2.0\\ \\mathrm{m}$ from rest, in s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1.5649,
     "unit": "s",
     "solution": "$a = \\frac{mg}{m + I/R^2} = \\frac{9.8}{1.0+5.0} = 1.633\\ \\mathrm{m/s^2}$. Then $t = \\sqrt{2h/a} = \\sqrt{4.0/1.633} = 1.565\\ \\mathrm{s}$."
@@ -5642,7 +5642,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A uniform rod of length $1.4\\ \\mathrm{m}$ hinged at one end is released from rest at $30^\\circ$ above the horizontal. What is its angular speed when it passes horizontal, in rad/s?",
+    "statement": "A uniform rod of length $1.4\\ \\mathrm{m}$ hinged at one end is released from rest at $30^\\circ$ above the horizontal. What is its angular speed when it passes horizontal, in rad/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 3.2404,
     "unit": "rad/s",
     "solution": "The center falls $h = \\tfrac{L}{2}\\sin30^\\circ$. Energy: $Mg\\tfrac{L}{2}\\sin\\theta = \\tfrac12(\\tfrac13ML^2)\\omega^2$, so $\\omega = \\sqrt{3g\\sin\\theta/L} = \\sqrt{(3)(9.8)(0.5)/1.4} = 3.24\\ \\mathrm{rad/s}$."
@@ -5660,7 +5660,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A stepped pulley with $I = 0.40\\ \\mathrm{kg\\,m^2}$ has cords on radii $0.30\\ \\mathrm{m}$ (mass $5.0\\ \\mathrm{kg}$ hanging) and $0.15\\ \\mathrm{m}$ (mass $8.0\\ \\mathrm{kg}$ hanging on the opposite side). What is the angular acceleration, in rad/s²?",
+    "statement": "A stepped pulley with $I = 0.40\\ \\mathrm{kg\\,m^2}$ has cords on radii $0.30\\ \\mathrm{m}$ (mass $5.0\\ \\mathrm{kg}$ hanging) and $0.15\\ \\mathrm{m}$ (mass $8.0\\ \\mathrm{kg}$ hanging on the opposite side). What is the angular acceleration, in rad/s²? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.8544,
     "unit": "rad/s^2",
     "solution": "Net driving torque is $(5.0)(9.8)(0.30) - (8.0)(9.8)(0.15) = 14.7 - 11.76 = 2.94\\ \\mathrm{N\\,m}$. Effective inertia is $I + m_1r_1^2 + m_2r_2^2 = 0.40+0.45+0.18 = 1.03\\ \\mathrm{kg\\,m^2}$. So $\\alpha = 2.854\\ \\mathrm{rad/s^2}$."
@@ -6290,7 +6290,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A spinning bicycle wheel ($I = 0.20\\ \\mathrm{kg\\,m^2}$, $\\omega = 40\\ \\mathrm{rad/s}$, mass $2.0\\ \\mathrm{kg}$) is supported at one end of its axle, with the center of mass $0.15\\ \\mathrm{m}$ from the support. What is the precession rate, in rad/s?",
+    "statement": "A spinning bicycle wheel ($I = 0.20\\ \\mathrm{kg\\,m^2}$, $\\omega = 40\\ \\mathrm{rad/s}$, mass $2.0\\ \\mathrm{kg}$) is supported at one end of its axle, with the center of mass $0.15\\ \\mathrm{m}$ from the support. What is the precession rate, in rad/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.3675,
     "unit": "rad/s",
     "solution": "Gravity applies torque $\\tau = mgd = (2.0)(9.8)(0.15) = 2.94\\ \\mathrm{N\\,m}$, perpendicular to $\\vec L$, so the axle sweeps sideways at $\\Omega = \\tau/(I\\omega) = 2.94/8.0 = 0.3675\\ \\mathrm{rad/s}$."
@@ -6495,7 +6495,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A solid sphere rolls without slipping down a $25^\\circ$ incline. What is the acceleration of its center, in m/s²?",
+    "statement": "A solid sphere rolls without slipping down a $25^\\circ$ incline. What is the acceleration of its center, in m/s²? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.9583,
     "unit": "m/s^2",
     "solution": "For $I = \\beta MR^2$, $a = \\frac{g\\sin\\theta}{1+\\beta}$. With $\\beta = 2/5$, $a = \\tfrac57 g\\sin25^\\circ = (0.714)(9.8)(0.4226) = 2.96\\ \\mathrm{m/s^2}$."
@@ -6549,7 +6549,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A solid sphere rolling at $6.0\\ \\mathrm{m/s}$ rolls without slipping up a hill. How high does it get, in m?",
+    "statement": "A solid sphere rolling at $6.0\\ \\mathrm{m/s}$ rolls without slipping up a hill. How high does it get, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.5714,
     "unit": "m",
     "solution": "$\\tfrac{7}{10}Mv^2 = Mgh$, so $h = 0.7(36)/9.8 = 2.57\\ \\mathrm{m}$: higher than the $v^2/2g = 1.84\\ \\mathrm{m}$ a sliding block would reach, because it also carries rotational energy."
@@ -6618,7 +6618,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A yo-yo of mass $0.10\\ \\mathrm{kg}$ has $I = 5.0\\times10^{-5}\\ \\mathrm{kg\\,m^2}$ and the string unwinds at radius $r = 5.0\\ \\mathrm{mm}$. What is its downward acceleration, in m/s²?",
+    "statement": "A yo-yo of mass $0.10\\ \\mathrm{kg}$ has $I = 5.0\\times10^{-5}\\ \\mathrm{kg\\,m^2}$ and the string unwinds at radius $r = 5.0\\ \\mathrm{mm}$. What is its downward acceleration, in m/s²? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.4667,
     "unit": "m/s^2",
     "solution": "$a = \\frac{g}{1 + I/(mr^2)}$. Here $I/(mr^2) = 5.0\\times10^{-5}/(0.10\\times2.5\\times10^{-5}) = 20$, so $a = 9.8/21 = 0.467\\ \\mathrm{m/s^2}$: a yo-yo falls slowly because the string acts at a tiny radius."
@@ -6759,7 +6759,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A solid sphere is placed on a $40^\\circ$ incline with $\\mu_s = 0.20$. First check whether it rolls without slipping, then find the acceleration of its center, in m/s².",
+    "statement": "A solid sphere is placed on a $40^\\circ$ incline with $\\mu_s = 0.20$. First check whether it rolls without slipping, then find the acceleration of its center, in m/s². Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 4.7979,
     "unit": "m/s^2",
     "solution": "Rolling would require $\\mu_{\\min} = \\frac{\\beta\\tan\\theta}{1+\\beta} = \\tfrac27\\tan40^\\circ = 0.240$, more than $0.20$, so the sphere slips. Then friction is kinetic and $a = g(\\sin\\theta - \\mu_k\\cos\\theta) = 9.8(0.643-0.153) = 4.80\\ \\mathrm{m/s^2}$."
@@ -6794,7 +6794,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A small solid ball of radius $r = 0.020\\ \\mathrm{m}$ rolls without slipping inside a spherical bowl of radius $R = 0.50\\ \\mathrm{m}$. What is the angular frequency of small oscillations about the bottom, in rad/s?",
+    "statement": "A small solid ball of radius $r = 0.020\\ \\mathrm{m}$ rolls without slipping inside a spherical bowl of radius $R = 0.50\\ \\mathrm{m}$. What is the angular frequency of small oscillations about the bottom, in rad/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 3.8188,
     "unit": "rad/s",
     "solution": "For rolling inside a bowl, $\\omega = \\sqrt{\\frac{g}{(1+\\beta)(R-r)}}$ with $\\beta = 2/5$. So $\\omega = \\sqrt{9.8/(1.4\\times0.48)} = \\sqrt{14.58} = 3.82\\ \\mathrm{rad/s}$: slower than a frictionless bead, whose $\\sqrt{g/(R-r)}$ would be $4.52\\ \\mathrm{rad/s}$."

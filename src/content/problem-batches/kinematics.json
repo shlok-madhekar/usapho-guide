@@ -1082,7 +1082,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A stone is dropped from rest from a height of $45\\ \\mathrm{m}$. How long does it take to reach the ground, in s? Neglect air resistance.",
+    "statement": "A stone is dropped from rest from a height of $45\\ \\mathrm{m}$. How long does it take to reach the ground, in s? Neglect air resistance. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 3.03,
     "unit": "s",
     "solution": "From $h = \\tfrac{1}{2}gt^2$, $t = \\sqrt{2h/g} = \\sqrt{90/9.8} = 3.03\\ \\mathrm{s}$."
@@ -1116,7 +1116,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is thrown straight up at $14.7\\ \\mathrm{m/s}$. How long does it take to reach its highest point, in s?",
+    "statement": "A ball is thrown straight up at $14.7\\ \\mathrm{m/s}$. How long does it take to reach its highest point, in s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1.5,
     "unit": "s",
     "solution": "The upward velocity falls to zero after $t = v_0/g = 14.7/9.8 = 1.5\\ \\mathrm{s}$."
@@ -1133,7 +1133,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A tile slides off a roof and falls $20\\ \\mathrm{m}$ from rest. What is its speed just before landing, in m/s?",
+    "statement": "A tile slides off a roof and falls $20\\ \\mathrm{m}$ from rest. What is its speed just before landing, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 19.8,
     "unit": "m/s",
     "solution": "$v = \\sqrt{2gh} = \\sqrt{2(9.8)(20)} = \\sqrt{392} = 19.80\\ \\mathrm{m/s}$."
@@ -1150,7 +1150,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A stone dropped from a cliff hits the sea $2.5\\ \\mathrm{s}$ later. How high is the cliff above the water, in m?",
+    "statement": "A stone dropped from a cliff hits the sea $2.5\\ \\mathrm{s}$ later. How high is the cliff above the water, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 30.63,
     "unit": "m",
     "solution": "$h = \\tfrac{1}{2}gt^2 = \\tfrac{1}{2}(9.8)(6.25) = 30.625\\ \\mathrm{m}$."
@@ -1167,7 +1167,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is thrown straight up from ground level at $25\\ \\mathrm{m/s}$ and caught at the same height. How long is it in the air, in s?",
+    "statement": "A ball is thrown straight up from ground level at $25\\ \\mathrm{m/s}$ and caught at the same height. How long is it in the air, in s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 5.1,
     "unit": "s",
     "solution": "By symmetry the flight time is twice the rise time: $t = \\frac{2v_0}{g} = \\frac{50}{9.8} = 5.10\\ \\mathrm{s}$."
@@ -1203,7 +1203,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "An object is released from rest and falls freely. How far does it fall during the fourth second of its motion, in m?",
+    "statement": "An object is released from rest and falls freely. How far does it fall during the fourth second of its motion, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 34.3,
     "unit": "m",
     "solution": "The distance in the $n$th second is $\\frac{g(2n-1)}{2}$. For $n = 4$: $\\frac{9.8(7)}{2} = 34.3\\ \\mathrm{m}$."
@@ -1238,7 +1238,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is thrown straight up at $18\\ \\mathrm{m/s}$ from the roof of a building $25\\ \\mathrm{m}$ tall. How long until it lands on the ground below, in s?",
+    "statement": "A ball is thrown straight up at $18\\ \\mathrm{m/s}$ from the roof of a building $25\\ \\mathrm{m}$ tall. How long until it lands on the ground below, in s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 4.75,
     "unit": "s",
     "solution": "Take up as positive with the origin at the roof: $-25 = 18t - 4.9t^2$, i.e. $4.9t^2 - 18t - 25 = 0$. The positive root is $t = \\frac{18 + \\sqrt{814}}{9.8} = 4.75\\ \\mathrm{s}$."
@@ -1273,7 +1273,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball dropped from rest passes a window $1.50\\ \\mathrm{m}$ tall in $0.120\\ \\mathrm{s}$. How far above the top of the window was it released, in m?",
+    "statement": "A ball dropped from rest passes a window $1.50\\ \\mathrm{m}$ tall in $0.120\\ \\mathrm{s}$. How far above the top of the window was it released, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 7.24,
     "unit": "m",
     "solution": "The average speed over the window, $1.50/0.120 = 12.5\\ \\mathrm{m/s}$, equals the instantaneous speed at the midpoint of the interval. So the speed at the top of the window is $12.5 - (9.8)(0.060) = 11.912\\ \\mathrm{m/s}$, and the drop needed is $\\frac{11.912^2}{19.6} = 7.24\\ \\mathrm{m}$."
@@ -1291,7 +1291,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "One ball is dropped from rest from a height of $60\\ \\mathrm{m}$ at the same instant a second ball is thrown straight up from the ground at $30\\ \\mathrm{m/s}$. At what height above the ground do they meet, in m?",
+    "statement": "One ball is dropped from rest from a height of $60\\ \\mathrm{m}$ at the same instant a second ball is thrown straight up from the ground at $30\\ \\mathrm{m/s}$. At what height above the ground do they meet, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 40.4,
     "unit": "m",
     "solution": "Both balls have the same downward acceleration, so in the frame of the dropped ball the other approaches at a constant $30\\ \\mathrm{m/s}$. They meet at $t = 60/30 = 2.0\\ \\mathrm{s}$, when the dropped ball is at $60 - \\tfrac{1}{2}(9.8)(4) = 40.4\\ \\mathrm{m}$."
@@ -1308,7 +1308,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball thrown straight up is caught at the launch height $3.4\\ \\mathrm{s}$ later. What was its launch speed, in m/s?",
+    "statement": "A ball thrown straight up is caught at the launch height $3.4\\ \\mathrm{s}$ later. What was its launch speed, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 16.66,
     "unit": "m/s",
     "solution": "Half the flight is the rise, so $v_0 = g(t/2) = (9.8)(1.7) = 16.66\\ \\mathrm{m/s}$."
@@ -1325,7 +1325,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A rock is thrown straight up at $12\\ \\mathrm{m/s}$ from the edge of a $30\\ \\mathrm{m}$ cliff. For how long is the rock above the level of the launch point, in s?",
+    "statement": "A rock is thrown straight up at $12\\ \\mathrm{m/s}$ from the edge of a $30\\ \\mathrm{m}$ cliff. For how long is the rock above the level of the launch point, in s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.45,
     "unit": "s",
     "solution": "The cliff height is irrelevant to this question. Above the launch level the motion is symmetric, so the time is $\\frac{2v_0}{g} = \\frac{24}{9.8} = 2.45\\ \\mathrm{s}$."
@@ -1360,7 +1360,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A small raindrop of mass $3.0 \\times 10^{-5}\\ \\mathrm{kg}$ falls subject to a linear drag force $F = bv$ with $b = 1.5 \\times 10^{-4}\\ \\mathrm{kg/s}$. What is its terminal speed, in m/s?",
+    "statement": "A small raindrop of mass $3.0 \\times 10^{-5}\\ \\mathrm{kg}$ falls subject to a linear drag force $F = bv$ with $b = 1.5 \\times 10^{-4}\\ \\mathrm{kg/s}$. What is its terminal speed, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1.96,
     "unit": "m/s",
     "solution": "At terminal speed the acceleration is zero, so $mg = bv_t$. Hence $v_t = \\frac{mg}{b} = \\frac{(3.0\\times10^{-5})(9.8)}{1.5\\times10^{-4}} = 1.96\\ \\mathrm{m/s}$."
@@ -1378,7 +1378,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A skydiver falls with quadratic drag and has terminal speed $55\\ \\mathrm{m/s}$. What is the magnitude of her acceleration at the moment her speed is $30\\ \\mathrm{m/s}$, in $\\mathrm{m/s^2}$?",
+    "statement": "A skydiver falls with quadratic drag and has terminal speed $55\\ \\mathrm{m/s}$. What is the magnitude of her acceleration at the moment her speed is $30\\ \\mathrm{m/s}$, in $\\mathrm{m/s^2}$? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 6.88,
     "unit": "m/s^2",
     "solution": "With $ma = mg - kv^2$ and $mg = kv_t^2$, the acceleration is $a = g\\left(1 - \\frac{v^2}{v_t^2}\\right) = 9.8\\left(1 - \\frac{900}{3025}\\right) = 6.88\\ \\mathrm{m/s^2}$."
@@ -1414,7 +1414,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball thrown straight up from the ground passes a height of $15\\ \\mathrm{m}$ twice, the two crossings separated by $1.60\\ \\mathrm{s}$. What was its launch speed, in m/s?",
+    "statement": "A ball thrown straight up from the ground passes a height of $15\\ \\mathrm{m}$ twice, the two crossings separated by $1.60\\ \\mathrm{s}$. What was its launch speed, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 18.85,
     "unit": "m/s",
     "solution": "By symmetry the ball is at the top halfway between the crossings, so its speed at $15\\ \\mathrm{m}$ is $g(0.80) = 7.84\\ \\mathrm{m/s}$. Then $v_0^2 = 7.84^2 + 2(9.8)(15) = 355.5$, giving $v_0 = 18.85\\ \\mathrm{m/s}$."
@@ -1468,7 +1468,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is dropped from rest from $5.0\\ \\mathrm{m}$ onto a hard floor and rebounds with $80\\%$ of its impact speed. How long after release does it strike the floor for the second time, in s?",
+    "statement": "A ball is dropped from rest from $5.0\\ \\mathrm{m}$ onto a hard floor and rebounds with $80\\%$ of its impact speed. How long after release does it strike the floor for the second time, in s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.63,
     "unit": "s",
     "solution": "The first fall takes $\\sqrt{10/9.8} = 1.010\\ \\mathrm{s}$ and ends at $9.899\\ \\mathrm{m/s}$. The rebound speed is $7.919\\ \\mathrm{m/s}$, and the ball is back on the floor after $\\frac{2(7.919)}{9.8} = 1.616\\ \\mathrm{s}$. The total is $2.63\\ \\mathrm{s}$."
@@ -1486,7 +1486,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A stone is dropped from a bridge, and a second stone is dropped from the same point exactly $1.0\\ \\mathrm{s}$ later. How far apart are they $3.0\\ \\mathrm{s}$ after the first stone was released, in m?",
+    "statement": "A stone is dropped from a bridge, and a second stone is dropped from the same point exactly $1.0\\ \\mathrm{s}$ later. How far apart are they $3.0\\ \\mathrm{s}$ after the first stone was released, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 24.5,
     "unit": "m",
     "solution": "At $t = 3.0\\ \\mathrm{s}$ the stones have fallen $\\tfrac{1}{2}g(3)^2$ and $\\tfrac{1}{2}g(2)^2$, so the gap is $\\tfrac{1}{2}(9.8)(9-4) = 24.5\\ \\mathrm{m}$. Note the gap keeps growing even though both have the same acceleration."
@@ -1504,7 +1504,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "An object falling from rest with linear drag has $v(t) = v_t\\left(1 - e^{-gt/v_t}\\right)$, with terminal speed $v_t = 6.0\\ \\mathrm{m/s}$. What is its speed at $t = 1.20\\ \\mathrm{s}$, in m/s?",
+    "statement": "An object falling from rest with linear drag has $v(t) = v_t\\left(1 - e^{-gt/v_t}\\right)$, with terminal speed $v_t = 6.0\\ \\mathrm{m/s}$. What is its speed at $t = 1.20\\ \\mathrm{s}$, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 5.15,
     "unit": "m/s",
     "solution": "The exponent is $\\frac{gt}{v_t} = \\frac{(9.8)(1.20)}{6.0} = 1.96$, and $e^{-1.96} = 0.1409$. So $v = 6.0(1 - 0.1409) = 5.15\\ \\mathrm{m/s}$, already $86\\%$ of terminal."
@@ -1521,7 +1521,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is thrown straight up at $15\\ \\mathrm{m/s}$ from the top of a $50\\ \\mathrm{m}$ tower. What is its speed when it is $20\\ \\mathrm{m}$ above the ground, in m/s?",
+    "statement": "A ball is thrown straight up at $15\\ \\mathrm{m/s}$ from the top of a $50\\ \\mathrm{m}$ tower. What is its speed when it is $20\\ \\mathrm{m}$ above the ground, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 28.51,
     "unit": "m/s",
     "solution": "The ball has descended $30\\ \\mathrm{m}$ below its launch point, so $v^2 = 15^2 + 2(9.8)(30) = 813$ and $v = 28.51\\ \\mathrm{m/s}$. Using $v^2 = v_0^2 + 2g\\Delta h$ sidesteps the up-and-down trip entirely."
@@ -1539,7 +1539,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A model rocket rises from rest with a constant upward acceleration of $4.0\\ \\mathrm{m/s^2}$ for $20\\ \\mathrm{s}$, then the motor cuts out and it coasts freely. What maximum height above the ground does it reach, in m?",
+    "statement": "A model rocket rises from rest with a constant upward acceleration of $4.0\\ \\mathrm{m/s^2}$ for $20\\ \\mathrm{s}$, then the motor cuts out and it coasts freely. What maximum height above the ground does it reach, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1126.53,
     "unit": "m",
     "solution": "At burnout the rocket is at $\\tfrac{1}{2}(4)(400) = 800\\ \\mathrm{m}$ moving at $80\\ \\mathrm{m/s}$. Coasting adds $\\frac{80^2}{2(9.8)} = 326.5\\ \\mathrm{m}$, so the peak is $1126.5\\ \\mathrm{m}$."
@@ -1592,7 +1592,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is thrown horizontally at $15\\ \\mathrm{m/s}$ from the edge of a $20\\ \\mathrm{m}$ cliff. How far from the base of the cliff does it land, in m? Neglect air resistance.",
+    "statement": "A ball is thrown horizontally at $15\\ \\mathrm{m/s}$ from the edge of a $20\\ \\mathrm{m}$ cliff. How far from the base of the cliff does it land, in m? Neglect air resistance. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 30.3,
     "unit": "m",
     "solution": "Vertical and horizontal motion are independent. The fall takes $t = \\sqrt{2(20)/9.8} = 2.020\\ \\mathrm{s}$, and in that time the ball travels $15t = 30.30\\ \\mathrm{m}$ horizontally."
@@ -1609,7 +1609,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is thrown horizontally at $15\\ \\mathrm{m/s}$ from the edge of a $20\\ \\mathrm{m}$ cliff. How long is it in the air, in s?",
+    "statement": "A ball is thrown horizontally at $15\\ \\mathrm{m/s}$ from the edge of a $20\\ \\mathrm{m}$ cliff. How long is it in the air, in s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.02,
     "unit": "s",
     "solution": "The horizontal launch means the initial vertical velocity is zero, so $t = \\sqrt{2h/g} = \\sqrt{40/9.8} = 2.02\\ \\mathrm{s}$. The launch speed is irrelevant."
@@ -1643,7 +1643,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A projectile is launched at $30\\ \\mathrm{m/s}$ at $40^\\circ$ above the horizontal from level ground. What is its horizontal range, in m?",
+    "statement": "A projectile is launched at $30\\ \\mathrm{m/s}$ at $40^\\circ$ above the horizontal from level ground. What is its horizontal range, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 90.44,
     "unit": "m",
     "solution": "On level ground $R = \\frac{v_0^2 \\sin 2\\theta}{g} = \\frac{900 \\sin 80^\\circ}{9.8} = 90.44\\ \\mathrm{m}$."
@@ -1660,7 +1660,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A stone is launched at $25\\ \\mathrm{m/s}$ at $45^\\circ$ above level ground. What is its range, in m?",
+    "statement": "A stone is launched at $25\\ \\mathrm{m/s}$ at $45^\\circ$ above level ground. What is its range, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 63.78,
     "unit": "m",
     "solution": "At $45^\\circ$, $\\sin 2\\theta = 1$, so $R = \\frac{v_0^2}{g} = \\frac{625}{9.8} = 63.78\\ \\mathrm{m}$."
@@ -1677,7 +1677,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is kicked at $20\\ \\mathrm{m/s}$ at $30^\\circ$ above level ground. How long is it in the air, in s?",
+    "statement": "A ball is kicked at $20\\ \\mathrm{m/s}$ at $30^\\circ$ above level ground. How long is it in the air, in s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.04,
     "unit": "s",
     "solution": "$T = \\frac{2v_0\\sin\\theta}{g} = \\frac{2(20)(0.5)}{9.8} = 2.04\\ \\mathrm{s}$."
@@ -1694,7 +1694,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A dart thrown horizontally at $12\\ \\mathrm{m/s}$ strikes a board $0.40\\ \\mathrm{m}$ below the launch height. How far away is the board, in m?",
+    "statement": "A dart thrown horizontally at $12\\ \\mathrm{m/s}$ strikes a board $0.40\\ \\mathrm{m}$ below the launch height. How far away is the board, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 3.43,
     "unit": "m",
     "solution": "The drop time is $t = \\sqrt{2(0.40)/9.8} = 0.2857\\ \\mathrm{s}$, so the horizontal distance is $(12)(0.2857) = 3.43\\ \\mathrm{m}$."
@@ -1712,7 +1712,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A cannon fires shells at $40\\ \\mathrm{m/s}$ from level ground. What is the greatest range it can achieve, in m?",
+    "statement": "A cannon fires shells at $40\\ \\mathrm{m/s}$ from level ground. What is the greatest range it can achieve, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 163.27,
     "unit": "m",
     "solution": "The range $\\frac{v_0^2\\sin 2\\theta}{g}$ is largest when $2\\theta = 90^\\circ$, giving $R_{\\max} = \\frac{1600}{9.8} = 163.27\\ \\mathrm{m}$."
@@ -1746,7 +1746,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A stone is thrown horizontally at $10\\ \\mathrm{m/s}$ from a height of $45\\ \\mathrm{m}$. What is its speed just before it hits the ground, in m/s?",
+    "statement": "A stone is thrown horizontally at $10\\ \\mathrm{m/s}$ from a height of $45\\ \\mathrm{m}$. What is its speed just before it hits the ground, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 31.34,
     "unit": "m/s",
     "solution": "The horizontal component stays $10\\ \\mathrm{m/s}$ while the vertical component grows to $\\sqrt{2(9.8)(45)} = 29.70\\ \\mathrm{m/s}$. The speed is $\\sqrt{100 + 882} = 31.34\\ \\mathrm{m/s}$."
@@ -1799,7 +1799,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A projectile is to be launched at $25\\ \\mathrm{m/s}$ so that it lands $50\\ \\mathrm{m}$ away on level ground. What is the smaller of the two possible launch angles, in degrees?",
+    "statement": "A projectile is to be launched at $25\\ \\mathrm{m/s}$ so that it lands $50\\ \\mathrm{m}$ away on level ground. What is the smaller of the two possible launch angles, in degrees? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 25.81,
     "unit": "deg",
     "solution": "From $R = \\frac{v_0^2\\sin 2\\theta}{g}$, $\\sin 2\\theta = \\frac{(50)(9.8)}{625} = 0.784$, so $2\\theta = 51.63^\\circ$ and $\\theta = 25.81^\\circ$. The other solution is its complement, $64.19^\\circ$."
@@ -1867,7 +1867,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A projectile on level ground is in the air for $3.0\\ \\mathrm{s}$ and its speed at the top of the arc is $12\\ \\mathrm{m/s}$. What is its maximum height, in m?",
+    "statement": "A projectile on level ground is in the air for $3.0\\ \\mathrm{s}$ and its speed at the top of the arc is $12\\ \\mathrm{m/s}$. What is its maximum height, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 11.03,
     "unit": "m",
     "solution": "The rise time is $1.5\\ \\mathrm{s}$, so $v_{0y} = (9.8)(1.5) = 14.7\\ \\mathrm{m/s}$ and $h = \\frac{14.7^2}{19.6} = 11.03\\ \\mathrm{m}$. The $12\\ \\mathrm{m/s}$ is the horizontal component and does not enter."
@@ -1885,7 +1885,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball rolls off a table $1.20\\ \\mathrm{m}$ high and lands $1.50\\ \\mathrm{m}$ from the table's edge. What was its speed as it left the table, in m/s?",
+    "statement": "A ball rolls off a table $1.20\\ \\mathrm{m}$ high and lands $1.50\\ \\mathrm{m}$ from the table's edge. What was its speed as it left the table, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 3.03,
     "unit": "m/s",
     "solution": "The fall takes $t = \\sqrt{2(1.20)/9.8} = 0.4949\\ \\mathrm{s}$, so $v = \\frac{1.50}{0.4949} = 3.03\\ \\mathrm{m/s}$."
@@ -1970,7 +1970,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A projectile is fired from the bottom of a $20^\\circ$ incline at $25\\ \\mathrm{m/s}$, at $50^\\circ$ above the horizontal (so $30^\\circ$ above the slope). How far up the slope does it land, measured along the slope, in m?",
+    "statement": "A projectile is fired from the bottom of a $20^\\circ$ incline at $25\\ \\mathrm{m/s}$, at $50^\\circ$ above the horizontal (so $30^\\circ$ above the slope). How far up the slope does it land, measured along the slope, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 46.42,
     "unit": "m",
     "solution": "For a slope of angle $\\alpha$ and launch angle $\\theta$ from the horizontal, $R = \\frac{2v_0^2\\cos\\theta\\sin(\\theta-\\alpha)}{g\\cos^2\\alpha}$. Substituting $v_0=25$, $\\theta = 50^\\circ$, $\\alpha = 20^\\circ$ gives $R = \\frac{2(625)(0.6428)(0.5)}{9.8(0.8830)} = 46.4\\ \\mathrm{m}$."
@@ -1988,7 +1988,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is launched at $30\\ \\mathrm{m/s}$ from the foot of a $15^\\circ$ incline. What is the greatest distance up the slope it can reach, measured along the slope, in m?",
+    "statement": "A ball is launched at $30\\ \\mathrm{m/s}$ from the foot of a $15^\\circ$ incline. What is the greatest distance up the slope it can reach, measured along the slope, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 72.95,
     "unit": "m",
     "solution": "Optimising the incline range formula gives the best launch angle $\\theta = 45^\\circ + \\alpha/2$ and $R_{\\max} = \\frac{v_0^2}{g(1+\\sin\\alpha)}$. Here $R_{\\max} = \\frac{900}{9.8(1.2588)} = 72.96\\ \\mathrm{m}$."
@@ -2058,7 +2058,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball must be thrown from the ground to hit a target $30\\ \\mathrm{m}$ away horizontally and $10\\ \\mathrm{m}$ above the launch point. What is the minimum launch speed that can reach it, in m/s?",
+    "statement": "A ball must be thrown from the ground to hit a target $30\\ \\mathrm{m}$ away horizontally and $10\\ \\mathrm{m}$ above the launch point. What is the minimum launch speed that can reach it, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 20.2,
     "unit": "m/s",
     "solution": "The minimum speed to reach the point $(x,y)$ is $v_{\\min}^2 = g\\left(y + \\sqrt{x^2+y^2}\\right)$, obtained by demanding the target lie exactly on the boundary of the reachable region. Here $v_{\\min}^2 = 9.8(10 + 31.62) = 407.9$, so $v_{\\min} = 20.20\\ \\mathrm{m/s}$."
@@ -2092,7 +2092,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A shot is put from a height of $20\\ \\mathrm{m}$ above level ground with speed $25\\ \\mathrm{m/s}$. If the launch angle is chosen to maximise the horizontal distance, what is that maximum distance, in m?",
+    "statement": "A shot is put from a height of $20\\ \\mathrm{m}$ above level ground with speed $25\\ \\mathrm{m/s}$. If the launch angle is chosen to maximise the horizontal distance, what is that maximum distance, in m? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 81.35,
     "unit": "m",
     "solution": "Optimising over $\\theta$ for a launch from height $h$ gives $R_{\\max} = \\frac{v_0}{g}\\sqrt{v_0^2 + 2gh}$ (the optimal angle is below $45^\\circ$). Here $R_{\\max} = \\frac{25}{9.8}\\sqrt{625 + 392} = (2.551)(31.89) = 81.4\\ \\mathrm{m}$."

@@ -173,7 +173,11 @@ function BankProblemInner({
   };
 
   return (
-    <article className="border-t border-[var(--rule)] py-6 first:border-t-0">
+    <article
+      // an anchor, so search and links can point at one problem: /guide/vectors#orig-vec-1
+      id={p.id}
+      className="problem-card border-t border-[var(--rule)] py-6 first:border-t-0"
+    >
       <header className="flex items-baseline gap-3">
         {index != null && (
           <span className="tabular sans shrink-0 text-sm text-[var(--ink-faint)]">

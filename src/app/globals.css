@@ -157,6 +157,12 @@ a { color: inherit; }
 /* keep a linked heading clear of the sticky header */
 .prose h2[id],
 .prose h3[id] { scroll-margin-top: 4.5rem; }
+.problem-card { scroll-margin-top: 4.5rem; }
+/* the problem a link or search result pointed at */
+.problem-card:target {
+  box-shadow: inset 3px 0 0 var(--accent);
+  padding-left: 1rem;
+}
 /* the "#" link that appears on hovering a heading */
 .prose .heading-anchor {
   color: var(--ink-faint);

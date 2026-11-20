@@ -123,6 +123,9 @@ a { color: inherit; }
   text-underline-offset: 2px;
   text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
 }
+.link {
+  transition: text-decoration-color 150ms ease-out;
+}
 .link:hover { text-decoration-color: var(--accent); }
 
 /* ---------------- prose ---------------- */
@@ -274,7 +277,7 @@ table.data tbody tr:hover { background: var(--paper-2); }
   background: var(--ink-strong);
   color: var(--paper);
   border-radius: 4px;
-  transition: opacity 120ms;
+  transition: opacity 120ms ease-out, transform 80ms ease-out;
 }
 .btn:hover { opacity: 0.85; }
 .btn:disabled { opacity: 0.4; }
@@ -287,7 +290,51 @@ table.data tbody tr:hover { background: var(--paper-2); }
   color: var(--ink);
   border-radius: 4px;
 }
-.btn-plain:hover { background: var(--paper-2); }
+.btn-plain {
+  transition: background-color 120ms ease-out, border-color 120ms ease-out,
+    transform 80ms ease-out;
+}
+.btn-plain:hover { background: var(--paper-2); border-color: var(--ink-soft); }
+
+/* inline-flex so a link styled as a button can take a height and a transform */
+.btn, .btn-plain {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* a press you can feel: the button sinks a pixel while it is held */
+.btn:active:not(:disabled),
+.btn-plain:active:not(:disabled) { transform: translateY(1px); }
+
+.btn:focus-visible,
+.btn-plain:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* on a touchscreen, buttons and fields get a 44px target, the size a
+   fingertip can hit without zooming; mouse layouts keep their density */
+@media (pointer: coarse) {
+  .btn,
+  .btn-plain,
+  input[type="text"], input[type="email"], input[type="password"],
+  input[type="number"], select {
+    min-height: 44px;
+  }
+  /* small text buttons (Solution, Mark as reviewed) keep their look but
+     get the same tappable height */
+  .tap-target {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .btn-plain, .link { transition: none; }
+  .btn:active, .btn-plain:active { transform: none; }
+}
 
 input[type="text"], input[type="email"], input[type="password"],
 input[type="number"], textarea, select {

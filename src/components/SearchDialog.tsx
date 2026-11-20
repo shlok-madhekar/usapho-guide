@@ -4,7 +4,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { search, type SearchEntry, type SearchResult } from "@/lib/search";
+import {
+  search,
+  searchProblems,
+  type ProblemSearchEntry,
+  type SearchEntry,
+  type SearchResult,
+} from "@/lib/search";
 
 const hrefFor = (r: SearchResult) =>
   `/guide/${r.entry.slug}${r.heading?.id ? `#${r.heading.id}` : ""}`;
@@ -19,6 +25,26 @@ const loadIndex = () =>
       throw e;
     }));
 
+/**
+ * Problem names load beside the lessons. If they fail, lesson search still
+ * works; the problems simply do not appear.
+ */
+let cachedProblems: Promise<ProblemSearchEntry[]> | null = null;
+const loadProblems = () =>
+  (cachedProblems ??= fetch("/problem-search.json")
+    .then((r) => (r.ok ? r.json() : Promise.reject(new Error("no index"))))
+    .catch(() => {
+      cachedProblems = null;
+      return [] as ProblemSearchEntry[];
+    }));
+
+/** A problem opens on its lesson's page, scrolled to its card. */
+const problemHref = (p: ProblemSearchEntry) => `/guide/${p.module}#${p.id}`;
+
+type Item =
+  | { kind: "lesson"; href: string; result: SearchResult }
+  | { kind: "problem"; href: string; problem: ProblemSearchEntry };
+
 const typing = (el: EventTarget | null) =>
   el instanceof HTMLElement &&
   (el.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName));
@@ -32,6 +58,7 @@ export default function SearchDialog() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState<SearchEntry[] | null>(null);
+  const [problemIndex, setProblemIndex] = useState<ProblemSearchEntry[]>([]);
   const [failed, setFailed] = useState(false);
   const [active, setActive] = useState(0);
   const input = useRef<HTMLInputElement>(null);
@@ -53,6 +80,7 @@ export default function SearchDialog() {
     if (!open) return;
     input.current?.focus();
     if (index) return;
+    loadProblems().then(setProblemIndex);
     loadIndex()
       .then((data) => {
         setIndex(data);
@@ -62,6 +90,22 @@ export default function SearchDialog() {
   }, [open, index]);
 
   const results = useMemo(() => (index ? search(index, query) : []), [index, query]);
+  const problems = useMemo(
+    () => (index ? searchProblems(problemIndex, query) : []),
+    [index, problemIndex, query]
+  );
+  const lessonTitle = useMemo(
+    () => new Map(index?.map((e) => [e.slug, e.title]) ?? []),
+    [index]
+  );
+  // one list for the arrow keys: lessons first, then problems
+  const items: Item[] = useMemo(
+    () => [
+      ...results.map((r) => ({ kind: "lesson" as const, href: hrefFor(r), result: r })),
+      ...problems.map((p) => ({ kind: "problem" as const, href: problemHref(p), problem: p })),
+    ],
+    [results, problems]
+  );
   useEffect(() => setActive(0), [query]);
 
   // arrow keys move the highlight, so keep it inside the scrolled list
@@ -90,13 +134,19 @@ export default function SearchDialog() {
       input.current?.focus();
     } else if (e.key === "ArrowDown") {
       e.preventDefault();
-      setActive((i) => Math.min(i + 1, results.length - 1));
+      setActive((i) => Math.min(i + 1, items.length - 1));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActive((i) => Math.max(i - 1, 0));
     } else if (e.key === "Enter") {
       e.preventDefault();
-      if (results[active]) go(hrefFor(results[active]));
+      const item = items[active];
+      // a problem is a full page load, so the browser scrolls to its card
+      // and marks it with :target (a client-side push would not)
+      if (item?.kind === "problem") {
+        close();
+        window.location.assign(item.href);
+      } else if (item) go(item.href);
       else if (query.trim()) go(problemsHref);
     }
   };
@@ -106,8 +156,8 @@ export default function SearchDialog() {
       <button
         ref={trigger}
         onClick={() => setOpen(true)}
-        aria-label="Search lessons"
-        title="Search lessons (/)"
+        aria-label="Search lessons and problems"
+        title="Search lessons and problems (/)"
         className="sans flex h-7 items-center gap-2 text-[var(--ink-faint)] transition-colors hover:text-[var(--ink-strong)]"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -130,7 +180,7 @@ export default function SearchDialog() {
             <div
               role="dialog"
               aria-modal="true"
-              aria-label="Search lessons"
+              aria-label="Search lessons and problems"
               className="mx-auto max-w-xl border border-[var(--rule-strong)] bg-[var(--panel)] shadow-xl"
               onKeyDown={onKeyDown}
             >
@@ -138,22 +188,29 @@ export default function SearchDialog() {
                 ref={input}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search lessons, e.g. gauss, rolling, doppler"
+                placeholder="Search lessons and problems, e.g. gauss, rolling, doppler"
                 role="combobox"
-                aria-expanded={results.length > 0}
+                aria-expanded={items.length > 0}
                 aria-autocomplete="list"
-                aria-label="Search lessons"
+                aria-label="Search lessons and problems"
                 aria-controls="search-results"
-                aria-activedescendant={results[active] ? `search-result-${active}` : undefined}
+                aria-activedescendant={items[active] ? `search-result-${active}` : undefined}
                 className="sans w-full border-b border-[var(--rule)] bg-transparent px-4 py-3 text-[15px] text-[var(--ink-strong)] outline-none placeholder:text-[var(--ink-faint)]"
               />
 
               {/* announced as the results change; the list itself is not live */}
               <p role="status" className="sr-only">
                 {index && query.trim()
-                  ? results.length === 0
-                    ? "No lessons found"
-                    : `${results.length} ${results.length === 1 ? "lesson" : "lessons"} found`
+                  ? items.length === 0
+                    ? "Nothing found"
+                    : [
+                        results.length > 0 &&
+                          `${results.length} ${results.length === 1 ? "lesson" : "lessons"}`,
+                        problems.length > 0 &&
+                          `${problems.length} ${problems.length === 1 ? "problem" : "problems"}`,
+                      ]
+                        .filter(Boolean)
+                        .join(" and ") + " found"
                   : ""}
               </p>
 
@@ -163,41 +220,66 @@ export default function SearchDialog() {
                 </p>
               ) : !index && query ? (
                 <p className="sans px-4 py-6 text-sm text-[var(--ink-soft)]">Loading…</p>
-              ) : query.trim() && results.length === 0 ? (
+              ) : query.trim() && items.length === 0 ? (
                 <p className="sans px-4 py-6 text-sm text-[var(--ink-soft)]">
-                  No lesson matches &ldquo;{query.trim()}&rdquo;.
+                  No lesson or problem matches &ldquo;{query.trim()}&rdquo;.
                 </p>
               ) : (
                 <ul id="search-results" role="listbox" className="max-h-[60vh] overflow-y-auto">
-                  {results.map((r, i) => (
-                    <li
-                      key={r.entry.slug}
-                      id={`search-result-${i}`}
-                      role="option"
-                      aria-selected={i === active}
-                    >
-                      <Link prefetch={false}
-                        href={hrefFor(r)}
-                        onClick={close}
-                        onMouseMove={() => setActive(i)}
-                        className={`block border-b border-[var(--rule)] px-4 py-2.5 ${
-                          i === active ? "bg-[var(--paper-2)]" : ""
-                        }`}
+                  {items.map((item, i) => {
+                    const row = `block border-b border-[var(--rule)] px-4 py-2.5 ${
+                      i === active ? "bg-[var(--paper-2)]" : ""
+                    }`;
+                    const first = item.kind === "problem" && items[i - 1]?.kind !== "problem";
+                    return (
+                      <li
+                        key={item.href}
+                        id={`search-result-${i}`}
+                        role="option"
+                        aria-selected={i === active}
                       >
-                        <span className="sans block text-[0.95rem] font-semibold text-[var(--ink-strong)]">
-                          {r.entry.title}
-                        </span>
-                        {r.heading && (
-                          <span className="sans block text-sm text-[var(--accent)]">
-                            {r.heading.text}
+                        {first && (
+                          <span
+                            aria-hidden
+                            className="sans block border-b border-[var(--rule)] px-4 pb-1 pt-3 text-xs text-[var(--ink-soft)]"
+                          >
+                            Problems
                           </span>
                         )}
-                        <span className="sans block text-xs text-[var(--ink-faint)]">
-                          {r.entry.course} &middot; {r.entry.section}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
+                        {item.kind === "lesson" ? (
+                          <Link
+                            prefetch={false}
+                            href={item.href}
+                            onClick={close}
+                            onMouseMove={() => setActive(i)}
+                            className={row}
+                          >
+                            <span className="sans block text-[0.95rem] font-semibold text-[var(--ink-strong)]">
+                              {item.result.entry.title}
+                            </span>
+                            {item.result.heading && (
+                              <span className="sans block text-sm text-[var(--accent)]">
+                                {item.result.heading.text}
+                              </span>
+                            )}
+                            <span className="sans block text-xs text-[var(--ink-faint)]">
+                              {item.result.entry.course} &middot; {item.result.entry.section}
+                            </span>
+                          </Link>
+                        ) : (
+                          <a href={item.href} onClick={close} onMouseMove={() => setActive(i)} className={row}>
+                            <span className="sans block text-[0.95rem] font-semibold text-[var(--ink-strong)]">
+                              {item.problem.name}
+                            </span>
+                            <span className="sans block text-xs text-[var(--ink-faint)]">
+                              {item.problem.difficulty} &middot; in{" "}
+                              {lessonTitle.get(item.problem.module) ?? item.problem.module}
+                            </span>
+                          </a>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
 

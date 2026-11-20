@@ -128,3 +128,33 @@ export function search(index: SearchEntry[], query: string, limit = 8): SearchRe
   }
   return results.sort((a, b) => b.score - a.score).slice(0, limit);
 }
+
+/** One row of the problem search index: enough to find a problem and link to it. */
+export interface ProblemSearchEntry {
+  id: string;
+  name: string;
+  /** the lesson the problem is listed under, whose page has it at #id */
+  module: string;
+  difficulty: string;
+  tags: string[];
+}
+
+/**
+ * Problems whose name (or tags) contain every query word, names first. Uses
+ * the problem bank's stricter word-start rule, so a short list stays relevant.
+ */
+export function searchProblems(
+  index: ProblemSearchEntry[],
+  query: string,
+  limit = 5
+): ProblemSearchEntry[] {
+  if (words(query).length === 0) return [];
+  const byName: ProblemSearchEntry[] = [];
+  const byTag: ProblemSearchEntry[] = [];
+  for (const p of index) {
+    if (matchesQuery(p.name, query)) byName.push(p);
+    else if (matchesQuery(`${p.name} ${p.tags.join(" ")}`, query)) byTag.push(p);
+    if (byName.length >= limit) break;
+  }
+  return [...byName, ...byTag].slice(0, limit);
+}

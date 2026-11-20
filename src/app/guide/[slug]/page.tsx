@@ -10,6 +10,7 @@ import DiscordLink from "@/components/DiscordLink";
 import { Markish } from "@/components/Katex";
 import { DIVISIONS, allModules, findModule } from "@/lib/curriculum";
 import { LESSONS } from "@/content/lessons";
+import { jsonLdScript, lessonJsonLd } from "@/lib/structured-data";
 import { problemsForModule, isSolvable } from "@/lib/problems";
 
 // Every module is built ahead of time, so an unknown slug can answer 404 at
@@ -50,6 +51,10 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(lessonJsonLd(found)) }}
+      />
       <Nav />
       <div className="mx-auto flex max-w-[calc(var(--measure)_+_22rem)] gap-12 px-6">
         <ModuleSidebar activeSlug={mod.slug} divisionId={division.id} />

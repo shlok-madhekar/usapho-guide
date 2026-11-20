@@ -901,7 +901,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $25$ kg crate slides $8.0$ m down a ramp inclined at $30^\\circ$ to the horizontal. How much work does gravity do on the crate, in joules?",
+    "statement": "A $25$ kg crate slides $8.0$ m down a ramp inclined at $30^\\circ$ to the horizontal. How much work does gravity do on the crate, in joules? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 980,
     "unit": "J",
     "solution": "KEY IDEA: $W = \\vec F\\cdot\\vec d = mgd\\cos\\phi$, where $\\phi = 60^\\circ$ is the angle between the downward weight and the displacement along the ramp. Equivalently, only the drop in height matters: $W = mgd\\sin 30^\\circ = (25)(9.8)(8.0)(0.50) = 980$ J."
@@ -992,7 +992,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $40$ kg crate rests on a frictionless ramp inclined at $25^\\circ$. A worker pushes it with a $200$ N force directed horizontally, into the hill. What is the net force on the crate along the ramp surface, in newtons? Take a positive answer to mean the crate accelerates up the slope.",
+    "statement": "A $40$ kg crate rests on a frictionless ramp inclined at $25^\\circ$. A worker pushes it with a $200$ N force directed horizontally, into the hill. What is the net force on the crate along the ramp surface, in newtons? Take a positive answer to mean the crate accelerates up the slope. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 15.6,
     "unit": "N",
     "solution": "KEY IDEA: resolve both the horizontal push and the vertical weight along the ramp direction. The push contributes $200\\cos 25^\\circ = 181.3$ N up the slope; gravity contributes $mg\\sin 25^\\circ = (40)(9.8)\\sin 25^\\circ = 165.7$ N down the slope. The net along-ramp force is $181.3 - 165.7 = 15.6$ N, just barely up the slope."
@@ -1510,7 +1510,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A uniform chain of length $2.0\\,\\mathrm{m}$ lies on a frictionless table with $0.50\\,\\mathrm{m}$ hanging over the edge. Released from rest, how fast is the chain moving at the instant the last link leaves the table, in m/s?",
+    "statement": "A uniform chain of length $2.0\\,\\mathrm{m}$ lies on a frictionless table with $0.50\\,\\mathrm{m}$ hanging over the edge. Released from rest, how fast is the chain moving at the instant the last link leaves the table, in m/s? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 4.29,
     "unit": "m/s",
     "solution": "KEY IDEA: with $x$ the hanging length, the driving weight is $Mgx/L$ on total mass $M$, so $a = gx/L$. Write $a = v\\frac{dv}{dx}$ and integrate: $\\tfrac12 v^2 = \\frac{g}{2L}(L^2 - x_0^2)$. Thus $v = \\sqrt{gL\\left(1 - x_0^2/L^2\\right)} = \\sqrt{(9.8)(2.0)(1-0.0625)} = 4.29\\,\\mathrm{m/s}$."
@@ -1527,7 +1527,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A ball is projected at $14\\,\\mathrm{m/s}$ from a point on a hillside that rises at $20^\\circ$ to the horizontal. Choosing the launch direction to maximize the distance the ball travels along the slope before landing on it, find that maximum distance, in meters.",
+    "statement": "A ball is projected at $14\\,\\mathrm{m/s}$ from a point on a hillside that rises at $20^\\circ$ to the horizontal. Choosing the launch direction to maximize the distance the ball travels along the slope before landing on it, find that maximum distance, in meters. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 14.9,
     "unit": "m",
     "solution": "KEY IDEA: in axes tilted with the slope, the range along the incline is $R(\\theta) = \\frac{2v_0^2\\cos\\theta\\sin(\\theta-\\alpha)}{g\\cos^2\\alpha}$ measured from the horizontal launch angle $\\theta$. Differentiating, the product of sines and cosines peaks at $\\theta = 45^\\circ + \\alpha/2 = 55^\\circ$, and then $R_{\\max} = \\frac{v_0^2}{g(1+\\sin\\alpha)} = \\frac{196}{9.8(1.342)} = 14.9\\,\\mathrm{m}$."
@@ -1578,7 +1578,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A cannon must hit a target that sits $40\\,\\mathrm{m}$ horizontally away and $15\\,\\mathrm{m}$ above the muzzle. Find the smallest launch speed that can reach the target, in m/s.",
+    "statement": "A cannon must hit a target that sits $40\\,\\mathrm{m}$ horizontally away and $15\\,\\mathrm{m}$ above the muzzle. Find the smallest launch speed that can reach the target, in m/s. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 23.8,
     "unit": "m/s",
     "solution": "KEY IDEA: eliminate time to get the trajectory $y = x\\tan\\theta - \\frac{gx^2}{2v_0^2}\\sec^2\\theta$, then solve for $v_0^2$ as a function of $\\theta$ and minimize it. Differentiating gives the condition $\\tan 2\\theta = -x/y$, and substituting back yields the clean result $v_{\\min}^2 = g\\left(y + \\sqrt{x^2+y^2}\\right)$. With $x = 40$, $y = 15$: $v_{\\min} = \\sqrt{9.8(15+42.7)} = 23.8\\,\\mathrm{m/s}$."
@@ -2127,7 +2127,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A pendulum bob of mass $0.25$ kg hangs on a light string. The string is displaced $4.0^\\circ$ from vertical. Using the small-angle approximation $\\sin\\theta \\approx \\theta$ (with $\\theta$ in radians), find the magnitude of the restoring force along the arc, in newtons.",
+    "statement": "A pendulum bob of mass $0.25$ kg hangs on a light string. The string is displaced $4.0^\\circ$ from vertical. Using the small-angle approximation $\\sin\\theta \\approx \\theta$ (with $\\theta$ in radians), find the magnitude of the restoring force along the arc, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.171,
     "unit": "N",
     "solution": "KEY IDEA: the tangential force is $mg\\sin\\theta$, and for small $\\theta$ in radians $\\sin\\theta\\approx\\theta$. Convert: $4.0^\\circ = 0.0698$ rad. Then $F \\approx mg\\theta = (0.25)(9.8)(0.0698) = 0.171$ N. The exact value $mg\\sin\\theta = 0.1709$ N differs by less than $0.1\\%$."
@@ -2397,7 +2397,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A uniform cable of linear density $1.5$ kg/m is strung horizontally across a $40.0$ m span under a tension of $5.0\\times10^{3}$ N. For small sag the catenary reduces to the parabola $y = \\mu g x^2/(2T)$ measured from the lowest point. Find the sag at the center, in meters.",
+    "statement": "A uniform cable of linear density $1.5$ kg/m is strung horizontally across a $40.0$ m span under a tension of $5.0\\times10^{3}$ N. For small sag the catenary reduces to the parabola $y = \\mu g x^2/(2T)$ measured from the lowest point. Find the sag at the center, in meters. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.588,
     "unit": "m",
     "solution": "KEY IDEA: expanding $\\cosh(\\mu g x/T)\\approx 1+\\frac{1}{2}(\\mu g x/T)^2$ turns the catenary into a parabola whenever the sag is small compared with the span. With $x = 20.0$ m (half the span), $s = (1.5)(9.8)(20.0)^2/(2\\times5.0\\times10^3) = 0.588$ m. The sag is $1.5\\%$ of the span, so the approximation is excellent."
@@ -2689,7 +2689,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "The same $2.0\\,\\text{kg}$ block sits on a frictionless $30^\\circ$ incline. Using axes along and perpendicular to the surface, find the normal force in $\\text{N}$.",
+    "statement": "The same $2.0\\,\\text{kg}$ block sits on a frictionless $30^\\circ$ incline. Using axes along and perpendicular to the surface, find the normal force in $\\text{N}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 17,
     "unit": "N",
     "solution": "KEY IDEA: perpendicular to the incline there is no acceleration, because the block moves along the surface. So $N - mg\\cos\\theta = 0$, giving $N = (2.0)(9.8)\\cos 30^\\circ = 17\\,\\text{N}$. With horizontal-vertical axes you would need both components of $\\vec a$ and get the same answer with more algebra."
@@ -2743,7 +2743,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "An ideal pulley carries a light string with $3.0\\,\\text{kg}$ on one side and $5.0\\,\\text{kg}$ on the other. Find the magnitude of the acceleration of either block, in $\\text{m/s}^2$.",
+    "statement": "An ideal pulley carries a light string with $3.0\\,\\text{kg}$ on one side and $5.0\\,\\text{kg}$ on the other. Find the magnitude of the acceleration of either block, in $\\text{m/s}^2$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.45,
     "unit": "m/s^2",
     "solution": "KEY IDEA: because the string is inextensible, unroll the system into one line of mass $m_1+m_2$ driven by the net weight $(m_2-m_1)g$. Then $a = (5.0-3.0)(9.8)/8.0 = 2.45\\,\\text{m/s}^2$, and the tension never appears."
@@ -2761,7 +2761,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "For the $3.0\\,\\text{kg}$ / $5.0\\,\\text{kg}$ Atwood machine above, find the string tension in $\\text{N}$.",
+    "statement": "For the $3.0\\,\\text{kg}$ / $5.0\\,\\text{kg}$ Atwood machine above, find the string tension in $\\text{N}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 36.8,
     "unit": "N",
     "solution": "KEY IDEA: tension is internal to the whole system, so isolate one block. For the rising $3.0\\,\\text{kg}$ block, $T - m_1 g = m_1 a$, giving $T = 3.0(9.8+2.45) = 36.8\\,\\text{N}$. Check: $T$ lies between $m_1g = 29.4\\,\\text{N}$ and $m_2g = 49\\,\\text{N}$, as it must."
@@ -2797,7 +2797,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $60\\,\\text{kg}$ person stands on a bathroom scale in an elevator accelerating upward at $2.0\\,\\text{m/s}^2$. Find the scale reading in $\\text{N}$.",
+    "statement": "A $60\\,\\text{kg}$ person stands on a bathroom scale in an elevator accelerating upward at $2.0\\,\\text{m/s}^2$. Find the scale reading in $\\text{N}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 708,
     "unit": "N",
     "solution": "KEY IDEA: work in the ground frame with $+y$ up and isolate the person. Then $N - mg = ma$, so $N = 60(9.8+2.0) = 708\\,\\text{N}$. Limiting check: with $a=0$ this returns $588\\,\\text{N}$, the person's weight."
@@ -2833,7 +2833,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A uniform $20\\,\\text{kg}$ plank of length $4.0\\,\\text{m}$ rests on supports at its two ends. A $50\\,\\text{kg}$ person stands $1.0\\,\\text{m}$ from the left end. Find the upward force from the right support, in $\\text{N}$.",
+    "statement": "A uniform $20\\,\\text{kg}$ plank of length $4.0\\,\\text{m}$ rests on supports at its two ends. A $50\\,\\text{kg}$ person stands $1.0\\,\\text{m}$ from the left end. Find the upward force from the right support, in $\\text{N}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 220,
     "unit": "N",
     "solution": "KEY IDEA: take torques about the left support, which kills the unknown left reaction. Then $N_R(4.0) = (20)(9.8)(2.0) + (50)(9.8)(1.0) = 882\\,\\text{N}\\cdot\\text{m}$, so $N_R = 220\\,\\text{N}$. The person is nearer the left support, so the right support should carry less than half the total weight of $686\\,\\text{N}$; it does."
@@ -2887,7 +2887,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "For the same $25^\\circ$ frictionless wedge accelerating so that a $1.5\\,\\text{kg}$ block rides along without sliding, find the normal force on the block in $\\text{N}$.",
+    "statement": "For the same $25^\\circ$ frictionless wedge accelerating so that a $1.5\\,\\text{kg}$ block rides along without sliding, find the normal force on the block in $\\text{N}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 16.2,
     "unit": "N",
     "solution": "KEY IDEA: the vertical equation alone fixes $N$, since the block has no vertical acceleration: $N\\cos\\theta = mg$, so $N = (1.5)(9.8)/\\cos 25^\\circ = 16.2\\,\\text{N}$. It exceeds $mg = 14.7\\,\\text{N}$ because the surface must also supply the horizontal push."
@@ -2905,7 +2905,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $4.0\\,\\text{kg}$ block on a horizontal table is connected over an ideal pulley at the table edge to a $3.0\\,\\text{kg}$ hanging block. The coefficient of kinetic friction between block and table is $0.25$. Find the magnitude of the acceleration in $\\text{m/s}^2$.",
+    "statement": "A $4.0\\,\\text{kg}$ block on a horizontal table is connected over an ideal pulley at the table edge to a $3.0\\,\\text{kg}$ hanging block. The coefficient of kinetic friction between block and table is $0.25$. Find the magnitude of the acceleration in $\\text{m/s}^2$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.8,
     "unit": "m/s^2",
     "solution": "KEY IDEA: take both blocks plus string as one system moving with common speed. The driving force is the hanging weight $m_2 g$, the retarding force is friction $\\mu m_1 g$, and the tension is internal: $$a = \\frac{m_2 g - \\mu m_1 g}{m_1+m_2} = \\frac{29.4-9.8}{7.0} = 2.8\\,\\text{m/s}^2.$$"
@@ -2923,7 +2923,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "For the setup above ($4.0\\,\\text{kg}$ on the table with $\\mu_k = 0.25$, $3.0\\,\\text{kg}$ hanging), find the string tension in $\\text{N}$.",
+    "statement": "For the setup above ($4.0\\,\\text{kg}$ on the table with $\\mu_k = 0.25$, $3.0\\,\\text{kg}$ hanging), find the string tension in $\\text{N}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 21,
     "unit": "N",
     "solution": "KEY IDEA: isolate the hanging block. Then $m_2 g - T = m_2 a$, so $T = 3.0(9.8-2.8) = 21\\,\\text{N}$. Isolating the table block gives $T - \\mu m_1 g = m_1 a$, i.e. $9.8 + 11.2 = 21\\,\\text{N}$, a useful cross-check."
@@ -3013,7 +3013,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A student derives the Atwood acceleration as $a = \\dfrac{(m_1-m_2)g}{m_1 + n\\,m_2}$ but cannot remember the number $n$. Determine $n$ by taking the limit $m_1 \\to 0$, where the remaining block must fall freely, then evaluate $a$ for $m_1 = 6.0\\,\\text{kg}$ and $m_2 = 4.0\\,\\text{kg}$. Give the magnitude of $a$ in $\\text{m/s}^2$.",
+    "statement": "A student derives the Atwood acceleration as $a = \\dfrac{(m_1-m_2)g}{m_1 + n\\,m_2}$ but cannot remember the number $n$. Determine $n$ by taking the limit $m_1 \\to 0$, where the remaining block must fall freely, then evaluate $a$ for $m_1 = 6.0\\,\\text{kg}$ and $m_2 = 4.0\\,\\text{kg}$. Give the magnitude of $a$ in $\\text{m/s}^2$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1.96,
     "unit": "m/s^2",
     "solution": "KEY IDEA: a limiting case can pin down a forgotten constant. Setting $m_1 = 0$ gives $a = -g/n$, and free fall requires magnitude $g$, so $n = 1$. Then $a = (2.0)(9.8)/10.0 = 1.96\\,\\text{m/s}^2$."
@@ -3049,7 +3049,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A small bob hangs from the ceiling of a train accelerating horizontally at $2.5\\,\\text{m/s}^2$. In the steady state, find the angle the string makes with the vertical, in degrees.",
+    "statement": "A small bob hangs from the ceiling of a train accelerating horizontally at $2.5\\,\\text{m/s}^2$. In the steady state, find the angle the string makes with the vertical, in degrees. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 14.3,
     "unit": "degrees",
     "solution": "KEY IDEA: in the train frame add a pseudo-force $ma$ opposite the acceleration; the bob then hangs along the effective gravity $\\vec g_{\\text{eff}}$. Its tilt is $\\theta = \\arctan(a/g) = \\arctan(2.5/9.8) = 14.3^\\circ$. Limiting check: $a \\to 0$ gives a vertical string."
@@ -3121,7 +3121,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $1.0\\,\\text{kg}$ block slides down the frictionless $30^\\circ$ face of a $4.0\\,\\text{kg}$ wedge that is itself free to slide on a frictionless floor. Find the magnitude of the wedge's acceleration, in $\\text{m/s}^2$.",
+    "statement": "A $1.0\\,\\text{kg}$ block slides down the frictionless $30^\\circ$ face of a $4.0\\,\\text{kg}$ wedge that is itself free to slide on a frictionless floor. Find the magnitude of the wedge's acceleration, in $\\text{m/s}^2$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1,
     "unit": "m/s^2",
     "solution": "KEY IDEA: horizontal momentum of the block-plus-wedge system is conserved, so work with the system horizontally and with the block in the wedge frame along the incline. The standard result is $$A = \\frac{mg\\sin\\theta\\cos\\theta}{M+m\\sin^2\\theta} = \\frac{(1.0)(9.8)(0.5)(0.866)}{4.0+0.25} = 1.0\\,\\text{m/s}^2.$$ Limiting check: $M\\to\\infty$ gives $A\\to 0$, the fixed-wedge case."

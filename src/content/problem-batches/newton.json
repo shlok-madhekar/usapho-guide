@@ -11,7 +11,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $2.4\\;\\mathrm{kg}$ physics book rests on a horizontal table. Find the magnitude of the normal force the table exerts on the book, in newtons.",
+    "statement": "A $2.4\\;\\mathrm{kg}$ physics book rests on a horizontal table. Find the magnitude of the normal force the table exerts on the book, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 23.52,
     "unit": "N",
     "solution": "The book is in equilibrium, so the vertical forces cancel: $N = mg$. Then $N = (2.4)(9.8) = 23.5\\;\\mathrm{N}$."
@@ -45,7 +45,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $65\\;\\mathrm{kg}$ student stands on a bathroom scale in an elevator that accelerates upward at $1.5\\;\\mathrm{m/s^2}$. What does the scale read, in newtons?",
+    "statement": "A $65\\;\\mathrm{kg}$ student stands on a bathroom scale in an elevator that accelerates upward at $1.5\\;\\mathrm{m/s^2}$. What does the scale read, in newtons? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 734.5,
     "unit": "N",
     "solution": "The scale reads the normal force. Taking up as positive, $N - mg = ma$, so $N = m(g+a) = 65(9.8+1.5) = 734.5\\;\\mathrm{N}$."
@@ -62,7 +62,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "The same $65\\;\\mathrm{kg}$ student rides an elevator that accelerates downward at $2.0\\;\\mathrm{m/s^2}$. What does the scale read, in newtons?",
+    "statement": "The same $65\\;\\mathrm{kg}$ student rides an elevator that accelerates downward at $2.0\\;\\mathrm{m/s^2}$. What does the scale read, in newtons? Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 507,
     "unit": "N",
     "solution": "Now $mg - N = ma$, so $N = m(g-a) = 65(9.8-2.0) = 507\\;\\mathrm{N}$. The student feels lighter but is not weightless."
@@ -114,7 +114,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $3.2\\;\\mathrm{kg}$ lamp hangs at rest from a single vertical cord. Find the tension in the cord, in newtons.",
+    "statement": "A $3.2\\;\\mathrm{kg}$ lamp hangs at rest from a single vertical cord. Find the tension in the cord, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 31.36,
     "unit": "N",
     "solution": "With no acceleration the cord tension balances gravity: $T = mg = (3.2)(9.8) = 31.4\\;\\mathrm{N}$."
@@ -185,7 +185,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $12\\;\\mathrm{kg}$ box rests on a ramp inclined at $25^\\circ$ to the horizontal. Find the normal force the ramp exerts on the box, in newtons.",
+    "statement": "A $12\\;\\mathrm{kg}$ box rests on a ramp inclined at $25^\\circ$ to the horizontal. Find the normal force the ramp exerts on the box, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 106.6,
     "unit": "N",
     "solution": "Perpendicular to the surface the box does not accelerate, so $N = mg\\cos\\theta = (12)(9.8)\\cos 25^\\circ = 107\\;\\mathrm{N}$. The normal force is smaller than the weight."
@@ -202,7 +202,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A block slides down a frictionless ramp inclined at $30^\\circ$. Find the magnitude of its acceleration, in $\\mathrm{m/s^2}$.",
+    "statement": "A block slides down a frictionless ramp inclined at $30^\\circ$. Find the magnitude of its acceleration, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 4.9,
     "unit": "m/s^2",
     "solution": "Along the incline the only unbalanced force is $mg\\sin\\theta$, so $a = g\\sin\\theta = 9.8\\sin 30^\\circ = 4.9\\;\\mathrm{m/s^2}$. The mass cancels."
@@ -219,7 +219,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $60\\;\\mathrm{kg}$ passenger stands on a scale in an elevator. The scale reads $540\\;\\mathrm{N}$. Find the magnitude of the elevator's acceleration, in $\\mathrm{m/s^2}$.",
+    "statement": "A $60\\;\\mathrm{kg}$ passenger stands on a scale in an elevator. The scale reads $540\\;\\mathrm{N}$. Find the magnitude of the elevator's acceleration, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.8,
     "unit": "m/s^2",
     "solution": "From $N - mg = ma$, $a = N/m - g = 540/60 - 9.8 = -0.8\\;\\mathrm{m/s^2}$. The magnitude is $0.8\\;\\mathrm{m/s^2}$, directed downward."
@@ -236,7 +236,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "The cable of an elevator snaps and the car falls freely. A passenger inside stands on a scale that now reads zero. Find the magnitude of the passenger's acceleration, in $\\mathrm{m/s^2}$.",
+    "statement": "The cable of an elevator snaps and the car falls freely. A passenger inside stands on a scale that now reads zero. Find the magnitude of the passenger's acceleration, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 9.8,
     "unit": "m/s^2",
     "solution": "A zero scale reading means the normal force is zero, so gravity is the only force acting: $a = g = 9.8\\;\\mathrm{m/s^2}$ downward. Apparent weightlessness is free fall, not the absence of gravity."
@@ -377,7 +377,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "An $8.0\\;\\mathrm{kg}$ block rests on a frictionless incline of angle $20^\\circ$. It is held in place by a horizontal push. Find the magnitude of that push, in newtons.",
+    "statement": "An $8.0\\;\\mathrm{kg}$ block rests on a frictionless incline of angle $20^\\circ$. It is held in place by a horizontal push. Find the magnitude of that push, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 28.54,
     "unit": "N",
     "solution": "Resolve along and perpendicular to the incline, or use the closed force triangle of weight, normal force and horizontal push. Either way $F = mg\\tan\\theta = (8.0)(9.8)\\tan 20^\\circ = 28.5\\;\\mathrm{N}$."
@@ -449,7 +449,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A uniform chain of mass $6.0\\;\\mathrm{kg}$ hangs at rest from a hook. Find the tension in the chain at a point one third of the way up from the bottom, in newtons.",
+    "statement": "A uniform chain of mass $6.0\\;\\mathrm{kg}$ hangs at rest from a hook. Find the tension in the chain at a point one third of the way up from the bottom, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 19.6,
     "unit": "N",
     "solution": "Cut the chain at that point and draw a free body diagram of the piece below it. That piece has mass $(1/3)(6.0) = 2.0\\;\\mathrm{kg}$ and is in equilibrium, so the tension supports its weight: $T = (2.0)(9.8) = 19.6\\;\\mathrm{N}$."
@@ -467,7 +467,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $10\\;\\mathrm{kg}$ block hangs from a uniform rope of mass $4.0\\;\\mathrm{kg}$. The rope is pulled straight up so the whole system accelerates upward at $2.0\\;\\mathrm{m/s^2}$. Find the tension at the midpoint of the rope, in newtons.",
+    "statement": "A $10\\;\\mathrm{kg}$ block hangs from a uniform rope of mass $4.0\\;\\mathrm{kg}$. The rope is pulled straight up so the whole system accelerates upward at $2.0\\;\\mathrm{m/s^2}$. Find the tension at the midpoint of the rope, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 141.6,
     "unit": "N",
     "solution": "Everything below the midpoint has mass $10 + 2.0 = 12\\;\\mathrm{kg}$. For that piece, $T - mg = ma$, so $T = 12(9.8+2.0) = 142\\;\\mathrm{N}$."
@@ -520,7 +520,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $60\\;\\mathrm{kg}$ painter stands on a $15\\;\\mathrm{kg}$ platform. A rope attached to the platform runs up over a frictionless pulley and back down to the painter's hands. He pulls so that he and the platform accelerate upward at $0.80\\;\\mathrm{m/s^2}$. Find the force the platform exerts on the painter, in newtons.",
+    "statement": "A $60\\;\\mathrm{kg}$ painter stands on a $15\\;\\mathrm{kg}$ platform. A rope attached to the platform runs up over a frictionless pulley and back down to the painter's hands. He pulls so that he and the platform accelerate upward at $0.80\\;\\mathrm{m/s^2}$. Find the force the platform exerts on the painter, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 238.5,
     "unit": "N",
     "solution": "Two rope segments hold the system up, so for painter plus platform, $2T - (75)(9.8) = 75(0.80)$, giving $T = 397.5\\;\\mathrm{N}$. Now take the painter alone: $N + T - m_pg = m_pa$, so $N = 60(10.6) - 397.5 = 238\\;\\mathrm{N}$."
@@ -554,7 +554,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "An $8.0\\;\\mathrm{kg}$ toolbox sits on a level bench with $\\mu_s = 0.45$. Find the largest static friction force the bench can supply, in newtons.",
+    "statement": "An $8.0\\;\\mathrm{kg}$ toolbox sits on a level bench with $\\mu_s = 0.45$. Find the largest static friction force the bench can supply, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 35.28,
     "unit": "N",
     "solution": "The maximum is $f_{s,max} = \\mu_s N = \\mu_s mg = (0.45)(8.0)(9.8) = 35.3\\;\\mathrm{N}$. Static friction can be anything from zero up to this value."
@@ -571,7 +571,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $10\\;\\mathrm{kg}$ box is pushed horizontally with $25\\;\\mathrm{N}$ across a floor with $\\mu_k = 0.20$. Find the box's acceleration, in $\\mathrm{m/s^2}$.",
+    "statement": "A $10\\;\\mathrm{kg}$ box is pushed horizontally with $25\\;\\mathrm{N}$ across a floor with $\\mu_k = 0.20$. Find the box's acceleration, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.54,
     "unit": "m/s^2",
     "solution": "Friction opposes the push: $f_k = (0.20)(10)(9.8) = 19.6\\;\\mathrm{N}$. Then $a = (25-19.6)/10 = 0.54\\;\\mathrm{m/s^2}$."
@@ -606,7 +606,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A block sliding on a level table slows down at $2.5\\;\\mathrm{m/s^2}$. Find the coefficient of kinetic friction between block and table.",
+    "statement": "A block sliding on a level table slows down at $2.5\\;\\mathrm{m/s^2}$. Find the coefficient of kinetic friction between block and table. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.2551,
     "unit": "",
     "solution": "Friction is the only horizontal force, so $\\mu_k mg = ma$ and $\\mu_k = a/g = 2.5/9.8 = 0.255$."
@@ -659,7 +659,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $50\\;\\mathrm{kg}$ crate rests on a level floor with $\\mu_s = 0.40$. Find the minimum horizontal force needed to start it moving, in newtons.",
+    "statement": "A $50\\;\\mathrm{kg}$ crate rests on a level floor with $\\mu_s = 0.40$. Find the minimum horizontal force needed to start it moving, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 196,
     "unit": "N",
     "solution": "The push must exceed the maximum static friction, $\\mu_s mg = (0.40)(50)(9.8) = 196\\;\\mathrm{N}$."
@@ -676,7 +676,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A hockey puck launched at $12\\;\\mathrm{m/s}$ slides $40\\;\\mathrm{m}$ before stopping. Find the coefficient of kinetic friction between puck and ice.",
+    "statement": "A hockey puck launched at $12\\;\\mathrm{m/s}$ slides $40\\;\\mathrm{m}$ before stopping. Find the coefficient of kinetic friction between puck and ice. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 0.1837,
     "unit": "",
     "solution": "The deceleration is $a = v^2/(2d) = 144/80 = 1.8\\;\\mathrm{m/s^2}$, and $\\mu_k = a/g = 1.8/9.8 = 0.184$."
@@ -694,7 +694,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A block slides down a $20^\\circ$ incline with $\\mu_k = 0.25$. Find the magnitude of its acceleration, in $\\mathrm{m/s^2}$.",
+    "statement": "A block slides down a $20^\\circ$ incline with $\\mu_k = 0.25$. Find the magnitude of its acceleration, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1.05,
     "unit": "m/s^2",
     "solution": "Along the incline, $ma = mg\\sin\\theta - \\mu_k mg\\cos\\theta$, so $a = g(\\sin 20^\\circ - 0.25\\cos 20^\\circ) = 9.8(0.342-0.235) = 1.05\\;\\mathrm{m/s^2}$."
@@ -730,7 +730,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $6.0\\;\\mathrm{kg}$ block is launched up a $25^\\circ$ incline with $\\mu_k = 0.30$. Find the magnitude of its deceleration while moving up, in $\\mathrm{m/s^2}$.",
+    "statement": "A $6.0\\;\\mathrm{kg}$ block is launched up a $25^\\circ$ incline with $\\mu_k = 0.30$. Find the magnitude of its deceleration while moving up, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 6.806,
     "unit": "m/s^2",
     "solution": "Going up, gravity and friction both act down the slope: $a = g(\\sin\\theta + \\mu_k\\cos\\theta) = 9.8(0.423+0.272) = 6.81\\;\\mathrm{m/s^2}$."
@@ -819,7 +819,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A car rounds a flat, unbanked curve of radius $80\\;\\mathrm{m}$ on a road with $\\mu_s = 0.60$. Find the maximum speed it can have, in $\\mathrm{m/s}$.",
+    "statement": "A car rounds a flat, unbanked curve of radius $80\\;\\mathrm{m}$ on a road with $\\mu_s = 0.60$. Find the maximum speed it can have, in $\\mathrm{m/s}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 21.69,
     "unit": "m/s",
     "solution": "Friction supplies the centripetal force: $\\mu_s mg = mv^2/r$. So $v = \\sqrt{\\mu_s gr} = \\sqrt{(0.60)(9.8)(80)} = 21.7\\;\\mathrm{m/s}$."
@@ -926,7 +926,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $2.0\\;\\mathrm{kg}$ block sits on a $4.0\\;\\mathrm{kg}$ block that rests on the ground. The coefficient of static friction is $0.30$ between the blocks and $0.20$ between the lower block and the ground. A horizontal force is applied to the upper block. Find the largest force for which nothing moves, in newtons.",
+    "statement": "A $2.0\\;\\mathrm{kg}$ block sits on a $4.0\\;\\mathrm{kg}$ block that rests on the ground. The coefficient of static friction is $0.30$ between the blocks and $0.20$ between the lower block and the ground. A horizontal force is applied to the upper block. Find the largest force for which nothing moves, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 5.88,
     "unit": "N",
     "solution": "Check both interfaces. The ground can resist up to $(0.20)(6.0)(9.8) = 11.8\\;\\mathrm{N}$, but the upper block can only be held by $(0.30)(2.0)(9.8) = 5.88\\;\\mathrm{N}$. The weaker interface gives way first, so motion begins once $F$ exceeds $5.88\\;\\mathrm{N}$."
@@ -1070,7 +1070,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $6.0\\;\\mathrm{kg}$ sandbag hangs at rest from a rope. Find the tension in the rope, in newtons.",
+    "statement": "A $6.0\\;\\mathrm{kg}$ sandbag hangs at rest from a rope. Find the tension in the rope, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 58.8,
     "unit": "N",
     "solution": "At rest the tension balances the weight: $T = mg = (6.0)(9.8) = 58.8\\;\\mathrm{N}$."
@@ -1087,7 +1087,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "Masses of $3.0\\;\\mathrm{kg}$ and $5.0\\;\\mathrm{kg}$ hang from opposite ends of a light string over a frictionless pulley. Find the magnitude of their acceleration, in $\\mathrm{m/s^2}$.",
+    "statement": "Masses of $3.0\\;\\mathrm{kg}$ and $5.0\\;\\mathrm{kg}$ hang from opposite ends of a light string over a frictionless pulley. Find the magnitude of their acceleration, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.45,
     "unit": "m/s^2",
     "solution": "Treat the pair as one system driven by the weight difference: $a = (m_2-m_1)g/(m_1+m_2) = (2.0)(9.8)/8.0 = 2.45\\;\\mathrm{m/s^2}$."
@@ -1105,7 +1105,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "For the same Atwood machine ($3.0\\;\\mathrm{kg}$ and $5.0\\;\\mathrm{kg}$, frictionless pulley), find the string tension, in newtons.",
+    "statement": "For the same Atwood machine ($3.0\\;\\mathrm{kg}$ and $5.0\\;\\mathrm{kg}$, frictionless pulley), find the string tension, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 36.75,
     "unit": "N",
     "solution": "Apply the second law to the light mass: $T - m_1g = m_1a$, giving $T = 3.0(9.8+2.45) = 36.75\\;\\mathrm{N}$. Equivalently $T = 2m_1m_2g/(m_1+m_2)$."
@@ -1279,7 +1279,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $5.0\\;\\mathrm{kg}$ block on a table ($\\mu_k = 0.20$) is connected over a frictionless pulley to a $3.0\\;\\mathrm{kg}$ hanging block. Find the acceleration of the system, in $\\mathrm{m/s^2}$.",
+    "statement": "A $5.0\\;\\mathrm{kg}$ block on a table ($\\mu_k = 0.20$) is connected over a frictionless pulley to a $3.0\\;\\mathrm{kg}$ hanging block. Find the acceleration of the system, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.45,
     "unit": "m/s^2",
     "solution": "The driving force is the hanging weight $29.4\\;\\mathrm{N}$ minus friction $\\mu_k m_1g = 9.8\\;\\mathrm{N}$. Then $a = 19.6/8.0 = 2.45\\;\\mathrm{m/s^2}$."
@@ -1331,7 +1331,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $4.0\\;\\mathrm{kg}$ block rests on a frictionless $30^\\circ$ incline and is joined by a string over a pulley at the top to a $3.0\\;\\mathrm{kg}$ block hanging vertically. Find the acceleration of the system, in $\\mathrm{m/s^2}$.",
+    "statement": "A $4.0\\;\\mathrm{kg}$ block rests on a frictionless $30^\\circ$ incline and is joined by a string over a pulley at the top to a $3.0\\;\\mathrm{kg}$ block hanging vertically. Find the acceleration of the system, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1.4,
     "unit": "m/s^2",
     "solution": "The hanging weight $29.4\\;\\mathrm{N}$ competes with the incline component $mg\\sin 30^\\circ = 19.6\\;\\mathrm{N}$. So $a = 9.8/7.0 = 1.4\\;\\mathrm{m/s^2}$, with the hanging block descending."
@@ -1350,7 +1350,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "For the previous setup ($4.0\\;\\mathrm{kg}$ on a frictionless $30^\\circ$ incline, $3.0\\;\\mathrm{kg}$ hanging), find the string tension, in newtons.",
+    "statement": "For the previous setup ($4.0\\;\\mathrm{kg}$ on a frictionless $30^\\circ$ incline, $3.0\\;\\mathrm{kg}$ hanging), find the string tension, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 25.2,
     "unit": "N",
     "solution": "Apply the second law to the hanging block: $m_2g - T = m_2a$, so $T = 3.0(9.8-1.4) = 25.2\\;\\mathrm{N}$."
@@ -1419,7 +1419,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $12\\;\\mathrm{kg}$ bucket is hoisted from a well by a rope that will break at $200\\;\\mathrm{N}$. Find the greatest upward acceleration that can be used, in $\\mathrm{m/s^2}$.",
+    "statement": "A $12\\;\\mathrm{kg}$ bucket is hoisted from a well by a rope that will break at $200\\;\\mathrm{N}$. Find the greatest upward acceleration that can be used, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 6.867,
     "unit": "m/s^2",
     "solution": "From $T - mg = ma$, $a = T/m - g = 200/12 - 9.8 = 6.87\\;\\mathrm{m/s^2}$."
@@ -1437,7 +1437,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "An Atwood machine carries $4.0\\;\\mathrm{kg}$ and $6.0\\;\\mathrm{kg}$ and is released from rest. Find how far the heavier mass falls in $2.0\\;\\mathrm{s}$, in meters.",
+    "statement": "An Atwood machine carries $4.0\\;\\mathrm{kg}$ and $6.0\\;\\mathrm{kg}$ and is released from rest. Find how far the heavier mass falls in $2.0\\;\\mathrm{s}$, in meters. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 3.92,
     "unit": "m",
     "solution": "The acceleration is $a = (2.0)(9.8)/10 = 1.96\\;\\mathrm{m/s^2}$, constant. Then $d = \\tfrac12at^2 = \\tfrac12(1.96)(4.0) = 3.92\\;\\mathrm{m}$."
@@ -1473,7 +1473,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "An Atwood machine has a $6.0\\;\\mathrm{kg}$ block on one side. On the other side a $3.0\\;\\mathrm{kg}$ block hangs from the string, and a $2.0\\;\\mathrm{kg}$ block hangs beneath it from a short cord. Find the tension in that short cord, in newtons.",
+    "statement": "An Atwood machine has a $6.0\\;\\mathrm{kg}$ block on one side. On the other side a $3.0\\;\\mathrm{kg}$ block hangs from the string, and a $2.0\\;\\mathrm{kg}$ block hangs beneath it from a short cord. Find the tension in that short cord, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 21.38,
     "unit": "N",
     "solution": "The system accelerates at $a = (6.0-5.0)(9.8)/11 = 0.891\\;\\mathrm{m/s^2}$, with the lighter side rising. The short cord holds only the $2.0\\;\\mathrm{kg}$ block, which accelerates upward: $T = 2.0(9.8+0.891) = 21.4\\;\\mathrm{N}$."
@@ -1491,7 +1491,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $20\\;\\mathrm{kg}$ monkey grips a rope that passes over a frictionless pulley and holds a $25\\;\\mathrm{kg}$ counterweight on the other side. The monkey climbs so that it accelerates upward at $1.2\\;\\mathrm{m/s^2}$ relative to the ground. Find the magnitude of the counterweight's acceleration, in $\\mathrm{m/s^2}$.",
+    "statement": "A $20\\;\\mathrm{kg}$ monkey grips a rope that passes over a frictionless pulley and holds a $25\\;\\mathrm{kg}$ counterweight on the other side. The monkey climbs so that it accelerates upward at $1.2\\;\\mathrm{m/s^2}$ relative to the ground. Find the magnitude of the counterweight's acceleration, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1,
     "unit": "m/s^2",
     "solution": "For the monkey, $T - m g = m a$ gives $T = 20(11.0) = 220\\;\\mathrm{N}$. The same tension acts on the counterweight: $25(9.8) - 220 = 25a$, so $a = 1.0\\;\\mathrm{m/s^2}$ downward."
@@ -1509,7 +1509,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $4.0\\;\\mathrm{kg}$ block on a frictionless $30^\\circ$ incline is connected over a pulley at the apex to a $5.0\\;\\mathrm{kg}$ block on a frictionless $45^\\circ$ incline on the other side. Find the magnitude of the acceleration, in $\\mathrm{m/s^2}$.",
+    "statement": "A $4.0\\;\\mathrm{kg}$ block on a frictionless $30^\\circ$ incline is connected over a pulley at the apex to a $5.0\\;\\mathrm{kg}$ block on a frictionless $45^\\circ$ incline on the other side. Find the magnitude of the acceleration, in $\\mathrm{m/s^2}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 1.672,
     "unit": "m/s^2",
     "solution": "Each block feels $mg\\sin\\theta$ along its own face. The net driving force is $5(9.8)\\sin 45^\\circ - 4(9.8)\\sin 30^\\circ = 34.65-19.6 = 15.05\\;\\mathrm{N}$ on a total of $9.0\\;\\mathrm{kg}$, so $a = 1.67\\;\\mathrm{m/s^2}$."
@@ -1563,7 +1563,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "An Atwood machine with $2.0\\;\\mathrm{kg}$ and $3.0\\;\\mathrm{kg}$ hangs from the ceiling of an elevator that accelerates upward at $2.0\\;\\mathrm{m/s^2}$. Find the string tension, in newtons.",
+    "statement": "An Atwood machine with $2.0\\;\\mathrm{kg}$ and $3.0\\;\\mathrm{kg}$ hangs from the ceiling of an elevator that accelerates upward at $2.0\\;\\mathrm{m/s^2}$. Find the string tension, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 28.32,
     "unit": "N",
     "solution": "In the elevator frame the pseudo-force acts like extra gravity, so replace $g$ with $g_{eff} = 9.8+2.0 = 11.8\\;\\mathrm{m/s^2}$. Then $T = 2m_1m_2g_{eff}/(m_1+m_2) = 2(6)(11.8)/5 = 28.3\\;\\mathrm{N}$."
@@ -1615,7 +1615,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "Hanging a $2.0\\;\\mathrm{kg}$ mass from a spring stretches it by $0.080\\;\\mathrm{m}$. Find the spring constant, in $\\mathrm{N/m}$.",
+    "statement": "Hanging a $2.0\\;\\mathrm{kg}$ mass from a spring stretches it by $0.080\\;\\mathrm{m}$. Find the spring constant, in $\\mathrm{N/m}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 245,
     "unit": "N/m",
     "solution": "At equilibrium $kx = mg$, so $k = (2.0)(9.8)/0.080 = 245\\;\\mathrm{N/m}$."
@@ -2205,7 +2205,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $0.20\\;\\mathrm{kg}$ ball on a $0.50\\;\\mathrm{m}$ string swings in a vertical circle and passes the lowest point at $5.0\\;\\mathrm{m/s}$. Find the string tension there, in newtons.",
+    "statement": "A $0.20\\;\\mathrm{kg}$ ball on a $0.50\\;\\mathrm{m}$ string swings in a vertical circle and passes the lowest point at $5.0\\;\\mathrm{m/s}$. Find the string tension there, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 11.96,
     "unit": "N",
     "solution": "At the bottom the tension pulls up and gravity pulls down, and the net must point up (toward the center): $T - mg = mv^2/r$. So $T = 0.20(50+9.8) = 12.0\\;\\mathrm{N}$."
@@ -2291,7 +2291,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $0.30\\;\\mathrm{kg}$ ball on a $0.60\\;\\mathrm{m}$ string passes the top of a vertical circle at $4.0\\;\\mathrm{m/s}$. Find the string tension there, in newtons.",
+    "statement": "A $0.30\\;\\mathrm{kg}$ ball on a $0.60\\;\\mathrm{m}$ string passes the top of a vertical circle at $4.0\\;\\mathrm{m/s}$. Find the string tension there, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 5.06,
     "unit": "N",
     "solution": "At the top both tension and gravity point toward the center: $T + mg = mv^2/r$. So $T = 0.30(26.67-9.8) = 5.06\\;\\mathrm{N}$."
@@ -2326,7 +2326,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A car drives over a hill whose crest has radius of curvature $40\\;\\mathrm{m}$. Find the speed at which the car just barely loses contact with the road, in $\\mathrm{m/s}$.",
+    "statement": "A car drives over a hill whose crest has radius of curvature $40\\;\\mathrm{m}$. Find the speed at which the car just barely loses contact with the road, in $\\mathrm{m/s}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 19.8,
     "unit": "m/s",
     "solution": "Contact is lost when the normal force reaches zero and gravity alone bends the path: $g = v^2/r$, so $v = \\sqrt{(9.8)(40)} = 19.8\\;\\mathrm{m/s}$."
@@ -2343,7 +2343,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A $1200\\;\\mathrm{kg}$ car crosses the crest of a hill of radius $40\\;\\mathrm{m}$ at $15\\;\\mathrm{m/s}$. Find the normal force from the road, in newtons.",
+    "statement": "A $1200\\;\\mathrm{kg}$ car crosses the crest of a hill of radius $40\\;\\mathrm{m}$ at $15\\;\\mathrm{m/s}$. Find the normal force from the road, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 5010,
     "unit": "N",
     "solution": "Toward the center (downward) $mg - N = mv^2/r$, so $N = m(g - v^2/r) = 1200(9.8-5.625) = 5010\\;\\mathrm{N}$, well below the car's weight."
@@ -2483,7 +2483,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A pilot of mass $75\\;\\mathrm{kg}$ flies through the bottom of a vertical loop of radius $500\\;\\mathrm{m}$ at $100\\;\\mathrm{m/s}$. Find the force of the seat on the pilot, in newtons.",
+    "statement": "A pilot of mass $75\\;\\mathrm{kg}$ flies through the bottom of a vertical loop of radius $500\\;\\mathrm{m}$ at $100\\;\\mathrm{m/s}$. Find the force of the seat on the pilot, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2235,
     "unit": "N",
     "solution": "At the bottom $N - mg = mv^2/r$, so $N = 75(9.8+20.0) = 2235\\;\\mathrm{N}$, about three times the pilot's weight."
@@ -2589,7 +2589,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A Ferris wheel of radius $15\\;\\mathrm{m}$ turns once every $40\\;\\mathrm{s}$. Find the force of the seat on a $60\\;\\mathrm{kg}$ rider at the top, in newtons.",
+    "statement": "A Ferris wheel of radius $15\\;\\mathrm{m}$ turns once every $40\\;\\mathrm{s}$. Find the force of the seat on a $60\\;\\mathrm{kg}$ rider at the top, in newtons. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 565.8,
     "unit": "N",
     "solution": "The centripetal acceleration is $4\\pi^2r/T^2 = 0.370\\;\\mathrm{m/s^2}$, pointing down at the top. So $mg - N = ma_c$ gives $N = 60(9.8-0.370) = 566\\;\\mathrm{N}$."
@@ -2625,7 +2625,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A bead slides without friction on a circular hoop of radius $0.40\\;\\mathrm{m}$ that spins about a vertical diameter at $8.0\\;\\mathrm{rad/s}$. Find the angle from the bottom of the hoop at which the bead sits in steady equilibrium, in degrees.",
+    "statement": "A bead slides without friction on a circular hoop of radius $0.40\\;\\mathrm{m}$ that spins about a vertical diameter at $8.0\\;\\mathrm{rad/s}$. Find the angle from the bottom of the hoop at which the bead sits in steady equilibrium, in degrees. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 67.49,
     "unit": "degrees",
     "solution": "The bead circles at radius $R\\sin\\theta$, so the normal force from the hoop must satisfy $N\\sin\\theta = m\\omega^2R\\sin\\theta$ horizontally and $N\\cos\\theta = mg$ vertically. Dividing gives $\\cos\\theta = g/(\\omega^2R) = 9.8/25.6 = 0.383$, so $\\theta = 67.5^\\circ$."
@@ -2659,7 +2659,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A curve of radius $120\\;\\mathrm{m}$ is banked at $15^\\circ$. Find the speed at which no friction is needed, in $\\mathrm{m/s}$.",
+    "statement": "A curve of radius $120\\;\\mathrm{m}$ is banked at $15^\\circ$. Find the speed at which no friction is needed, in $\\mathrm{m/s}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 17.75,
     "unit": "m/s",
     "solution": "From $\\tan\\theta = v^2/(gr)$, $v = \\sqrt{gr\\tan\\theta} = \\sqrt{(9.8)(120)(0.268)} = 17.7\\;\\mathrm{m/s}$."
@@ -2676,7 +2676,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A conical pendulum of length $1.2\\;\\mathrm{m}$ swings with its string $25^\\circ$ from the vertical. Find the period, in seconds.",
+    "statement": "A conical pendulum of length $1.2\\;\\mathrm{m}$ swings with its string $25^\\circ$ from the vertical. Find the period, in seconds. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.093,
     "unit": "s",
     "solution": "The period of a conical pendulum is $T = 2\\pi\\sqrt{L\\cos\\theta/g} = 2\\pi\\sqrt{1.088/9.8} = 2.09\\;\\mathrm{s}$."
@@ -2728,7 +2728,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A curve of radius $60\\;\\mathrm{m}$ is banked at $20^\\circ$ and the surface is icy (no friction). Find the only speed at which a car can hold the curve, in $\\mathrm{m/s}$.",
+    "statement": "A curve of radius $60\\;\\mathrm{m}$ is banked at $20^\\circ$ and the surface is icy (no friction). Find the only speed at which a car can hold the curve, in $\\mathrm{m/s}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 14.63,
     "unit": "m/s",
     "solution": "$v = \\sqrt{gr\\tan\\theta} = \\sqrt{(9.8)(60)(0.364)} = 14.6\\;\\mathrm{m/s}$. Faster and it slides up the bank, slower and it slides down."
@@ -2762,7 +2762,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A highway ramp banked at $15^\\circ$ is designed for $25\\;\\mathrm{m/s}$ with no reliance on friction. Find the radius of the ramp, in meters.",
+    "statement": "A highway ramp banked at $15^\\circ$ is designed for $25\\;\\mathrm{m/s}$ with no reliance on friction. Find the radius of the ramp, in meters. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 238,
     "unit": "m",
     "solution": "$r = v^2/(g\\tan\\theta) = 625/(9.8)(0.268) = 238\\;\\mathrm{m}$."
@@ -2797,7 +2797,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A conical pendulum of length $0.50\\;\\mathrm{m}$ hangs $60^\\circ$ from the vertical. Find its angular speed, in $\\mathrm{rad/s}$.",
+    "statement": "A conical pendulum of length $0.50\\;\\mathrm{m}$ hangs $60^\\circ$ from the vertical. Find its angular speed, in $\\mathrm{rad/s}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 6.261,
     "unit": "rad/s",
     "solution": "From $\\omega^2 = g/(L\\cos\\theta)$, $\\omega = \\sqrt{9.8/0.25} = 6.26\\;\\mathrm{rad/s}$."
@@ -2868,7 +2868,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A conical pendulum of length $2.0\\;\\mathrm{m}$ makes an angle of $15^\\circ$ with the vertical. Find its period, in seconds.",
+    "statement": "A conical pendulum of length $2.0\\;\\mathrm{m}$ makes an angle of $15^\\circ$ with the vertical. Find its period, in seconds. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.79,
     "unit": "s",
     "solution": "$T = 2\\pi\\sqrt{L\\cos\\theta/g} = 2\\pi\\sqrt{1.932/9.8} = 2.79\\;\\mathrm{s}$. For small angles this is nearly the ordinary pendulum period."
@@ -2953,7 +2953,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A frictionless curve of radius $45\\;\\mathrm{m}$ is banked at $30^\\circ$. Find the design speed, in $\\mathrm{m/s}$.",
+    "statement": "A frictionless curve of radius $45\\;\\mathrm{m}$ is banked at $30^\\circ$. Find the design speed, in $\\mathrm{m/s}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 15.96,
     "unit": "m/s",
     "solution": "$v = \\sqrt{gr\\tan\\theta} = \\sqrt{(9.8)(45)(0.577)} = 16.0\\;\\mathrm{m/s}$. Notice the mass cancels, so a loaded truck and a small car have the same design speed."
@@ -2987,7 +2987,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A conical pendulum of length $0.60\\;\\mathrm{m}$ hangs $35^\\circ$ from the vertical. Find its rotation rate, in revolutions per minute.",
+    "statement": "A conical pendulum of length $0.60\\;\\mathrm{m}$ hangs $35^\\circ$ from the vertical. Find its rotation rate, in revolutions per minute. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 42.64,
     "unit": "rev/min",
     "solution": "First $\\omega = \\sqrt{g/(L\\cos\\theta)} = \\sqrt{9.8/0.491} = 4.47\\;\\mathrm{rad/s}$. Converting, $(4.47)(60)/(2\\pi) = 42.6\\;\\mathrm{rev/min}$."
@@ -3057,7 +3057,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "A conical pendulum of length $1.0\\;\\mathrm{m}$ swings with the string $60^\\circ$ from the vertical. Find the ball's speed, in $\\mathrm{m/s}$.",
+    "statement": "A conical pendulum of length $1.0\\;\\mathrm{m}$ swings with the string $60^\\circ$ from the vertical. Find the ball's speed, in $\\mathrm{m/s}$. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 3.834,
     "unit": "m/s",
     "solution": "With $r = L\\sin\\theta$, $v^2 = gL\\sin\\theta\\tan\\theta = (9.8)(0.866)(1.732) = 14.7$. So $v = 3.83\\;\\mathrm{m/s}$."
@@ -3092,7 +3092,7 @@
     "origin": "original",
     "source": "USAPhO Guide",
     "url": "",
-    "statement": "Two conical pendulums of length $1.5\\;\\mathrm{m}$ carry balls of $0.20\\;\\mathrm{kg}$ and $0.80\\;\\mathrm{kg}$, and both are observed to hang $20^\\circ$ from the vertical. Find their common period, in seconds.",
+    "statement": "Two conical pendulums of length $1.5\\;\\mathrm{m}$ carry balls of $0.20\\;\\mathrm{kg}$ and $0.80\\;\\mathrm{kg}$, and both are observed to hang $20^\\circ$ from the vertical. Find their common period, in seconds. Use $g = 9.8\\ \\mathrm{m/s^2}$.",
     "answer": 2.383,
     "unit": "s",
     "solution": "The mass cancels from both force equations, so the period depends only on $L$ and $\\theta$: $T = 2\\pi\\sqrt{L\\cos\\theta/g} = 2\\pi\\sqrt{1.410/9.8} = 2.38\\;\\mathrm{s}$."

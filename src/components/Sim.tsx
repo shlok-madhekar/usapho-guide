@@ -23,6 +23,58 @@ function TypesetLabel({ text }: { text: string }) {
   );
 }
 
+/** Unit symbols as a screen reader should say them. */
+const SPOKEN: Record<string, string> = {
+  A: "amps", AU: "astronomical units", C: "coulombs", GeV: "gigaelectronvolts",
+  H: "henries", Hz: "hertz", J: "joules", K: "kelvin", L: "liters",
+  MeV: "megaelectronvolts", N: "newtons", T: "teslas", V: "volts", W: "watts",
+  c: "c", cm: "centimeters", cmHg: "centimeters of mercury", deg: "degrees",
+  eV: "electronvolts", g: "grams", h: "hours", kHz: "kilohertz", kW: "kilowatts",
+  kg: "kilograms", km: "kilometers", kohm: "kilohms", m: "meters", mH: "millihenries",
+  mm: "millimeters", mol: "moles", nC: "nanocoulombs", nm: "nanometers", ohm: "ohms",
+  rad: "radians", s: "seconds", uC: "microcoulombs", uF: "microfarads",
+  um: "micrometers", x: "times", "%": "percent",
+};
+const SINGULAR: Record<string, string> = {
+  henries: "henry", "centimeters of mercury": "centimeter of mercury",
+  "astronomical units": "astronomical unit", hertz: "hertz", kilohertz: "kilohertz",
+  kelvin: "kelvin", times: "times", percent: "percent", c: "c",
+};
+const singular = (w: string) => SINGULAR[w] ?? w.replace(/s$/, "");
+const POWER: Record<string, string> = { "2": "squared", "3": "cubed", "4": "to the fourth" };
+
+/**
+ * A slider value as it should be read aloud: "9.8 meters per second
+ * squared", not "9.8". The visible reading is set for the eye (m/s²); a
+ * screen reader given only the number never hears the unit at all.
+ */
+export function spokenReading(value: number, unit: string): string {
+  let rest = unit.trim();
+  let scale = "";
+  const sci = rest.match(/^(?:1e|10\^)(-?\d+)\s*/);
+  if (sci) {
+    scale = ` times ten to the ${sci[1].replace("-", "minus ")}`;
+    rest = rest.slice(sci[0].length);
+  }
+  // "newton seconds", "per second": only the last unit of a product, read
+  // after a number other than 1, takes the plural
+  const word = (token: string, plural: boolean) => {
+    const m = token.match(/^(.*?)(?:\^(\d)|([23]))$/);
+    const [base, power] = m && SPOKEN[m[1]] ? [m[1], m[2] ?? m[3]] : [token, ""];
+    const said = SPOKEN[base] ? (plural ? SPOKEN[base] : singular(SPOKEN[base])) : base;
+    return power ? `${said} ${POWER[power] ?? `to the ${power}`}` : said;
+  };
+  const say = (part: string, plural: boolean) => {
+    const tokens = part.trim().split(/\s+/).filter(Boolean);
+    return tokens.map((t, i) => word(t, plural && i === tokens.length - 1)).join(" ");
+  };
+  const [num, ...den] = rest.replace(/\bper\b/g, "/").split("/");
+  const spoken = [say(num, Math.abs(value) !== 1 || scale !== ""), ...den.map((d) => `per ${say(d, false)}`)]
+    .filter(Boolean)
+    .join(" ");
+  return `${value}${scale}${spoken ? ` ${spoken}` : ""}`;
+}
+
 /**
  * Reads the site's sans family from a real element, once. Canvas cannot read
  * CSS variables, so the family name has to be resolved here.
@@ -267,6 +319,7 @@ export function SimRunner({
                 onChange={(e) =>
                   onValues({ ...values, [param.key]: Number(e.target.value) })
                 }
+                aria-valuetext={spokenReading(values[param.key] ?? param.value, param.unit)}
                 className="mt-2"
               />
             </label>

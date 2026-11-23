@@ -18,19 +18,20 @@
   --ink: #1b1b1b;
   --ink-strong: #000000;
   --ink-soft: #545454;
-  --ink-faint: #8a8a8a;
+  /* the lightest grey that still reads at 4.5:1 on --paper-2 (WCAG AA) */
+  --ink-faint: #707070;
 
   --accent: #1f4fbf;
   --accent-soft: #3b6ad6;
   --figure: #1f4fbf;
 
   --ok: #1d7a3a;
-  --warn: #b25b00;
+  --warn: #a85600;
   --bad: #c0262d;
 
   --diff-1: #1d7a3a;
   --diff-2: #1f4fbf;
-  --diff-3: #b25b00;
+  --diff-3: #a85600;
   --diff-4: #c0262d;
   --diff-5: #7a2a8c;
 
@@ -49,7 +50,7 @@
   --ink: #dcdcdc;
   --ink-strong: #f5f5f5;
   --ink-soft: #a3a3a3;
-  --ink-faint: #767676;
+  --ink-faint: #848484;
 
   --accent: #8ab0ff;
   --accent-soft: #a9c3ff;

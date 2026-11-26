@@ -64,6 +64,10 @@ export default function ProblemsPage() {
   const [origin, setOrigin] = useState<Origin | "any">("any");
   const [filter, setFilter] = useState<Filter>("all");
   const [shown, setShown] = useState(PAGE_SIZE);
+  // a problem drawn at random from the current filters, shown above the list
+  const [pickedId, setPickedId] = useState<string | null>(null);
+  const pickedRef = useRef<HTMLElement>(null);
+  const focusPick = useRef(false);
 
   // The filters live in the URL as well, so a filtered list can be shared or
   // bookmarked, Back returns to it, and the header search can hand over ?q=
@@ -104,9 +108,11 @@ export default function ProblemsPage() {
     window.history.replaceState(null, "", search ? `?${search}` : window.location.pathname);
   }, [readUrl, query, division, difficulty, origin, filter]);
 
-  // any change to the filters starts the list again from the top
+  // any change to the filters starts the list again from the top, and drops
+  // a random pick that may no longer match them
   useEffect(() => {
     setShown(PAGE_SIZE);
+    setPickedId(null);
   }, [query, division, difficulty, origin, filter]);
 
   const moduleTitle = useMemo(() => {
@@ -154,6 +160,40 @@ export default function ProblemsPage() {
   }, [ordered, query, division, difficulty, origin, filter, statuses, moduleTitle]);
 
   const page = useMemo(() => visible.slice(0, shown), [visible, shown]);
+
+  // Random draws come from the matching problems not solved yet, and from the
+  // ones that can be checked here when there are any, so the draw is something
+  // to work on rather than a link to an exam PDF. Solving the pick keeps it on
+  // screen (it is looked up by id), so its solution stays readable.
+  const pool = useMemo(() => {
+    const open = visible.filter((p) => {
+      const s = statuses[p.id] ?? "none";
+      return s !== "solved" && s !== "reviewed";
+    });
+    const checkable = open.filter(isSolvable);
+    return checkable.length > 0
+      ? { list: checkable, checkable: true }
+      : { list: open, checkable: false };
+  }, [visible, statuses]);
+  const picked = useMemo(
+    () => (pickedId ? (ALL ?? []).find((p) => p.id === pickedId) ?? null : null),
+    [ALL, pickedId]
+  );
+  const pickRandom = () => {
+    const choices =
+      pool.list.length > 1 ? pool.list.filter((p) => p.id !== pickedId) : pool.list;
+    if (choices.length === 0) return;
+    focusPick.current = true;
+    setPickedId(choices[Math.floor(Math.random() * choices.length)].id);
+  };
+  // move to the new card only after a press, so a keyboard or screen reader
+  // user is taken to it, never on load
+  useEffect(() => {
+    if (!picked || !focusPick.current) return;
+    focusPick.current = false;
+    pickedRef.current?.focus();
+    pickedRef.current?.scrollIntoView({ block: "nearest" });
+  }, [picked]);
 
   const byModule = useMemo(() => {
     const groups = new Map<string, typeof visible>();
@@ -264,11 +304,45 @@ export default function ProblemsPage() {
         )}
 
         {ALL && visible.length > 0 && (
-          <p className="sans mt-6 text-sm text-[var(--ink-faint)]">
-            {visible.length} matching{" "}
-            {visible.length === 1 ? "problem" : "problems"}
-            {visible.length > shown && `, showing the first ${shown}`}
-          </p>
+          <div className="mt-6 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
+            <p className="sans text-sm text-[var(--ink-faint)]">
+              {visible.length} matching{" "}
+              {visible.length === 1 ? "problem" : "problems"}
+              {visible.length > shown && `, showing the first ${shown}`}
+            </p>
+            {pool.list.length > 0 && !picked && (
+              <button type="button" onClick={pickRandom} className="btn-plain sans text-sm">
+                Random problem
+              </button>
+            )}
+          </div>
+        )}
+
+        {picked && (
+          <section
+            ref={pickedRef}
+            tabIndex={-1}
+            aria-labelledby="random-pick-heading"
+            className="mt-6 border border-[var(--rule-strong)] px-4 pb-2 pt-3 outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] sm:px-5"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
+              <h2 id="random-pick-heading" className="label">
+                Picked at random from {pool.list.length} unsolved
+                {pool.checkable ? " you can check here" : ""}
+              </h2>
+              <span className="sans flex gap-4 text-sm">
+                {pool.list.length > 1 && (
+                  <button type="button" onClick={pickRandom} className="link">
+                    Another
+                  </button>
+                )}
+                <button type="button" onClick={() => setPickedId(null)} className="link">
+                  Done
+                </button>
+              </span>
+            </div>
+            <BankProblem key={picked.id} problem={picked} />
+          </section>
         )}
 
         {byModule.map(([slug, list]) => (

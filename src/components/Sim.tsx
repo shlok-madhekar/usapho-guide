@@ -101,6 +101,8 @@ export function SimRunner({
   valuesRef.current = values;
   // lets a slider repaint a static (reduced-motion) sim, which has no loop
   const repaintRef = useRef<(() => void) | null>(null);
+  // winds the animation clock back to t = 0 (set by the drawing effect)
+  const restartRef = useRef<(() => void) | null>(null);
 
   const { fn, error: compileError } = useMemo(() => compile(def.draw), [def.draw]);
 
@@ -157,6 +159,16 @@ export function SimRunner({
     // Reduced motion: leave the opening frame on screen and never animate.
     // A slider still repaints through repaintRef (there is no loop to do it).
     repaintRef.current = reduce ? () => paint(performance.now()) : null;
+
+    // Reset starts the motion over as well as the sliders, so a reader can
+    // watch a launch or a swing again from the beginning. A paused sim stays
+    // paused, now at t = 0.
+    restartRef.current = () => {
+      const now = performance.now();
+      start = now;
+      if (pausedAt !== null) pausedAt = now;
+      if (!failed) paint(now);
+    };
 
     // Animate only while the sim is on screen and the tab is visible. A
     // lesson has three or four sims, and drawing the ones scrolled out of
@@ -215,6 +227,7 @@ export function SimRunner({
       document.removeEventListener("visibilitychange", update);
       themeWatch.disconnect();
       repaintRef.current = null;
+      restartRef.current = null;
     };
   }, [fn]);
 
@@ -224,13 +237,33 @@ export function SimRunner({
     repaintRef.current?.();
   }, [values]);
 
+  const defaults = useMemo(() => paramValues(def.params), [def.params]);
+  const changed = def.params.some((p) => values[p.key] !== defaults[p.key]);
+  const reset = () => {
+    if (changed) onValues(defaults);
+    restartRef.current?.();
+  };
+
   return (
     <div ref={rootRef}>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <span className="label">{def.title}</span>
-        {note && !error && (
-          <span className="tabular sans text-xs text-[var(--ink-soft)]"><TypesetLabel text={note} /></span>
-        )}
+        <span className="flex items-baseline gap-4">
+          {note && !error && (
+            <span className="tabular sans text-xs text-[var(--ink-soft)]"><TypesetLabel text={note} /></span>
+          )}
+          {!error && (
+            <button
+              type="button"
+              onClick={reset}
+              className="sans text-xs text-[var(--ink-soft)] underline decoration-[var(--rule-strong)] underline-offset-2 hover:text-[var(--ink-strong)] print:hidden"
+              aria-label={`Reset ${def.title.replace(/\$/g, "")}`}
+              title={changed ? "Put the sliders back and start the motion over" : "Start the motion over"}
+            >
+              Reset
+            </button>
+          )}
+        </span>
       </div>
 
       {error ? (
